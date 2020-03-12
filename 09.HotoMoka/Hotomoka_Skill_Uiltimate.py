@@ -51,7 +51,7 @@ Trigger { -- Skill : Uiltimate
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
 		SetSwitch("Recall - Moka", Set);
-		Wait(5500);
+		Wait(4500);
 		SetSwitch("Recall - Moka", Clear);
 		CreateUnit(1, "50 + 1n Battlecruiser", "[Skill]Unit_Wait_1", CurrentPlayer);
 		SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
@@ -133,7 +133,7 @@ Trigger {
 	actions = {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
-		Order(" Unit. Schnee", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
+		GiveUnits(All, " Unit. Schnee", CurrentPlayer, "Anywhere", P12);
 		KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", CurrentPlayer);
 		Wait(0);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
@@ -267,7 +267,7 @@ Trigger {
 	actions = {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
-		Order("60 + 1n High Templar", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
+		GiveUnits(All, "60 + 1n High Templar", CurrentPlayer, "Anywhere", P12);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
 	},
@@ -421,7 +421,7 @@ Trigger {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
 		KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", CurrentPlayer);
-		Order("80 + 1n Tank", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
+		GiveUnits(All, "80 + 1n Tank", CurrentPlayer, "Anywhere", P12);
 		Wait(0);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
@@ -554,7 +554,7 @@ Trigger {
 	actions = {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
-		Order("60 + 1n Hydralisk", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
+		GiveUnits(All, "60 + 1n Hydralisk", CurrentPlayer, "Anywhere", P12);
 		Wait(0);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
@@ -708,8 +708,20 @@ Trigger {
 	actions = {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
+		GiveUnits(All, "60 + 3n Siege", CurrentPlayer, "Anywhere", P12);
 		KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", CurrentPlayer);
-		Wait(2400);
+		Wait(2000);
+		GiveUnits(All, "60 + 1n Hydralisk", P12, "Anywhere", CurrentPlayer);
+		GiveUnits(All, "80 + 1n Tank", P12, "Anywhere", CurrentPlayer);
+		GiveUnits(All, "60 + 1n High Templar", P12, "Anywhere", CurrentPlayer);
+		GiveUnits(All, " Unit. Schnee", P12, "Anywhere", CurrentPlayer);
+		GiveUnits(All, "60 + 3n Siege", P12, "Anywhere", CurrentPlayer);
+		Wait(0);
+		Order("60 + 1n Hydralisk", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
+		Order("80 + 1n Tank", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
+		Order("60 + 1n High Templar", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
+		Order(" Unit. Schnee", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
+		Wait(1400);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
 	},
@@ -768,9 +780,7 @@ Trigger {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
 		Order("100 + 1n Hyperion", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
-		KillUnitAt(All, "60 + 3n Siege", "Anywhere", CurrentPlayer);
 		Wait(0);
-		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
 	},
@@ -829,7 +839,6 @@ Trigger {
 		PreserveTrigger();
 		Order("100 + 1n Hyperion", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
 		Wait(0);
-		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
 	},
@@ -887,9 +896,7 @@ Trigger {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
 		Order("100 + 1n Hyperion", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
-		KillUnitAt(All, "60 + 1n Hydralisk", "Anywhere", CurrentPlayer);
 		Wait(0);
-		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
 	},
@@ -947,9 +954,7 @@ Trigger {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
 		Order("100 + 1n Hyperion", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
-		KillUnitAt(All, "80 + 1n Tank", "Anywhere", CurrentPlayer);
 		Wait(0);
-		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
 	},
@@ -1009,7 +1014,6 @@ Trigger {
 		PreserveTrigger();
 		Order("100 + 1n Hyperion", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
 		Wait(0);
-		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
 	},
@@ -1069,7 +1073,6 @@ Trigger {
 		Order("100 + 1n Hyperion", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
 		KillUnitAt(All, "60 + 1n High Templar", "Anywhere", CurrentPlayer);
 		Wait(0);
-		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
 	},
@@ -1123,9 +1126,7 @@ Trigger {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
 		Order("100 + 1n Hyperion", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
-		KillUnitAt(All, " Unit. Schnee", "Anywhere", CurrentPlayer);
 		Wait(0);
-		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
 	},
@@ -1149,9 +1150,14 @@ Trigger {
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		MoveUnit(1, "100 + 1n Hyperion", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		Order("100 + 1n Hyperion", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
-		Wait(0);
+		Wait(1000);
+		KillUnitAt(All, " Unit. Schnee", "Anywhere", CurrentPlayer);
+		KillUnitAt(All, "80 + 1n Tank", "Anywhere", CurrentPlayer);
+		KillUnitAt(All, "60 + 1n High Templar", "Anywhere", CurrentPlayer);
+		KillUnitAt(All, "60 + 1n Hydralisk", "Anywhere", CurrentPlayer);
+		KillUnitAt(All, "40 + 1n Lurker", "Anywhere", CurrentPlayer);
+		KillUnitAt(All, "60 + 3n Siege", "Anywhere", CurrentPlayer);
 		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
-		RemoveUnitAt(All, "40 + 1n Lurker", "Anywhere", CurrentPlayer);
 		Wait(0);
 		SetDeaths(CurrentPlayer, SetTo, 12, " `SkillWait");
 	},
