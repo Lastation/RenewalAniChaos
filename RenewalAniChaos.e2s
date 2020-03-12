@@ -950,24 +950,14 @@ BtnUse135 : True
 BtnData135 : 
 E_BtnSET
 S_ReqSET
-ReqUse1,0 : 2
+ReqUse1,0 : 3
 ReqPos1,0 : 2
-ReqCount1,0 : 0
-ReqUse1,1 : 2
-ReqPos1,1 : 4
-ReqCount1,1 : 0
-ReqUse1,2 : 2
-ReqPos1,2 : 6
-ReqCount1,2 : 0
-ReqUse1,7 : 2
-ReqPos1,7 : 65
-ReqCount1,7 : 0
-ReqUse1,8 : 2
-ReqPos1,8 : 67
-ReqCount1,8 : 0
-ReqUse1,9 : 2
-ReqPos1,9 : 69
-ReqCount1,9 : 0
+ReqCount1,0 : 1
+ReqData1,0,0 : 65287
+ReqUse1,7 : 3
+ReqPos1,7 : 88
+ReqCount1,7 : 1
+ReqData1,7,0 : 65287
 E_ReqSET
 S_BinEditSET
 projectsceneDataCount : 1
@@ -1190,7 +1180,7 @@ END
 
 &RawTriggers&
 Type:25,False,False,False
-ElementsCount:89
+ElementsCount:90
 Type:24,False,True,False
 31
 ElementsCount:2
@@ -4631,7 +4621,7 @@ ElementsCount:0
 END
 Type:28,False,False,False
 Hero_Num[getcurpl()]
-ElementsCount:3
+ElementsCount:2
 Type:29,False,False,False
 10ஐTrue
 ElementsCount:1
@@ -4647,12 +4637,7 @@ ElementsCount:0
 END
 END
 Type:5,False,False,False
-ElementsCount:3
-Type:8,False,False,False
-act:SetUpgrade
-13ஐ9ஐ0ஐbread(0x58D2B0 + 7 + 46 * getcurpl())ஐ0
-ElementsCount:0
-END
+ElementsCount:2
 Type:8,False,False,False
 act:SetUpgrade
 13ஐ2ஐ0ஐbread(0x58D2B0 + 0 + 46 * getcurpl()) + 10ஐ0
@@ -4665,12 +4650,7 @@ ElementsCount:0
 END
 END
 Type:6,False,False,False
-ElementsCount:2
-Type:8,False,False,False
-act:SetUpgrade
-13ஐ9ஐ0ஐbread(0x58D2B0 + 7 + 46 * getcurpl())ஐ0
-ElementsCount:0
-END
+ElementsCount:1
 Type:8,False,False,False
 act:SetUpgrade
 13ஐ2ஐ0ஐbread(0x58D2B0 + 0 + 46 * getcurpl())ஐ0
@@ -4680,30 +4660,59 @@ END
 END
 END
 Type:29,False,False,False
-14ஐTrue
+-1ஐTrue
+ElementsCount:1
+Type:8,False,False,False
+act:SetUpgrade
+13ஐ2ஐ0ஐbread(0x58D2B0 + 0 + 46 * getcurpl())ஐ0
+ElementsCount:0
+END
+END
+END
+Type:8,False,False,False
+act:PreserveTrigger
+None
+ElementsCount:0
+END
+END
+END
+Type:24,False,False,False
+63
 ElementsCount:2
+Type:26,False,False,False
+And
+ElementsCount:1
+Type:7,False,False,False
+con:Always
+None
+ElementsCount:0
+END
+END
+Type:27,False,False,False
+ElementsCount:3
+Type:8,False,False,False
+act:Comment
+"SetVariable"
+ElementsCount:0
+END
+Type:28,False,False,False
+Hero_Num[getcurpl()]
+ElementsCount:2
+Type:29,False,False,False
+14ஐTrue
+ElementsCount:1
 Type:8,False,False,False
 act:SetUpgrade
 13ஐ9ஐ0ஐbread(0x58D2B0 + 7 + 46 * getcurpl()) + dwread_epd(EPD(0x58A364 + 48 * 204 + 4 * getcurpl()))ஐ0
 ElementsCount:0
 END
-Type:8,False,False,False
-act:SetUpgrade
-13ஐ2ஐ0ஐbread(0x58D2B0 + 0 + 46 * getcurpl())ஐ0
-ElementsCount:0
-END
 END
 Type:29,False,False,False
 -1ஐTrue
-ElementsCount:2
+ElementsCount:1
 Type:8,False,False,False
 act:SetUpgrade
 13ஐ9ஐ0ஐbread(0x58D2B0 + 7 + 46 * getcurpl())ஐ0
-ElementsCount:0
-END
-Type:8,False,False,False
-act:SetUpgrade
-13ஐ2ஐ0ஐbread(0x58D2B0 + 0 + 46 * getcurpl())ஐ0
 ElementsCount:0
 END
 END
