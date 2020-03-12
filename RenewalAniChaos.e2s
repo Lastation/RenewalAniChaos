@@ -1,7 +1,7 @@
 S_ProjectSET
 Version : 0.17.9.7
-InputMap : C:\Users\vocal\Documents\GitHub\RenewalAniChaos\NEW!6.scx
-OutputMap : C:\Users\vocal\Documents\Starcraft\Maps\RenewalAniChaos\RenewalAniChaos_T.scx
+InputMap : C:\Users\M\Documents\RenewalAniChaos\NEW!6.scx
+OutputMap : D:\StarCraft\Maps\making\RenewalAniChaos_T_KAT.scx
 euddraftuse : True
 loadfromCHK : True
 UsedSetting0 : True
@@ -1155,7 +1155,7 @@ END
 
 &RawTriggers&
 Type:25,False,False,False
-ElementsCount:85
+ElementsCount:87
 Type:24,False,False,False
 31
 ElementsCount:2
@@ -2571,7 +2571,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 63
 ElementsCount:2
 Type:26,False,False,False
@@ -7179,10 +7179,10 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,True,False
+Type:24,False,False,False
 4096
 ElementsCount:2
-Type:26,False,False,False
+Type:26,False,True,False
 And
 ElementsCount:1
 Type:7,False,False,False
@@ -7191,7 +7191,7 @@ None
 ElementsCount:0
 END
 END
-Type:27,False,False,False
+Type:27,False,True,False
 ElementsCount:5
 Type:8,False,False,False
 act:PreserveTrigger
@@ -7357,6 +7357,128 @@ END
 Type:8,False,False,False
 act:SetVariable
 Sound_Text_Uniq[getcurpl()]ஐ0ஐ0
+ElementsCount:0
+END
+END
+END
+END
+END
+Type:24,False,True,False
+4096
+ElementsCount:2
+Type:26,False,False,False
+And
+ElementsCount:1
+Type:7,False,False,False
+con:Never
+None
+ElementsCount:0
+END
+END
+Type:27,False,False,False
+ElementsCount:1
+Type:8,False,False,False
+act:Comment
+"==================================================="
+ElementsCount:0
+END
+END
+END
+Type:24,False,False,False
+4096
+ElementsCount:2
+Type:26,False,False,False
+And
+ElementsCount:1
+Type:7,False,False,False
+con:Always
+None
+ElementsCount:0
+END
+END
+Type:27,False,False,False
+ElementsCount:3
+Type:8,False,False,False
+act:PreserveTrigger
+None
+ElementsCount:0
+END
+Type:8,False,False,False
+act:Comment
+"14.Yashiro"
+ElementsCount:0
+END
+Type:28,False,False,False
+Sound_Text3[getcurpl()]
+ElementsCount:4
+Type:29,False,False,False
+2000ஐTrue
+ElementsCount:3
+Type:8,False,False,False
+act:DisplayCText
+"\n\x13\x1CYashiro\n\x13\x04그건 분에 넘치는 소망이다.\n"ஐ0
+ElementsCount:0
+END
+Type:8,False,False,False
+act:PlayWAV
+"yashiro_sss.ogg"
+ElementsCount:0
+END
+Type:8,False,False,False
+act:SetVariable
+Sound_Text3[getcurpl()]ஐ0ஐ0
+ElementsCount:0
+END
+END
+Type:29,False,False,False
+2001ஐTrue
+ElementsCount:3
+Type:8,False,False,False
+act:DisplayCText
+"\n\x13\x1CYashiro\n\x13\x04게임 오버다.\n\x13\x04너도, 나도.\n"ஐ0
+ElementsCount:0
+END
+Type:8,False,False,False
+act:PlayWAV
+"yashiro_aacc.ogg"
+ElementsCount:0
+END
+Type:8,False,False,False
+act:SetVariable
+Sound_Text3[getcurpl()]ஐ0ஐ0
+ElementsCount:0
+END
+END
+Type:29,False,False,False
+2002ஐTrue
+ElementsCount:3
+Type:8,False,False,False
+act:PlayWAV
+"yashiro_ccaa.ogg"
+ElementsCount:0
+END
+Type:8,False,False,False
+act:DisplayCText
+"\n\x13\x1CYashiro\n\x13\x04네가 손에 넣는 것은 이 마을의 평화다\n\x13\x04네가 원한 게 바로 그거잖아?\n"ஐ0
+ElementsCount:0
+END
+Type:8,False,False,False
+act:SetVariable
+Sound_Text3[getcurpl()]ஐ0ஐ0
+ElementsCount:0
+END
+END
+Type:29,False,False,False
+2003ஐTrue
+ElementsCount:2
+Type:8,False,False,False
+act:DisplayCText
+"\n\x13\x1CYashiro\n\x13\x04내가 손에 넣는 것은\n\x13\x04내 손에 의한 나만을 위해 존재하는 \x08죽음\x04이다\n"ஐ0
+ElementsCount:0
+END
+Type:8,False,False,False
+act:SetVariable
+Sound_Text3[getcurpl()]ஐ0ஐ0
 ElementsCount:0
 END
 END

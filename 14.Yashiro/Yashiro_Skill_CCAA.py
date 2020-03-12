@@ -107,6 +107,23 @@ Trigger { -- Skill : S
    },
 }
 
+      SetDeaths(AllPlayers, SetTo, 1003, " `SkillText3");
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 1000, " * Samir Duran");
+      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 210, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 1, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 30, " `SkillLoop2");
+      Deaths(CurrentPlayer, Exactly, 2, " `SkillLoop3");
+   },
+   actions = {
+      Comment("Skill : Combo");
+      PreserveTrigger();
+      SetDeaths(AllPlayers, SetTo, 1003, " `SkillText3");
+   },
+}
 
 Trigger { -- Skill : S
    players = {Force1, Force2},
