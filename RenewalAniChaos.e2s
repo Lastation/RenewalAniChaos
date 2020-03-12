@@ -4655,7 +4655,7 @@ ElementsCount:0
 END
 Type:8,False,False,False
 act:SetUpgrade
-13ஐ0ஐ0ஐbread(0x58D2B0 + 0 + 46 * getcurpl()) + 10ஐ0
+13ஐ2ஐ0ஐbread(0x58D2B0 + 0 + 46 * getcurpl()) + 10ஐ0
 ElementsCount:0
 END
 Type:8,False,False,False
@@ -4668,12 +4668,12 @@ Type:6,False,False,False
 ElementsCount:2
 Type:8,False,False,False
 act:SetUpgrade
-13ஐ7ஐ0ஐbread(0x58D2B0 + 7 + 46 * getcurpl())ஐ0
+13ஐ9ஐ0ஐbread(0x58D2B0 + 7 + 46 * getcurpl())ஐ0
 ElementsCount:0
 END
 Type:8,False,False,False
 act:SetUpgrade
-13ஐ0ஐ0ஐbread(0x58D2B0 + 0 + 46 * getcurpl())ஐ0
+13ஐ2ஐ0ஐbread(0x58D2B0 + 0 + 46 * getcurpl())ஐ0
 ElementsCount:0
 END
 END
@@ -4684,12 +4684,12 @@ Type:29,False,False,False
 ElementsCount:2
 Type:8,False,False,False
 act:SetUpgrade
-13ஐ7ஐ0ஐbread(0x58D2B0 + 7 + 46 * getcurpl()) + dwread_epd(EPD(0x58A364 + 48 * 204 + 4 * getcurpl()))ஐ0
+13ஐ9ஐ0ஐbread(0x58D2B0 + 7 + 46 * getcurpl()) + dwread_epd(EPD(0x58A364 + 48 * 204 + 4 * getcurpl()))ஐ0
 ElementsCount:0
 END
 Type:8,False,False,False
 act:SetUpgrade
-13ஐ0ஐ0ஐbread(0x58D2B0 + 0 + 46 * getcurpl())ஐ0
+13ஐ2ஐ0ஐbread(0x58D2B0 + 0 + 46 * getcurpl())ஐ0
 ElementsCount:0
 END
 END
@@ -4698,12 +4698,12 @@ Type:29,False,False,False
 ElementsCount:2
 Type:8,False,False,False
 act:SetUpgrade
-13ஐ7ஐ0ஐbread(0x58D2B0 + 7 + 46 * getcurpl())ஐ0
+13ஐ9ஐ0ஐbread(0x58D2B0 + 7 + 46 * getcurpl())ஐ0
 ElementsCount:0
 END
 Type:8,False,False,False
 act:SetUpgrade
-13ஐ0ஐ0ஐbread(0x58D2B0 + 0 + 46 * getcurpl())ஐ0
+13ஐ2ஐ0ஐbread(0x58D2B0 + 0 + 46 * getcurpl())ஐ0
 ElementsCount:0
 END
 END
