@@ -1,6 +1,6 @@
 S_ProjectSET
 Version : 0.17.9.7
-InputMap : C:\Users\vocal\Documents\Starcraft\Maps\NEW!6.scx
+InputMap : C:\Users\vocal\Documents\GitHub\RenewalAniChaos\NEW!6.scx
 OutputMap : C:\Users\vocal\Documents\Starcraft\Maps\RenewalAniChaos\RenewalAniChaos_T.scx
 euddraftuse : True
 loadfromCHK : True
@@ -919,7 +919,7 @@ BtnData41 : 1,228,4359104,4342848,0,0,664,0,2,229,4359104,4338672,0,0,665,0,3,23
 BtnUse103 : True
 BtnData103 : 1,228,4359104,4342848,0,0,664,0,2,229,4359008,4338672,0,0,665,0,3,230,4362352,4342656,11,0,666,0,4,254,4359104,4342080,0,0,667,0,5,255,4359104,4338544,0,0,668,0,
 BtnUse122 : True
-BtnData122 : 1,228,4359200,4342848,0,0,664,0,1,288,4363344,4338448,7,7,463,504,2,229,4359200,4338672,0,0,665,0,2,292,4363344,4338448,0,0,456,501,9,236,4360448,4338416,0,0,691,0,
+BtnData122 : 1,228,4359200,4342848,0,0,664,0,1,288,4363344,4338448,9,9,463,504,2,229,4359200,4338672,0,0,665,0,2,292,4363344,4338448,0,0,456,501,9,236,4360448,4338416,0,0,691,0,
 BtnUse131 : True
 BtnData131 : 
 BtnUse132 : True
@@ -928,6 +928,12 @@ BtnUse135 : True
 BtnData135 : 
 E_BtnSET
 S_ReqSET
+ReqUse1,8 : 2
+ReqPos1,8 : 111
+ReqCount1,8 : 0
+ReqUse1,9 : 2
+ReqPos1,9 : 113
+ReqCount1,9 : 0
 E_ReqSET
 S_BinEditSET
 projectsceneDataCount : 1
@@ -1149,8 +1155,8 @@ END
 
 &RawTriggers&
 Type:25,False,False,False
-ElementsCount:83
-Type:24,False,True,False
+ElementsCount:85
+Type:24,False,False,False
 31
 ElementsCount:2
 Type:26,False,False,False
@@ -2271,7 +2277,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 63
 ElementsCount:2
 Type:26,False,False,False
@@ -2565,7 +2571,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,True,False
+Type:24,False,False,False
 63
 ElementsCount:2
 Type:26,False,False,False
@@ -2601,7 +2607,7 @@ ElementsCount:0
 END
 Type:28,False,False,False
 Hero_Text[getcurpl()]
-ElementsCount:13
+ElementsCount:14
 Type:29,False,False,False
 1ஐTrue
 ElementsCount:1
@@ -2661,7 +2667,7 @@ Type:29,False,False,False
 ElementsCount:1
 Type:8,False,False,False
 act:DisplayCText
-"\n\x13\x17[ \x04세실리아 \x17]\n\x13\x04- \x17킹스레이드 \x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04숙련된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작쉬움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"ஐ1
+"\n\x13\x17[ \x04세실리아 \x17]\n\x13\x04- \x17킹스레이드 \x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04숙련된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작어려움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"ஐ1
 ElementsCount:0
 END
 END
@@ -2706,7 +2712,7 @@ Type:29,False,False,False
 ElementsCount:1
 Type:8,False,False,False
 act:DisplayCText
-"\n\x13\x17[ \x04류즈 \x17]\n\x13\x04- \x17ClockWork Planet \x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04숙련된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04지속딜 \x1F#\x04조작어려움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"ஐ1
+"\n\x13\x17[ \x04류즈 \x17]\n\x13\x04- \x17ClockWork Planet \x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04처음하는 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작쉬움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"ஐ1
 ElementsCount:0
 END
 END
@@ -2716,6 +2722,15 @@ ElementsCount:1
 Type:8,False,False,False
 act:DisplayCText
 "\n\x13\x17[ \x04마토 사쿠라 \x17]\n\x13\x04- \x17Fate/stay night\x04-\n\n\x13\x17공성전\x04에 특화 되어있습니다.\n\x13\x04숙련된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"ஐ1
+ElementsCount:0
+END
+END
+Type:29,False,False,False
+14ஐTrue
+ElementsCount:1
+Type:8,False,False,False
+act:DisplayCText
+"\n\x13\x17[ \x04야시로 가쿠 \x17]\n\x13\x04- \x17나만이 없는 거리\x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04숙련된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04스택 \x1F#\x04조작매우어려움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"ஐ1
 ElementsCount:0
 END
 END
@@ -4173,6 +4188,52 @@ Type:24,False,True,False
 ElementsCount:2
 Type:26,False,False,False
 And
+ElementsCount:2
+Type:7,False,False,False
+con:Deaths
+13ஐ2ஐ14ஐ211
+ElementsCount:0
+END
+Type:7,False,False,False
+con:Variable
+DeathOre_Text[getcurpl()]ஐ0ஐ1
+ElementsCount:0
+END
+END
+Type:27,False,False,False
+ElementsCount:5
+Type:8,False,False,False
+act:PreserveTrigger
+None
+ElementsCount:0
+END
+Type:8,False,False,False
+act:Comment
+"System : DeadText"
+ElementsCount:0
+END
+Type:8,False,False,False
+act:SetDeaths
+13ஐ0ஐ0ஐ211
+ElementsCount:0
+END
+Type:8,False,False,False
+act:DisplayCText
+"\n\x13\x08!! Warning !!\n\x13\x19:: \x17야시로 가쿠 \x04가 치명상을 입었습니다. \x19::\n\n\x13\x07{C:Team_Num}\x04Team \x17+ {C:DeathOre_Text[getcurpl()]} \x04Ore\n"ஐ1
+ElementsCount:0
+END
+Type:8,False,False,False
+act:SetVariable
+DeathOre_Text[getcurpl()]ஐ0ஐ0
+ElementsCount:0
+END
+END
+END
+Type:24,False,True,False
+4096
+ElementsCount:2
+Type:26,False,False,False
+And
 ElementsCount:1
 Type:7,False,False,False
 con:Never
@@ -4263,8 +4324,56 @@ ElementsCount:0
 END
 END
 Type:27,False,False,False
+ElementsCount:3
+Type:8,False,False,False
+act:Comment
+"SetVariable"
+ElementsCount:0
+END
+Type:28,False,False,False
+Hero_Num[getcurpl()]
+ElementsCount:2
+Type:29,False,False,False
+14ஐTrue
+ElementsCount:1
+Type:8,False,False,False
+act:SetUpgrade
+13ஐ7ஐ0ஐbread(0x58D2B0 + 9 + 46 * getcurpl()) + dwread_epd(EPD(0x58A364 + 48 * 204 + 4 * getcurpl()))ஐ0
+ElementsCount:0
+END
+END
+Type:29,False,False,False
+-1ஐTrue
+ElementsCount:1
+Type:8,False,False,False
+act:SetUpgrade
+13ஐ7ஐ0ஐbread(0x58D2B0 + 9 + 46 * getcurpl())ஐ0
+ElementsCount:0
+END
+END
+END
+Type:8,False,False,False
+act:PreserveTrigger
+None
+ElementsCount:0
+END
+END
+END
+Type:24,False,True,False
+63
+ElementsCount:2
+Type:26,False,False,False
+And
+ElementsCount:1
+Type:7,False,False,False
+con:Always
+None
+ElementsCount:0
+END
+END
+Type:27,False,False,False
 ElementsCount:7
-Type:1,False,False,False
+Type:1,False,True,False
 ElementsCount:2
 Type:3,False,False,False
 And
@@ -4289,7 +4398,7 @@ ElementsCount:0
 END
 END
 END
-Type:1,False,False,False
+Type:1,False,True,False
 ElementsCount:2
 Type:3,False,False,False
 And
@@ -4314,7 +4423,7 @@ ElementsCount:0
 END
 END
 END
-Type:1,False,False,False
+Type:1,False,True,False
 ElementsCount:2
 Type:3,False,False,False
 And
@@ -4339,7 +4448,7 @@ ElementsCount:0
 END
 END
 END
-Type:1,False,False,False
+Type:1,False,True,False
 ElementsCount:2
 Type:3,False,False,False
 And
@@ -4364,7 +4473,7 @@ ElementsCount:0
 END
 END
 END
-Type:1,False,False,False
+Type:1,False,True,False
 ElementsCount:2
 Type:3,False,False,False
 And
