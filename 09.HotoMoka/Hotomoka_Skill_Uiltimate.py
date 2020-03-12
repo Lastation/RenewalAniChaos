@@ -82,23 +82,39 @@ Trigger {
 		PreserveTrigger();
 		CreateUnit(4, "40 + 1n Gantrithor", "[Skill]Unit_Wait_1", CurrentPlayer);
 		CreateUnit(4, " Unit. Schnee", "[Skill]Unit_Wait_1", CurrentPlayer);
+		CreateUnitWithProperties(4, "40 + 1n Lurker", "[Skill]Unit_Wait_8", CurrentPlayer, {
+			clocked = false,
+			burrowed = true,
+			intransit = false,
+			hallucinated = false,
+			invincible = false,
+			hitpoint = 100,
+			shield = 100,
+			energy = 100,
+			resource = 0,
+			hanger = 0,
+		});
 		SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, x, y);
 		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveUnit(1, " Unit. Schnee", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Lurker", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, -y, x);
 		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveUnit(1, " Unit. Schnee", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Lurker", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, -x, -y);
 		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveUnit(1, " Unit. Schnee", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Lurker", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, y, -x);
 		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveUnit(1, " Unit. Schnee", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Lurker", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		RemoveUnitAt(all, "Men", "[Skill]Unit_Wait_ALL", CurrentPlayer);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
@@ -350,24 +366,40 @@ Trigger {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
 		CreateUnit(4, "50 + 1n Battlecruiser", "[Skill]Unit_Wait_1", CurrentPlayer);
+		CreateUnitWithProperties(4, "40 + 1n Lurker", "[Skill]Unit_Wait_8", CurrentPlayer, {
+			clocked = false,
+			burrowed = true,
+			intransit = false,
+			hallucinated = false,
+			invincible = false,
+			hitpoint = 100,
+			shield = 100,
+			energy = 100,
+			resource = 0,
+			hanger = 0,
+		});
 		CreateUnit(4, "80 + 1n Tank", "[Skill]Unit_Wait_1", CurrentPlayer);
 		SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, x, y);
 		MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveUnit(1, "80 + 1n Tank", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Lurker", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, -y, x);
 		MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveUnit(1, "80 + 1n Tank", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Lurker", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, -x, -y);
 		MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveUnit(1, "80 + 1n Tank", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Lurker", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, y, -x);
 		MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveUnit(1, "80 + 1n Tank", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Lurker", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		RemoveUnitAt(all, "Men", "[Skill]Unit_Wait_ALL", CurrentPlayer);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
@@ -622,24 +654,40 @@ Trigger {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
 		CreateUnit(4, "40 + 1n Gantrithor", "[Skill]Unit_Wait_1", CurrentPlayer);
+		CreateUnitWithProperties(4, "40 + 1n Lurker", "[Skill]Unit_Wait_8", CurrentPlayer, {
+			clocked = false,
+			burrowed = true,
+			intransit = false,
+			hallucinated = false,
+			invincible = false,
+			hitpoint = 100,
+			shield = 100,
+			energy = 100,
+			resource = 0,
+			hanger = 0,
+		});
 		CreateUnit(4, "60 + 3n Siege", "[Skill]Unit_Wait_1", CurrentPlayer);
 		SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, x, y);
 		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveUnit(1, "60 + 3n Siege", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Lurker", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, -y, x);
 		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveUnit(1, "60 + 3n Siege", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Lurker", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, -x, -y);
 		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveUnit(1, "60 + 3n Siege", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Lurker", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, y, -x);
 		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveUnit(1, "60 + 3n Siege", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Lurker", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		RemoveUnitAt(all, "Men", "[Skill]Unit_Wait_ALL", CurrentPlayer);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
@@ -662,7 +710,6 @@ Trigger {
 		PreserveTrigger();
 		KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", CurrentPlayer);
 		Wait(2400);
-		RemoveUnitAt(All, "40 + 1n Lurker", "Anywhere", CurrentPlayer);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
 	},
@@ -1104,6 +1151,7 @@ Trigger {
 		Order("100 + 1n Hyperion", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
 		Wait(0);
 		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
+		RemoveUnitAt(All, "40 + 1n Lurker", "Anywhere", CurrentPlayer);
 		Wait(0);
 		SetDeaths(CurrentPlayer, SetTo, 12, " `SkillWait");
 	},
