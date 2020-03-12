@@ -1,7 +1,7 @@
 S_ProjectSET
 Version : 0.17.9.7
-InputMap : C:\Users\vocal\Documents\Starcraft\Maps\NEW!6.scx
-OutputMap : C:\Users\vocal\Documents\Starcraft\Maps\RenewalAniChaos\RenewalAniChaos_T.scx
+InputMap : C:\Users\M\Documents\RenewalAniChaos\14.Yashiro\Yashiro.scx
+OutputMap : D:\StarCraft\Maps\making\RenewalAniChaos_T_KAT.scx
 euddraftuse : True
 loadfromCHK : True
 UsedSetting0 : True
@@ -1149,7 +1149,7 @@ END
 
 &RawTriggers&
 Type:25,False,False,False
-ElementsCount:83
+ElementsCount:85
 Type:24,False,True,False
 31
 ElementsCount:2
@@ -7248,6 +7248,109 @@ END
 Type:8,False,False,False
 act:SetVariable
 Sound_Text_Uniq[getcurpl()]ஐ0ஐ0
+ElementsCount:0
+END
+END
+END
+END
+END
+Type:24,False,True,False
+4096
+ElementsCount:2
+Type:26,False,False,False
+And
+ElementsCount:1
+Type:7,False,False,False
+con:Never
+None
+ElementsCount:0
+END
+END
+Type:27,False,False,False
+ElementsCount:1
+Type:8,False,False,False
+act:Comment
+"==================================================="
+ElementsCount:0
+END
+END
+END
+Type:24,False,False,False
+4096
+ElementsCount:2
+Type:26,False,False,False
+And
+ElementsCount:1
+Type:7,False,False,False
+con:Always
+None
+ElementsCount:0
+END
+END
+Type:27,False,False,False
+ElementsCount:3
+Type:8,False,False,False
+act:PreserveTrigger
+None
+ElementsCount:0
+END
+Type:8,False,False,False
+act:Comment
+"13.Sakura"
+ElementsCount:0
+END
+Type:28,False,False,False
+Sound_Text3[getcurpl()]
+ElementsCount:3
+Type:29,False,False,False
+2000ஐTrue
+ElementsCount:3
+Type:8,False,False,False
+act:DisplayCText
+"\n\x13\x1CYashiro\n\x13\x04그것은 분에 넘치는 소망이다.\n"ஐ0
+ElementsCount:0
+END
+Type:8,False,False,False
+act:PlayWAV
+"yashiro_sss.ogg"
+ElementsCount:0
+END
+Type:8,False,False,False
+act:SetVariable
+Sound_Text3[getcurpl()]ஐ0ஐ0
+ElementsCount:0
+END
+END
+Type:29,False,True,False
+2001ஐTrue
+ElementsCount:3
+Type:8,False,False,False
+act:DisplayCText
+"\n\x13\x1CYashiro\n\x13\x04게임 오버다. 너도, 나도.\n"ஐ0
+ElementsCount:0
+END
+Type:8,False,False,False
+act:PlayWAV
+"yashiro_aacc.ogg"
+ElementsCount:0
+END
+Type:8,False,False,False
+act:SetVariable
+Sound_Text3[getcurpl()]ஐ0ஐ0
+ElementsCount:0
+END
+END
+Type:29,False,False,False
+2002ஐTrue
+ElementsCount:2
+Type:8,False,False,False
+act:PlayWAV
+"yashiro_ccaa.ogg"
+ElementsCount:0
+END
+Type:8,False,False,False
+act:SetVariable
+Sound_Text3[getcurpl()]ஐ0ஐ0
 ElementsCount:0
 END
 END
