@@ -28,7 +28,7 @@ Trigger { -- Skill : Uiltimate
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
 		MoveUnit(All, " Unit. Schnee", CurrentPlayer, "Anywhere", "[Skill]HoldPosition");
-		MoveUnit(All, "60 + 1n Hydralisk", CurrentPlayer, "Anywhere", "[Skill]HoldPosition");
+		MoveUnit(All, "40 + 3n Zeratul", CurrentPlayer, "Anywhere", "[Skill]HoldPosition");
 		MoveUnit(All, "80 + 1n Tank", CurrentPlayer, "Anywhere", "[Skill]HoldPosition");
 		MoveUnit(All, "60 + 1n High Templar", CurrentPlayer, "Anywhere", "[Skill]HoldPosition");
 		CreateUnit(1, "Kakaru (Twilight)", "[Skill]Unit_Wait_1", CurrentPlayer);
@@ -444,20 +444,20 @@ Trigger {
 	actions = {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
-		CreateUnit(4, "60 + 1n Hydralisk", "[Skill]Unit_Wait_1", CurrentPlayer);
+		CreateUnit(4, "40 + 3n Zeratul", "[Skill]Unit_Wait_1", CurrentPlayer);
 		SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, x, y);
-		MoveUnit(1, "60 + 1n Hydralisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 3n Zeratul", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, -y, x);
-		MoveUnit(1, "60 + 1n Hydralisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 3n Zeratul", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, -x, -y);
-		MoveUnit(1, "60 + 1n Hydralisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 3n Zeratul", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, y, -x);
-		MoveUnit(1, "60 + 1n Hydralisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 3n Zeratul", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		RemoveUnitAt(all, "Men", "[Skill]Unit_Wait_ALL", CurrentPlayer);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
@@ -478,7 +478,7 @@ Trigger {
 	actions = {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
-		Order("60 + 1n Hydralisk", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
+		Order("40 + 3n Zeratul", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
 		Wait(0);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
@@ -601,7 +601,7 @@ Trigger {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
 		KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", CurrentPlayer);
-		Wait(2000);
+		Wait(3200);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
 	},
@@ -779,7 +779,7 @@ Trigger {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
 		Order("100 + 1n Hyperion", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
-		KillUnitAt(All, "60 + 1n Hydralisk", "Anywhere", CurrentPlayer);
+		KillUnitAt(All, "40 + 3n Zeratul", "Anywhere", CurrentPlayer);
 		Wait(0);
 		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
