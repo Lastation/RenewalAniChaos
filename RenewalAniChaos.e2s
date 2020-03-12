@@ -190,12 +190,14 @@ S_DatEditSET
 0,24,41,-1
 0,24,109,-3
 0,24,115,2
+0,25,16,2
 0,25,47,56
-0,25,51,-3
-0,25,53,-3
-0,25,54,-3
-0,25,74,-5
-0,25,77,-5
+0,25,51,-1
+0,25,53,-1
+0,25,54,-1
+0,25,74,-3
+0,25,77,-3
+0,25,99,2
 0,25,115,-54
 0,26,53,-1
 0,26,98,1
@@ -735,76 +737,75 @@ S_DatEditSET
 1,5,85,305
 1,5,113,64
 1,5,116,32
-1,6,4,-1
-1,6,5,-1
-1,6,7,-1
-1,6,8,-1
-1,6,9,-1
-1,6,10,-1
-1,6,11,-1
-1,6,12,-1
-1,6,13,-53
-1,6,14,-53
-1,6,15,-2
-1,6,16,-2
-1,6,17,-2
-1,6,18,-2
-1,6,19,-2
-1,6,20,-2
-1,6,21,-2
-1,6,22,-2
-1,6,23,-2
-1,6,24,-2
-1,6,27,-1
-1,6,28,-1
-1,6,29,-53
-1,6,30,-53
-1,6,35,-3
-1,6,36,-3
-1,6,37,-3
-1,6,38,-4
-1,6,39,-4
-1,6,40,-3
-1,6,41,-3
-1,6,42,-3
-1,6,43,-53
-1,6,44,-53
-1,6,45,-5
-1,6,46,-5
-1,6,47,-5
-1,6,48,-5
-1,6,49,-5
-1,6,50,-4
-1,6,51,-4
-1,6,52,-53
-1,6,53,-53
-1,6,64,-6
-1,6,65,-6
-1,6,66,-6
-1,6,67,-6
-1,6,68,-6
-1,6,69,-6
-1,6,70,-6
-1,6,71,-6
-1,6,72,-7
-1,6,73,-7
-1,6,74,-7
-1,6,75,-7
-1,6,76,-7
-1,6,77,-7
-1,6,78,-7
-1,6,79,-7
-1,6,85,-6
-1,6,86,-6
-1,6,96,-1
-1,6,97,-1
-1,6,99,-1
-1,6,100,-7
-1,6,103,-2
-1,6,104,-5
-1,6,109,-4
-1,6,114,-7
-1,6,115,-7
+1,6,0,2
+1,6,1,2
+1,6,2,2
+1,6,3,2
+1,6,4,1
+1,6,5,1
+1,6,7,1
+1,6,8,1
+1,6,9,1
+1,6,10,1
+1,6,11,1
+1,6,12,1
+1,6,13,-51
+1,6,14,-51
+1,6,25,2
+1,6,26,2
+1,6,27,1
+1,6,28,1
+1,6,29,-51
+1,6,30,-51
+1,6,35,-1
+1,6,36,-1
+1,6,37,-1
+1,6,38,-2
+1,6,39,-2
+1,6,40,-1
+1,6,41,-1
+1,6,42,-1
+1,6,43,-51
+1,6,44,-51
+1,6,45,-3
+1,6,46,-3
+1,6,47,-3
+1,6,48,-3
+1,6,49,-3
+1,6,50,-2
+1,6,51,-2
+1,6,52,-51
+1,6,53,-51
+1,6,64,-4
+1,6,65,-4
+1,6,66,-4
+1,6,67,-4
+1,6,68,-4
+1,6,69,-4
+1,6,70,-4
+1,6,71,-4
+1,6,72,-5
+1,6,73,-5
+1,6,74,-5
+1,6,75,-5
+1,6,76,-5
+1,6,77,-5
+1,6,78,-5
+1,6,79,-5
+1,6,85,-4
+1,6,86,-4
+1,6,96,1
+1,6,97,1
+1,6,99,1
+1,6,100,-5
+1,6,104,-3
+1,6,109,-2
+1,6,111,-4
+1,6,112,2
+1,6,113,2
+1,6,114,-5
+1,6,115,-5
+1,6,116,2
 1,7,25,-1
 1,7,26,-1
 1,7,51,-1
@@ -920,6 +921,8 @@ S_DatEditSET
 4,5,353,10
 4,7,99,120
 4,7,353,-46
+5,7,2,1
+5,8,2,-2
 E_DatEditSET
 S_FireGraftSET
 FireGraft131 : -1,-1,131
@@ -936,7 +939,9 @@ BtnData41 : 1,228,4359104,4342848,0,0,664,0,2,229,4359104,4338672,0,0,665,0,3,23
 BtnUse103 : True
 BtnData103 : 1,228,4359104,4342848,0,0,664,0,2,229,4359008,4338672,0,0,665,0,3,230,4362352,4342656,11,0,666,0,4,254,4359104,4342080,0,0,667,0,5,255,4359104,4338544,0,0,668,0,
 BtnUse122 : True
-BtnData122 : 1,228,4359200,4342848,0,0,664,0,1,288,4363344,4338448,9,9,463,504,2,229,4359200,4338672,0,0,665,0,2,292,4363344,4338448,2,2,456,501,9,236,4360448,4338416,0,0,691,0,
+BtnData122 : 1,228,4359200,4342848,0,0,664,0,1,288,4363344,4338448,7,7,463,504,2,229,4359200,4338672,0,0,665,0,2,292,4363344,4338448,0,0,456,501,9,236,4360448,4338416,0,0,691,0,
+BtnUse123 : True
+BtnData123 : 1,289,4363344,4338448,8,8,464,507,2,290,4363344,4338448,9,9,465,513,4,293,4363344,4338448,1,1,457,510,5,291,4363344,4338448,2,2,458,516,9,236,4360448,4338416,0,0,691,0,
 BtnUse131 : True
 BtnData131 : 
 BtnUse132 : True
@@ -945,14 +950,23 @@ BtnUse135 : True
 BtnData135 : 
 E_BtnSET
 S_ReqSET
+ReqUse1,0 : 2
+ReqPos1,0 : 2
+ReqCount1,0 : 0
+ReqUse1,1 : 2
+ReqPos1,1 : 4
+ReqCount1,1 : 0
 ReqUse1,2 : 2
-ReqPos1,2 : 28
+ReqPos1,2 : 6
 ReqCount1,2 : 0
+ReqUse1,7 : 2
+ReqPos1,7 : 65
+ReqCount1,7 : 0
 ReqUse1,8 : 2
-ReqPos1,8 : 100
+ReqPos1,8 : 67
 ReqCount1,8 : 0
 ReqUse1,9 : 2
-ReqPos1,9 : 102
+ReqPos1,9 : 69
 ReqCount1,9 : 0
 E_ReqSET
 S_BinEditSET
@@ -3231,12 +3245,12 @@ Type:27,False,False,False
 ElementsCount:6
 Type:8,False,False,False
 act:SetUpgrade
-13ஐ9ஐ1ஐ82ஐ0
+13ஐ7ஐ1ஐ82ஐ0
 ElementsCount:0
 END
 Type:8,False,False,False
 act:SetUpgrade
-13ஐ2ஐ1ஐ61ஐ0
+13ஐ0ஐ1ஐ61ஐ0
 ElementsCount:0
 END
 Type:1,False,False,False
@@ -3254,7 +3268,7 @@ Type:5,False,False,False
 ElementsCount:2
 Type:8,False,False,False
 act:SetUpgrade
-13ஐ2ஐ0ஐ1ஐ1
+13ஐ0ஐ0ஐ1ஐ1
 ElementsCount:0
 END
 Type:8,False,False,False
@@ -3276,7 +3290,7 @@ ElementsCount:0
 END
 Type:7,False,False,False
 con:Upgrade
-13ஐ2ஐ0ஐ62ஐ2
+13ஐ0ஐ0ஐ62ஐ2
 ElementsCount:0
 END
 END
@@ -3284,7 +3298,7 @@ Type:5,False,False,False
 ElementsCount:1
 Type:8,False,False,False
 act:SetUpgrade
-13ஐ2ஐ0ஐ61ஐ0
+13ஐ0ஐ0ஐ61ஐ0
 ElementsCount:0
 END
 END
@@ -4596,7 +4610,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,True,False
+Type:24,False,False,False
 63
 ElementsCount:2
 Type:26,False,False,False
@@ -4636,12 +4650,12 @@ Type:5,False,False,False
 ElementsCount:3
 Type:8,False,False,False
 act:SetUpgrade
-13ஐ7ஐ0ஐbread(0x58D2B0 + 9 + 46 * getcurpl())ஐ0
+13ஐ9ஐ0ஐbread(0x58D2B0 + 7 + 46 * getcurpl())ஐ0
 ElementsCount:0
 END
 Type:8,False,False,False
 act:SetUpgrade
-13ஐ0ஐ0ஐbread(0x58D2B0 + 2 + 46 * getcurpl()) + 10ஐ0
+13ஐ0ஐ0ஐbread(0x58D2B0 + 0 + 46 * getcurpl()) + 10ஐ0
 ElementsCount:0
 END
 Type:8,False,False,False
@@ -4654,12 +4668,12 @@ Type:6,False,False,False
 ElementsCount:2
 Type:8,False,False,False
 act:SetUpgrade
-13ஐ7ஐ0ஐbread(0x58D2B0 + 9 + 46 * getcurpl())ஐ0
+13ஐ7ஐ0ஐbread(0x58D2B0 + 7 + 46 * getcurpl())ஐ0
 ElementsCount:0
 END
 Type:8,False,False,False
 act:SetUpgrade
-13ஐ0ஐ0ஐbread(0x58D2B0 + 2 + 46 * getcurpl())ஐ0
+13ஐ0ஐ0ஐbread(0x58D2B0 + 0 + 46 * getcurpl())ஐ0
 ElementsCount:0
 END
 END
@@ -4670,12 +4684,12 @@ Type:29,False,False,False
 ElementsCount:2
 Type:8,False,False,False
 act:SetUpgrade
-13ஐ7ஐ0ஐbread(0x58D2B0 + 9 + 46 * getcurpl()) + dwread_epd(EPD(0x58A364 + 48 * 204 + 4 * getcurpl()))ஐ0
+13ஐ7ஐ0ஐbread(0x58D2B0 + 7 + 46 * getcurpl()) + dwread_epd(EPD(0x58A364 + 48 * 204 + 4 * getcurpl()))ஐ0
 ElementsCount:0
 END
 Type:8,False,False,False
 act:SetUpgrade
-13ஐ0ஐ0ஐbread(0x58D2B0 + 2 + 46 * getcurpl())ஐ0
+13ஐ0ஐ0ஐbread(0x58D2B0 + 0 + 46 * getcurpl())ஐ0
 ElementsCount:0
 END
 END
@@ -4684,12 +4698,12 @@ Type:29,False,False,False
 ElementsCount:2
 Type:8,False,False,False
 act:SetUpgrade
-13ஐ7ஐ0ஐbread(0x58D2B0 + 9 + 46 * getcurpl())ஐ0
+13ஐ7ஐ0ஐbread(0x58D2B0 + 7 + 46 * getcurpl())ஐ0
 ElementsCount:0
 END
 Type:8,False,False,False
 act:SetUpgrade
-13ஐ0ஐ0ஐbread(0x58D2B0 + 2 + 46 * getcurpl())ஐ0
+13ஐ0ஐ0ஐbread(0x58D2B0 + 0 + 46 * getcurpl())ஐ0
 ElementsCount:0
 END
 END
