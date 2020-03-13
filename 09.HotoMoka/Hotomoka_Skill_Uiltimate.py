@@ -807,7 +807,6 @@ Trigger {
 		Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
 		Deaths(CurrentPlayer, Exactly, 12, " `SkillCount");
 		Deaths(CurrentPlayer, Exactly, 5, " `SkillLoop");
-		Deaths(CurrentPlayer, AtLeast, 1, " `SkillLoop2");
 	},
 	actions = {
 		Comment("Skill : Uiltimate");
