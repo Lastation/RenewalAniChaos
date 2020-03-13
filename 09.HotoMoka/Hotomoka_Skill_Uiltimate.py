@@ -34,7 +34,6 @@ Trigger { -- Skill : Uiltimate
 		RemoveUnitAt(All, "Kakaru (Twilight)", "Anywhere", CurrentPlayer);
 		Order(" * Infested Kerrigan", CurrentPlayer, "Anywhere", Move, "09.HotoMoka_Bozo");
 		KillUnit("Protoss Observer", CurrentPlayer);
-		MoveUnit(All, "100 + 1n Hyperion", CurrentPlayer, "Anywhere", "[Skill]HoldPosition");
 	},
 }
 
@@ -684,7 +683,6 @@ Trigger {
 
 end
 
-
 Trigger {
 	players = {Force1, Force2},
 	conditions = {
@@ -693,27 +691,6 @@ Trigger {
 		Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
 		Deaths(CurrentPlayer, Exactly, 10, " `SkillCount");
 		Deaths(CurrentPlayer, Exactly, 7, " `SkillLoop");
-		Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop2");
-	},
-	actions = {
-		Comment("Skill : Uiltimate");
-		PreserveTrigger();
-		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
-		Wait(0);
-		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
-		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
-	},
-}
-
-Trigger {
-	players = {Force1, Force2},
-	conditions = {
-		Deaths(CurrentPlayer, Exactly, 3000, " * Infested Kerrigan");
-		Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
-		Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
-		Deaths(CurrentPlayer, Exactly, 10, " `SkillCount");
-		Deaths(CurrentPlayer, Exactly, 7, " `SkillLoop");
-		Deaths(CurrentPlayer, AtLeast, 1, " `SkillLoop2");
 	},
 	actions = {
 		Comment("Skill : Uiltimate");
@@ -741,20 +718,20 @@ Trigger {
 	actions = {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
-		CreateUnit(4, "100 + 1n Hyperion", "[Skill]Unit_Wait_1", CurrentPlayer);
+		CreateUnit(4, "40 + 1n Gantrithor", "[Skill]Unit_Wait_1", CurrentPlayer);
 		SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, x, y);
-		MoveUnit(1, "100 + 1n Hyperion", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, -y, x);
-		MoveUnit(1, "100 + 1n Hyperion", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, -x, -y);
-		MoveUnit(1, "100 + 1n Hyperion", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, y, -x);
-		MoveUnit(1, "100 + 1n Hyperion", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		RemoveUnitAt(all, "Men", "[Skill]Unit_Wait_ALL", CurrentPlayer);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
@@ -772,31 +749,11 @@ Trigger {
 		Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
 		Deaths(CurrentPlayer, Exactly, 11, " `SkillCount");
 		Deaths(CurrentPlayer, Exactly, 6, " `SkillLoop");
-		Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop2");
 	},
 	actions = {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
-		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
-		Wait(0);
-		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
-		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
-	},
-}
-
-Trigger {
-	players = {Force1, Force2},
-	conditions = {
-		Deaths(CurrentPlayer, Exactly, 3000, " * Infested Kerrigan");
-		Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
-		Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
-		Deaths(CurrentPlayer, Exactly, 11, " `SkillCount");
-		Deaths(CurrentPlayer, Exactly, 6, " `SkillLoop");
-		Deaths(CurrentPlayer, AtLeast, 1, " `SkillLoop2");
-	},
-	actions = {
-		Comment("Skill : Uiltimate");
-		PreserveTrigger();
+		KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", CurrentPlayer);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
 	},
@@ -850,26 +807,6 @@ Trigger {
 		Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
 		Deaths(CurrentPlayer, Exactly, 12, " `SkillCount");
 		Deaths(CurrentPlayer, Exactly, 5, " `SkillLoop");
-		Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop2");
-	},
-	actions = {
-		Comment("Skill : Uiltimate");
-		PreserveTrigger();
-		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
-		Wait(0);
-		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
-		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
-	},
-}
-
-Trigger {
-	players = {Force1, Force2},
-	conditions = {
-		Deaths(CurrentPlayer, Exactly, 3000, " * Infested Kerrigan");
-		Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
-		Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
-		Deaths(CurrentPlayer, Exactly, 12, " `SkillCount");
-		Deaths(CurrentPlayer, Exactly, 5, " `SkillLoop");
 		Deaths(CurrentPlayer, AtLeast, 1, " `SkillLoop2");
 	},
 	actions = {
@@ -898,20 +835,20 @@ Trigger {
 	actions = {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
-		CreateUnit(4, "100 + 1n Hyperion", "[Skill]Unit_Wait_1", CurrentPlayer);
+		CreateUnit(4, "40 + 1n Gantrithor", "[Skill]Unit_Wait_1", CurrentPlayer);
 		SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, x, y);
-		MoveUnit(1, "100 + 1n Hyperion", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, -y, x);
-		MoveUnit(1, "100 + 1n Hyperion", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, -x, -y);
-		MoveUnit(1, "100 + 1n Hyperion", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, y, -x);
-		MoveUnit(1, "100 + 1n Hyperion", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		RemoveUnitAt(all, "Men", "[Skill]Unit_Wait_ALL", CurrentPlayer);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
@@ -928,36 +865,15 @@ Trigger {
 		Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
 		Deaths(CurrentPlayer, Exactly, 13, " `SkillCount");
 		Deaths(CurrentPlayer, Exactly, 4, " `SkillLoop");
-		Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop2");
 	},
 	actions = {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
-		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
-		Wait(0);
+		KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", CurrentPlayer);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
 	},
 }
-
-Trigger {
-	players = {Force1, Force2},
-	conditions = {
-		Deaths(CurrentPlayer, Exactly, 3000, " * Infested Kerrigan");
-		Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
-		Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
-		Deaths(CurrentPlayer, Exactly, 13, " `SkillCount");
-		Deaths(CurrentPlayer, Exactly, 4, " `SkillLoop");
-		Deaths(CurrentPlayer, AtLeast, 1, " `SkillLoop2");
-	},
-	actions = {
-		Comment("Skill : Uiltimate");
-		PreserveTrigger();
-		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
-		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
-	},
-}
-
 
 
 for i = 0, 2, 1 do
@@ -1008,27 +924,6 @@ Trigger {
 		Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
 		Deaths(CurrentPlayer, Exactly, 14, " `SkillCount");
 		Deaths(CurrentPlayer, Exactly, 3, " `SkillLoop");
-		Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop2");
-	},
-	actions = {
-		Comment("Skill : Uiltimate");
-		PreserveTrigger();
-		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
-		Wait(0);
-		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
-		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
-	},
-}
-
-Trigger {
-	players = {Force1, Force2},
-	conditions = {
-		Deaths(CurrentPlayer, Exactly, 3000, " * Infested Kerrigan");
-		Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
-		Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
-		Deaths(CurrentPlayer, Exactly, 14, " `SkillCount");
-		Deaths(CurrentPlayer, Exactly, 3, " `SkillLoop");
-		Deaths(CurrentPlayer, AtLeast, 1, " `SkillLoop2");
 	},
 	actions = {
 		Comment("Skill : Uiltimate");
@@ -1056,20 +951,20 @@ Trigger {
 	actions = {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
-		CreateUnit(4, "100 + 1n Hyperion", "[Skill]Unit_Wait_1", CurrentPlayer);
+		CreateUnit(4, "40 + 1n Gantrithor", "[Skill]Unit_Wait_1", CurrentPlayer);
 		SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, x, y);
-		MoveUnit(1, "100 + 1n Hyperion", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, -y, x);
-		MoveUnit(1, "100 + 1n Hyperion", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, -x, -y);
-		MoveUnit(1, "100 + 1n Hyperion", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		LMove(147, y, -x);
-		MoveUnit(1, "100 + 1n Hyperion", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		RemoveUnitAt(all, "Men", "[Skill]Unit_Wait_ALL", CurrentPlayer);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
@@ -1086,31 +981,11 @@ Trigger {
 		Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
 		Deaths(CurrentPlayer, Exactly, 15, " `SkillCount");
 		Deaths(CurrentPlayer, Exactly, 2, " `SkillLoop");
-		Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop2");
 	},
 	actions = {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
-		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
-		Wait(0);
-		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
-		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
-	},
-}
-
-Trigger {
-	players = {Force1, Force2},
-	conditions = {
-		Deaths(CurrentPlayer, Exactly, 3000, " * Infested Kerrigan");
-		Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
-		Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
-		Deaths(CurrentPlayer, Exactly, 15, " `SkillCount");
-		Deaths(CurrentPlayer, Exactly, 2, " `SkillLoop");
-		Deaths(CurrentPlayer, AtLeast, 1, " `SkillLoop2");
-	},
-	actions = {
-		Comment("Skill : Uiltimate");
-		PreserveTrigger();
+		KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", CurrentPlayer);
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
 	},
@@ -1160,27 +1035,6 @@ Trigger {
 		Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
 		Deaths(CurrentPlayer, Exactly, 16, " `SkillCount");
 		Deaths(CurrentPlayer, Exactly, 1, " `SkillLoop");
-		Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop2");
-	},
-	actions = {
-		Comment("Skill : Uiltimate");
-		PreserveTrigger();
-		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
-		Wait(0);
-		SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
-		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
-	},
-}
-
-Trigger {
-	players = {Force1, Force2},
-	conditions = {
-		Deaths(CurrentPlayer, Exactly, 3000, " * Infested Kerrigan");
-		Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
-		Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
-		Deaths(CurrentPlayer, Exactly, 16, " `SkillCount");
-		Deaths(CurrentPlayer, Exactly, 1, " `SkillLoop");
-		Deaths(CurrentPlayer, AtLeast, 1, " `SkillLoop2");
 	},
 	actions = {
 		Comment("Skill : Uiltimate");
@@ -1189,8 +1043,6 @@ Trigger {
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
 	},
 }
-
-
 
 Trigger {
 	players = {Force1, Force2},
@@ -1200,7 +1052,7 @@ Trigger {
 		Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
 		Deaths(CurrentPlayer, Exactly, 17, " `SkillCount");
 		Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop");
-		Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop2");
+		Deaths(CurrentPlayer, AtMost, 4, " `SkillLoop2");
 	},
 	actions = {
 		Comment("Skill : Uiltimate");
@@ -1209,8 +1061,9 @@ Trigger {
 		SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		MoveUnit(1, "100 + 1n Hyperion", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
-		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
+		Order("100 + 1n Hyperion", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
 		Wait(0);
+		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
 		SetDeaths(CurrentPlayer, SetTo, 10, " `SkillCount");
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
 		SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop2");
@@ -1225,7 +1078,7 @@ Trigger {
 		Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
 		Deaths(CurrentPlayer, Exactly, 17, " `SkillCount");
 		Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop");
-		Deaths(CurrentPlayer, Exactly, 1, " `SkillLoop2");
+		Deaths(CurrentPlayer, Exactly, 5, " `SkillLoop2");
 	},
 	actions = {
 		Comment("Skill : Uiltimate");
@@ -1235,34 +1088,8 @@ Trigger {
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
 		MoveUnit(1, "100 + 1n Hyperion", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
 		Order("100 + 1n Hyperion", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
-		Wait(130);
-		SetDeaths(CurrentPlayer, SetTo, 10, " `SkillCount");
-		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
-		SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop2");
-	},
-}
-
-Trigger {
-	players = {Force1, Force2},
-	conditions = {
-		Deaths(CurrentPlayer, Exactly, 3000, " * Infested Kerrigan");
-		Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
-		Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
-		Deaths(CurrentPlayer, Exactly, 17, " `SkillCount");
-		Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop");
-		Deaths(CurrentPlayer, Exactly, 2, " `SkillLoop2");
-	},
-	actions = {
-		Comment("Skill : Uiltimate");
-		PreserveTrigger();
-		CreateUnit(1, "100 + 1n Hyperion", "[Skill]Unit_Wait_1", CurrentPlayer);
-		SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
-		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
-		MoveUnit(1, "100 + 1n Hyperion", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
-		Order("100 + 1n Hyperion", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
-		Wait(130);
+		Wait(0);
 		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
-		Wait(300);
 		KillUnitAt(All, " Unit. Schnee", "Anywhere", CurrentPlayer);
 		KillUnitAt(All, "80 + 1n Tank", "Anywhere", CurrentPlayer);
 		KillUnitAt(All, "60 + 1n High Templar", "Anywhere", CurrentPlayer);
