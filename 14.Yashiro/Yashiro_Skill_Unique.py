@@ -538,7 +538,7 @@ Trigger { -- Skill : S
 	actions = {
 		Comment("Skill : Unique");
 		PreserveTrigger();
-		SetDeaths(CurrentPlayer, Add, 12, " `SystemShield");
+		SetDeaths(CurrentPlayer, Add, 13, " `ShieldRecharge");
 		SetDeaths(AllPlayers, SetTo, 14009, " `SkillText_Unique");
 	},
 }
