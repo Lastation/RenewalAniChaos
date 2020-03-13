@@ -66,8 +66,8 @@ Trigger { -- Skill : S
       Deaths(CurrentPlayer, Exactly, 1000, " * Samir Duran");
       Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
       Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
-      Deaths(CurrentPlayer, Exactly, 1, " `SkillCount");
-      Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop4");
+      Deaths(CurrentPlayer, Exactly, 0, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 199, " `SkillLoop4");
       Deaths(CurrentPlayer, Exactly, 8, " `UniqueSkill");
    },
    actions = {

@@ -657,7 +657,7 @@ Trigger { -- Skill : S
 
 
 x = 0;
-y = interval * 8;
+y = - interval * 8;
 
 Trigger { -- Skill : S
    players = {Force1, Force2},
@@ -674,21 +674,21 @@ Trigger { -- Skill : S
       MoveLocation("14.Yashiro_Bozo", " * Samir Duran", CurrentPlayer, "Anywhere");
       LMove(164, x, y);
       MoveUnit(1, "Bengalaas (Jungle)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro_Bozo");
-      LMove(164, interval, -interval);
+      LMove(164, interval, interval);
       MoveUnit(1, "Bengalaas (Jungle)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro_Bozo");
-      LMove(164, interval, -interval);
+      LMove(164, interval, interval);
       MoveUnit(1, "Bengalaas (Jungle)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro_Bozo");
-      LMove(164, interval, -interval);
+      LMove(164, interval, interval);
       MoveUnit(1, "Bengalaas (Jungle)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro_Bozo");
-      LMove(164, interval, -interval);
+      LMove(164, interval, interval);
       MoveUnit(1, "Bengalaas (Jungle)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro_Bozo");
-      LMove(164, interval, -interval);
+      LMove(164, interval, interval);
       MoveUnit(1, "Bengalaas (Jungle)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro_Bozo");
-      LMove(164, interval, -interval);
+      LMove(164, interval, interval);
       MoveUnit(1, "Bengalaas (Jungle)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro_Bozo");
-      LMove(164, interval, -interval);
+      LMove(164, interval, interval);
       MoveUnit(1, "Bengalaas (Jungle)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro_Bozo");
-      LMove(164, interval, -interval);
+      LMove(164, interval, interval);
       MoveUnit(1, "Bengalaas (Jungle)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro_Bozo");
       KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", CurrentPlayer);
    },
@@ -713,21 +713,21 @@ Trigger { -- Skill : S
       MoveLocation("14.Yashiro_Bozo", " * Samir Duran", CurrentPlayer, "Anywhere");
       LMove(164, x, y);
       MoveUnit(1, "Bengalaas (Jungle)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro_Bozo");
-      LMove(164, -interval, -interval);
+      LMove(164, -interval, interval);
       MoveUnit(1, "Bengalaas (Jungle)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro_Bozo");
-      LMove(164, -interval, -interval);
+      LMove(164, -interval, interval);
       MoveUnit(1, "Bengalaas (Jungle)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro_Bozo");
-      LMove(164, -interval, -interval);
+      LMove(164, -interval, interval);
       MoveUnit(1, "Bengalaas (Jungle)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro_Bozo");
-      LMove(164, -interval, -interval);
+      LMove(164, -interval, interval);
       MoveUnit(1, "Bengalaas (Jungle)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro_Bozo");
-      LMove(164, -interval, -interval);
+      LMove(164, -interval, interval);
       MoveUnit(1, "Bengalaas (Jungle)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro_Bozo");
-      LMove(164, -interval, -interval);
+      LMove(164, -interval, interval);
       MoveUnit(1, "Bengalaas (Jungle)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro_Bozo");
-      LMove(164, -interval, -interval);
+      LMove(164, -interval, interval);
       MoveUnit(1, "Bengalaas (Jungle)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro_Bozo");
-      LMove(164, -interval, -interval);
+      LMove(164, -interval, interval);
       MoveUnit(1, "Bengalaas (Jungle)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro_Bozo");
       KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", CurrentPlayer);
       MoveLocation("14.Yashiro_Bozo", " * Samir Duran", CurrentPlayer, "Anywhere");
