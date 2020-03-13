@@ -1056,11 +1056,12 @@ Trigger {
 	actions = {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
-		CreateUnit(1, "100 + 1n Hyperion", "[Skill]Unit_Wait_1", CurrentPlayer);
+		CreateUnit(1, "40 + 1n Gantrithor", "[Skill]Unit_Wait_1", CurrentPlayer);
 		SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
-		MoveUnit(1, "100 + 1n Hyperion", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
-		Order("100 + 1n Hyperion", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		Order("100 + 1n Hyperion", CurrentPlayer, "Anywhere", Attack, "Anywhere");
+		KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", CurrentPlayer);
 		Wait(0);
 		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
 		SetDeaths(CurrentPlayer, SetTo, 10, " `SkillCount");
@@ -1082,11 +1083,12 @@ Trigger {
 	actions = {
 		Comment("Skill : Uiltimate");
 		PreserveTrigger();
-		CreateUnit(1, "100 + 1n Hyperion", "[Skill]Unit_Wait_1", CurrentPlayer);
+		CreateUnit(1, "40 + 1n Gantrithor", "[Skill]Unit_Wait_1", CurrentPlayer);
 		SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
 		MoveLocation("09.HotoMoka", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
-		MoveUnit(1, "100 + 1n Hyperion", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
-		Order("100 + 1n Hyperion", CurrentPlayer, "Anywhere", Attack, "09.HotoMoka");
+		MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "09.HotoMoka");
+		Order("100 + 1n Hyperion", CurrentPlayer, "Anywhere", Attack, "Anywhere");
+		KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", CurrentPlayer);
 		Wait(0);
 		KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
 		KillUnitAt(All, " Unit. Schnee", "Anywhere", CurrentPlayer);
