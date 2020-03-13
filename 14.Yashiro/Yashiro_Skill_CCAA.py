@@ -143,7 +143,7 @@ Trigger { -- Skill : S
 }
 
 
-interval = 50;
+interval = 36;
 
 Trigger { -- Skill : S
    players = {Force1, Force2},
