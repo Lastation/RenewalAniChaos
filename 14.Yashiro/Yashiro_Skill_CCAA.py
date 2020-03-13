@@ -62,7 +62,7 @@ Trigger { -- Skill : S
       MoveLocation("14.Yashiro", " * Samir Duran", CurrentPlayer, "Anywhere");
       LMove(163, -x, -y);
       MoveUnit(1, "Zerg Defiler", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro");
-      KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Goliath", "Anywhere", CurrentPlayer);
       KillUnitAt(All, "40 + 1n Wraith", "Anywhere", CurrentPlayer);
       KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", CurrentPlayer);
       RemoveUnitAt(All, "Zerg Defiler", "Anywhere", P10);
@@ -139,23 +139,6 @@ Trigger { -- Skill : S
       Comment("Skill : Combo");
       SetDeaths(AllPlayers, SetTo, 2003, " `SkillText3");
       PreserveTrigger();
-   },
-}
-
-Trigger { -- Skill : S
-   players = {Force1, Force2},
-   conditions = {
-      Deaths(CurrentPlayer, Exactly, 1000, " * Samir Duran");
-      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
-      Deaths(CurrentPlayer, Exactly, 210, " `SkillStep");
-      Deaths(CurrentPlayer, Exactly, 1, " `SkillCount");
-      Deaths(CurrentPlayer, AtMost, 12, " `SkillLoop2");
-      Deaths(CurrentPlayer, Exactly, 4, " `SkillLoop3");
-   },
-   actions = {
-      Comment("Skill : Combo");
-      PreserveTrigger();
-      SetDeaths(CurrentPlayer, Add, 2, " `SkillLoop3");
    },
 }
 
@@ -330,11 +313,11 @@ Trigger { -- Skill : S
       PreserveTrigger();
       GiveUnits(All, "Zerg Defiler", P10, "Anywhere", CurrentPlayer);
       CreateUnit(4, "130 + 1n Norad", "[Skill]Unit_Wait_1", CurrentPlayer);
-      CreateUnit(1, " Creep. Dunkelheit", "[Skill]Unit_Wait_1", CurrentPlayer);
+      CreateUnit(1, "40 + 1n Goliath", "[Skill]Unit_Wait_1", CurrentPlayer);
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("14.Yashiro", "Zerg Defiler", CurrentPlayer, "Anywhere");
       GiveUnits(1, "Zerg Defiler", CurrentPlayer, "Anywhere", P10);
-      MoveUnit(1, " Creep. Dunkelheit", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro");
+      MoveUnit(1, "40 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro");
       LMove(163, interval, interval);
       MoveUnit(1, "130 + 1n Norad", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro");
       LMove(163, - 2 * interval, 0);
@@ -344,7 +327,7 @@ Trigger { -- Skill : S
       LMove(163, 2 * interval, 0);
       MoveUnit(1, "130 + 1n Norad", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro");
       MoveLocation("14.Yashiro", " * Samir Duran", CurrentPlayer, "Anywhere");
-      Order(" Creep. Dunkelheit", CurrentPlayer, "Anywhere", Attack, "Anywhere");
+      Order("40 + 1n Goliath", CurrentPlayer, "Anywhere", Attack, "Anywhere");
       KillUnitAt(All, "130 + 1n Norad", "Anywhere", CurrentPlayer);
       SetDeaths(CurrentPlayer, Subtract, 1, " `SkillLoop3");
    },
@@ -363,11 +346,11 @@ Trigger { -- Skill : S
       Comment("Skill : Combo");
       PreserveTrigger();
       CreateUnit(4, "130 + 1n Norad", "[Skill]Unit_Wait_1", CurrentPlayer);
-      CreateUnit(1, " Creep. Dunkelheit", "[Skill]Unit_Wait_1", CurrentPlayer);
+      CreateUnit(1, "40 + 1n Goliath", "[Skill]Unit_Wait_1", CurrentPlayer);
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("14.Yashiro", "Zerg Defiler", CurrentPlayer, "Anywhere");
       GiveUnits(1, "Zerg Defiler", CurrentPlayer, "Anywhere", P10);
-      MoveUnit(1, " Creep. Dunkelheit", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro");
+      MoveUnit(1, "40 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro");
       LMove(163, interval, interval);
       MoveUnit(1, "130 + 1n Norad", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro");
       LMove(163, - 2 * interval, 0);
@@ -377,7 +360,7 @@ Trigger { -- Skill : S
       LMove(163, 2 * interval, 0);
       MoveUnit(1, "130 + 1n Norad", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro");
       MoveLocation("14.Yashiro", " * Samir Duran", CurrentPlayer, "Anywhere");
-      Order(" Creep. Dunkelheit", CurrentPlayer, "Anywhere", Attack, "Anywhere");
+      Order("40 + 1n Goliath", CurrentPlayer, "Anywhere", Attack, "Anywhere");
       KillUnitAt(All, "130 + 1n Norad", "Anywhere", CurrentPlayer);
       SetDeaths(CurrentPlayer, SetTo, 10, " `SkillLoop3");
    },
@@ -398,7 +381,7 @@ Trigger { -- Skill : S
       Comment("Skill : Combo");
       PreserveTrigger();
       SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
-      KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Goliath", "Anywhere", CurrentPlayer);
       KillUnitAt(All, "40 + 1n Wraith", "Anywhere", CurrentPlayer);
       KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", CurrentPlayer);
       RemoveUnitAt(All, "Zerg Defiler", "Anywhere", P10);

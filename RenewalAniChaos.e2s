@@ -1,7 +1,7 @@
 S_ProjectSET
 Version : 0.17.9.7
 InputMap : C:\Users\M\Documents\RenewalAniChaos\NEW!6.scx
-OutputMap : D:\StarCraft\Maps\making\RenewalAniChaos_T.scx
+OutputMap : D:\StarCraft\Maps\making\RenewalAniChaos_T_KAT.scx
 euddraftuse : True
 loadfromCHK : True
 UsedSetting0 : True
@@ -3171,7 +3171,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 63
 ElementsCount:2
 Type:26,False,False,False
@@ -3746,7 +3746,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,True,False
+Type:24,False,False,False
 7
 ElementsCount:2
 Type:26,False,False,False
@@ -3759,7 +3759,12 @@ ElementsCount:0
 END
 END
 Type:27,False,False,False
-ElementsCount:15
+ElementsCount:16
+Type:8,False,False,False
+act:SetScore
+7ஐ1ஐ5ஐ7
+ElementsCount:0
+END
 Type:8,False,False,False
 act:CenterView
 96
@@ -3850,7 +3855,12 @@ ElementsCount:0
 END
 END
 Type:27,False,False,False
-ElementsCount:15
+ElementsCount:16
+Type:8,False,False,False
+act:SetScore
+6ஐ1ஐ5ஐ7
+ElementsCount:0
+END
 Type:8,False,False,False
 act:PreserveTrigger
 None
@@ -4522,7 +4532,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,True,False
+Type:24,False,False,False
 63
 ElementsCount:2
 Type:26,False,False,False
@@ -4604,7 +4614,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,True,False
+Type:24,False,False,False
 63
 ElementsCount:2
 Type:26,False,False,False
@@ -4616,7 +4626,7 @@ None
 ElementsCount:0
 END
 END
-Type:27,False,False,False
+Type:27,False,True,False
 ElementsCount:3
 Type:8,False,False,False
 act:Comment
@@ -4680,7 +4690,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,True,False
+Type:24,False,False,False
 63
 ElementsCount:2
 Type:26,False,False,False
@@ -4707,7 +4717,7 @@ Type:29,False,False,False
 ElementsCount:1
 Type:8,False,False,False
 act:SetUpgrade
-13ஐ9ஐ0ஐbread(0x58D2B0 + 7 + 46 * getcurpl()) + dwread_epd(EPD(0x58A364 + 48 * 204 + 4 * getcurpl()))ஐ0
+13ஐ9ஐ0ஐbread(0x58D2B0 + 7 + 46 * getcurpl()) + dwread_epd(EPD(0x58A364 + 48 * 204 + 4 * getcurpl())) * 2ஐ0
 ElementsCount:0
 END
 END
@@ -6692,7 +6702,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 4096
 ElementsCount:2
 Type:26,False,False,False

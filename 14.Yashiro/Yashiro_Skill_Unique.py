@@ -15,21 +15,6 @@ Trigger { -- Skill : S
    },
 }
 
-
-Trigger { -- Skill : S
-   players = {Force1, Force2},
-   conditions = {
-      Deaths(CurrentPlayer, Exactly, 1000, " * Samir Duran");
-      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
-      Deaths(CurrentPlayer, Exactly, 8, " `UniqueSkill");
-   },
-   actions = {
-      Comment("Skill : Unique");
-      PreserveTrigger();
-		ModifyUnitShields(All, " * Samir Duran", CurrentPlayer, "Anywhere", 1);
-   },
-}
-
 Trigger { -- Skill : S
    players = {Force1, Force2},
    conditions = {
@@ -553,6 +538,7 @@ Trigger { -- Skill : S
 	actions = {
 		Comment("Skill : Unique");
 		PreserveTrigger();
+		SetDeaths(CurrentPlayer, Add, 12, " `SystemShield");
 		SetDeaths(AllPlayers, SetTo, 14009, " `SkillText_Unique");
 	},
 }
