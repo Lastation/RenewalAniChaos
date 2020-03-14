@@ -3171,7 +3171,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 63
 ElementsCount:2
 Type:26,False,False,False
@@ -3759,7 +3759,27 @@ ElementsCount:0
 END
 END
 Type:27,False,False,False
-ElementsCount:15
+ElementsCount:16
+Type:1,False,True,False
+ElementsCount:2
+Type:3,False,False,False
+And
+ElementsCount:1
+Type:7,False,False,False
+con:Bring
+6ஐ1ஐ6ஐ162ஐ153
+ElementsCount:0
+END
+END
+Type:5,False,False,False
+ElementsCount:1
+Type:8,False,False,False
+act:SetScore
+7ஐ1ஐ5ஐ7
+ElementsCount:0
+END
+END
+END
 Type:8,False,False,False
 act:CenterView
 96
@@ -3850,7 +3870,27 @@ ElementsCount:0
 END
 END
 Type:27,False,False,False
-ElementsCount:15
+ElementsCount:16
+Type:1,False,True,False
+ElementsCount:2
+Type:3,False,False,False
+And
+ElementsCount:1
+Type:7,False,False,False
+con:Bring
+7ஐ1ஐ6ஐ162ஐ153
+ElementsCount:0
+END
+END
+Type:5,False,False,False
+ElementsCount:1
+Type:8,False,False,False
+act:SetScore
+6ஐ1ஐ5ஐ7
+ElementsCount:0
+END
+END
+END
 Type:8,False,False,False
 act:PreserveTrigger
 None
@@ -4616,7 +4656,7 @@ None
 ElementsCount:0
 END
 END
-Type:27,False,False,False
+Type:27,False,True,False
 ElementsCount:3
 Type:8,False,False,False
 act:Comment
@@ -4707,7 +4747,7 @@ Type:29,False,False,False
 ElementsCount:1
 Type:8,False,False,False
 act:SetUpgrade
-13ஐ9ஐ0ஐbread(0x58D2B0 + 7 + 46 * getcurpl()) + dwread_epd(EPD(0x58A364 + 48 * 204 + 4 * getcurpl()))ஐ0
+13ஐ9ஐ0ஐbread(0x58D2B0 + 7 + 46 * getcurpl()) + dwread_epd(EPD(0x58A364 + 48 * 204 + 4 * getcurpl())) * 2ஐ0
 ElementsCount:0
 END
 END
@@ -6692,7 +6732,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 4096
 ElementsCount:2
 Type:26,False,False,False
@@ -7662,7 +7702,7 @@ Type:29,False,False,False
 ElementsCount:3
 Type:8,False,False,False
 act:DisplayCText
-"\n\x13\x1CSakura\n\x13\x04와~~앙!!\n"ஐ0
+"\n\x13\x1BMato Sakura\n\n\x13\x04와~~앙!!\n"ஐ0
 ElementsCount:0
 END
 Type:8,False,False,False
@@ -7681,7 +7721,7 @@ Type:29,False,False,False
 ElementsCount:3
 Type:8,False,False,False
 act:DisplayCText
-"\n\x13\x1CSakura\n\x13\x04어째서... \x08항상 \x04이렇게 되어버리는 걸까...\n"ஐ0
+"\n\x13\x1BMato Sakura\n\n\x13\x04어째서... \x08항상 \x04이렇게 되어버리는 걸까...\n"ஐ0
 ElementsCount:0
 END
 Type:8,False,False,False
@@ -7700,7 +7740,7 @@ Type:29,False,False,False
 ElementsCount:2
 Type:8,False,False,False
 act:DisplayCText
-"\n\x13\x1CSakura\n\x13\x04아주 예전부터 생각했다...\n"ஐ0
+"\n\x13\x1BMato Sakura\n\n\x13\x04아주 예전부터 생각했다...\n"ஐ0
 ElementsCount:0
 END
 Type:8,False,False,False
@@ -7714,7 +7754,7 @@ Type:29,False,False,False
 ElementsCount:2
 Type:8,False,False,False
 act:DisplayCText
-"\n\x13\x1CSakura\n\x13\x04아주 예전부터 \x08원망\x04하고 있었던 거야...\n"ஐ0
+"\n\x13\x1BMato Sakura\n\n\x13\x04아주 예전부터 \x08원망\x04하고 있었던 거야...\n"ஐ0
 ElementsCount:0
 END
 Type:8,False,False,False
@@ -7733,7 +7773,7 @@ ElementsCount:0
 END
 Type:8,False,False,False
 act:DisplayCText
-"\n\x13\x1CSakura\n\x13\x04왜 내 주변에 있는 \x08세계\x04는...\n"ஐ0
+"\n\x13\x1BMato Sakura\n\n\x13\x04왜 내 주변에 있는 \x08세계\x04는...\n"ஐ0
 ElementsCount:0
 END
 Type:8,False,False,False
@@ -7747,7 +7787,7 @@ Type:29,False,False,False
 ElementsCount:2
 Type:8,False,False,False
 act:DisplayCText
-"\n\x13\x1CSakura\n\x13\x04이렇게나... 나를 \x08싫어하는 걸까...\n"ஐ0
+"\n\x13\x1BMato Sakura\n\n\x13\x04이렇게나... 나를 \x08싫어하는 걸까...\n"ஐ0
 ElementsCount:0
 END
 Type:8,False,False,False
@@ -7757,7 +7797,7 @@ ElementsCount:0
 END
 END
 END
-Type:28,False,True,False
+Type:28,False,False,False
 Sound_Text_Uilti[getcurpl()]
 ElementsCount:2
 Type:29,False,False,False
@@ -7784,7 +7824,7 @@ ElementsCount:0
 END
 Type:8,False,False,False
 act:DisplayCText
-"\n\x13\x1CSakura\n\x13\x08이런 사람... 없었으면 좋았을텐데...\n"ஐ0
+"\n\x13\x1BMato Sakura\n\n\x13\x08이런 사람... 없었으면 좋았을텐데...\n"ஐ0
 ElementsCount:0
 END
 Type:8,False,False,False
@@ -7859,12 +7899,12 @@ act:Comment
 "14.Yashiro"
 ElementsCount:0
 END
-Type:28,False,True,False
+Type:28,False,False,False
 Sound_Text3[getcurpl()]
-ElementsCount:3
-Type:29,False,True,False
+ElementsCount:4
+Type:29,False,False,False
 2000ஐTrue
-ElementsCount:2
+ElementsCount:3
 Type:8,False,False,False
 act:PlayWAV
 "yashiro_sss.ogg"
@@ -7875,10 +7915,20 @@ act:SetVariable
 Sound_Text3[getcurpl()]ஐ0ஐ0
 ElementsCount:0
 END
+Type:8,False,False,False
+act:DisplayCText
+"\n\n\x13\x02Yashiro Gaku\n\n\x13\x04그것은 분에 넘치는 소망이다.\n\n"ஐ0
+ElementsCount:0
 END
-Type:29,False,True,False
+END
+Type:29,False,False,False
 2001ஐTrue
-ElementsCount:2
+ElementsCount:3
+Type:8,False,False,False
+act:DisplayCText
+"\n\n\x13\x02Yashiro Gaku\n\n\x13\x04게임 오버다.\n\x13\x04너도, 나도.\n\n"ஐ0
+ElementsCount:0
+END
 Type:8,False,False,False
 act:PlayWAV
 "yashiro_aacc.ogg"
@@ -7890,9 +7940,14 @@ Sound_Text3[getcurpl()]ஐ0ஐ0
 ElementsCount:0
 END
 END
-Type:29,False,True,False
+Type:29,False,False,False
 2002ஐTrue
-ElementsCount:2
+ElementsCount:3
+Type:8,False,False,False
+act:DisplayCText
+"\n\n\x13\x02Yashiro Gaku\n\n\x13\x04너가 손에 넣는 것은 이 마을의 평화다. \n\x13\x04네가 원한 것이 바로 그거잖아?\n\n"ஐ0
+ElementsCount:0
+END
 Type:8,False,False,False
 act:PlayWAV
 "yashiro_ccaa.ogg"
@@ -7904,13 +7959,32 @@ Sound_Text3[getcurpl()]ஐ0ஐ0
 ElementsCount:0
 END
 END
+Type:29,False,False,False
+2003ஐTrue
+ElementsCount:2
+Type:8,False,False,False
+act:DisplayCText
+"\n\n\x13\x02Yashiro Gaku\n\n\x13\x04내가 손에 넣는 것은\n\x13\x04내 손에 의한 나만을 위해 존재하는 죽음이다.\n\n"ஐ0
+ElementsCount:0
 END
-Type:28,False,True,False
+Type:8,False,False,False
+act:SetVariable
+Sound_Text3[getcurpl()]ஐ0ஐ0
+ElementsCount:0
+END
+END
+END
+Type:28,False,False,False
 Sound_Text_Uniq[getcurpl()]
 ElementsCount:10
 Type:29,False,False,False
 14000ஐTrue
-ElementsCount:2
+ElementsCount:3
+Type:8,False,False,False
+act:DisplayCText
+"\n\n\x13\x02Yashiro Gaku\n\n\x13\x04이런 이야기를 믿어 줄 것 같진 않지만, 굳이 말하마.\n\n"ஐ1
+ElementsCount:0
+END
 Type:8,False,False,False
 act:PlayWAV
 "yashiro_u1.ogg"
@@ -7924,7 +7998,12 @@ END
 END
 Type:29,False,False,False
 14001ஐTrue
-ElementsCount:1
+ElementsCount:2
+Type:8,False,False,False
+act:DisplayCText
+"\n\n\x13\x02Yashiro Gaku\n\n\x13\x04아니, 너라면 알아줄 지도 몰라.\n\n"ஐ1
+ElementsCount:0
+END
 Type:8,False,False,False
 act:SetVariable
 Sound_Text_Uniq[getcurpl()]ஐ0ஐ0
@@ -7933,7 +8012,12 @@ END
 END
 Type:29,False,False,False
 14002ஐTrue
-ElementsCount:2
+ElementsCount:3
+Type:8,False,False,False
+act:DisplayCText
+"\n\n\x13\x02Yashiro Gaku\n\n\x13\x03스파이스\x04랑 만난 이후로,\n\n"ஐ1
+ElementsCount:0
+END
 Type:8,False,False,False
 act:PlayWAV
 "yashiro_u2.ogg"
@@ -7947,16 +8031,26 @@ END
 END
 Type:29,False,False,False
 14003ஐTrue
-ElementsCount:1
+ElementsCount:2
+Type:8,False,False,False
+act:DisplayCText
+"\n\n\x13\x02Yashiro Gaku\n\n\x13\x04나에게는 \x17거미줄\x04이 보이게 됐다.\n\n"ஐ1
+ElementsCount:0
+END
 Type:8,False,False,False
 act:SetVariable
 Sound_Text_Uniq[getcurpl()]ஐ0ஐ0
 ElementsCount:0
 END
 END
-Type:29,False,True,False
+Type:29,False,False,False
 14004ஐTrue
-ElementsCount:2
+ElementsCount:3
+Type:8,False,False,False
+act:DisplayCText
+"\n\n\x13\x02Yashiro Gaku\n\n\x13\x04그게 보인 인간을 죽여 왔다.\n\n"ஐ1
+ElementsCount:0
+END
 Type:8,False,False,False
 act:PlayWAV
 "yashiro_u3.ogg"
@@ -7970,7 +8064,12 @@ END
 END
 Type:29,False,False,False
 14005ஐTrue
-ElementsCount:2
+ElementsCount:3
+Type:8,False,False,False
+act:DisplayCText
+"\n\n\x13\x02Yashiro Gaku\n\n\x13\x04그러나 어느 날\n\x13\x04한 명의 소년이 내 계획을 저지했다.\n\n"ஐ1
+ElementsCount:0
+END
 Type:8,False,False,False
 act:PlayWAV
 "yashiro_u4.ogg"
@@ -7982,9 +8081,14 @@ Sound_Text_Uniq[getcurpl()]ஐ0ஐ0
 ElementsCount:0
 END
 END
-Type:29,False,True,False
+Type:29,False,False,False
 14006ஐTrue
-ElementsCount:2
+ElementsCount:3
+Type:8,False,False,False
+act:DisplayCText
+"\n\n\x13\x02Yashiro Gaku\n\n\x13\x04그리고 그 소년의 머리 위에도\n\x13\x17거미줄\x04이 나타났다.\n\n"ஐ1
+ElementsCount:0
+END
 Type:8,False,False,False
 act:PlayWAV
 "yashiro_u5.ogg"
@@ -7998,7 +8102,12 @@ END
 END
 Type:29,False,False,False
 14007ஐTrue
-ElementsCount:2
+ElementsCount:3
+Type:8,False,False,False
+act:DisplayCText
+"\n\n\x13\x02Yashiro Gaku\n\n\x13\x04그러나 그는 죽지 않았다.\n\n"ஐ1
+ElementsCount:0
+END
 Type:8,False,False,False
 act:PlayWAV
 "yashiro_u6.ogg"
@@ -8012,7 +8121,12 @@ END
 END
 Type:29,False,False,False
 14008ஐTrue
-ElementsCount:2
+ElementsCount:3
+Type:8,False,False,False
+act:DisplayCText
+"\n\n\x13\x02Yashiro Gaku\n\n\x13\x04나는 그 녀석을 \x03스파이스\x04라고 이름짓고\n\x13\x04관찰하기로 했다.\n\n"ஐ1
+ElementsCount:0
+END
 Type:8,False,False,False
 act:PlayWAV
 "yashiro_u7.ogg"
@@ -8026,10 +8140,15 @@ END
 END
 Type:29,False,False,False
 14009ஐTrue
-ElementsCount:2
+ElementsCount:3
 Type:8,False,False,False
 act:PlayWAV
 "yashiro_u8.ogg"
+ElementsCount:0
+END
+Type:8,False,False,False
+act:DisplayCText
+"\n\n\x13\x02Yashiro Gaku\n\n\x13\x08그게 너야...\n\n"ஐ1
 ElementsCount:0
 END
 Type:8,False,False,False
