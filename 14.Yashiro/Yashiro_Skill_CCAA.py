@@ -327,6 +327,7 @@ Trigger { -- Skill : S
       LMove(163, 2 * interval, 0);
       MoveUnit(1, "130 + 1n Norad", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro");
       MoveLocation("14.Yashiro", " * Samir Duran", CurrentPlayer, "Anywhere");
+      MoveUnit(All, "40 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro");
       Order("40 + 1n Goliath", CurrentPlayer, "Anywhere", Attack, "Anywhere");
       KillUnitAt(All, "130 + 1n Norad", "Anywhere", CurrentPlayer);
       SetDeaths(CurrentPlayer, Subtract, 1, " `SkillLoop3");
@@ -360,6 +361,7 @@ Trigger { -- Skill : S
       LMove(163, 2 * interval, 0);
       MoveUnit(1, "130 + 1n Norad", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro");
       MoveLocation("14.Yashiro", " * Samir Duran", CurrentPlayer, "Anywhere");
+      MoveUnit(All, "40 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro");
       Order("40 + 1n Goliath", CurrentPlayer, "Anywhere", Attack, "Anywhere");
       KillUnitAt(All, "130 + 1n Norad", "Anywhere", CurrentPlayer);
       SetDeaths(CurrentPlayer, SetTo, 10, " `SkillLoop3");
