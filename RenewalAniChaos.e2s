@@ -1,7 +1,7 @@
 S_ProjectSET
 Version : 0.17.9.7
-InputMap : C:\Users\M\Documents\RenewalAniChaos\NEW!6.scx
-OutputMap : D:\StarCraft\Maps\making\RenewalAniChaos_T_KAT.scx
+InputMap : C:\Users\vocal\Documents\GitHub\RenewalAniChaos\NEW!6.scx
+OutputMap : C:\Users\vocal\Documents\Starcraft\Maps\RenewalAniChaos\RenewalAniChaos_T.scx
 euddraftuse : True
 loadfromCHK : True
 UsedSetting0 : True
@@ -3746,7 +3746,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 7
 ElementsCount:2
 Type:26,False,False,False
@@ -3760,10 +3760,25 @@ END
 END
 Type:27,False,False,False
 ElementsCount:16
+Type:1,False,True,False
+ElementsCount:2
+Type:3,False,False,False
+And
+ElementsCount:1
+Type:7,False,False,False
+con:Bring
+6ஐ1ஐ6ஐ162ஐ153
+ElementsCount:0
+END
+END
+Type:5,False,False,False
+ElementsCount:1
 Type:8,False,False,False
 act:SetScore
 7ஐ1ஐ5ஐ7
 ElementsCount:0
+END
+END
 END
 Type:8,False,False,False
 act:CenterView
@@ -3856,10 +3871,25 @@ END
 END
 Type:27,False,False,False
 ElementsCount:16
+Type:1,False,True,False
+ElementsCount:2
+Type:3,False,False,False
+And
+ElementsCount:1
+Type:7,False,False,False
+con:Bring
+7ஐ1ஐ6ஐ162ஐ153
+ElementsCount:0
+END
+END
+Type:5,False,False,False
+ElementsCount:1
 Type:8,False,False,False
 act:SetScore
 6ஐ1ஐ5ஐ7
 ElementsCount:0
+END
+END
 END
 Type:8,False,False,False
 act:PreserveTrigger
@@ -4532,7 +4562,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 63
 ElementsCount:2
 Type:26,False,False,False
@@ -4614,7 +4644,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 63
 ElementsCount:2
 Type:26,False,False,False
@@ -4690,7 +4720,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 63
 ElementsCount:2
 Type:26,False,False,False
@@ -7640,7 +7670,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 4096
 ElementsCount:2
 Type:26,False,False,False
@@ -7845,7 +7875,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 4096
 ElementsCount:2
 Type:26,False,False,False
