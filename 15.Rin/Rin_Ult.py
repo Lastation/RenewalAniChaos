@@ -152,7 +152,7 @@ Trigger { -- Skill : Combo
       Comment("Skill : Ultimate");
       PreserveTrigger();
       CreateUnit(1, "60 + 1n Archon", "[Skill]Unit_Wait_1", CurrentPlayer);
-      CreateUnit(2, "40 + 1n Mojo", "[Skill]Unit_Wait_1", CurrentPlayer);
+      CreateUnit(1, "40 + 1n Mojo", "[Skill]Unit_Wait_1", CurrentPlayer);
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("15.Rin", "60 + 1n Siege", CurrentPlayer, "Anywhere");
       KillUnitAt(1, "60 + 1n Siege", "Anywhere", CurrentPlayer);
@@ -180,7 +180,7 @@ Trigger { -- Skill : Combo
       Comment("Skill : Ultimate");
       PreserveTrigger();
       CreateUnit(1, "60 + 1n Archon", "[Skill]Unit_Wait_1", CurrentPlayer);
-      CreateUnit(2, "40 + 1n Mojo", "[Skill]Unit_Wait_1", CurrentPlayer);
+      CreateUnit(1, "40 + 1n Mojo", "[Skill]Unit_Wait_1", CurrentPlayer);
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("15.Rin", "100 + 1n Dragoon", CurrentPlayer, "Anywhere");
       KillUnitAt(1, "100 + 1n Dragoon", "Anywhere", CurrentPlayer);
@@ -208,7 +208,7 @@ Trigger { -- Skill : Combo
       Comment("Skill : Ultimate");
       PreserveTrigger();
       CreateUnit(1, "60 + 1n Archon", "[Skill]Unit_Wait_1", CurrentPlayer);
-      CreateUnit(2, "40 + 1n Mojo", "[Skill]Unit_Wait_1", CurrentPlayer);
+      CreateUnit(1, "40 + 1n Mojo", "[Skill]Unit_Wait_1", CurrentPlayer);
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("15.Rin", "60 + 1n High Templar", CurrentPlayer, "Anywhere");
       KillUnitAt(1, "60 + 1n High Templar", "Anywhere", CurrentPlayer);
@@ -236,7 +236,7 @@ Trigger { -- Skill : Combo
       Comment("Skill : Ultimate");
       PreserveTrigger();
       CreateUnit(1, "60 + 1n Archon", "[Skill]Unit_Wait_1", CurrentPlayer);
-      CreateUnit(2, "40 + 1n Mojo", "[Skill]Unit_Wait_1", CurrentPlayer);
+      CreateUnit(1, "40 + 1n Mojo", "[Skill]Unit_Wait_1", CurrentPlayer);
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("15.Rin", "60 + 1n Dragoon", CurrentPlayer, "Anywhere");
       KillUnitAt(1, "60 + 1n Dragoon", "Anywhere", CurrentPlayer);
@@ -281,6 +281,7 @@ Trigger { -- Skill : Combo
       PreserveTrigger();
       MoveLocation("15.Rin", " * Devouring One", CurrentPlayer, "Anywhere");
       Order("40 + 1n Mojo", CurrentPlayer, "Anywhere", Attack, "15.Rin");
+      Wait(50);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop2");
@@ -294,45 +295,7 @@ Trigger { -- Skill : Combo
       Deaths(CurrentPlayer, Exactly, 2000, " * Devouring One");
       Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
       Bring(CurrentPlayer, AtLeast, 1, " * Devouring One", "Anywhere");
-      Deaths(CurrentPlayer, Exactly, 2, " `SkillCount");
-      Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop");
-   },
-   actions = {
-      Comment("Skill : Ultimate");
-      PreserveTrigger();
-      SetDeaths(CurrentPlayer, SetTo, 1, " `SkillLoop3");
-      Wait(200);
-      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop3");
-      MoveLocation("15.Rin", " * Devouring One", CurrentPlayer, "Anywhere");
-      Order("40 + 1n Mojo", CurrentPlayer, "Anywhere", Attack, "15.Rin");
-      Wait(1400);
-      GiveUnits(All, "40 + 1n Mojo", CurrentPlayer, "Anywhere", P7);
-      SetSwitch("JunkYardDog", Set);
-      Wait(0);
-      SetSwitch("JunkYardDog", Clear);
-      GiveUnits(All, "40 + 1n Mojo", P7, "Anywhere", P12);
-      Wait(550);
-      GiveUnits(All, "40 + 1n Mojo", P12, "Anywhere", P7);
-      SetSwitch("JunkYardDog", Set);
-      Wait(0);
-      SetSwitch("JunkYardDog", Clear);
-      GiveUnits(All, "40 + 1n Mojo", P7, "Anywhere", P12);
-      Wait(2050);
-      SetDeaths(CurrentPlayer, SetTo, 1, " `SkillLoop4");
-      Wait(900);
-      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop4");
-      SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
-   },
-}
-
-Trigger { -- Skill : Combo
-   players = {Force1, Force2},
-   conditions = {
-      Deaths(CurrentPlayer, Exactly, 2000, " * Devouring One");
-      Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
-      Bring(CurrentPlayer, AtLeast, 1, " * Devouring One", "Anywhere");
-      Deaths(CurrentPlayer, Exactly, 2, " `SkillCount");
-      Deaths(CurrentPlayer, Exactly, 1, " `SkillLoop3");
+      Deaths(CurrentPlayer, Exactly, 1, " `SkillCount");
    },
    actions = {
       Comment("Skill : Ultimate");
@@ -348,20 +311,58 @@ Trigger { -- Skill : Combo
       Deaths(CurrentPlayer, Exactly, 2000, " * Devouring One");
       Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
       Bring(CurrentPlayer, AtLeast, 1, " * Devouring One", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 2, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      SetDeaths(AllPlayers, SetTo, 15001, " `SkillText_Uiltimate");
+      MoveLocation("15.Rin", " * Devouring One", CurrentPlayer, "Anywhere");
+      Order("40 + 1n Mojo", CurrentPlayer, "Anywhere", Attack, "15.Rin");
+      Wait(800);
+      GiveUnits(All, "40 + 1n Mojo", CurrentPlayer, "Anywhere", P7);
+      SetSwitch("JunkYardDog", Set);
+      Wait(0);
+      SetSwitch("JunkYardDog", Clear);
+      GiveUnits(All, "40 + 1n Mojo", P7, "Anywhere", P12);
+      Wait(550);
+      GiveUnits(All, "40 + 1n Mojo", P12, "Anywhere", P7);
+      SetSwitch("JunkYardDog", Set);
+      Wait(0);
+      SetSwitch("JunkYardDog", Clear);
+      GiveUnits(All, "40 + 1n Mojo", P7, "Anywhere", P12);
+      Wait(2000);
+      SetDeaths(CurrentPlayer, SetTo, 1, " `SkillLoop4");
+      Wait(950);
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop4");
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
+   },
+}
+
+
+
+Trigger { -- Skill : Combo
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 2000, " * Devouring One");
+      Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
+      Bring(CurrentPlayer, AtLeast, 1, " * Devouring One", "Anywhere");
       Deaths(CurrentPlayer, Exactly, 3, " `SkillCount");
       Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop");
    },
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
+      SetDeaths(AllPlayers, SetTo, 15002, " `SkillText_Uiltimate");
       GiveUnits(All, "40 + 1n Mojo", P12, "Anywhere", P7);
       SetSwitch("JunkYardDog", Set);
       Wait(0);
       SetSwitch("JunkYardDog", Clear);
       GiveUnits(All, "40 + 1n Mojo", P7, "Anywhere", P12);
-      Wait(1620);
+      Wait(1500);
       SetDeaths(CurrentPlayer, SetTo, 1, " `SkillLoop4");
-      Wait(1700);
+      Wait(1650);
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop4");
       GiveUnits(All, "40 + 1n Mojo", P12, "Anywhere", P7);
       SetSwitch("JunkYardDog", Set);
@@ -449,6 +450,7 @@ Trigger { -- Skill : Combo
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
+      SetDeaths(AllPlayers, SetTo, 15003, " `SkillText_Uiltimate");
       Wait(1500);
       SetDeaths(CurrentPlayer, SetTo, 1, " `SkillLoop4");
       Wait(1050);
@@ -540,6 +542,7 @@ Trigger { -- Skill : Combo
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
+      SetDeaths(AllPlayers, SetTo, 15004, " `SkillText_Uiltimate");
       Wait(1500);
       SetDeaths(CurrentPlayer, SetTo, 1, " `SkillLoop4");
       Wait(1400);
@@ -631,7 +634,8 @@ Trigger { -- Skill : Combo
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
-      Wait(2000);
+      SetDeaths(AllPlayers, SetTo, 15005, " `SkillText_Uiltimate");
+      Wait(1950);
       GiveUnits(All, "40 + 1n Mojo", P11, "Anywhere", P7);
       GiveUnits(All, "40 + 1n Mojo", P12, "Anywhere", P7);
       SetSwitch("JunkYardDog", Set);
@@ -724,7 +728,8 @@ Trigger { -- Skill : Combo
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
-      Wait(1600);
+      SetDeaths(AllPlayers, SetTo, 15006, " `SkillText_Uiltimate");
+      Wait(1550);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
    },
 }
@@ -743,15 +748,20 @@ Trigger { -- Skill : Combo
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
-      Wait(5400);
+      SetDeaths(AllPlayers, SetTo, 15007, " `SkillText_Uiltimate");
+      Wait(3100);
+      SetDeaths(AllPlayers, SetTo, 15008, " `SkillText_Uiltimate");
+      Wait(2100);
       KillUnitAt(All, "60 + 1n High Templar", "Anywhere", CurrentPlayer);
+      SetDeaths(AllPlayers, SetTo, 15009, " `SkillText_Uiltimate");
       Wait(2200);
       KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", CurrentPlayer);
-      Wait(3000);
+      Wait(2900);
       KillUnitAt(All, "40 + 1n Mojo", "Anywhere", CurrentPlayer);
-      Wait(3000);
+      Wait(3100);
       KillUnitAt(All, "60 + 1n Siege", "Anywhere", CurrentPlayer);
       SetSwitch("Recall - Rin", Clear);
+      SetSwitch("UiltimateSwitch", Clear);
       Wait(500);
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillCount");
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
