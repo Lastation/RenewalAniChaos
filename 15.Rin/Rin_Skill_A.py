@@ -22,12 +22,10 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : A");
       PreserveTrigger();
-      CreateUnit(1, "40 + 1n Mojo", "[Skill]Unit_Wait_8", CurrentPlayer);
       CreateUnit(2, "60 + 1n Danimoth", "[Skill]Unit_Wait_8", CurrentPlayer);
       CreateUnit(2, "60 + 1n Archon", "[Skill]Unit_Wait_8", CurrentPlayer);
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("15.Rin", " * Devouring One", CurrentPlayer, "Anywhere");
-      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "15.Rin");
       LMove(165, x, y);
       MoveUnit(1, "60 + 1n Danimoth", CurrentPlayer, "[Skill]Unit_Wait_ALL", "15.Rin");
       MoveUnit(1, "60 + 1n Archon", CurrentPlayer, "[Skill]Unit_Wait_ALL", "15.Rin");
@@ -38,9 +36,7 @@ Trigger { -- Skill : S
       KillUnitAt(All, "60 + 1n Archon", "Anywhere", CurrentPlayer);
       MoveLocation("15.Rin", " * Devouring One", CurrentPlayer, "Anywhere");
       Order("60 + 1n Danimoth", CurrentPlayer, "Anywhere", Attack, "15.Rin");
-      Order("40 + 1n Mojo", CurrentPlayer, "Anywhere", Attack, "Anywhere");
       Wait(0);
-      RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", CurrentPlayer);
       RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", CurrentPlayer);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
    },

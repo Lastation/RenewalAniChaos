@@ -56,6 +56,7 @@ Trigger { -- Skill : C
       LMove(163, -y2, x2);
       MoveUnit(1, " Creep. Dunkelheit", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro");
       MoveLocation("14.Yashiro", " * Samir Duran", CurrentPlayer, "Anywhere");
+      MoveUnit(All, " Creep. Dunkelheit", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro");
       Order(" Creep. Dunkelheit", CurrentPlayer, "Anywhere", Attack, "14.Yashiro");
       Wait(50);
       KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", CurrentPlayer);
@@ -105,6 +106,7 @@ Trigger { -- Skill : C
       LMove(163, -y2, x2);
       MoveUnit(1, "40 + 1n Ghost", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro");
       MoveLocation("14.Yashiro", " * Samir Duran", CurrentPlayer, "Anywhere");
+      MoveUnit(All, "40 + 1n Ghost", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro");
       Order("40 + 1n Ghost", CurrentPlayer, "Anywhere", Attack, "14.Yashiro");
       Wait(160);
       KillUnitAt(All, "40 + 1n Ghost", "Anywhere", CurrentPlayer);

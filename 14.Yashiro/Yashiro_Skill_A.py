@@ -120,6 +120,7 @@ Trigger { -- Skill : A
       MoveUnit(4, "Protoss Dark Archon", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro");
       KillUnitAt(All, "Protoss Dark Archon", "Anywhere", CurrentPlayer);
       MoveLocation("14.Yashiro", " * Samir Duran", CurrentPlayer, "Anywhere");      
+      MoveUnit(All, " Creep. Dunkelheit", CurrentPlayer, "[Skill]Unit_Wait_ALL", "14.Yashiro");
       Order("50 + 1n Battlecruiser", CurrentPlayer, "Anywhere", Attack, "14.Yashiro");
       Order(" Creep. Dunkelheit", CurrentPlayer, "Anywhere", Attack, "14.Yashiro");
       Wait(120);

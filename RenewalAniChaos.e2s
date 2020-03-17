@@ -53,6 +53,7 @@ S_DatEditSET
 0,8,54,151040
 0,8,74,151040
 0,8,77,151040
+0,8,79,5120000
 0,8,99,166400
 0,8,109,25472000
 0,8,115,-25600
@@ -202,6 +203,7 @@ S_DatEditSET
 0,25,99,2
 0,25,115,-54
 0,26,53,-1
+0,26,79,1
 0,26,98,1
 0,26,109,-3
 0,27,109,-1
@@ -1705,7 +1707,7 @@ ElementsCount:0
 END
 END
 Type:27,False,False,False
-ElementsCount:16
+ElementsCount:17
 Type:1,False,True,False
 ElementsCount:2
 Type:3,False,False,False
@@ -2096,7 +2098,7 @@ ElementsCount:0
 END
 END
 END
-Type:1,False,False,False
+Type:1,False,True,False
 ElementsCount:2
 Type:3,False,False,False
 And
@@ -2117,6 +2119,36 @@ ElementsCount:2
 Type:8,False,False,False
 act:SetVariable
 Hero_Index[getcurpl()]ஐ14ஐ0
+ElementsCount:0
+END
+Type:8,False,False,False
+act:SetVariable
+Hero_Text[getcurpl()]ஐHero_Index[getcurpl()]ஐ0
+ElementsCount:0
+END
+END
+END
+Type:1,False,False,False
+ElementsCount:2
+Type:3,False,False,False
+And
+ElementsCount:2
+Type:7,False,False,False
+con:Bring
+13ஐ0ஐ1ஐ15ஐ166
+ElementsCount:0
+END
+Type:7,False,False,False
+con:Variable
+Hero_Index[getcurpl()]ஐ15ஐ1
+ElementsCount:0
+END
+END
+Type:5,False,False,False
+ElementsCount:2
+Type:8,False,False,False
+act:SetVariable
+Hero_Index[getcurpl()]ஐ15ஐ0
 ElementsCount:0
 END
 Type:8,False,False,False
@@ -3790,7 +3822,12 @@ ElementsCount:0
 END
 END
 Type:27,False,False,False
-ElementsCount:2
+ElementsCount:3
+Type:8,False,False,False
+act:PreserveTrigger
+None
+ElementsCount:0
+END
 Type:8,False,False,False
 act:Comment
 "System : DeadTextOre"
@@ -8079,7 +8116,7 @@ END
 END
 Type:28,False,False,False
 Sound_Text_Uniq[getcurpl()]
-ElementsCount:10
+ElementsCount:12
 Type:29,False,False,False
 14000ஐTrue
 ElementsCount:3
@@ -8252,6 +8289,44 @@ END
 Type:8,False,False,False
 act:DisplayCText
 "\n\n\x13\x02Yashiro Gaku\n\x13\x08그게 너야...\n\n"ஐ1
+ElementsCount:0
+END
+Type:8,False,False,False
+act:SetVariable
+Sound_Text_Uniq[getcurpl()]ஐ0ஐ0
+ElementsCount:0
+END
+END
+Type:29,False,False,False
+14010ஐTrue
+ElementsCount:3
+Type:8,False,False,False
+act:DisplayCText
+"\n\n\n\n\x13\x02Yashiro Gaku\n\x13\x04그런 게 있을 리가 없잖냐\n\n\n\n"ஐ1
+ElementsCount:0
+END
+Type:8,False,False,False
+act:PlayWAV
+"yashiro_o_active.ogg"
+ElementsCount:0
+END
+Type:8,False,False,False
+act:SetVariable
+Sound_Text_Uniq[getcurpl()]ஐ0ஐ0
+ElementsCount:0
+END
+END
+Type:29,False,False,False
+14012ஐTrue
+ElementsCount:3
+Type:8,False,False,False
+act:PlayWAV
+"yashiro_o_end.ogg"
+ElementsCount:0
+END
+Type:8,False,False,False
+act:DisplayCText
+"\n\n\x13\x02Yashiro Gaku\n\x13\x04이건 나에게도 이판사판의 도박이었다\n\n"ஐ1
 ElementsCount:0
 END
 Type:8,False,False,False
@@ -9355,7 +9430,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,True,False
+Type:24,False,False,False
 63
 ElementsCount:2
 Type:26,False,False,False
@@ -9376,7 +9451,7 @@ Type:27,False,False,False
 ElementsCount:3
 Type:8,False,False,False
 act:DisplayCText
-"\x13\x1F#\x04 Now BGM : \x04Codeko - Crest [\x1FNCS Release\x04]"ஐ0
+"\x13\x1F#\x04 Now BGM : \x04「\x1FC\x04yberangel」 - \x1CH\x04onkai Impact 3"ஐ0
 ElementsCount:0
 END
 Type:8,False,False,False
@@ -9391,7 +9466,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,True,False
+Type:24,False,False,False
 63
 ElementsCount:2
 Type:26,False,False,False
@@ -9417,7 +9492,7 @@ Type:27,False,False,False
 ElementsCount:4
 Type:8,False,False,False
 act:DisplayCText
-"\x13\x1F#\x04 Now BGM : \x04Codeko - Crest [\x1FNCS Release\x04]"ஐ0
+"\x13\x1F#\x04 Now BGM : \x04「\x1FC\x04yberangel」 - \x1CH\x04onkai Impact 3"ஐ0
 ElementsCount:0
 END
 Type:8,False,False,False
@@ -9437,7 +9512,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,True,False
+Type:24,False,False,False
 63
 ElementsCount:2
 Type:26,False,False,False
