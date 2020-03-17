@@ -8,6 +8,7 @@ Trigger { -- Skill : Combo
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
+      KillUnit("Protoss Observer", CurrentPlayer);
       MoveLocation("15.Rin_Bozo", " * Devouring One", CurrentPlayer, "Anywhere");
       ModifyUnitShields(All, " * Devouring One", CurrentPlayer, "Anywhere", 1);
    },
