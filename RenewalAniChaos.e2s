@@ -4184,7 +4184,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,True,False
+Type:24,False,False,False
 7
 ElementsCount:2
 Type:26,False,False,False
@@ -4383,7 +4383,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,True,False
+Type:24,False,False,False
 56
 ElementsCount:2
 Type:26,False,False,False
@@ -4396,7 +4396,7 @@ ElementsCount:0
 END
 END
 Type:27,False,False,False
-ElementsCount:20
+ElementsCount:19
 Type:1,False,True,False
 ElementsCount:2
 Type:3,False,False,False
@@ -4528,11 +4528,6 @@ END
 Type:8,False,False,False
 act:SetVariable
 Team_Numஐ1ஐ0
-ElementsCount:0
-END
-Type:8,False,False,False
-act:SetDeaths
-13ஐ0ஐ120 + Level[getcurpl()] * 12ஐ210
 ElementsCount:0
 END
 Type:8,False,False,False
