@@ -997,7 +997,7 @@ projectsceneData 0binDataCount : 26
 E_BinEditSET
 S_SoundPlayerSET
 Soundinterval : 11
-C:\Users\M\Documents\카카오톡 받은 파일\BGM1.ogg
+C:\Users\vocal\Documents\GitHub\RenewalAniChaos\BGM1.ogg
 E_SoundPlayerSET
 S_GRPEditorSET
 GRPEditorDATCount : 0
@@ -1299,7 +1299,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 63
 ElementsCount:2
 Type:26,False,False,False
@@ -1330,7 +1330,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 63
 ElementsCount:2
 Type:26,False,False,False
@@ -3172,7 +3172,7 @@ Type:29,False,False,False
 ElementsCount:1
 Type:8,False,False,False
 act:DisplayCText
-"\n\x13\x17[ \x04히나나위 텐시 \x17]\n\x13\x04- \x17동방 스카이 아레나 \x04-\n\n\x13\x17모든전투\x04에 특화 되어있습니다.\n\x13\x04처음하는 플레이어에게 추천합니다.\n\n\x13\x1F#\x04공성특화 \x1F#\x04설치 \x1F#\x04만능 \x1F#\x04조작보통\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"ஐ1
+"\n\x13\x17[ \x04히나나위 텐시 \x17]\n\x13\x04- \x17동방 스카이 아레나 \x04-\n\n\x13\x17모든전투\x04에 특화 되어있습니다.\n\x13\x04처음하는 플레이어에게 추천합니다.\n\n\x13\x1F#\x04설치 \x1F#\x04만능 \x1F#\x04조작보통\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"ஐ1
 ElementsCount:0
 END
 END
@@ -3190,7 +3190,7 @@ Type:29,False,False,False
 ElementsCount:1
 Type:8,False,False,False
 act:DisplayCText
-"\n\x13\x17[ \x04네게브 \x17]\n\x13\x04- \x17소녀전선 \x04-\n\n\x13\x17모든전투\x04에 특화 되어있습니다.\n\x13\x04적응된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04조작보통\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"ஐ1
+"\n\x13\x17[ \x04네게브 \x17]\n\x13\x04- \x17소녀전선 \x04-\n\n\x13\x17공성전\x04에 특화 되어있습니다.\n\x13\x04적응된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04공성 \x1F#\x04순간딜 \x1F#\x04조작보통\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"ஐ1
 ElementsCount:0
 END
 END
@@ -3329,7 +3329,7 @@ Type:27,False,False,False
 ElementsCount:3
 Type:8,False,False,False
 act:DisplayCText
-"\x13\x1F[S] : \x1B원거리에서 업그레이드\x04가 가능해집니다.\n\x13\x19레벨\x04당 영웅 방어력이 1 증가합니다.\n\x13\x19팀원포함 최대 업그레이드\x04가 스킬공격력이 2, 영웅방어력이 1 증가합니다. [\x17Max 1\x04]\n\n\x13\x1F[C] : \x1B마나디스크\x04를 하나 가지고 시작합니다.\n\x13\x1915 레벨 \x04이후 1분마다 팀원과 자신의 마나가 \x17200 \x04회복됩니다. [\x17Max 500\x04]\n\n\x13\x1F[A] : \x041분 마다 궁극기 게이지가 \x1910 \x04회복됩니다.\n\x13\x1920 레벨 \x04이전 \x1B마나 최대치\x04가 레벨당 \x1710 \x04추가로 증가합니다."ஐ1
+"\x13\x1F[S] : \x1B원거리에서 업그레이드\x04가 가능해집니다.\n\x13\x19레벨\x04당 영웅 방어력이 1 증가합니다.\n\x13\x19팀원포함 최대 업그레이드\x04가 공격력이 2, 방어력이 1 증가합니다. [\x17Max 1\x04]\n\n\x13\x1F[C] : \x1B마나디스크\x04를 하나 가지고 시작합니다.\n\x13\x1915 레벨 \x04이후 1분마다 마나가 \x17200/300/400 \x04회복됩니다.\n\n\x13\x1F[A] : \x041분 마다 궁극기 게이지가 \x1910 \x04회복됩니다.\n\x13\x1920 레벨 \x04이전 \x1B마나 최대치\x04가 레벨당 \x1710 \x04추가로 증가합니다."ஐ1
 ElementsCount:0
 END
 Type:8,False,False,False
@@ -3365,7 +3365,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 7
 ElementsCount:2
 Type:26,False,False,False
@@ -3674,7 +3674,7 @@ END
 Type:24,False,True,False
 63
 ElementsCount:2
-Type:26,False,True,False
+Type:26,False,False,False
 And
 ElementsCount:1
 Type:7,False,False,False
@@ -3683,9 +3683,9 @@ con:Deaths
 ElementsCount:0
 END
 END
-Type:27,False,True,False
+Type:27,False,False,False
 ElementsCount:4
-Type:1,False,True,False
+Type:1,False,False,False
 ElementsCount:2
 Type:3,False,False,False
 And
@@ -3710,7 +3710,7 @@ ElementsCount:0
 END
 END
 END
-Type:1,False,True,False
+Type:1,False,False,False
 ElementsCount:2
 Type:3,False,False,False
 And
@@ -3760,10 +3760,10 @@ ElementsCount:0
 END
 END
 Type:27,False,False,False
-ElementsCount:10
+ElementsCount:9
 Type:8,False,False,False
 act:SetVariable
-Mana_Property[getcurpl()]ஐ0ஐ0
+Mana_Property[getcurpl()]ஐ100ஐ0
 ElementsCount:0
 END
 Type:1,False,False,False
@@ -3786,7 +3786,7 @@ Type:5,False,False,False
 ElementsCount:1
 Type:8,False,False,False
 act:SetVariable
-Mana_Property[getcurpl()]ஐ200ஐ1
+Mana_Property[getcurpl()]ஐ100ஐ1
 ElementsCount:0
 END
 END
@@ -3811,7 +3811,7 @@ Type:5,False,False,False
 ElementsCount:1
 Type:8,False,False,False
 act:SetVariable
-Mana_Property[getcurpl()]ஐ200ஐ1
+Mana_Property[getcurpl()]ஐ100ஐ1
 ElementsCount:0
 END
 END
@@ -3836,27 +3836,7 @@ Type:5,False,False,False
 ElementsCount:1
 Type:8,False,False,False
 act:SetVariable
-Mana_Property[getcurpl()]ஐ200ஐ1
-ElementsCount:0
-END
-END
-END
-Type:1,False,False,False
-ElementsCount:2
-Type:3,False,False,False
-And
-ElementsCount:1
-Type:7,False,False,False
-con:Variable
-Mana_Property[getcurpl()]ஐ500ஐ2
-ElementsCount:0
-END
-END
-Type:5,False,False,False
-ElementsCount:1
-Type:8,False,False,False
-act:SetVariable
-Mana_Property[getcurpl()]ஐ500ஐ0
+Mana_Property[getcurpl()]ஐ100ஐ1
 ElementsCount:0
 END
 END
@@ -3901,10 +3881,10 @@ ElementsCount:0
 END
 END
 Type:27,False,False,False
-ElementsCount:10
+ElementsCount:9
 Type:8,False,False,False
 act:SetVariable
-Mana_Property[getcurpl()]ஐ0ஐ0
+Mana_Property[getcurpl()]ஐ100ஐ0
 ElementsCount:0
 END
 Type:1,False,False,False
@@ -3927,7 +3907,7 @@ Type:5,False,False,False
 ElementsCount:1
 Type:8,False,False,False
 act:SetVariable
-Mana_Property[getcurpl()]ஐ200ஐ1
+Mana_Property[getcurpl()]ஐ100ஐ1
 ElementsCount:0
 END
 END
@@ -3952,7 +3932,7 @@ Type:5,False,False,False
 ElementsCount:1
 Type:8,False,False,False
 act:SetVariable
-Mana_Property[getcurpl()]ஐ200ஐ1
+Mana_Property[getcurpl()]ஐ100ஐ1
 ElementsCount:0
 END
 END
@@ -3977,27 +3957,7 @@ Type:5,False,False,False
 ElementsCount:1
 Type:8,False,False,False
 act:SetVariable
-Mana_Property[getcurpl()]ஐ200ஐ1
-ElementsCount:0
-END
-END
-END
-Type:1,False,False,False
-ElementsCount:2
-Type:3,False,False,False
-And
-ElementsCount:1
-Type:7,False,False,False
-con:Variable
-Mana_Property[getcurpl()]ஐ500ஐ2
-ElementsCount:0
-END
-END
-Type:5,False,False,False
-ElementsCount:1
-Type:8,False,False,False
-act:SetVariable
-Mana_Property[getcurpl()]ஐ500ஐ0
+Mana_Property[getcurpl()]ஐ100ஐ1
 ElementsCount:0
 END
 END
@@ -4184,7 +4144,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,True,False
+Type:24,False,False,False
 7
 ElementsCount:2
 Type:26,False,False,False
@@ -4258,7 +4218,7 @@ ElementsCount:0
 END
 END
 END
-Type:2,False,False,False
+Type:2,False,True,False
 ElementsCount:3
 Type:3,False,False,False
 And
@@ -4383,7 +4343,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,True,False
+Type:24,False,False,False
 56
 ElementsCount:2
 Type:26,False,False,False
@@ -4396,7 +4356,7 @@ ElementsCount:0
 END
 END
 Type:27,False,False,False
-ElementsCount:20
+ElementsCount:19
 Type:1,False,True,False
 ElementsCount:2
 Type:3,False,False,False
@@ -4457,7 +4417,7 @@ ElementsCount:0
 END
 END
 END
-Type:2,False,False,False
+Type:2,False,True,False
 ElementsCount:3
 Type:3,False,False,False
 And
@@ -4528,11 +4488,6 @@ END
 Type:8,False,False,False
 act:SetVariable
 Team_Numஐ1ஐ0
-ElementsCount:0
-END
-Type:8,False,False,False
-act:SetDeaths
-13ஐ0ஐ120 + Level[getcurpl()] * 12ஐ210
 ElementsCount:0
 END
 Type:8,False,False,False
@@ -5206,7 +5161,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 4096
 ElementsCount:2
 Type:26,False,False,False
@@ -9262,7 +9217,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,True,False
+Type:24,False,False,False
 4096
 ElementsCount:2
 Type:26,False,True,False
@@ -9417,7 +9372,7 @@ ElementsCount:0
 END
 END
 END
-Type:28,False,True,False
+Type:28,False,False,False
 Sound_Text_Uniq[getcurpl()]
 ElementsCount:25
 Type:29,False,False,False
