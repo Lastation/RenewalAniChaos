@@ -1,7 +1,7 @@
 S_ProjectSET
 Version : 0.17.9.7
-InputMap : C:\Users\vocal\Documents\GitHub\RenewalAniChaos\NEW!6.scx
-OutputMap : C:\Users\vocal\Documents\Starcraft\Maps\RenewalAniChaos\RenewalAniChaos_T.scx
+InputMap : C:\Users\M\Documents\RenewalAniChaos\NEW!6.scx
+OutputMap : D:\StarCraft\Maps\making\RenewalAniChaos_T_KAT.scx
 euddraftuse : True
 loadfromCHK : True
 UsedSetting0 : True
@@ -1217,7 +1217,7 @@ END
 
 &RawTriggers&
 Type:25,False,False,False
-ElementsCount:109
+ElementsCount:108
 Type:24,False,False,False
 63
 ElementsCount:2
@@ -1341,32 +1341,6 @@ END
 Type:8,False,False,False
 act:SetUpgrade
 13ஐ0ஐ0ஐ60ஐ0
-ElementsCount:0
-END
-END
-END
-Type:24,False,True,False
-63
-ElementsCount:2
-Type:26,False,False,False
-And
-ElementsCount:1
-Type:7,False,False,False
-con:ElapsedTime
-0ஐ3780
-ElementsCount:0
-END
-END
-Type:27,False,False,False
-ElementsCount:2
-Type:8,False,False,False
-act:Comment
-"System : Timeout Setting"
-ElementsCount:0
-END
-Type:8,False,False,False
-act:DisplayCText
-"\n\n\x13\x19[ \x04게임 시작후 45분이 지났습니다. \x19]\n\n\x13\x04잠시 후 5분뒤 \x19서든데스 \x04시스템이 적용됩니다.\n\n\x13\x04모든 방어건물이 제거되며, 신전과 수호자만 남게됩니다.\n\x13\x04파괴하지 못한 건물의 돈은 받지 못합니다.\n\n"ஐDisplayOption
 ElementsCount:0
 END
 END
