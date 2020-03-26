@@ -450,7 +450,7 @@ Trigger { -- Skill : S
 }
 
 Trigger { -- Skill : S
-   players = {Force1, Force2},
+   players = {Force1},
    conditions = {
       Deaths(CurrentPlayer, Exactly, 4000, " * Sarah Kerrigan");
       Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
@@ -466,6 +466,35 @@ Trigger { -- Skill : S
       Wait(0);
       SetSwitch("JunkYardDog", Clear);
       GiveUnits(All, "80 + 1n Artanis", P7, "Anywhere", P12);
+      Wait(1500);
+      GiveUnits(All, "80 + 1n Artanis", P12, "Anywhere", CurrentPlayer);
+      MoveLocation("16.Seraphim", " * Sarah Kerrigan", CurrentPlayer, "Anywhere");
+      Order("80 + 1n Artanis", CurrentPlayer, "Anywhere", Attack, "16.Seraphim");
+      Wait(0);
+      GiveUnits(All, "80 + 1n Artanis", CurrentPlayer, "Anywhere", P12);
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop2");
+   },
+}
+
+Trigger { -- Skill : S
+   players = {Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Sarah Kerrigan");
+      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
+      Bring(CurrentPlayer, AtLeast, 1, " * Sarah Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 3, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      GiveUnits(All, "80 + 1n Artanis", CurrentPlayer, "Anywhere", P8);
+      SetSwitch("JunkYardDog", Set);
+      Wait(0);
+      SetSwitch("JunkYardDog", Clear);
+      GiveUnits(All, "80 + 1n Artanis", P8, "Anywhere", P12);
       Wait(1500);
       GiveUnits(All, "80 + 1n Artanis", P12, "Anywhere", CurrentPlayer);
       MoveLocation("16.Seraphim", " * Sarah Kerrigan", CurrentPlayer, "Anywhere");

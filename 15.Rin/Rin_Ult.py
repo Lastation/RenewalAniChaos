@@ -307,7 +307,7 @@ Trigger { -- Skill : Combo
 }
 
 Trigger { -- Skill : Combo
-   players = {Force1, Force2},
+   players = {Force1},
    conditions = {
       Deaths(CurrentPlayer, Exactly, 2000, " * Devouring One");
       Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
@@ -333,6 +333,41 @@ Trigger { -- Skill : Combo
       Wait(0);
       SetSwitch("JunkYardDog", Clear);
       GiveUnits(All, "40 + 1n Mojo", P7, "Anywhere", P12);
+      Wait(2000);
+      SetDeaths(CurrentPlayer, SetTo, 1, " `SkillLoop4");
+      Wait(950);
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop4");
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
+   },
+}
+
+Trigger { -- Skill : Combo
+   players = {Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 2000, " * Devouring One");
+      Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
+      Bring(CurrentPlayer, AtLeast, 1, " * Devouring One", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 2, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      SetDeaths(AllPlayers, SetTo, 15001, " `SkillText_Uiltimate");
+      MoveLocation("15.Rin", " * Devouring One", CurrentPlayer, "Anywhere");
+      Order("40 + 1n Mojo", CurrentPlayer, "Anywhere", Attack, "15.Rin");
+      Wait(800);
+      GiveUnits(All, "40 + 1n Mojo", CurrentPlayer, "Anywhere", P8);
+      SetSwitch("JunkYardDog", Set);
+      Wait(0);
+      SetSwitch("JunkYardDog", Clear);
+      GiveUnits(All, "40 + 1n Mojo", P8, "Anywhere", P12);
+      Wait(550);
+      GiveUnits(All, "40 + 1n Mojo", P12, "Anywhere", P8);
+      SetSwitch("JunkYardDog", Set);
+      Wait(0);
+      SetSwitch("JunkYardDog", Clear);
+      GiveUnits(All, "40 + 1n Mojo", P8, "Anywhere", P12);
       Wait(2000);
       SetDeaths(CurrentPlayer, SetTo, 1, " `SkillLoop4");
       Wait(950);
