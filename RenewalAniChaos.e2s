@@ -1014,15 +1014,15 @@ ProjectMTXMDATACount : 49152
 ProjectMTXMDATAArray : 
 E_TileSET
 S_SCDBSet
-SCDBDeath : 0
+SCDBDeath : 
 SCDBLoc : 0
-SCDBVariable : 0
+SCDBVariable : Rusaruka_EXP[getcurpl()]
 SCDBLocLoad : 0
-SCDBUse : False
+SCDBUse : True
 SCDBSerial : 0
-SCDBMaker : 0
-SCDBMapName : 0
-SCDBDataSize : 0
+SCDBMaker : LeyKat
+SCDBMapName : RenewalAniChaos
+SCDBDataSize : 4
 E_SCDBSet
 S_FileManagerSET
 statlang : 0
@@ -1087,7 +1087,7 @@ END
 
 &GlobalVar&
 Type:0,False,False,False
-ElementsCount:25
+ElementsCount:29
 Type:8,False,False,False
 act:CreatePlayerVariable
 Unit_Deathஐ0
@@ -1213,11 +1213,31 @@ act:CreatePlayerVariable
 Unit_HPஐ0
 ElementsCount:0
 END
+Type:8,False,False,False
+act:CreatePlayerVariable
+Rusaruka_EXPஐ0
+ElementsCount:0
+END
+Type:8,False,False,False
+act:CreatePlayerVariable
+SCDB_Retryஐ0
+ElementsCount:0
+END
+Type:8,False,False,False
+act:CreatePlayerVariable
+SCDB_Saveஐ0
+ElementsCount:0
+END
+Type:8,False,False,False
+act:CreatePlayerVariable
+SCDB_Loadஐ0
+ElementsCount:0
+END
 END
 
 &RawTriggers&
 Type:25,False,False,False
-ElementsCount:109
+ElementsCount:113
 Type:24,False,False,False
 63
 ElementsCount:2
@@ -3297,7 +3317,7 @@ Type:29,False,False,False
 ElementsCount:2
 Type:8,False,False,False
 act:DisplayCText
-"\n\x13\x17[ \x04루살카 슈베게린 \x17]\n\x13\x04- \x17Dies irae \x04-\n\n\x13\x17공성전\x04에 특화 되어있습니다.\n\x13\x04처음하는 플레이어에게 추천합니다.\n\n\x13\x1F#\x04공성특화 \x1F#\x04만능 \x1F#\x04조작쉬움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"ஐ1
+"\n\x13\x17[ \x04루살카 슈베게린 \x17]\n\x13\x04- \x17Dies irae \x04-\n\n\x13\x17공성전\x04에 특화 되어있습니다.\n\x13\x04처음하는 플레이어에게 추천합니다.\n\n\x13\x1F#\x04공성특화 \x1F#\x04만능 \x1F#\x04조작쉬움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n\x13\x04{C:Rusaruka_EXP[getcurpl()]}"ஐ1
 ElementsCount:0
 END
 Type:8,False,False,False
@@ -3463,7 +3483,7 @@ END
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 7
 ElementsCount:2
 Type:26,False,False,False
@@ -3668,7 +3688,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 56
 ElementsCount:2
 Type:26,False,False,False
@@ -10370,7 +10390,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 4096
 ElementsCount:2
 Type:26,False,True,False
@@ -11518,6 +11538,105 @@ ElementsCount:0
 END
 END
 END
+Type:24,False,True,False
+4096
+ElementsCount:2
+Type:26,False,False,False
+And
+ElementsCount:1
+Type:7,False,False,False
+con:Never
+None
+ElementsCount:0
+END
+END
+Type:27,False,False,False
+ElementsCount:1
+Type:8,False,False,False
+act:Comment
+"==================================================="
+ElementsCount:0
+END
+END
+END
+Type:24,False,True,False
+4096
+ElementsCount:2
+Type:26,False,False,False
+And
+ElementsCount:1
+Type:7,False,False,False
+con:Never
+None
+ElementsCount:0
+END
+END
+Type:27,False,False,False
+ElementsCount:1
+Type:8,False,False,False
+act:Comment
+"==================================================="
+ElementsCount:0
+END
+END
+END
+Type:24,False,False,False
+63
+ElementsCount:2
+Type:26,False,False,False
+And
+ElementsCount:1
+Type:7,False,False,False
+con:Switch
+255ஐ0
+ElementsCount:0
+END
+END
+Type:27,False,False,False
+ElementsCount:4
+Type:8,False,False,False
+act:SetVariable
+Rusaruka_EXP[getcurpl()]ஐ1ஐ1
+ElementsCount:0
+END
+Type:8,False,False,False
+act:DisplayCText
+"\x13\x04{C:Rusaruka_EXP[getcurpl()]}"ஐ0
+ElementsCount:0
+END
+Type:8,False,False,False
+act:SCDB:SaveData
+None
+ElementsCount:0
+END
+Type:8,False,False,False
+act:Comment
+"System : SCDB Save"
+ElementsCount:0
+END
+END
+END
+Type:24,False,True,False
+4096
+ElementsCount:2
+Type:26,False,False,False
+And
+ElementsCount:1
+Type:7,False,False,False
+con:Never
+None
+ElementsCount:0
+END
+END
+Type:27,False,False,False
+ElementsCount:1
+Type:8,False,False,False
+act:Comment
+"==================================================="
+ElementsCount:0
+END
+END
+END
 END
 
 &onPluginStart&
@@ -11532,7 +11651,188 @@ END
 
 &afterTriggerExec&
 Type:0,False,False,False
+ElementsCount:1
+Type:10,False,False,False
+PlayerLoopஐ1,1,1,1,1,1,0,0,0,0,0,0ஐ10
+ElementsCount:1
+Type:14,False,False,False
+ElementsCount:2
+Type:21,False,False,False
+//Saveஐ//SaveஐFalse
+ElementsCount:1
+Type:22,False,False,False
+ElementsCount:1
+Type:1,False,False,False
+ElementsCount:2
+Type:3,False,False,False
+And
+ElementsCount:2
+Type:7,False,False,False
+con:Switch
+255ஐ0
 ElementsCount:0
+END
+Type:7,False,False,False
+con:Variable
+SCDB_Save[getcurpl()]ஐ0ஐ0
+ElementsCount:0
+END
+END
+Type:5,False,False,False
+ElementsCount:2
+Type:8,False,False,False
+act:SetVariable
+SCDB_Save[getcurpl()]ஐ1ஐ0
+ElementsCount:0
+END
+Type:8,False,False,False
+act:SCDB:SaveData
+None
+ElementsCount:0
+END
+END
+END
+END
+END
+Type:21,False,False,False
+//Loadஐ//LoadஐFalse
+ElementsCount:1
+Type:22,False,False,False
+ElementsCount:4
+Type:1,False,False,False
+ElementsCount:2
+Type:3,False,False,False
+And
+ElementsCount:2
+Type:7,False,False,False
+con:Switch
+255ஐ1
+ElementsCount:0
+END
+Type:7,False,False,False
+con:Variable
+SCDB_Load[getcurpl()]ஐ0ஐ0
+ElementsCount:0
+END
+END
+Type:5,False,False,False
+ElementsCount:2
+Type:8,False,False,False
+act:SetVariable
+SCDB_Load[getcurpl()]ஐ1ஐ0
+ElementsCount:0
+END
+Type:8,False,False,False
+act:SCDB:LoadData
+None
+ElementsCount:0
+END
+END
+END
+Type:1,False,False,False
+ElementsCount:2
+Type:3,False,False,False
+And
+ElementsCount:3
+Type:7,False,False,False
+con:Switch
+255ஐ1
+ElementsCount:0
+END
+Type:7,False,False,False
+con:Variable
+SCDB_Retry[getcurpl()]ஐ0ஐ0
+ElementsCount:0
+END
+Type:7,False,False,False
+con:SCDB:Connect
+3
+ElementsCount:0
+END
+END
+Type:5,False,False,False
+ElementsCount:1
+Type:8,False,False,False
+act:DisplayCText
+"\n\x13\x19잠시만 기다려주세요.\n\x13\x1F데이터\x04를 로딩중입니다."ஐ1
+ElementsCount:0
+END
+END
+END
+Type:1,False,False,False
+ElementsCount:2
+Type:3,False,False,False
+And
+ElementsCount:4
+Type:7,False,False,False
+con:Switch
+255ஐ1
+ElementsCount:0
+END
+Type:7,False,False,False
+con:Variable
+SCDB_Retry[getcurpl()]ஐ0ஐ0
+ElementsCount:0
+END
+Type:7,False,False,False
+con:SCDB:Connect
+1
+ElementsCount:0
+END
+Type:7,False,False,False
+con:SCDB:Msg
+2
+ElementsCount:0
+END
+END
+Type:5,False,False,False
+ElementsCount:1
+Type:8,False,False,False
+act:DisplayCText
+"\n\x13\x19잠시만 기다려주세요.\n\x13\x1F다른유저\x04의 로딩을 기다리는 중입니다.\n\n\n\x13\x04저장된 \x19데이터\x04가 없음을 확인했습니다.\n\x13\x04\x19[ \x04최초 실행 \x19]"ஐ1
+ElementsCount:0
+END
+END
+END
+Type:1,False,False,False
+ElementsCount:2
+Type:3,False,False,False
+And
+ElementsCount:4
+Type:7,False,False,False
+con:Switch
+255ஐ1
+ElementsCount:0
+END
+Type:7,False,False,False
+con:Variable
+SCDB_Retry[getcurpl()]ஐ0ஐ0
+ElementsCount:0
+END
+Type:7,False,False,False
+con:SCDB:Connect
+1
+ElementsCount:0
+END
+Type:7,False,False,False
+con:SCDB:Msg
+5
+ElementsCount:0
+END
+END
+Type:5,False,False,False
+ElementsCount:1
+Type:8,False,False,False
+act:DisplayCText
+"\n\x13\x19잠시만 기다려주세요.\n\x13\x1F다른유저\x04의 로딩을 기다리는 중입니다.\n\n\n\x13\x04저장된 \x19데이터\x04를 불러오는데 성공했습니다.\n\x13\x04\x19[ \x04데이터 로딩 완료 \x19]"ஐ1
+ElementsCount:0
+END
+END
+END
+END
+END
+END
+END
 END
 
 
@@ -11548,8 +11848,8 @@ iscriptPatcher :
 iscriptPatcheruse : False
 unpatcher : 
 unpatcheruse : False
-nqcuse : False
-nqcunit : 58
+nqcuse : True
+nqcunit : 147
 nqclocs : 
 nqccommands : 
 grpinjectoruse : False
