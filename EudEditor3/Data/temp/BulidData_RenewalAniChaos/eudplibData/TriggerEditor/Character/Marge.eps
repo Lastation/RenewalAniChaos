@@ -1,0 +1,113 @@
+import Variable as v;
+
+import Character.CharacterText1.Rusaruka	as rusaruka;
+import Character.CharacterText1.Chtholly 		as chtholly;
+import Character.CharacterText1.Maihime 	as maihime;
+import Character.CharacterText1.Tenshi 		as tenshi;
+import Character.CharacterText1.Miyuki 		as miyuki;
+import Character.CharacterText1.Negev 		as negev;
+
+import Character.CharacterText2.Cecillia 		as cecillia;
+import Character.CharacterText2.Anzu 		as anzu;
+import Character.CharacterText2.HotoMoka 	as hotomoka;
+import Character.CharacterText2.Altherego 	as alterego;
+import Character.CharacterText2.Ryuzu 		as ryuzu;
+import Character.CharacterText2.Kurumi 		as kurumi;
+
+import Character.CharacterText3.Sakura 		as sakura;
+import Character.CharacterText3.Yashiro 		as yashiro;
+import Character.CharacterText3.Rin 			as rin;
+import Character.CharacterText3.Seraphim 	as seraphim;
+import Character.CharacterText3.Kiana 		as kiana;
+import Character.CharacterText3.Tenkei 		as tenkei;
+
+const cp = getcurpl();
+
+function MargeSound()
+{
+	// 1 ~ 6
+	if (v.Sound_Text1[cp] != 0)
+	{
+		rusaruka.NormalText(cp);
+		chtholly.NormalText(cp);
+		maihime.NormalText(cp);
+		tenshi.NormalText(cp);
+		miyuki.NormalText(cp);
+		negev.NormalText(cp);
+	}
+	
+	// 7 ~ 12
+	if (v.Sound_Text2[cp] != 0)
+	{
+		cecillia.NormalText(cp);
+		anzu.NormalText(cp);
+		hotomoka.NormalText(cp);
+		alterego.NormalText(cp);
+		ryuzu.NormalText(cp);
+		//kurumi.NormalText(cp);
+	}
+	
+	// 13 ~ 18
+	if (v.Sound_Text3[cp] != 0)
+	{
+		sakura.NormalText(cp);
+		yashiro.NormalText(cp);
+		rin.NormalText(cp);
+		seraphim.NormalText(cp);
+		kiana.NormalText(cp);
+		tenkei.NormalText(cp);
+	}
+	
+	if (v.Sound_Text_Uilti[cp] != 0)
+	{
+		// 1 ~ 6
+		rusaruka.UiltimateText(cp);
+		chtholly.UiltimateText(cp);
+		maihime.UiltimateText(cp);
+		tenshi.UiltimateText(cp);
+		miyuki.UiltimateText(cp);
+		negev.UiltimateText(cp);
+		
+		// 7 ~ 12
+		cecillia.UiltimateText(cp);
+		anzu.UiltimateText(cp);
+		hotomoka.UiltimateText(cp);
+		alterego.UiltimateText(cp);
+		ryuzu.UiltimateText(cp);
+		//kurumi.UiltimateText(cp);
+		
+		// 13 ~ 18
+		sakura.UiltimateText(cp);
+		yashiro.UiltimateText(cp);
+		rin.UiltimateText(cp);
+		seraphim.UiltimateText(cp);
+		kiana.UiltimateText(cp);
+		tenkei.UiltimateText(cp);
+	}
+	if (v.Sound_Text_Uniq[cp] != 0)
+	{
+		// 1 ~ 6
+		rusaruka.UniqueText(cp);
+		chtholly.UniqueText(cp);
+		maihime.UniqueText(cp);
+		tenshi.UniqueText(cp);
+		miyuki.UniqueText(cp);
+		negev.UniqueText(cp);
+		
+		// 7 ~ 12
+		cecillia.UniqueText(cp);
+		anzu.UniqueText(cp);
+		hotomoka.UniqueText(cp);
+		alterego.UniqueText(cp);
+		ryuzu.UniqueText(cp);
+		//kurumi.UniqueText(cp);
+		
+		// 13 ~ 18
+		sakura.UniqueText(cp);
+		yashiro.UniqueText(cp);
+		rin.UniqueText(cp);
+		seraphim.UniqueText(cp);
+		kiana.UniqueText(cp);
+		tenkei.UniqueText(cp);
+	}
+}

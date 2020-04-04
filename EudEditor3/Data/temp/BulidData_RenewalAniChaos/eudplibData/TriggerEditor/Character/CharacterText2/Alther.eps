@@ -1,0 +1,90 @@
+import customText as tct;
+import Variable as v;
+
+var txtPtr, btnPtr, btnPos, oldCP;
+
+function NormalText(cp)
+{
+	switch (v.Sound_Text2[cp])
+	{
+	case 4100:
+		PlayWAV("Alther_0.ogg");
+		v.Sound_Text2[cp] = 0;
+		tct.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　멜트 스트라이크!　\x04」\n");
+		break;
+	case 4200:
+		PlayWAV("Alther_1.ogg");
+		v.Sound_Text2[cp] = 0;
+		tct.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　작별이네,　\x04」\n");
+		break;
+	case 4201:
+		v.Sound_Text2[cp] = 0;
+		tct.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　마지막으로 사랑을 가르쳐줄게.　\x04」\n");
+		break;
+	case 4202:
+		v.Sound_Text2[cp] = 0;
+		tct.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　가엾고 비참한 물의 포로.　\x04」\n");
+		break;
+	case 4300:
+		PlayWAV("Alther_2.ogg");
+		v.Sound_Text2[cp] = 0;
+		break;
+	case 4301:
+		v.Sound_Text2[cp] = 0;
+		tct.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　나의 가시로, 잘 가도록해!　\x04」\n");
+		break;
+	}
+}
+
+function UiltimateText(cp)
+{
+	switch (v.Sound_Text_Uilti[cp])
+	{
+	case 10000:
+		PlayWAV("Alther_EX1.ogg");
+		v.Sound_Text_Uilti[cp] = 0;
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\n\n\x13\x1FAlther Ego Λ\n\x13\x04「　대청소로 가보실까.　\x04」\n\n\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		break;
+	case 10001:
+		v.Sound_Text_Uilti[cp] = 0;
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\n\n\x13\x1FAlther Ego Λ\n\x13\x04「　이걸로 피니시!　\x04」\n\n\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		break;
+	case 10010:
+		PlayWAV("Alther_EX2.ogg");
+		v.Sound_Text_Uilti[cp] = 0;
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\n\n\x13\x1FAlther Ego Λ\n\x13\x04「　어머, 너희들도 같이?　\x04」\n\n\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		break;
+	case 10011:
+		v.Sound_Text_Uilti[cp] = 0;
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\n\n\x13\x1FAlther Ego Λ\n\x13\x04「　라스트 스트로크!　\x04」\n\n\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		break;
+	case 10012:
+		v.Sound_Text_Uilti[cp] = 0;
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\n\n\n\x13\x1FAlther Ego Λ\n\n\x13\x04「　블루서머・팔라디온　\x04」\n\n\n\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		break;
+	}
+}
+
+function UniqueText(cp)
+{
+	switch (v.Sound_Text_Uniq[cp]) 
+	{
+	case 10000:
+		PlayWAV("Alther_O.ogg");
+		v.Sound_Text_Uniq[cp] = 0;
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\n\x13\x1FAlther Ego Λ\n\x13\x04「　도망칠 곳? 있을리가 없잖아.　\x04」\n\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		break;
+	}
+}

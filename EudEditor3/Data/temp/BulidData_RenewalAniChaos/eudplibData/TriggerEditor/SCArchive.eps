@@ -1,0 +1,37 @@
+import SCArchive as sca;
+
+function onPluginStart(){
+  sca.Init();
+  /* 여러분의 코드들 */
+}
+
+function afterTriggerExec(){
+  sca.Exec();
+  /* 여러분의 코드들 */
+
+  if(Deaths(CurrentPlayer, Exactly, 1, "Terran Marine")){ // Data Save
+    switch(sca.GetLastMessage()){
+      case 1:
+        sca.SaveData(0);
+      break;
+      case 5:
+      break;
+      default:
+        sca.ResetLastMessage();
+        SetDeaths(CurrentPlayer, SetTo, 0, "Terran Marine");
+      }
+    }
+
+  if(Deaths(CurrentPlayer, Exactly, 2, "Terran Marine")){ // Data Load
+    switch(sca.GetLastMessage()){
+      case 1:
+        sca.LoadData(0);
+      break;
+      case 3:
+      break;
+      default:
+        sca.ResetLastMessage();
+        SetDeaths(CurrentPlayer, SetTo, 0, "Terran Marine");
+      }
+    }
+}

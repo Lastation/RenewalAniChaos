@@ -1,0 +1,14 @@
+[main]
+input: ..\..\..\..\..\..\Documents\GitHub\RenewalAniChaos\NEW!6.scx
+output: ..\..\..\..\..\..\Documents\Starcraft\Maps\RenewalAniChaos\RenewalAniChaos_T.scx
+[customText.py]
+[unlimiter]
+[DataEditor.py]
+[ExtraDataEditor.py]
+[dataDumper]
+..\temp\custom_txt.tbl : 0x6D5A30, copy
+
+[TriggerEditor\Setting.eps]
+
+
+
