@@ -134,203 +134,207 @@ import Variable as v
 txtPtr, btnPtr, btnPos, oldCP = EUDCreateVariables(4)
 # (Line 5) const trgk = $T('Artanis & safhfh');
 trgk = _CGFW(lambda: [GetStringIndex('Artanis & safhfh')], 1)[0]
-# (Line 6) const cp = getcurpl();
-cp = _CGFW(lambda: [f_getcurpl()], 1)[0]
-# (Line 8) function Announce_Init()
-# (Line 9) {
+# (Line 7) function Announce_Init()
+# (Line 8) {
 @EUDFunc
 def Announce_Init():
-    # (Line 10) if (Bring((13), (10), 0, (15), (96)))
+    # (Line 9) if (Bring((13), (10), 0, (15), (96)))
     if EUDIf()(Bring((13), (10), 0, (15), (96))):
-        # (Line 11) { tct.chatAnnouncement("　\x04특성 정보 - \x17S [스카웃] : \x04성장특화　\x17C [캐리어] : \x04마나특화　\x17A [아비터] : \x04게이지특화"); }
+        # (Line 10) { tct.chatAnnouncement("　\x04특성 정보 - \x17S [스카웃] : \x04성장특화　\x17C [캐리어] : \x04마나특화　\x17A [아비터] : \x04게이지특화"); }
         tct.f_chatAnnouncement("　\x04특성 정보 - \x17S [스카웃] : \x04성장특화　\x17C [캐리어] : \x04마나특화　\x17A [아비터] : \x04게이지특화")
-        # (Line 12) else
-        # (Line 13) { tct.chatAnnouncement("　\x04캐릭터 선택 : \x17커세어　\x04캐릭터 정보확인 : \x17유닛 클릭　\x04랜덤 선택 : \x17리버"); }
+        # (Line 11) else
+        # (Line 12) { tct.chatAnnouncement("　\x04캐릭터 선택 : \x17커세어　\x04캐릭터 정보확인 : \x17유닛 클릭　\x04랜덤 선택 : \x17리버"); }
     if EUDElse()():
         tct.f_chatAnnouncement("　\x04캐릭터 선택 : \x17커세어　\x04캐릭터 정보확인 : \x17유닛 클릭　\x04랜덤 선택 : \x17리버")
-        # (Line 14) }
+        # (Line 13) }
     EUDEndIf()
-    # (Line 16) function Announce_Adv(value)
+    # (Line 15) function Announce_Adv(value)
 
-# (Line 17) {
+# (Line 16) {
 @EUDFunc
 def Announce_Adv(value):
-    # (Line 18) if (Deaths((13), (10), 0, (210)) && v.Unique_Cool[cp] == 0)
+    # (Line 17) const cp = getcurpl();
+    cp = f_getcurpl()
+    # (Line 19) if (Deaths((13), (10), 0, (210)) && v.Unique_Cool[cp] == 0)
     if EUDIf()(EUDSCAnd()(Deaths((13), (10), 0, (210)))(v.Unique_Cool[cp] == 0)()):
-        # (Line 19) {
-        # (Line 20) if (value == 0)
+        # (Line 20) {
+        # (Line 21) if (value == 0)
         if EUDIf()(value == 0):
-            # (Line 21) { tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04", v.Level[cp], ""); }
+            # (Line 22) { tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04", v.Level[cp], ""); }
             tct.f_chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04", v.Level[cp], "")
-            # (Line 22) if (value == 1)
+            # (Line 23) if (value == 1)
         EUDEndIf()
         if EUDIf()(value == 1):
-            # (Line 23) { tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04", v.Level[cp], ""); }
+            # (Line 24) { tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04", v.Level[cp], ""); }
             tct.f_chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04", v.Level[cp], "")
-            # (Line 24) }
+            # (Line 25) }
         EUDEndIf()
-        # (Line 25) else if (Deaths((13), (10), 0, (210)) && v.Unique_Cool[cp] != 0)
+        # (Line 26) else if (Deaths((13), (10), 0, (210)) && v.Unique_Cool[cp] != 0)
     if EUDElseIf()(EUDSCAnd()(Deaths((13), (10), 0, (210)))(v.Unique_Cool[cp] == 0, neg=True)()):
-        # (Line 26) {
-        # (Line 27) if (value == 0)
+        # (Line 27) {
+        # (Line 28) if (value == 0)
         if EUDIf()(value == 0):
-            # (Line 28) { tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO \x1ECooltime \x04", v.Unique_Cool[cp], "초 \x1CON　\x07Level \x04", v.Level[cp], ""); }
+            # (Line 29) { tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO \x1ECooltime \x04", v.Unique_Cool[cp], "초 \x1CON　\x07Level \x04", v.Level[cp], ""); }
             tct.f_chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO \x1ECooltime \x04", v.Unique_Cool[cp], "초 \x1CON　\x07Level \x04", v.Level[cp], "")
-            # (Line 29) if (value == 1)
+            # (Line 30) if (value == 1)
         EUDEndIf()
         if EUDIf()(value == 1):
-            # (Line 30) { tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO \x1ECooltime \x04", v.Unique_Cool[cp], "초 \x1COFF　\x07Level \x04", v.Level[cp], ""); }
+            # (Line 31) { tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO \x1ECooltime \x04", v.Unique_Cool[cp], "초 \x1COFF　\x07Level \x04", v.Level[cp], ""); }
             tct.f_chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO \x1ECooltime \x04", v.Unique_Cool[cp], "초 \x1COFF　\x07Level \x04", v.Level[cp], "")
-            # (Line 31) }
+            # (Line 32) }
         EUDEndIf()
-        # (Line 32) else if (Deaths((13), (0), 1, (210)) && v.Unique_Cool[cp] == 0)
+        # (Line 33) else if (Deaths((13), (0), 1, (210)) && v.Unique_Cool[cp] == 0)
     if EUDElseIf()(EUDSCAnd()(Deaths((13), (0), 1, (210)))(v.Unique_Cool[cp] == 0)()):
-        # (Line 33) {
-        # (Line 34) if (value == 0)
+        # (Line 34) {
+        # (Line 35) if (value == 0)
         if EUDIf()(value == 0):
-            # (Line 35) { tct.chatAnnouncement("　\x04치명상 치료까지 : ", v.DeathCount[cp], "초　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04", v.Level[cp], ""); }
+            # (Line 36) { tct.chatAnnouncement("　\x04치명상 치료까지 : ", v.DeathCount[cp], "초　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04", v.Level[cp], ""); }
             tct.f_chatAnnouncement("　\x04치명상 치료까지 : ", v.DeathCount[cp], "초　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04", v.Level[cp], "")
-            # (Line 36) if (value == 1)
+            # (Line 37) if (value == 1)
         EUDEndIf()
         if EUDIf()(value == 1):
-            # (Line 37) { tct.chatAnnouncement("　\x04치명상 치료까지 : ", v.DeathCount[cp], "초　\x1FO Skill \x04사용가능 \x08OFF　\x07Level \x04", v.Level[cp], ""); }
+            # (Line 38) { tct.chatAnnouncement("　\x04치명상 치료까지 : ", v.DeathCount[cp], "초　\x1FO Skill \x04사용가능 \x08OFF　\x07Level \x04", v.Level[cp], ""); }
             tct.f_chatAnnouncement("　\x04치명상 치료까지 : ", v.DeathCount[cp], "초　\x1FO Skill \x04사용가능 \x08OFF　\x07Level \x04", v.Level[cp], "")
-            # (Line 38) }
+            # (Line 39) }
         EUDEndIf()
-        # (Line 39) else if (Deaths((13), (0), 1, (210)) && v.Unique_Cool[cp] != 0)
+        # (Line 40) else if (Deaths((13), (0), 1, (210)) && v.Unique_Cool[cp] != 0)
     if EUDElseIf()(EUDSCAnd()(Deaths((13), (0), 1, (210)))(v.Unique_Cool[cp] == 0, neg=True)()):
-        # (Line 40) {
-        # (Line 41) if (value == 0)
+        # (Line 41) {
+        # (Line 42) if (value == 0)
         if EUDIf()(value == 0):
-            # (Line 42) { tct.chatAnnouncement("　\x04치명상 치료까지 : ", v.DeathCount[cp], "초　\x1FO \x1ECooltime \x04", v.Unique_Cool[cp], "초 \x1CON　\x07Level \x04", v.Level[cp], ""); }
+            # (Line 43) { tct.chatAnnouncement("　\x04치명상 치료까지 : ", v.DeathCount[cp], "초　\x1FO \x1ECooltime \x04", v.Unique_Cool[cp], "초 \x1CON　\x07Level \x04", v.Level[cp], ""); }
             tct.f_chatAnnouncement("　\x04치명상 치료까지 : ", v.DeathCount[cp], "초　\x1FO \x1ECooltime \x04", v.Unique_Cool[cp], "초 \x1CON　\x07Level \x04", v.Level[cp], "")
-            # (Line 43) if (value == 1)
+            # (Line 44) if (value == 1)
         EUDEndIf()
         if EUDIf()(value == 1):
-            # (Line 44) { tct.chatAnnouncement("　\x04치명상 치료까지 : ", v.DeathCount[cp], "초　\x1FO \x1ECooltime \x04", v.Unique_Cool[cp], "초 \x1COFF　\x07Level \x04", v.Level[cp], ""); }
+            # (Line 45) { tct.chatAnnouncement("　\x04치명상 치료까지 : ", v.DeathCount[cp], "초　\x1FO \x1ECooltime \x04", v.Unique_Cool[cp], "초 \x1COFF　\x07Level \x04", v.Level[cp], ""); }
             tct.f_chatAnnouncement("　\x04치명상 치료까지 : ", v.DeathCount[cp], "초　\x1FO \x1ECooltime \x04", v.Unique_Cool[cp], "초 \x1COFF　\x07Level \x04", v.Level[cp], "")
-            # (Line 45) }
+            # (Line 46) }
         EUDEndIf()
-        # (Line 46) }
+        # (Line 47) }
     EUDEndIf()
-    # (Line 48) function Announce_Normal()
+    # (Line 49) function Announce_Normal()
 
-# (Line 49) {
+# (Line 50) {
 @EUDFunc
 def Announce_Normal():
-    # (Line 50) if (Deaths((13), (10), 0, (210)))
+    # (Line 51) const cp = getcurpl();
+    cp = f_getcurpl()
+    # (Line 53) if (Deaths((13), (10), 0, (210)))
     if EUDIf()(Deaths((13), (10), 0, (210))):
-        # (Line 51) {
-        # (Line 52) if (v.Unique_Cool[cp] == 0)
+        # (Line 54) {
+        # (Line 55) if (v.Unique_Cool[cp] == 0)
         if EUDIf()(v.Unique_Cool[cp] == 0):
-            # (Line 53) {tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO Skill \x04사용가능　\x07Level \x04", v.Level[cp], "");}
+            # (Line 56) {tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO Skill \x04사용가능　\x07Level \x04", v.Level[cp], "");}
             tct.f_chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO Skill \x04사용가능　\x07Level \x04", v.Level[cp], "")
-            # (Line 54) else
-            # (Line 55) {tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO \x1ECooltime \x04", v.Unique_Cool[cp], "초　\x07Level \x04", v.Level[cp], "");}
+            # (Line 57) else
+            # (Line 58) {tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO \x1ECooltime \x04", v.Unique_Cool[cp], "초　\x07Level \x04", v.Level[cp], "");}
         if EUDElse()():
             tct.f_chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO \x1ECooltime \x04", v.Unique_Cool[cp], "초　\x07Level \x04", v.Level[cp], "")
-            # (Line 56) }
+            # (Line 59) }
         EUDEndIf()
-        # (Line 57) else
-        # (Line 58) {
+        # (Line 60) else
+        # (Line 61) {
     if EUDElse()():
-        # (Line 59) if (v.Unique_Cool[cp] == 0)
+        # (Line 62) if (v.Unique_Cool[cp] == 0)
         if EUDIf()(v.Unique_Cool[cp] == 0):
-            # (Line 60) {tct.chatAnnouncement("　\x04치명상 치료까지 : ", v.DeathCount[cp], "초　\x1FO Skill \x04사용가능　\x07Level \x04", v.Level[cp], "");}
+            # (Line 63) {tct.chatAnnouncement("　\x04치명상 치료까지 : ", v.DeathCount[cp], "초　\x1FO Skill \x04사용가능　\x07Level \x04", v.Level[cp], "");}
             tct.f_chatAnnouncement("　\x04치명상 치료까지 : ", v.DeathCount[cp], "초　\x1FO Skill \x04사용가능　\x07Level \x04", v.Level[cp], "")
-            # (Line 61) else
-            # (Line 62) {tct.chatAnnouncement("　\x04치명상 치료까지 : ", v.DeathCount[cp], "초　\x1FO \x1ECooltime \x04", v.Unique_Cool[cp], "초　\x07Level \x04", v.Level[cp], "");}
+            # (Line 64) else
+            # (Line 65) {tct.chatAnnouncement("　\x04치명상 치료까지 : ", v.DeathCount[cp], "초　\x1FO \x1ECooltime \x04", v.Unique_Cool[cp], "초　\x07Level \x04", v.Level[cp], "");}
         if EUDElse()():
             tct.f_chatAnnouncement("　\x04치명상 치료까지 : ", v.DeathCount[cp], "초　\x1FO \x1ECooltime \x04", v.Unique_Cool[cp], "초　\x07Level \x04", v.Level[cp], "")
-            # (Line 63) }
+            # (Line 66) }
         EUDEndIf()
-        # (Line 64) }
+        # (Line 67) }
     EUDEndIf()
-    # (Line 66) function Announce_Ingame()
+    # (Line 69) function Announce_Ingame()
 
-# (Line 67) {
+# (Line 70) {
 @EUDFunc
 def Announce_Ingame():
-    # (Line 68) if (Score((13), (7), (1), 24))
+    # (Line 71) const cp = getcurpl();
+    cp = f_getcurpl()
+    # (Line 73) if (Score((13), (7), (1), 24))
     if EUDIf()(Score((13), (7), (1), 24)):
-        # (Line 69) {
-        # (Line 70) if (Deaths((13), (10), 0, (210)))
+        # (Line 74) {
+        # (Line 75) if (Deaths((13), (10), 0, (210)))
         if EUDIf()(Deaths((13), (10), 0, (210))):
-            # (Line 71) { tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FExp \x04", v.EXP_Now[cp], "/", v.EXP_Need[cp], "　\x07Level \x04", v.Level[cp], ""); }
+            # (Line 76) { tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FExp \x04", v.EXP_Now[cp], "/", v.EXP_Need[cp], "　\x07Level \x04", v.Level[cp], ""); }
             tct.f_chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FExp \x04", v.EXP_Now[cp], "/", v.EXP_Need[cp], "　\x07Level \x04", v.Level[cp], "")
-            # (Line 72) else
-            # (Line 73) { tct.chatAnnouncement("　\x04치명상 치료까지 : ", v.DeathCount[cp], "초　\x1FExp \x04", v.EXP_Now[cp], "/", v.EXP_Need[cp], "　\x07Level \x04", v.Level[cp], ""); }
+            # (Line 77) else
+            # (Line 78) { tct.chatAnnouncement("　\x04치명상 치료까지 : ", v.DeathCount[cp], "초　\x1FExp \x04", v.EXP_Now[cp], "/", v.EXP_Need[cp], "　\x07Level \x04", v.Level[cp], ""); }
         if EUDElse()():
             tct.f_chatAnnouncement("　\x04치명상 치료까지 : ", v.DeathCount[cp], "초　\x1FExp \x04", v.EXP_Now[cp], "/", v.EXP_Need[cp], "　\x07Level \x04", v.Level[cp], "")
-            # (Line 74) }
+            # (Line 79) }
         EUDEndIf()
-        # (Line 75) else
-        # (Line 76) {
+        # (Line 80) else
+        # (Line 81) {
     if EUDElse()():
-        # (Line 77) switch (v.Hero_Num[cp])
+        # (Line 82) switch (v.Hero_Num[cp])
         EUDSwitch(v.Hero_Num[cp])
-        # (Line 78) {
-        # (Line 79) case 2:
+        # (Line 83) {
+        # (Line 84) case 2:
         _t3 = EUDSwitchCase()
-        # (Line 80) if (Switch((6), (2))) { Announce_Adv(0); }
+        # (Line 85) if (Switch((6), (2))) { Announce_Adv(0); }
         if _t3(2):
             if EUDIf()(Switch((6), (2))):
                 Announce_Adv(0)
-                # (Line 81) if (Switch((6), (3))) { Announce_Adv(1); }
+                # (Line 86) if (Switch((6), (3))) { Announce_Adv(1); }
             EUDEndIf()
             if EUDIf()(Switch((6), (3))):
                 Announce_Adv(1)
-                # (Line 82) break;
+                # (Line 87) break;
             EUDEndIf()
             EUDBreak()
-            # (Line 83) case 7:
+            # (Line 88) case 7:
         _t6 = EUDSwitchCase()
-        # (Line 84) if (Switch((9), (2))) { Announce_Adv(0); }
+        # (Line 89) if (Switch((9), (2))) { Announce_Adv(0); }
         if _t6(7):
             if EUDIf()(Switch((9), (2))):
                 Announce_Adv(0)
-                # (Line 85) if (Switch((9), (3))) { Announce_Adv(1); }
+                # (Line 90) if (Switch((9), (3))) { Announce_Adv(1); }
             EUDEndIf()
             if EUDIf()(Switch((9), (3))):
                 Announce_Adv(1)
-                # (Line 86) break;
+                # (Line 91) break;
             EUDEndIf()
             EUDBreak()
-            # (Line 87) case 15:
+            # (Line 92) case 15:
         _t9 = EUDSwitchCase()
-        # (Line 88) if (Switch((19), (2))) { Announce_Adv(0); }
+        # (Line 93) if (Switch((19), (2))) { Announce_Adv(0); }
         if _t9(15):
             if EUDIf()(Switch((19), (2))):
                 Announce_Adv(0)
-                # (Line 89) if (Switch((19), (3))) { Announce_Adv(1); }
+                # (Line 94) if (Switch((19), (3))) { Announce_Adv(1); }
             EUDEndIf()
             if EUDIf()(Switch((19), (3))):
                 Announce_Adv(1)
-                # (Line 90) break;
+                # (Line 95) break;
             EUDEndIf()
             EUDBreak()
-            # (Line 91) case 16:
+            # (Line 96) case 16:
         _t12 = EUDSwitchCase()
-        # (Line 92) if (Deaths((13), (0), 1, (204)) && Deaths((13), (1), 7, (204)))
+        # (Line 97) if (Deaths((13), (0), 1, (204)) && Deaths((13), (1), 7, (204)))
         if _t12(16):
             if EUDIf()(EUDSCAnd()(Deaths((13), (0), 1, (204)))(Deaths((13), (1), 7, (204)))()):
-                # (Line 93) { Announce_Adv(0); }
+                # (Line 98) { Announce_Adv(0); }
                 Announce_Adv(0)
-                # (Line 94) else
-                # (Line 95) { Announce_Normal(); }
+                # (Line 99) else
+                # (Line 100) { Announce_Normal(); }
             if EUDElse()():
                 Announce_Normal()
-                # (Line 96) break;
+                # (Line 101) break;
             EUDEndIf()
             EUDBreak()
-            # (Line 97) default:
-        # (Line 98) Announce_Normal();
+            # (Line 102) default:
+        # (Line 103) Announce_Normal();
         if EUDSwitchDefault()():
             Announce_Normal()
-            # (Line 99) break;
+            # (Line 104) break;
             EUDBreak()
-            # (Line 100) }
-        # (Line 101) }
+            # (Line 105) }
+        # (Line 106) }
         EUDEndSwitch()
-        # (Line 102) }
+        # (Line 107) }
     EUDEndIf()

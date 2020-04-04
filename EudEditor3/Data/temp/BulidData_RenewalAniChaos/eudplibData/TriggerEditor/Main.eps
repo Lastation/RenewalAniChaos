@@ -7,6 +7,7 @@ import CustomText.BuildingText as buildText;		// 건물 텍스트
 import Setting.Init as init;						// 변수 초기화
 import Setting.GetUnitID as unitID;				// 유닛 아이디
 import Setting.Property as ppty;					// 특성 시스템
+import Setting.TestMode as testmode;			// 테스트 모드
 
 import Character.SelectText as selectText;			// 유닛 텍스트
 import Character.DeathText as deathText;			// 사망 텍스트
@@ -26,13 +27,18 @@ function onPluginStart() 	// 초기화 함수
 function MainLoop()
 {
 	unitID.Get_UnitID();
-	
+
 	if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
 	{
 		selectText.SetIndex();				// 유닛 클릭 인식
 		selectText.CharacterTextNum();	// 캐릭터 번호 설정
 		selectText.CharacterText();		// 캐릭터 선택 텍스트
 		announce.Announce_Init();		// 상태창 텍스트
+		
+		if (Switch((253), (2)))				// TestMode
+		{
+			testmode.TestMode();
+		}
 	}
 	
 	if(Switch((255), (2)))	// Switch - StartSwich Set 일경우
@@ -60,8 +66,11 @@ function beforeTriggerExec()
 {
 	// sca 사용예정
 	EUDPlayerLoop()();
-	
-	MainLoop();
+
+	if(getcurpl() < 6)
+	{
+		MainLoop();
+	}
 	
 	EUDEndPlayerLoop();
 }

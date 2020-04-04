@@ -142,88 +142,90 @@ def BuildingText():
     cp = f_getcurpl()
     # (Line 11) if (v.Unit_ID[cp] != 0 && v.Unit_ID[cp] != v.BuildingText[cp])
     if EUDIf()(EUDSCAnd()(v.Unit_ID[cp] == 0, neg=True)(v.Unit_ID[cp] == v.BuildingText[cp], neg=True)()):
-        # (Line 12) { v.BuildingText[cp] = v.Unit_ID[cp]; }
+        # (Line 12) {
+        # (Line 13) v.BuildingText[cp] = v.Unit_ID[cp];
         _ARRW(v.BuildingText, cp) << (v.Unit_ID[cp])
-        # (Line 13) switch(v.BuildingText[cp])
+        # (Line 14) }
+        # (Line 16) switch(v.BuildingText[cp])
     EUDEndIf()
     EUDSwitch(v.BuildingText[cp])
-    # (Line 14) {
-    # (Line 15) case 81:
+    # (Line 17) {
+    # (Line 18) case 81:
     _t2 = EUDSwitchCase()
-    # (Line 16) v.Unit_HP[cp] = dwread_epd(v.Unit_NowIndex[cp] + 0x008 / 4) / 256;
+    # (Line 19) v.Unit_HP[cp] = dwread_epd(v.Unit_NowIndex[cp] + 0x008 / 4) / 256;
     if _t2(81):
         _ARRW(v.Unit_HP, cp) << (f_dwread_epd(v.Unit_NowIndex[cp] + 0x008 // 4) // 256)
-        # (Line 17) txtPtr = dwread_epd(EPD(0x640B58));
+        # (Line 20) txtPtr = dwread_epd(EPD(0x640B58));
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 18) tct.print("\x13\x19[ \x1FP\x04olarlicht \x19]\n\x13\x04\x1955초 \x04마다 Hoffnung [용병] 스텍이 5 추가로 증가합니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 30000");
+        # (Line 21) tct.print("\x13\x19[ \x1FP\x04olarlicht \x19]\n\x13\x04\x1955초 \x04마다 Hoffnung [용병] 스텍이 5 추가로 증가합니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 30000");
         tct.f_print("\x13\x19[ \x1FP\x04olarlicht \x19]\n\x13\x04\x1955초 \x04마다 Hoffnung [용병] 스텍이 5 추가로 증가합니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 30000")
-        # (Line 19) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 20) break;
+        # (Line 22) SetMemory(0x640B58, SetTo, txtPtr);
+        # (Line 23) break;
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
         EUDBreak()
-        # (Line 21) case 79:
+        # (Line 24) case 79:
     _t3 = EUDSwitchCase()
-    # (Line 22) v.Unit_HP[cp] = dwread_epd(v.Unit_NowIndex[cp] + 0x008 / 4) / 256;
+    # (Line 25) v.Unit_HP[cp] = dwread_epd(v.Unit_NowIndex[cp] + 0x008 / 4) / 256;
     if _t3(79):
         _ARRW(v.Unit_HP, cp) << (f_dwread_epd(v.Unit_NowIndex[cp] + 0x008 // 4) // 256)
-        # (Line 23) txtPtr = dwread_epd(EPD(0x640B58));
+        # (Line 26) txtPtr = dwread_epd(EPD(0x640B58));
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 24) tct.print("\x13\x19[ \x1BS\x04chnee \x19]\n\x13\x04제거시 \x1B신전 \x04의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 110000");
+        # (Line 27) tct.print("\x13\x19[ \x1BS\x04chnee \x19]\n\x13\x04제거시 \x1B신전 \x04의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 110000");
         tct.f_print("\x13\x19[ \x1BS\x04chnee \x19]\n\x13\x04제거시 \x1B신전 \x04의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 110000")
-        # (Line 25) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 26) break;
+        # (Line 28) SetMemory(0x640B58, SetTo, txtPtr);
+        # (Line 29) break;
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
         EUDBreak()
-        # (Line 27) case 168:
+        # (Line 30) case 168:
     _t4 = EUDSwitchCase()
-    # (Line 28) v.Unit_HP[cp] = dwread_epd(v.Unit_NowIndex[cp] + 0x008 / 4) / 256;
+    # (Line 31) v.Unit_HP[cp] = dwread_epd(v.Unit_NowIndex[cp] + 0x008 / 4) / 256;
     if _t4(168):
         _ARRW(v.Unit_HP, cp) << (f_dwread_epd(v.Unit_NowIndex[cp] + 0x008 // 4) // 256)
-        # (Line 29) txtPtr = dwread_epd(EPD(0x640B58));
+        # (Line 32) txtPtr = dwread_epd(EPD(0x640B58));
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 30) tct.print("\x13\x19[ \x1BB\x04runnen \x19]\n\x13\x04모두 제거시 \x1BS\x04chnee [수호자] 의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 50000");
+        # (Line 33) tct.print("\x13\x19[ \x1BB\x04runnen \x19]\n\x13\x04모두 제거시 \x1BS\x04chnee [수호자] 의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 50000");
         tct.f_print("\x13\x19[ \x1BB\x04runnen \x19]\n\x13\x04모두 제거시 \x1BS\x04chnee [수호자] 의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 50000")
-        # (Line 31) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 32) break;
+        # (Line 34) SetMemory(0x640B58, SetTo, txtPtr);
+        # (Line 35) break;
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
         EUDBreak()
-        # (Line 33) case 175:
+        # (Line 36) case 175:
     _t5 = EUDSwitchCase()
-    # (Line 34) v.Unit_HP[cp] = dwread_epd(v.Unit_NowIndex[cp] + 0x008 / 4) / 256;
+    # (Line 37) v.Unit_HP[cp] = dwread_epd(v.Unit_NowIndex[cp] + 0x008 / 4) / 256;
     if _t5(175):
         _ARRW(v.Unit_HP, cp) << (f_dwread_epd(v.Unit_NowIndex[cp] + 0x008 // 4) // 256)
-        # (Line 35) txtPtr = dwread_epd(EPD(0x640B58));
+        # (Line 38) txtPtr = dwread_epd(EPD(0x640B58));
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 36) tct.print("\x13\x19[ \x1BM\x04ond \x19]\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 200000");
+        # (Line 39) tct.print("\x13\x19[ \x1BM\x04ond \x19]\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 200000");
         tct.f_print("\x13\x19[ \x1BM\x04ond \x19]\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 200000")
-        # (Line 37) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 38) break;
+        # (Line 40) SetMemory(0x640B58, SetTo, txtPtr);
+        # (Line 41) break;
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
         EUDBreak()
-        # (Line 39) case 189:
+        # (Line 42) case 189:
     _t6 = EUDSwitchCase()
-    # (Line 40) txtPtr = dwread_epd(EPD(0x640B58));
+    # (Line 43) txtPtr = dwread_epd(EPD(0x640B58));
     if _t6(189):
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 41) tct.print("\x13\x19[ \x1BP\x04ortal \x19]\n\n\x13\x04상점에 들어가거나 원하는 라인으로 이동 해주는 건물입니다.");
+        # (Line 44) tct.print("\x13\x19[ \x1BP\x04ortal \x19]\n\n\x13\x04상점에 들어가거나 원하는 라인으로 이동 해주는 건물입니다.");
         tct.f_print("\x13\x19[ \x1BP\x04ortal \x19]\n\n\x13\x04상점에 들어가거나 원하는 라인으로 이동 해주는 건물입니다.")
-        # (Line 42) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 43) break;
+        # (Line 45) SetMemory(0x640B58, SetTo, txtPtr);
+        # (Line 46) break;
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
         EUDBreak()
-        # (Line 44) case 200:
+        # (Line 47) case 200:
     _t7 = EUDSwitchCase()
-    # (Line 45) v.Unit_HP[cp] = dwread_epd(v.Unit_NowIndex[cp] + 0x008 / 4) / 256;
+    # (Line 48) v.Unit_HP[cp] = dwread_epd(v.Unit_NowIndex[cp] + 0x008 / 4) / 256;
     if _t7(200):
         _ARRW(v.Unit_HP, cp) << (f_dwread_epd(v.Unit_NowIndex[cp] + 0x008 // 4) // 256)
-        # (Line 46) txtPtr = dwread_epd(EPD(0x640B58));
+        # (Line 49) txtPtr = dwread_epd(EPD(0x640B58));
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 47) tct.print("\x13\x19[ \x1BW\x04ald \x19]\n\x13\x04제거시 \x1B방어건물 \x04의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 70000");
+        # (Line 50) tct.print("\x13\x19[ \x1BW\x04ald \x19]\n\x13\x04제거시 \x1B방어건물 \x04의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 70000");
         tct.f_print("\x13\x19[ \x1BW\x04ald \x19]\n\x13\x04제거시 \x1B방어건물 \x04의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 70000")
-        # (Line 48) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 49) break;
+        # (Line 51) SetMemory(0x640B58, SetTo, txtPtr);
+        # (Line 52) break;
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
         EUDBreak()
-        # (Line 50) }
-    # (Line 51) }
+        # (Line 53) }
+    # (Line 55) }
     EUDEndSwitch()

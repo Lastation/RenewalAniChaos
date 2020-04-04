@@ -132,13 +132,13 @@ def _LSH(l, r):
 def TestMode():
     # (Line 3) const cp = getcurpl();
     cp = f_getcurpl()
-    # (Line 5) if (cp < 6)
-    if EUDIf()(cp >= 6, neg=True):
+    # (Line 5) if(cp < 6 && bread(0x58D2B0 + 0x207C * ((0) / 46) + (getcurpl()) * (46 - 31 * ((0) / 46)) + ((0) % 46)) != 80)
+    if EUDIf()(EUDSCAnd()(cp >= 6, neg=True)(f_bread(0x58D2B0 + 0x207C * ((0) // 46) + (f_getcurpl()) * (46 - 31 * ((0) // 46)) + ((0) % 46)) == 80, neg=True)()):
         # (Line 6) {
-        # (Line 7) bwrite(0x58D2B0 + 0x207C * ((7) / 46) + cp * (46 - 31 * ((7) / 46)) + ((7) % 46), 80);
-        f_bwrite(0x58D2B0 + 0x207C * ((7) // 46) + cp * (46 - 31 * ((7) // 46)) + ((7) % 46), 80)
-        # (Line 8) bwrite(0x58D2B0 + 0x207C * ((0) / 46) + cp * (46 - 31 * ((0) / 46)) + ((0) % 46), 60);
-        f_bwrite(0x58D2B0 + 0x207C * ((0) // 46) + cp * (46 - 31 * ((0) // 46)) + ((0) % 46), 60)
+        # (Line 7) bwrite(0x58D2B0 + 0x207C * ((0) / 46) + (getcurpl()) * (46 - 31 * ((0) / 46)) + ((0) % 46), 60);
+        f_bwrite(0x58D2B0 + 0x207C * ((0) // 46) + (f_getcurpl()) * (46 - 31 * ((0) // 46)) + ((0) % 46), 60)
+        # (Line 8) bwrite(0x58D2B0 + 0x207C * ((7) / 46) + (getcurpl()) * (46 - 31 * ((7) / 46)) + ((7) % 46), 80);
+        f_bwrite(0x58D2B0 + 0x207C * ((7) // 46) + (f_getcurpl()) * (46 - 31 * ((7) // 46)) + ((7) % 46), 80)
         # (Line 9) }
         # (Line 10) }
     EUDEndIf()

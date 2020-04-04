@@ -3,10 +3,11 @@ import Variable as v;
 
 var txtPtr, btnPtr, btnPos, oldCP;
 const trgk = $T('Artanis & safhfh');
-const cp = getcurpl();
 
 function SetIndex() 
 {
+	const cp = getcurpl();
+	
 	if (Switch((255), (3)) && Bring((13), (0), 1, (15), (96)))
 	{
 		if (Bring((13), (0), 1, (15), (32)) && v.Hero_Index[cp] != 1) 		{ v.Hero_Index[cp] = 1; }
@@ -28,57 +29,69 @@ function SetIndex()
 		if (Bring((13), (0), 1, (15), (170)) && v.Hero_Index[cp] != 17) 	{ v.Hero_Index[cp] = 17; }
 		if (Bring((13), (0), 1, (15), (171)) && v.Hero_Index[cp] != 18) 	{ v.Hero_Index[cp] = 18; }
 		
-		if (v.Hero_Index[cp] != 0 && v.Hero_Text[cp] != v.Hero_Index[cp]) { v.Hero_Text[cp] = v.Hero_Index[cp]; }
+		if (v.Hero_Index[cp] != 0 && v.Hero_Text[cp] != v.Hero_Index[cp])
+		{
+			v.Hero_Text[cp] = v.Hero_Index[cp]; 
+			v.Hero_Index[cp] = 0; 
+		}
 	}
 }
 
 function CharacterTextNum() 
 {
+	const cp = getcurpl();
+
 	v.Unit_Death[cp] = dwread_epd(EPD(0x58A364 + 48 * v.Unit_ID[cp] + 4 * v.PlayerID[cp]));
 	
-	if (v.Unit_ID[getcurpl()] == 51)
+	switch (v.Unit_ID[cp])
 	{
+	case 51:
 		if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 1; }	// Rusaruka
 		if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 8; }	// Anzu
 		if (v.PlayerID[cp] == 10 	|| v.Unit_Death[cp] == 3000) { v.Hero_Text[cp] = 9; }	// HotoMoka
-	}
-	if (v.Unit_ID[getcurpl()] == 77)
-	{
+		 v.Unit_ID[cp] = 0;
+		break;
+	case 77:
 		if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 2; }	// Chtholly
 		if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 7; }	// Cecilia
 		if (v.PlayerID[cp] == 10 	|| v.Unit_Death[cp] == 3000) { v.Hero_Text[cp] = 10; }	// Alther Ago
 		if (v.PlayerID[cp] == 11 	|| v.Unit_Death[cp] == 4000) { v.Hero_Text[cp] = 17; }	// Kiana
-	}
-	if (v.Unit_ID[getcurpl()] == 74)
-	{
+		 v.Unit_ID[cp] = 0;
+		break;
+	case 74:
 		if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 3; }	// Maihime
 		if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 3000) { v.Hero_Text[cp] = 4; }	// Tenshi
 		if (v.PlayerID[cp] == 10 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 5; }	// Miyuki
-	}
-	if (v.Unit_ID[getcurpl()] == 16)
-	{
+		 v.Unit_ID[cp] = 0;
+		break;
+	case 16:
 		if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 6; }	// Negev
 		if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 11; }	// Kurumi
 		if (v.PlayerID[cp] == 10 	|| v.Unit_Death[cp] == 3000) { v.Hero_Text[cp] = 13; }	// Sakura
 		if (v.PlayerID[cp] == 11 	|| v.Unit_Death[cp] == 4000) { v.Hero_Text[cp] = 16; }	// Seraphim
-	}
-	if (v.Unit_ID[getcurpl()] == 54)
-	{
+		 v.Unit_ID[cp] = 0;
+		break;
+	case 54:
 		if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 12; }	// Ryuzu
 		if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 15; }	// Rin
-	}
-	if (v.Unit_ID[getcurpl()] == 99)
-	{
+		 v.Unit_ID[cp] = 0;
+		break;
+	case 99:
 		if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 14; }	// Yashiro
 		if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 18; }	// Tenkai
+		 v.Unit_ID[cp] = 0;
+		break;
+	
 	}
 }
 
 
 function CharacterText()
 {
+	const cp = getcurpl();
+	
 	if (v.Hero_Text[cp] >= 1)
-	{	
+	{
 		v.Unit_Death[cp] = dwread_epd(EPD(0x58A364 + 48 * v.Unit_ID[cp] + 4 * v.PlayerID[cp]));
 		
 		tct.makeText("\n\x13\x17[ \x04",ptr2s(v.Hero_Name[v.Hero_Text[cp]])," \x17]");
@@ -218,6 +231,6 @@ function CharacterText()
 		tct.displayText();
 		SetMemory(0x640B58, SetTo, txtPtr);
 
-		v.Hero_Text[getcurpl()] = 0;
+		v.Hero_Text[cp] = 0;
 	}
 }

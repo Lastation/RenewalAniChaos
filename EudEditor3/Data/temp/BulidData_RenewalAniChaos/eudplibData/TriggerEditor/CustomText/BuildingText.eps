@@ -9,7 +9,10 @@ function BuildingText()
 	const cp = getcurpl();
 	
 	if (v.Unit_ID[cp] != 0 && v.Unit_ID[cp] != v.BuildingText[cp])
-	{ v.BuildingText[cp] = v.Unit_ID[cp]; }
+	{ 
+		v.BuildingText[cp] = v.Unit_ID[cp]; 
+	}
+	
 	switch(v.BuildingText[cp]) 
 	{
 		case 81:
@@ -48,4 +51,5 @@ function BuildingText()
 			SetMemory(0x640B58, SetTo, txtPtr);
 			break;
 	}
+	
 }

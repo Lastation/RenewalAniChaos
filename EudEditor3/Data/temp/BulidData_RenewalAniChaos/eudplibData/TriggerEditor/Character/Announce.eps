@@ -3,7 +3,6 @@ import Variable as v;
 
 var txtPtr, btnPtr, btnPos, oldCP;
 const trgk = $T('Artanis & safhfh');
-const cp = getcurpl();
 
 function Announce_Init()
 {
@@ -15,6 +14,8 @@ function Announce_Init()
 
 function Announce_Adv(value)
 {
+	const cp = getcurpl();
+	
 	if (Deaths((13), (10), 0, (210)) && v.Unique_Cool[cp] == 0)
 	{
 		if (value == 0)
@@ -47,6 +48,8 @@ function Announce_Adv(value)
 
 function Announce_Normal()
 {
+	const cp = getcurpl();
+
 	if (Deaths((13), (10), 0, (210)))
 	{
 		if (v.Unique_Cool[cp] == 0) 
@@ -65,6 +68,8 @@ function Announce_Normal()
 
 function Announce_Ingame()
 {
+	const cp = getcurpl();
+	
 	if (Score((13), (7), (1), 24))
 	{
 		if (Deaths((13), (10), 0, (210)))
