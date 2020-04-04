@@ -92,8 +92,6 @@ function CharacterText()
 	
 	if (v.Hero_Text[cp] >= 1)
 	{
-		v.Unit_Death[cp] = dwread_epd(EPD(0x58A364 + 48 * v.Unit_ID[cp] + 4 * v.PlayerID[cp]));
-		
 		tct.makeText("\n\x13\x17[ \x04",ptr2s(v.Hero_Name[v.Hero_Text[cp]])," \x17]");
 		switch (v.Hero_Text[cp]) 
 		{

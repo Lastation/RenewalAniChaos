@@ -130,117 +130,127 @@ def _LSH(l, r):
 import customText as tct
 # (Line 2) import Variable as v;
 import Variable as v
-# (Line 4) import CustomText.ShopText as shopText;			// 상점 텍스트
+# (Line 4) import SCArchive as sca;
+import SCArchive as sca
+# (Line 5) import IO.Setting as scaSetting;					// SCA 텍스트
+from IO import Setting as scaSetting
+# (Line 7) import CustomText.ShopText as shopText;			// 상점 텍스트
 from CustomText import ShopText as shopText
-# (Line 5) import CustomText.BuildingText as buildText;		// 건물 텍스트
+# (Line 8) import CustomText.BuildingText as buildText;		// 건물 텍스트
 from CustomText import BuildingText as buildText
-# (Line 7) import Setting.Init as init;						// 변수 초기화
+# (Line 10) import Setting.Init as init;						// 변수 초기화
 from Setting import Init as init
-# (Line 8) import Setting.GetUnitID as unitID;				// 유닛 아이디
+# (Line 11) import Setting.GetUnitID as unitID;				// 유닛 아이디
 from Setting import GetUnitID as unitID
-# (Line 9) import Setting.Property as ppty;					// 특성 시스템
+# (Line 12) import Setting.Property as ppty;					// 특성 시스템
 from Setting import Property as ppty
-# (Line 10) import Setting.TestMode as testmode;			// 테스트 모드
+# (Line 13) import Setting.TestMode as testmode;			// 테스트 모드
 from Setting import TestMode as testmode
-# (Line 12) import Character.SelectText as selectText;			// 유닛 텍스트
+# (Line 15) import Character.SelectText as selectText;			// 유닛 텍스트
 from Character import SelectText as selectText
-# (Line 13) import Character.DeathText as deathText;			// 사망 텍스트
+# (Line 16) import Character.DeathText as deathText;			// 사망 텍스트
 from Character import DeathText as deathText
-# (Line 14) import Character.Marge as marge;				// 유닛 스킬 텍스트
+# (Line 17) import Character.Marge as marge;				// 유닛 스킬 텍스트
 from Character import Marge as marge
-# (Line 15) import Character.Announce as announce;			// 상태창 텍스트
+# (Line 18) import Character.Announce as announce;			// 상태창 텍스트
 from Character import Announce as announce
-# (Line 17) var txtPtr, btnPtr, btnPos, oldCP;
+# (Line 20) var txtPtr, btnPtr, btnPos, oldCP;
 txtPtr, btnPtr, btnPos, oldCP = EUDCreateVariables(4)
-# (Line 18) const trgk = $T('Artanis & safhfh');
+# (Line 21) const trgk = $T('Artanis & safhfh');
 trgk = _CGFW(lambda: [GetStringIndex('Artanis & safhfh')], 1)[0]
-# (Line 20) function onPluginStart() 	// 초기화 함수
-# (Line 21) {
+# (Line 23) function onPluginStart() 	// 초기화 함수
+# (Line 24) {
 @EUDFunc
 def onPluginStart():
-    # (Line 22) EUDPlayerLoop()();
+    # (Line 25) sca.Init();
+    sca.Init()
+    # (Line 26) sca.LoadData(0);
+    sca.LoadData(0)
+    # (Line 28) EUDPlayerLoop()();
     EUDPlayerLoop()()
-    # (Line 24) EUDEndPlayerLoop();
+    # (Line 29) EUDEndPlayerLoop();
     EUDEndPlayerLoop()
-    # (Line 25) }
-    # (Line 27) function MainLoop()
+    # (Line 30) }
+    # (Line 32) function MainLoop()
 
-# (Line 28) {
+# (Line 33) {
 @EUDFunc
 def MainLoop():
-    # (Line 29) unitID.Get_UnitID();
+    # (Line 34) unitID.Get_UnitID();
     unitID.Get_UnitID()
-    # (Line 31) if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
+    # (Line 36) if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
     if EUDIf()(Switch((255), (3))):
-        # (Line 32) {
-        # (Line 33) selectText.SetIndex();				// 유닛 클릭 인식
+        # (Line 37) {
+        # (Line 38) selectText.SetIndex();				// 유닛 클릭 인식
         selectText.SetIndex()
-        # (Line 34) selectText.CharacterTextNum();	// 캐릭터 번호 설정
+        # (Line 39) selectText.CharacterTextNum();	// 캐릭터 번호 설정
         selectText.CharacterTextNum()
-        # (Line 35) selectText.CharacterText();		// 캐릭터 선택 텍스트
+        # (Line 40) selectText.CharacterText();		// 캐릭터 선택 텍스트
         selectText.CharacterText()
-        # (Line 36) announce.Announce_Init();		// 상태창 텍스트
+        # (Line 41) announce.Announce_Init();		// 상태창 텍스트
         announce.Announce_Init()
-        # (Line 38) if (Switch((253), (2)))				// TestMode
+        # (Line 43) if (Switch((253), (2)))				// TestMode
         if EUDIf()(Switch((253), (2))):
-            # (Line 39) {
-            # (Line 40) testmode.TestMode();
+            # (Line 44) {
+            # (Line 45) testmode.TestMode();
             testmode.TestMode()
-            # (Line 41) }
-            # (Line 42) }
+            # (Line 46) }
+            # (Line 47) }
         EUDEndIf()
-        # (Line 44) if(Switch((255), (2)))	// Switch - StartSwich Set 일경우
+        # (Line 49) if(Switch((255), (2)))	// Switch - StartSwich Set 일경우
     EUDEndIf()
     if EUDIf()(Switch((255), (2))):
-        # (Line 45) {
-        # (Line 46) buildText.BuildingText();		// 건물 텍스트
+        # (Line 50) {
+        # (Line 51) buildText.BuildingText();		// 건물 텍스트
         buildText.BuildingText()
-        # (Line 47) shopText.ShopText();			// 상점 텍스트
+        # (Line 52) shopText.ShopText();			// 상점 텍스트
         shopText.ShopText()
-        # (Line 49) deathText.SetDeathValue();	// 사망 트리거
+        # (Line 54) deathText.SetDeathValue();	// 사망 트리거
         deathText.SetDeathValue()
-        # (Line 50) deathText.DeathText();		// 사망 텍스트
+        # (Line 55) deathText.DeathText();		// 사망 텍스트
         deathText.DeathText()
-        # (Line 52) init.SetBuildingHP();			// 건물 체력 관련
+        # (Line 57) init.SetBuildingHP();			// 건물 체력 관련
         init.SetBuildingHP()
-        # (Line 53) init.SetVariable();				// 기본 변수 설정
+        # (Line 58) init.SetVariable();				// 기본 변수 설정
         init.SetVariable()
-        # (Line 55) ppty.PropertyText();			// 특성 텍스트
+        # (Line 60) ppty.PropertyText();			// 특성 텍스트
         ppty.PropertyText()
-        # (Line 56) ppty.Property_S();			// S 특성
+        # (Line 61) ppty.Property_S();			// S 특성
         ppty.Property_S()
-        # (Line 57) ppty.Property_C();			// C 특성
+        # (Line 62) ppty.Property_C();			// C 특성
         ppty.Property_C()
-        # (Line 58) ppty.Property_A();			// A 특성
+        # (Line 63) ppty.Property_A();			// A 특성
         ppty.Property_A()
-        # (Line 60) marge.MargeSound();			// 캐릭터 스킬 사운드 & 스킬 텍스트
+        # (Line 65) marge.MargeSound();			// 캐릭터 스킬 사운드 & 스킬 텍스트
         marge.MargeSound()
-        # (Line 61) announce.Announce_Ingame();	// 캐릭터 상태창 텍스트
+        # (Line 66) announce.Announce_Ingame();	// 캐릭터 상태창 텍스트
         announce.Announce_Ingame()
-        # (Line 62) }
-        # (Line 63) }
+        # (Line 68) scaSetting.AddCharacterExp();
+        scaSetting.AddCharacterExp()
+        # (Line 69) }
+        # (Line 70) }
     EUDEndIf()
-    # (Line 65) function beforeTriggerExec()
+    # (Line 72) function beforeTriggerExec()
 
-# (Line 66) {
+# (Line 73) {
 @EUDFunc
 def beforeTriggerExec():
-    # (Line 68) EUDPlayerLoop()();
+    # (Line 75) EUDPlayerLoop()();
     EUDPlayerLoop()()
-    # (Line 70) if(getcurpl() < 6)
+    # (Line 77) if(getcurpl() < 6)
     if EUDIf()(f_getcurpl() >= 6, neg=True):
-        # (Line 71) {
-        # (Line 72) MainLoop();
+        # (Line 78) {
+        # (Line 79) MainLoop();
         MainLoop()
-        # (Line 73) }
-        # (Line 75) EUDEndPlayerLoop();
+        # (Line 80) }
+        # (Line 82) EUDEndPlayerLoop();
     EUDEndIf()
     EUDEndPlayerLoop()
-    # (Line 76) }
-    # (Line 78) function afterTriggerExec()
+    # (Line 83) }
+    # (Line 85) function afterTriggerExec()
 
-# (Line 79) {
+# (Line 86) {
 @EUDFunc
 def afterTriggerExec():
-    # (Line 81) }
+    # (Line 88) }
     pass

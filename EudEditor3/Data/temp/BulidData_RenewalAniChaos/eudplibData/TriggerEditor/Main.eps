@@ -1,6 +1,9 @@
 import customText as tct;
 import Variable as v;
 
+import SCArchive as sca;
+import IO.Setting as scaSetting;					// SCA 텍스트
+
 import CustomText.ShopText as shopText;			// 상점 텍스트
 import CustomText.BuildingText as buildText;		// 건물 텍스트
 
@@ -19,8 +22,10 @@ const trgk = $T('Artanis & safhfh');
 
 function onPluginStart() 	// 초기화 함수
 {
+	sca.Init();
+	sca.LoadData(0);
+	
     	EUDPlayerLoop()();
-    	
     	EUDEndPlayerLoop();
 }
 
@@ -59,6 +64,8 @@ function MainLoop()
 		
 		marge.MargeSound();			// 캐릭터 스킬 사운드 & 스킬 텍스트
 		announce.Announce_Ingame();	// 캐릭터 상태창 텍스트
+		
+		scaSetting.AddCharacterExp();
 	}
 }
 
@@ -77,5 +84,5 @@ function beforeTriggerExec()
 
 function afterTriggerExec() 
 {
-	
+
 }

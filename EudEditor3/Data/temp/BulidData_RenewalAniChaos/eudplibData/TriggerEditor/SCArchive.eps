@@ -1,37 +1,116 @@
-import SCArchive as sca;
+import SCAFlexible as scf;
+import SCATool as sct;
 
-function onPluginStart(){
-  sca.Init();
-  /* 여러분의 코드들 */
+
+var Year;
+var Month;
+var Day;
+var Hour;
+var Min;
+
+/***
+ * @Summary.ko-KR
+ * 1 = 월요일
+ * 2 = 화요일
+ * 3 = 수요일
+ * 4 = 목요일
+ * 5 = 금요일
+ * 6 = 토요일
+ * 7 = 일요일
+***/
+var Week;
+const GlobalData = EUDArray(20);
+function Init(){
+	scf.Init();
+	sct.Init();
 }
 
-function afterTriggerExec(){
-  sca.Exec();
-  /* 여러분의 코드들 */
+function Exec(){
+	scf.Exec();
+	sct.Exec();
+	
+	//오더를 판단해서 오더가 1이면 비공유 데이터에서
+	//이름과 배틀태그를 받아온다.
+	//
 
-  if(Deaths(CurrentPlayer, Exactly, 1, "Terran Marine")){ // Data Save
-    switch(sca.GetLastMessage()){
-      case 1:
-        sca.SaveData(0);
-      break;
-      case 5:
-      break;
-      default:
-        sca.ResetLastMessage();
-        SetDeaths(CurrentPlayer, SetTo, 0, "Terran Marine");
-      }
-    }
+}
 
-  if(Deaths(CurrentPlayer, Exactly, 2, "Terran Marine")){ // Data Load
-    switch(sca.GetLastMessage()){
-      case 1:
-        sca.LoadData(0);
-      break;
-      case 3:
-      break;
-      default:
-        sca.ResetLastMessage();
-        SetDeaths(CurrentPlayer, SetTo, 0, "Terran Marine");
-      }
-    }
+function SetUseDefaultMessage(value){
+	//value가 1이면 기본값쓰기
+	sct.SCAUseUserMessage = value;
+}
+
+/***
+ * @Summary.ko-KR
+ * 0 = 연결끊킴
+ * 1 = 연결됨
+***/
+function ConnectStatus(){
+	return sct.ConnectStatus[getcurpl()];
+}
+
+/***
+ * @Summary.ko-KR
+ * 0 = 대기
+ * 1 = 맵 변수 불러오는 중
+ * 2 = 시간 불러오는 중
+ * 3 = 불러오는 중
+ * 4 = 저장중
+***/
+function CommandStatus(){
+	return sct.SCACommand[getcurpl()];
+}
+
+
+
+/***
+ * @Summary.ko-KR
+ * 1 = 연결됨
+ * 2 = 연결 끊킴
+ * 3 = 로드중
+ * 4 = 로드 완료
+ * 5 = 세이브중
+ * 6 = 세이브 완료
+ * 7 = 런처와 먼저 연결하세요
+ * 8 = 다른 작업 중입니다.
+ * 9 = 작업 실패
+***/
+function GetLastMessage(){
+	return sct.SCALastMessage[getcurpl()];
+}
+
+
+function ResetLastMessage(){
+	sct.SCALastMessage[getcurpl()] = 0;
+}
+
+function LoadTime(){
+	sct.GetDate();
+}
+function GetTimeLoadMessage(){
+	return sct.DateLoadStatus[getcurpl()];
+}
+function ResetDateTimeMessage(){
+	sct.DateLoadStatus[getcurpl()] = 0;
+}
+
+
+function GetGlobalDataLoadMessage(){
+	return sct.GlobalDataLoadStatus[getcurpl()];
+}
+function ResetGlobalDataLoadMessage(){
+	sct.GlobalDataLoadStatus[getcurpl()] = 0;
+}
+function LoadGlobalData(){
+	sct.LoadGlobalData();
+}
+
+
+
+
+function LoadData(Slot){
+	sct.DataLoad(Slot);
+}
+function SaveData(Slot){
+	sct.DataSave(Slot);
 }

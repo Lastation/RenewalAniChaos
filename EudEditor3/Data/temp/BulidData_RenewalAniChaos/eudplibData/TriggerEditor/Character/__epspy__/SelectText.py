@@ -366,289 +366,287 @@ def CharacterText():
     # (Line 93) if (v.Hero_Text[cp] >= 1)
     if EUDIf()(v.Hero_Text[cp] >= 1):
         # (Line 94) {
-        # (Line 95) v.Unit_Death[cp] = dwread_epd(EPD(0x58A364 + 48 * v.Unit_ID[cp] + 4 * v.PlayerID[cp]));
-        _ARRW(v.Unit_Death, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * v.Unit_ID[cp] + 4 * v.PlayerID[cp])))
-        # (Line 97) tct.makeText("\n\x13\x17[ \x04",ptr2s(v.Hero_Name[v.Hero_Text[cp]])," \x17]");
+        # (Line 95) tct.makeText("\n\x13\x17[ \x04",ptr2s(v.Hero_Name[v.Hero_Text[cp]])," \x17]");
         tct.f_makeText("\n\x13\x17[ \x04", ptr2s(v.Hero_Name[v.Hero_Text[cp]]), " \x17]")
-        # (Line 98) switch (v.Hero_Text[cp])
+        # (Line 96) switch (v.Hero_Text[cp])
         EUDSwitch(v.Hero_Text[cp])
-        # (Line 99) {
-        # (Line 100) case 1:
+        # (Line 97) {
+        # (Line 98) case 1:
         _t2 = EUDSwitchCase()
-        # (Line 101) tct.addText("\n\x13\x04- \x17Dies irae \x04-");
+        # (Line 99) tct.addText("\n\x13\x04- \x17Dies irae \x04-");
         if _t2(1):
             tct.f_addText("\n\x13\x04- \x17Dies irae \x04-")
-            # (Line 102) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+            # (Line 100) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.")
-            # (Line 103) tct.addText("\n\x13\x04처음하는 플레이어에게 추천합니다.");
+            # (Line 101) tct.addText("\n\x13\x04처음하는 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04처음하는 플레이어에게 추천합니다.")
-            # (Line 104) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04만능 \x1F#\x04조작쉬움");
+            # (Line 102) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04만능 \x1F#\x04조작쉬움");
             tct.f_addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04만능 \x1F#\x04조작쉬움")
-            # (Line 105) break;
+            # (Line 103) break;
             EUDBreak()
-            # (Line 106) case 2:
+            # (Line 104) case 2:
         _t3 = EUDSwitchCase()
-        # (Line 107) tct.addText("\n\x13\x04- \x17종말에 뭐 하세요? 바쁘세요? 구해 주실 수 있나요? \x04-");
+        # (Line 105) tct.addText("\n\x13\x04- \x17종말에 뭐 하세요? 바쁘세요? 구해 주실 수 있나요? \x04-");
         if _t3(2):
             tct.f_addText("\n\x13\x04- \x17종말에 뭐 하세요? 바쁘세요? 구해 주실 수 있나요? \x04-")
-            # (Line 108) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+            # (Line 106) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.")
-            # (Line 109) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+            # (Line 107) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04숙련된 플레이어에게 추천합니다.")
-            # (Line 110) tct.addText("\n\n\x13\x1F#\x04공성특화++ \x1F#\x04지속딜 \x1F#\x04조작어려움");
+            # (Line 108) tct.addText("\n\n\x13\x1F#\x04공성특화++ \x1F#\x04지속딜 \x1F#\x04조작어려움");
             tct.f_addText("\n\n\x13\x1F#\x04공성특화++ \x1F#\x04지속딜 \x1F#\x04조작어려움")
-            # (Line 111) break;
+            # (Line 109) break;
             EUDBreak()
-            # (Line 112) case 3:
+            # (Line 110) case 3:
         _t4 = EUDSwitchCase()
-        # (Line 113) tct.addText("\n\x13\x04- \x17퀄리디아 코드 \x04-");
+        # (Line 111) tct.addText("\n\x13\x04- \x17퀄리디아 코드 \x04-");
         if _t4(3):
             tct.f_addText("\n\x13\x04- \x17퀄리디아 코드 \x04-")
-            # (Line 114) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
+            # (Line 112) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.")
-            # (Line 115) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
+            # (Line 113) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04적응된 플레이어에게 추천합니다.")
-            # (Line 116) tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04지속딜 \x1F#\x04만능궁 \x1F#\x04조작보통");
+            # (Line 114) tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04지속딜 \x1F#\x04만능궁 \x1F#\x04조작보통");
             tct.f_addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04지속딜 \x1F#\x04만능궁 \x1F#\x04조작보통")
-            # (Line 117) break;
+            # (Line 115) break;
             EUDBreak()
-            # (Line 118) case 4:
+            # (Line 116) case 4:
         _t5 = EUDSwitchCase()
-        # (Line 119) tct.addText("\n\x13\x04- \x17동방 스카이 아레나 \x04-");
+        # (Line 117) tct.addText("\n\x13\x04- \x17동방 스카이 아레나 \x04-");
         if _t5(4):
             tct.f_addText("\n\x13\x04- \x17동방 스카이 아레나 \x04-")
-            # (Line 120) tct.addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.");
+            # (Line 118) tct.addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.")
-            # (Line 121) tct.addText("\n\x13\x04처음하는 플레이어에게 추천합니다.");
+            # (Line 119) tct.addText("\n\x13\x04처음하는 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04처음하는 플레이어에게 추천합니다.")
-            # (Line 122) tct.addText("\n\n\x13\x1F#\x04설치 \x1F#\x04만능 \x1F#\x04조작보통");
+            # (Line 120) tct.addText("\n\n\x13\x1F#\x04설치 \x1F#\x04만능 \x1F#\x04조작보통");
             tct.f_addText("\n\n\x13\x1F#\x04설치 \x1F#\x04만능 \x1F#\x04조작보통")
-            # (Line 123) break;
+            # (Line 121) break;
             EUDBreak()
-            # (Line 124) case 5:
+            # (Line 122) case 5:
         _t6 = EUDSwitchCase()
-        # (Line 125) tct.addText("\n\x13\x04- \x17당신과 그녀와 그녀의 사랑 \x04-");
+        # (Line 123) tct.addText("\n\x13\x04- \x17당신과 그녀와 그녀의 사랑 \x04-");
         if _t6(5):
             tct.f_addText("\n\x13\x04- \x17당신과 그녀와 그녀의 사랑 \x04-")
-            # (Line 126) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
+            # (Line 124) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.")
-            # (Line 127) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
+            # (Line 125) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04적응된 플레이어에게 추천합니다.")
-            # (Line 128) tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간강한딜 \x1F#\x04만능궁 \x1F#\x04조작어려움");
+            # (Line 126) tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간강한딜 \x1F#\x04만능궁 \x1F#\x04조작어려움");
             tct.f_addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간강한딜 \x1F#\x04만능궁 \x1F#\x04조작어려움")
-            # (Line 129) break;
+            # (Line 127) break;
             EUDBreak()
-            # (Line 130) case 6:
+            # (Line 128) case 6:
         _t7 = EUDSwitchCase()
-        # (Line 131) tct.addText("\n\x13\x04- \x17소녀전선 \x04-");
+        # (Line 129) tct.addText("\n\x13\x04- \x17소녀전선 \x04-");
         if _t7(6):
             tct.f_addText("\n\x13\x04- \x17소녀전선 \x04-")
-            # (Line 132) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+            # (Line 130) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.")
-            # (Line 133) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
+            # (Line 131) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04적응된 플레이어에게 추천합니다.")
-            # (Line 134) tct.addText("\n\n\x13\x1F#\x04공성 \x1F#\x04순간딜 \x1F#\x04조작보통");
+            # (Line 132) tct.addText("\n\n\x13\x1F#\x04공성 \x1F#\x04순간딜 \x1F#\x04조작보통");
             tct.f_addText("\n\n\x13\x1F#\x04공성 \x1F#\x04순간딜 \x1F#\x04조작보통")
-            # (Line 135) break;
+            # (Line 133) break;
             EUDBreak()
-            # (Line 136) case 7:
+            # (Line 134) case 7:
         _t8 = EUDSwitchCase()
-        # (Line 137) tct.addText("\n\x13\x04- \x17킹스레이드 \x04-");
+        # (Line 135) tct.addText("\n\x13\x04- \x17킹스레이드 \x04-");
         if _t8(7):
             tct.f_addText("\n\x13\x04- \x17킹스레이드 \x04-")
-            # (Line 138) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
+            # (Line 136) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.")
-            # (Line 139) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+            # (Line 137) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04숙련된 플레이어에게 추천합니다.")
-            # (Line 140) tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작어려움");
+            # (Line 138) tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작어려움");
             tct.f_addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작어려움")
-            # (Line 141) break;
+            # (Line 139) break;
             EUDBreak()
-            # (Line 142) case 8:
+            # (Line 140) case 8:
         _t9 = EUDSwitchCase()
-        # (Line 143) tct.addText("\n\x13\x04- \x17PROJECT iM@S CINDERELLA GIRLS \x04-");
+        # (Line 141) tct.addText("\n\x13\x04- \x17PROJECT iM@S CINDERELLA GIRLS \x04-");
         if _t9(8):
             tct.f_addText("\n\x13\x04- \x17PROJECT iM@S CINDERELLA GIRLS \x04-")
-            # (Line 144) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+            # (Line 142) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.")
-            # (Line 145) tct.addText("\n\x13\x04처음하는 플레이어에게 추천합니다.");
+            # (Line 143) tct.addText("\n\x13\x04처음하는 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04처음하는 플레이어에게 추천합니다.")
-            # (Line 146) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작쉬움");
+            # (Line 144) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작쉬움");
             tct.f_addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작쉬움")
-            # (Line 147) break;
+            # (Line 145) break;
             EUDBreak()
-            # (Line 148) case 9:
+            # (Line 146) case 9:
         _t10 = EUDSwitchCase()
-        # (Line 149) tct.addText("\n\x13\x04- \x17주문은 토끼입니까? \x04-");
+        # (Line 147) tct.addText("\n\x13\x04- \x17주문은 토끼입니까? \x04-");
         if _t10(9):
             tct.f_addText("\n\x13\x04- \x17주문은 토끼입니까? \x04-")
-            # (Line 150) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+            # (Line 148) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.")
-            # (Line 151) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+            # (Line 149) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04숙련된 플레이어에게 추천합니다.")
-            # (Line 152) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
+            # (Line 150) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
             tct.f_addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움")
-            # (Line 153) break;
+            # (Line 151) break;
             EUDBreak()
-            # (Line 154) case 10:
+            # (Line 152) case 10:
         _t11 = EUDSwitchCase()
-        # (Line 155) tct.addText("\n\x13\x04- \x17Fate/Extra CCC \x04-");
+        # (Line 153) tct.addText("\n\x13\x04- \x17Fate/Extra CCC \x04-");
         if _t11(10):
             tct.f_addText("\n\x13\x04- \x17Fate/Extra CCC \x04-")
-            # (Line 156) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+            # (Line 154) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.")
-            # (Line 157) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+            # (Line 155) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04숙련된 플레이어에게 추천합니다.")
-            # (Line 158) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
+            # (Line 156) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
             tct.f_addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움")
-            # (Line 159) break;
+            # (Line 157) break;
             EUDBreak()
-            # (Line 160) case 11:
+            # (Line 158) case 11:
         _t12 = EUDSwitchCase()
-        # (Line 161) tct.addText("\n\x13\x04- \x17DATE A LIVE \x04-");
+        # (Line 159) tct.addText("\n\x13\x04- \x17DATE A LIVE \x04-");
         if _t12(11):
             tct.f_addText("\n\x13\x04- \x17DATE A LIVE \x04-")
-            # (Line 162) tct.addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.");
+            # (Line 160) tct.addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.")
-            # (Line 163) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+            # (Line 161) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04숙련된 플레이어에게 추천합니다.")
-            # (Line 164) tct.addText("\n\n\x13\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04모드 \x1F#\x04조작어려움");
+            # (Line 162) tct.addText("\n\n\x13\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04모드 \x1F#\x04조작어려움");
             tct.f_addText("\n\n\x13\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04모드 \x1F#\x04조작어려움")
-            # (Line 165) break;
+            # (Line 163) break;
             EUDBreak()
-            # (Line 166) case 12:
+            # (Line 164) case 12:
         _t13 = EUDSwitchCase()
-        # (Line 167) tct.addText("\n\x13\x04- \x17ClockWork Planet \x04-");
+        # (Line 165) tct.addText("\n\x13\x04- \x17ClockWork Planet \x04-");
         if _t13(12):
             tct.f_addText("\n\x13\x04- \x17ClockWork Planet \x04-")
-            # (Line 168) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
+            # (Line 166) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.")
-            # (Line 169) tct.addText("\n\x13\x04처음하는 플레이어에게 추천합니다.");
+            # (Line 167) tct.addText("\n\x13\x04처음하는 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04처음하는 플레이어에게 추천합니다.")
-            # (Line 170) tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작쉬움");
+            # (Line 168) tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작쉬움");
             tct.f_addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작쉬움")
-            # (Line 171) break;
+            # (Line 169) break;
             EUDBreak()
-            # (Line 172) case 13:
+            # (Line 170) case 13:
         _t14 = EUDSwitchCase()
-        # (Line 173) tct.addText("\n\x13\x04- \x17Fate/stay night");
+        # (Line 171) tct.addText("\n\x13\x04- \x17Fate/stay night");
         if _t14(13):
             tct.f_addText("\n\x13\x04- \x17Fate/stay night")
-            # (Line 174) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+            # (Line 172) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.")
-            # (Line 175) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+            # (Line 173) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04숙련된 플레이어에게 추천합니다.")
-            # (Line 176) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
+            # (Line 174) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
             tct.f_addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움")
-            # (Line 177) break;
+            # (Line 175) break;
             EUDBreak()
-            # (Line 178) case 14:
+            # (Line 176) case 14:
         _t15 = EUDSwitchCase()
-        # (Line 179) tct.addText("\n\x13\x04- \x17나만이 없는 거리\x04-");
+        # (Line 177) tct.addText("\n\x13\x04- \x17나만이 없는 거리\x04-");
         if _t15(14):
             tct.f_addText("\n\x13\x04- \x17나만이 없는 거리\x04-")
-            # (Line 180) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
+            # (Line 178) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.")
-            # (Line 181) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+            # (Line 179) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04숙련된 플레이어에게 추천합니다.")
-            # (Line 182) tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04스택 \x1F#\x04조작매우어려움");
+            # (Line 180) tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04스택 \x1F#\x04조작매우어려움");
             tct.f_addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04스택 \x1F#\x04조작매우어려움")
-            # (Line 183) break;
+            # (Line 181) break;
             EUDBreak()
-            # (Line 184) case 15:
+            # (Line 182) case 15:
         _t16 = EUDSwitchCase()
-        # (Line 185) tct.addText("\n\x13\x04- \x17Shelter \x04-");
+        # (Line 183) tct.addText("\n\x13\x04- \x17Shelter \x04-");
         if _t16(15):
             tct.f_addText("\n\x13\x04- \x17Shelter \x04-")
-            # (Line 186) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+            # (Line 184) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.")
-            # (Line 187) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+            # (Line 185) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04숙련된 플레이어에게 추천합니다.")
-            # (Line 188) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
+            # (Line 186) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
             tct.f_addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움")
-            # (Line 189) break;
+            # (Line 187) break;
             EUDBreak()
-            # (Line 190) case 16:
+            # (Line 188) case 16:
         _t17 = EUDSwitchCase()
-        # (Line 191) tct.addText("\n\x13\x04- \x17영원한 7일의 도시 \x04-");
+        # (Line 189) tct.addText("\n\x13\x04- \x17영원한 7일의 도시 \x04-");
         if _t17(16):
             tct.f_addText("\n\x13\x04- \x17영원한 7일의 도시 \x04-")
-            # (Line 192) tct.addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.");
+            # (Line 190) tct.addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.")
-            # (Line 193) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
+            # (Line 191) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04적응된 플레이어에게 추천합니다.")
-            # (Line 194) tct.addText("\n\n\x13\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04조작보통 \x1F#\x04특수");
+            # (Line 192) tct.addText("\n\n\x13\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04조작보통 \x1F#\x04특수");
             tct.f_addText("\n\n\x13\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04조작보통 \x1F#\x04특수")
-            # (Line 195) break;
+            # (Line 193) break;
             EUDBreak()
-            # (Line 196) case 17:
+            # (Line 194) case 17:
         _t18 = EUDSwitchCase()
-        # (Line 197) tct.addText("\n\x04- \x17붕괴 3rd \x04-");
+        # (Line 195) tct.addText("\n\x04- \x17붕괴 3rd \x04-");
         if _t18(17):
             tct.f_addText("\n\x04- \x17붕괴 3rd \x04-")
-            # (Line 198) tct.addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.");
+            # (Line 196) tct.addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.")
-            # (Line 199) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
+            # (Line 197) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04적응된 플레이어에게 추천합니다.")
-            # (Line 200) tct.addText("\n\n\x13\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04조작보통 \x1F#\x04특수");
+            # (Line 198) tct.addText("\n\n\x13\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04조작보통 \x1F#\x04특수");
             tct.f_addText("\n\n\x13\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04조작보통 \x1F#\x04특수")
-            # (Line 201) break;
+            # (Line 199) break;
             EUDBreak()
-            # (Line 202) case 18:
+            # (Line 200) case 18:
         _t19 = EUDSwitchCase()
-        # (Line 203) tct.addText("\n\x13\x04- \x17K RETURN OF KINGS \x04-");
+        # (Line 201) tct.addText("\n\x13\x04- \x17K RETURN OF KINGS \x04-");
         if _t19(18):
             tct.f_addText("\n\x13\x04- \x17K RETURN OF KINGS \x04-")
-            # (Line 204) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
+            # (Line 202) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.")
-            # (Line 205) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
+            # (Line 203) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04적응된 플레이어에게 추천합니다.")
-            # (Line 206) tct.addText("\n\n\x13\x1F#\x04대인 \x1F#\x04순간딜 \x1F#\x04조작보통");
+            # (Line 204) tct.addText("\n\n\x13\x1F#\x04대인 \x1F#\x04순간딜 \x1F#\x04조작보통");
             tct.f_addText("\n\n\x13\x1F#\x04대인 \x1F#\x04순간딜 \x1F#\x04조작보통")
-            # (Line 207) break;
+            # (Line 205) break;
             EUDBreak()
-            # (Line 208) }
-        # (Line 210) if (cp >=0 && cp <= 2 && Switch((249), (2)))
+            # (Line 206) }
+        # (Line 208) if (cp >=0 && cp <= 2 && Switch((249), (2)))
         EUDEndSwitch()
         if EUDIf()(EUDSCAnd()(cp >= 0)(cp <= 2)(Switch((249), (2)))()):
-            # (Line 211) {
-            # (Line 212) if (v.Hero_Text[cp] == 3
+            # (Line 209) {
+            # (Line 210) if (v.Hero_Text[cp] == 3
             _t21 = EUDIf()
-            # (Line 213) || v.Hero_Text[cp] == 5
-            # (Line 214) || v.Hero_Text[cp] == 7
-            # (Line 215) || v.Hero_Text[cp] == 12
-            # (Line 216) || v.Hero_Text[cp] == 18)
+            # (Line 211) || v.Hero_Text[cp] == 5
+            # (Line 212) || v.Hero_Text[cp] == 7
+            # (Line 213) || v.Hero_Text[cp] == 12
+            # (Line 214) || v.Hero_Text[cp] == 18)
             if _t21(EUDSCOr()(v.Hero_Text[cp] == 3)(v.Hero_Text[cp] == 5)(v.Hero_Text[cp] == 7)(v.Hero_Text[cp] == 12)(v.Hero_Text[cp] == 18)()):
-                # (Line 217) { tct.addText("\n\n\x13\x04선택할수 없습니다.\n"); }
+                # (Line 215) { tct.addText("\n\n\x13\x04선택할수 없습니다.\n"); }
                 tct.f_addText("\n\n\x13\x04선택할수 없습니다.\n")
-                # (Line 218) }
+                # (Line 216) }
             EUDEndIf()
-            # (Line 219) else if (cp >=3 && cp <= 5 && Switch((248), (2)))
+            # (Line 217) else if (cp >=3 && cp <= 5 && Switch((248), (2)))
         if EUDElseIf()(EUDSCAnd()(cp >= 3)(cp <= 5)(Switch((248), (2)))()):
-            # (Line 220) {
-            # (Line 221) if (v.Hero_Text[cp] == 3
+            # (Line 218) {
+            # (Line 219) if (v.Hero_Text[cp] == 3
             _t23 = EUDIf()
-            # (Line 222) || v.Hero_Text[cp] == 5
-            # (Line 223) || v.Hero_Text[cp] == 7
-            # (Line 224) || v.Hero_Text[cp] == 12
-            # (Line 225) || v.Hero_Text[cp] == 18)
+            # (Line 220) || v.Hero_Text[cp] == 5
+            # (Line 221) || v.Hero_Text[cp] == 7
+            # (Line 222) || v.Hero_Text[cp] == 12
+            # (Line 223) || v.Hero_Text[cp] == 18)
             if _t23(EUDSCOr()(v.Hero_Text[cp] == 3)(v.Hero_Text[cp] == 5)(v.Hero_Text[cp] == 7)(v.Hero_Text[cp] == 12)(v.Hero_Text[cp] == 18)()):
-                # (Line 226) { tct.addText("\n\n\x13\x04선택할수 없습니다.\n"); }
+                # (Line 224) { tct.addText("\n\n\x13\x04선택할수 없습니다.\n"); }
                 tct.f_addText("\n\n\x13\x04선택할수 없습니다.\n")
-                # (Line 227) }
+                # (Line 225) }
             EUDEndIf()
-            # (Line 228) else { tct.addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"); }
+            # (Line 226) else { tct.addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"); }
         if EUDElse()():
             tct.f_addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n")
-            # (Line 230) txtPtr = dwread_epd(EPD(0x640B58));
+            # (Line 228) txtPtr = dwread_epd(EPD(0x640B58));
         EUDEndIf()
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 231) tct.displayText();
+        # (Line 229) tct.displayText();
         tct.f_displayText()
-        # (Line 232) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 234) v.Hero_Text[cp] = 0;
+        # (Line 230) SetMemory(0x640B58, SetTo, txtPtr);
+        # (Line 232) v.Hero_Text[cp] = 0;
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
         _ARRW(v.Hero_Text, cp) << (0)
-        # (Line 235) }
-        # (Line 236) }
+        # (Line 233) }
+        # (Line 234) }
     EUDEndIf()
