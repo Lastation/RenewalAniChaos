@@ -1169,7 +1169,7 @@ Trigger { -- Skill : S
 }
 
 Trigger { -- Skill : S
-   players = {Force1, Force2},
+   players = {Force1},
    conditions = {
       Deaths(CurrentPlayer, Exactly, 2000, " * Samir Duran");
       Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
@@ -1180,6 +1180,27 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
+      SetAllianceStatus(P8, Enemy);
+      Wait(500);
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillCount");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
+      SetDeaths(CurrentPlayer, Add, 12, " `SkillWait");
+   },
+}
+
+Trigger { -- Skill : S
+   players = {Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 2000, " * Samir Duran");
+      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 10, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      SetAllianceStatus(P7, Enemy);
       Wait(500);
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillCount");
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");

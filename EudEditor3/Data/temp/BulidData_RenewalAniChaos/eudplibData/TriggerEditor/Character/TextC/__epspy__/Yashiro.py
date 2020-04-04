@@ -150,255 +150,266 @@ def NormalText(cp):
         tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그것은 분에 넘치는 소망이다.\n\n")
         # (Line 14) break;
         EUDBreak()
-        # (Line 15) case 2001:
+        # (Line 15) case 2004:
     _t2 = EUDSwitchCase()
-    # (Line 16) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04게임 오버다.\n\x13\x04너도, 나도.\n\n");
-    if _t2(2001):
-        tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x04게임 오버다.\n\x13\x04너도, 나도.\n\n")
-        # (Line 17) PlayWAV("yashiro_aacc.ogg");
+    # (Line 16) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04네가 손에 넣는 것은 이 마을의 평화다\n\x13\x04네가 원한 것은 바로 그거잖아?\n\n");
+    if _t2(2004):
+        tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x04네가 손에 넣는 것은 이 마을의 평화다\n\x13\x04네가 원한 것은 바로 그거잖아?\n\n")
+        # (Line 17) PlayWAV("yashiro_AA.ogg");
         # (Line 18) v.Sound_Text3[cp] = 0;
-        DoActions(PlayWAV("yashiro_aacc.ogg"))
+        DoActions(PlayWAV("yashiro_AA.ogg"))
         _ARRW(v.Sound_Text3, cp) << (0)
         # (Line 19) break;
         EUDBreak()
-        # (Line 20) case 2002:
+        # (Line 20) case 2005:
     _t3 = EUDSwitchCase()
-    # (Line 21) PlayWAV("yashiro_ccaa.ogg");
-    if _t3(2002):
-        # (Line 22) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04선행도 악행도 본질은 똑같다\n\n");
-        DoActions(PlayWAV("yashiro_ccaa.ogg"))
-        tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x04선행도 악행도 본질은 똑같다\n\n")
+    # (Line 21) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04내가 손에 넣는 것은\n\x13\x04나 손에 의한, 나만을 위해 존재하는 죽음이다\n\n");
+    if _t3(2005):
+        tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x04내가 손에 넣는 것은\n\x13\x04나 손에 의한, 나만을 위해 존재하는 죽음이다\n\n")
+        # (Line 22) PlayWAV("yashiro_AACC.ogg");
         # (Line 23) v.Sound_Text3[cp] = 0;
+        DoActions(PlayWAV("yashiro_AACC.ogg"))
         _ARRW(v.Sound_Text3, cp) << (0)
         # (Line 24) break;
         EUDBreak()
-        # (Line 25) case 2003:
+        # (Line 25) case 2002:
     _t4 = EUDSwitchCase()
-    # (Line 26) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04사람이 자기 결함을 보완하기 위한 행위에 지나지 않아\n\n");
-    if _t4(2003):
-        tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x04사람이 자기 결함을 보완하기 위한 행위에 지나지 않아\n\n")
-        # (Line 27) v.Sound_Text3[cp] = 0;
+    # (Line 26) PlayWAV("yashiro_ccaa.ogg");
+    if _t4(2002):
+        # (Line 27) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04선행도 악행도 본질은 똑같다\n\n");
+        DoActions(PlayWAV("yashiro_ccaa.ogg"))
+        tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x04선행도 악행도 본질은 똑같다\n\n")
+        # (Line 28) v.Sound_Text3[cp] = 0;
         _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 28) break;
+        # (Line 29) break;
         EUDBreak()
-        # (Line 29) }
-    # (Line 30) }
+        # (Line 30) case 2003:
+    _t5 = EUDSwitchCase()
+    # (Line 31) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04사람이 자기 결함을 보완하기 위한 행위에 지나지 않아\n\n");
+    if _t5(2003):
+        tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x04사람이 자기 결함을 보완하기 위한 행위에 지나지 않아\n\n")
+        # (Line 32) v.Sound_Text3[cp] = 0;
+        _ARRW(v.Sound_Text3, cp) << (0)
+        # (Line 33) break;
+        EUDBreak()
+        # (Line 34) }
+    # (Line 35) }
     EUDEndSwitch()
-    # (Line 32) function UiltimateText(cp)
+    # (Line 37) function UiltimateText(cp)
 
-# (Line 33) {
+# (Line 38) {
 @EUDFunc
 def UiltimateText(cp):
-    # (Line 34) switch (v.Sound_Text_Uilti[cp])
+    # (Line 39) switch (v.Sound_Text_Uilti[cp])
     EUDSwitch(v.Sound_Text_Uilti[cp])
-    # (Line 35) {
-    # (Line 36) case 14000:
+    # (Line 40) {
+    # (Line 41) case 14000:
     _t1 = EUDSwitchCase()
-    # (Line 37) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04고마워 사토루, 하지만 사탕은 안 들어 있어\n\n");
+    # (Line 42) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04고마워 사토루, 하지만 사탕은 안 들어 있어\n\n");
     if _t1(14000):
         tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x04고마워 사토루, 하지만 사탕은 안 들어 있어\n\n")
-        # (Line 38) PlayWAV("yashiro_aaaa.ogg");
-        # (Line 39) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 43) PlayWAV("yashiro_aaaa.ogg");
+        # (Line 44) v.Sound_Text_Uilti[cp] = 0;
         DoActions(PlayWAV("yashiro_aaaa.ogg"))
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 40) break;
+        # (Line 45) break;
         EUDBreak()
-        # (Line 41) case 14001:
+        # (Line 46) case 14001:
     _t2 = EUDSwitchCase()
-    # (Line 42) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04왜냐면, 이거... \x08내 차가 아니야\n\n");
+    # (Line 47) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04왜냐면, 이거... \x08내 차가 아니야\n\n");
     if _t2(14001):
         tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x04왜냐면, 이거... \x08내 차가 아니야\n\n")
-        # (Line 43) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 48) v.Sound_Text_Uilti[cp] = 0;
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 44) break;
+        # (Line 49) break;
         EUDBreak()
-        # (Line 45) }
-    # (Line 47) }
+        # (Line 50) }
+    # (Line 52) }
     EUDEndSwitch()
-    # (Line 49) function UniqueText(cp)
+    # (Line 54) function UniqueText(cp)
 
-# (Line 50) {
+# (Line 55) {
 @EUDFunc
 def UniqueText(cp):
-    # (Line 51) switch (v.Sound_Text_Uniq[cp])
+    # (Line 56) switch (v.Sound_Text_Uniq[cp])
     EUDSwitch(v.Sound_Text_Uniq[cp])
-    # (Line 52) {
-    # (Line 53) case 14000:
+    # (Line 57) {
+    # (Line 58) case 14000:
     _t1 = EUDSwitchCase()
-    # (Line 54) txtPtr = dwread_epd(EPD(0x640B58));
+    # (Line 59) txtPtr = dwread_epd(EPD(0x640B58));
     if _t1(14000):
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 55) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04이런 이야기를 믿어 줄 것 같진 않지만, 굳이 말하마.\n\n");
+        # (Line 60) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04이런 이야기를 믿어 줄 것 같진 않지만, 굳이 말하마.\n\n");
         tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x04이런 이야기를 믿어 줄 것 같진 않지만, 굳이 말하마.\n\n")
-        # (Line 56) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 57) PlayWAV("yashiro_u1.ogg");
+        # (Line 61) SetMemory(0x640B58, SetTo, txtPtr);
+        # (Line 62) PlayWAV("yashiro_u1.ogg");
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
-        # (Line 58) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 63) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("yashiro_u1.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 59) break;
+        # (Line 64) break;
         EUDBreak()
-        # (Line 60) case 14001:
+        # (Line 65) case 14001:
     _t2 = EUDSwitchCase()
-    # (Line 61) txtPtr = dwread_epd(EPD(0x640B58));
+    # (Line 66) txtPtr = dwread_epd(EPD(0x640B58));
     if _t2(14001):
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 62) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04아니, 너라면 알아줄 지도 몰라.\n\n");
+        # (Line 67) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04아니, 너라면 알아줄 지도 몰라.\n\n");
         tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x04아니, 너라면 알아줄 지도 몰라.\n\n")
-        # (Line 63) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 64) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 68) SetMemory(0x640B58, SetTo, txtPtr);
+        # (Line 69) v.Sound_Text_Uniq[cp] = 0;
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 65) break;
+        # (Line 70) break;
         EUDBreak()
-        # (Line 66) case 14002:
+        # (Line 71) case 14002:
     _t3 = EUDSwitchCase()
-    # (Line 67) txtPtr = dwread_epd(EPD(0x640B58));
+    # (Line 72) txtPtr = dwread_epd(EPD(0x640B58));
     if _t3(14002):
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 68) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x03스파이스\x04랑 만난 이후로,\n\n");
+        # (Line 73) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x03스파이스\x04랑 만난 이후로,\n\n");
         tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x03스파이스\x04랑 만난 이후로,\n\n")
-        # (Line 69) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 70) PlayWAV("yashiro_u2.ogg");
+        # (Line 74) SetMemory(0x640B58, SetTo, txtPtr);
+        # (Line 75) PlayWAV("yashiro_u2.ogg");
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
-        # (Line 71) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 76) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("yashiro_u2.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 72) break;
+        # (Line 77) break;
         EUDBreak()
-        # (Line 73) case 14003:
+        # (Line 78) case 14003:
     _t4 = EUDSwitchCase()
-    # (Line 74) txtPtr = dwread_epd(EPD(0x640B58));
+    # (Line 79) txtPtr = dwread_epd(EPD(0x640B58));
     if _t4(14003):
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 75) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04나에게는 \x17거미줄\x04이 보이게 됐다.\n\n");
+        # (Line 80) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04나에게는 \x17거미줄\x04이 보이게 됐다.\n\n");
         tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x04나에게는 \x17거미줄\x04이 보이게 됐다.\n\n")
-        # (Line 76) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 77) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 81) SetMemory(0x640B58, SetTo, txtPtr);
+        # (Line 82) v.Sound_Text_Uniq[cp] = 0;
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 78) break;
+        # (Line 83) break;
         EUDBreak()
-        # (Line 79) case 14004:
+        # (Line 84) case 14004:
     _t5 = EUDSwitchCase()
-    # (Line 80) txtPtr = dwread_epd(EPD(0x640B58));
+    # (Line 85) txtPtr = dwread_epd(EPD(0x640B58));
     if _t5(14004):
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 81) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그게 보인 인간을 죽여 왔다.\n\n");
+        # (Line 86) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그게 보인 인간을 죽여 왔다.\n\n");
         tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그게 보인 인간을 죽여 왔다.\n\n")
-        # (Line 82) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 83) PlayWAV("yashiro_u3.ogg");
+        # (Line 87) SetMemory(0x640B58, SetTo, txtPtr);
+        # (Line 88) PlayWAV("yashiro_u3.ogg");
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
-        # (Line 84) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 89) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("yashiro_u3.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 85) break;
+        # (Line 90) break;
         EUDBreak()
-        # (Line 86) case 14005:
+        # (Line 91) case 14005:
     _t6 = EUDSwitchCase()
-    # (Line 87) txtPtr = dwread_epd(EPD(0x640B58));
+    # (Line 92) txtPtr = dwread_epd(EPD(0x640B58));
     if _t6(14005):
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 88) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그러나 어느 날\n\x13\x04한 명의 소년이 내 계획을 저지했다.\n\n");
+        # (Line 93) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그러나 어느 날\n\x13\x04한 명의 소년이 내 계획을 저지했다.\n\n");
         tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그러나 어느 날\n\x13\x04한 명의 소년이 내 계획을 저지했다.\n\n")
-        # (Line 89) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 90) PlayWAV("yashiro_u4.ogg");
+        # (Line 94) SetMemory(0x640B58, SetTo, txtPtr);
+        # (Line 95) PlayWAV("yashiro_u4.ogg");
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
-        # (Line 91) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 96) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("yashiro_u4.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 92) break;
+        # (Line 97) break;
         EUDBreak()
-        # (Line 93) case 14006:
+        # (Line 98) case 14006:
     _t7 = EUDSwitchCase()
-    # (Line 94) txtPtr = dwread_epd(EPD(0x640B58));
+    # (Line 99) txtPtr = dwread_epd(EPD(0x640B58));
     if _t7(14006):
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 95) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그리고 그 소년의 머리 위에도\n\x13\x17거미줄\x04이 나타났다.\n\n");
+        # (Line 100) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그리고 그 소년의 머리 위에도\n\x13\x17거미줄\x04이 나타났다.\n\n");
         tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그리고 그 소년의 머리 위에도\n\x13\x17거미줄\x04이 나타났다.\n\n")
-        # (Line 96) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 97) PlayWAV("yashiro_u5.ogg");
+        # (Line 101) SetMemory(0x640B58, SetTo, txtPtr);
+        # (Line 102) PlayWAV("yashiro_u5.ogg");
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
-        # (Line 98) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 103) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("yashiro_u5.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 99) break;
+        # (Line 104) break;
         EUDBreak()
-        # (Line 100) case 14007:
+        # (Line 105) case 14007:
     _t8 = EUDSwitchCase()
-    # (Line 101) txtPtr = dwread_epd(EPD(0x640B58));
+    # (Line 106) txtPtr = dwread_epd(EPD(0x640B58));
     if _t8(14007):
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 102) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그러나 그는 죽지 않았다.\n\n");
+        # (Line 107) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그러나 그는 죽지 않았다.\n\n");
         tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그러나 그는 죽지 않았다.\n\n")
-        # (Line 103) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 104) PlayWAV("yashiro_u6.ogg");
+        # (Line 108) SetMemory(0x640B58, SetTo, txtPtr);
+        # (Line 109) PlayWAV("yashiro_u6.ogg");
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
-        # (Line 105) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 110) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("yashiro_u6.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 106) break;
+        # (Line 111) break;
         EUDBreak()
-        # (Line 107) case 14008:
+        # (Line 112) case 14008:
     _t9 = EUDSwitchCase()
-    # (Line 108) txtPtr = dwread_epd(EPD(0x640B58));
+    # (Line 113) txtPtr = dwread_epd(EPD(0x640B58));
     if _t9(14008):
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 109) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04나는 그 녀석을 \x03스파이스\x04라고 이름짓고\n\x13\x04관찰하기로 했다.\n\n");
+        # (Line 114) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04나는 그 녀석을 \x03스파이스\x04라고 이름짓고\n\x13\x04관찰하기로 했다.\n\n");
         tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x04나는 그 녀석을 \x03스파이스\x04라고 이름짓고\n\x13\x04관찰하기로 했다.\n\n")
-        # (Line 110) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 111) PlayWAV("yashiro_u7.ogg");
+        # (Line 115) SetMemory(0x640B58, SetTo, txtPtr);
+        # (Line 116) PlayWAV("yashiro_u7.ogg");
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
-        # (Line 112) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 117) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("yashiro_u7.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 113) break;
+        # (Line 118) break;
         EUDBreak()
-        # (Line 114) case 14009:
+        # (Line 119) case 14009:
     _t10 = EUDSwitchCase()
-    # (Line 115) PlayWAV("yashiro_u8.ogg");
+    # (Line 120) PlayWAV("yashiro_u8.ogg");
     if _t10(14009):
-        # (Line 116) txtPtr = dwread_epd(EPD(0x640B58));
+        # (Line 121) txtPtr = dwread_epd(EPD(0x640B58));
         DoActions(PlayWAV("yashiro_u8.ogg"))
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 117) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x08그게 너야...\n\n");
+        # (Line 122) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x08그게 너야...\n\n");
         tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x08그게 너야...\n\n")
-        # (Line 118) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 119) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 123) SetMemory(0x640B58, SetTo, txtPtr);
+        # (Line 124) v.Sound_Text_Uniq[cp] = 0;
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 120) break;
+        # (Line 125) break;
         EUDBreak()
-        # (Line 121) case 14010:
+        # (Line 126) case 14010:
     _t11 = EUDSwitchCase()
-    # (Line 122) txtPtr = dwread_epd(EPD(0x640B58));
+    # (Line 127) txtPtr = dwread_epd(EPD(0x640B58));
     if _t11(14010):
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 123) tct.print("\n\n\n\n\x13\x02Yashiro Gaku\n\x13\x04그런 게 있을 리가 없잖냐\n\n\n\n");
+        # (Line 128) tct.print("\n\n\n\n\x13\x02Yashiro Gaku\n\x13\x04그런 게 있을 리가 없잖냐\n\n\n\n");
         tct.f_print("\n\n\n\n\x13\x02Yashiro Gaku\n\x13\x04그런 게 있을 리가 없잖냐\n\n\n\n")
-        # (Line 124) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 125) PlayWAV("yashiro_o_active.ogg");
+        # (Line 129) SetMemory(0x640B58, SetTo, txtPtr);
+        # (Line 130) PlayWAV("yashiro_o_active.ogg");
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
-        # (Line 126) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 131) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("yashiro_o_active.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 127) break;
+        # (Line 132) break;
         EUDBreak()
-        # (Line 128) case 14012:
+        # (Line 133) case 14012:
     _t12 = EUDSwitchCase()
-    # (Line 129) PlayWAV("yashiro_o_end.ogg");
+    # (Line 134) PlayWAV("yashiro_o_end.ogg");
     if _t12(14012):
-        # (Line 130) txtPtr = dwread_epd(EPD(0x640B58));
+        # (Line 135) txtPtr = dwread_epd(EPD(0x640B58));
         DoActions(PlayWAV("yashiro_o_end.ogg"))
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 131) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04이건 나에게도 이판사판의 도박이었다\n\n");
+        # (Line 136) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04이건 나에게도 이판사판의 도박이었다\n\n");
         tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x04이건 나에게도 이판사판의 도박이었다\n\n")
-        # (Line 132) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 133) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 137) SetMemory(0x640B58, SetTo, txtPtr);
+        # (Line 138) v.Sound_Text_Uniq[cp] = 0;
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 134) break;
+        # (Line 139) break;
         EUDBreak()
-        # (Line 135) }
-    # (Line 136) }
+        # (Line 140) }
+    # (Line 141) }
     EUDEndSwitch()

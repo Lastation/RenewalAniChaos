@@ -143,22 +143,22 @@ def Init():
     MPQAddFile('SCARCHIVEMAPCODE', open('scakeyfile', 'rb').read())
     # (Line 10) MPQAddFile('SCARCHIVEDATA', py_open('scadatafile', 'rb').read());
     MPQAddFile('SCARCHIVEDATA', open('scadatafile', 'rb').read())
-    # (Line 12) dwwrite_epd(EPD(ws) + 0, 2176467568);
-    f_dwwrite_epd(EPD(ws) + 0, 2176467568)
-    # (Line 13) dwwrite_epd(EPD(ws) + 1, 2210506621);
-    f_dwwrite_epd(EPD(ws) + 1, 2210506621)
-    # (Line 14) dwwrite_epd(EPD(ws) + 2, 1918560498);
-    f_dwwrite_epd(EPD(ws) + 2, 1918560498)
-    # (Line 15) dwwrite_epd(EPD(ws) + 3, 3385008153);
-    f_dwwrite_epd(EPD(ws) + 3, 3385008153)
-    # (Line 16) dwwrite_epd(EPD(ws) + 4, 1669416492);
-    f_dwwrite_epd(EPD(ws) + 4, 1669416492)
-    # (Line 17) dwwrite_epd(EPD(ws) + 5, 1134076263);
-    f_dwwrite_epd(EPD(ws) + 5, 1134076263)
-    # (Line 18) dwwrite_epd(EPD(ws) + 6, 2317249084);
-    f_dwwrite_epd(EPD(ws) + 6, 2317249084)
-    # (Line 19) dwwrite_epd(EPD(ws) + 7, 1453724642);
-    f_dwwrite_epd(EPD(ws) + 7, 1453724642)
+    # (Line 12) dwwrite_epd(EPD(ws) + 0, 607665956);
+    f_dwwrite_epd(EPD(ws) + 0, 607665956)
+    # (Line 13) dwwrite_epd(EPD(ws) + 1, 3465480025);
+    f_dwwrite_epd(EPD(ws) + 1, 3465480025)
+    # (Line 14) dwwrite_epd(EPD(ws) + 2, 1631935445);
+    f_dwwrite_epd(EPD(ws) + 2, 1631935445)
+    # (Line 15) dwwrite_epd(EPD(ws) + 3, 470751822);
+    f_dwwrite_epd(EPD(ws) + 3, 470751822)
+    # (Line 16) dwwrite_epd(EPD(ws) + 4, 2035424591);
+    f_dwwrite_epd(EPD(ws) + 4, 2035424591)
+    # (Line 17) dwwrite_epd(EPD(ws) + 5, 2706733454);
+    f_dwwrite_epd(EPD(ws) + 5, 2706733454)
+    # (Line 18) dwwrite_epd(EPD(ws) + 6, 838800433);
+    f_dwwrite_epd(EPD(ws) + 6, 838800433)
+    # (Line 19) dwwrite_epd(EPD(ws) + 7, 2007075716);
+    f_dwwrite_epd(EPD(ws) + 7, 2007075716)
     # (Line 21) }
     # (Line 24) function Exec(){
 
