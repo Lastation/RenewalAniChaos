@@ -3086,7 +3086,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 63
 ElementsCount:2
 Type:26,False,False,False
@@ -3171,7 +3171,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 63
 ElementsCount:2
 Type:26,False,False,False
@@ -3277,7 +3277,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 63
 ElementsCount:2
 Type:26,False,False,False
@@ -3499,7 +3499,7 @@ END
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 7
 ElementsCount:2
 Type:26,False,False,False
@@ -3704,7 +3704,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,False,False
+Type:24,False,True,False
 56
 ElementsCount:2
 Type:26,False,False,False
@@ -9253,7 +9253,7 @@ ElementsCount:0
 END
 END
 END
-Type:24,False,True,False
+Type:24,False,False,False
 4096
 ElementsCount:2
 Type:26,False,False,False
@@ -9279,7 +9279,7 @@ ElementsCount:0
 END
 Type:28,False,False,False
 Sound_Text3[getcurpl()]
-ElementsCount:4
+ElementsCount:5
 Type:29,False,False,False
 2000ஐTrue
 ElementsCount:3
@@ -9300,11 +9300,30 @@ ElementsCount:0
 END
 END
 Type:29,False,False,False
-2001ஐTrue
+2004ஐTrue
 ElementsCount:3
 Type:8,False,False,False
 act:DisplayCText
-"\n\n\x13\x02Yashiro Gaku\n\x13\x04게임 오버다.\n\x13\x04너도, 나도.\n\n"ஐ0
+"\n\n\x13\x02Yashiro Gaku\n\x13\x04네가 손에 넣는 것은 이 마을의 평화다\n\x13\x04네가 원한 것, 바로 그거잖아?\n\n"ஐ0
+ElementsCount:0
+END
+Type:8,False,False,False
+act:PlayWAV
+"yashiro_aacc.ogg"
+ElementsCount:0
+END
+Type:8,False,False,False
+act:SetVariable
+Sound_Text3[getcurpl()]ஐ0ஐ0
+ElementsCount:0
+END
+END
+Type:29,False,False,False
+2005ஐTrue
+ElementsCount:3
+Type:8,False,False,False
+act:DisplayCText
+"\n\n\x13\x02Yashiro Gaku\n\x13\x04내가 손에 넣는 것은\n\x13\x04나 손에 의한, 나만을 위해 존재하는 죽음이다\n\n"ஐ0
 ElementsCount:0
 END
 Type:8,False,False,False
@@ -9337,7 +9356,7 @@ Sound_Text3[getcurpl()]ஐ0ஐ0
 ElementsCount:0
 END
 END
-Type:29,False,False,False
+Type:29,False,True,False
 2003ஐTrue
 ElementsCount:2
 Type:8,False,False,False
