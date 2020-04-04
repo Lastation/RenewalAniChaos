@@ -1,0 +1,38 @@
+import SCArchive as sca;
+
+import Variable as v;
+import customText as tct;
+
+var txtPtr, btnPtr, btnPos, oldCP;
+const trgk = $T('Artanis & safhfh');
+
+function ResetCharacterExp()
+{
+	const cp = getcurpl();
+	
+	for (var i = 0; i < v.CharacterMax; i++)
+	{
+		v.CharacterExp[6 * i + cp] = 0;
+	}
+}
+
+function ShowCharacterExp(cp, num)
+{	
+	tct.makeText("\x13\x17[ \x04",ptr2s(v.Hero_Name[num])," \x17] \x04EXP : ");
+	tct.addText(v.CharacterExp[6 * num + cp],"");
+	tct.displayText();
+}
+
+function AddCharacterExp()
+{
+	if(Deaths((13), (0), 1, (166)))
+	{
+		const cp = getcurpl();
+		const num = dwread_epd(EPD(0x58A364 + 48 * 0 + 4 * cp));
+	
+		v.CharacterExp[6 * num + cp] += dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
+		SetDeaths((13), (7), 0, (166));
+		ShowCharacterExp(cp, num);
+		sca.SaveData(0);
+	}
+}

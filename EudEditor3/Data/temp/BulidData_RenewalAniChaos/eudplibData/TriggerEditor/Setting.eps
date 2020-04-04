@@ -1,0 +1,5491 @@
+import customText as tct;
+
+var txtPtr, btnPtr, btnPos, oldCP;
+const trgk = $T('Artanis & safhfh');
+const Unit_Death = [0, 0, 0, 0, 0, 0, 0, 0];
+const Hero_Text = [0, 0, 0, 0, 0, 0, 0, 0];
+const Unit_ID = [0, 0, 0, 0, 0, 0, 0, 0];
+const Hero_Index = [0, 0, 0, 0, 0, 0, 0, 0];
+const Unit_PrevIndex = [0, 0, 0, 0, 0, 0, 0, 0];
+const Unit_NowIndex = [0, 0, 0, 0, 0, 0, 0, 0];
+const PlayerID = [0, 0, 0, 0, 0, 0, 0, 0];
+var DeathOre = 0;
+const Level = [0, 0, 0, 0, 0, 0, 0, 0];
+const Unique_Cool = [0, 0, 0, 0, 0, 0, 0, 0];
+var Team_Num = 0;
+const EXP_Need = [0, 0, 0, 0, 0, 0, 0, 0];
+const EXP_Now = [0, 0, 0, 0, 0, 0, 0, 0];
+const Potion = [0, 0, 0, 0, 0, 0, 0, 0];
+const DeathCount = [0, 0, 0, 0, 0, 0, 0, 0];
+const Sound_Text1 = [0, 0, 0, 0, 0, 0, 0, 0];
+const Sound_Text2 = [0, 0, 0, 0, 0, 0, 0, 0];
+const Sound_Text_Uilti = [0, 0, 0, 0, 0, 0, 0, 0];
+const Sound_Text_Uniq = [0, 0, 0, 0, 0, 0, 0, 0];
+const Hero_Num = [0, 0, 0, 0, 0, 0, 0, 0];
+const Mana_Property = [0, 0, 0, 0, 0, 0, 0, 0];
+const Upgrade_Armor = [0, 0, 0, 0, 0, 0, 0, 0];
+const DeathOre_Text = [0, 0, 0, 0, 0, 0, 0, 0];
+const Sound_Text3 = [0, 0, 0, 0, 0, 0, 0, 0];
+const Unit_HP = [0, 0, 0, 0, 0, 0, 0, 0];
+const Rusaruka_EXP = [0, 0, 0, 0, 0, 0, 0, 0];
+
+const ClassicTriggerExecTimer0 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec0() {
+	if (ClassicTriggerExecTimer0[getcurpl()] == 1) {
+		const selectedUnit = EPD(0x6284E8) + 12 * getcurpl();
+		Unit_NowIndex[getcurpl()] = epdread_epd(selectedUnit);
+		PlayerID[getcurpl()] = bread_epd(Unit_NowIndex[getcurpl()] + 0x4C / 4, 0);
+		if (
+			Unit_NowIndex[getcurpl()] == Unit_PrevIndex[getcurpl()]
+			) {
+		}
+		else {
+			Unit_PrevIndex[getcurpl()] = Unit_NowIndex[getcurpl()];
+			Unit_ID[getcurpl()] = bread_epd(Unit_NowIndex[getcurpl()] + 0x64 / 4, 0);
+			Unit_HP[getcurpl()] = dwread_epd(Unit_NowIndex[getcurpl()] + 0x008 / 4);
+			Unit_HP[getcurpl()] = Unit_HP[getcurpl()] / 256;
+		}
+		PreserveTrigger();
+		ClassicTriggerExecTimer0[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer0[getcurpl()] > 0) {
+		ClassicTriggerExecTimer0[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer1 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec1() {
+	if (ClassicTriggerExecTimer1[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer1[getcurpl()] > 0) {
+		ClassicTriggerExecTimer1[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer2 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec2() {
+	if (ClassicTriggerExecTimer2[getcurpl()] == 1) {
+		bwrite(0x58D2B0 + 0x207C * ((7) / 46) + (getcurpl()) * (46 - 31 * ((7) / 46)) + ((7) % 46), 80);
+		bwrite(0x58D2B0 + 0x207C * ((0) / 46) + (getcurpl()) * (46 - 31 * ((0) / 46)) + ((0) % 46), 60);
+	}
+	if (ClassicTriggerExecTimer2[getcurpl()] > 0) {
+		ClassicTriggerExecTimer2[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer3 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec3() {
+	if (ClassicTriggerExecTimer3[getcurpl()] == 1) {
+		tct.print("\n\n\x13\x19[ \x04게임 시작후 45분이 지났습니다. \x19]\n\n\x13\x04잠시 후 5분뒤 \x19서든데스 \x04시스템이 적용됩니다.\n\n\x13\x04모든 방어건물이 제거되며, 신전과 수호자만 남게됩니다.\n\x13\x04파괴하지 못한 건물의 돈은 받지 못합니다.\n\n");
+	}
+	if (ClassicTriggerExecTimer3[getcurpl()] > 0) {
+		ClassicTriggerExecTimer3[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer4 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec4() {
+	if (ClassicTriggerExecTimer4[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer4[getcurpl()] > 0) {
+		ClassicTriggerExecTimer4[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer5 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec5() {
+	if (ClassicTriggerExecTimer5[getcurpl()] == 1) {
+		RemoveUnitAt(1, (15), (96), (11));
+		PreserveTrigger();
+		ClassicTriggerExecTimer5[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer5[getcurpl()] > 0) {
+		ClassicTriggerExecTimer5[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer6 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec6() {
+	if (ClassicTriggerExecTimer6[getcurpl()] == 1) {
+		SetDeaths((0), (7), 0, (223));
+		PreserveTrigger();
+		ClassicTriggerExecTimer6[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer6[getcurpl()] > 0) {
+		ClassicTriggerExecTimer6[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer7 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec7() {
+	if (ClassicTriggerExecTimer7[getcurpl()] == 1) {
+		SetDeaths((1), (7), 0, (223));
+		PreserveTrigger();
+		ClassicTriggerExecTimer7[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer7[getcurpl()] > 0) {
+		ClassicTriggerExecTimer7[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer8 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec8() {
+	if (ClassicTriggerExecTimer8[getcurpl()] == 1) {
+		SetDeaths((2), (7), 0, (223));
+		PreserveTrigger();
+		ClassicTriggerExecTimer8[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer8[getcurpl()] > 0) {
+		ClassicTriggerExecTimer8[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer9 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec9() {
+	if (ClassicTriggerExecTimer9[getcurpl()] == 1) {
+		SetDeaths((3), (7), 0, (223));
+		PreserveTrigger();
+		ClassicTriggerExecTimer9[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer9[getcurpl()] > 0) {
+		ClassicTriggerExecTimer9[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer10 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec10() {
+	if (ClassicTriggerExecTimer10[getcurpl()] == 1) {
+		SetDeaths((4), (7), 0, (223));
+		PreserveTrigger();
+		ClassicTriggerExecTimer10[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer10[getcurpl()] > 0) {
+		ClassicTriggerExecTimer10[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer11 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec11() {
+	if (ClassicTriggerExecTimer11[getcurpl()] == 1) {
+		SetDeaths((5), (7), 0, (223));
+		PreserveTrigger();
+		ClassicTriggerExecTimer11[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer11[getcurpl()] > 0) {
+		ClassicTriggerExecTimer11[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer12 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec12() {
+	if (ClassicTriggerExecTimer12[getcurpl()] == 1) {
+		RemoveUnitAt(All, (229), (48), (11));
+		RemoveUnitAt(All, (230), (64), (11));
+		PreserveTrigger();
+		ClassicTriggerExecTimer12[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer12[getcurpl()] > 0) {
+		ClassicTriggerExecTimer12[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer13 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec13() {
+	if (ClassicTriggerExecTimer13[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer13[getcurpl()] > 0) {
+		ClassicTriggerExecTimer13[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer14 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec14() {
+	if (ClassicTriggerExecTimer14[getcurpl()] == 1) {
+		if (
+			Bring((13), (0), 1, (15), (32)) &&
+			Hero_Index[getcurpl()] != 1
+			) {
+			Hero_Index[getcurpl()] = 1;
+			Hero_Text[getcurpl()] = Hero_Index[getcurpl()];
+		}
+		if (
+			Bring((13), (0), 1, (15), (117)) &&
+			Hero_Index[getcurpl()] != 2
+			) {
+			Hero_Index[getcurpl()] = 2;
+			Hero_Text[getcurpl()] = Hero_Index[getcurpl()];
+		}
+		if (
+			Bring((13), (0), 1, (15), (121)) &&
+			Hero_Index[getcurpl()] != 3
+			) {
+			Hero_Index[getcurpl()] = 3;
+			Hero_Text[getcurpl()] = Hero_Index[getcurpl()];
+		}
+		if (
+			Bring((13), (0), 1, (15), (125)) &&
+			Hero_Index[getcurpl()] != 4
+			) {
+			Hero_Index[getcurpl()] = 4;
+			Hero_Text[getcurpl()] = Hero_Index[getcurpl()];
+		}
+		if (
+			Bring((13), (0), 1, (15), (126)) &&
+			Hero_Index[getcurpl()] != 5
+			) {
+			Hero_Index[getcurpl()] = 5;
+			Hero_Text[getcurpl()] = Hero_Index[getcurpl()];
+		}
+		if (
+			Bring((13), (0), 1, (15), (133)) &&
+			Hero_Index[getcurpl()] != 6
+			) {
+			Hero_Index[getcurpl()] = 6;
+			Hero_Text[getcurpl()] = Hero_Index[getcurpl()];
+		}
+		if (
+			Bring((13), (0), 1, (15), (143)) &&
+			Hero_Index[getcurpl()] != 7
+			) {
+			Hero_Index[getcurpl()] = 7;
+			Hero_Text[getcurpl()] = Hero_Index[getcurpl()];
+		}
+		if (
+			Bring((13), (0), 1, (15), (145)) &&
+			Hero_Index[getcurpl()] != 8
+			) {
+			Hero_Index[getcurpl()] = 8;
+			Hero_Text[getcurpl()] = Hero_Index[getcurpl()];
+		}
+		if (
+			Bring((13), (0), 1, (15), (148)) &&
+			Hero_Index[getcurpl()] != 9
+			) {
+			Hero_Index[getcurpl()] = 9;
+			Hero_Text[getcurpl()] = Hero_Index[getcurpl()];
+		}
+		if (
+			Bring((13), (0), 1, (15), (150)) &&
+			Hero_Index[getcurpl()] != 10
+			) {
+			Hero_Index[getcurpl()] = 10;
+			Hero_Text[getcurpl()] = Hero_Index[getcurpl()];
+		}
+		if (
+			Bring((13), (0), 1, (15), (154)) &&
+			Hero_Index[getcurpl()] != 11
+			) {
+			Hero_Index[getcurpl()] = 11;
+			Hero_Text[getcurpl()] = Hero_Index[getcurpl()];
+		}
+		if (
+			Bring((13), (0), 1, (15), (157)) &&
+			Hero_Index[getcurpl()] != 12
+			) {
+			Hero_Index[getcurpl()] = 12;
+			Hero_Text[getcurpl()] = Hero_Index[getcurpl()];
+		}
+		if (
+			Bring((13), (0), 1, (15), (163)) &&
+			Hero_Index[getcurpl()] != 13
+			) {
+			Hero_Index[getcurpl()] = 13;
+			Hero_Text[getcurpl()] = Hero_Index[getcurpl()];
+		}
+		if (
+			Bring((13), (0), 1, (15), (164)) &&
+			Hero_Index[getcurpl()] != 14
+			) {
+			Hero_Index[getcurpl()] = 14;
+			Hero_Text[getcurpl()] = Hero_Index[getcurpl()];
+		}
+		if (
+			Bring((13), (0), 1, (15), (166)) &&
+			Hero_Index[getcurpl()] != 15
+			) {
+			Hero_Index[getcurpl()] = 15;
+			Hero_Text[getcurpl()] = Hero_Index[getcurpl()];
+		}
+		if (
+			Bring((13), (0), 1, (15), (168)) &&
+			Hero_Index[getcurpl()] != 16
+			) {
+			Hero_Index[getcurpl()] = 16;
+			Hero_Text[getcurpl()] = Hero_Index[getcurpl()];
+		}
+		if (
+			Bring((13), (0), 1, (15), (170)) &&
+			Hero_Index[getcurpl()] != 17
+			) {
+			Hero_Index[getcurpl()] = 17;
+			Hero_Text[getcurpl()] = Hero_Index[getcurpl()];
+		}
+		PreserveTrigger();
+		ClassicTriggerExecTimer14[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer14[getcurpl()] > 0) {
+		ClassicTriggerExecTimer14[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer15 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec15() {
+	if (ClassicTriggerExecTimer15[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer15[getcurpl()] > 0) {
+		ClassicTriggerExecTimer15[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer16 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec16() {
+	if (ClassicTriggerExecTimer16[getcurpl()] == 1) {
+		switch (Unit_ID[getcurpl()]) {
+		case 122:
+			switch (PlayerID[getcurpl()]) {
+			case 6:
+			case 7:
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\n\x13\x19[ \x04Upgrade \x19]\n\n\x13\x04영웅의 능력을 업그레이드 하는 곳 입니다.\n\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+				Unit_ID[getcurpl()] = 0;
+				break;
+			}
+			break;
+		case 125:
+			switch (PlayerID[getcurpl()]) {
+			case 6:
+			case 7:
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\n\x13\x19[ \x04Shield \x19]\n\n\x13\x04- \x19수호자 사망\x04시 구입 가능합니다.\n\x13\x04- 신전의 쉴드량이 \x19100%\x04로 회복됩니다.\n\n\x13\x04- 무제한 구입 가능합니다.\n\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+				Unit_ID[getcurpl()] = 0;
+				break;
+			}
+			break;
+		case 216:
+			switch (PlayerID[getcurpl()]) {
+			case 6:
+			case 7:
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\n\x13\x19[ \x04Potion Discount \x19]\n\n\x13\x04- 포션 가격이 \x1920% \x04할인됩니다.\n\n\x13\x04- \x191 \x04회 구입 가능합니다.\n\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+				Unit_ID[getcurpl()] = 0;
+				break;
+			}
+			break;
+		case 217:
+			switch (PlayerID[getcurpl()]) {
+			case 6:
+			case 7:
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\n\x13\x19[ \x04Mana Disk \x19]\n\n\x13\x04- 가스 회복량이 \x1950% \x04증가됩니다.\n\n\x13\x04- \x192 \x04회 구입 가능합니다.\n\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+				Unit_ID[getcurpl()] = 0;
+				break;
+			}
+			break;
+		case 219:
+			switch (PlayerID[getcurpl()]) {
+			case 6:
+			case 7:
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\n\x13\x19[ \x04Potion \x19]\n\n\x13\x04- \x19셔틀\x04 생산시 사용되는 아이템입니다.\n\x13\x04- 영웅의 체력을 \x19100%\x04로 회복시킵니다.\n\n\x13\x04- 최대 \x1915 \x04개 보유 가능합니다.\n\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+				Unit_ID[getcurpl()] = 0;
+				break;
+			}
+			break;
+		case 39:
+			switch (PlayerID[getcurpl()]) {
+			case 10:
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\n\x13\x19[ \x04Hoffnung \x19]\n\n\x13\x04- 아군 게이트가 \x19모두 파괴\x04되었을시 구입 가능합니다.\n\x13\x04- 맵상의 Hoffnung이 \x193마리 이하\x04일시 구입가능합니다.\n\n\x13\x04- \x19무제한 \x04구입 가능합니다.\n\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+				Unit_ID[getcurpl()] = 0;
+				break;
+			}
+			break;
+		case 169:
+			switch (PlayerID[getcurpl()]) {
+			case 10:
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\n\x13\x19[ \x04C Skill \x19]\n\n\x13\x04- \x19C Skill [ 캐리어 ] \x04를 사용할수 있게 됩니다.\n\n\x13\x04- \x191 \x04회 구입 가능합니다.\n\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+				Unit_ID[getcurpl()] = 0;
+				break;
+			}
+			break;
+		case 170:
+			switch (PlayerID[getcurpl()]) {
+			case 10:
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\n\x13\x19[ \x04A Skill \x19]\n\n\x13\x04- \x19A Skill [ 아비터 ] \x04를 사용할수 있게 됩니다.\n\n\x13\x04- \x191 \x04회 구입 가능합니다.\n\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+				Unit_ID[getcurpl()] = 0;
+				break;
+			}
+			break;
+		}
+		PreserveTrigger();
+		ClassicTriggerExecTimer16[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer16[getcurpl()] > 0) {
+		ClassicTriggerExecTimer16[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer17 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec17() {
+	if (ClassicTriggerExecTimer17[getcurpl()] == 1) {
+		switch (Unit_ID[getcurpl()]) {
+		case 81:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\x13\x19[ \x1FP\x04olarlicht \x19]\n\x13\x04\x1955초 \x04마다 Hoffnung [용병] 스텍이 5 추가로 증가합니다.\n\n\x13\x04남은 체력 : ", Unit_HP[getcurpl()], " / 30000");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 79:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\x13\x19[ \x1BS\x04chnee \x19]\n\x13\x04제거시 \x1B신전 \x04의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", Unit_HP[getcurpl()], " / 110000");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 168:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\x13\x19[ \x1BB\x04runnen \x19]\n\x13\x04모두 제거시 \x1BS\x04chnee [수호자] 의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", Unit_HP[getcurpl()], " / 50000");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 175:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\x13\x19[ \x1BM\x04ond \x19]\n\n\x13\x04남은 체력 : ", Unit_HP[getcurpl()], " / 200000");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 189:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\x13\x19[ \x1BP\x04ortal \x19]\n\n\x13\x04상점에 들어가거나 원하는 라인으로 이동 해주는 건물입니다.");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 200:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\x13\x19[ \x1BW\x04ald \x19]\n\x13\x04제거시 \x1B방어건물 \x04의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", Unit_HP[getcurpl()], " / 70000");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		}
+		PreserveTrigger();
+		ClassicTriggerExecTimer17[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer17[getcurpl()] > 0) {
+		ClassicTriggerExecTimer17[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer18 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec18() {
+	if (ClassicTriggerExecTimer18[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer18[getcurpl()] > 0) {
+		ClassicTriggerExecTimer18[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer19 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec19() {
+	if (ClassicTriggerExecTimer19[getcurpl()] == 1) {
+		Unit_Death[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * Unit_ID[getcurpl()] + 4 * PlayerID[getcurpl()]));
+		PreserveTrigger();
+		switch (PlayerID[getcurpl()]) {
+		case 8:
+			Hero_Text[getcurpl()] = 1;
+			break;
+		case 9:
+			Hero_Text[getcurpl()] = 8;
+			break;
+		case 10:
+			Hero_Text[getcurpl()] = 9;
+			break;
+		}
+		switch (Unit_Death[getcurpl()]) {
+		case 1000:
+			Hero_Text[getcurpl()] = 1;
+			break;
+		case 2000:
+			Hero_Text[getcurpl()] = 8;
+			break;
+		case 3000:
+			Hero_Text[getcurpl()] = 9;
+			break;
+		}
+		Unit_ID[getcurpl()] = 0;
+		ClassicTriggerExecTimer19[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer19[getcurpl()] > 0) {
+		ClassicTriggerExecTimer19[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer20 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec20() {
+	if (ClassicTriggerExecTimer20[getcurpl()] == 1) {
+		Unit_Death[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * Unit_ID[getcurpl()] + 4 * PlayerID[getcurpl()]));
+		PreserveTrigger();
+		switch (PlayerID[getcurpl()]) {
+		case 8:
+			Hero_Text[getcurpl()] = 2;
+			break;
+		case 9:
+			Hero_Text[getcurpl()] = 7;
+			break;
+		case 10:
+			Hero_Text[getcurpl()] = 10;
+			break;
+		case 11:
+			Hero_Text[getcurpl()] = 17;
+			break;
+		}
+		switch (Unit_Death[getcurpl()]) {
+		case 1000:
+			Hero_Text[getcurpl()] = 2;
+			break;
+		case 2000:
+			Hero_Text[getcurpl()] = 7;
+			break;
+		case 3000:
+			Hero_Text[getcurpl()] = 10;
+			break;
+		case 4000:
+			Hero_Text[getcurpl()] = 17;
+			break;
+		}
+		Unit_ID[getcurpl()] = 0;
+		ClassicTriggerExecTimer20[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer20[getcurpl()] > 0) {
+		ClassicTriggerExecTimer20[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer21 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec21() {
+	if (ClassicTriggerExecTimer21[getcurpl()] == 1) {
+		Unit_Death[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * Unit_ID[getcurpl()] + 4 * PlayerID[getcurpl()]));
+		PreserveTrigger();
+		switch (PlayerID[getcurpl()]) {
+		case 8:
+			Hero_Text[getcurpl()] = 3;
+			break;
+		case 9:
+			Hero_Text[getcurpl()] = 4;
+			break;
+		case 10:
+			Hero_Text[getcurpl()] = 5;
+			break;
+		}
+		switch (Unit_Death[getcurpl()]) {
+		case 1000:
+			Hero_Text[getcurpl()] = 3;
+			break;
+		case 2000:
+			Hero_Text[getcurpl()] = 5;
+			break;
+		case 3000:
+			Hero_Text[getcurpl()] = 4;
+			break;
+		}
+		Unit_ID[getcurpl()] = 0;
+		ClassicTriggerExecTimer21[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer21[getcurpl()] > 0) {
+		ClassicTriggerExecTimer21[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer22 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec22() {
+	if (ClassicTriggerExecTimer22[getcurpl()] == 1) {
+		Unit_Death[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * Unit_ID[getcurpl()] + 4 * PlayerID[getcurpl()]));
+		PreserveTrigger();
+		switch (PlayerID[getcurpl()]) {
+		case 8:
+			Hero_Text[getcurpl()] = 6;
+			break;
+		case 9:
+			Hero_Text[getcurpl()] = 11;
+			break;
+		case 10:
+			Hero_Text[getcurpl()] = 13;
+			break;
+		case 11:
+			Hero_Text[getcurpl()] = 16;
+			break;
+		}
+		switch (Unit_Death[getcurpl()]) {
+		case 1000:
+			Hero_Text[getcurpl()] = 6;
+			break;
+		case 2000:
+			Hero_Text[getcurpl()] = 13;
+			break;
+		case 3000:
+			Hero_Text[getcurpl()] = 11;
+			break;
+		case 4000:
+			Hero_Text[getcurpl()] = 16;
+			break;
+		}
+		Unit_ID[getcurpl()] = 0;
+		ClassicTriggerExecTimer22[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer22[getcurpl()] > 0) {
+		ClassicTriggerExecTimer22[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer23 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec23() {
+	if (ClassicTriggerExecTimer23[getcurpl()] == 1) {
+		Unit_Death[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * Unit_ID[getcurpl()] + 4 * PlayerID[getcurpl()]));
+		PreserveTrigger();
+		switch (PlayerID[getcurpl()]) {
+		case 8:
+			Hero_Text[getcurpl()] = 12;
+			break;
+		case 9:
+			Hero_Text[getcurpl()] = 15;
+			break;
+		}
+		switch (Unit_Death[getcurpl()]) {
+		case 1000:
+			Hero_Text[getcurpl()] = 12;
+			break;
+		case 2000:
+			Hero_Text[getcurpl()] = 15;
+			break;
+		}
+		Unit_ID[getcurpl()] = 0;
+		ClassicTriggerExecTimer23[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer23[getcurpl()] > 0) {
+		ClassicTriggerExecTimer23[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer24 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec24() {
+	if (ClassicTriggerExecTimer24[getcurpl()] == 1) {
+		Unit_Death[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * Unit_ID[getcurpl()] + 4 * PlayerID[getcurpl()]));
+		PreserveTrigger();
+		switch (PlayerID[getcurpl()]) {
+		case 8:
+			Hero_Text[getcurpl()] = 14;
+			break;
+		}
+		switch (Unit_Death[getcurpl()]) {
+		case 1000:
+			Hero_Text[getcurpl()] = 14;
+			break;
+		}
+		Unit_ID[getcurpl()] = 0;
+		ClassicTriggerExecTimer24[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer24[getcurpl()] > 0) {
+		ClassicTriggerExecTimer24[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer25 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec25() {
+	if (ClassicTriggerExecTimer25[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer25[getcurpl()] > 0) {
+		ClassicTriggerExecTimer25[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer26 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec26() {
+	if (ClassicTriggerExecTimer26[getcurpl()] == 1) {
+		Unit_Death[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * Unit_ID[getcurpl()] + 4 * PlayerID[getcurpl()]));
+		PreserveTrigger();
+		switch (Hero_Text[getcurpl()]) {
+		case 1:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\x13\x17[ \x04루살카 슈베게린 \x17]\n\x13\x04- \x17Dies irae \x04-\n\n\x13\x17공성전\x04에 특화 되어있습니다.\n\x13\x04처음하는 플레이어에게 추천합니다.\n\n\x13\x1F#\x04공성특화 \x1F#\x04만능 \x1F#\x04조작쉬움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n\x13\x04", Rusaruka_EXP[getcurpl()], "");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Hero_Text[getcurpl()] = 0;
+			break;
+		case 2:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\x13\x17[ \x04크톨리 노타 세니오리스 \x17]\n\x13\x04- \x17종말에 뭐 하세요? 바쁘세요? 구해 주실 수 있나요? \x04-\n\n\x13\x17공성전\x04에 특화 되어있습니다.\n\x13\x04숙련된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04공성특화++ \x1F#\x04지속딜 \x1F#\x04조작어려움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Hero_Text[getcurpl()] = 0;
+			break;
+		case 4:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\x13\x17[ \x04히나나위 텐시 \x17]\n\x13\x04- \x17동방 스카이 아레나 \x04-\n\n\x13\x17모든전투\x04에 특화 되어있습니다.\n\x13\x04처음하는 플레이어에게 추천합니다.\n\n\x13\x1F#\x04설치 \x1F#\x04만능 \x1F#\x04조작보통\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Hero_Text[getcurpl()] = 0;
+			break;
+		case 6:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\x13\x17[ \x04네게브 \x17]\n\x13\x04- \x17소녀전선 \x04-\n\n\x13\x17공성전\x04에 특화 되어있습니다.\n\x13\x04적응된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04공성 \x1F#\x04순간딜 \x1F#\x04조작보통\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Hero_Text[getcurpl()] = 0;
+			break;
+		case 8:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\x13\x17[ \x04후타바 안즈 \x17]\n\x13\x04- \x17PROJECT iM@S CINDERELLA GIRLS \x04-\n\n\x13\x17공성전\x04에 특화 되어있습니다.\n\x13\x04처음하는 플레이어에게 추천합니다.\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작쉬움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Hero_Text[getcurpl()] = 0;
+			break;
+		case 9:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\x13\x17[ \x04호토 모카 \x17]\n\x13\x04- \x17주문은 토끼입니까? \x04-\n\n\x13\x17공성전\x04에 특화 되어있습니다.\n\x13\x04숙련된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Hero_Text[getcurpl()] = 0;
+			break;
+		case 10:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\x13\x17[ \x04수수께끼의 얼터에고 Λ \x17]\n\x13\x04- \x17Fate/Extra CCC \x04-\n\n\x13\x17공성전\x04에 특화 되어있습니다.\n\x13\x04숙련된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Hero_Text[getcurpl()] = 0;
+			break;
+		case 11:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\x13\x17[ \x04토키사키 쿠루미 \x17]\n\x13\x04- \x17DATE A LIVE \x04-\n\n\x13\x17모든전투\x04에 특화 되어있습니다.\n\x13\x04숙련된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04모드 \x1F#\x04조작어려움 \n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Hero_Text[getcurpl()] = 0;
+			break;
+		case 13:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\x13\x17[ \x04마토 사쿠라 \x17]\n\x13\x04- \x17Fate/stay night\x04-\n\n\x13\x17공성전\x04에 특화 되어있습니다.\n\x13\x04숙련된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Hero_Text[getcurpl()] = 0;
+			break;
+		case 15:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\x13\x17[ \x04린 \x17]\n\x13\x04- \x17Shelter \x04-\n\n\x13\x17공성전\x04에 특화 되어있습니다.\n\x13\x04숙련된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Hero_Text[getcurpl()] = 0;
+			break;
+		case 16:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\x13\x17[ \x04세라핌 \x17]\n\x13\x04- \x17영원한 7일의 도시 \x04-\n\n\x13\x17모든전투\x04에 특화 되어있습니다.\n\x13\x04적응된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04조작보통 \x1F#\x04특수\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Hero_Text[getcurpl()] = 0;
+			break;
+		case 17:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\x13\x17[ \x04키아나 카스라나 \x17]\n\x13\x04- \x17붕괴 3rd \x04-\n\n\x13\x17모든전투\x04에 특화 되어있습니다.\n\x13\x04적응된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04조작보통 \x1F#\x04특수\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Hero_Text[getcurpl()] = 0;
+			break;
+		}
+		ClassicTriggerExecTimer26[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer26[getcurpl()] > 0) {
+		ClassicTriggerExecTimer26[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer27 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec27() {
+	if (ClassicTriggerExecTimer27[getcurpl()] == 1) {
+		Unit_Death[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * Unit_ID[getcurpl()] + 4 * PlayerID[getcurpl()]));
+		PreserveTrigger();
+		switch (Hero_Text[getcurpl()]) {
+		case 3:
+			if (
+				Switch((249), (2))
+				) {
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\x13\x17[ \x04텐카와 마이히메 \x17]\n\x13\x04- \x17퀄리디아 코드 \x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04적응된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04지속딜 \x1F#\x04만능궁 \x1F#\x04조작보통\n\n\x13\x04팀원이 이미 대인캐릭터를 선택 하였습니다.\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+			}
+			else {
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\x13\x17[ \x04텐카와 마이히메 \x17]\n\x13\x04- \x17퀄리디아 코드 \x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04적응된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04지속딜 \x1F#\x04만능궁 \x1F#\x04조작보통\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+			}
+			break;
+		case 5:
+			if (
+				Switch((249), (2))
+				) {
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\x13\x17[ \x04소네 미유키 \x17]\n\x13\x04- \x17당신과 그녀와 그녀의 사랑 \x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04적응된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간강한딜 \x1F#\x04만능궁 \x1F#\x04조작어려움\n\n\x13\x04팀원이 이미 대인캐릭터를 선택 하였습니다.\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+			}
+			else {
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\x13\x17[ \x04소네 미유키 \x17]\n\x13\x04- \x17당신과 그녀와 그녀의 사랑 \x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04적응된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간강한딜 \x1F#\x04만능궁 \x1F#\x04조작어려움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+			}
+			break;
+		case 7:
+			if (
+				Switch((249), (2))
+				) {
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\x13\x17[ \x04세실리아 \x17]\n\x13\x04- \x17킹스레이드 \x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04숙련된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작어려움\n\n\x13\x04팀원이 이미 대인캐릭터를 선택 하였습니다.");
+				SetMemory(0x640B58, SetTo, txtPtr);
+			}
+			else {
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\x13\x17[ \x04세실리아 \x17]\n\x13\x04- \x17킹스레이드 \x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04숙련된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작어려움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+			}
+			break;
+		case 12:
+			if (
+				Switch((249), (2))
+				) {
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\x13\x17[ \x04류즈 \x17]\n\x13\x04- \x17ClockWork Planet \x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04처음하는 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작쉬움\n\n\x13\x04팀원이 이미 대인캐릭터를 선택 하였습니다.\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+			}
+			else {
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\x13\x17[ \x04류즈 \x17]\n\x13\x04- \x17ClockWork Planet \x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04처음하는 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작쉬움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+			}
+			break;
+		case 14:
+			if (
+				Switch((249), (2))
+				) {
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\x13\x17[ \x04야시로 가쿠 \x17]\n\x13\x04- \x17나만이 없는 거리\x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04숙련된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04스택 \x1F#\x04조작매우어려움\n\n\x13\x04팀원이 이미 대인캐릭터를 선택 하였습니다.\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+			}
+			else {
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\x13\x17[ \x04야시로 가쿠 \x17]\n\x13\x04- \x17나만이 없는 거리\x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04숙련된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04스택 \x1F#\x04조작매우어려움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+			}
+			break;
+		}
+		Hero_Text[getcurpl()] = 0;
+		ClassicTriggerExecTimer27[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer27[getcurpl()] > 0) {
+		ClassicTriggerExecTimer27[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer28 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec28() {
+	if (ClassicTriggerExecTimer28[getcurpl()] == 1) {
+		Unit_Death[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * Unit_ID[getcurpl()] + 4 * PlayerID[getcurpl()]));
+		PreserveTrigger();
+		switch (Hero_Text[getcurpl()]) {
+		case 3:
+			if (
+				Switch((248), (2))
+				) {
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\x13\x17[ \x04텐카와 마이히메 \x17]\n\x13\x04- \x17퀄리디아 코드 \x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04적응된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04지속딜 \x1F#\x04만능궁 \x1F#\x04조작보통\n\n\x13\x04팀원이 이미 대인캐릭터를 선택 하였습니다.\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+			}
+			else {
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\x13\x17[ \x04텐카와 마이히메 \x17]\n\x13\x04- \x17퀄리디아 코드 \x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04적응된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04지속딜 \x1F#\x04만능궁 \x1F#\x04조작보통\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+			}
+			break;
+		case 5:
+			if (
+				Switch((248), (2))
+				) {
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\x13\x17[ \x04소네 미유키 \x17]\n\x13\x04- \x17당신과 그녀와 그녀의 사랑 \x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04적응된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간강한딜 \x1F#\x04만능궁 \x1F#\x04조작어려움\n\n\x13\x04팀원이 이미 대인캐릭터를 선택 하였습니다.\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+			}
+			else {
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\x13\x17[ \x04소네 미유키 \x17]\n\x13\x04- \x17당신과 그녀와 그녀의 사랑 \x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04적응된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간강한딜 \x1F#\x04만능궁 \x1F#\x04조작어려움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+			}
+			break;
+		case 7:
+			if (
+				Switch((248), (2))
+				) {
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\x13\x17[ \x04세실리아 \x17]\n\x13\x04- \x17킹스레이드 \x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04숙련된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작어려움\n\n\x13\x04팀원이 이미 대인캐릭터를 선택 하였습니다.");
+				SetMemory(0x640B58, SetTo, txtPtr);
+			}
+			else {
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\x13\x17[ \x04세실리아 \x17]\n\x13\x04- \x17킹스레이드 \x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04숙련된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작어려움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+			}
+			break;
+		case 12:
+			if (
+				Switch((248), (2))
+				) {
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\x13\x17[ \x04류즈 \x17]\n\x13\x04- \x17ClockWork Planet \x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04처음하는 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작쉬움\n\n\x13\x04팀원이 이미 대인캐릭터를 선택 하였습니다.\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+			}
+			else {
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\x13\x17[ \x04류즈 \x17]\n\x13\x04- \x17ClockWork Planet \x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04처음하는 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작쉬움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+			}
+			break;
+		case 14:
+			if (
+				Switch((248), (2))
+				) {
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\x13\x17[ \x04야시로 가쿠 \x17]\n\x13\x04- \x17나만이 없는 거리\x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04숙련된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04스택 \x1F#\x04조작매우어려움\n\n\x13\x04팀원이 이미 대인캐릭터를 선택 하였습니다.\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+			}
+			else {
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\n\x13\x17[ \x04야시로 가쿠 \x17]\n\x13\x04- \x17나만이 없는 거리\x04-\n\n\x13\x17대인전\x04에 특화 되어있습니다.\n\x13\x04숙련된 플레이어에게 추천합니다.\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04스택 \x1F#\x04조작매우어려움\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n");
+				SetMemory(0x640B58, SetTo, txtPtr);
+			}
+			break;
+		}
+		Hero_Text[getcurpl()] = 0;
+		ClassicTriggerExecTimer28[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer28[getcurpl()] > 0) {
+		ClassicTriggerExecTimer28[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer29 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec29() {
+	if (ClassicTriggerExecTimer29[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer29[getcurpl()] > 0) {
+		ClassicTriggerExecTimer29[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer30 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec30() {
+	if (ClassicTriggerExecTimer30[getcurpl()] == 1) {
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\x13\x1F[S] : \x1B원거리에서 업그레이드\x04가 가능해집니다.\n\x13\x19레벨\x04당 영웅 방어력이 1 증가합니다.\n\x13\x19팀원포함 최대 업그레이드\x04가 공격력이 2, 방어력이 1 증가합니다. [\x17Max 1\x04]\n\n\x13\x1F[C] : \x1B마나디스크\x04를 하나 가지고 시작합니다.\n\x13\x1915 레벨 \x04이후 1분마다 마나가 \x17200/300/400 \x04회복됩니다.\n\n\x13\x1F[A] : \x041분 마다 궁극기 게이지가 \x1910 \x04회복됩니다.\n\x13\x1920 레벨 \x04이전 \x1B마나 최대치\x04가 레벨당 \x1710 \x04추가로 증가합니다.");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		PreserveTrigger();
+		ClassicTriggerExecTimer30[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer30[getcurpl()] > 0) {
+		ClassicTriggerExecTimer30[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer31 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec31() {
+	if (ClassicTriggerExecTimer31[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer31[getcurpl()] > 0) {
+		ClassicTriggerExecTimer31[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer32 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec32() {
+	if (ClassicTriggerExecTimer32[getcurpl()] == 1) {
+		bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (0) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+		bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (1) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+		bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (2) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+		bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (0) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+		bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (1) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+		bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (2) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+	}
+	if (ClassicTriggerExecTimer32[getcurpl()] > 0) {
+		ClassicTriggerExecTimer32[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer33 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec33() {
+	if (ClassicTriggerExecTimer33[getcurpl()] == 1) {
+		bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (0) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+		bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (1) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+		bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (2) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+		bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (0) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+		bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (1) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+		bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (2) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+	}
+	if (ClassicTriggerExecTimer33[getcurpl()] > 0) {
+		ClassicTriggerExecTimer33[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer34 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec34() {
+	if (ClassicTriggerExecTimer34[getcurpl()] == 1) {
+		bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (0) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+		bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (1) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+		bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (2) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+		bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (0) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+		bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (1) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+		bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (2) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+	}
+	if (ClassicTriggerExecTimer34[getcurpl()] > 0) {
+		ClassicTriggerExecTimer34[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer35 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec35() {
+	if (ClassicTriggerExecTimer35[getcurpl()] == 1) {
+		bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (3) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+		bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (4) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+		bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (5) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+		bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (3) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+		bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (4) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+		bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (5) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+	}
+	if (ClassicTriggerExecTimer35[getcurpl()] > 0) {
+		ClassicTriggerExecTimer35[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer36 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec36() {
+	if (ClassicTriggerExecTimer36[getcurpl()] == 1) {
+		bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (3) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+		bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (4) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+		bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (5) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+		bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (3) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+		bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (4) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+		bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (5) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+	}
+	if (ClassicTriggerExecTimer36[getcurpl()] > 0) {
+		ClassicTriggerExecTimer36[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer37 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec37() {
+	if (ClassicTriggerExecTimer37[getcurpl()] == 1) {
+		bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (3) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+		bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (4) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+		bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (5) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+		bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (3) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+		bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (4) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+		bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (5) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+	}
+	if (ClassicTriggerExecTimer37[getcurpl()] > 0) {
+		ClassicTriggerExecTimer37[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer38 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec38() {
+	if (ClassicTriggerExecTimer38[getcurpl()] == 1) {
+		if (
+			Level[getcurpl()] != dwread_epd(EPD(0x5822F4 + 4 * getcurpl()))
+			) {
+			SetMemoryEPD(EPD(0x58D2B0 + 0x207C * ((0) / 46) + (getcurpl()) * (46 - 31 * ((0) / 46)) + ((0) % 46)), (8), bitlshift(1, 8 * (((getcurpl()) * (46 - 31 * ((0) / 46)) + ((0) % 46)) % 4)));
+			Level[getcurpl()] = dwread_epd(EPD(0x5822F4 + 4 * getcurpl()));
+		}
+		if (
+			Deaths((13), (10), 0, (204)) &&
+			bread(0x58D2B0 + 0x207C * ((0) / 46) + (getcurpl()) * (46 - 31 * ((0) / 46)) + ((0) % 46)) >= 62
+			) {
+			bwrite(0x58D2B0 + 0x207C * ((0) / 46) + (getcurpl()) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+		}
+		PreserveTrigger();
+		ClassicTriggerExecTimer38[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer38[getcurpl()] > 0) {
+		ClassicTriggerExecTimer38[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer39 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec39() {
+	if (ClassicTriggerExecTimer39[getcurpl()] == 1) {
+		Mana_Property[getcurpl()] = 100;
+		if (
+			Deaths((0), (0), 2000, (223)) &&
+			Deaths((0), (1), 2999, (223))
+			) {
+			Mana_Property[getcurpl()] += 100;
+		}
+		if (
+			Deaths((1), (0), 2000, (223)) &&
+			Deaths((1), (1), 2999, (223))
+			) {
+			Mana_Property[getcurpl()] += 100;
+		}
+		if (
+			Deaths((2), (0), 2000, (223)) &&
+			Deaths((2), (1), 2999, (223))
+			) {
+			Mana_Property[getcurpl()] += 100;
+		}
+		SetResources((13), (8), Mana_Property[getcurpl()], (1));
+		tct.print("\n\n\x13\x19C 특성 \x04효과 +", Mana_Property[getcurpl()], " \x07Gas\n\n");
+		SetDeaths((13), (7), 2000, (223));
+		PreserveTrigger();
+		ClassicTriggerExecTimer39[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer39[getcurpl()] > 0) {
+		ClassicTriggerExecTimer39[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer40 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec40() {
+	if (ClassicTriggerExecTimer40[getcurpl()] == 1) {
+		Mana_Property[getcurpl()] = 100;
+		if (
+			Deaths((3), (0), 2000, (223)) &&
+			Deaths((3), (1), 2999, (223))
+			) {
+			Mana_Property[getcurpl()] += 100;
+		}
+		if (
+			Deaths((4), (0), 2000, (223)) &&
+			Deaths((4), (1), 2999, (223))
+			) {
+			Mana_Property[getcurpl()] += 100;
+		}
+		if (
+			Deaths((5), (0), 2000, (223)) &&
+			Deaths((5), (1), 2999, (223))
+			) {
+			Mana_Property[getcurpl()] += 100;
+		}
+		SetResources((13), (8), Mana_Property[getcurpl()], (1));
+		tct.print("\n\n\x13\x19C 특성 \x04효과 +", Mana_Property[getcurpl()], " \x07Gas\n\n");
+		SetDeaths((13), (7), 2000, (223));
+		PreserveTrigger();
+		ClassicTriggerExecTimer40[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer40[getcurpl()] > 0) {
+		ClassicTriggerExecTimer40[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer41 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec41() {
+	if (ClassicTriggerExecTimer41[getcurpl()] == 1) {
+		Mana_Property[getcurpl()] = 0;
+		SetResources((13), (8), Mana_Property[getcurpl()], (1));
+		tct.print("\x13\x19A 특성 \x04효과 +10 \x1FShield");
+		SetDeaths((13), (8), 10, (205));
+		SetDeaths((13), (7), 3000, (223));
+		PreserveTrigger();
+		ClassicTriggerExecTimer41[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer41[getcurpl()] > 0) {
+		ClassicTriggerExecTimer41[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer42 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec42() {
+	if (ClassicTriggerExecTimer42[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer42[getcurpl()] > 0) {
+		ClassicTriggerExecTimer42[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer43 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec43() {
+	if (ClassicTriggerExecTimer43[getcurpl()] == 1) {
+		ModifyUnitHitPoints(1, (155), (13), (64), 100 - (Unique_Cool[getcurpl()] / 10));
+		PreserveTrigger();
+		ClassicTriggerExecTimer43[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer43[getcurpl()] > 0) {
+		ClassicTriggerExecTimer43[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer44 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec44() {
+	if (ClassicTriggerExecTimer44[getcurpl()] == 1) {
+		ModifyUnitShields(1, (167), (13), (64), dwread_epd(EPD(0x58A364 + 48 * 205 + 4 * getcurpl())) / 10);
+		PreserveTrigger();
+		ClassicTriggerExecTimer44[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer44[getcurpl()] > 0) {
+		ClassicTriggerExecTimer44[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer45 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec45() {
+	if (ClassicTriggerExecTimer45[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer45[getcurpl()] > 0) {
+		ClassicTriggerExecTimer45[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer46 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec46() {
+	if (ClassicTriggerExecTimer46[getcurpl()] == 1) {
+		if (
+			Deaths((0), (10), 15, (172))
+			) {
+			SetSwitch((20), (4));
+		}
+		if (
+			Deaths((1), (10), 15, (172))
+			) {
+			SetSwitch((20), (4));
+		}
+		if (
+			Deaths((2), (10), 15, (172))
+			) {
+			SetSwitch((20), (4));
+		}
+		if (
+			Switch((22), (2))
+			) {
+			SetSwitch((23), (4));
+			SetDeaths((13), (7), 12, (210));
+		}
+		else {
+			SetDeaths((13), (7), 120 + Level[getcurpl()] * 12, (210));
+		}
+		if (
+			Bring((6), (1), 6, (162), (153))
+			) {
+			SetScore((7), (8), 5, (7));
+		}
+		CenterView((96));
+		PreserveTrigger();
+		DeathOre = 250 + Level[getcurpl()] * 10;
+		Team_Num = 2;
+		SetResources((3), (8), DeathOre, (0));
+		SetResources((4), (8), DeathOre, (0));
+		SetResources((5), (8), DeathOre, (0));
+		DeathOre_Text[0] = DeathOre;
+		DeathOre_Text[1] = DeathOre;
+		DeathOre_Text[2] = DeathOre;
+		DeathOre_Text[3] = DeathOre;
+		DeathOre_Text[4] = DeathOre;
+		DeathOre_Text[5] = DeathOre;
+		ClassicTriggerExecTimer46[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer46[getcurpl()] > 0) {
+		ClassicTriggerExecTimer46[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer47 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec47() {
+	if (ClassicTriggerExecTimer47[getcurpl()] == 1) {
+		if (
+			Deaths((3), (10), 15, (172))
+			) {
+			SetSwitch((20), (4));
+		}
+		if (
+			Deaths((4), (10), 15, (172))
+			) {
+			SetSwitch((20), (4));
+		}
+		if (
+			Deaths((5), (10), 15, (172))
+			) {
+			SetSwitch((20), (4));
+		}
+		if (
+			Switch((22), (2))
+			) {
+			SetSwitch((23), (4));
+			SetDeaths((13), (7), 12, (210));
+		}
+		else {
+			SetDeaths((13), (7), 120 + Level[getcurpl()] * 12, (210));
+		}
+		if (
+			Bring((7), (1), 6, (162), (153))
+			) {
+			SetScore((6), (8), 5, (7));
+		}
+		PreserveTrigger();
+		DeathOre = 250 + Level[getcurpl()] * 10;
+		Team_Num = 1;
+		SetResources((0), (8), DeathOre, (0));
+		SetResources((1), (8), DeathOre, (0));
+		SetResources((2), (8), DeathOre, (0));
+		CenterView((96));
+		DeathOre_Text[0] = DeathOre;
+		DeathOre_Text[1] = DeathOre;
+		DeathOre_Text[2] = DeathOre;
+		DeathOre_Text[3] = DeathOre;
+		DeathOre_Text[4] = DeathOre;
+		DeathOre_Text[5] = DeathOre;
+		ClassicTriggerExecTimer47[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer47[getcurpl()] > 0) {
+		ClassicTriggerExecTimer47[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer48 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec48() {
+	if (ClassicTriggerExecTimer48[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer48[getcurpl()] > 0) {
+		ClassicTriggerExecTimer48[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer49 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec49() {
+	if (ClassicTriggerExecTimer49[getcurpl()] == 1) {
+		PreserveTrigger();
+		SetDeaths((13), (7), 0, (211));
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17루살카 슈베게린\x04이 치명상을 입었습니다. \x19::\n\n\x13\x07", Team_Num, "\x04Team \x17+ ", DeathOre_Text[getcurpl()], " \x04Ore\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		DeathOre_Text[getcurpl()] = 0;
+		ClassicTriggerExecTimer49[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer49[getcurpl()] > 0) {
+		ClassicTriggerExecTimer49[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer50 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec50() {
+	if (ClassicTriggerExecTimer50[getcurpl()] == 1) {
+		PreserveTrigger();
+		SetDeaths((13), (7), 0, (211));
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17크톨리 노타 세니오리스\x04가 치명상을 입었습니다. \x19::\n\n\x13\x07", Team_Num, "\x04Team \x17+ ", DeathOre_Text[getcurpl()], " \x04Ore\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		DeathOre_Text[getcurpl()] = 0;
+		ClassicTriggerExecTimer50[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer50[getcurpl()] > 0) {
+		ClassicTriggerExecTimer50[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer51 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec51() {
+	if (ClassicTriggerExecTimer51[getcurpl()] == 1) {
+		PreserveTrigger();
+		SetDeaths((13), (7), 0, (211));
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17텐카와 마이히메\x04가 치명상을 입었습니다. \x19::\n\n\x13\x07", Team_Num, "\x04Team \x17+ ", DeathOre_Text[getcurpl()], " \x04Ore\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		DeathOre_Text[getcurpl()] = 0;
+		ClassicTriggerExecTimer51[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer51[getcurpl()] > 0) {
+		ClassicTriggerExecTimer51[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer52 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec52() {
+	if (ClassicTriggerExecTimer52[getcurpl()] == 1) {
+		PreserveTrigger();
+		SetDeaths((13), (7), 0, (211));
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17히나나위 텐시\x04가 치명상을 입었습니다. \x19::\n\n\x13\x07", Team_Num, "\x04Team \x17+ ", DeathOre_Text[getcurpl()], " \x04Ore\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		DeathOre_Text[getcurpl()] = 0;
+		ClassicTriggerExecTimer52[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer52[getcurpl()] > 0) {
+		ClassicTriggerExecTimer52[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer53 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec53() {
+	if (ClassicTriggerExecTimer53[getcurpl()] == 1) {
+		PreserveTrigger();
+		SetDeaths((13), (7), 0, (211));
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17소네 미유키\x04가 치명상을 입었습니다. \x19::\n\n\x13\x07", Team_Num, "\x04Team \x17+ ", DeathOre_Text[getcurpl()], " \x04Ore\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		DeathOre_Text[getcurpl()] = 0;
+		ClassicTriggerExecTimer53[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer53[getcurpl()] > 0) {
+		ClassicTriggerExecTimer53[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer54 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec54() {
+	if (ClassicTriggerExecTimer54[getcurpl()] == 1) {
+		PreserveTrigger();
+		SetDeaths((13), (7), 0, (211));
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17네게브\x04가 치명상을 입었습니다. \x19::\n\n\x13\x07", Team_Num, "\x04Team \x17+ ", DeathOre_Text[getcurpl()], " \x04Ore\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		DeathOre_Text[getcurpl()] = 0;
+		ClassicTriggerExecTimer54[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer54[getcurpl()] > 0) {
+		ClassicTriggerExecTimer54[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer55 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec55() {
+	if (ClassicTriggerExecTimer55[getcurpl()] == 1) {
+		PreserveTrigger();
+		SetDeaths((13), (7), 0, (211));
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17세실리아\x04가 치명상을 입었습니다. \x19::\n\n\x13\x07", Team_Num, "\x04Team \x17+ ", DeathOre_Text[getcurpl()], " \x04Ore\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		DeathOre_Text[getcurpl()] = 0;
+		ClassicTriggerExecTimer55[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer55[getcurpl()] > 0) {
+		ClassicTriggerExecTimer55[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer56 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec56() {
+	if (ClassicTriggerExecTimer56[getcurpl()] == 1) {
+		PreserveTrigger();
+		SetDeaths((13), (7), 0, (211));
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17후타바 안즈\x04가 치명상을 입었습니다. \x19::\n\n\x13\x07", Team_Num, "\x04Team \x17+ ", DeathOre_Text[getcurpl()], " \x04Ore\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		DeathOre_Text[getcurpl()] = 0;
+		ClassicTriggerExecTimer56[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer56[getcurpl()] > 0) {
+		ClassicTriggerExecTimer56[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer57 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec57() {
+	if (ClassicTriggerExecTimer57[getcurpl()] == 1) {
+		PreserveTrigger();
+		SetDeaths((13), (7), 0, (211));
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17호토 모카\x04가 치명상을 입었습니다. \x19::\n\n\x13\x07", Team_Num, "\x04Team \x17+ ", DeathOre_Text[getcurpl()], " \x04Ore\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		DeathOre_Text[getcurpl()] = 0;
+		ClassicTriggerExecTimer57[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer57[getcurpl()] > 0) {
+		ClassicTriggerExecTimer57[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer58 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec58() {
+	if (ClassicTriggerExecTimer58[getcurpl()] == 1) {
+		PreserveTrigger();
+		SetDeaths((13), (7), 0, (211));
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17수수께끼의 얼터에고 Λ \x04가 치명상을 입었습니다. \x19::\n\n\x13\x07", Team_Num, "\x04Team \x17+ ", DeathOre_Text[getcurpl()], " \x04Ore\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		DeathOre_Text[getcurpl()] = 0;
+		ClassicTriggerExecTimer58[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer58[getcurpl()] > 0) {
+		ClassicTriggerExecTimer58[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer59 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec59() {
+	if (ClassicTriggerExecTimer59[getcurpl()] == 1) {
+		PreserveTrigger();
+		SetDeaths((13), (7), 0, (211));
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17류즈 \x04가 치명상을 입었습니다. \x19::\n\n\x13\x07", Team_Num, "\x04Team \x17+ ", DeathOre_Text[getcurpl()], " \x04Ore\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		DeathOre_Text[getcurpl()] = 0;
+		ClassicTriggerExecTimer59[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer59[getcurpl()] > 0) {
+		ClassicTriggerExecTimer59[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer60 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec60() {
+	if (ClassicTriggerExecTimer60[getcurpl()] == 1) {
+		PreserveTrigger();
+		SetDeaths((13), (7), 0, (211));
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17야시로 가쿠 \x04가 치명상을 입었습니다. \x19::\n\n\x13\x07", Team_Num, "\x04Team \x17+ ", DeathOre_Text[getcurpl()], " \x04Ore\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		DeathOre_Text[getcurpl()] = 0;
+		ClassicTriggerExecTimer60[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer60[getcurpl()] > 0) {
+		ClassicTriggerExecTimer60[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer61 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec61() {
+	if (ClassicTriggerExecTimer61[getcurpl()] == 1) {
+		PreserveTrigger();
+		SetDeaths((13), (7), 0, (211));
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17린 \x04이 치명상을 입었습니다. \x19::\n\n\x13\x07", Team_Num, "\x04Team \x17+ ", DeathOre_Text[getcurpl()], " \x04Ore\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		DeathOre_Text[getcurpl()] = 0;
+		ClassicTriggerExecTimer61[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer61[getcurpl()] > 0) {
+		ClassicTriggerExecTimer61[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer62 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec62() {
+	if (ClassicTriggerExecTimer62[getcurpl()] == 1) {
+		PreserveTrigger();
+		SetDeaths((13), (7), 0, (211));
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17세라핌 \x04이 치명상을 입었습니다. \x19::\n\n\x13\x07", Team_Num, "\x04Team \x17+ ", DeathOre_Text[getcurpl()], " \x04Ore\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		DeathOre_Text[getcurpl()] = 0;
+		ClassicTriggerExecTimer62[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer62[getcurpl()] > 0) {
+		ClassicTriggerExecTimer62[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer63 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec63() {
+	if (ClassicTriggerExecTimer63[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer63[getcurpl()] > 0) {
+		ClassicTriggerExecTimer63[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer64 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec64() {
+	if (ClassicTriggerExecTimer64[getcurpl()] == 1) {
+		Potion[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * 219 + 4 * getcurpl()));
+		EXP_Need[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * 225 + 4 * getcurpl()));
+		EXP_Now[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * 185 + 4 * getcurpl()));
+		DeathCount[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * 210 + 4 * getcurpl())) / 12;
+		Unique_Cool[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * 203 + 4 * getcurpl())) / 12;
+		Hero_Num[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * getcurpl()));
+		Level[getcurpl()] = dwread_epd(EPD(0x5822F4 + 4 * getcurpl()));
+		PreserveTrigger();
+		ClassicTriggerExecTimer64[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer64[getcurpl()] > 0) {
+		ClassicTriggerExecTimer64[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer65 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec65() {
+	if (ClassicTriggerExecTimer65[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer65[getcurpl()] > 0) {
+		ClassicTriggerExecTimer65[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer66 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec66() {
+	if (ClassicTriggerExecTimer66[getcurpl()] == 1) {
+		switch (Hero_Num[getcurpl()]) {
+		case 10:
+			if (
+				Deaths((13), (0), 1, (204))
+				) {
+				bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (getcurpl()) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * getcurpl()) + 10);
+				SetDeaths((13), (9), 1, (204));
+			}
+			else {
+				bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (getcurpl()) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * getcurpl()));
+			}
+			break;
+		default:
+			bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (getcurpl()) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * getcurpl()));
+			break;
+		}
+		PreserveTrigger();
+		ClassicTriggerExecTimer66[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer66[getcurpl()] > 0) {
+		ClassicTriggerExecTimer66[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer67 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec67() {
+	if (ClassicTriggerExecTimer67[getcurpl()] == 1) {
+		switch (Hero_Num[getcurpl()]) {
+		case 14:
+			bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (getcurpl()) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * getcurpl()) + dwread_epd(EPD(0x58A364 + 48 * 204 + 4 * getcurpl())) * 2);
+			break;
+		default:
+			bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (getcurpl()) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * getcurpl()));
+			break;
+		}
+		PreserveTrigger();
+		ClassicTriggerExecTimer67[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer67[getcurpl()] > 0) {
+		ClassicTriggerExecTimer67[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer68 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec68() {
+	if (ClassicTriggerExecTimer68[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer68[getcurpl()] > 0) {
+		ClassicTriggerExecTimer68[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer69 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec69() {
+	if (ClassicTriggerExecTimer69[getcurpl()] == 1) {
+		if (
+			Deaths((13), (0), 1, (186))
+			) {
+			Sound_Text1[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * getcurpl()));
+			SetDeaths((13), (7), 0, (186));
+		}
+		if (
+			Deaths((13), (0), 1, (174))
+			) {
+			Sound_Text2[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * getcurpl()));
+			SetDeaths((13), (7), 0, (174));
+		}
+		if (
+			Deaths((13), (0), 1, (117))
+			) {
+			Sound_Text3[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * getcurpl()));
+			SetDeaths((13), (7), 0, (117));
+		}
+		if (
+			Deaths((13), (0), 1, (222))
+			) {
+			Sound_Text_Uilti[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * getcurpl()));
+			SetDeaths((13), (7), 0, (222));
+		}
+		if (
+			Deaths((13), (0), 1, (188))
+			) {
+			Sound_Text_Uniq[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * getcurpl()));
+			SetDeaths((13), (7), 0, (188));
+		}
+		PreserveTrigger();
+		ClassicTriggerExecTimer69[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer69[getcurpl()] > 0) {
+		ClassicTriggerExecTimer69[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer70 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec70() {
+	if (ClassicTriggerExecTimer70[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer70[getcurpl()] > 0) {
+		ClassicTriggerExecTimer70[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer71 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec71() {
+	if (ClassicTriggerExecTimer71[getcurpl()] == 1) {
+		PreserveTrigger();
+		switch (Sound_Text1[getcurpl()]) {
+		case 1000:
+			PlayWAV("Rusaruka_1.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\x13\x1BRusaruka Schwagerin\n\x13\x04[ \x06너무 얕보면... 먹어버릴거야? \x04]");
+			break;
+		case 1100:
+			PlayWAV("Rusaruka_2.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\x13\x1BRusaruka Schwagerin\n\x13\x04[ \x06좋아, 내가 시험해줄게. 술래잡기를 계속하도록 할까? \x04]");
+			break;
+		case 1200:
+			PlayWAV("Rusaruka_3.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\n\x13\x1BRusaruka Schwagerin\n\x13\x04[ \x06조금 아프겠지만, 참으렴...! \x04]\n\n");
+			break;
+		case 1500:
+			PlayWAV("Rusaruka_4.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\x13\x1BRusaruka Schwagerin\r\n\x13\x04[ 당신 여기서 \x06살해\x04당하고 싶어...? \x04]");
+			break;
+		}
+		switch (Sound_Text_Uilti[getcurpl()]) {
+		case 1300:
+			PlayWAV("Rusalka_Ultimate.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			tct.print("\n\n\n\x13\x1BRusaruka Schwagerin\n\n\x13\x06무서웠단 말이야! 놔두고 가버릴지!\n\x13\x06싫단 말이야! 떠밀려버리면!\n\x13\x06나... 걷는 거 느리단 말이야─!\n\n\n");
+			break;
+		case 1400:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			tct.print("\n\n\n\x13\x1BRusaruka Schwagerin\n\n\x13\x06따라 잡을 수 없다면,\n\x13\x06아예 멈춰 세우겠다고!\n\x13\x06그렇게 생각했어! 불만있어!?\n\n\n");
+			break;
+		}
+		switch (Sound_Text_Uniq[getcurpl()]) {
+		case 1400:
+			PlayWAV("Rusalka_Unique.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1BRusaruka Schwagerin\n\n\x13\x05In der Nacht, wo alles schlaft\n\x13\x04모든것이 잠드는 밤에\n\n\x13\x05Wie schon, den Meeresboden zu verlassen.\n\x13\x04물밑을 벗어나는것이야 말로 아름다움이니.\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 1401:
+			Sound_Text_Uniq[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1BRusaruka Schwagerin\n\n\x13\x05Ich hebe den Kopf uber das Wasser\n\x13\x04수면에 고개 들어\n\n\x13\x05Welch Freude, das Spiel der Wasserwellen\n\x13\x04물장구치며 놀자, 즐기어라.\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 1402:
+			Sound_Text_Uniq[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1BRusaruka Schwagerin\n\n\x13\x05Durch die nun zerbrochene Stille\n\x13\x04맑은 대기를 울리고\n\n\x13\x05Rufen wir unsere Namen\n\x13\x04서로 크게 불러\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 1403:
+			Sound_Text_Uniq[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1BRusaruka Schwagerin\r\n\n\x13\x05Pechschwarzes Haar wirbelt im Wind\n\x13\x04새까만 젖은 머리를 털어……\n\n\x13\x05Welch Freude, sie trocknen zu sehen\n\x13\x04말리며 놀자, 즐겨라\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 1404:
+			Sound_Text_Uniq[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1BRusaruka Schwagerin\r\n\n\x13\x05Briah――\n\x13\x04창조\n\n\x13\x05Csejte Ungarn Nachtzehrer\n\x13\x04체터성의 식인그림자\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		}
+		ClassicTriggerExecTimer71[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer71[getcurpl()] > 0) {
+		ClassicTriggerExecTimer71[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer72 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec72() {
+	if (ClassicTriggerExecTimer72[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer72[getcurpl()] > 0) {
+		ClassicTriggerExecTimer72[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer73 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec73() {
+	if (ClassicTriggerExecTimer73[getcurpl()] == 1) {
+		PreserveTrigger();
+		switch (Sound_Text1[getcurpl()]) {
+		case 2000:
+			PlayWAV("Chtholly_EX01.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\x13\x1CChtholly Nota Seniorious\r\n\x13\x04언제까지고 함께 있어주겠다고 맹세했지");
+			break;
+		case 2001:
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\x13\x1BCh\x1Ctholly Nota Seniorious\r\n\x13\x04맹세할 수 있었단 사실이 너무도 행복했어");
+			break;
+		case 2002:
+			PlayWAV("Chtholly_EX02.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\x13\x06Ch\x1Btho\x1Clly Nota Seniorious\r\n\x13\x04이 사람을 좋아하는 거구나 싶었지");
+			break;
+		case 2003:
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\x13\x06Chtho\x1Blly \x1CNota Seniorious\r\n\x13\x04이렇게 생각할 수 있었던 사실이 행복했어");
+			break;
+		case 2004:
+			PlayWAV("Chtholly_EX03.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			break;
+		case 2005:
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\x13\x06Chtholly \x1BNo\x1Cta Seniorious\r\n\x13\x04행복하게 만들어주겠다고 내게 말해주었어");
+			break;
+		case 2006:
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\x13\x06Chtholly No\x1Bta Se\x1Cniorious\r\n\x13\x04내게 그런 말을 해준 것이 행복했어");
+			break;
+		case 2007:
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\x13\x06Chtholly Nota Se\x1Bnior\x1Cious\r\n\x13\x04이렇게나 많은 행복함을 그 사람에게 나눠받았어 ");
+			break;
+		case 2100:
+			PlayWAV("Chtholly_00.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\x13\x1CChtholly Nota Seniorious\r\n\x13\x04어쩔수없구나, \x05정말...");
+			break;
+		case 2999:
+			PlayWAV("Chtholly_Dead.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\x13\x06Chtholly Nota Seniorious\r\n\x13\x05빌렘... 고마..워...");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		}
+		switch (Sound_Text_Uilti[getcurpl()]) {
+		case 2008:
+			PlayWAV("Chtholly_EX04.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			break;
+		case 2009:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\n\x13\x06Chtholly Nota Senior\x1Bio\x1Cus\r\n\x13\x04그러니까\n\n\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 2010:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\n\x13\x06Chtholly Nota Seniorio\x1Bu\x1Cs\r\n\x13\x04분명\n\n\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		}
+		switch (Sound_Text_Uniq[getcurpl()]) {
+		case 2000:
+			Sound_Text_Uniq[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\x13\x06Chtholly Nota Seniorious\n\x13\x04지금의 나는\n\x13\x04누가 뭐라 할지라도\n\n\x13\x04세상에서 제일 \x06행복한 여자아이\x04인 거야\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		}
+		ClassicTriggerExecTimer73[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer73[getcurpl()] > 0) {
+		ClassicTriggerExecTimer73[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer74 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec74() {
+	if (ClassicTriggerExecTimer74[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer74[getcurpl()] > 0) {
+		ClassicTriggerExecTimer74[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer75 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec75() {
+	if (ClassicTriggerExecTimer75[getcurpl()] == 1) {
+		PreserveTrigger();
+		switch (Sound_Text1[getcurpl()]) {
+		case 3300:
+			PlayWAV("staredit\\wav\\Hime_0.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04강하닷―――!!\n");
+			break;
+		case 3000:
+			PlayWAV("staredit\\wav\\Hime_1.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04있잖아, 힘에는 책임이 따르고 파워에는 책임이 따른다구?\n");
+			break;
+		case 3001:
+			PlayWAV("staredit\\wav\\Hime_2.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04즉 힘이야말로 책임이며 책임이야말로 파워!\n");
+			break;
+		case 3002:
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04따라서 힘이야말로 파워!\n");
+			break;
+		case 3100:
+			PlayWAV("staredit\\wav\\Hime_3.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04여기는 나의 영역이다\n");
+			break;
+		case 3101:
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\n\x13\x04Tenkawa \x07MaiHime\n\n\x13\x04내 \x07세계\x04에\n\x13\x04네놈들이 들어올 자리는 없어!!!\n");
+			break;
+		}
+		switch (Sound_Text_Uilti[getcurpl()]) {
+		case 3200:
+			PlayWAV("staredit\\wav\\Hime_EX01.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04이정도 힘으로 나에게 \x06싸움\x04을 걸었던거야?\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 3201:
+			PlayWAV("staredit\\wav\\Hime_EX02.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04이정도 힘으로 모두를 \x08죽이려고했던거야?\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		}
+		switch (Sound_Text_Uniq[getcurpl()]) {
+		case 3000:
+			PlayWAV("staredit\\wav\\Hime_Unique01.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04제군 ! \x07광연\x04의 시간이다!\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		}
+		ClassicTriggerExecTimer75[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer75[getcurpl()] > 0) {
+		ClassicTriggerExecTimer75[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer76 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec76() {
+	if (ClassicTriggerExecTimer76[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer76[getcurpl()] > 0) {
+		ClassicTriggerExecTimer76[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer77 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec77() {
+	if (ClassicTriggerExecTimer77[getcurpl()] == 1) {
+		PreserveTrigger();
+		switch (Sound_Text1[getcurpl()]) {
+		case 4000:
+			PlayWAV("Tenshi_01.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\n\x13\x1FTenshi Hinanai\n\x13\x1F하늘\x04로서 \x1B대지\x04를 지배하고\n");
+			break;
+		case 4001:
+			PlayWAV("Tenshi_02.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\n\x13\x1FTenshi Hinanai\n\x13\x15땅\x04으로서 \x1B요석\x04을 빼내어,\n");
+			break;
+		case 4002:
+			PlayWAV("Tenshi_03.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\n\x13\x1FTenshi Hinanai\n\x13\x1B사람\x04의 \x11주홍색\x1B마음\x04을 비춰라 !\n");
+			break;
+		case 4003:
+			PlayWAV("Tenshi_04.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\n\x13\x1FTenshi Hinanai\n\x13\x15대지\x04여!\n");
+			break;
+		}
+		switch (Sound_Text_Uilti[getcurpl()]) {
+		case 4000:
+			PlayWAV("Tenshi_05.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\n\x13\x1FTenshi Hinanai\n\n\x13\x04피할 수 있을까 ?\n\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 4001:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\n\x13\x1FTenshi Hinanai\n\n\x13\x04요석\x06「천지개벽 프레스」\n\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 4010:
+			PlayWAV("Tenshi_Uiltimate.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\n\x13\x1FTenshi Hinanai\n\n\x13\x04단숨에 끝내주겠어\n\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 4011:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\n\x13\x1FTenshi Hinanai\n\n\x13\x17끝이야\n\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 4012:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\n\x13\x1FTenshi Hinanai\n\n\x13\x17「전 인류의 비상천」\n\x13\x17「全人類の緋想天」\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		}
+		switch (Sound_Text_Uniq[getcurpl()]) {
+		case 4000:
+			PlayWAV("Tenshi_Unique.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			tct.print("\n\n\x13\x1FTenshi Hinanai\n\x13\x04기부「무념무상의 경지」\n\n");
+			break;
+		}
+		ClassicTriggerExecTimer77[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer77[getcurpl()] > 0) {
+		ClassicTriggerExecTimer77[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer78 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec78() {
+	if (ClassicTriggerExecTimer78[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer78[getcurpl()] > 0) {
+		ClassicTriggerExecTimer78[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer79 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec79() {
+	if (ClassicTriggerExecTimer79[getcurpl()] == 1) {
+		PreserveTrigger();
+		switch (Sound_Text1[getcurpl()]) {
+		case 5000:
+			PlayWAV("staredit\\wav\\Miyuki_01.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\n\x13\x1CSone \x04Miyoki\n\x13\x04어디로 도망치는 거야?\n");
+			break;
+		case 5001:
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\n\x13\x1CSone \x04Miyoki\n\x13\x04도망갈 장소라니, 어디에도 없는데\n");
+			break;
+		case 5300:
+			PlayWAV("staredit\\wav\\Miyuki_02.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\n\x13\x1CSone \x04Miyoki\n\x13\x19영원한 사랑\x04을 맹세한 상대에게 배신당하는 \x06고통-\n");
+			break;
+		case 5301:
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\n\x13\x1CSone \x04Miyoki\n\x13\x04당신도 알게 되었을까?\n");
+			break;
+		case 5400:
+			PlayWAV("staredit\\wav\\Miyuki_00.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\n\x13\x1CSone \x04Miyoki\n\x13\x04지금부터, 듬뿍, \x06복수\x04해 주겠어\n");
+			break;
+		}
+		switch (Sound_Text_Uilti[getcurpl()]) {
+		case 5100:
+			PlayWAV("staredit\\wav\\Miyuki_Ultimate.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\n\x13\x1CSone \x04Miyoki\n\n\x13\x04이것으로, 세계는 업데이트 된다\n\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 5101:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\n\x13\x1CSone \x04Miyoki\n\n\x13\x04당신은 허구의 존재가 되는거야\n\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 5200:
+			PlayWAV("staredit\\wav\\Miyuki_Ultimate2.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\n\x13\x1CSone \x04Miyoki\n\n\x13\x06미안해, \x04그렇지만 ――\n\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 5201:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\n\x13\x1CSone \x04Miyoki\n\n\x13\x06이제, 이것 밖에, 방법이 없는거야...\n\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		}
+		switch (Sound_Text_Uniq[getcurpl()]) {
+		case 5000:
+			PlayWAV("Miyuki_Unique01.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			tct.print("\n\n\x13\x1CSone \x04Miyoki\n\x13\x04나를... \x06속였었네,\n\n");
+			break;
+		case 5001:
+			PlayWAV("Miyuki_Unique02.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			tct.print("\n\n\x13\x1CSone \x04Miyoki\n\x13\x04속였으니 \x06벌\x04을 주지 않으면 안되겠네.\n\n");
+			break;
+		}
+		ClassicTriggerExecTimer79[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer79[getcurpl()] > 0) {
+		ClassicTriggerExecTimer79[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer80 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec80() {
+	if (ClassicTriggerExecTimer80[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer80[getcurpl()] > 0) {
+		ClassicTriggerExecTimer80[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer81 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec81() {
+	if (ClassicTriggerExecTimer81[getcurpl()] == 1) {
+		PreserveTrigger();
+		switch (Sound_Text1[getcurpl()]) {
+		case 6000:
+			PlayWAV("Negev_01.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\n\x13\x06Negev\n\x13\x04「　사라져　」\n");
+			break;
+		case 6001:
+			PlayWAV("Negev_02.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\n\x13\x06Negev\n\x13\x04「　\x06벌레\x04같은 녀석들이...　\x04」\n");
+			break;
+		case 6002:
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\n\x13\x06Negev\n\x13\x04「　\x06죽어!　\x04」\n");
+			break;
+		case 6100:
+			PlayWAV("Negev_03.ogg");
+			Sound_Text1[getcurpl()] = 0;
+			tct.print("\n\x13\x06Negev\n\x13\x04「　\x06벌레\x04는 용서하지 않아, 최고의 얼굴로 \x06죽여주도록 할까　\x04」\n");
+			break;
+		}
+		switch (Sound_Text_Uilti[getcurpl()]) {
+		case 6000:
+			PlayWAV("Negev_Uiltimate.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\n\x13\x06Negev\n\n\x13\x04「　우후훗… \x06아무도 날 쓰러뜨릴 수 없어!　\x04」\n\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		}
+		switch (Sound_Text_Uniq[getcurpl()]) {
+		case 6000:
+			PlayWAV("Negev_Unique.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			tct.print("\n\n\x13\x06Negev\n\x13\x04「　후후, 햇병아리 자식들, 알았어 내가 지도해 주도록 하지.　」\n\n");
+			break;
+		}
+		ClassicTriggerExecTimer81[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer81[getcurpl()] > 0) {
+		ClassicTriggerExecTimer81[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer82 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec82() {
+	if (ClassicTriggerExecTimer82[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer82[getcurpl()] > 0) {
+		ClassicTriggerExecTimer82[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer83 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec83() {
+	if (ClassicTriggerExecTimer83[getcurpl()] == 1) {
+		PreserveTrigger();
+		switch (Sound_Text2[getcurpl()]) {
+		case 1000:
+			PlayWAV("Cecillia_01.ogg");
+			Sound_Text2[getcurpl()] = 0;
+			tct.print("\n\x13\x17Cecillia\n\x13\x04「　간다, \x17파동각!　\x04」\n");
+			break;
+		case 1010:
+			PlayWAV("Cecillia_02.ogg");
+			Sound_Text2[getcurpl()] = 0;
+			tct.print("\n\x13\x17Cecillia\n\x13\x04「　받아라! \x17천추각!　\x04」\n");
+			break;
+		case 1020:
+			PlayWAV("Cecillia_03.ogg");
+			Sound_Text2[getcurpl()] = 0;
+			tct.print("\n\x13\x17Cecillia\n\x13\x04「　부셔져라, \x06폭렬각!!!　\x04」\n");
+			break;
+		}
+		switch (Sound_Text_Uilti[getcurpl()]) {
+		case 7000:
+			PlayWAV("Cecillia_Uiltimate.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\n\x13\x17Cecillia\n\n\x13\x04「　하아앗.. \x06필살 유성각!　\x04」\n\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		}
+		switch (Sound_Text_Uniq[getcurpl()]) {
+		case 7000:
+			PlayWAV("Cecillia_Unique.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x17Cecillia\n\x13\x04「　괴로워도 포기하면 거기서 끝이라고? 용기란 포기하지 않는 걸 말하는거라고　\x04」\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		}
+		ClassicTriggerExecTimer83[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer83[getcurpl()] > 0) {
+		ClassicTriggerExecTimer83[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer84 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec84() {
+	if (ClassicTriggerExecTimer84[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer84[getcurpl()] > 0) {
+		ClassicTriggerExecTimer84[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer85 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec85() {
+	if (ClassicTriggerExecTimer85[getcurpl()] == 1) {
+		PreserveTrigger();
+		switch (Sound_Text2[getcurpl()]) {
+		case 2000:
+			PlayWAV("Anzu_01.ogg");
+			Sound_Text2[getcurpl()] = 0;
+			tct.print("\n\x13\x1BFutaba Anzu\n\x13\x04엣헴!\x04\n");
+			break;
+		case 2010:
+			PlayWAV("Anzu_02.ogg");
+			Sound_Text2[getcurpl()] = 0;
+			tct.print("\n\x13\x1BFutaba Anzu\n\x13\x04지지 않으려면 ··· \x17이것 \x04밖에 없어!\n");
+			break;
+		case 2011:
+			PlayWAV("Anzu_03.ogg");
+			Sound_Text2[getcurpl()] = 0;
+			tct.print("\n\x13\x1BFutaba Anzu\n\x13\x04우리의 \x17정의\x04를 위해 ―――――――!!\n");
+			break;
+		}
+		switch (Sound_Text_Uilti[getcurpl()]) {
+		case 8000:
+			PlayWAV("Anzu_Uiltimate.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1BFutaba Anzu\n\x13\x17「 \x04일하지 않는 \x17모든 자\x04들에게 전한다 \x17」\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 8001:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1BFutaba Anzu\n\x13\x17「 \x04이것은 \x17놀이\x04도 \x17라이브\x04도 아니야! \x17」\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 8002:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1BFutaba Anzu\n\x13\x17「 \x04우리의 \x17정의\x04를 위하여―――――――――!! \x17」\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 8100:
+			PlayWAV("Anzu_01.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1BFutaba Anzu\n\x13\x17「 \x04엣헴! \x17」\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 8101:
+			PlayWAV("Anzu_Uiltimate2.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			break;
+		case 8102:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1BFutaba Anzu\n\x13\x17「 \x04˙˙˙ 라는 \x17꿈\x04을 꿨어 \x17」\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		}
+		switch (Sound_Text_Uniq[getcurpl()]) {
+		case 8000:
+			PlayWAV("Anzu_Unique.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1BFutaba Anzu\n\x13\x04「　시..싫어, 나는 \x17일\x04하지 않을꺼얏 !!　\x04」\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		}
+		ClassicTriggerExecTimer85[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer85[getcurpl()] > 0) {
+		ClassicTriggerExecTimer85[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer86 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec86() {
+	if (ClassicTriggerExecTimer86[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer86[getcurpl()] > 0) {
+		ClassicTriggerExecTimer86[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer87 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec87() {
+	if (ClassicTriggerExecTimer87[getcurpl()] == 1) {
+		PreserveTrigger();
+		switch (Sound_Text2[getcurpl()]) {
+		case 3110:
+			PlayWAV("HotoMoka_01.ogg");
+			Sound_Text2[getcurpl()] = 0;
+			tct.print("\n\n\x13\x1BHoto Moka\n\x13\x04어서오세욧~\n\n");
+			break;
+		case 3210:
+			PlayWAV("HotoMoka_02.ogg");
+			Sound_Text2[getcurpl()] = 0;
+			tct.print("\n\n\x13\x1BHoto Moka\n\x13\x04코코아가 젤 첨에 되고 싶었던거 기억나?\n\n");
+			break;
+		case 3220:
+			PlayWAV("HotoMoka_03.ogg");
+			Sound_Text2[getcurpl()] = 0;
+			break;
+		case 3221:
+			Sound_Text2[getcurpl()] = 0;
+			tct.print("\n\n\x13\x1BHoto Moka\n\x13\x04마법사!\n\n");
+			break;
+		}
+		switch (Sound_Text_Uilti[getcurpl()]) {
+		case 9000:
+			PlayWAV("HotoMoka_Uiltimate.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			tct.print("\n\n\x13\x1BHoto Moka\n\n\x13\x04나, 준비해올게\n\n");
+			break;
+		case 9001:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			tct.print("\n\n\x13\x1BHoto Moka\n\n\x13\x04좋아, 준비 완료!\n\n");
+			break;
+		}
+		switch (Sound_Text_Uniq[getcurpl()]) {
+		case 9000:
+			PlayWAV("HotoMoka_00.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1BHoto Moka\n\n\x13\x04이 앞에는 전파가 닿지 않으니까\n\x13\x04핸드폰은 쓰지 못한단다?\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		}
+		ClassicTriggerExecTimer87[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer87[getcurpl()] > 0) {
+		ClassicTriggerExecTimer87[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer88 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec88() {
+	if (ClassicTriggerExecTimer88[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer88[getcurpl()] > 0) {
+		ClassicTriggerExecTimer88[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer89 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec89() {
+	if (ClassicTriggerExecTimer89[getcurpl()] == 1) {
+		PreserveTrigger();
+		switch (Sound_Text2[getcurpl()]) {
+		case 4100:
+			PlayWAV("Alther_0.ogg");
+			Sound_Text2[getcurpl()] = 0;
+			tct.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　멜트 스트라이크!　\x04」\n");
+			break;
+		case 4200:
+			PlayWAV("Alther_1.ogg");
+			Sound_Text2[getcurpl()] = 0;
+			tct.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　작별이네,　\x04」\n");
+			break;
+		case 4201:
+			Sound_Text2[getcurpl()] = 0;
+			tct.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　마지막으로 사랑을 가르쳐줄게.　\x04」\n");
+			break;
+		case 4202:
+			Sound_Text2[getcurpl()] = 0;
+			tct.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　가엾고 비참한 물의 포로.　\x04」\n");
+			break;
+		case 4300:
+			PlayWAV("Alther_2.ogg");
+			Sound_Text2[getcurpl()] = 0;
+			break;
+		case 4301:
+			Sound_Text2[getcurpl()] = 0;
+			tct.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　나의 가시로, 잘 가도록해!　\x04」\n");
+			break;
+		}
+		switch (Sound_Text_Uilti[getcurpl()]) {
+		case 10000:
+			PlayWAV("Alther_EX1.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1FAlther Ego Λ\n\x13\x04「　대청소로 가보실까.　\x04」\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 10001:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1FAlther Ego Λ\n\x13\x04「　이걸로 피니시!　\x04」\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 10010:
+			PlayWAV("Alther_EX2.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1FAlther Ego Λ\n\x13\x04「　어머, 너희들도 같이?　\x04」\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 10011:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1FAlther Ego Λ\n\x13\x04「　라스트 스트로크!　\x04」\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 10012:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\n\x13\x1FAlther Ego Λ\n\n\x13\x04「　블루서머・팔라디온　\x04」\n\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		}
+		switch (Sound_Text_Uniq[getcurpl()]) {
+		case 10000:
+			PlayWAV("Alther_O.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1FAlther Ego Λ\n\x13\x04「　도망칠 곳? 있을리가 없잖아.　\x04」\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		}
+		ClassicTriggerExecTimer89[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer89[getcurpl()] > 0) {
+		ClassicTriggerExecTimer89[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer90 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec90() {
+	if (ClassicTriggerExecTimer90[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer90[getcurpl()] > 0) {
+		ClassicTriggerExecTimer90[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer91 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec91() {
+	if (ClassicTriggerExecTimer91[getcurpl()] == 1) {
+		PreserveTrigger();
+		switch (Sound_Text2[getcurpl()]) {
+		case 6000:
+			PlayWAV("Ryuzu_00.ogg");
+			Sound_Text2[getcurpl()] = 0;
+			tct.print("\n\x13\x1CRyuzu\n\x13\x04과연…\n");
+			break;
+		case 6001:
+			Sound_Text2[getcurpl()] = 0;
+			tct.print("\n\x13\x1CRyuzu\n\x13\x05감히 어느 분께 살의를 향하고 계시는지?\n");
+			break;
+		case 6002:
+			PlayWAV("Ryuzu_01.ogg");
+			Sound_Text2[getcurpl()] = 0;
+			tct.print("\n\x13\x1CRyuzu\n\x13\x04감히 나오토 님께 그런 장난감을\n\x13\x04들이밀어도 될 거라 생각하시는 거라면\n");
+			break;
+		case 6003:
+			Sound_Text2[getcurpl()] = 0;
+			tct.print("\n\x13\x1CRyuzu\n\x13\x05두 분 모두 사이좋게\n\x13\x05잘게 썰어드리겠습니다만\n");
+			break;
+		case 6010:
+			PlayWAV("Ryuzu_02.ogg");
+			Sound_Text2[getcurpl()] = 0;
+			tct.print("\n\x13\x1CRyuzu\n\x13\x04마음껏 덤벼와보시죠, 「앙클」\n");
+			break;
+		case 6011:
+			Sound_Text2[getcurpl()] = 0;
+			tct.print("\n\x13\x1CRyuzu\n\x13\x04언니된 몸으로서의 위엄을\n\x13\x04그 몸에 새겨드리겠어요\n");
+			break;
+		}
+		switch (Sound_Text_Uilti[getcurpl()]) {
+		case 12001:
+			PlayWAV("Ryuzu_Uil.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1CRyuzu\n\n\x13\x04배제하겠습니다.\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12002:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1CRyuzu\n\n\x13\x04저런 차마 쳐다보기도 역겨운\n\x13\x04잡동사니 집단은\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12003:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1CRyuzu\n\n\x13\x04나오토 님께 포구를 겨누었습니다.\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12004:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1CRyuzu\n\n\x13\x04다시 말해,\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12005:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1CRyuzu\n\n\x13\x04배제하여야 할 저의ㅡ\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12006:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1CRyuzu\n\n\x13\x04적입니다\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12007:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1CRyuzu\n\n\x13\x04저런 잡동사니를\n\x13\x04제아무리 늘어놓는다 한들\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12008:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1CRyuzu\n\n\x13\x04자매들 중에서도 최약체인\n\x13\x04저에게조차 미치지 못합니다\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12009:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1CRyuzu\n\n\x13\x04정의 선언──\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12010:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1CRyuzu\n\n\x13\x04정의 선언──\n\x13\x04Initial-Y 시리즈 1번기\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12011:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1CRyuzu\n\n\x13\x04복종하는자\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12012:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1CRyuzu\n\n\x13\x04복종하는자\n\n\x13\x04류즈\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12013:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1CRyuzu\n\n\x13\x04고유 기능──\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12014:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1CRyuzu\n\n\x13\x04고유 기능──\n\x13\x04[ 허수 시간 ]\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12015:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\x13\x1CRyuzu\n\n\x13\x04기동 시퀀스를 개시하겠습니다\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12020:
+			PlayWAV("Ryuzu_Uil2.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1CRyuzu\n\n\x13\x04상대 기동\n\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12021:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1CRyuzu\n\n\x13\x04상대 기동\n\n\x13\x04『뮤트·스크림』\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		}
+		switch (Sound_Text_Uniq[getcurpl()]) {
+		case 12000:
+			PlayWAV("Ryuzu_Unq.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1CRyuzu\n\x13\x04시프트 개시\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12001:
+			Sound_Text_Uniq[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1CRyuzu\n\x13\x04제 1시계\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12002:
+			Sound_Text_Uniq[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1CRyuzu\n\x13\x05제 1시계\n\x13\x04『실수 시간』으로부터\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12003:
+			Sound_Text_Uniq[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1CRyuzu\n\x13\x04제 2시계\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12004:
+			Sound_Text_Uniq[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1CRyuzu\n\x13\x05제 2시계\n\x13\x04『허수 시간』으로\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12005:
+			Sound_Text_Uniq[getcurpl()] = 0;
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1CRyuzu\n\x13\x04구동[크로노 훅]―\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			break;
+		case 12006:
+			Sound_Text_Uniq[getcurpl()] = 0;
+			tct.print("\n\n\n\x13\x1CRyuzu\n\n\x13\x04통상 운동으로부터 \n\x13\x04허수 운동을 향해 점프하겠습니다\n\n\n");
+			break;
+		}
+		ClassicTriggerExecTimer91[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer91[getcurpl()] > 0) {
+		ClassicTriggerExecTimer91[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer92 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec92() {
+	if (ClassicTriggerExecTimer92[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer92[getcurpl()] > 0) {
+		ClassicTriggerExecTimer92[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer93 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec93() {
+	if (ClassicTriggerExecTimer93[getcurpl()] == 1) {
+		PreserveTrigger();
+		switch (Sound_Text3[getcurpl()]) {
+		case 1000:
+			tct.print("\n\x13\x1BMato Sakura\n\x13\x04와~~앙!!\n");
+			PlayWAV("sakura_01.ogg");
+			Sound_Text3[getcurpl()] = 0;
+			break;
+		case 1001:
+			tct.print("\n\x13\x1BMato Sakura\n\x13\x04어째서... \x08항상 \x04이렇게 되어버리는 걸까...\n");
+			PlayWAV("sakura_02.ogg");
+			Sound_Text3[getcurpl()] = 0;
+			break;
+		case 1002:
+			tct.print("\n\x13\x1BMato Sakura\n\x13\x04아주 예전부터 생각했다...\n");
+			Sound_Text3[getcurpl()] = 0;
+			break;
+		case 1003:
+			tct.print("\n\x13\x1BMato Sakura\n\x13\x04아주 예전부터 \x08원망\x04하고 있었던 거야...\n");
+			Sound_Text3[getcurpl()] = 0;
+			break;
+		case 1004:
+			PlayWAV("sakura_03.ogg");
+			tct.print("\n\x13\x1BMato Sakura\n\x13\x04왜 내 주변에 있는 \x08세계\x04는...\n");
+			Sound_Text3[getcurpl()] = 0;
+			break;
+		case 1005:
+			tct.print("\n\x13\x1BMato Sakura\n\x13\x04이렇게나... 나를 \x08싫어하는 걸까...\n");
+			Sound_Text3[getcurpl()] = 0;
+			break;
+		}
+		switch (Sound_Text_Uilti[getcurpl()]) {
+		case 13000:
+			PlayWAV("sakura_04.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			break;
+		case 13001:
+			PlayWAV("sakura_05.ogg");
+			tct.print("\n\x13\x1BMato Sakura\n\x13\x08이런 사람... 없었으면 좋았을텐데...\n");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			break;
+		}
+		switch (Sound_Text_Uniq[getcurpl()]) {
+		case 13000:
+			PlayWAV("sakura_06.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		}
+		ClassicTriggerExecTimer93[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer93[getcurpl()] > 0) {
+		ClassicTriggerExecTimer93[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer94 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec94() {
+	if (ClassicTriggerExecTimer94[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer94[getcurpl()] > 0) {
+		ClassicTriggerExecTimer94[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer95 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec95() {
+	if (ClassicTriggerExecTimer95[getcurpl()] == 1) {
+		PreserveTrigger();
+		switch (Sound_Text3[getcurpl()]) {
+		case 2000:
+			PlayWAV("yashiro_sss.ogg");
+			Sound_Text3[getcurpl()] = 0;
+			tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그것은 분에 넘치는 소망이다.\n\n");
+			break;
+		case 2001:
+			tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04게임 오버다.\n\x13\x04너도, 나도.\n\n");
+			PlayWAV("yashiro_aacc.ogg");
+			Sound_Text3[getcurpl()] = 0;
+			break;
+		case 2002:
+			tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04너가 손에 넣는 것은 이 마을의 평화다. \n\x13\x04네가 원한 것이 바로 그거잖아?\n\n");
+			PlayWAV("yashiro_ccaa.ogg");
+			Sound_Text3[getcurpl()] = 0;
+			break;
+		case 2003:
+			tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04내가 손에 넣는 것은\n\x13\x04내 손에 의한 나만을 위해 존재하는 죽음이다.\n\n");
+			Sound_Text3[getcurpl()] = 0;
+			break;
+		}
+		switch (Sound_Text_Uniq[getcurpl()]) {
+		case 14000:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04이런 이야기를 믿어 줄 것 같진 않지만, 굳이 말하마.\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			PlayWAV("yashiro_u1.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 14001:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04아니, 너라면 알아줄 지도 몰라.\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 14002:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x03스파이스\x04랑 만난 이후로,\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			PlayWAV("yashiro_u2.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 14003:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04나에게는 \x17거미줄\x04이 보이게 됐다.\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 14004:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그게 보인 인간을 죽여 왔다.\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			PlayWAV("yashiro_u3.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 14005:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그러나 어느 날\n\x13\x04한 명의 소년이 내 계획을 저지했다.\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			PlayWAV("yashiro_u4.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 14006:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그리고 그 소년의 머리 위에도\n\x13\x17거미줄\x04이 나타났다.\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			PlayWAV("yashiro_u5.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 14007:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그러나 그는 죽지 않았다.\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			PlayWAV("yashiro_u6.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 14008:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04나는 그 녀석을 \x03스파이스\x04라고 이름짓고\n\x13\x04관찰하기로 했다.\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			PlayWAV("yashiro_u7.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 14009:
+			PlayWAV("yashiro_u8.ogg");
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x08그게 너야...\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 14010:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\n\n\x13\x02Yashiro Gaku\n\x13\x04그런 게 있을 리가 없잖냐\n\n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			PlayWAV("yashiro_o_active.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 14012:
+			PlayWAV("yashiro_o_end.ogg");
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04이건 나에게도 이판사판의 도박이었다\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		}
+		ClassicTriggerExecTimer95[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer95[getcurpl()] > 0) {
+		ClassicTriggerExecTimer95[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer96 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec96() {
+	if (ClassicTriggerExecTimer96[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer96[getcurpl()] > 0) {
+		ClassicTriggerExecTimer96[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer97 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec97() {
+	if (ClassicTriggerExecTimer97[getcurpl()] == 1) {
+		PreserveTrigger();
+		switch (Sound_Text3[getcurpl()]) {
+		case 3000:
+			PlayWAV("Rin_01.ogg");
+			Sound_Text3[getcurpl()] = 0;
+			tct.print("\n\n\x13\x1BRin\n\x13\x04이 앞에 무엇이 있는 걸까?\n\n");
+			break;
+		case 3001:
+			PlayWAV("Rin_02.ogg");
+			Sound_Text3[getcurpl()] = 0;
+			tct.print("\n\n\x13\x1BRin\n\x13\x04언제부턴가, 생각하지 않게 됐다\n\n");
+			break;
+		case 3002:
+			PlayWAV("Rin_03.ogg");
+			Sound_Text3[getcurpl()] = 0;
+			tct.print("\n\n\x13\x1BRin\n\x13\x04생각하는 방법... 그것조차 잊어버린 걸지도\n\n");
+			break;
+		case 3003:
+			PlayWAV("Rin_04.ogg");
+			Sound_Text3[getcurpl()] = 0;
+			tct.print("\n\n\x13\x1BRin\n\x13\x04변하지 않는, 나만의 세계가 매일매일 계속된다\n\n");
+			break;
+		case 3004:
+			PlayWAV("Rin_05.ogg");
+			Sound_Text3[getcurpl()] = 0;
+			tct.print("\n\n\x13\x1BRin\n\x13\x04하지만 외롭지는 않아\n\n");
+			break;
+		case 3005:
+			PlayWAV("Rin_06.ogg");
+			Sound_Text3[getcurpl()] = 0;
+			tct.print("\n\n\x13\x1BRin\n\x13\x04별 것 아니니까\n\n");
+			break;
+		}
+		switch (Sound_Text_Uilti[getcurpl()]) {
+		case 15000:
+			PlayWAV("Rin_Ult.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			break;
+		case 15001:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1BRin\n\x13\x04추억이, 슬픈 것이었다고 해도\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uilti[getcurpl()] = 0;
+			break;
+		case 15002:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1BRin\n\x13\x04미래를 믿으며 나아가는 거야\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uilti[getcurpl()] = 0;
+			break;
+		case 15003:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1BRin\n\x13\x04외로움을 깨달아서\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uilti[getcurpl()] = 0;
+			break;
+		case 15004:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1BRin\n\x13\x04좌절하고 싶어져도\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uilti[getcurpl()] = 0;
+			break;
+		case 15005:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1BRin\n\x13\x04당신 덕분에\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uilti[getcurpl()] = 0;
+			break;
+		case 15006:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1BRin\n\x13\x04기억해내서\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uilti[getcurpl()] = 0;
+			break;
+		case 15007:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1BRin\n\x13\x04강해질 수 있는 거야\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uilti[getcurpl()] = 0;
+			break;
+		case 15008:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1BRin\n\x13\x04혼자가 아니라고...\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uilti[getcurpl()] = 0;
+			break;
+		case 15009:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x1BRin\n\x13\x04당신 덕분에...\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uilti[getcurpl()] = 0;
+			break;
+		}
+		switch (Sound_Text_Uniq[getcurpl()]) {
+		case 15000:
+			tct.print("\n\n\x13\x1BRin\n\x13\x04고마워요...\n\n");
+			PlayWAV("Rin_Unique.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		}
+		ClassicTriggerExecTimer97[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer97[getcurpl()] > 0) {
+		ClassicTriggerExecTimer97[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer98 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec98() {
+	if (ClassicTriggerExecTimer98[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer98[getcurpl()] > 0) {
+		ClassicTriggerExecTimer98[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer99 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec99() {
+	if (ClassicTriggerExecTimer99[getcurpl()] == 1) {
+		PreserveTrigger();
+		switch (Sound_Text3[getcurpl()]) {
+		case 4000:
+			PlayWAV("Seraphim_SSS.ogg");
+			Sound_Text3[getcurpl()] = 0;
+			tct.print("\n\n\x13\x1BSeraphim\n\x13\x04역시 그런가, 조금도 신선한게 없네\n\n");
+			break;
+		case 4001:
+			PlayWAV("Seraphim_AAC.ogg");
+			Sound_Text3[getcurpl()] = 0;
+			tct.print("\n\n\x13\x1BSeraphim\n\x13\x04이제 됐어\n\x13\x04네가 그렇게 결정했다면, 이루어주지\n\n");
+			break;
+		case 4002:
+			PlayWAV("Seraphim_CC.ogg");
+			Sound_Text3[getcurpl()] = 0;
+			tct.print("\n\n\x13\x1BSeraphim\n\x13\x04불쌍한 녀석이야\n\n");
+			break;
+		case 4003:
+			PlayWAV("Seraphim_CCAA.ogg");
+			Sound_Text3[getcurpl()] = 0;
+			tct.print("\n\n\x13\x1BSeraphim\n\x13\x04소원을 이루기 위해 진실에서 눈을 돌려버리고 말았어\n\n");
+			break;
+		}
+		switch (Sound_Text_Uilti[getcurpl()]) {
+		case 16000:
+			PlayWAV("Seraphim_AAAA.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			tct.print("\n\n\x13\x1BSeraphim\n\x13\x04하지만...\n\n");
+			break;
+		case 16001:
+			tct.print("\n\n\x13\x1BSeraphim\n\x13\x04분명 후회할테니까\n\n");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			break;
+		case 16010:
+			PlayWAV("Seraphim_O_Ult.ogg");
+			Sound_Text_Uilti[getcurpl()] = 0;
+			break;
+		}
+		switch (Sound_Text_Uniq[getcurpl()]) {
+		case 16000:
+			tct.print("\n\n\x13\x1BSeraphim\n\x13\x04행복한 세계,\n\x13\x04모든 사람이 행복할 수 있는 세상은...\n\n");
+			PlayWAV("Seraphim_O_0.ogg");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16001:
+			tct.print("\n\n\x13\x1BSeraphim\n\x13\x04역시 실현할 수 없는 건가...\n\n");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16011:
+			PlayWAV("Seraphim_O_1.ogg");
+			tct.print("\n\n\x13\x1BSeraphim\n\x13\x04하지만 너는, 내 소원을 이해할 수 있을 리가 없어\n\n");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16012:
+			PlayWAV("Seraphim_O_2.ogg");
+			tct.print("\n\n\x13\x1BSeraphim\n\x13\x04말해봐 내 소원은... 뭐지?\n\n");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16013:
+			PlayWAV("Seraphim_O_3.ogg");
+			tct.print("\n\n\x13\x1BSeraphim\n\x13\x04종말을 막는 소원을 빌어 나를 구해준다라...\n\x13\x04나쁘지 않네\n\n");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16014:
+			PlayWAV("Seraphim_O_4.ogg");
+			tct.print("\n\n\x13\x1BSeraphim\n\x13\x04이번의 너는 뭐랄까 조금,\n\x13\x047일의 시간이 너무 짧게 느껴지게 만들어\n\n");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16015:
+			PlayWAV("Seraphim_O_5.ogg");
+			tct.print("\n\n\x13\x1BSeraphim\n\x13\x04내가 사라져도 이 세계의 윤회는 계속해서 이어질 거야\n\n");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16016:
+			PlayWAV("Seraphim_O_6.ogg");
+			tct.print("\n\n\x13\x1BSeraphim\n\x13\x04너는 이 세계를 지키고 싶어,\n\x13\x04하지만 이 세계에 있어 지금의 나는 진정한 위협이니까\n");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16017:
+			PlayWAV("Seraphim_O_7.ogg");
+			tct.print("\n\n\x13\x1BSeraphim\n\x13\x04네 소원은, 확실히 받아뒀어\n");
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16021:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x02\" \x02너의 \x02\"                \n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16022:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x04\" \x04너의 \x04\"                \n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16023:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x04\" \x04너의 \x04\"                \n\x13\x02          \" \x02소원 \x02\"\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16024:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x04\" \x04너의 \x04\"                \n\x13\x04          \" \x04소원 \x04\"\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16031:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x02\" \x02신의 소원을 지키기 위해           \n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16032:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x04\" 신의 소원을 지키기 위해           \n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16033:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x04\" 신의 소원을 지키기 위해           \n\x13\x1B             인간은 어리석은 맹세를 하였다 \"\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16034:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x04\" 신의 소원을 지키기 위해           \n\x13\x08             인간은 어리석은 맹세를 하였다 \"\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16041:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x02\" 영원히 윤회에 속박되고       \n\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16042:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x04\" 영원히 윤회에 속박되고       \n  \n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16043:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x04\" 영원히 윤회에 속박되고       \n\x13\x02             영원히 시간 속에서 헤맨다 \"       \n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16044:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x04\" 영원히 윤회에 속박되고       \n\x13\x04             영원히 시간 속에서 헤맨다 \"       \n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16045:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x04\" 영원히 윤회에 속박되고       \n\x13\x04             영원히 시간 속에서 헤맨다 \"       \n\x13\x1B             \" 신이라는 존재는 그저... \"\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16046:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x04\" 영원히 윤회에 속박되고       \n\x13\x04             영원히 시간 속에서 헤맨다 \"       \n\x13\x08             \" 신이라는 존재는 그저... \"\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16051:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x02\" 홀로 \"   \" 모래성을 쌓는 자일 뿐 \"\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		case 16052:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\n\n\x13\x04\" 홀로 \"   \" 모래성을 쌓는 자일 뿐 \"\n\n");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		}
+		ClassicTriggerExecTimer99[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer99[getcurpl()] > 0) {
+		ClassicTriggerExecTimer99[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer100 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec100() {
+	if (ClassicTriggerExecTimer100[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer100[getcurpl()] > 0) {
+		ClassicTriggerExecTimer100[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer101 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec101() {
+	if (ClassicTriggerExecTimer101[getcurpl()] == 1) {
+		PreserveTrigger();
+		switch (Sound_Text3[getcurpl()]) {
+		case 5000:
+			PlayWAV("Kiana_01.ogg");
+			tct.print("\n\n\x13\x0FKiana\n\x13\x04Neko Charm!\n\n");
+			Sound_Text3[getcurpl()] = 0;
+			break;
+		}
+		switch (Sound_Text_Uilti[getcurpl()]) {
+		case 17000:
+			Sound_Text_Uilti[getcurpl()] = 0;
+			break;
+		}
+		switch (Sound_Text_Uniq[getcurpl()]) {
+		case 17000:
+			Sound_Text_Uniq[getcurpl()] = 0;
+			break;
+		}
+		ClassicTriggerExecTimer101[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer101[getcurpl()] > 0) {
+		ClassicTriggerExecTimer101[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer102 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec102() {
+	if (ClassicTriggerExecTimer102[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer102[getcurpl()] > 0) {
+		ClassicTriggerExecTimer102[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer103 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec103() {
+	if (ClassicTriggerExecTimer103[getcurpl()] == 1) {
+		if (
+			Bring((13), (10), 0, (15), (96))
+			) {
+			tct.chatAnnouncement("　\x04특성 정보 - \x17S [스카웃] : \x04성장특화　\x17C [캐리어] : \x04마나특화　\x17A [아비터] : \x04게이지특화");
+		}
+		else {
+			tct.chatAnnouncement("　\x04캐릭터 선택 : \x17커세어　\x04캐릭터 정보확인 : \x17유닛 클릭　\x04랜덤 선택 : \x17리버");
+		}
+		PreserveTrigger();
+		ClassicTriggerExecTimer103[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer103[getcurpl()] > 0) {
+		ClassicTriggerExecTimer103[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer104 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec104() {
+	if (ClassicTriggerExecTimer104[getcurpl()] == 1) {
+		if (
+			Score((13), (7), (1), 24)
+			) {
+			if (
+				Deaths((13), (10), 0, (210))
+				) {
+				tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", Potion[getcurpl()], "　\x1FExp \x04", EXP_Now[getcurpl()], "/", EXP_Need[getcurpl()], "　\x07Level \x04", Level[getcurpl()], "");
+			}
+			else {
+				tct.chatAnnouncement("　\x04치명상 치료까지 : ", DeathCount[getcurpl()], "초　\x1FExp \x04", EXP_Now[getcurpl()], "/", EXP_Need[getcurpl()], "　\x07Level \x04", Level[getcurpl()], "");
+			}
+		}
+		else {
+			switch (Hero_Num[getcurpl()]) {
+			case 2:
+				if (
+					Deaths((13), (10), 0, (210))
+					) {
+					if (
+						Unique_Cool[getcurpl()] == 0
+						) {
+						if (
+							Switch((6), (2))
+							) {
+							tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", Potion[getcurpl()], "　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04", Level[getcurpl()], "");
+						}
+						else {
+							tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", Potion[getcurpl()], "　\x1FO Skill \x04사용가능 \x08OFF　\x07Level \x04", Level[getcurpl()], "");
+						}
+					}
+					else {
+						if (
+							Switch((6), (2))
+							) {
+							tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", Potion[getcurpl()], "　\x1FO \x1ECooltime \x04", Unique_Cool[getcurpl()], "초 \x1CON　\x07Level \x04", Level[getcurpl()], "");
+						}
+						else {
+							tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", Potion[getcurpl()], "　\x1FO \x1ECooltime \x04", Unique_Cool[getcurpl()], "초 \x08OFF　\x07Level \x04", Level[getcurpl()], "");
+						}
+					}
+				}
+				else {
+					if (
+						Unique_Cool[getcurpl()] == 0
+						) {
+						if (
+							Switch((6), (2))
+							) {
+							tct.chatAnnouncement("　\x04치명상 치료까지 : ", DeathCount[getcurpl()], "초　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04", Level[getcurpl()], "");
+						}
+						else {
+							tct.chatAnnouncement("　\x04치명상 치료까지 : ", DeathCount[getcurpl()], "초　\x1FO Skill \x04사용가능 \x08OFF　\x07Level \x04", Level[getcurpl()], "");
+						}
+					}
+					else {
+						if (
+							Switch((6), (2))
+							) {
+							tct.chatAnnouncement("　\x04치명상 치료까지 : ", DeathCount[getcurpl()], "초　\x1FO \x1ECooltime \x04", Unique_Cool[getcurpl()], "초 \x1CON　\x07Level \x04", Level[getcurpl()], "");
+						}
+						else {
+							tct.chatAnnouncement("　\x04치명상 치료까지 : ", DeathCount[getcurpl()], "초　\x1FO \x1ECooltime \x04", Unique_Cool[getcurpl()], "초 \x08OFF　\x07Level \x04", Level[getcurpl()], "");
+						}
+					}
+				}
+				break;
+			case 7:
+				if (
+					Deaths((13), (10), 0, (210))
+					) {
+					if (
+						Unique_Cool[getcurpl()] == 0
+						) {
+						if (
+							Switch((9), (2))
+							) {
+							tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", Potion[getcurpl()], "　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04", Level[getcurpl()], "");
+						}
+						else {
+							tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", Potion[getcurpl()], "　\x1FO Skill \x04사용가능 \x08OFF　\x07Level \x04", Level[getcurpl()], "");
+						}
+					}
+					else {
+						if (
+							Switch((9), (2))
+							) {
+							tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", Potion[getcurpl()], "　\x1FO \x1ECooltime \x04", Unique_Cool[getcurpl()], "초 \x1CON　\x07Level \x04", Level[getcurpl()], "");
+						}
+						else {
+							tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", Potion[getcurpl()], "　\x1FO \x1ECooltime \x04", Unique_Cool[getcurpl()], "초 \x08OFF　\x07Level \x04", Level[getcurpl()], "");
+						}
+					}
+				}
+				else {
+					if (
+						Unique_Cool[getcurpl()] == 0
+						) {
+						if (
+							Switch((6), (2))
+							) {
+							tct.chatAnnouncement("　\x04치명상 치료까지 : ", DeathCount[getcurpl()], "초　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04", Level[getcurpl()], "");
+						}
+						else {
+							tct.chatAnnouncement("　\x04치명상 치료까지 : ", DeathCount[getcurpl()], "초　\x1FO Skill \x04사용가능 \x08OFF　\x07Level \x04", Level[getcurpl()], "");
+						}
+					}
+					else {
+						if (
+							Switch((6), (2))
+							) {
+							tct.chatAnnouncement("　\x04치명상 치료까지 : ", DeathCount[getcurpl()], "초　\x1FO \x1ECooltime \x04", Unique_Cool[getcurpl()], "초 \x1CON　\x07Level \x04", Level[getcurpl()], "");
+						}
+						else {
+							tct.chatAnnouncement("　\x04치명상 치료까지 : ", DeathCount[getcurpl()], "초　\x1FO \x1ECooltime \x04", Unique_Cool[getcurpl()], "초 \x08OFF　\x07Level \x04", Level[getcurpl()], "");
+						}
+					}
+				}
+				break;
+			case 15:
+				if (
+					Deaths((13), (10), 0, (210))
+					) {
+					if (
+						Unique_Cool[getcurpl()] == 0
+						) {
+						if (
+							Switch((19), (2))
+							) {
+							tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", Potion[getcurpl()], "　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04", Level[getcurpl()], "");
+						}
+						else {
+							tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", Potion[getcurpl()], "　\x1FO Skill \x04사용가능 \x08OFF　\x07Level \x04", Level[getcurpl()], "");
+						}
+					}
+					else {
+						if (
+							Switch((19), (2))
+							) {
+							tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", Potion[getcurpl()], "　\x1FO \x1ECooltime \x04", Unique_Cool[getcurpl()], "초 \x1CON　\x07Level \x04", Level[getcurpl()], "");
+						}
+						else {
+							tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", Potion[getcurpl()], "　\x1FO \x1ECooltime \x04", Unique_Cool[getcurpl()], "초 \x08OFF　\x07Level \x04", Level[getcurpl()], "");
+						}
+					}
+				}
+				else {
+					if (
+						Unique_Cool[getcurpl()] == 0
+						) {
+						if (
+							Switch((19), (2))
+							) {
+							tct.chatAnnouncement("　\x04치명상 치료까지 : ", DeathCount[getcurpl()], "초　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04", Level[getcurpl()], "");
+						}
+						else {
+							tct.chatAnnouncement("　\x04치명상 치료까지 : ", DeathCount[getcurpl()], "초　\x1FO Skill \x04사용가능 \x08OFF　\x07Level \x04", Level[getcurpl()], "");
+						}
+					}
+					else {
+						if (
+							Switch((19), (2))
+							) {
+							tct.chatAnnouncement("　\x04치명상 치료까지 : ", DeathCount[getcurpl()], "초　\x1FO \x1ECooltime \x04", Unique_Cool[getcurpl()], "초 \x1CON　\x07Level \x04", Level[getcurpl()], "");
+						}
+						else {
+							tct.chatAnnouncement("　\x04치명상 치료까지 : ", DeathCount[getcurpl()], "초　\x1FO \x1ECooltime \x04", Unique_Cool[getcurpl()], "초 \x08OFF　\x07Level \x04", Level[getcurpl()], "");
+						}
+					}
+				}
+				break;
+			case 16:
+				if (
+					Deaths((13), (10), 0, (210))
+					) {
+					if (
+						Unique_Cool[getcurpl()] == 0
+						) {
+						if (
+							Deaths((13), (0), 1, (204)) &&
+							Deaths((13), (1), 7, (204))
+							) {
+							tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", Potion[getcurpl()], "　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04", Level[getcurpl()], "");
+						}
+						else {
+							tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", Potion[getcurpl()], "　\x1FO Skill \x04사용가능 \x08OFF　\x07Level \x04", Level[getcurpl()], "");
+						}
+					}
+					else {
+						if (
+							Deaths((13), (0), 1, (204)) &&
+							Deaths((13), (1), 7, (204))
+							) {
+							tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", Potion[getcurpl()], "　\x1FO \x1ECooltime \x04", Unique_Cool[getcurpl()], "초 \x1CON　\x07Level \x04", Level[getcurpl()], "");
+						}
+						else {
+							tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", Potion[getcurpl()], "　\x1FO \x1ECooltime \x04", Unique_Cool[getcurpl()], "초 \x08OFF　\x07Level \x04", Level[getcurpl()], "");
+						}
+					}
+				}
+				else {
+					if (
+						Unique_Cool[getcurpl()] == 0
+						) {
+						if (
+							Deaths((13), (0), 1, (204)) &&
+							Deaths((13), (1), 7, (204))
+							) {
+							tct.chatAnnouncement("　\x04치명상 치료까지 : ", DeathCount[getcurpl()], "초　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04", Level[getcurpl()], "");
+						}
+						else {
+							tct.chatAnnouncement("　\x04치명상 치료까지 : ", DeathCount[getcurpl()], "초　\x1FO Skill \x04사용가능 \x08OFF　\x07Level \x04", Level[getcurpl()], "");
+						}
+					}
+					else {
+						if (
+							Deaths((13), (0), 1, (204)) &&
+							Deaths((13), (1), 7, (204))
+							) {
+							tct.chatAnnouncement("　\x04치명상 치료까지 : ", DeathCount[getcurpl()], "초　\x1FO \x1ECooltime \x04", Unique_Cool[getcurpl()], "초 \x1CON　\x07Level \x04", Level[getcurpl()], "");
+						}
+						else {
+							tct.chatAnnouncement("　\x04치명상 치료까지 : ", DeathCount[getcurpl()], "초　\x1FO \x1ECooltime \x04", Unique_Cool[getcurpl()], "초 \x08OFF　\x07Level \x04", Level[getcurpl()], "");
+						}
+					}
+				}
+				break;
+			default:
+				if (
+					Deaths((13), (10), 0, (210))
+					) {
+					if (
+						Unique_Cool[getcurpl()] == 0
+						) {
+						tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", Potion[getcurpl()], "　\x1FO Skill \x04사용가능　\x07Level \x04", Level[getcurpl()], "");
+					}
+					else {
+						tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", Potion[getcurpl()], "　\x1FO \x1ECooltime \x04", Unique_Cool[getcurpl()], "초　\x07Level \x04", Level[getcurpl()], "");
+					}
+				}
+				else {
+					if (
+						Unique_Cool[getcurpl()] == 0
+						) {
+						tct.chatAnnouncement("　\x04치명상 치료까지 : ", DeathCount[getcurpl()], "초　\x1FO Skill \x04사용가능　\x07Level \x04", Level[getcurpl()], "");
+					}
+					else {
+						tct.chatAnnouncement("　\x04치명상 치료까지 : ", DeathCount[getcurpl()], "초　\x1FO \x1ECooltime \x04", Unique_Cool[getcurpl()], "초　\x07Level \x04", Level[getcurpl()], "");
+					}
+				}
+				break;
+			}
+		}
+		PreserveTrigger();
+		ClassicTriggerExecTimer104[getcurpl()] = 0;
+	}
+	if (ClassicTriggerExecTimer104[getcurpl()] > 0) {
+		ClassicTriggerExecTimer104[getcurpl()] += 1;
+	}
+
+}
+const ClassicTriggerExecTimer105 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec105() {
+	if (ClassicTriggerExecTimer105[getcurpl()] == 1) {
+	}
+	if (ClassicTriggerExecTimer105[getcurpl()] > 0) {
+		ClassicTriggerExecTimer105[getcurpl()] += 1;
+	}
+
+}
+function ClassicTriggerStarter0() {
+	if (
+		MemoryEPD(EPD(0x6284E8) + 12 * getcurpl(), AtLeast, 1)
+
+		) {
+		if (ClassicTriggerExecTimer0[getcurpl()] == 0) {
+			ClassicTriggerExecTimer0[getcurpl()] = 1;
+			ClassicTriggerExec0();
+		}
+	}
+}
+function ClassicTriggerStarter1() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer1[getcurpl()] == 0) {
+			ClassicTriggerExecTimer1[getcurpl()] = 1;
+			ClassicTriggerExec1();
+		}
+	}
+}
+function ClassicTriggerStarter2() {
+	if (
+		Switch((253), (2))
+		) {
+		if (ClassicTriggerExecTimer2[getcurpl()] == 0) {
+			ClassicTriggerExecTimer2[getcurpl()] = 1;
+			ClassicTriggerExec2();
+		}
+	}
+}
+function ClassicTriggerStarter3() {
+	if (
+		ElapsedTime((0), 3780)
+		) {
+		if (ClassicTriggerExecTimer3[getcurpl()] == 0) {
+			ClassicTriggerExecTimer3[getcurpl()] = 1;
+			ClassicTriggerExec3();
+		}
+	}
+}
+function ClassicTriggerStarter4() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer4[getcurpl()] == 0) {
+			ClassicTriggerExecTimer4[getcurpl()] = 1;
+			ClassicTriggerExec4();
+		}
+	}
+}
+function ClassicTriggerStarter5() {
+	if (
+		Switch((255), (3)) &&
+		Bring((11), (0), 1, (15), (96))
+		) {
+		if (ClassicTriggerExecTimer5[getcurpl()] == 0) {
+			ClassicTriggerExecTimer5[getcurpl()] = 1;
+			ClassicTriggerExec5();
+		}
+	}
+}
+function ClassicTriggerStarter6() {
+	if (
+		Switch((255), (3)) &&
+		Bring((0), (1), 0, (231), (48)) &&
+		Deaths((0), (0), 10000, (223))
+		) {
+		if (ClassicTriggerExecTimer6[getcurpl()] == 0) {
+			ClassicTriggerExecTimer6[getcurpl()] = 1;
+			ClassicTriggerExec6();
+		}
+	}
+}
+function ClassicTriggerStarter7() {
+	if (
+		Switch((255), (3)) &&
+		Bring((1), (1), 0, (231), (48)) &&
+		Deaths((1), (0), 10000, (223))
+		) {
+		if (ClassicTriggerExecTimer7[getcurpl()] == 0) {
+			ClassicTriggerExecTimer7[getcurpl()] = 1;
+			ClassicTriggerExec7();
+		}
+	}
+}
+function ClassicTriggerStarter8() {
+	if (
+		Switch((255), (3)) &&
+		Bring((2), (1), 0, (231), (48)) &&
+		Deaths((2), (0), 10000, (223))
+		) {
+		if (ClassicTriggerExecTimer8[getcurpl()] == 0) {
+			ClassicTriggerExecTimer8[getcurpl()] = 1;
+			ClassicTriggerExec8();
+		}
+	}
+}
+function ClassicTriggerStarter9() {
+	if (
+		Switch((255), (3)) &&
+		Bring((3), (1), 0, (231), (48)) &&
+		Deaths((3), (0), 10000, (223))
+		) {
+		if (ClassicTriggerExecTimer9[getcurpl()] == 0) {
+			ClassicTriggerExecTimer9[getcurpl()] = 1;
+			ClassicTriggerExec9();
+		}
+	}
+}
+function ClassicTriggerStarter10() {
+	if (
+		Switch((255), (3)) &&
+		Bring((4), (1), 0, (231), (48)) &&
+		Deaths((4), (0), 10000, (223))
+		) {
+		if (ClassicTriggerExecTimer10[getcurpl()] == 0) {
+			ClassicTriggerExecTimer10[getcurpl()] = 1;
+			ClassicTriggerExec10();
+		}
+	}
+}
+function ClassicTriggerStarter11() {
+	if (
+		Switch((255), (3)) &&
+		Bring((5), (1), 0, (231), (48)) &&
+		Deaths((5), (0), 10000, (223))
+		) {
+		if (ClassicTriggerExecTimer11[getcurpl()] == 0) {
+			ClassicTriggerExecTimer11[getcurpl()] = 1;
+			ClassicTriggerExec11();
+		}
+	}
+}
+function ClassicTriggerStarter12() {
+	if (
+		Bring((11), (0), 1, (231), (48))
+		) {
+		if (ClassicTriggerExecTimer12[getcurpl()] == 0) {
+			ClassicTriggerExecTimer12[getcurpl()] = 1;
+			ClassicTriggerExec12();
+		}
+	}
+}
+function ClassicTriggerStarter13() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer13[getcurpl()] == 0) {
+			ClassicTriggerExecTimer13[getcurpl()] = 1;
+			ClassicTriggerExec13();
+		}
+	}
+}
+function ClassicTriggerStarter14() {
+	if (
+		Switch((255), (3)) &&
+		Bring((13), (0), 1, (15), (96))
+		) {
+		if (ClassicTriggerExecTimer14[getcurpl()] == 0) {
+			ClassicTriggerExecTimer14[getcurpl()] = 1;
+			ClassicTriggerExec14();
+		}
+	}
+}
+function ClassicTriggerStarter15() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer15[getcurpl()] == 0) {
+			ClassicTriggerExecTimer15[getcurpl()] = 1;
+			ClassicTriggerExec15();
+		}
+	}
+}
+function ClassicTriggerStarter16() {
+	if (
+		Switch((255), (2)) &&
+		Unit_ID[getcurpl()] >= 1
+		) {
+		if (ClassicTriggerExecTimer16[getcurpl()] == 0) {
+			ClassicTriggerExecTimer16[getcurpl()] = 1;
+			ClassicTriggerExec16();
+		}
+	}
+}
+function ClassicTriggerStarter17() {
+	if (
+		Switch((255), (2)) &&
+		Unit_ID[getcurpl()] >= 1
+		) {
+		if (ClassicTriggerExecTimer17[getcurpl()] == 0) {
+			ClassicTriggerExecTimer17[getcurpl()] = 1;
+			ClassicTriggerExec17();
+		}
+	}
+}
+function ClassicTriggerStarter18() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer18[getcurpl()] == 0) {
+			ClassicTriggerExecTimer18[getcurpl()] = 1;
+			ClassicTriggerExec18();
+		}
+	}
+}
+function ClassicTriggerStarter19() {
+	if (
+		Unit_ID[getcurpl()] == 51 &&
+		Switch((255), (3))
+		) {
+		if (ClassicTriggerExecTimer19[getcurpl()] == 0) {
+			ClassicTriggerExecTimer19[getcurpl()] = 1;
+			ClassicTriggerExec19();
+		}
+	}
+}
+function ClassicTriggerStarter20() {
+	if (
+		Unit_ID[getcurpl()] == 77 &&
+		Switch((255), (3))
+		) {
+		if (ClassicTriggerExecTimer20[getcurpl()] == 0) {
+			ClassicTriggerExecTimer20[getcurpl()] = 1;
+			ClassicTriggerExec20();
+		}
+	}
+}
+function ClassicTriggerStarter21() {
+	if (
+		Unit_ID[getcurpl()] == 74 &&
+		Switch((255), (3))
+		) {
+		if (ClassicTriggerExecTimer21[getcurpl()] == 0) {
+			ClassicTriggerExecTimer21[getcurpl()] = 1;
+			ClassicTriggerExec21();
+		}
+	}
+}
+function ClassicTriggerStarter22() {
+	if (
+		Unit_ID[getcurpl()] == 16 &&
+		Switch((255), (3))
+		) {
+		if (ClassicTriggerExecTimer22[getcurpl()] == 0) {
+			ClassicTriggerExecTimer22[getcurpl()] = 1;
+			ClassicTriggerExec22();
+		}
+	}
+}
+function ClassicTriggerStarter23() {
+	if (
+		Unit_ID[getcurpl()] == 54 &&
+		Switch((255), (3))
+		) {
+		if (ClassicTriggerExecTimer23[getcurpl()] == 0) {
+			ClassicTriggerExecTimer23[getcurpl()] = 1;
+			ClassicTriggerExec23();
+		}
+	}
+}
+function ClassicTriggerStarter24() {
+	if (
+		Unit_ID[getcurpl()] == 99 &&
+		Switch((255), (3))
+		) {
+		if (ClassicTriggerExecTimer24[getcurpl()] == 0) {
+			ClassicTriggerExecTimer24[getcurpl()] = 1;
+			ClassicTriggerExec24();
+		}
+	}
+}
+function ClassicTriggerStarter25() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer25[getcurpl()] == 0) {
+			ClassicTriggerExecTimer25[getcurpl()] = 1;
+			ClassicTriggerExec25();
+		}
+	}
+}
+function ClassicTriggerStarter26() {
+	if (
+		Hero_Text[getcurpl()] >= 1 &&
+		Switch((255), (3))
+		) {
+		if (ClassicTriggerExecTimer26[getcurpl()] == 0) {
+			ClassicTriggerExecTimer26[getcurpl()] = 1;
+			ClassicTriggerExec26();
+		}
+	}
+}
+function ClassicTriggerStarter27() {
+	if (
+		Hero_Text[getcurpl()] >= 1 &&
+		Switch((255), (3))
+		) {
+		if (ClassicTriggerExecTimer27[getcurpl()] == 0) {
+			ClassicTriggerExecTimer27[getcurpl()] = 1;
+			ClassicTriggerExec27();
+		}
+	}
+}
+function ClassicTriggerStarter28() {
+	if (
+		Hero_Text[getcurpl()] >= 1 &&
+		Switch((255), (3))
+		) {
+		if (ClassicTriggerExecTimer28[getcurpl()] == 0) {
+			ClassicTriggerExecTimer28[getcurpl()] = 1;
+			ClassicTriggerExec28();
+		}
+	}
+}
+function ClassicTriggerStarter29() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer29[getcurpl()] == 0) {
+			ClassicTriggerExecTimer29[getcurpl()] = 1;
+			ClassicTriggerExec29();
+		}
+	}
+}
+function ClassicTriggerStarter30() {
+	if (
+		Deaths((13), (10), 10000, (223))
+		) {
+		if (ClassicTriggerExecTimer30[getcurpl()] == 0) {
+			ClassicTriggerExecTimer30[getcurpl()] = 1;
+			ClassicTriggerExec30();
+		}
+	}
+}
+function ClassicTriggerStarter31() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer31[getcurpl()] == 0) {
+			ClassicTriggerExecTimer31[getcurpl()] = 1;
+			ClassicTriggerExec31();
+		}
+	}
+}
+function ClassicTriggerStarter32() {
+	if (
+		Deaths((0), (10), 1000, (223))
+		) {
+		if (ClassicTriggerExecTimer32[getcurpl()] == 0) {
+			ClassicTriggerExecTimer32[getcurpl()] = 1;
+			ClassicTriggerExec32();
+		}
+	}
+}
+function ClassicTriggerStarter33() {
+	if (
+		Deaths((1), (10), 1000, (223))
+		) {
+		if (ClassicTriggerExecTimer33[getcurpl()] == 0) {
+			ClassicTriggerExecTimer33[getcurpl()] = 1;
+			ClassicTriggerExec33();
+		}
+	}
+}
+function ClassicTriggerStarter34() {
+	if (
+		Deaths((2), (10), 1000, (223))
+		) {
+		if (ClassicTriggerExecTimer34[getcurpl()] == 0) {
+			ClassicTriggerExecTimer34[getcurpl()] = 1;
+			ClassicTriggerExec34();
+		}
+	}
+}
+function ClassicTriggerStarter35() {
+	if (
+		Deaths((3), (10), 1000, (223))
+		) {
+		if (ClassicTriggerExecTimer35[getcurpl()] == 0) {
+			ClassicTriggerExecTimer35[getcurpl()] = 1;
+			ClassicTriggerExec35();
+		}
+	}
+}
+function ClassicTriggerStarter36() {
+	if (
+		Deaths((4), (10), 1000, (223))
+		) {
+		if (ClassicTriggerExecTimer36[getcurpl()] == 0) {
+			ClassicTriggerExecTimer36[getcurpl()] = 1;
+			ClassicTriggerExec36();
+		}
+	}
+}
+function ClassicTriggerStarter37() {
+	if (
+		Deaths((5), (10), 1000, (223))
+		) {
+		if (ClassicTriggerExecTimer37[getcurpl()] == 0) {
+			ClassicTriggerExecTimer37[getcurpl()] = 1;
+			ClassicTriggerExec37();
+		}
+	}
+}
+function ClassicTriggerStarter38() {
+	if (
+		Deaths((13), (10), 1000, (223))
+		) {
+		if (ClassicTriggerExecTimer38[getcurpl()] == 0) {
+			ClassicTriggerExecTimer38[getcurpl()] = 1;
+			ClassicTriggerExec38();
+		}
+	}
+}
+function ClassicTriggerStarter39() {
+	if (
+		Deaths((13), (10), 2720, (223))
+		) {
+		if (ClassicTriggerExecTimer39[getcurpl()] == 0) {
+			ClassicTriggerExecTimer39[getcurpl()] = 1;
+			ClassicTriggerExec39();
+		}
+	}
+}
+function ClassicTriggerStarter40() {
+	if (
+		Deaths((13), (10), 2720, (223))
+		) {
+		if (ClassicTriggerExecTimer40[getcurpl()] == 0) {
+			ClassicTriggerExecTimer40[getcurpl()] = 1;
+			ClassicTriggerExec40();
+		}
+	}
+}
+function ClassicTriggerStarter41() {
+	if (
+		Deaths((13), (10), 3720, (223))
+		) {
+		if (ClassicTriggerExecTimer41[getcurpl()] == 0) {
+			ClassicTriggerExecTimer41[getcurpl()] = 1;
+			ClassicTriggerExec41();
+		}
+	}
+}
+function ClassicTriggerStarter42() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer42[getcurpl()] == 0) {
+			ClassicTriggerExecTimer42[getcurpl()] = 1;
+			ClassicTriggerExec42();
+		}
+	}
+}
+function ClassicTriggerStarter43() {
+	if (
+		Deaths((13), (0), 2, (203))
+		) {
+		if (ClassicTriggerExecTimer43[getcurpl()] == 0) {
+			ClassicTriggerExecTimer43[getcurpl()] = 1;
+			ClassicTriggerExec43();
+		}
+	}
+}
+function ClassicTriggerStarter44() {
+	if (
+		Always()
+		) {
+		if (ClassicTriggerExecTimer44[getcurpl()] == 0) {
+			ClassicTriggerExecTimer44[getcurpl()] = 1;
+			ClassicTriggerExec44();
+		}
+	}
+}
+function ClassicTriggerStarter45() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer45[getcurpl()] == 0) {
+			ClassicTriggerExecTimer45[getcurpl()] = 1;
+			ClassicTriggerExec45();
+		}
+	}
+}
+function ClassicTriggerStarter46() {
+	if (
+		Deaths((13), (0), 1000, (210))
+		) {
+		if (ClassicTriggerExecTimer46[getcurpl()] == 0) {
+			ClassicTriggerExecTimer46[getcurpl()] = 1;
+			ClassicTriggerExec46();
+		}
+	}
+}
+function ClassicTriggerStarter47() {
+	if (
+		Deaths((13), (0), 1000, (210))
+		) {
+		if (ClassicTriggerExecTimer47[getcurpl()] == 0) {
+			ClassicTriggerExecTimer47[getcurpl()] = 1;
+			ClassicTriggerExec47();
+		}
+	}
+}
+function ClassicTriggerStarter48() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer48[getcurpl()] == 0) {
+			ClassicTriggerExecTimer48[getcurpl()] = 1;
+			ClassicTriggerExec48();
+		}
+	}
+}
+function ClassicTriggerStarter49() {
+	if (
+		Deaths((13), (10), 1, (211)) &&
+		DeathOre_Text[getcurpl()] != 0
+		) {
+		if (ClassicTriggerExecTimer49[getcurpl()] == 0) {
+			ClassicTriggerExecTimer49[getcurpl()] = 1;
+			ClassicTriggerExec49();
+		}
+	}
+}
+function ClassicTriggerStarter50() {
+	if (
+		Deaths((13), (10), 2, (211)) &&
+		DeathOre_Text[getcurpl()] != 0
+		) {
+		if (ClassicTriggerExecTimer50[getcurpl()] == 0) {
+			ClassicTriggerExecTimer50[getcurpl()] = 1;
+			ClassicTriggerExec50();
+		}
+	}
+}
+function ClassicTriggerStarter51() {
+	if (
+		Deaths((13), (10), 3, (211)) &&
+		DeathOre_Text[getcurpl()] != 0
+		) {
+		if (ClassicTriggerExecTimer51[getcurpl()] == 0) {
+			ClassicTriggerExecTimer51[getcurpl()] = 1;
+			ClassicTriggerExec51();
+		}
+	}
+}
+function ClassicTriggerStarter52() {
+	if (
+		Deaths((13), (10), 4, (211)) &&
+		DeathOre_Text[getcurpl()] != 0
+		) {
+		if (ClassicTriggerExecTimer52[getcurpl()] == 0) {
+			ClassicTriggerExecTimer52[getcurpl()] = 1;
+			ClassicTriggerExec52();
+		}
+	}
+}
+function ClassicTriggerStarter53() {
+	if (
+		Deaths((13), (10), 5, (211)) &&
+		DeathOre_Text[getcurpl()] != 0
+		) {
+		if (ClassicTriggerExecTimer53[getcurpl()] == 0) {
+			ClassicTriggerExecTimer53[getcurpl()] = 1;
+			ClassicTriggerExec53();
+		}
+	}
+}
+function ClassicTriggerStarter54() {
+	if (
+		Deaths((13), (10), 6, (211)) &&
+		DeathOre_Text[getcurpl()] != 0
+		) {
+		if (ClassicTriggerExecTimer54[getcurpl()] == 0) {
+			ClassicTriggerExecTimer54[getcurpl()] = 1;
+			ClassicTriggerExec54();
+		}
+	}
+}
+function ClassicTriggerStarter55() {
+	if (
+		Deaths((13), (10), 7, (211)) &&
+		DeathOre_Text[getcurpl()] != 0
+		) {
+		if (ClassicTriggerExecTimer55[getcurpl()] == 0) {
+			ClassicTriggerExecTimer55[getcurpl()] = 1;
+			ClassicTriggerExec55();
+		}
+	}
+}
+function ClassicTriggerStarter56() {
+	if (
+		Deaths((13), (10), 8, (211)) &&
+		DeathOre_Text[getcurpl()] != 0
+		) {
+		if (ClassicTriggerExecTimer56[getcurpl()] == 0) {
+			ClassicTriggerExecTimer56[getcurpl()] = 1;
+			ClassicTriggerExec56();
+		}
+	}
+}
+function ClassicTriggerStarter57() {
+	if (
+		Deaths((13), (10), 9, (211)) &&
+		DeathOre_Text[getcurpl()] != 0
+		) {
+		if (ClassicTriggerExecTimer57[getcurpl()] == 0) {
+			ClassicTriggerExecTimer57[getcurpl()] = 1;
+			ClassicTriggerExec57();
+		}
+	}
+}
+function ClassicTriggerStarter58() {
+	if (
+		Deaths((13), (10), 10, (211)) &&
+		DeathOre_Text[getcurpl()] != 0
+		) {
+		if (ClassicTriggerExecTimer58[getcurpl()] == 0) {
+			ClassicTriggerExecTimer58[getcurpl()] = 1;
+			ClassicTriggerExec58();
+		}
+	}
+}
+function ClassicTriggerStarter59() {
+	if (
+		Deaths((13), (10), 12, (211)) &&
+		DeathOre_Text[getcurpl()] != 0
+		) {
+		if (ClassicTriggerExecTimer59[getcurpl()] == 0) {
+			ClassicTriggerExecTimer59[getcurpl()] = 1;
+			ClassicTriggerExec59();
+		}
+	}
+}
+function ClassicTriggerStarter60() {
+	if (
+		Deaths((13), (10), 14, (211)) &&
+		DeathOre_Text[getcurpl()] != 0
+		) {
+		if (ClassicTriggerExecTimer60[getcurpl()] == 0) {
+			ClassicTriggerExecTimer60[getcurpl()] = 1;
+			ClassicTriggerExec60();
+		}
+	}
+}
+function ClassicTriggerStarter61() {
+	if (
+		Deaths((13), (10), 15, (211)) &&
+		DeathOre_Text[getcurpl()] != 0
+		) {
+		if (ClassicTriggerExecTimer61[getcurpl()] == 0) {
+			ClassicTriggerExecTimer61[getcurpl()] = 1;
+			ClassicTriggerExec61();
+		}
+	}
+}
+function ClassicTriggerStarter62() {
+	if (
+		Deaths((13), (10), 16, (211)) &&
+		DeathOre_Text[getcurpl()] != 0
+		) {
+		if (ClassicTriggerExecTimer62[getcurpl()] == 0) {
+			ClassicTriggerExecTimer62[getcurpl()] = 1;
+			ClassicTriggerExec62();
+		}
+	}
+}
+function ClassicTriggerStarter63() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer63[getcurpl()] == 0) {
+			ClassicTriggerExecTimer63[getcurpl()] = 1;
+			ClassicTriggerExec63();
+		}
+	}
+}
+function ClassicTriggerStarter64() {
+	if (
+		Always()
+		) {
+		if (ClassicTriggerExecTimer64[getcurpl()] == 0) {
+			ClassicTriggerExecTimer64[getcurpl()] = 1;
+			ClassicTriggerExec64();
+		}
+	}
+}
+function ClassicTriggerStarter65() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer65[getcurpl()] == 0) {
+			ClassicTriggerExecTimer65[getcurpl()] = 1;
+			ClassicTriggerExec65();
+		}
+	}
+}
+function ClassicTriggerStarter66() {
+	if (
+		Always()
+		) {
+		if (ClassicTriggerExecTimer66[getcurpl()] == 0) {
+			ClassicTriggerExecTimer66[getcurpl()] = 1;
+			ClassicTriggerExec66();
+		}
+	}
+}
+function ClassicTriggerStarter67() {
+	if (
+		Always()
+		) {
+		if (ClassicTriggerExecTimer67[getcurpl()] == 0) {
+			ClassicTriggerExecTimer67[getcurpl()] = 1;
+			ClassicTriggerExec67();
+		}
+	}
+}
+function ClassicTriggerStarter68() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer68[getcurpl()] == 0) {
+			ClassicTriggerExecTimer68[getcurpl()] = 1;
+			ClassicTriggerExec68();
+		}
+	}
+}
+function ClassicTriggerStarter69() {
+	if (
+		Always()
+		) {
+		if (ClassicTriggerExecTimer69[getcurpl()] == 0) {
+			ClassicTriggerExecTimer69[getcurpl()] = 1;
+			ClassicTriggerExec69();
+		}
+	}
+}
+function ClassicTriggerStarter70() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer70[getcurpl()] == 0) {
+			ClassicTriggerExecTimer70[getcurpl()] = 1;
+			ClassicTriggerExec70();
+		}
+	}
+}
+function ClassicTriggerStarter71() {
+	if (
+		Always()
+		) {
+		if (ClassicTriggerExecTimer71[getcurpl()] == 0) {
+			ClassicTriggerExecTimer71[getcurpl()] = 1;
+			ClassicTriggerExec71();
+		}
+	}
+}
+function ClassicTriggerStarter72() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer72[getcurpl()] == 0) {
+			ClassicTriggerExecTimer72[getcurpl()] = 1;
+			ClassicTriggerExec72();
+		}
+	}
+}
+function ClassicTriggerStarter73() {
+	if (
+		Always()
+		) {
+		if (ClassicTriggerExecTimer73[getcurpl()] == 0) {
+			ClassicTriggerExecTimer73[getcurpl()] = 1;
+			ClassicTriggerExec73();
+		}
+	}
+}
+function ClassicTriggerStarter74() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer74[getcurpl()] == 0) {
+			ClassicTriggerExecTimer74[getcurpl()] = 1;
+			ClassicTriggerExec74();
+		}
+	}
+}
+function ClassicTriggerStarter75() {
+	if (
+		Always()
+		) {
+		if (ClassicTriggerExecTimer75[getcurpl()] == 0) {
+			ClassicTriggerExecTimer75[getcurpl()] = 1;
+			ClassicTriggerExec75();
+		}
+	}
+}
+function ClassicTriggerStarter76() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer76[getcurpl()] == 0) {
+			ClassicTriggerExecTimer76[getcurpl()] = 1;
+			ClassicTriggerExec76();
+		}
+	}
+}
+function ClassicTriggerStarter77() {
+	if (
+		Always()
+		) {
+		if (ClassicTriggerExecTimer77[getcurpl()] == 0) {
+			ClassicTriggerExecTimer77[getcurpl()] = 1;
+			ClassicTriggerExec77();
+		}
+	}
+}
+function ClassicTriggerStarter78() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer78[getcurpl()] == 0) {
+			ClassicTriggerExecTimer78[getcurpl()] = 1;
+			ClassicTriggerExec78();
+		}
+	}
+}
+function ClassicTriggerStarter79() {
+	if (
+		Always()
+		) {
+		if (ClassicTriggerExecTimer79[getcurpl()] == 0) {
+			ClassicTriggerExecTimer79[getcurpl()] = 1;
+			ClassicTriggerExec79();
+		}
+	}
+}
+function ClassicTriggerStarter80() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer80[getcurpl()] == 0) {
+			ClassicTriggerExecTimer80[getcurpl()] = 1;
+			ClassicTriggerExec80();
+		}
+	}
+}
+function ClassicTriggerStarter81() {
+	if (
+		Always()
+		) {
+		if (ClassicTriggerExecTimer81[getcurpl()] == 0) {
+			ClassicTriggerExecTimer81[getcurpl()] = 1;
+			ClassicTriggerExec81();
+		}
+	}
+}
+function ClassicTriggerStarter82() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer82[getcurpl()] == 0) {
+			ClassicTriggerExecTimer82[getcurpl()] = 1;
+			ClassicTriggerExec82();
+		}
+	}
+}
+function ClassicTriggerStarter83() {
+	if (
+		Always()
+		) {
+		if (ClassicTriggerExecTimer83[getcurpl()] == 0) {
+			ClassicTriggerExecTimer83[getcurpl()] = 1;
+			ClassicTriggerExec83();
+		}
+	}
+}
+function ClassicTriggerStarter84() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer84[getcurpl()] == 0) {
+			ClassicTriggerExecTimer84[getcurpl()] = 1;
+			ClassicTriggerExec84();
+		}
+	}
+}
+function ClassicTriggerStarter85() {
+	if (
+		Always()
+		) {
+		if (ClassicTriggerExecTimer85[getcurpl()] == 0) {
+			ClassicTriggerExecTimer85[getcurpl()] = 1;
+			ClassicTriggerExec85();
+		}
+	}
+}
+function ClassicTriggerStarter86() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer86[getcurpl()] == 0) {
+			ClassicTriggerExecTimer86[getcurpl()] = 1;
+			ClassicTriggerExec86();
+		}
+	}
+}
+function ClassicTriggerStarter87() {
+	if (
+		Always()
+		) {
+		if (ClassicTriggerExecTimer87[getcurpl()] == 0) {
+			ClassicTriggerExecTimer87[getcurpl()] = 1;
+			ClassicTriggerExec87();
+		}
+	}
+}
+function ClassicTriggerStarter88() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer88[getcurpl()] == 0) {
+			ClassicTriggerExecTimer88[getcurpl()] = 1;
+			ClassicTriggerExec88();
+		}
+	}
+}
+function ClassicTriggerStarter89() {
+	if (
+		Always()
+		) {
+		if (ClassicTriggerExecTimer89[getcurpl()] == 0) {
+			ClassicTriggerExecTimer89[getcurpl()] = 1;
+			ClassicTriggerExec89();
+		}
+	}
+}
+function ClassicTriggerStarter90() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer90[getcurpl()] == 0) {
+			ClassicTriggerExecTimer90[getcurpl()] = 1;
+			ClassicTriggerExec90();
+		}
+	}
+}
+function ClassicTriggerStarter91() {
+	if (
+		Always()
+		) {
+		if (ClassicTriggerExecTimer91[getcurpl()] == 0) {
+			ClassicTriggerExecTimer91[getcurpl()] = 1;
+			ClassicTriggerExec91();
+		}
+	}
+}
+function ClassicTriggerStarter92() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer92[getcurpl()] == 0) {
+			ClassicTriggerExecTimer92[getcurpl()] = 1;
+			ClassicTriggerExec92();
+		}
+	}
+}
+function ClassicTriggerStarter93() {
+	if (
+		Always()
+		) {
+		if (ClassicTriggerExecTimer93[getcurpl()] == 0) {
+			ClassicTriggerExecTimer93[getcurpl()] = 1;
+			ClassicTriggerExec93();
+		}
+	}
+}
+function ClassicTriggerStarter94() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer94[getcurpl()] == 0) {
+			ClassicTriggerExecTimer94[getcurpl()] = 1;
+			ClassicTriggerExec94();
+		}
+	}
+}
+function ClassicTriggerStarter95() {
+	if (
+		Always()
+		) {
+		if (ClassicTriggerExecTimer95[getcurpl()] == 0) {
+			ClassicTriggerExecTimer95[getcurpl()] = 1;
+			ClassicTriggerExec95();
+		}
+	}
+}
+function ClassicTriggerStarter96() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer96[getcurpl()] == 0) {
+			ClassicTriggerExecTimer96[getcurpl()] = 1;
+			ClassicTriggerExec96();
+		}
+	}
+}
+function ClassicTriggerStarter97() {
+	if (
+		Always()
+		) {
+		if (ClassicTriggerExecTimer97[getcurpl()] == 0) {
+			ClassicTriggerExecTimer97[getcurpl()] = 1;
+			ClassicTriggerExec97();
+		}
+	}
+}
+function ClassicTriggerStarter98() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer98[getcurpl()] == 0) {
+			ClassicTriggerExecTimer98[getcurpl()] = 1;
+			ClassicTriggerExec98();
+		}
+	}
+}
+function ClassicTriggerStarter99() {
+	if (
+		Always()
+		) {
+		if (ClassicTriggerExecTimer99[getcurpl()] == 0) {
+			ClassicTriggerExecTimer99[getcurpl()] = 1;
+			ClassicTriggerExec99();
+		}
+	}
+}
+function ClassicTriggerStarter100() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer100[getcurpl()] == 0) {
+			ClassicTriggerExecTimer100[getcurpl()] = 1;
+			ClassicTriggerExec100();
+		}
+	}
+}
+function ClassicTriggerStarter101() {
+	if (
+		Always()
+		) {
+		if (ClassicTriggerExecTimer101[getcurpl()] == 0) {
+			ClassicTriggerExecTimer101[getcurpl()] = 1;
+			ClassicTriggerExec101();
+		}
+	}
+}
+function ClassicTriggerStarter102() {
+	if (
+		Never()
+		) {
+		if (ClassicTriggerExecTimer102[getcurpl()] == 0) {
+			ClassicTriggerExecTimer102[getcurpl()] = 1;
+			ClassicTriggerExec102();
+		}
+	}
+}
+function ClassicTriggerStarter103() {
+	if (
+		Switch((255), (3))
+		) {
+		if (ClassicTriggerExecTimer103[getcurpl()] == 0) {
+			ClassicTriggerExecTimer103[getcurpl()] = 1;
+			ClassicTriggerExec103();
+		}
+	}
+}
+function ClassicTriggerStarter104() {
+	if (
+		Switch((255), (2))
+		) {
+		if (ClassicTriggerExecTimer104[getcurpl()] == 0) {
+			ClassicTriggerExecTimer104[getcurpl()] = 1;
+			ClassicTriggerExec104();
+		}
+	}
+}
+function ClassicTriggerStarter105() 
+{
+	if (Never()) 
+	{
+		if (ClassicTriggerExecTimer105[getcurpl()] == 0)
+		{
+			ClassicTriggerExecTimer105[getcurpl()] = 1;
+			ClassicTriggerExec105();
+		}
+	}
+}
+
+function ClassicTriggerExec()
+{
+	ClassicTriggerExec0();
+	ClassicTriggerExec1();
+	ClassicTriggerExec2();
+	ClassicTriggerExec3();
+	ClassicTriggerExec4();
+	ClassicTriggerExec5();
+	ClassicTriggerExec6();
+	ClassicTriggerExec7();
+	ClassicTriggerExec8();
+	ClassicTriggerExec9();
+	ClassicTriggerExec10();
+	ClassicTriggerExec11();
+	ClassicTriggerExec12();
+	ClassicTriggerExec13();
+	ClassicTriggerExec14();
+	ClassicTriggerExec15();
+	ClassicTriggerExec16();
+	ClassicTriggerExec17();
+	ClassicTriggerExec18();
+	ClassicTriggerExec19();
+	ClassicTriggerExec20();
+	ClassicTriggerExec21();
+	ClassicTriggerExec22();
+	ClassicTriggerExec23();
+	ClassicTriggerExec24();
+	ClassicTriggerExec25();
+	ClassicTriggerExec26();
+	ClassicTriggerExec27();
+	ClassicTriggerExec28();
+	ClassicTriggerExec29();
+	ClassicTriggerExec30();
+	ClassicTriggerExec31();
+	ClassicTriggerExec32();
+	ClassicTriggerExec33();
+	ClassicTriggerExec34();
+	ClassicTriggerExec35();
+	ClassicTriggerExec36();
+	ClassicTriggerExec37();
+	ClassicTriggerExec38();
+	ClassicTriggerExec39();
+	ClassicTriggerExec40();
+	ClassicTriggerExec41();
+	ClassicTriggerExec42();
+	ClassicTriggerExec43();
+	ClassicTriggerExec44();
+	ClassicTriggerExec45();
+	ClassicTriggerExec46();
+	ClassicTriggerExec47();
+	ClassicTriggerExec48();
+	ClassicTriggerExec49();
+	ClassicTriggerExec50();
+	ClassicTriggerExec51();
+	ClassicTriggerExec52();
+	ClassicTriggerExec53();
+	ClassicTriggerExec54();
+	ClassicTriggerExec55();
+	ClassicTriggerExec56();
+	ClassicTriggerExec57();
+	ClassicTriggerExec58();
+	ClassicTriggerExec59();
+	ClassicTriggerExec60();
+	ClassicTriggerExec61();
+	ClassicTriggerExec62();
+	ClassicTriggerExec63();
+	ClassicTriggerExec64();
+	ClassicTriggerExec65();
+	ClassicTriggerExec66();
+	ClassicTriggerExec67();
+	ClassicTriggerExec68();
+	ClassicTriggerExec69();
+	ClassicTriggerExec70();
+	ClassicTriggerExec71();
+	ClassicTriggerExec72();
+	ClassicTriggerExec73();
+	ClassicTriggerExec74();
+	ClassicTriggerExec75();
+	ClassicTriggerExec76();
+	ClassicTriggerExec77();
+	ClassicTriggerExec78();
+	ClassicTriggerExec79();
+	ClassicTriggerExec80();
+	ClassicTriggerExec81();
+	ClassicTriggerExec82();
+	ClassicTriggerExec83();
+	ClassicTriggerExec84();
+	ClassicTriggerExec85();
+	ClassicTriggerExec86();
+	ClassicTriggerExec87();
+	ClassicTriggerExec88();
+	ClassicTriggerExec89();
+	ClassicTriggerExec90();
+	ClassicTriggerExec91();
+	ClassicTriggerExec92();
+	ClassicTriggerExec93();
+	ClassicTriggerExec94();
+	ClassicTriggerExec95();
+	ClassicTriggerExec96();
+	ClassicTriggerExec97();
+	ClassicTriggerExec98();
+	ClassicTriggerExec99();
+	ClassicTriggerExec100();
+	ClassicTriggerExec101();
+	ClassicTriggerExec102();
+	ClassicTriggerExec103();
+	ClassicTriggerExec104();
+	ClassicTriggerExec105();
+}
+
+function ClassicTriggerStarter() 
+{
+	//플레이어 1
+	if (playerexist(0)) {
+		setcurpl(0);
+		ClassicTriggerStarter0();
+		ClassicTriggerStarter1();
+		ClassicTriggerStarter2();
+		ClassicTriggerStarter3();
+		ClassicTriggerStarter4();
+		ClassicTriggerStarter5();
+		ClassicTriggerStarter6();
+		ClassicTriggerStarter7();
+		ClassicTriggerStarter8();
+		ClassicTriggerStarter9();
+		ClassicTriggerStarter10();
+		ClassicTriggerStarter11();
+		ClassicTriggerStarter12();
+		ClassicTriggerStarter13();
+		ClassicTriggerStarter14();
+		ClassicTriggerStarter15();
+		ClassicTriggerStarter16();
+		ClassicTriggerStarter17();
+		ClassicTriggerStarter18();
+		ClassicTriggerStarter19();
+		ClassicTriggerStarter20();
+		ClassicTriggerStarter21();
+		ClassicTriggerStarter22();
+		ClassicTriggerStarter23();
+		ClassicTriggerStarter24();
+		ClassicTriggerStarter25();
+		ClassicTriggerStarter26();
+		ClassicTriggerStarter27();
+		ClassicTriggerStarter29();
+		ClassicTriggerStarter30();
+		ClassicTriggerStarter31();
+		ClassicTriggerStarter32();
+		ClassicTriggerStarter33();
+		ClassicTriggerStarter34();
+		ClassicTriggerStarter38();
+		ClassicTriggerStarter39();
+		ClassicTriggerStarter41();
+		ClassicTriggerStarter42();
+		ClassicTriggerStarter43();
+		ClassicTriggerStarter44();
+		ClassicTriggerStarter45();
+		ClassicTriggerStarter46();
+		ClassicTriggerStarter48();
+		ClassicTriggerStarter49();
+		ClassicTriggerStarter50();
+		ClassicTriggerStarter51();
+		ClassicTriggerStarter52();
+		ClassicTriggerStarter53();
+		ClassicTriggerStarter54();
+		ClassicTriggerStarter55();
+		ClassicTriggerStarter56();
+		ClassicTriggerStarter57();
+		ClassicTriggerStarter58();
+		ClassicTriggerStarter59();
+		ClassicTriggerStarter60();
+		ClassicTriggerStarter61();
+		ClassicTriggerStarter62();
+		ClassicTriggerStarter63();
+		ClassicTriggerStarter64();
+		ClassicTriggerStarter65();
+		ClassicTriggerStarter66();
+		ClassicTriggerStarter67();
+		ClassicTriggerStarter68();
+		ClassicTriggerStarter69();
+		ClassicTriggerStarter70();
+		ClassicTriggerStarter71();
+		ClassicTriggerStarter72();
+		ClassicTriggerStarter73();
+		ClassicTriggerStarter74();
+		ClassicTriggerStarter75();
+		ClassicTriggerStarter76();
+		ClassicTriggerStarter77();
+		ClassicTriggerStarter78();
+		ClassicTriggerStarter79();
+		ClassicTriggerStarter80();
+		ClassicTriggerStarter81();
+		ClassicTriggerStarter82();
+		ClassicTriggerStarter83();
+		ClassicTriggerStarter84();
+		ClassicTriggerStarter85();
+		ClassicTriggerStarter86();
+		ClassicTriggerStarter87();
+		ClassicTriggerStarter88();
+		ClassicTriggerStarter89();
+		ClassicTriggerStarter90();
+		ClassicTriggerStarter91();
+		ClassicTriggerStarter92();
+		ClassicTriggerStarter93();
+		ClassicTriggerStarter94();
+		ClassicTriggerStarter95();
+		ClassicTriggerStarter96();
+		ClassicTriggerStarter97();
+		ClassicTriggerStarter98();
+		ClassicTriggerStarter99();
+		ClassicTriggerStarter100();
+		ClassicTriggerStarter101();
+		ClassicTriggerStarter102();
+		ClassicTriggerStarter103();
+		ClassicTriggerStarter104();
+		ClassicTriggerStarter105();
+	}
+	//플레이어 2
+	if (playerexist(1))
+	{
+		setcurpl(1);
+		ClassicTriggerStarter0();
+		ClassicTriggerStarter1();
+		ClassicTriggerStarter2();
+		ClassicTriggerStarter3();
+		ClassicTriggerStarter4();
+		ClassicTriggerStarter5();
+		ClassicTriggerStarter6();
+		ClassicTriggerStarter7();
+		ClassicTriggerStarter8();
+		ClassicTriggerStarter9();
+		ClassicTriggerStarter10();
+		ClassicTriggerStarter11();
+		ClassicTriggerStarter12();
+		ClassicTriggerStarter13();
+		ClassicTriggerStarter14();
+		ClassicTriggerStarter15();
+		ClassicTriggerStarter16();
+		ClassicTriggerStarter17();
+		ClassicTriggerStarter18();
+		ClassicTriggerStarter19();
+		ClassicTriggerStarter20();
+		ClassicTriggerStarter21();
+		ClassicTriggerStarter22();
+		ClassicTriggerStarter23();
+		ClassicTriggerStarter24();
+		ClassicTriggerStarter25();
+		ClassicTriggerStarter26();
+		ClassicTriggerStarter27();
+		ClassicTriggerStarter29();
+		ClassicTriggerStarter30();
+		ClassicTriggerStarter31();
+		ClassicTriggerStarter32();
+		ClassicTriggerStarter33();
+		ClassicTriggerStarter34();
+		ClassicTriggerStarter38();
+		ClassicTriggerStarter39();
+		ClassicTriggerStarter41();
+		ClassicTriggerStarter42();
+		ClassicTriggerStarter43();
+		ClassicTriggerStarter44();
+		ClassicTriggerStarter45();
+		ClassicTriggerStarter46();
+		ClassicTriggerStarter48();
+		ClassicTriggerStarter49();
+		ClassicTriggerStarter50();
+		ClassicTriggerStarter51();
+		ClassicTriggerStarter52();
+		ClassicTriggerStarter53();
+		ClassicTriggerStarter54();
+		ClassicTriggerStarter55();
+		ClassicTriggerStarter56();
+		ClassicTriggerStarter57();
+		ClassicTriggerStarter58();
+		ClassicTriggerStarter59();
+		ClassicTriggerStarter60();
+		ClassicTriggerStarter61();
+		ClassicTriggerStarter62();
+		ClassicTriggerStarter63();
+		ClassicTriggerStarter64();
+		ClassicTriggerStarter65();
+		ClassicTriggerStarter66();
+		ClassicTriggerStarter67();
+		ClassicTriggerStarter68();
+		ClassicTriggerStarter69();
+		ClassicTriggerStarter70();
+		ClassicTriggerStarter71();
+		ClassicTriggerStarter72();
+		ClassicTriggerStarter73();
+		ClassicTriggerStarter74();
+		ClassicTriggerStarter75();
+		ClassicTriggerStarter76();
+		ClassicTriggerStarter77();
+		ClassicTriggerStarter78();
+		ClassicTriggerStarter79();
+		ClassicTriggerStarter80();
+		ClassicTriggerStarter81();
+		ClassicTriggerStarter82();
+		ClassicTriggerStarter83();
+		ClassicTriggerStarter84();
+		ClassicTriggerStarter85();
+		ClassicTriggerStarter86();
+		ClassicTriggerStarter87();
+		ClassicTriggerStarter88();
+		ClassicTriggerStarter89();
+		ClassicTriggerStarter90();
+		ClassicTriggerStarter91();
+		ClassicTriggerStarter92();
+		ClassicTriggerStarter93();
+		ClassicTriggerStarter94();
+		ClassicTriggerStarter95();
+		ClassicTriggerStarter96();
+		ClassicTriggerStarter97();
+		ClassicTriggerStarter98();
+		ClassicTriggerStarter99();
+		ClassicTriggerStarter100();
+		ClassicTriggerStarter101();
+		ClassicTriggerStarter102();
+		ClassicTriggerStarter103();
+		ClassicTriggerStarter104();
+		ClassicTriggerStarter105();
+	}
+	//플레이어 3
+	if (playerexist(2)) 
+	{
+		setcurpl(2);
+		ClassicTriggerStarter0();
+		ClassicTriggerStarter1();
+		ClassicTriggerStarter2();
+		ClassicTriggerStarter3();
+		ClassicTriggerStarter4();
+		ClassicTriggerStarter5();
+		ClassicTriggerStarter6();
+		ClassicTriggerStarter7();
+		ClassicTriggerStarter8();
+		ClassicTriggerStarter9();
+		ClassicTriggerStarter10();
+		ClassicTriggerStarter11();
+		ClassicTriggerStarter12();
+		ClassicTriggerStarter13();
+		ClassicTriggerStarter14();
+		ClassicTriggerStarter15();
+		ClassicTriggerStarter16();
+		ClassicTriggerStarter17();
+		ClassicTriggerStarter18();
+		ClassicTriggerStarter19();
+		ClassicTriggerStarter20();
+		ClassicTriggerStarter21();
+		ClassicTriggerStarter22();
+		ClassicTriggerStarter23();
+		ClassicTriggerStarter24();
+		ClassicTriggerStarter25();
+		ClassicTriggerStarter26();
+		ClassicTriggerStarter27();
+		ClassicTriggerStarter29();
+		ClassicTriggerStarter30();
+		ClassicTriggerStarter31();
+		ClassicTriggerStarter32();
+		ClassicTriggerStarter33();
+		ClassicTriggerStarter34();
+		ClassicTriggerStarter38();
+		ClassicTriggerStarter39();
+		ClassicTriggerStarter41();
+		ClassicTriggerStarter42();
+		ClassicTriggerStarter43();
+		ClassicTriggerStarter44();
+		ClassicTriggerStarter45();
+		ClassicTriggerStarter46();
+		ClassicTriggerStarter48();
+		ClassicTriggerStarter49();
+		ClassicTriggerStarter50();
+		ClassicTriggerStarter51();
+		ClassicTriggerStarter52();
+		ClassicTriggerStarter53();
+		ClassicTriggerStarter54();
+		ClassicTriggerStarter55();
+		ClassicTriggerStarter56();
+		ClassicTriggerStarter57();
+		ClassicTriggerStarter58();
+		ClassicTriggerStarter59();
+		ClassicTriggerStarter60();
+		ClassicTriggerStarter61();
+		ClassicTriggerStarter62();
+		ClassicTriggerStarter63();
+		ClassicTriggerStarter64();
+		ClassicTriggerStarter65();
+		ClassicTriggerStarter66();
+		ClassicTriggerStarter67();
+		ClassicTriggerStarter68();
+		ClassicTriggerStarter69();
+		ClassicTriggerStarter70();
+		ClassicTriggerStarter71();
+		ClassicTriggerStarter72();
+		ClassicTriggerStarter73();
+		ClassicTriggerStarter74();
+		ClassicTriggerStarter75();
+		ClassicTriggerStarter76();
+		ClassicTriggerStarter77();
+		ClassicTriggerStarter78();
+		ClassicTriggerStarter79();
+		ClassicTriggerStarter80();
+		ClassicTriggerStarter81();
+		ClassicTriggerStarter82();
+		ClassicTriggerStarter83();
+		ClassicTriggerStarter84();
+		ClassicTriggerStarter85();
+		ClassicTriggerStarter86();
+		ClassicTriggerStarter87();
+		ClassicTriggerStarter88();
+		ClassicTriggerStarter89();
+		ClassicTriggerStarter90();
+		ClassicTriggerStarter91();
+		ClassicTriggerStarter92();
+		ClassicTriggerStarter93();
+		ClassicTriggerStarter94();
+		ClassicTriggerStarter95();
+		ClassicTriggerStarter96();
+		ClassicTriggerStarter97();
+		ClassicTriggerStarter98();
+		ClassicTriggerStarter99();
+		ClassicTriggerStarter100();
+		ClassicTriggerStarter101();
+		ClassicTriggerStarter102();
+		ClassicTriggerStarter103();
+		ClassicTriggerStarter104();
+		ClassicTriggerStarter105();
+	}
+	//플레이어 4
+	if (playerexist(3)) 
+	{
+		setcurpl(3);
+		ClassicTriggerStarter0();
+		ClassicTriggerStarter1();
+		ClassicTriggerStarter2();
+		ClassicTriggerStarter3();
+		ClassicTriggerStarter4();
+		ClassicTriggerStarter5();
+		ClassicTriggerStarter6();
+		ClassicTriggerStarter7();
+		ClassicTriggerStarter8();
+		ClassicTriggerStarter9();
+		ClassicTriggerStarter10();
+		ClassicTriggerStarter11();
+		ClassicTriggerStarter12();
+		ClassicTriggerStarter13();
+		ClassicTriggerStarter14();
+		ClassicTriggerStarter15();
+		ClassicTriggerStarter16();
+		ClassicTriggerStarter17();
+		ClassicTriggerStarter18();
+		ClassicTriggerStarter19();
+		ClassicTriggerStarter20();
+		ClassicTriggerStarter21();
+		ClassicTriggerStarter22();
+		ClassicTriggerStarter23();
+		ClassicTriggerStarter24();
+		ClassicTriggerStarter25();
+		ClassicTriggerStarter26();
+		ClassicTriggerStarter28();
+		ClassicTriggerStarter29();
+		ClassicTriggerStarter30();
+		ClassicTriggerStarter31();
+		ClassicTriggerStarter35();
+		ClassicTriggerStarter36();
+		ClassicTriggerStarter37();
+		ClassicTriggerStarter38();
+		ClassicTriggerStarter40();
+		ClassicTriggerStarter41();
+		ClassicTriggerStarter42();
+		ClassicTriggerStarter43();
+		ClassicTriggerStarter44();
+		ClassicTriggerStarter45();
+		ClassicTriggerStarter47();
+		ClassicTriggerStarter48();
+		ClassicTriggerStarter49();
+		ClassicTriggerStarter50();
+		ClassicTriggerStarter51();
+		ClassicTriggerStarter52();
+		ClassicTriggerStarter53();
+		ClassicTriggerStarter54();
+		ClassicTriggerStarter55();
+		ClassicTriggerStarter56();
+		ClassicTriggerStarter57();
+		ClassicTriggerStarter58();
+		ClassicTriggerStarter59();
+		ClassicTriggerStarter60();
+		ClassicTriggerStarter61();
+		ClassicTriggerStarter62();
+		ClassicTriggerStarter63();
+		ClassicTriggerStarter64();
+		ClassicTriggerStarter65();
+		ClassicTriggerStarter66();
+		ClassicTriggerStarter67();
+		ClassicTriggerStarter68();
+		ClassicTriggerStarter69();
+		ClassicTriggerStarter70();
+		ClassicTriggerStarter71();
+		ClassicTriggerStarter72();
+		ClassicTriggerStarter73();
+		ClassicTriggerStarter74();
+		ClassicTriggerStarter75();
+		ClassicTriggerStarter76();
+		ClassicTriggerStarter77();
+		ClassicTriggerStarter78();
+		ClassicTriggerStarter79();
+		ClassicTriggerStarter80();
+		ClassicTriggerStarter81();
+		ClassicTriggerStarter82();
+		ClassicTriggerStarter83();
+		ClassicTriggerStarter84();
+		ClassicTriggerStarter85();
+		ClassicTriggerStarter86();
+		ClassicTriggerStarter87();
+		ClassicTriggerStarter88();
+		ClassicTriggerStarter89();
+		ClassicTriggerStarter90();
+		ClassicTriggerStarter91();
+		ClassicTriggerStarter92();
+		ClassicTriggerStarter93();
+		ClassicTriggerStarter94();
+		ClassicTriggerStarter95();
+		ClassicTriggerStarter96();
+		ClassicTriggerStarter97();
+		ClassicTriggerStarter98();
+		ClassicTriggerStarter99();
+		ClassicTriggerStarter100();
+		ClassicTriggerStarter101();
+		ClassicTriggerStarter102();
+		ClassicTriggerStarter103();
+		ClassicTriggerStarter104();
+		ClassicTriggerStarter105();
+	}
+	//플레이어 5
+	if (playerexist(4)) 
+	{
+		setcurpl(4);
+		ClassicTriggerStarter0();
+		ClassicTriggerStarter1();
+		ClassicTriggerStarter2();
+		ClassicTriggerStarter3();
+		ClassicTriggerStarter4();
+		ClassicTriggerStarter5();
+		ClassicTriggerStarter6();
+		ClassicTriggerStarter7();
+		ClassicTriggerStarter8();
+		ClassicTriggerStarter9();
+		ClassicTriggerStarter10();
+		ClassicTriggerStarter11();
+		ClassicTriggerStarter12();
+		ClassicTriggerStarter13();
+		ClassicTriggerStarter14();
+		ClassicTriggerStarter15();
+		ClassicTriggerStarter16();
+		ClassicTriggerStarter17();
+		ClassicTriggerStarter18();
+		ClassicTriggerStarter19();
+		ClassicTriggerStarter20();
+		ClassicTriggerStarter21();
+		ClassicTriggerStarter22();
+		ClassicTriggerStarter23();
+		ClassicTriggerStarter24();
+		ClassicTriggerStarter25();
+		ClassicTriggerStarter26();
+		ClassicTriggerStarter28();
+		ClassicTriggerStarter29();
+		ClassicTriggerStarter30();
+		ClassicTriggerStarter31();
+		ClassicTriggerStarter35();
+		ClassicTriggerStarter36();
+		ClassicTriggerStarter37();
+		ClassicTriggerStarter38();
+		ClassicTriggerStarter40();
+		ClassicTriggerStarter41();
+		ClassicTriggerStarter42();
+		ClassicTriggerStarter43();
+		ClassicTriggerStarter44();
+		ClassicTriggerStarter45();
+		ClassicTriggerStarter47();
+		ClassicTriggerStarter48();
+		ClassicTriggerStarter49();
+		ClassicTriggerStarter50();
+		ClassicTriggerStarter51();
+		ClassicTriggerStarter52();
+		ClassicTriggerStarter53();
+		ClassicTriggerStarter54();
+		ClassicTriggerStarter55();
+		ClassicTriggerStarter56();
+		ClassicTriggerStarter57();
+		ClassicTriggerStarter58();
+		ClassicTriggerStarter59();
+		ClassicTriggerStarter60();
+		ClassicTriggerStarter61();
+		ClassicTriggerStarter62();
+		ClassicTriggerStarter63();
+		ClassicTriggerStarter64();
+		ClassicTriggerStarter65();
+		ClassicTriggerStarter66();
+		ClassicTriggerStarter67();
+		ClassicTriggerStarter68();
+		ClassicTriggerStarter69();
+		ClassicTriggerStarter70();
+		ClassicTriggerStarter71();
+		ClassicTriggerStarter72();
+		ClassicTriggerStarter73();
+		ClassicTriggerStarter74();
+		ClassicTriggerStarter75();
+		ClassicTriggerStarter76();
+		ClassicTriggerStarter77();
+		ClassicTriggerStarter78();
+		ClassicTriggerStarter79();
+		ClassicTriggerStarter80();
+		ClassicTriggerStarter81();
+		ClassicTriggerStarter82();
+		ClassicTriggerStarter83();
+		ClassicTriggerStarter84();
+		ClassicTriggerStarter85();
+		ClassicTriggerStarter86();
+		ClassicTriggerStarter87();
+		ClassicTriggerStarter88();
+		ClassicTriggerStarter89();
+		ClassicTriggerStarter90();
+		ClassicTriggerStarter91();
+		ClassicTriggerStarter92();
+		ClassicTriggerStarter93();
+		ClassicTriggerStarter94();
+		ClassicTriggerStarter95();
+		ClassicTriggerStarter96();
+		ClassicTriggerStarter97();
+		ClassicTriggerStarter98();
+		ClassicTriggerStarter99();
+		ClassicTriggerStarter100();
+		ClassicTriggerStarter101();
+		ClassicTriggerStarter102();
+		ClassicTriggerStarter103();
+		ClassicTriggerStarter104();
+		ClassicTriggerStarter105();
+	}
+	//플레이어 6
+	if (playerexist(5)) 
+	{
+		setcurpl(5);
+		ClassicTriggerStarter0();
+		ClassicTriggerStarter1();
+		ClassicTriggerStarter2();
+		ClassicTriggerStarter3();
+		ClassicTriggerStarter4();
+		ClassicTriggerStarter5();
+		ClassicTriggerStarter6();
+		ClassicTriggerStarter7();
+		ClassicTriggerStarter8();
+		ClassicTriggerStarter9();
+		ClassicTriggerStarter10();
+		ClassicTriggerStarter11();
+		ClassicTriggerStarter12();
+		ClassicTriggerStarter13();
+		ClassicTriggerStarter14();
+		ClassicTriggerStarter15();
+		ClassicTriggerStarter16();
+		ClassicTriggerStarter17();
+		ClassicTriggerStarter18();
+		ClassicTriggerStarter19();
+		ClassicTriggerStarter20();
+		ClassicTriggerStarter21();
+		ClassicTriggerStarter22();
+		ClassicTriggerStarter23();
+		ClassicTriggerStarter24();
+		ClassicTriggerStarter25();
+		ClassicTriggerStarter26();
+		ClassicTriggerStarter28();
+		ClassicTriggerStarter29();
+		ClassicTriggerStarter30();
+		ClassicTriggerStarter31();
+		ClassicTriggerStarter35();
+		ClassicTriggerStarter36();
+		ClassicTriggerStarter37();
+		ClassicTriggerStarter38();
+		ClassicTriggerStarter40();
+		ClassicTriggerStarter41();
+		ClassicTriggerStarter42();
+		ClassicTriggerStarter43();
+		ClassicTriggerStarter44();
+		ClassicTriggerStarter45();
+		ClassicTriggerStarter47();
+		ClassicTriggerStarter48();
+		ClassicTriggerStarter49();
+		ClassicTriggerStarter50();
+		ClassicTriggerStarter51();
+		ClassicTriggerStarter52();
+		ClassicTriggerStarter53();
+		ClassicTriggerStarter54();
+		ClassicTriggerStarter55();
+		ClassicTriggerStarter56();
+		ClassicTriggerStarter57();
+		ClassicTriggerStarter58();
+		ClassicTriggerStarter59();
+		ClassicTriggerStarter60();
+		ClassicTriggerStarter61();
+		ClassicTriggerStarter62();
+		ClassicTriggerStarter63();
+		ClassicTriggerStarter64();
+		ClassicTriggerStarter65();
+		ClassicTriggerStarter66();
+		ClassicTriggerStarter67();
+		ClassicTriggerStarter68();
+		ClassicTriggerStarter69();
+		ClassicTriggerStarter70();
+		ClassicTriggerStarter71();
+		ClassicTriggerStarter72();
+		ClassicTriggerStarter73();
+		ClassicTriggerStarter74();
+		ClassicTriggerStarter75();
+		ClassicTriggerStarter76();
+		ClassicTriggerStarter77();
+		ClassicTriggerStarter78();
+		ClassicTriggerStarter79();
+		ClassicTriggerStarter80();
+		ClassicTriggerStarter81();
+		ClassicTriggerStarter82();
+		ClassicTriggerStarter83();
+		ClassicTriggerStarter84();
+		ClassicTriggerStarter85();
+		ClassicTriggerStarter86();
+		ClassicTriggerStarter87();
+		ClassicTriggerStarter88();
+		ClassicTriggerStarter89();
+		ClassicTriggerStarter90();
+		ClassicTriggerStarter91();
+		ClassicTriggerStarter92();
+		ClassicTriggerStarter93();
+		ClassicTriggerStarter94();
+		ClassicTriggerStarter95();
+		ClassicTriggerStarter96();
+		ClassicTriggerStarter97();
+		ClassicTriggerStarter98();
+		ClassicTriggerStarter99();
+		ClassicTriggerStarter100();
+		ClassicTriggerStarter101();
+		ClassicTriggerStarter102();
+		ClassicTriggerStarter103();
+		ClassicTriggerStarter104();
+		ClassicTriggerStarter105();
+	}
+	//플레이어 7
+	if (playerexist(6)) 
+	{
+		setcurpl(6);
+		ClassicTriggerStarter25();
+		ClassicTriggerStarter29();
+		ClassicTriggerStarter31();
+		ClassicTriggerStarter42();
+		ClassicTriggerStarter45();
+		ClassicTriggerStarter49();
+		ClassicTriggerStarter50();
+		ClassicTriggerStarter51();
+		ClassicTriggerStarter52();
+		ClassicTriggerStarter53();
+		ClassicTriggerStarter54();
+		ClassicTriggerStarter55();
+		ClassicTriggerStarter56();
+		ClassicTriggerStarter57();
+		ClassicTriggerStarter58();
+		ClassicTriggerStarter59();
+		ClassicTriggerStarter60();
+		ClassicTriggerStarter61();
+		ClassicTriggerStarter62();
+		ClassicTriggerStarter63();
+		ClassicTriggerStarter65();
+		ClassicTriggerStarter68();
+		ClassicTriggerStarter70();
+		ClassicTriggerStarter71();
+		ClassicTriggerStarter72();
+		ClassicTriggerStarter73();
+		ClassicTriggerStarter74();
+		ClassicTriggerStarter75();
+		ClassicTriggerStarter76();
+		ClassicTriggerStarter77();
+		ClassicTriggerStarter78();
+		ClassicTriggerStarter79();
+		ClassicTriggerStarter80();
+		ClassicTriggerStarter81();
+		ClassicTriggerStarter82();
+		ClassicTriggerStarter83();
+		ClassicTriggerStarter84();
+		ClassicTriggerStarter85();
+		ClassicTriggerStarter86();
+		ClassicTriggerStarter87();
+		ClassicTriggerStarter88();
+		ClassicTriggerStarter89();
+		ClassicTriggerStarter90();
+		ClassicTriggerStarter91();
+		ClassicTriggerStarter92();
+		ClassicTriggerStarter93();
+		ClassicTriggerStarter94();
+		ClassicTriggerStarter95();
+		ClassicTriggerStarter96();
+		ClassicTriggerStarter97();
+		ClassicTriggerStarter98();
+		ClassicTriggerStarter99();
+		ClassicTriggerStarter100();
+		ClassicTriggerStarter101();
+		ClassicTriggerStarter102();
+		ClassicTriggerStarter105();
+	}
+	//플레이어 8
+	if (playerexist(7)) 
+	{
+		setcurpl(7);
+		ClassicTriggerStarter25();
+		ClassicTriggerStarter29();
+		ClassicTriggerStarter31();
+		ClassicTriggerStarter42();
+		ClassicTriggerStarter45();
+		ClassicTriggerStarter49();
+		ClassicTriggerStarter50();
+		ClassicTriggerStarter51();
+		ClassicTriggerStarter52();
+		ClassicTriggerStarter53();
+		ClassicTriggerStarter54();
+		ClassicTriggerStarter55();
+		ClassicTriggerStarter56();
+		ClassicTriggerStarter57();
+		ClassicTriggerStarter58();
+		ClassicTriggerStarter59();
+		ClassicTriggerStarter60();
+		ClassicTriggerStarter61();
+		ClassicTriggerStarter62();
+		ClassicTriggerStarter63();
+		ClassicTriggerStarter65();
+		ClassicTriggerStarter68();
+		ClassicTriggerStarter70();
+		ClassicTriggerStarter71();
+		ClassicTriggerStarter72();
+		ClassicTriggerStarter73();
+		ClassicTriggerStarter74();
+		ClassicTriggerStarter75();
+		ClassicTriggerStarter76();
+		ClassicTriggerStarter77();
+		ClassicTriggerStarter78();
+		ClassicTriggerStarter79();
+		ClassicTriggerStarter80();
+		ClassicTriggerStarter81();
+		ClassicTriggerStarter82();
+		ClassicTriggerStarter83();
+		ClassicTriggerStarter84();
+		ClassicTriggerStarter85();
+		ClassicTriggerStarter86();
+		ClassicTriggerStarter87();
+		ClassicTriggerStarter88();
+		ClassicTriggerStarter89();
+		ClassicTriggerStarter90();
+		ClassicTriggerStarter91();
+		ClassicTriggerStarter92();
+		ClassicTriggerStarter93();
+		ClassicTriggerStarter94();
+		ClassicTriggerStarter95();
+		ClassicTriggerStarter96();
+		ClassicTriggerStarter97();
+		ClassicTriggerStarter98();
+		ClassicTriggerStarter99();
+		ClassicTriggerStarter100();
+		ClassicTriggerStarter101();
+		ClassicTriggerStarter102();
+		ClassicTriggerStarter105();
+	}
+}
+function WaitableTriggerExec() {
+}
+function onPluginStart() {
+	randomize();
+
+}
+function beforeTriggerExec() {
+	EUDPlayerLoop()();
+	WaitableTriggerExec();
+	ClassicTriggerExec();
+	EUDEndPlayerLoop();
+	ClassicTriggerStarter();
+}
+function afterTriggerExec() {
+}

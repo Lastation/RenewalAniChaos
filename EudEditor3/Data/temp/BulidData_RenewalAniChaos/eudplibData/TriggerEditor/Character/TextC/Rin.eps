@@ -1,0 +1,118 @@
+import customText as tct;
+import Variable as v;
+
+var txtPtr, btnPtr, btnPos, oldCP;
+
+function NormalText(cp)
+{
+	switch (v.Sound_Text3[cp])
+	{
+	case 3000:
+		PlayWAV("Rin_01.ogg");
+		v.Sound_Text3[cp] = 0;
+		tct.print("\n\n\x13\x1BRin\n\x13\x04이 앞에 무엇이 있는 걸까?\n\n");
+		break;
+	case 3001:
+		PlayWAV("Rin_02.ogg");
+		v.Sound_Text3[cp] = 0;
+		tct.print("\n\n\x13\x1BRin\n\x13\x04언제부턴가, 생각하지 않게 됐다\n\n");
+		break;
+	case 3002:
+		PlayWAV("Rin_03.ogg");
+		v.Sound_Text3[cp] = 0;
+		tct.print("\n\n\x13\x1BRin\n\x13\x04생각하는 방법... 그것조차 잊어버린 걸지도\n\n");
+		break;
+	case 3003:
+		PlayWAV("Rin_04.ogg");
+		v.Sound_Text3[cp] = 0;
+		tct.print("\n\n\x13\x1BRin\n\x13\x04변하지 않는, 나만의 세계가 매일매일 계속된다\n\n");
+		break;
+	case 3004:
+		PlayWAV("Rin_05.ogg");
+		v.Sound_Text3[cp] = 0;
+		tct.print("\n\n\x13\x1BRin\n\x13\x04하지만 외롭지는 않아\n\n");
+		break;
+	case 3005:
+		PlayWAV("Rin_06.ogg");
+		v.Sound_Text3[cp] = 0;
+		tct.print("\n\n\x13\x1BRin\n\x13\x04별 것 아니니까\n\n");
+		break;
+	}
+}
+
+function UiltimateText(cp)
+{
+	switch (v.Sound_Text_Uilti[cp])
+	{
+	case 15000:
+		PlayWAV("Rin_Ult.ogg");
+		v.Sound_Text_Uilti[cp] = 0;
+		break;
+	case 15001:
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\n\x13\x1BRin\n\x13\x04추억이, 슬픈 것이었다고 해도\n\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		v.Sound_Text_Uilti[cp] = 0;
+		break;
+	case 15002:
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\n\x13\x1BRin\n\x13\x04미래를 믿으며 나아가는 거야\n\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		v.Sound_Text_Uilti[cp] = 0;
+		break;
+	case 15003:
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\n\x13\x1BRin\n\x13\x04외로움을 깨달아서\n\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		v.Sound_Text_Uilti[cp] = 0;
+		break;
+	case 15004:
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\n\x13\x1BRin\n\x13\x04좌절하고 싶어져도\n\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		v.Sound_Text_Uilti[cp] = 0;
+		break;
+	case 15005:
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\n\x13\x1BRin\n\x13\x04당신 덕분에\n\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		v.Sound_Text_Uilti[cp] = 0;
+		break;
+	case 15006:
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\n\x13\x1BRin\n\x13\x04기억해내서\n\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		v.Sound_Text_Uilti[cp] = 0;
+		break;
+	case 15007:
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\n\x13\x1BRin\n\x13\x04강해질 수 있는 거야\n\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		v.Sound_Text_Uilti[cp] = 0;
+		break;
+	case 15008:
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\n\x13\x1BRin\n\x13\x04혼자가 아니라고...\n\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		v.Sound_Text_Uilti[cp] = 0;
+		break;
+	case 15009:
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\n\x13\x1BRin\n\x13\x04당신 덕분에...\n\n");
+		SetMemory(0x640B58, SetTo, txtPtr);
+		v.Sound_Text_Uilti[cp] = 0;
+		break;
+	}
+}
+
+function UniqueText(cp)
+{
+	switch (v.Sound_Text_Uniq[cp])
+	{
+	case 15000:
+		tct.print("\n\n\x13\x1BRin\n\x13\x04고마워요...\n\n");
+		PlayWAV("Rin_Unique.ogg");
+		v.Sound_Text_Uniq[cp] = 0;
+		break;
+	}
+}

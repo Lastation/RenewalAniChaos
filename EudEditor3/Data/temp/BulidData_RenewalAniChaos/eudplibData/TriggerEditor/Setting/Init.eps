@@ -1,0 +1,50 @@
+import Variable as v;
+
+
+function SetBuildingHP() 
+{
+	const cp = getcurpl();
+	
+	ModifyUnitHitPoints(1, (155), (13), (64), 100 - (v.Unique_Cool[cp] / 10));
+	ModifyUnitShields(1, (167), (13), (64), dwread_epd(EPD(0x58A364 + 48 * 205 + 4 * cp)) / 10);
+}
+
+function SetVariable()
+{
+	const cp = getcurpl();
+
+       v.Potion[cp] = dwread_epd(EPD(0x58A364 + 48 * 219 + 4 * cp));
+       v.EXP_Need[cp] = dwread_epd(EPD(0x58A364 + 48 * 225 + 4 * cp));
+       v.EXP_Now[cp] = dwread_epd(EPD(0x58A364 + 48 * 185 + 4 * cp));
+       v.DeathCount[cp] = dwread_epd(EPD(0x58A364 + 48 * 210 + 4 * cp))/12;
+       v.Unique_Cool[cp] = dwread_epd(EPD(0x58A364 + 48 * 203 + 4 * cp))/12;
+       v.Hero_Num[cp] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp));
+       v.Level[cp] = dwread_epd(EPD(0x5822F4 + 4 * cp));
+	
+	if (Deaths((13), (0), 1, (186))) { v.Sound_Text1[cp] = dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * cp)); 		SetDeaths((13), (7), 0, (186)); }
+	if (Deaths((13), (0), 1, (174))) { v.Sound_Text2[cp] = dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * cp)); 		SetDeaths((13), (7), 0, (174)); }
+	if (Deaths((13), (0), 1, (117))) { v.Sound_Text3[cp] = dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * cp)); 		SetDeaths((13), (7), 0, (117)); }
+	if (Deaths((13), (0), 1, (222))) { v.Sound_Text_Uilti[cp] = dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * cp)); 	SetDeaths((13), (7), 0, (222)); }
+	if (Deaths((13), (0), 1, (188))) { v.Sound_Text_Uniq[cp] = dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * cp)); SetDeaths((13), (7), 0, (188)); }
+	
+	switch (v.Hero_Num[cp])	// 방어력 관련
+	{
+	case 10:
+		if(Deaths((13), (0), 1, (204))) 
+		{
+			bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp) + 10);
+			SetDeaths((13), (9), 1, (204));
+		}
+		else 
+		{ 
+			bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp)); 
+		}
+		break;
+	default:
+		bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp));
+		break;
+	}
+	
+	// 공격력 관련
+	bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
+}

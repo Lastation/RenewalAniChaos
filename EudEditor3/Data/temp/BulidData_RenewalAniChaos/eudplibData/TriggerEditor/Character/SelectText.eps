@@ -1,0 +1,234 @@
+import customText as tct;
+import Variable as v;
+
+var txtPtr, btnPtr, btnPos, oldCP;
+const trgk = $T('Artanis & safhfh');
+
+function SetIndex() 
+{
+	const cp = getcurpl();
+	
+	if (Switch((255), (3)) && Bring((13), (0), 1, (15), (96)))
+	{
+		if (Bring((13), (0), 1, (15), (32)) && v.Hero_Index[cp] != 1) 		{ v.Hero_Index[cp] = 1; }
+		if (Bring((13), (0), 1, (15), (117)) && v.Hero_Index[cp] != 2)		{ v.Hero_Index[cp] = 2; }
+		if (Bring((13), (0), 1, (15), (121)) && v.Hero_Index[cp] != 3) 		{ v.Hero_Index[cp] = 3; }
+		if (Bring((13), (0), 1, (15), (125)) && v.Hero_Index[cp] != 4) 		{ v.Hero_Index[cp] = 4; }
+		if (Bring((13), (0), 1, (15), (126)) && v.Hero_Index[cp] != 5) 		{ v.Hero_Index[cp] = 5; }
+		if (Bring((13), (0), 1, (15), (133)) && v.Hero_Index[cp] != 6) 		{ v.Hero_Index[cp] = 6; }
+		if (Bring((13), (0), 1, (15), (143)) && v.Hero_Index[cp] != 7) 		{ v.Hero_Index[cp] = 7; }
+		if (Bring((13), (0), 1, (15), (145)) && v.Hero_Index[cp] != 8) 		{ v.Hero_Index[cp] = 8; }
+		if (Bring((13), (0), 1, (15), (148)) && v.Hero_Index[cp] != 9) 		{ v.Hero_Index[cp] = 9; }
+		if (Bring((13), (0), 1, (15), (150)) && v.Hero_Index[cp] != 10) 	{ v.Hero_Index[cp] = 10; }
+		if (Bring((13), (0), 1, (15), (154)) && v.Hero_Index[cp] != 11)	 	{ v.Hero_Index[cp] = 11; }
+		if (Bring((13), (0), 1, (15), (157)) && v.Hero_Index[cp] != 12) 	{ v.Hero_Index[cp] = 12; }
+		if (Bring((13), (0), 1, (15), (163)) && v.Hero_Index[cp] != 13) 	{ v.Hero_Index[cp] = 13; }
+		if (Bring((13), (0), 1, (15), (164)) && v.Hero_Index[cp] != 14) 	{ v.Hero_Index[cp] = 14; }
+		if (Bring((13), (0), 1, (15), (166)) && v.Hero_Index[cp] != 15) 	{ v.Hero_Index[cp] = 15; }
+		if (Bring((13), (0), 1, (15), (168)) && v.Hero_Index[cp] != 16) 	{ v.Hero_Index[cp] = 16; }
+		if (Bring((13), (0), 1, (15), (170)) && v.Hero_Index[cp] != 17) 	{ v.Hero_Index[cp] = 17; }
+		if (Bring((13), (0), 1, (15), (171)) && v.Hero_Index[cp] != 18) 	{ v.Hero_Index[cp] = 18; }
+		
+		if (v.Hero_Index[cp] != 0 && v.Hero_Text[cp] != v.Hero_Index[cp])
+		{
+			v.Hero_Text[cp] = v.Hero_Index[cp]; 
+			v.Hero_Index[cp] = 0; 
+		}
+	}
+}
+
+function CharacterTextNum() 
+{
+	const cp = getcurpl();
+
+	v.Unit_Death[cp] = dwread_epd(EPD(0x58A364 + 48 * v.Unit_ID[cp] + 4 * v.PlayerID[cp]));
+	
+	switch (v.Unit_ID[cp])
+	{
+	case 51:
+		if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 1; }	// Rusaruka
+		if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 8; }	// Anzu
+		if (v.PlayerID[cp] == 10 	|| v.Unit_Death[cp] == 3000) { v.Hero_Text[cp] = 9; }	// HotoMoka
+		 v.Unit_ID[cp] = 0;
+		break;
+	case 77:
+		if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 2; }	// Chtholly
+		if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 7; }	// Cecilia
+		if (v.PlayerID[cp] == 10 	|| v.Unit_Death[cp] == 3000) { v.Hero_Text[cp] = 10; }	// Alther Ago
+		if (v.PlayerID[cp] == 11 	|| v.Unit_Death[cp] == 4000) { v.Hero_Text[cp] = 17; }	// Kiana
+		 v.Unit_ID[cp] = 0;
+		break;
+	case 74:
+		if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 3; }	// Maihime
+		if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 3000) { v.Hero_Text[cp] = 4; }	// Tenshi
+		if (v.PlayerID[cp] == 10 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 5; }	// Miyuki
+		 v.Unit_ID[cp] = 0;
+		break;
+	case 16:
+		if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 6; }	// Negev
+		if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 11; }	// Kurumi
+		if (v.PlayerID[cp] == 10 	|| v.Unit_Death[cp] == 3000) { v.Hero_Text[cp] = 13; }	// Sakura
+		if (v.PlayerID[cp] == 11 	|| v.Unit_Death[cp] == 4000) { v.Hero_Text[cp] = 16; }	// Seraphim
+		 v.Unit_ID[cp] = 0;
+		break;
+	case 54:
+		if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 12; }	// Ryuzu
+		if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 15; }	// Rin
+		 v.Unit_ID[cp] = 0;
+		break;
+	case 99:
+		if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 14; }	// Yashiro
+		if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 18; }	// Tenkai
+		 v.Unit_ID[cp] = 0;
+		break;
+	
+	}
+}
+
+
+function CharacterText()
+{
+	const cp = getcurpl();
+	
+	if (v.Hero_Text[cp] >= 1)
+	{
+		tct.makeText("\n\x13\x17[ \x04",ptr2s(v.Hero_Name[v.Hero_Text[cp]])," \x17]");
+		switch (v.Hero_Text[cp]) 
+		{
+		case 1:
+			tct.addText("\n\x13\x04- \x17Dies irae \x04-");
+			tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+			tct.addText("\n\x13\x04처음하는 플레이어에게 추천합니다.");
+			tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04만능 \x1F#\x04조작쉬움");
+			break;
+		case 2:
+			tct.addText("\n\x13\x04- \x17종말에 뭐 하세요? 바쁘세요? 구해 주실 수 있나요? \x04-");
+			tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+			tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+			tct.addText("\n\n\x13\x1F#\x04공성특화++ \x1F#\x04지속딜 \x1F#\x04조작어려움");
+			break;
+		case 3:
+			tct.addText("\n\x13\x04- \x17퀄리디아 코드 \x04-");
+			tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
+			tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
+			tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04지속딜 \x1F#\x04만능궁 \x1F#\x04조작보통");
+			break;
+		case 4:
+			tct.addText("\n\x13\x04- \x17동방 스카이 아레나 \x04-");
+			tct.addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.");
+			tct.addText("\n\x13\x04처음하는 플레이어에게 추천합니다.");
+			tct.addText("\n\n\x13\x1F#\x04설치 \x1F#\x04만능 \x1F#\x04조작보통");
+			break;
+		case 5:
+			tct.addText("\n\x13\x04- \x17당신과 그녀와 그녀의 사랑 \x04-");
+			tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
+			tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
+			tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간강한딜 \x1F#\x04만능궁 \x1F#\x04조작어려움");
+			break;
+		case 6:
+			tct.addText("\n\x13\x04- \x17소녀전선 \x04-");
+			tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+			tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
+			tct.addText("\n\n\x13\x1F#\x04공성 \x1F#\x04순간딜 \x1F#\x04조작보통");
+			break;
+		case 7:
+			tct.addText("\n\x13\x04- \x17킹스레이드 \x04-");
+			tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
+			tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+			tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작어려움");
+			break;
+		case 8:
+			tct.addText("\n\x13\x04- \x17PROJECT iM@S CINDERELLA GIRLS \x04-");
+			tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+			tct.addText("\n\x13\x04처음하는 플레이어에게 추천합니다.");
+			tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작쉬움");
+			break;
+		case 9:
+			tct.addText("\n\x13\x04- \x17주문은 토끼입니까? \x04-");
+			tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+			tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+			tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
+			break;
+		case 10:
+			tct.addText("\n\x13\x04- \x17Fate/Extra CCC \x04-");
+			tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+			tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+			tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
+			break;
+		case 11:
+			tct.addText("\n\x13\x04- \x17DATE A LIVE \x04-");
+			tct.addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.");
+			tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+			tct.addText("\n\n\x13\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04모드 \x1F#\x04조작어려움");
+			break;
+		case 12:
+			tct.addText("\n\x13\x04- \x17ClockWork Planet \x04-");
+			tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
+			tct.addText("\n\x13\x04처음하는 플레이어에게 추천합니다.");
+			tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작쉬움");
+			break;
+		case 13:
+			tct.addText("\n\x13\x04- \x17Fate/stay night");
+			tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+			tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+			tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
+			break;
+		case 14:
+			tct.addText("\n\x13\x04- \x17나만이 없는 거리\x04-");
+			tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
+			tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+			tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04스택 \x1F#\x04조작매우어려움");
+			break;
+		case 15:
+			tct.addText("\n\x13\x04- \x17Shelter \x04-");
+			tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+			tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+			tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
+			break;
+		case 16:
+			tct.addText("\n\x13\x04- \x17영원한 7일의 도시 \x04-");
+			tct.addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.");
+			tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
+			tct.addText("\n\n\x13\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04조작보통 \x1F#\x04특수");
+			break;
+		case 17:
+			tct.addText("\n\x04- \x17붕괴 3rd \x04-");
+			tct.addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.");
+			tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
+			tct.addText("\n\n\x13\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04조작보통 \x1F#\x04특수");
+			break;
+		case 18:
+			tct.addText("\n\x13\x04- \x17K RETURN OF KINGS \x04-");
+			tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
+			tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
+			tct.addText("\n\n\x13\x1F#\x04대인 \x1F#\x04순간딜 \x1F#\x04조작보통");
+			break;
+		}
+		
+		if (cp >=0 && cp <= 2 && Switch((249), (2)))
+		{
+			if (v.Hero_Text[cp] == 3 
+			|| v.Hero_Text[cp] == 5 
+			|| v.Hero_Text[cp] == 7 
+			|| v.Hero_Text[cp] == 12 
+			|| v.Hero_Text[cp] == 18)
+			{ tct.addText("\n\n\x13\x04선택할수 없습니다.\n"); }
+		}
+		else if (cp >=3 && cp <= 5 && Switch((248), (2)))
+		{
+			if (v.Hero_Text[cp] == 3 
+			|| v.Hero_Text[cp] == 5 
+			|| v.Hero_Text[cp] == 7 
+			|| v.Hero_Text[cp] == 12
+			|| v.Hero_Text[cp] == 18)
+			{ tct.addText("\n\n\x13\x04선택할수 없습니다.\n"); }
+		}
+		else { tct.addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"); }
+		
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.displayText();
+		SetMemory(0x640B58, SetTo, txtPtr);
+
+		v.Hero_Text[cp] = 0;
+	}
+}

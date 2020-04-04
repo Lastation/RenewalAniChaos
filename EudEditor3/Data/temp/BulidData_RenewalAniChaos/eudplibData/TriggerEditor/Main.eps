@@ -1,0 +1,88 @@
+import customText as tct;
+import Variable as v;
+
+import SCArchive as sca;
+import IO.Setting as scaSetting;					// SCA 텍스트
+
+import CustomText.ShopText as shopText;			// 상점 텍스트
+import CustomText.BuildingText as buildText;		// 건물 텍스트
+
+import Setting.Init as init;						// 변수 초기화
+import Setting.GetUnitID as unitID;				// 유닛 아이디
+import Setting.Property as ppty;					// 특성 시스템
+import Setting.TestMode as testmode;			// 테스트 모드
+
+import Character.SelectText as selectText;			// 유닛 텍스트
+import Character.DeathText as deathText;			// 사망 텍스트
+import Character.Marge as marge;				// 유닛 스킬 텍스트
+import Character.Announce as announce;			// 상태창 텍스트
+
+var txtPtr, btnPtr, btnPos, oldCP;
+const trgk = $T('Artanis & safhfh');
+
+function onPluginStart() 	// 초기화 함수
+{
+	sca.Init();
+	sca.LoadData(0);
+	
+    	EUDPlayerLoop()();
+    	EUDEndPlayerLoop();
+}
+
+function MainLoop()
+{
+	unitID.Get_UnitID();
+
+	if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
+	{
+		selectText.SetIndex();				// 유닛 클릭 인식
+		selectText.CharacterTextNum();	// 캐릭터 번호 설정
+		selectText.CharacterText();		// 캐릭터 선택 텍스트
+		announce.Announce_Init();		// 상태창 텍스트
+		
+		if (Switch((253), (2)))				// TestMode
+		{
+			testmode.TestMode();
+		}
+	}
+	
+	if(Switch((255), (2)))	// Switch - StartSwich Set 일경우
+	{
+		buildText.BuildingText();		// 건물 텍스트
+		shopText.ShopText();			// 상점 텍스트
+		
+		deathText.SetDeathValue();	// 사망 트리거
+		deathText.DeathText();		// 사망 텍스트
+		
+		init.SetBuildingHP();			// 건물 체력 관련
+		init.SetVariable();				// 기본 변수 설정
+		
+		ppty.PropertyText();			// 특성 텍스트
+		ppty.Property_S();			// S 특성
+		ppty.Property_C();			// C 특성
+		ppty.Property_A();			// A 특성
+		
+		marge.MargeSound();			// 캐릭터 스킬 사운드 & 스킬 텍스트
+		announce.Announce_Ingame();	// 캐릭터 상태창 텍스트
+		
+		scaSetting.AddCharacterExp();
+	}
+}
+
+function beforeTriggerExec() 
+{
+	// sca 사용예정
+	EUDPlayerLoop()();
+
+	if(getcurpl() < 6)
+	{
+		MainLoop();
+	}
+	
+	EUDEndPlayerLoop();
+}
+
+function afterTriggerExec() 
+{
+
+}

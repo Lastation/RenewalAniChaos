@@ -1,0 +1,67 @@
+import customText as tct;
+import Variable as v;
+
+var txtPtr, btnPtr, btnPos, oldCP;
+const trgk = $T('Artanis & safhfh');
+
+function SetDeathValue()
+{
+	const cp = getcurpl();
+
+	if (Deaths((13), (0), 1000, (210)))
+	{
+		v.DeathOre = 250 + v.Level[cp] * 10;
+		CenterView((96));
+		if (cp >= 0 && cp <= 2)
+		{
+			v.Team_Num = 2;
+		
+			if (Deaths((0), (10), 15, (172)) || Deaths((1), (10), 15, (172)) || Deaths((2), (10), 15, (172))) { SetSwitch((20), (4)); }
+			if (Deaths((0), (10), 16, (172)) || Deaths((1), (10), 16, (172)) || Deaths((2), (10), 16, (172))) { SetDeaths((13), (7), 12, (210)); SetSwitch((23), (4)); }
+			else { SetDeaths((13), (7), 120 + v.Level[cp] * 12, (210)); }
+			
+			if (Bring((6), (1), 6, (162), (153))) { SetScore((7), (8), 5, (7)); }
+			SetResources((3), (8), v.DeathOre, (0));
+			SetResources((4), (8), v.DeathOre, (0));
+			SetResources((5), (8), v.DeathOre, (0));
+		}
+		if (cp >= 3 && cp <= 5)
+		{
+			v.Team_Num = 1;
+		
+			if (Deaths((3), (10), 15, (172)) || Deaths((4), (10), 15, (172)) || Deaths((5), (10), 15, (172))) { SetSwitch((20), (4)); }
+			if (Deaths((3), (10), 16, (172)) || Deaths((4), (10), 16, (172)) || Deaths((5), (10), 16, (172))) { SetDeaths((13), (7), 12, (210)); SetSwitch((23), (4)); }
+			else { SetDeaths((13), (7), 120 + v.Level[cp] * 12, (210)); }
+			
+			if (Bring((7), (1), 6, (162), (153))) { SetScore((7), (8), 5, (7)); }
+			SetResources((0), (8), v.DeathOre, (0));
+			SetResources((1), (8), v.DeathOre, (0));
+			SetResources((2), (8), v.DeathOre, (0));
+		}
+		
+		v.DeathOre_Text[0] = v.DeathOre;
+		v.DeathOre_Text[1] = v.DeathOre;
+		v.DeathOre_Text[2] = v.DeathOre;
+		v.DeathOre_Text[3] = v.DeathOre;
+		v.DeathOre_Text[4] = v.DeathOre;
+		v.DeathOre_Text[5] = v.DeathOre;
+	}
+}
+
+
+function DeathText()
+{
+	const cp = getcurpl();
+	
+	if (v.DeathOre_Text[cp] != 0)
+	{
+		const value = dwread_epd(EPD(0x58A364 + 48 * 211 + 4 * cp));
+		
+		txtPtr = dwread_epd(EPD(0x640B58));
+		tct.print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17", ptr2s(v.Hero_Name[value]), "\x04이 치명상을 입었습니다. \x19::\n\n\x13\x07", v.Team_Num, "\x04Team \x17+ ", v.DeathOre_Text[cp], " \x04Ore\n");
+		txtPtr = dwread_epd(EPD(0x640B58));
+
+		SetDeaths((13), (7), 0, (211));
+		v.DeathOre_Text[cp] = 0;
+	}
+}

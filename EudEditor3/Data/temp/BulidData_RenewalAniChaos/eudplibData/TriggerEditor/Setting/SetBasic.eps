@@ -1,0 +1,20 @@
+import Variable as v;
+
+const cp = getcurpl();
+
+function SetBuildingHP() 
+{
+	ModifyUnitHitPoints(1, (155), (13), (64), 100 - (v.Unique_Cool[cp] / 10));
+	ModifyUnitShields(1, (167), (13), (64), dwread_epd(EPD(0x58A364 + 48 * 205 + 4 * cp)) / 10);
+}
+
+function SetVariable()
+{
+        v.Potion[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * 219 + 4 * cp));
+        v.EXP_Need[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * 225 + 4 * cp));
+        v.EXP_Now[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * 185 + 4 * cp));
+        v.DeathCount[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * 210 + 4 * cp))/12;
+        v.Unique_Cool[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * 203 + 4 * cp))/12;
+        v.Hero_Num[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp));
+        v.Level[getcurpl()] = dwread_epd(EPD(0x5822F4 + 4 * cp));
+}
