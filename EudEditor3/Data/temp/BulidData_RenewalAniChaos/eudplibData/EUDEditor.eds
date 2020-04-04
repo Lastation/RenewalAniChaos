@@ -2,8 +2,8 @@
 
 [unlimiter]
 [main]
-input: ..\..\..\..\..\..\Documents\GitHub\RenewalAniChaos\NEW!6.scx
-output: ..\..\..\..\..\..\Documents\Starcraft\Maps\RenewalAniChaos\RenewalAniChaos_T.scx
+input: ..\..\..\..\..\NEW!6.scx
+output: ..\..\..\..\..\..\..\Starcraft\Maps\RenewalAniChaos\RenewalAniChaos_T.scx
 [DataEditor.py]
 [ExtraDataEditor.py]
 [dataDumper]

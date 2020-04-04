@@ -128,42 +128,42 @@ def _LSH(l, r):
 
 # (Line 1) import Variable as v;
 import Variable as v
-# (Line 3) import Character.CharacterText1.Rusaruka	as rusaruka;
-from Character.CharacterText1 import Rusaruka as rusaruka
-# (Line 4) import Character.CharacterText1.Chtholly 		as chtholly;
-from Character.CharacterText1 import Chtholly as chtholly
-# (Line 5) import Character.CharacterText1.Maihime 	as maihime;
-from Character.CharacterText1 import Maihime as maihime
-# (Line 6) import Character.CharacterText1.Tenshi 		as tenshi;
-from Character.CharacterText1 import Tenshi as tenshi
-# (Line 7) import Character.CharacterText1.Miyuki 		as miyuki;
-from Character.CharacterText1 import Miyuki as miyuki
-# (Line 8) import Character.CharacterText1.Negev 		as negev;
-from Character.CharacterText1 import Negev as negev
-# (Line 10) import Character.CharacterText2.Cecillia 		as cecillia;
-from Character.CharacterText2 import Cecillia as cecillia
-# (Line 11) import Character.CharacterText2.Anzu 		as anzu;
-from Character.CharacterText2 import Anzu as anzu
-# (Line 12) import Character.CharacterText2.HotoMoka 	as hotomoka;
-from Character.CharacterText2 import HotoMoka as hotomoka
-# (Line 13) import Character.CharacterText2.Altherego 	as alterego;
-from Character.CharacterText2 import Altherego as alterego
-# (Line 14) import Character.CharacterText2.Ryuzu 		as ryuzu;
-from Character.CharacterText2 import Ryuzu as ryuzu
-# (Line 15) import Character.CharacterText2.Kurumi 		as kurumi;
-from Character.CharacterText2 import Kurumi as kurumi
-# (Line 17) import Character.CharacterText3.Sakura 		as sakura;
-from Character.CharacterText3 import Sakura as sakura
-# (Line 18) import Character.CharacterText3.Yashiro 		as yashiro;
-from Character.CharacterText3 import Yashiro as yashiro
-# (Line 19) import Character.CharacterText3.Rin 			as rin;
-from Character.CharacterText3 import Rin as rin
-# (Line 20) import Character.CharacterText3.Seraphim 	as seraphim;
-from Character.CharacterText3 import Seraphim as seraphim
-# (Line 21) import Character.CharacterText3.Kiana 		as kiana;
-from Character.CharacterText3 import Kiana as kiana
-# (Line 22) import Character.CharacterText3.Tenkei 		as tenkei;
-from Character.CharacterText3 import Tenkei as tenkei
+# (Line 3) import Character.TextA.Rusaruka		as rusaruka;
+from Character.TextA import Rusaruka as rusaruka
+# (Line 4) import Character.TextA.Chtholly 		as chtholly;
+from Character.TextA import Chtholly as chtholly
+# (Line 5) import Character.TextA.Maihime 		as maihime;
+from Character.TextA import Maihime as maihime
+# (Line 6) import Character.TextA.Tenshi 		as tenshi;
+from Character.TextA import Tenshi as tenshi
+# (Line 7) import Character.TextA.Miyuki 		as miyuki;
+from Character.TextA import Miyuki as miyuki
+# (Line 8) import Character.TextA.Negev 		as negev;
+from Character.TextA import Negev as negev
+# (Line 10) import Character.TextB.Cecillia 		as cecillia;
+from Character.TextB import Cecillia as cecillia
+# (Line 11) import Character.TextB.Anzu 			as anzu;
+from Character.TextB import Anzu as anzu
+# (Line 12) import Character.TextB.HotoMoka 	as hotomoka;
+from Character.TextB import HotoMoka as hotomoka
+# (Line 13) import Character.TextB.Altherego 	as alterego;
+from Character.TextB import Altherego as alterego
+# (Line 14) import Character.TextB.Ryuzu 		as ryuzu;
+from Character.TextB import Ryuzu as ryuzu
+# (Line 15) import Character.TextB.Kurumi 		as kurumi;
+from Character.TextB import Kurumi as kurumi
+# (Line 17) import Character.TextC.Sakura 		as sakura;
+from Character.TextC import Sakura as sakura
+# (Line 18) import Character.TextC.Yashiro 		as yashiro;
+from Character.TextC import Yashiro as yashiro
+# (Line 19) import Character.TextC.Rin 			as rin;
+from Character.TextC import Rin as rin
+# (Line 20) import Character.TextC.Seraphim 	as seraphim;
+from Character.TextC import Seraphim as seraphim
+# (Line 21) import Character.TextC.Kiana 		as kiana;
+from Character.TextC import Kiana as kiana
+# (Line 22) import Character.TextC.Tenkei 		as tenkei;
+from Character.TextC import Tenkei as tenkei
 # (Line 24) const cp = getcurpl();
 cp = _CGFW(lambda: [f_getcurpl()], 1)[0]
 # (Line 26) function MargeSound()

@@ -17,7 +17,7 @@ function SetVariable()
        v.Unique_Cool[cp] = dwread_epd(EPD(0x58A364 + 48 * 203 + 4 * cp))/12;
        v.Hero_Num[cp] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp));
        v.Level[cp] = dwread_epd(EPD(0x5822F4 + 4 * cp));
-        
+       
 	switch (v.Hero_Num[cp])
 	{
 	case 10:
