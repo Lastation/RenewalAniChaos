@@ -2,21 +2,21 @@ import Variable as n0;
 
 const ws = 0x58F44A;
 const EntryPointLength = 8;//EntryPointLength
-const SpaceLength = 300;//DataBufferSize
+const SpaceLength = 436;//DataBufferSize
 const ObjectCount = 2;//ObjectCount
 
 function Init(){
     MPQAddFile('SCARCHIVEMAPCODE', py_open('scakeyfile', 'rb').read());
     MPQAddFile('SCARCHIVEDATA', py_open('scadatafile', 'rb').read());
     //EntryPoint
-    dwwrite_epd(EPD(ws) + 0, 2537657459);
-    dwwrite_epd(EPD(ws) + 1, 3011353248);
-    dwwrite_epd(EPD(ws) + 2, 3767524725);
-    dwwrite_epd(EPD(ws) + 3, 1215969183);
-    dwwrite_epd(EPD(ws) + 4, 337395893);
-    dwwrite_epd(EPD(ws) + 5, 3320973955);
-    dwwrite_epd(EPD(ws) + 6, 991778659);
-    dwwrite_epd(EPD(ws) + 7, 2236849255);
+    dwwrite_epd(EPD(ws) + 0, 3599334607);
+    dwwrite_epd(EPD(ws) + 1, 2977582137);
+    dwwrite_epd(EPD(ws) + 2, 1524592876);
+    dwwrite_epd(EPD(ws) + 3, 1479812784);
+    dwwrite_epd(EPD(ws) + 4, 1641708409);
+    dwwrite_epd(EPD(ws) + 5, 3613508294);
+    dwwrite_epd(EPD(ws) + 6, 2666161686);
+    dwwrite_epd(EPD(ws) + 7, 2019681173);
     
 }
 
@@ -30,13 +30,13 @@ function ResetValue(tagNum, index){
     const cp = getcurpl();
     switch(tagNum){
     case 0:
-        n0.Hero_Index[cp] = 0;
-        break;
-    case 1:
         const alen = n0.CharacterExp.length / 8;
         for(var i = 0 ; i < alen; i++){
             n0.CharacterExp[alen * cp + i] = 0;
         }
+        break;
+    case 1:
+        n0.Unit_Death[cp] = 0;
         break;
     }
 }
@@ -46,11 +46,11 @@ function SaveValue(tagNum, Value, index){
     const cp = getcurpl();
     switch(tagNum){
     case 0:
-        n0.Hero_Index[cp] = Value;
-        break;
-    case 1:
         const alen = n0.CharacterExp.length / 8;
         n0.CharacterExp[alen * cp + index] = Value;
+        break;
+    case 1:
+        n0.Unit_Death[cp] = Value;
         break;
     }
 }
@@ -60,26 +60,6 @@ function SaveDataWriteValue(tagNum, BaseAddress, index){
     const cp = getcurpl();
     switch(tagNum){
     case 0:
-        {
-        const objValue = n0.Hero_Index[cp];
-        if(objValue != 0){
-            if (objValue > 0xFFFF){
-                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x1000 + tagNum);
-                index++;
-                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue / 0x10000);
-                index++;
-                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue % 0x10000);
-                index++;
-             }else{
-                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x2000 + tagNum);
-                index++;
-                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue);
-                index++;
-             }
-         }
-        }
-        break;
-    case 1:
         {
         const alen = n0.CharacterExp.length / 8;
         for(var i = 0 ; i < alen ; i ++){
@@ -104,6 +84,26 @@ function SaveDataWriteValue(tagNum, BaseAddress, index){
                  }
             }
         }
+        }
+        break;
+    case 1:
+        {
+        const objValue = n0.Unit_Death[cp];
+        if(objValue != 0){
+            if (objValue > 0xFFFF){
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x1000 + tagNum);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue / 0x10000);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue % 0x10000);
+                index++;
+             }else{
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x2000 + tagNum);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue);
+                index++;
+             }
+         }
         }
         break;
     }

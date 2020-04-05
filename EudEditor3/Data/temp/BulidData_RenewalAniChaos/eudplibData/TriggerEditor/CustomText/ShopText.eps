@@ -3,10 +3,11 @@ import Variable as v;
 
 var txtPtr, btnPtr, btnPos, oldCP;
 const trgk = $T('Artanis & safhfh');
-const cp = getcurpl();
 
 function ShopText()
 {
+	const cp = getcurpl();
+	
 	if (v.Unit_ID[cp] >= 1) 
 	{
 		if (v.PlayerID[cp] == 6 || v.PlayerID[cp] == 7)

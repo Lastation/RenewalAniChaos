@@ -363,8 +363,8 @@ def CharacterTextNum():
 def CharacterText():
     # (Line 91) const cp = getcurpl();
     cp = f_getcurpl()
-    # (Line 93) if (v.Hero_Text[cp] >= 1)
-    if EUDIf()(v.Hero_Text[cp] >= 1):
+    # (Line 93) if (v.Hero_Text[cp] >= 1 && Deaths((13), (1), 9999, (223)))
+    if EUDIf()(EUDSCAnd()(v.Hero_Text[cp] >= 1)(Deaths((13), (1), 9999, (223)))()):
         # (Line 94) {
         # (Line 95) tct.makeText("\n\x13\x17[ \x04",ptr2s(v.Hero_Name[v.Hero_Text[cp]])," \x17]");
         tct.f_makeText("\n\x13\x17[ \x04", ptr2s(v.Hero_Name[v.Hero_Text[cp]]), " \x17]")

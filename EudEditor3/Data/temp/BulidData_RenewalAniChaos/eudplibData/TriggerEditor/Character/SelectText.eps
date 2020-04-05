@@ -90,7 +90,7 @@ function CharacterText()
 {
 	const cp = getcurpl();
 	
-	if (v.Hero_Text[cp] >= 1)
+	if (v.Hero_Text[cp] >= 1 && Deaths((13), (1), 9999, (223)))
 	{
 		tct.makeText("\n\x13\x17[ \x04",ptr2s(v.Hero_Name[v.Hero_Text[cp]])," \x17]");
 		switch (v.Hero_Text[cp]) 

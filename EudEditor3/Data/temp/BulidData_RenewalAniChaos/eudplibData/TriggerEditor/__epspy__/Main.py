@@ -189,68 +189,63 @@ def MainLoop():
         selectText.CharacterText()
         # (Line 41) announce.Announce_Init();		// 상태창 텍스트
         announce.Announce_Init()
-        # (Line 43) if (Switch((253), (2)))				// TestMode
+        # (Line 43) ppty.PropertyText();			// 특성 텍스트
+        ppty.PropertyText()
+        # (Line 45) if (Switch((253), (2)))				// TestMode
         if EUDIf()(Switch((253), (2))):
-            # (Line 44) {
-            # (Line 45) testmode.TestMode();
+            # (Line 46) {
+            # (Line 47) testmode.TestMode();
             testmode.TestMode()
-            # (Line 46) }
-            # (Line 47) }
+            # (Line 48) }
+            # (Line 49) }
         EUDEndIf()
-        # (Line 49) if(Switch((255), (2)))	// Switch - StartSwich Set 일경우
+        # (Line 51) if(Switch((255), (2)))	// Switch - StartSwich Set 일경우
     EUDEndIf()
     if EUDIf()(Switch((255), (2))):
-        # (Line 50) {
-        # (Line 51) buildText.BuildingText();		// 건물 텍스트
+        # (Line 52) {
+        # (Line 53) buildText.BuildingText();		// 건물 텍스트
         buildText.BuildingText()
-        # (Line 52) shopText.ShopText();			// 상점 텍스트
+        # (Line 54) shopText.ShopText();			// 상점 텍스트
         shopText.ShopText()
-        # (Line 54) deathText.SetDeathValue();	// 사망 트리거
+        # (Line 56) deathText.SetDeathValue();	// 사망 트리거
         deathText.SetDeathValue()
-        # (Line 55) deathText.DeathText();		// 사망 텍스트
+        # (Line 57) deathText.DeathText();		// 사망 텍스트
         deathText.DeathText()
-        # (Line 57) init.SetBuildingHP();			// 건물 체력 관련
+        # (Line 59) init.SetBuildingHP();			// 건물 체력 관련
         init.SetBuildingHP()
-        # (Line 58) init.SetVariable();				// 기본 변수 설정
+        # (Line 60) init.SetVariable();				// 기본 변수 설정
         init.SetVariable()
-        # (Line 60) ppty.PropertyText();			// 특성 텍스트
-        ppty.PropertyText()
-        # (Line 61) ppty.Property_S();			// S 특성
+        # (Line 62) ppty.Property_S();			// S 특성
         ppty.Property_S()
-        # (Line 62) ppty.Property_C();			// C 특성
+        # (Line 63) ppty.Property_C();			// C 특성
         ppty.Property_C()
-        # (Line 63) ppty.Property_A();			// A 특성
+        # (Line 64) ppty.Property_A();			// A 특성
         ppty.Property_A()
-        # (Line 65) marge.MargeSound();			// 캐릭터 스킬 사운드 & 스킬 텍스트
+        # (Line 66) marge.MargeSound();			// 캐릭터 스킬 사운드 & 스킬 텍스트
         marge.MargeSound()
-        # (Line 66) announce.Announce_Ingame();	// 캐릭터 상태창 텍스트
+        # (Line 67) announce.Announce_Ingame();	// 캐릭터 상태창 텍스트
         announce.Announce_Ingame()
-        # (Line 68) scaSetting.AddCharacterExp();
-        scaSetting.AddCharacterExp()
+        # (Line 68) }
         # (Line 69) }
-        # (Line 70) }
     EUDEndIf()
-    # (Line 72) function beforeTriggerExec()
+    # (Line 71) function beforeTriggerExec()
 
-# (Line 73) {
+# (Line 72) {
 @EUDFunc
 def beforeTriggerExec():
-    # (Line 75) EUDPlayerLoop()();
+    # (Line 73) sca.Exec();
+    sca.Exec()
+    # (Line 74) scaSetting.AddCharacterExp();
+    scaSetting.AddCharacterExp()
+    # (Line 76) EUDPlayerLoop()();
     EUDPlayerLoop()()
-    # (Line 77) if(getcurpl() < 6)
+    # (Line 78) if(getcurpl() < 6)
     if EUDIf()(f_getcurpl() >= 6, neg=True):
-        # (Line 78) {
-        # (Line 79) MainLoop();
+        # (Line 79) {
+        # (Line 80) MainLoop();
         MainLoop()
-        # (Line 80) }
-        # (Line 82) EUDEndPlayerLoop();
+        # (Line 81) }
+        # (Line 83) EUDEndPlayerLoop();
     EUDEndIf()
     EUDEndPlayerLoop()
-    # (Line 83) }
-    # (Line 85) function afterTriggerExec()
-
-# (Line 86) {
-@EUDFunc
-def afterTriggerExec():
-    # (Line 88) }
-    pass
+    # (Line 84) }
