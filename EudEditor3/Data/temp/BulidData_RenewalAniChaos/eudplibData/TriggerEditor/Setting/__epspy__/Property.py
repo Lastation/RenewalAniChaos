@@ -171,8 +171,8 @@ def PropertyText():
 def Property_S():
     # (Line 27) const cp = getcurpl();
     cp = f_getcurpl()
-    # (Line 29) if (cp >= 0 && cp <= 2 && bread(0x58D2B0 + 0x207C * ((0) / 46) + (cp) * (46 - 31 * ((0) / 46)) + ((0) % 46)) == 60)
-    if EUDIf()(EUDSCAnd()(cp >= 0)(cp <= 2)(f_bread(0x58D2B0 + 0x207C * ((0) // 46) + (cp) * (46 - 31 * ((0) // 46)) + ((0) % 46)) == 60)()):
+    # (Line 29) if (cp >= 0 && cp <= 2 &&  bread(0x58D088 + 0x21F0 * ((0) / 46) + cp * (46 - 31 * ((0) / 46)) + ((0) % 46)) == 60)
+    if EUDIf()(EUDSCAnd()(cp >= 0)(cp <= 2)(f_bread(0x58D088 + 0x21F0 * ((0) // 46) + cp * (46 - 31 * ((0) // 46)) + ((0) % 46)) == 60)()):
         # (Line 30) {
         # (Line 31) if (Deaths((0), (10), 1000, (223)) || Deaths((1), (10), 1000, (223)) || Deaths((2), (10), 1000, (223)))
         if EUDIf()(EUDSCOr()(Deaths((0), (10), 1000, (223)))(Deaths((1), (10), 1000, (223)))(Deaths((2), (10), 1000, (223)))()):
@@ -192,9 +192,9 @@ def Property_S():
             # (Line 39) }
             # (Line 40) }
         EUDEndIf()
-        # (Line 41) if (cp >= 3 && cp <= 5 && bread(0x58D2B0 + 0x207C * ((0) / 46) + (cp) * (46 - 31 * ((0) / 46)) + ((0) % 46)) == 60)
+        # (Line 41) if (cp >= 3 && cp <= 5 &&  bread(0x58D088 + 0x21F0 * ((0) / 46) + cp * (46 - 31 * ((0) / 46)) + ((0) % 46)) == 60)
     EUDEndIf()
-    if EUDIf()(EUDSCAnd()(cp >= 3)(cp <= 5)(f_bread(0x58D2B0 + 0x207C * ((0) // 46) + (cp) * (46 - 31 * ((0) // 46)) + ((0) % 46)) == 60)()):
+    if EUDIf()(EUDSCAnd()(cp >= 3)(cp <= 5)(f_bread(0x58D088 + 0x21F0 * ((0) // 46) + cp * (46 - 31 * ((0) // 46)) + ((0) % 46)) == 60)()):
         # (Line 42) {
         # (Line 43) if (Deaths((3), (10), 1000, (223)) || Deaths((4), (10), 1000, (223)) || Deaths((5), (10), 1000, (223)))
         if EUDIf()(EUDSCOr()(Deaths((3), (10), 1000, (223)))(Deaths((4), (10), 1000, (223)))(Deaths((5), (10), 1000, (223)))()):
@@ -249,8 +249,8 @@ def Property_C():
         # (Line 73) {
         # (Line 74) v.Mana_Property[cp] = 100;
         _ARRW(v.Mana_Property, cp) << (100)
-        # (Line 76) if (cp >= 1 && cp <= 2)
-        if EUDIf()(EUDSCAnd()(cp >= 1)(cp <= 2)()):
+        # (Line 76) if (cp >= 0 && cp <= 2)
+        if EUDIf()(EUDSCAnd()(cp >= 0)(cp <= 2)()):
             # (Line 77) {
             # (Line 78) if (Deaths((0), (0), 2000, (223)) && Deaths((0), (1), 2999, (223))) { v.Mana_Property[cp] += 100; }
             if EUDIf()(EUDSCAnd()(Deaths((0), (0), 2000, (223)))(Deaths((0), (1), 2999, (223)))()):

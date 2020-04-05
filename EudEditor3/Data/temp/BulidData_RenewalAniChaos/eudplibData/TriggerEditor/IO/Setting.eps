@@ -28,11 +28,21 @@ function AddCharacterExp()
 	if(Deaths((13), (0), 1, (166)))
 	{
 		const cp = getcurpl();
-		const num = dwread_epd(EPD(0x58A364 + 48 * 0 + 4 * cp));
+		const num = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * getcurpl()));
 	
 		v.CharacterExp[6 * num + cp] += dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
 		SetDeaths((13), (7), 0, (166));
 		ShowCharacterExp(cp, num);
-		sca.SaveData(0);
+		
+		switch(sca.GetLastMessage())
+		{
+			case 1:
+				sca.SaveData(0);
+				break;
+			case 5:
+				break;
+			default:
+				sca.ResetLastMessage();
+		}
 	}
 }

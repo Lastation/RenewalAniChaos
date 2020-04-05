@@ -619,34 +619,40 @@ def CharacterText():
             if _t21(EUDSCOr()(v.Hero_Text[cp] == 3)(v.Hero_Text[cp] == 5)(v.Hero_Text[cp] == 7)(v.Hero_Text[cp] == 12)(v.Hero_Text[cp] == 18)()):
                 # (Line 215) { tct.addText("\n\n\x13\x04선택할수 없습니다.\n"); }
                 tct.f_addText("\n\n\x13\x04선택할수 없습니다.\n")
-                # (Line 216) }
+                # (Line 216) else { tct.addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"); }
+            if EUDElse()():
+                tct.f_addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n")
+                # (Line 217) }
             EUDEndIf()
-            # (Line 217) else if (cp >=3 && cp <= 5 && Switch((248), (2)))
+            # (Line 218) else if (cp >=3 && cp <= 5 && Switch((248), (2)))
         if EUDElseIf()(EUDSCAnd()(cp >= 3)(cp <= 5)(Switch((248), (2)))()):
-            # (Line 218) {
-            # (Line 219) if (v.Hero_Text[cp] == 3
+            # (Line 219) {
+            # (Line 220) if (v.Hero_Text[cp] == 3
             _t23 = EUDIf()
-            # (Line 220) || v.Hero_Text[cp] == 5
-            # (Line 221) || v.Hero_Text[cp] == 7
-            # (Line 222) || v.Hero_Text[cp] == 12
-            # (Line 223) || v.Hero_Text[cp] == 18)
+            # (Line 221) || v.Hero_Text[cp] == 5
+            # (Line 222) || v.Hero_Text[cp] == 7
+            # (Line 223) || v.Hero_Text[cp] == 12
+            # (Line 224) || v.Hero_Text[cp] == 18)
             if _t23(EUDSCOr()(v.Hero_Text[cp] == 3)(v.Hero_Text[cp] == 5)(v.Hero_Text[cp] == 7)(v.Hero_Text[cp] == 12)(v.Hero_Text[cp] == 18)()):
-                # (Line 224) { tct.addText("\n\n\x13\x04선택할수 없습니다.\n"); }
+                # (Line 225) { tct.addText("\n\n\x13\x04선택할수 없습니다.\n"); }
                 tct.f_addText("\n\n\x13\x04선택할수 없습니다.\n")
-                # (Line 225) }
+                # (Line 226) else { tct.addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"); }
+            if EUDElse()():
+                tct.f_addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n")
+                # (Line 227) }
             EUDEndIf()
-            # (Line 226) else { tct.addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"); }
+            # (Line 228) else { tct.addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"); }
         if EUDElse()():
             tct.f_addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n")
-            # (Line 228) txtPtr = dwread_epd(EPD(0x640B58));
+            # (Line 230) txtPtr = dwread_epd(EPD(0x640B58));
         EUDEndIf()
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 229) tct.displayText();
+        # (Line 231) tct.displayText();
         tct.f_displayText()
-        # (Line 230) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 232) v.Hero_Text[cp] = 0;
+        # (Line 232) SetMemory(0x640B58, SetTo, txtPtr);
+        # (Line 234) v.Hero_Text[cp] = 0;
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
         _ARRW(v.Hero_Text, cp) << (0)
-        # (Line 233) }
-        # (Line 234) }
+        # (Line 235) }
+        # (Line 236) }
     EUDEndIf()

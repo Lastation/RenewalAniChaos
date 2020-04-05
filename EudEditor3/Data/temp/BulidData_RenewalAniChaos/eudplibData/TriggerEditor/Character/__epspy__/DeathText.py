@@ -155,93 +155,105 @@ def SetDeathValue():
             # (Line 19) if (Deaths((0), (10), 15, (172)) || Deaths((1), (10), 15, (172)) || Deaths((2), (10), 15, (172))) { SetSwitch((20), (4)); }
             if EUDIf()(EUDSCOr()(Deaths((0), (10), 15, (172)))(Deaths((1), (10), 15, (172)))(Deaths((2), (10), 15, (172)))()):
                 DoActions(SetSwitch((20), (4)))
-                # (Line 20) if (Deaths((0), (10), 16, (172)) || Deaths((1), (10), 16, (172)) || Deaths((2), (10), 16, (172))) { SetDeaths((13), (7), 12, (210)); SetSwitch((23), (4)); }
+                # (Line 20) if (Switch((22), (2)))
             EUDEndIf()
-            if EUDIf()(EUDSCOr()(Deaths((0), (10), 16, (172)))(Deaths((1), (10), 16, (172)))(Deaths((2), (10), 16, (172)))()):
-                DoActions(SetDeaths((13), (7), 12, (210)))
-                DoActions(SetSwitch((23), (4)))
-                # (Line 21) else { SetDeaths((13), (7), 120 + v.Level[cp] * 12, (210)); }
+            if EUDIf()(Switch((22), (2))):
+                # (Line 21) {
+                # (Line 22) if (Deaths((0), (10), 16, (172)) || Deaths((1), (10), 16, (172)) || Deaths((2), (10), 16, (172)))
+                if EUDIf()(EUDSCOr()(Deaths((0), (10), 16, (172)))(Deaths((1), (10), 16, (172)))(Deaths((2), (10), 16, (172)))()):
+                    # (Line 23) { SetDeaths((13), (7), 12, (210)); SetSwitch((23), (4)); }
+                    DoActions(SetDeaths((13), (7), 12, (210)))
+                    DoActions(SetSwitch((23), (4)))
+                    # (Line 24) }
+                EUDEndIf()
+                # (Line 25) else { SetDeaths((13), (7), 120 + v.Level[cp] * 12, (210)); }
             if EUDElse()():
                 DoActions(SetDeaths((13), (7), 120 + v.Level[cp] * 12, (210)))
-                # (Line 23) if (Bring((6), (1), 6, (162), (153))) { SetScore((7), (8), 5, (7)); }
+                # (Line 27) if (Bring((6), (1), 6, (162), (153))) { SetScore((7), (8), 5, (7)); }
             EUDEndIf()
             if EUDIf()(Bring((6), (1), 6, (162), (153))):
                 DoActions(SetScore((7), (8), 5, (7)))
-                # (Line 24) SetResources((3), (8), v.DeathOre, (0));
+                # (Line 28) SetResources((3), (8), v.DeathOre, (0));
             EUDEndIf()
-            # (Line 25) SetResources((4), (8), v.DeathOre, (0));
+            # (Line 29) SetResources((4), (8), v.DeathOre, (0));
             DoActions(SetResources((3), (8), v.DeathOre, (0)))
-            # (Line 26) SetResources((5), (8), v.DeathOre, (0));
+            # (Line 30) SetResources((5), (8), v.DeathOre, (0));
             DoActions(SetResources((4), (8), v.DeathOre, (0)))
-            # (Line 27) }
+            # (Line 31) }
             DoActions(SetResources((5), (8), v.DeathOre, (0)))
-            # (Line 28) if (cp >= 3 && cp <= 5)
+            # (Line 32) if (cp >= 3 && cp <= 5)
         EUDEndIf()
         if EUDIf()(EUDSCAnd()(cp >= 3)(cp <= 5)()):
-            # (Line 29) {
-            # (Line 30) v.Team_Num = 1;
+            # (Line 33) {
+            # (Line 34) v.Team_Num = 1;
             _ATTW(v, 'Team_Num') << (1)
-            # (Line 32) if (Deaths((3), (10), 15, (172)) || Deaths((4), (10), 15, (172)) || Deaths((5), (10), 15, (172))) { SetSwitch((20), (4)); }
+            # (Line 36) if (Deaths((3), (10), 15, (172)) || Deaths((4), (10), 15, (172)) || Deaths((5), (10), 15, (172))) { SetSwitch((20), (4)); }
             if EUDIf()(EUDSCOr()(Deaths((3), (10), 15, (172)))(Deaths((4), (10), 15, (172)))(Deaths((5), (10), 15, (172)))()):
                 DoActions(SetSwitch((20), (4)))
-                # (Line 33) if (Deaths((3), (10), 16, (172)) || Deaths((4), (10), 16, (172)) || Deaths((5), (10), 16, (172))) { SetDeaths((13), (7), 12, (210)); SetSwitch((23), (4)); }
+                # (Line 37) if (Switch((22), (2)))
             EUDEndIf()
-            if EUDIf()(EUDSCOr()(Deaths((3), (10), 16, (172)))(Deaths((4), (10), 16, (172)))(Deaths((5), (10), 16, (172)))()):
-                DoActions(SetDeaths((13), (7), 12, (210)))
-                DoActions(SetSwitch((23), (4)))
-                # (Line 34) else { SetDeaths((13), (7), 120 + v.Level[cp] * 12, (210)); }
+            if EUDIf()(Switch((22), (2))):
+                # (Line 38) {
+                # (Line 39) if (Deaths((3), (10), 16, (172)) || Deaths((4), (10), 16, (172)) || Deaths((5), (10), 16, (172)))
+                if EUDIf()(EUDSCOr()(Deaths((3), (10), 16, (172)))(Deaths((4), (10), 16, (172)))(Deaths((5), (10), 16, (172)))()):
+                    # (Line 40) { SetDeaths((13), (7), 12, (210)); SetSwitch((23), (4)); }
+                    DoActions(SetDeaths((13), (7), 12, (210)))
+                    DoActions(SetSwitch((23), (4)))
+                    # (Line 41) }
+                EUDEndIf()
+                # (Line 42) else { SetDeaths((13), (7), 120 + v.Level[cp] * 12, (210)); }
             if EUDElse()():
                 DoActions(SetDeaths((13), (7), 120 + v.Level[cp] * 12, (210)))
-                # (Line 36) if (Bring((7), (1), 6, (162), (153))) { SetScore((7), (8), 5, (7)); }
+                # (Line 44) if (Bring((7), (1), 6, (162), (153))) { SetScore((7), (8), 5, (7)); }
             EUDEndIf()
             if EUDIf()(Bring((7), (1), 6, (162), (153))):
                 DoActions(SetScore((7), (8), 5, (7)))
-                # (Line 37) SetResources((0), (8), v.DeathOre, (0));
+                # (Line 45) SetResources((0), (8), v.DeathOre, (0));
             EUDEndIf()
-            # (Line 38) SetResources((1), (8), v.DeathOre, (0));
+            # (Line 46) SetResources((1), (8), v.DeathOre, (0));
             DoActions(SetResources((0), (8), v.DeathOre, (0)))
-            # (Line 39) SetResources((2), (8), v.DeathOre, (0));
+            # (Line 47) SetResources((2), (8), v.DeathOre, (0));
             DoActions(SetResources((1), (8), v.DeathOre, (0)))
-            # (Line 40) }
+            # (Line 48) }
             DoActions(SetResources((2), (8), v.DeathOre, (0)))
-            # (Line 42) v.DeathOre_Text[0] = v.DeathOre;
+            # (Line 50) v.DeathOre_Text[0] = v.DeathOre;
         EUDEndIf()
         _ARRW(v.DeathOre_Text, 0) << (v.DeathOre)
-        # (Line 43) v.DeathOre_Text[1] = v.DeathOre;
+        # (Line 51) v.DeathOre_Text[1] = v.DeathOre;
         _ARRW(v.DeathOre_Text, 1) << (v.DeathOre)
-        # (Line 44) v.DeathOre_Text[2] = v.DeathOre;
+        # (Line 52) v.DeathOre_Text[2] = v.DeathOre;
         _ARRW(v.DeathOre_Text, 2) << (v.DeathOre)
-        # (Line 45) v.DeathOre_Text[3] = v.DeathOre;
+        # (Line 53) v.DeathOre_Text[3] = v.DeathOre;
         _ARRW(v.DeathOre_Text, 3) << (v.DeathOre)
-        # (Line 46) v.DeathOre_Text[4] = v.DeathOre;
+        # (Line 54) v.DeathOre_Text[4] = v.DeathOre;
         _ARRW(v.DeathOre_Text, 4) << (v.DeathOre)
-        # (Line 47) v.DeathOre_Text[5] = v.DeathOre;
+        # (Line 55) v.DeathOre_Text[5] = v.DeathOre;
         _ARRW(v.DeathOre_Text, 5) << (v.DeathOre)
-        # (Line 48) }
-        # (Line 49) }
+        # (Line 56) }
+        # (Line 57) }
     EUDEndIf()
-    # (Line 52) function DeathText()
+    # (Line 60) function DeathText()
 
-# (Line 53) {
+# (Line 61) {
 @EUDFunc
 def DeathText():
-    # (Line 54) const cp = getcurpl();
+    # (Line 62) const cp = getcurpl();
     cp = f_getcurpl()
-    # (Line 56) if (v.DeathOre_Text[cp] != 0)
+    # (Line 64) if (v.DeathOre_Text[cp] != 0)
     if EUDIf()(v.DeathOre_Text[cp] == 0, neg=True):
-        # (Line 57) {
-        # (Line 58) const value = dwread_epd(EPD(0x58A364 + 48 * 211 + 4 * cp));
+        # (Line 65) {
+        # (Line 66) const value = dwread_epd(EPD(0x58A364 + 48 * 211 + 4 * cp));
         value = f_dwread_epd(EPD(0x58A364 + 48 * 211 + 4 * cp))
-        # (Line 60) txtPtr = dwread_epd(EPD(0x640B58));
+        # (Line 68) txtPtr = dwread_epd(EPD(0x640B58));
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 61) tct.print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17", ptr2s(v.Hero_Name[value]), "\x04이 치명상을 입었습니다. \x19::\n\n\x13\x07", v.Team_Num, "\x04Team \x17+ ", v.DeathOre_Text[cp], " \x04Ore\n");
+        # (Line 69) tct.print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17", ptr2s(v.Hero_Name[value]), "\x04이 치명상을 입었습니다. \x19::\n\n\x13\x07", v.Team_Num, "\x04Team \x17+ ", v.DeathOre_Text[cp], " \x04Ore\n");
         tct.f_print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17", ptr2s(v.Hero_Name[value]), "\x04이 치명상을 입었습니다. \x19::\n\n\x13\x07", v.Team_Num, "\x04Team \x17+ ", v.DeathOre_Text[cp], " \x04Ore\n")
-        # (Line 62) txtPtr = dwread_epd(EPD(0x640B58));
+        # (Line 70) txtPtr = dwread_epd(EPD(0x640B58));
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 64) SetDeaths((13), (7), 0, (211));
-        # (Line 65) v.DeathOre_Text[cp] = 0;
+        # (Line 72) SetDeaths((13), (7), 0, (211));
+        # (Line 73) v.DeathOre_Text[cp] = 0;
         DoActions(SetDeaths((13), (7), 0, (211)))
         _ARRW(v.DeathOre_Text, cp) << (0)
-        # (Line 66) }
-        # (Line 67) }
+        # (Line 74) }
+        # (Line 75) }
     EUDEndIf()

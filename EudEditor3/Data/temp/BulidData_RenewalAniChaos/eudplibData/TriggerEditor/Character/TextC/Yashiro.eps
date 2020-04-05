@@ -10,11 +10,16 @@ function NormalText(cp)
 	case 2000:
 		PlayWAV("yashiro_sss.ogg");
 		v.Sound_Text3[cp] = 0;
-		tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그것은 분에 넘치는 소망이다.\n\n");
+		tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그것은 분에 넘치는 소망이다\n\n");
 		break;
-	case 2001:
-		tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04게임 오버다.\n\x13\x04너도, 나도.\n\n");
-		PlayWAV("yashiro_aacc.ogg");
+	case 2004:
+		tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04네가 손에 넣는 것은 이 마을의 평화다\n\x13\x04네가 원한 것은 바로 그거잖아?\n\n");
+		PlayWAV("yashiro_AA.ogg");
+		v.Sound_Text3[cp] = 0;
+		break;
+	case 2005:
+		tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04내가 손에 넣는 것은\n\x13\x04나 손에 의한, 나만을 위해 존재하는 죽음이다\n\n");
+		PlayWAV("yashiro_AACC.ogg");
 		v.Sound_Text3[cp] = 0;
 		break;
 	case 2002:

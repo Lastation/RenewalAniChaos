@@ -178,16 +178,35 @@ def AddCharacterExp():
         # (Line 29) {
         # (Line 30) const cp = getcurpl();
         cp = f_getcurpl()
-        # (Line 31) const num = dwread_epd(EPD(0x58A364 + 48 * 0 + 4 * cp));
-        num = f_dwread_epd(EPD(0x58A364 + 48 * 0 + 4 * cp))
+        # (Line 31) const num = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * getcurpl()));
+        num = f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * f_getcurpl()))
         # (Line 33) v.CharacterExp[6 * num + cp] += dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
         _ARRW(v.CharacterExp, 6 * num + cp).__iadd__(f_dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp)))
         # (Line 34) SetDeaths((13), (7), 0, (166));
         # (Line 35) ShowCharacterExp(cp, num);
         DoActions(SetDeaths((13), (7), 0, (166)))
         ShowCharacterExp(cp, num)
-        # (Line 36) sca.SaveData(0);
-        sca.SaveData(0)
-        # (Line 37) }
-        # (Line 38) }
+        # (Line 37) switch(sca.GetLastMessage())
+        EUDSwitch(sca.GetLastMessage())
+        # (Line 38) {
+        # (Line 39) case 1:
+        _t2 = EUDSwitchCase()
+        # (Line 40) sca.SaveData(0);
+        if _t2(1):
+            sca.SaveData(0)
+            # (Line 41) break;
+            EUDBreak()
+            # (Line 42) case 5:
+        _t3 = EUDSwitchCase()
+        # (Line 43) break;
+        if _t3(5):
+            EUDBreak()
+            # (Line 44) default:
+        # (Line 45) sca.ResetLastMessage();
+        if EUDSwitchDefault()():
+            sca.ResetLastMessage()
+            # (Line 46) }
+        # (Line 47) }
+        EUDEndSwitch()
+        # (Line 48) }
     EUDEndIf()
