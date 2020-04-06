@@ -1,18 +1,14 @@
 import Variable as v;
 
 
-function SetBuildingHP() 
+function SetBuildingHP(cp) 
 {
-	const cp = getcurpl();
-	
 	ModifyUnitHitPoints(1, (155), (13), (64), 100 - (v.Unique_Cool[cp] / 10));
 	ModifyUnitShields(1, (167), (13), (64), dwread_epd(EPD(0x58A364 + 48 * 205 + 4 * cp)) / 10);
 }
 
-function SetVariable()
+function SetVariable(cp)
 {
-	const cp = getcurpl();
-
        v.Potion[cp] = dwread_epd(EPD(0x58A364 + 48 * 219 + 4 * cp));
        v.EXP_Need[cp] = dwread_epd(EPD(0x58A364 + 48 * 225 + 4 * cp));
        v.EXP_Now[cp] = dwread_epd(EPD(0x58A364 + 48 * 185 + 4 * cp));

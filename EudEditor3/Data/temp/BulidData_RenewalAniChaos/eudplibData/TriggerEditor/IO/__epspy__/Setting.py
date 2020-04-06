@@ -128,66 +128,151 @@ def _LSH(l, r):
 
 # (Line 1) import SCArchive as sca;
 import SCArchive as sca
-# (Line 3) import Variable as v;
+# (Line 2) import SCAFlexible as scf;
+import SCAFlexible as scf
+# (Line 4) import Variable as v;
 import Variable as v
-# (Line 4) import customText as tct;
+# (Line 5) import customText as tct;
 import customText as tct
-# (Line 6) var txtPtr, btnPtr, btnPos, oldCP;
+# (Line 7) var txtPtr, btnPtr, btnPos, oldCP;
 txtPtr, btnPtr, btnPos, oldCP = EUDCreateVariables(4)
-# (Line 7) const trgk = $T('Artanis & safhfh');
+# (Line 8) const trgk = $T('Artanis & safhfh');
 trgk = _CGFW(lambda: [GetStringIndex('Artanis & safhfh')], 1)[0]
-# (Line 9) function ResetCharacterExp()
-# (Line 10) {
+# (Line 10) function PingCheck();
+# (Line 11) function ShowCharacterExp();
+# (Line 13) function ResetCharacterExp(cp)
+# (Line 14) {
 @EUDFunc
-def ResetCharacterExp():
-    # (Line 11) const cp = getcurpl();
-    cp = f_getcurpl()
-    # (Line 13) for (var i = 0; i < v.CharacterMax; i++)
+def ResetCharacterExp(cp):
+    # (Line 15) for (var i = 0; i < v.CharacterMax; i++)
     i = EUDVariable()
     i << (0)
     if EUDWhile()(i >= v.CharacterMax, neg=True):
         def _t2():
             i.__iadd__(1)
-        # (Line 14) {
-        # (Line 15) v.CharacterExp[6 * i + cp] = 0;
-        _ARRW(v.CharacterExp, 6 * i + cp) << (0)
-        # (Line 16) }
-        # (Line 17) }
+        # (Line 16) {
+        # (Line 17) v.SaveExp[8 * v.CharacterMax + cp] = 0;
+        _ARRW(v.SaveExp, 8 * v.CharacterMax + cp) << (0)
+        # (Line 18) }
+        # (Line 19) }
         EUDSetContinuePoint()
         _t2()
     EUDEndWhile()
-    # (Line 19) function ShowCharacterExp(cp, num)
+    # (Line 21) function AddCharacterExp(HeroNumber, cp)
 
-# (Line 20) {
+# (Line 22) {
 @EUDFunc
-def ShowCharacterExp(cp, num):
-    # (Line 21) tct.makeText("\x13\x17[ \x04",ptr2s(v.Hero_Name[num])," \x17] \x04EXP : ");
-    tct.f_makeText("\x13\x17[ \x04", ptr2s(v.Hero_Name[num]), " \x17] \x04EXP : ")
-    # (Line 22) tct.addText(v.CharacterExp[6 * num + cp],"");
-    tct.f_addText(v.CharacterExp[6 * num + cp], "")
-    # (Line 23) tct.displayText();
-    tct.f_displayText()
-    # (Line 24) }
-    # (Line 26) function AddCharacterExp()
-
-# (Line 27) {
-@EUDFunc
-def AddCharacterExp():
-    # (Line 28) if(Deaths((13), (0), 1, (166)))
-    if EUDIf()(Deaths((13), (0), 1, (166))):
-        # (Line 29) {
-        # (Line 30) const cp = getcurpl();
-        cp = f_getcurpl()
-        # (Line 31) const num = dwread_epd(EPD(0x58A364 + 48 * 0 + 4 * cp));
-        num = f_dwread_epd(EPD(0x58A364 + 48 * 0 + 4 * cp))
-        # (Line 33) v.CharacterExp[6 * num + cp] += dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
-        _ARRW(v.CharacterExp, 6 * num + cp).__iadd__(f_dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp)))
-        # (Line 34) SetDeaths((13), (7), 0, (166));
-        # (Line 35) ShowCharacterExp(cp, num);
-        DoActions(SetDeaths((13), (7), 0, (166)))
-        ShowCharacterExp(cp, num)
-        # (Line 36) sca.SaveData(0);
+def AddCharacterExp(HeroNumber, cp):
+    # (Line 23) if (Deaths(CurrentPlayer, AtLeast, 1, " `AddExp"))
+    if EUDIf()(Deaths(CurrentPlayer, AtLeast, 1, " `AddExp")):
+        # (Line 24) {
+        # (Line 25) const Exp = dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
+        Exp = f_dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp))
+        # (Line 26) v.SaveExp[8 * HeroNumber + cp] += Exp;
+        _ARRW(v.SaveExp, 8 * HeroNumber + cp).__iadd__(Exp)
+        # (Line 27) sca.SaveData(0);
         sca.SaveData(0)
-        # (Line 37) }
-        # (Line 38) }
+        # (Line 29) SetDeaths(CurrentPlayer, SetTo, 0, " `AddExp");
+        # (Line 30) }
+        DoActions(SetDeaths(CurrentPlayer, SetTo, 0, " `AddExp"))
+        # (Line 31) }
+    EUDEndIf()
+    # (Line 33) function SaveCharacterExp(cp)
+
+# (Line 34) {
+@EUDFunc
+def SaveCharacterExp(cp):
+    # (Line 35) if(sca.ConnectStatus() == 1)
+    if EUDIf()(sca.ConnectStatus() == 1):
+        # (Line 36) {
+        # (Line 37) const HeroNumber = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp));
+        HeroNumber = f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp))
+        # (Line 39) AddCharacterExp(HeroNumber, cp);
+        AddCharacterExp(HeroNumber, cp)
+        # (Line 41) switch(sca.GetLastMessage())
+        EUDSwitch(sca.GetLastMessage())
+        # (Line 42) {
+        # (Line 43) case 5:
+        _t2 = EUDSwitchCase()
+        # (Line 44) tct.makeText("\x13\x04",ptr2s(v.Hero_Name[HeroNumber]),"의 정보를 저장중입니다.");
+        if _t2(5):
+            tct.f_makeText("\x13\x04", ptr2s(v.Hero_Name[HeroNumber]), "의 정보를 저장중입니다.")
+            # (Line 45) tct.addText("\n\x13\x17[ \x04",ptr2s(v.Hero_Name[HeroNumber])," \x17] \x04EXP : ", v.SaveExp[8 * HeroNumber + cp],"");
+            tct.f_addText("\n\x13\x17[ \x04", ptr2s(v.Hero_Name[HeroNumber]), " \x17] \x04EXP : ", v.SaveExp[8 * HeroNumber + cp], "")
+            # (Line 47) txtPtr = dwread_epd(EPD(0x640B58));
+            txtPtr << (f_dwread_epd(EPD(0x640B58)))
+            # (Line 48) tct.displayText();
+            tct.f_displayText()
+            # (Line 49) SetMemory(0x640B58, SetTo, txtPtr);
+            # (Line 50) break;
+            DoActions(SetMemory(0x640B58, SetTo, txtPtr))
+            EUDBreak()
+            # (Line 51) case 6:
+        _t3 = EUDSwitchCase()
+        # (Line 52) tct.print("\x13\x04",ptr2s(v.Hero_Name[HeroNumber]),"의 저장을 완료하였습니다.");
+        if _t3(6):
+            tct.f_print("\x13\x04", ptr2s(v.Hero_Name[HeroNumber]), "의 저장을 완료하였습니다.")
+            # (Line 53) tct.addText("\n\x13\x17[ \x04",ptr2s(v.Hero_Name[HeroNumber])," \x17] \x04EXP : ", v.SaveExp[8 * HeroNumber + cp],"");
+            tct.f_addText("\n\x13\x17[ \x04", ptr2s(v.Hero_Name[HeroNumber]), " \x17] \x04EXP : ", v.SaveExp[8 * HeroNumber + cp], "")
+            # (Line 55) txtPtr = dwread_epd(EPD(0x640B58));
+            txtPtr << (f_dwread_epd(EPD(0x640B58)))
+            # (Line 56) tct.displayText();
+            tct.f_displayText()
+            # (Line 57) SetMemory(0x640B58, SetTo, txtPtr);
+            # (Line 58) sca.ResetLastMessage();
+            DoActions(SetMemory(0x640B58, SetTo, txtPtr))
+            sca.ResetLastMessage()
+            # (Line 59) break;
+            EUDBreak()
+            # (Line 60) }
+        # (Line 61) }
+        EUDEndSwitch()
+        # (Line 62) }
+    EUDEndIf()
+    # (Line 64) function LoadCharacterExp(cp)
+
+# (Line 65) {
+@EUDFunc
+def LoadCharacterExp(cp):
+    # (Line 66) if(sca.ConnectStatus() == 1)
+    if EUDIf()(sca.ConnectStatus() == 1):
+        # (Line 67) {
+        # (Line 68) if (v.isLoad[cp] == 0) { sca.LoadData(0); v.isLoad[cp] = 1; }
+        if EUDIf()(v.isLoad[cp] == 0):
+            sca.LoadData(0)
+            _ARRW(v.isLoad, cp) << (1)
+            # (Line 70) switch(sca.GetLastMessage())
+        EUDEndIf()
+        EUDSwitch(sca.GetLastMessage())
+        # (Line 71) {
+        # (Line 72) case 3:
+        _t3 = EUDSwitchCase()
+        # (Line 73) txtPtr = dwread_epd(EPD(0x640B58));
+        if _t3(3):
+            txtPtr << (f_dwread_epd(EPD(0x640B58)))
+            # (Line 74) tct.print("\x13\x04저장된  정보를 불러오는 중입니다.");
+            tct.f_print("\x13\x04저장된  정보를 불러오는 중입니다.")
+            # (Line 75) SetMemory(0x640B58, SetTo, txtPtr);
+            # (Line 76) break;
+            DoActions(SetMemory(0x640B58, SetTo, txtPtr))
+            EUDBreak()
+            # (Line 77) case 4:
+        _t4 = EUDSwitchCase()
+        # (Line 78) txtPtr = dwread_epd(EPD(0x640B58));
+        if _t4(4):
+            txtPtr << (f_dwread_epd(EPD(0x640B58)))
+            # (Line 79) tct.print("\x13\x04저장된 정보를 불러오는데 성공하였습니다.");
+            tct.f_print("\x13\x04저장된 정보를 불러오는데 성공하였습니다.")
+            # (Line 80) SetMemory(0x640B58, SetTo, txtPtr);
+            # (Line 81) v.isLoad[cp] = 1;
+            DoActions(SetMemory(0x640B58, SetTo, txtPtr))
+            _ARRW(v.isLoad, cp) << (1)
+            # (Line 82) sca.ResetLastMessage();
+            sca.ResetLastMessage()
+            # (Line 83) break;
+            EUDBreak()
+            # (Line 84) }
+        # (Line 85) }
+        EUDEndSwitch()
+        # (Line 86) }
     EUDEndIf()

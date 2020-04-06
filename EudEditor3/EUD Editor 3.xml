@@ -1120,6 +1120,26 @@ GUI_FunctionSelecter
 InitializeComponent
 </summary>
 </member>
+<member name="T:EUD_Editor_3.GUI_ObjectSelecter">
+<summary>
+GUI_ObjectSelecter
+</summary>
+</member>
+<member name="M:EUD_Editor_3.GUI_ObjectSelecter.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:EUD_Editor_3.GUI_VariableSelecter">
+<summary>
+GUI_VariableSelecter
+</summary>
+</member>
+<member name="M:EUD_Editor_3.GUI_VariableSelecter.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
 <member name="T:EUD_Editor_3.GUI_ArgEditor">
 <summary>
 GUI_ArgEditor
@@ -1136,6 +1156,26 @@ GUI_ArgEditorWindow
 </summary>
 </member>
 <member name="M:EUD_Editor_3.GUI_ArgEditorWindow.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:EUD_Editor_3.GUI_ArgExpress">
+<summary>
+GUI_ArgExpress
+</summary>
+</member>
+<member name="M:EUD_Editor_3.GUI_ArgExpress.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:EUD_Editor_3.GUI_Express">
+<summary>
+GUI_Express
+</summary>
+</member>
+<member name="M:EUD_Editor_3.GUI_Express.InitializeComponent">
 <summary>
 InitializeComponent
 </summary>
@@ -1256,6 +1296,16 @@ GUI_Var
 </summary>
 </member>
 <member name="M:EUD_Editor_3.GUI_Var.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:EUD_Editor_3.GUI_VarFuncUse">
+<summary>
+GUI_VarFuncUse
+</summary>
+</member>
+<member name="M:EUD_Editor_3.GUI_VarFuncUse.InitializeComponent">
 <summary>
 InitializeComponent
 </summary>

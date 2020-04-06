@@ -1,0 +1,188 @@
+import String as str;
+
+// 유저 정보
+const user_Slot = PVariable();
+const user_Level = PVariable();
+const user_Character = PVariable();
+const user_Id = PVariable();
+const user_Mp = PVariable();
+const user_MpRecovery = PVariable();
+const user_MpRecoverTimer = PVariable();
+const user_MaxHp = PVariable();
+const user_MaxMp = PVariable();
+const user_Exp = PVariable();
+const user_Gold = PVariable();
+const user_Loc = PVariable();
+const user_LevelUpCount = PVariable();
+const user_TotalAcquireGold = PVariable();
+const user_TotalSpendGold = PVariable();
+const user_Job = PVariable();
+
+const Slot1_Level = PVariable();
+const Slot1_Exp = PVariable();
+const Slot1_Job = PVariable();
+const Slot2_Level = PVariable();
+const Slot2_Exp = PVariable();
+const Slot2_Job = PVariable();
+const Slot3_Level = PVariable();
+const Slot3_Exp = PVariable();
+const Slot3_Job = PVariable();
+const Slot4_Level = PVariable();
+const Slot4_Exp = PVariable();
+const Slot4_Job = PVariable();
+const Slot5_Level = PVariable();
+const Slot5_Exp = PVariable();
+const Slot5_Job = PVariable();
+
+const SaveState = PVariable();
+const LoadState = PVariable();
+const print = PVariable();
+const LoadItem = PVariable();
+
+// 유저 상태
+const isSurvive = PVariable();
+const isHold = PVariable();
+const isInvincible = PVariable();
+const isInventory = PVariable();
+const isDebug = PVariable();
+const isFullInven = PVariable();
+
+const MaxLevel = 3;
+const MaxInven = 21;
+const Crafting = PVariable();
+const s = StringBuffer(1000);
+
+const MaxUnsawnTimber = 4;
+const MaxTimber = 4;
+const MaxIronOre = 4;
+
+const Potal = PVariable();
+const Quest001 = PVariable();
+
+// 시간
+const hour = 0;
+const minute = 0;
+var second = 0;
+
+const MonsterTemp = 0;
+
+// 아이템 {
+object Item {
+	var name;
+	var dmg;
+	var lv;
+	var price;
+	var sell_pirce;	
+	var content;
+};
+
+// 재료 {
+const UnsawnTimber = Item();
+const Timber = Item();
+const IronOre = Item();
+
+const ITEM_UnsawnTimber = PVariable();
+const ITEM_Timber = PVariable();
+const ITEM_IronOre = PVariable();
+//}
+
+// 포션 {
+const HPPotion1 = Item();
+const HPPotion2 = Item();
+const HPPotion3 = Item();
+const HPPotion4 = Item();
+const HPPotion5 = Item();
+
+const ITEM_HPPotion1 = PVariable();
+const ITEM_HPPotion2 = PVariable();
+const ITEM_HPPotion3 = PVariable();
+const ITEM_HPPotion4 = PVariable();
+const ITEM_HPPotion5 = PVariable();
+//}
+
+// 전리품 {
+const GoblinTooth = Item();
+
+const ITEM_GoblinTooth = PVariable();
+
+//}
+
+// 몬스터 {
+const GoblinKills = PVariable();
+const OrcKills = PVariable();
+const LamiaKills = PVariable();
+const PengKills = PVariable();
+const BiterKills = PVariable();
+//}
+
+const MaxExp = [10, 20, 30];
+
+function onPluginStart()
+{
+	UnsawnTimber.name = Db("\x04원목");
+	UnsawnTimber.dmg = 0;
+	UnsawnTimber.lv = 0;
+	UnsawnTimber.price = 45;
+	UnsawnTimber.sell_pirce = 20;
+	UnsawnTimber.content = Db("제재소에서 가공이 필요한 원목이다.");
+
+	Timber.name = Db("\x04목재");
+	Timber.dmg = 0;
+	Timber.lv = 0;
+	Timber.price = 45;
+	Timber.sell_pirce = 20;
+	Timber.content = Db("각종 무기와 방어구 및 다양한 아이템의 제작 재료로 사용된다.");
+	
+	IronOre.name = Db("\x04철광석");
+	IronOre.dmg = 0;
+	IronOre.lv = 0;
+	IronOre.price = 45;
+	IronOre.sell_pirce = 20;
+	IronOre.content = Db("각종 무기와 방어구 및 다양한 아이템의 제작 재료로 사용된다.");
+	
+	// HP 포션 {
+		HPPotion1.name = Db("HP 회복 물약 1");
+		HPPotion1.dmg = 20;
+		HPPotion1.lv = 0;
+		HPPotion1.price = 20;
+		HPPotion1.sell_pirce = 20;
+		HPPotion1.content = str.HpPotion1;
+		
+		HPPotion2.name = Db("HP 회복 물약 2");
+		HPPotion2.dmg = 0;
+		HPPotion2.lv = 0;
+		HPPotion2.price = 35;
+		HPPotion2.sell_pirce = 20;
+		HPPotion2.content = str.HpPotion2;
+		
+		HPPotion3.name = Db("HP 회복 물약 3");
+		HPPotion3.dmg = 0;
+		HPPotion3.lv = 0;
+		HPPotion3.price = 35;
+		HPPotion3.sell_pirce = 20;
+		HPPotion3.content = str.HpPotion3;
+		
+		HPPotion4.name = Db("HP 회복 물약 4");
+		HPPotion4.dmg = 0;
+		HPPotion4.lv = 0;
+		HPPotion4.price = 35;
+		HPPotion4.sell_pirce = 20;
+		HPPotion4.content = str.HpPotion4;
+		
+		HPPotion5.name = Db("HP 회복 물약 4");
+		HPPotion5.dmg = 0;
+		HPPotion5.lv = 0;
+		HPPotion5.price = 35;
+		HPPotion5.sell_pirce = 20;
+		HPPotion5.content = str.HpPotion5;
+	//}
+	// 전리품 {
+		GoblinTooth.name = Db("고블린의 이빨");
+		GoblinTooth.dmg = 0;
+		GoblinTooth.lv = 0;
+		GoblinTooth.price = 45;
+		GoblinTooth.sell_pirce = 20;
+		GoblinTooth.content = Db("고블린을 처치시 얻을 수 있는 전리품");
+	//}
+	
+}

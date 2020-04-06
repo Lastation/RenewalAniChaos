@@ -371,7 +371,7 @@ function SetResources(Player : TrgPlayer, Modifier : TrgModifier, Amount, Resour
  *
  * @param.Player.ko-KR
  * 점수가 설정될 플레이어입니다.
- * @param.ResourceType.ko-KR
+ * @param.ScoreType.ko-KR
  * 설정할 점수의 종류입니다.
  * @param.Amount.ko-KR
  * 설정할 점수의 양입니다.

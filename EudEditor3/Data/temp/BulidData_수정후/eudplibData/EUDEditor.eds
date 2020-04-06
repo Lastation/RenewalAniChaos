@@ -1,0 +1,18 @@
+[main]
+input: D:\User\Desktop\roche\RPG.scx
+output: D:\User\Documents\StarCraft\Maps\Download\!RPG.scx
+
+[DataEditor.py]
+[ExtraDataEditor.py]
+[dataDumper]
+..\temp\custom_txt.tbl : 0x6D5A30, copy
+
+[TriggerEditor\main2.eps]
+
+
+
+
+
+[EUDTurbo]
+
+

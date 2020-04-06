@@ -4,6 +4,9 @@ import Variable as v;
 var txtPtr, btnPtr, btnPos, oldCP;
 const trgk = $T('Artanis & safhfh');
 
+function Property_S(cp);
+function Property_C(cp);
+function Property_A();
 
 function PropertyText() 
 {
@@ -22,11 +25,16 @@ function PropertyText()
 	}
 }
 
-function Property_S()
+function Property(cp)
 {
-	const cp = getcurpl();
-	
-	if (cp >= 0 && cp <= 2 && bread(0x58D2B0 + 0x207C * ((0) / 46) + (cp) * (46 - 31 * ((0) / 46)) + ((0) % 46)) == 60)
+	Property_S(cp);
+	Property_C(cp);
+	Property_A();
+}
+
+function Property_S(cp)
+{
+	if (cp >= 0 && cp <= 2 &&  bread(0x58D088 + 0x21F0 * ((0) / 46) + cp * (46 - 31 * ((0) / 46)) + ((0) % 46)) == 60)
 	{
 		if (Deaths((0), (10), 1000, (223)) || Deaths((1), (10), 1000, (223)) || Deaths((2), (10), 1000, (223)))
 		{
@@ -38,7 +46,7 @@ function Property_S()
 			bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (2) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
 		}
 	}
-	if (cp >= 3 && cp <= 5 && bread(0x58D2B0 + 0x207C * ((0) / 46) + (cp) * (46 - 31 * ((0) / 46)) + ((0) % 46)) == 60)
+	if (cp >= 3 && cp <= 5 &&  bread(0x58D088 + 0x21F0 * ((0) / 46) + cp * (46 - 31 * ((0) / 46)) + ((0) % 46)) == 60)
 	{
 		if (Deaths((3), (10), 1000, (223)) || Deaths((4), (10), 1000, (223)) || Deaths((5), (10), 1000, (223)))
 		{
@@ -65,15 +73,13 @@ function Property_S()
 	}
 }
 
-function Property_C()
+function Property_C(cp)
 {
-	const cp = getcurpl();
-	
 	if (Deaths((13), (10), 2720, (223)))
 	{
 		v.Mana_Property[cp] = 100;
 
-		if (cp >= 1 && cp <= 2)
+		if (cp >= 0 && cp <= 2)
 		{
 			if (Deaths((0), (0), 2000, (223)) && Deaths((0), (1), 2999, (223))) { v.Mana_Property[cp] += 100; }
 			if (Deaths((1), (0), 2000, (223)) && Deaths((1), (1), 2999, (223))) { v.Mana_Property[cp] += 100; }

@@ -4,10 +4,8 @@ import Variable as v;
 var txtPtr, btnPtr, btnPos, oldCP;
 const trgk = $T('Artanis & safhfh');
 
-function SetIndex() 
+function SetIndex(cp) 
 {
-	const cp = getcurpl();
-	
 	if (Switch((255), (3)) && Bring((13), (0), 1, (15), (96)))
 	{
 		if (Bring((13), (0), 1, (15), (32)) && v.Hero_Index[cp] != 1) 		{ v.Hero_Index[cp] = 1; }
@@ -37,10 +35,8 @@ function SetIndex()
 	}
 }
 
-function CharacterTextNum() 
+function CharacterTextNum(cp) 
 {
-	const cp = getcurpl();
-
 	v.Unit_Death[cp] = dwread_epd(EPD(0x58A364 + 48 * v.Unit_ID[cp] + 4 * v.PlayerID[cp]));
 	
 	switch (v.Unit_ID[cp])
@@ -86,11 +82,9 @@ function CharacterTextNum()
 }
 
 
-function CharacterText()
+function CharacterText(cp)
 {
-	const cp = getcurpl();
-	
-	if (v.Hero_Text[cp] >= 1)
+	if (v.Hero_Text[cp] >= 1 && Deaths((13), (1), 9999, (223)))
 	{
 		tct.makeText("\n\x13\x17[ \x04",ptr2s(v.Hero_Name[v.Hero_Text[cp]])," \x17]");
 		switch (v.Hero_Text[cp]) 
@@ -213,6 +207,7 @@ function CharacterText()
 			|| v.Hero_Text[cp] == 12 
 			|| v.Hero_Text[cp] == 18)
 			{ tct.addText("\n\n\x13\x04선택할수 없습니다.\n"); }
+			else { tct.addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"); }
 		}
 		else if (cp >=3 && cp <= 5 && Switch((248), (2)))
 		{
@@ -222,6 +217,7 @@ function CharacterText()
 			|| v.Hero_Text[cp] == 12
 			|| v.Hero_Text[cp] == 18)
 			{ tct.addText("\n\n\x13\x04선택할수 없습니다.\n"); }
+			else { tct.addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"); }
 		}
 		else { tct.addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"); }
 		

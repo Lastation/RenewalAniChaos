@@ -1,6 +1,14 @@
-const CharacterMax = 18;
-const CharacterExp = EUDArray(6 * CharacterMax);
+// SCA Variable
+const PlayerExp = PVariable();
 
+const isLoad = PVariable();
+
+const CharacterMax = 18;
+const SaveExp = EUDArray(CharacterMax * 8);
+
+const AnnounceList = PVariable();
+
+// Common Variable
 const Unit_Death = PVariable();
 const Hero_Text = PVariable();
 
@@ -58,5 +66,5 @@ Db("야시로 가쿠"),
 Db("린"),
 Db("세라핌"),
 Db("키아나 카스라나"),
-Db("이와후네 텐카이"),
+Db("이와후네 텐케이"),
 Db("#REF")];

@@ -4,10 +4,8 @@ import Variable as v;
 var txtPtr, btnPtr, btnPos, oldCP;
 const trgk = $T('Artanis & safhfh');
 
-function BuildingText() 
+function BuildingText(cp) 
 {
-	const cp = getcurpl();
-	
 	if (v.Unit_ID[cp] != 0 && v.Unit_ID[cp] != v.BuildingText[cp])
 	{ 
 		v.BuildingText[cp] = v.Unit_ID[cp]; 

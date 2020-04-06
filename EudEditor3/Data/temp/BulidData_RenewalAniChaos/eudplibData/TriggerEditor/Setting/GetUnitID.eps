@@ -1,10 +1,8 @@
 import Variable as v;
 	
 
-function Get_UnitID() 
+function Get_UnitID(cp) 
 {
-	const cp = getcurpl();
-	
     	if (MemoryEPD(EPD(0x6284E8) + 12 *cp, AtLeast, 1)) 
     	{
         	const selectedUnit = EPD(0x6284E8) + 12 * cp;

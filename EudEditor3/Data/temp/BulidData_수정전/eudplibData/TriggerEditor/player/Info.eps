@@ -1,0 +1,27 @@
+import Variable as v;
+
+function WindowCheck();
+function EquipGun();
+
+function WindowCheck()
+{
+	const cp = getcurpl();
+	
+	if(v.openedInven[cp] == 0 && v.opendedSetting[cp] && v.openedQuest[cp] == 0)
+	{
+		return true;
+	}
+	else return false;
+}
+
+function EquipGun() 
+{
+	const cp = getcurpl();
+	
+	dwwrite(0x6564E0 + 1992 + cp * 4, 143); // 무기 그래픽
+	bwrite(0x6564E0 + 3448 + cp * 1, 3); // 데미지타입 노말
+	wwrite(0x6564E0 + 672 + cp * 2, 324); // 아이콘 C-10
+	wwrite(0x6564E0 + 3584 + cp * 2, 229 + getcurpl()); // 이름
+	//bwrite(0x6564E0 + 2776 + cp * 1, v.USER_AttackSpeed[cp]); // 공격속도
+}
+

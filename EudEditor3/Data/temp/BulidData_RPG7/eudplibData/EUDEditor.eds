@@ -1,0 +1,62 @@
+[main]
+input: D:\User\Desktop\RPG.scx
+output: D:\User\Documents\StarCraft\Maps\테스트맵\!RPG output6.scx
+[DataEditor.py]
+[ExtraDataEditor.py]
+[TriggerEditor\Variables.eps]
+[TriggerEditor\Inventory.eps]
+[TriggerEditor\Function.eps]
+[TriggerEditor\Crafting.eps]
+[TriggerEditor\Debug.eps]
+[TriggerEditor\Monster.eps]
+[TriggerEditor\String.eps]
+[TriggerEditor\Potal.eps]
+[TriggerEditor\Quest.eps]
+[TriggerEditor\Time.eps]
+[TriggerEditor\NPC.eps]
+[TriggerEditor\Save.eps]
+
+[dataDumper]
+..\temp\custom_txt.tbl : 0x6D5A30, copy
+
+[TriggerEditor\Main.eps]
+
+[chatEvent]
+__ptrAddr__ : 0x58D904
+__addr__ : 0x58D900
+__encoding__ : UTF-8
+save : 2
+load : 3
+
+[MSQC]
+MSQCSpecial.Exactly(1) : MSQCSpecialBuffer, 100
+MSQCSpecial.Exactly(2) : MSQCSpecialBuffer, 200
+MSQCSpecial.Exactly(3) : MSQCSpecialBuffer, 300
+MSQCSpecial.Exactly(4) : MSQCSpecialBuffer, 400
+MSQCCondiction.Exactly(1) ; xy , MSQCValue : MSQCBuffer
+
+
+NotTyping; KeyDown(i) : Terran Dropship, 1
+NotTyping; KeyDown(z) : Terran Dropship, 2
+NotTyping; KeyDown(x) : Terran Dropship, 4
+NotTyping; KeyDown(C) : Terran Dropship, 8
+NotTyping; KeyDown(1) : Cave, 1
+NotTyping; KeyDown(2) : Cave, 2
+NotTyping; KeyDown(3) : Cave, 3
+NotTyping; KeyDown(4) : Cave, 4
+NotTyping; KeyDown(5) : Cave, 5
+NotTyping; KeyDown(6) : Cave, 6
+NotTyping; KeyDown(7) : Cave, 7
+NotTyping; KeyDown(8) : Cave, 8
+NotTyping; KeyDown(T) : Cave, 16
+NotTyping; KeyDown(DELETE) : Cave, 32
+NotTyping; KeyDown(HOME) : Cave, 33
+NotTyping; KeyDown(END) : Cave, 34
+NotTyping; KeyDown(PGUP) : Cave, 35
+NotTyping; KeyDown(PGDN) : Cave, 36
+마우스 : 0
+0x58D900, Exactly, 2 : Terran SCV, 2
+0x58D900, Exactly, 3 : Terran SCV, 3
+
+[EUDTurbo]
+

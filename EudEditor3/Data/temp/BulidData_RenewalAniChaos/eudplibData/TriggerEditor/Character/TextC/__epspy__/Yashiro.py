@@ -146,8 +146,8 @@ def NormalText(cp):
         # (Line 12) v.Sound_Text3[cp] = 0;
         DoActions(PlayWAV("yashiro_sss.ogg"))
         _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 13) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그것은 분에 넘치는 소망이다.\n\n");
-        tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그것은 분에 넘치는 소망이다.\n\n")
+        # (Line 13) tct.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그것은 분에 넘치는 소망이다\n\n");
+        tct.f_print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그것은 분에 넘치는 소망이다\n\n")
         # (Line 14) break;
         EUDBreak()
         # (Line 15) case 2004:
