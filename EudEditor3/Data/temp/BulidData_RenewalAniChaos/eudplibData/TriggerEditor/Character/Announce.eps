@@ -12,10 +12,8 @@ function Announce_Init()
 	{ tct.chatAnnouncement("　\x04캐릭터 선택 : \x17커세어　\x04캐릭터 정보확인 : \x17유닛 클릭　\x04랜덤 선택 : \x17리버"); }
 }
 
-function Announce_Adv(value)
+function Announce_Adv(value, cp)
 {
-	const cp = getcurpl();
-	
 	if (Deaths((13), (10), 0, (210)) && v.Unique_Cool[cp] == 0)
 	{
 		if (value == 0)
@@ -46,10 +44,8 @@ function Announce_Adv(value)
 	}
 }
 
-function Announce_Normal()
+function Announce_Normal(cp)
 {
-	const cp = getcurpl();
-
 	if (Deaths((13), (10), 0, (210)))
 	{
 		if (v.Unique_Cool[cp] == 0) 
@@ -66,10 +62,8 @@ function Announce_Normal()
 	}
 }
 
-function Announce_Ingame()
+function Announce_Ingame(cp)
 {
-	const cp = getcurpl();
-	
 	if (Score((13), (7), (1), 24))
 	{
 		if (Deaths((13), (10), 0, (210)))
@@ -82,27 +76,54 @@ function Announce_Ingame()
 		switch (v.Hero_Num[cp])
 		{
 		case 2:
-			if (Switch((6), (2))) { Announce_Adv(0); }
-			if (Switch((6), (3))) { Announce_Adv(1); }
+			if (Switch((6), (2))) { Announce_Adv(0, cp); }
+			if (Switch((6), (3))) { Announce_Adv(1, cp); }
 			break;
 		case 7:
-			if (Switch((9), (2))) { Announce_Adv(0); }
-			if (Switch((9), (3))) { Announce_Adv(1); }
+			if (Switch((9), (2))) { Announce_Adv(0, cp); }
+			if (Switch((9), (3))) { Announce_Adv(1, cp); }
 			break;
 		case 15:
-			if (Switch((19), (2))) { Announce_Adv(0); }
-			if (Switch((19), (3))) { Announce_Adv(1); }
+			if (Switch((19), (2))) { Announce_Adv(0, cp); }
+			if (Switch((19), (3))) { Announce_Adv(1, cp); }
 			break;
 		case 16:
 			if (Deaths((13), (0), 1, (204)) && Deaths((13), (1), 7, (204)))
-			{ Announce_Adv(0); }
+			{ Announce_Adv(0, cp); }
 			else
-			{ Announce_Normal(); }
+			{ Announce_Normal(cp); }
 			break;
 		default:
-			Announce_Normal();
+			Announce_Normal(cp);
 			break;
 		}
+	}
+}
+
+function Announce_Exp(cp)
+{
+	const HeroNumber = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp));
+	tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO Skill \x04사용가능 \x1CON　\x07Exp \x04", v.SaveExp[8 * HeroNumber + cp], "");
+}
+
+function Announce_Marge(cp)
+{
+	if (Deaths(CurrentPlayer, AtLeast, 1, "Terran SCV"))
+	{
+		SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV");
+		
+		if (v.AnnounceList[cp] < 1) 	{ v.AnnounceList[cp] += 1; }
+		else 						{ v.AnnounceList[cp] 	= 0; }
+	}
+	
+	switch(v.AnnounceList[cp])
+	{
+		case 0:
+			Announce_Ingame(cp);
+			break;
+		case 1:
+			Announce_Exp(cp);
+			break;
 	}
 }
 

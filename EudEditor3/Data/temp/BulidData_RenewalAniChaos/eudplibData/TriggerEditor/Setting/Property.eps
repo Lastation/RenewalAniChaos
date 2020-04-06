@@ -4,6 +4,9 @@ import Variable as v;
 var txtPtr, btnPtr, btnPos, oldCP;
 const trgk = $T('Artanis & safhfh');
 
+function Property_S(cp);
+function Property_C(cp);
+function Property_A();
 
 function PropertyText() 
 {
@@ -22,10 +25,15 @@ function PropertyText()
 	}
 }
 
-function Property_S()
+function Property(cp)
 {
-	const cp = getcurpl();
-	
+	Property_S(cp);
+	Property_C(cp);
+	Property_A();
+}
+
+function Property_S(cp)
+{
 	if (cp >= 0 && cp <= 2 &&  bread(0x58D088 + 0x21F0 * ((0) / 46) + cp * (46 - 31 * ((0) / 46)) + ((0) % 46)) == 60)
 	{
 		if (Deaths((0), (10), 1000, (223)) || Deaths((1), (10), 1000, (223)) || Deaths((2), (10), 1000, (223)))
@@ -65,10 +73,8 @@ function Property_S()
 	}
 }
 
-function Property_C()
+function Property_C(cp)
 {
-	const cp = getcurpl();
-	
 	if (Deaths((13), (10), 2720, (223)))
 	{
 		v.Mana_Property[cp] = 100;

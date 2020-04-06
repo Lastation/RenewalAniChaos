@@ -4,10 +4,8 @@ import Variable as v;
 var txtPtr, btnPtr, btnPos, oldCP;
 const trgk = $T('Artanis & safhfh');
 
-function SetDeathValue()
+function SetDeathValue(cp)
 {
-	const cp = getcurpl();
-
 	if (Deaths((13), (0), 1000, (210)))
 	{
 		v.DeathOre = 250 + v.Level[cp] * 10;
@@ -58,10 +56,8 @@ function SetDeathValue()
 }
 
 
-function DeathText()
+function DeathText(cp)
 {
-	const cp = getcurpl();
-	
 	if (v.DeathOre_Text[cp] != 0)
 	{
 		const value = dwread_epd(EPD(0x58A364 + 48 * 211 + 4 * cp));

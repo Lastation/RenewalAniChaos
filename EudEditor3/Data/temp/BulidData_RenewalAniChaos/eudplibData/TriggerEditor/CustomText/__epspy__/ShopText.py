@@ -134,139 +134,137 @@ import Variable as v
 txtPtr, btnPtr, btnPos, oldCP = EUDCreateVariables(4)
 # (Line 5) const trgk = $T('Artanis & safhfh');
 trgk = _CGFW(lambda: [GetStringIndex('Artanis & safhfh')], 1)[0]
-# (Line 7) function ShopText()
+# (Line 7) function ShopText(cp)
 # (Line 8) {
 @EUDFunc
-def ShopText():
-    # (Line 9) const cp = getcurpl();
-    cp = f_getcurpl()
-    # (Line 11) if (v.Unit_ID[cp] >= 1)
+def ShopText(cp):
+    # (Line 9) if (v.Unit_ID[cp] >= 1)
     if EUDIf()(v.Unit_ID[cp] >= 1):
-        # (Line 12) {
-        # (Line 13) if (v.PlayerID[cp] == 6 || v.PlayerID[cp] == 7)
+        # (Line 10) {
+        # (Line 11) if (v.PlayerID[cp] == 6 || v.PlayerID[cp] == 7)
         if EUDIf()(EUDSCOr()(v.PlayerID[cp] == 6)(v.PlayerID[cp] == 7)()):
-            # (Line 14) {
-            # (Line 15) switch(v.Unit_ID[cp])
+            # (Line 12) {
+            # (Line 13) switch(v.Unit_ID[cp])
             EUDSwitch(v.Unit_ID[cp])
-            # (Line 16) {
-            # (Line 17) case 122:
+            # (Line 14) {
+            # (Line 15) case 122:
             _t3 = EUDSwitchCase()
-            # (Line 18) txtPtr = dwread_epd(EPD(0x640B58));
+            # (Line 16) txtPtr = dwread_epd(EPD(0x640B58));
             if _t3(122):
                 txtPtr << (f_dwread_epd(EPD(0x640B58)))
-                # (Line 19) tct.print("\n\n\x13\x19[ \x04Upgrade \x19]\n\n\x13\x04영웅의 능력을 업그레이드 하는 곳 입니다.\n\n");
+                # (Line 17) tct.print("\n\n\x13\x19[ \x04Upgrade \x19]\n\n\x13\x04영웅의 능력을 업그레이드 하는 곳 입니다.\n\n");
                 tct.f_print("\n\n\x13\x19[ \x04Upgrade \x19]\n\n\x13\x04영웅의 능력을 업그레이드 하는 곳 입니다.\n\n")
-                # (Line 20) SetMemory(0x640B58, SetTo, txtPtr);
-                # (Line 21) v.Unit_ID[cp] = 0;
+                # (Line 18) SetMemory(0x640B58, SetTo, txtPtr);
+                # (Line 19) v.Unit_ID[cp] = 0;
                 DoActions(SetMemory(0x640B58, SetTo, txtPtr))
                 _ARRW(v.Unit_ID, cp) << (0)
-                # (Line 22) break;
+                # (Line 20) break;
                 EUDBreak()
-                # (Line 23) case 125:
+                # (Line 21) case 125:
             _t4 = EUDSwitchCase()
-            # (Line 24) txtPtr = dwread_epd(EPD(0x640B58));
+            # (Line 22) txtPtr = dwread_epd(EPD(0x640B58));
             if _t4(125):
                 txtPtr << (f_dwread_epd(EPD(0x640B58)))
-                # (Line 25) tct.print("\n\n\x13\x19[ \x04Shield \x19]\n\n\x13\x04- \x19수호자 사망\x04시 구입 가능합니다.\n\x13\x04- 신전의 쉴드량이 \x19100%\x04로 회복됩니다.\n\n\x13\x04- 무제한 구입 가능합니다.\n\n");
+                # (Line 23) tct.print("\n\n\x13\x19[ \x04Shield \x19]\n\n\x13\x04- \x19수호자 사망\x04시 구입 가능합니다.\n\x13\x04- 신전의 쉴드량이 \x19100%\x04로 회복됩니다.\n\n\x13\x04- 무제한 구입 가능합니다.\n\n");
                 tct.f_print("\n\n\x13\x19[ \x04Shield \x19]\n\n\x13\x04- \x19수호자 사망\x04시 구입 가능합니다.\n\x13\x04- 신전의 쉴드량이 \x19100%\x04로 회복됩니다.\n\n\x13\x04- 무제한 구입 가능합니다.\n\n")
-                # (Line 26) SetMemory(0x640B58, SetTo, txtPtr);
-                # (Line 27) v.Unit_ID[cp] = 0;
+                # (Line 24) SetMemory(0x640B58, SetTo, txtPtr);
+                # (Line 25) v.Unit_ID[cp] = 0;
                 DoActions(SetMemory(0x640B58, SetTo, txtPtr))
                 _ARRW(v.Unit_ID, cp) << (0)
-                # (Line 28) break;
+                # (Line 26) break;
                 EUDBreak()
-                # (Line 29) case 216:
+                # (Line 27) case 216:
             _t5 = EUDSwitchCase()
-            # (Line 30) txtPtr = dwread_epd(EPD(0x640B58));
+            # (Line 28) txtPtr = dwread_epd(EPD(0x640B58));
             if _t5(216):
                 txtPtr << (f_dwread_epd(EPD(0x640B58)))
-                # (Line 31) tct.print("\n\n\x13\x19[ \x04Potion Discount \x19]\n\n\x13\x04- 포션 가격이 \x1920% \x04할인됩니다.\n\n\x13\x04- \x191 \x04회 구입 가능합니다.\n\n");
+                # (Line 29) tct.print("\n\n\x13\x19[ \x04Potion Discount \x19]\n\n\x13\x04- 포션 가격이 \x1920% \x04할인됩니다.\n\n\x13\x04- \x191 \x04회 구입 가능합니다.\n\n");
                 tct.f_print("\n\n\x13\x19[ \x04Potion Discount \x19]\n\n\x13\x04- 포션 가격이 \x1920% \x04할인됩니다.\n\n\x13\x04- \x191 \x04회 구입 가능합니다.\n\n")
-                # (Line 32) SetMemory(0x640B58, SetTo, txtPtr);
-                # (Line 33) v.Unit_ID[cp] = 0;
+                # (Line 30) SetMemory(0x640B58, SetTo, txtPtr);
+                # (Line 31) v.Unit_ID[cp] = 0;
                 DoActions(SetMemory(0x640B58, SetTo, txtPtr))
                 _ARRW(v.Unit_ID, cp) << (0)
-                # (Line 34) break;
+                # (Line 32) break;
                 EUDBreak()
-                # (Line 35) case 217:
+                # (Line 33) case 217:
             _t6 = EUDSwitchCase()
-            # (Line 36) txtPtr = dwread_epd(EPD(0x640B58));
+            # (Line 34) txtPtr = dwread_epd(EPD(0x640B58));
             if _t6(217):
                 txtPtr << (f_dwread_epd(EPD(0x640B58)))
-                # (Line 37) tct.print("\n\n\x13\x19[ \x04Mana Disk \x19]\n\n\x13\x04- 가스 회복량이 \x1950% \x04증가됩니다.\n\n\x13\x04- \x192 \x04회 구입 가능합니다.\n\n");
+                # (Line 35) tct.print("\n\n\x13\x19[ \x04Mana Disk \x19]\n\n\x13\x04- 가스 회복량이 \x1950% \x04증가됩니다.\n\n\x13\x04- \x192 \x04회 구입 가능합니다.\n\n");
                 tct.f_print("\n\n\x13\x19[ \x04Mana Disk \x19]\n\n\x13\x04- 가스 회복량이 \x1950% \x04증가됩니다.\n\n\x13\x04- \x192 \x04회 구입 가능합니다.\n\n")
-                # (Line 38) SetMemory(0x640B58, SetTo, txtPtr);
-                # (Line 39) v.Unit_ID[cp] = 0;
+                # (Line 36) SetMemory(0x640B58, SetTo, txtPtr);
+                # (Line 37) v.Unit_ID[cp] = 0;
                 DoActions(SetMemory(0x640B58, SetTo, txtPtr))
                 _ARRW(v.Unit_ID, cp) << (0)
-                # (Line 40) break;
+                # (Line 38) break;
                 EUDBreak()
-                # (Line 41) case 219:
+                # (Line 39) case 219:
             _t7 = EUDSwitchCase()
-            # (Line 42) txtPtr = dwread_epd(EPD(0x640B58));
+            # (Line 40) txtPtr = dwread_epd(EPD(0x640B58));
             if _t7(219):
                 txtPtr << (f_dwread_epd(EPD(0x640B58)))
-                # (Line 43) tct.print("\n\n\x13\x19[ \x04Potion \x19]\n\n\x13\x04- \x19셔틀\x04 생산시 사용되는 아이템입니다.\n\x13\x04- 영웅의 체력을 \x19100%\x04로 회복시킵니다.\n\n\x13\x04- 최대 \x1915 \x04개 보유 가능합니다.\n\n");
+                # (Line 41) tct.print("\n\n\x13\x19[ \x04Potion \x19]\n\n\x13\x04- \x19셔틀\x04 생산시 사용되는 아이템입니다.\n\x13\x04- 영웅의 체력을 \x19100%\x04로 회복시킵니다.\n\n\x13\x04- 최대 \x1915 \x04개 보유 가능합니다.\n\n");
                 tct.f_print("\n\n\x13\x19[ \x04Potion \x19]\n\n\x13\x04- \x19셔틀\x04 생산시 사용되는 아이템입니다.\n\x13\x04- 영웅의 체력을 \x19100%\x04로 회복시킵니다.\n\n\x13\x04- 최대 \x1915 \x04개 보유 가능합니다.\n\n")
-                # (Line 44) SetMemory(0x640B58, SetTo, txtPtr);
-                # (Line 45) v.Unit_ID[cp] = 0;
+                # (Line 42) SetMemory(0x640B58, SetTo, txtPtr);
+                # (Line 43) v.Unit_ID[cp] = 0;
                 DoActions(SetMemory(0x640B58, SetTo, txtPtr))
                 _ARRW(v.Unit_ID, cp) << (0)
-                # (Line 46) break;
+                # (Line 44) break;
                 EUDBreak()
-                # (Line 47) }
-            # (Line 48) }
+                # (Line 45) }
+            # (Line 46) }
             EUDEndSwitch()
-            # (Line 50) if (v.PlayerID[cp] == 10)
+            # (Line 48) if (v.PlayerID[cp] == 10)
         EUDEndIf()
         if EUDIf()(v.PlayerID[cp] == 10):
-            # (Line 51) {
-            # (Line 52) switch(v.Unit_ID[cp])
+            # (Line 49) {
+            # (Line 50) switch(v.Unit_ID[cp])
             EUDSwitch(v.Unit_ID[cp])
-            # (Line 53) {
-            # (Line 54) case 39:
+            # (Line 51) {
+            # (Line 52) case 39:
             _t9 = EUDSwitchCase()
-            # (Line 55) txtPtr = dwread_epd(EPD(0x640B58));
+            # (Line 53) txtPtr = dwread_epd(EPD(0x640B58));
             if _t9(39):
                 txtPtr << (f_dwread_epd(EPD(0x640B58)))
-                # (Line 56) tct.print("\n\n\x13\x19[ \x04Hoffnung \x19]\n\n\x13\x04- 아군 게이트가 \x19모두 파괴\x04되었을시 구입 가능합니다.\n\x13\x04- 맵상의 Hoffnung이 \x193마리 이하\x04일시 구입가능합니다.\n\n\x13\x04- \x19무제한 \x04구입 가능합니다.\n\n");
+                # (Line 54) tct.print("\n\n\x13\x19[ \x04Hoffnung \x19]\n\n\x13\x04- 아군 게이트가 \x19모두 파괴\x04되었을시 구입 가능합니다.\n\x13\x04- 맵상의 Hoffnung이 \x193마리 이하\x04일시 구입가능합니다.\n\n\x13\x04- \x19무제한 \x04구입 가능합니다.\n\n");
                 tct.f_print("\n\n\x13\x19[ \x04Hoffnung \x19]\n\n\x13\x04- 아군 게이트가 \x19모두 파괴\x04되었을시 구입 가능합니다.\n\x13\x04- 맵상의 Hoffnung이 \x193마리 이하\x04일시 구입가능합니다.\n\n\x13\x04- \x19무제한 \x04구입 가능합니다.\n\n")
-                # (Line 57) SetMemory(0x640B58, SetTo, txtPtr);
-                # (Line 58) v.Unit_ID[cp] = 0;
+                # (Line 55) SetMemory(0x640B58, SetTo, txtPtr);
+                # (Line 56) v.Unit_ID[cp] = 0;
                 DoActions(SetMemory(0x640B58, SetTo, txtPtr))
                 _ARRW(v.Unit_ID, cp) << (0)
-                # (Line 59) break;
+                # (Line 57) break;
                 EUDBreak()
-                # (Line 60) case 169:
+                # (Line 58) case 169:
             _t10 = EUDSwitchCase()
-            # (Line 61) txtPtr = dwread_epd(EPD(0x640B58));
+            # (Line 59) txtPtr = dwread_epd(EPD(0x640B58));
             if _t10(169):
                 txtPtr << (f_dwread_epd(EPD(0x640B58)))
-                # (Line 62) tct.print("\n\n\x13\x19[ \x04C Skill \x19]\n\n\x13\x04- \x19C Skill [ 캐리어 ] \x04를 사용할수 있게 됩니다.\n\n\x13\x04- \x191 \x04회 구입 가능합니다.\n\n");
+                # (Line 60) tct.print("\n\n\x13\x19[ \x04C Skill \x19]\n\n\x13\x04- \x19C Skill [ 캐리어 ] \x04를 사용할수 있게 됩니다.\n\n\x13\x04- \x191 \x04회 구입 가능합니다.\n\n");
                 tct.f_print("\n\n\x13\x19[ \x04C Skill \x19]\n\n\x13\x04- \x19C Skill [ 캐리어 ] \x04를 사용할수 있게 됩니다.\n\n\x13\x04- \x191 \x04회 구입 가능합니다.\n\n")
-                # (Line 63) SetMemory(0x640B58, SetTo, txtPtr);
-                # (Line 64) v.Unit_ID[cp] = 0;
+                # (Line 61) SetMemory(0x640B58, SetTo, txtPtr);
+                # (Line 62) v.Unit_ID[cp] = 0;
                 DoActions(SetMemory(0x640B58, SetTo, txtPtr))
                 _ARRW(v.Unit_ID, cp) << (0)
-                # (Line 65) break;
+                # (Line 63) break;
                 EUDBreak()
-                # (Line 66) case 170:
+                # (Line 64) case 170:
             _t11 = EUDSwitchCase()
-            # (Line 67) txtPtr = dwread_epd(EPD(0x640B58));
+            # (Line 65) txtPtr = dwread_epd(EPD(0x640B58));
             if _t11(170):
                 txtPtr << (f_dwread_epd(EPD(0x640B58)))
-                # (Line 68) tct.print("\n\n\x13\x19[ \x04A Skill \x19]\n\n\x13\x04- \x19A Skill [ 아비터 ] \x04를 사용할수 있게 됩니다.\n\n\x13\x04- \x191 \x04회 구입 가능합니다.\n\n");
+                # (Line 66) tct.print("\n\n\x13\x19[ \x04A Skill \x19]\n\n\x13\x04- \x19A Skill [ 아비터 ] \x04를 사용할수 있게 됩니다.\n\n\x13\x04- \x191 \x04회 구입 가능합니다.\n\n");
                 tct.f_print("\n\n\x13\x19[ \x04A Skill \x19]\n\n\x13\x04- \x19A Skill [ 아비터 ] \x04를 사용할수 있게 됩니다.\n\n\x13\x04- \x191 \x04회 구입 가능합니다.\n\n")
-                # (Line 69) SetMemory(0x640B58, SetTo, txtPtr);
-                # (Line 70) v.Unit_ID[cp] = 0;
+                # (Line 67) SetMemory(0x640B58, SetTo, txtPtr);
+                # (Line 68) v.Unit_ID[cp] = 0;
                 DoActions(SetMemory(0x640B58, SetTo, txtPtr))
                 _ARRW(v.Unit_ID, cp) << (0)
-                # (Line 71) break;
+                # (Line 69) break;
                 EUDBreak()
-                # (Line 72) }
-            # (Line 73) }
+                # (Line 70) }
+            # (Line 71) }
             EUDEndSwitch()
-            # (Line 74) }
+            # (Line 72) }
         EUDEndIf()
-        # (Line 75) }
+        # (Line 73) }
     EUDEndIf()

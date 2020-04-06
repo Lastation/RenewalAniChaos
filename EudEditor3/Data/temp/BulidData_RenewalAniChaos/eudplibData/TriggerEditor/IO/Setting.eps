@@ -8,69 +8,79 @@ var txtPtr, btnPtr, btnPos, oldCP;
 const trgk = $T('Artanis & safhfh');
 
 function PingCheck();
+function ShowCharacterExp();
 
-function ResetCharacterExp()
+function ResetCharacterExp(cp)
 {
-	const cp = getcurpl();
-	
 	for (var i = 0; i < v.CharacterMax; i++)
 	{
-		v.CharacterExp[6 * i + cp] = 0;
+		v.SaveExp[8 * v.CharacterMax + cp] = 0;
 	}
 }
 
-function ShowCharacterExp(cp, num)
-{	
-	tct.makeText("\x13\x17[ \x04",ptr2s(v.Hero_Name[num])," \x17] \x04EXP : ");
-	tct.displayText();
+function AddCharacterExp(HeroNumber, cp)
+{		
+	if (Deaths(CurrentPlayer, AtLeast, 1, " `AddExp"))
+	{
+		const Exp = dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
+		v.SaveExp[8 * HeroNumber + cp] += Exp;
+		sca.SaveData(0);
+		
+		SetDeaths(CurrentPlayer, SetTo, 0, " `AddExp");
+	}
 }
 
-function AddCharacterExp()
+function SaveCharacterExp(cp)
 {
-	//PingCheck();
-
-	if(Deaths((13), (0), 1, (166)))
+	if(sca.ConnectStatus() == 1)
 	{
-		const cp = getcurpl();
-		const num = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * getcurpl()));
-	
-		v.CharacterExp[6 * num + cp] += dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
+		const HeroNumber = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp));
 		
+		AddCharacterExp(HeroNumber, cp);
+
 		switch(sca.GetLastMessage())
 		{
-			case 1:
-				tct.print(v.CharacterExp[6 * num + cp],"");
-				sca.SaveData(0);
-				SetDeaths((13), (7), 0, (166));
-				ShowCharacterExp(cp, num);
-				break;
-			case 2:
-				tct.print("\x13\x04연결이 끊어졌습니다.");
-				break;
 			case 5:
-				tct.print("\x13\x04",ptr2s(v.Hero_Name[num]),"의 정보를 저장중입니다.");
+				tct.makeText("\x13\x04",ptr2s(v.Hero_Name[HeroNumber]),"의 정보를 저장중입니다.");
+				tct.addText("\n\x13\x17[ \x04",ptr2s(v.Hero_Name[HeroNumber])," \x17] \x04EXP : ", v.SaveExp[8 * HeroNumber + cp],"");
+				
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.displayText();
+				SetMemory(0x640B58, SetTo, txtPtr);
 				break;
 			case 6:
-				tct.print("\x13\x04",ptr2s(v.Hero_Name[num]),"의 저장을 완료하였습니다.");
-				break;
-			case 7:
-				tct.print("\x13\x04런처를 연결해 주세요.");
-				break;
-			case 9:
-				tct.print("\x13\x04런처연결에 실패하였습니다.");
-				break;
-			default:
-				tct.print("\x13\x04런처연결에 실패하였습니다.");
+				tct.print("\x13\x04",ptr2s(v.Hero_Name[HeroNumber]),"의 저장을 완료하였습니다.");
+				tct.addText("\n\x13\x17[ \x04",ptr2s(v.Hero_Name[HeroNumber])," \x17] \x04EXP : ", v.SaveExp[8 * HeroNumber + cp],"");
+				
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.displayText();
+				SetMemory(0x640B58, SetTo, txtPtr);
 				sca.ResetLastMessage();
 				break;
 		}
 	}
 }
 
-function PingCheck()
+function LoadCharacterExp(cp)
 {
-	//커넥트 상태를 판단.
-	const Ping = wread_epd(EPD(scf.ws) + scf.EntryPointLength, 0);
-
-	tct.print("\x13\x04Connection Check : \x19", Ping," ms");
+	if(sca.ConnectStatus() == 1)
+	{
+		if (v.isLoad[cp] == 0) { sca.LoadData(0); v.isLoad[cp] = 1; }
+		
+		switch(sca.GetLastMessage())
+		{
+			case 3:
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\x13\x04저장된  정보를 불러오는 중입니다.");
+				SetMemory(0x640B58, SetTo, txtPtr);
+				break;
+			case 4:
+				txtPtr = dwread_epd(EPD(0x640B58));
+				tct.print("\x13\x04저장된 정보를 불러오는데 성공하였습니다.");
+				SetMemory(0x640B58, SetTo, txtPtr);
+				v.isLoad[cp] = 1;
+				sca.ResetLastMessage();
+				break;
+		}
+	}
 }

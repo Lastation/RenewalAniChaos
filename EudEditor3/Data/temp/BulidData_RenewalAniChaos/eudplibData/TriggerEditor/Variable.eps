@@ -1,6 +1,14 @@
-const CharacterMax = 18;
-const CharacterExp = EUDArray(6 * CharacterMax);
+// SCA Variable
+const PlayerExp = PVariable();
 
+const isLoad = PVariable();
+
+const CharacterMax = 18;
+const SaveExp = EUDArray(CharacterMax * 8);
+
+const AnnounceList = PVariable();
+
+// Common Variable
 const Unit_Death = PVariable();
 const Hero_Text = PVariable();
 

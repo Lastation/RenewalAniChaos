@@ -1,0 +1,184 @@
+import customText as tct;
+import Variable as v;
+
+var txtPtr, btnPtr, btnPos, oldCP;
+
+const AnswerExecArray = [0, 0, 0, 0, 0, 0, 0, 0];
+function AnswerExec() {
+    if (AnswerExecArray[getcurpl()] == 1) {
+        v.Player_Name[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * getcurpl()));
+        v.Player_EXP[getcurpl()] += 5;
+        v.Artist_Info[getcurpl()] = dwread_epd(EPD(0x58A364 + 48 * 204 + 4 * getcurpl()));
+        
+       const Name = dwread_epd(EPD(0x58A364 + 48 * 182 + 4 * getcurpl()));
+       const Track_Name = dwread_epd(EPD(0x58A364 + 48 * 187 + 4 * getcurpl()));
+       const Player_Name = dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * getcurpl()));
+       
+        v.Track_Type[getcurpl()] = bread(0x65FD00 + 16592 + Name * 1);
+        tct.makeText("\n");
+        tct.addText("\n\x13\x1F", tct.str(0x57EEEB + 36 * (Player_Name - 1)), " \x04님이 문제를 맞추셨습니다.\n");
+        tct.addText("\x13\x1C정답\x04 - ", tct.ptr2s(tct.strptr(wread(0x660260 + 2 * Name))), "\n");
+        tct.addText("\x13\x1C타입\x04 - ");
+        switch(v.Track_Type[getcurpl()]) {
+            case 1: tct.addText("\x08P\x04rincess\n"); break;
+            case 2: tct.addText("\x1CF\x04airy\n"); break;
+            case 3: tct.addText("\x19A\x04ngel\n"); break;
+            case 4: tct.addText("\x15D\x04uet\n"); break;
+            case 5: tct.addText("\x07T\x04rio\n"); break;
+            case 6: tct.addText("\x1FQ\x04uartet\n"); break;
+            case 7: tct.addText("\x17Q\x04uintet\n"); break;
+            case 8: tct.addText("\x19765 MILLIONSTARS\n"); break;
+            case 9: tct.addText("\x19765 ALLSTARS\n"); break;
+        }
+        if(dwread_epd(209 * 12 + getcurpl()) >= 0)
+    	 {
+    	 	tct.addText("\n\x13\x1C트렉\x04 - \x04", ptr2s(v.Track_Info_Name[Track_Name]), " \x19", dwread_epd(209 * 12 + getcurpl()), "");
+    	 }
+ 	 if(dwread_epd(209 * 12 + getcurpl()) == 0)
+ 	 {
+ 	 	tct.addText("\n\x13\x1C트렉\x04 - \x04", ptr2s(v.Track_Info_Name[Track_Name]), "");
+ 	 }
+        tct.addText("\n\x13\x1C아티스트\x04 - ");
+        switch(v.Artist_Info[getcurpl()]) {
+		case 1: tct.addText("\x08아\x04마미 하루카"); break;
+		case 2: tct.addText("\x01하\x04기와라 유키호"); break;
+		case 3: tct.addText("\x01키\x04쿠치 마코토"); break;
+		case 4: tct.addText("\x0F가\x04나하 히비키"); break;
+		case 5: tct.addText("\x06카\x04스가 미라이"); break;
+		case 6: tct.addText("\x0F타\x04나카 코토하"); break;
+		case 7: tct.addText("\x1C사\x04타케 미나코"); break;
+		case 8: tct.addText("\x1F토\x04쿠가와 마츠리"); break;
+		case 9: tct.addText("\x17나\x04나오 유리코"); break;
+		case 10: tct.addText("\x15타\x04카야마 사요코"); break;
+		case 11: tct.addText("\x06마\x04츠다 아리사"); break;
+		case 12: tct.addText("\x1B코\x04사카 우미"); break;
+		case 13: tct.addText("\x19나\x04카타니 이쿠"); break;
+		case 14: tct.addText("\x1C에\x04밀리 스튜어트"); break;
+		case 15: tct.addText("\x11야\x04부키 카나"); break;
+		case 16: tct.addText("\x1C요\x04코야마 나오"); break;
+		case 17: tct.addText("\x19후\x04쿠다 노리코"); break;
+		case 18: tct.addText("\x1C키\x04사라기 치하야"); break;
+		case 19: tct.addText("\x1B미\x04나세 이오리"); break;
+		case 20: tct.addText("\x10시\x04죠 타카네"); break;
+		case 21: tct.addText("\x0F아\x04키즈키 리츠코"); break;
+		case 22: tct.addText("\x1C모\x04가미 시즈카"); break;
+		case 23: tct.addText("\x01토\x04코로 메구미"); break;
+		case 24: tct.addText("\x03로\x04코"); break;
+		case 25: tct.addText("\x1D텐\x04쿠바시 토모카"); break;
+		case 26: tct.addText("\x1D키\x04타자와 시호"); break;
+		case 27: tct.addText("\x10마\x04이하마 아유무"); break;
+		case 28: tct.addText("\x11니\x04카이도 치즈루"); break;
+		case 29: tct.addText("\x1C마\x04카베 미즈키"); break;
+		case 30: tct.addText("\x1B모\x04모세 리오"); break;
+		case 31: tct.addText("\x1D나\x04가요시 스바루"); break;
+		case 32: tct.addText("\x11스\x04오 모모코"); break;
+		case 33: tct.addText("\x1B줄\x04리아"); break;
+		case 34: tct.addText("\x1C시\x04라이시 츠무기"); break;
+		case 35: tct.addText("\x07호\x04시이 미키"); break;
+		case 36: tct.addText("\x11타\x04카츠키 야요이"); break;
+		case 37: tct.addText("\x10미\x04우라 아즈사"); break;
+		case 38: tct.addText("\x03후\x04타미 아미"); break;
+		case 39: tct.addText("\x03후\x04타미 마미"); break;
+		case 40: tct.addText("\x11이\x04부키 츠바사"); break;
+		case 41: tct.addText("\x0F시\x04마바라 엘레나"); break;
+		case 42: tct.addText("\x1B하\x04코자키 세리카"); break;
+		case 43: tct.addText("\x11노\x04노하라 아카네"); break;
+		case 44: tct.addText("\x1C모\x04치즈키 안나"); break;
+		case 45: tct.addText("\x08키\x04노시타 히나타"); break;
+		case 46: tct.addText("\x1B바\x04바 코노미"); break;
+		case 47: tct.addText("\x11오\x04오가미 타마키"); break;
+		case 48: tct.addText("\x1C토\x04요카와 후카"); break;
+		case 49: tct.addText("\x11미\x04야오 미야"); break;
+		case 50: tct.addText("\x1B시\x04노미야 카렌"); break;
+		case 51: tct.addText("\x1D키\x04타카미 레이카"); break;
+		case 52: tct.addText("\x1C사\x04쿠라모리 카오리"); break;
+		case 53: tct.addText("\x19765 MILLIONSTARS"); break;
+		case 54: tct.addText("\x19765 ALLSTARS"); break;
+		case 55: tct.addText("\x0F가\x04나하 히비키, \x06카\x04스가 미라이, \x1C토\x04요카와 후카, \x1C모\x04치즈키 안나, \x1C요\x04코야마 나오"); break;
+		case 56: tct.addText("\x17나\x04나오 유리코, \x1D나\x04가요시 스바루, \x03로\x04코, \x1C모\x04치즈키 안나, \x1C마\x04카베 미즈키"); break;
+		case 57: tct.addText("\x1D나\x04가요시 스바루, \x17나\x04나오 유리코, \x1C모\x04가미 시즈카"); break;
+		case 58: tct.addText("\x17나\x04나오 유리코, \x1C모\x04치즈키 안나"); break;
+		case 59: tct.addText("\x1D나\x04가요시 스바루, \x11스\x04오 모모코, \x1B하\x04코자키 세리카, \x0F가\x04나하 히비키, \x1F토\x04쿠가와 마츠리"); break;
+		case 60: tct.addText("\x17나\x04나오 유리코, \x1B하\x04코자키 세리카, \x03로\x04코, \x1D텐\x04쿠바시 토모카, \x06마\x04츠다 아리사"); break;
+		case 61: tct.addText("\x19레\x04오, \x19캔\x04서, \x19카\x04프리콘, \x19리\x04브라"); break;
+		case 62: tct.addText("\x03로\x04코, \x11노\x04노하라 아카네"); break;
+		case 63: tct.addText("\x1C마\x04카베 미즈키, \x11스\x04오 모모코"); break;
+		case 64: tct.addText("\x1C마\x04카베 미즈키, \x1C시\x04라이시 츠무기, \x1D키\x04타자와 시호"); break;
+		case 65: tct.addText("\x1B모\x04모세 리오, \x1B바\x04바 코노미"); break;
+		case 66: tct.addText("\x1C모\x04가미 시즈카, \x1C시\x04라이시 츠무기, \x01토\x04코로 메구미, \x1B줄\x04리아, \x1D키\x04타자와 시호"); break;
+		case 67: tct.addText("\x1C모\x04가미 시즈카, \x1B줄\x04리아"); break;
+		case 68: tct.addText("\x1C모\x04가미 시즈카, \x06카\x04스가 미라이, \x11이\x04부키 츠바사"); break;
+		case 69: tct.addText("\x1C모\x04가미 시즈카, \x1D키\x04타카미 레이카, \x1D키\x04타자와 시호, \x11노\x04노하라 아카네, \x1B하\x04코자키 세리카"); break;
+		case 70: tct.addText("\x1B미\x04나세 이오리, \x1C마\x04카베 미즈키, \x1C에\x04밀리 스튜어트, \x1B모\x04모세 리오"); break;
+		case 71: tct.addText("\x11미\x04야오 미야, \x0F시\x04마바라 엘레나"); break;
+		case 72: tct.addText("\x1B미\x04나세 이오리, \x1C에\x04밀리 스튜어트"); break;
+		case 73: tct.addText("\x10미\x04우라 아즈사, \x15타\x04카야마 사요코, \x1B시\x04노미야 카렌, \x19후\x04쿠다 노리코"); break;
+		case 74: tct.addText("\x1B바\x04바 코노미, \x1C토\x04요카와 후카, \x11스\x04오 모모코"); break;
+		case 75: tct.addText("\x1C사\x04쿠라모리 카오리, \x1C모\x04가미 시즈카, \x1C모\x04치즈키 안나, \x1B모\x04모세 리오, \x11미\x04야오 미야"); break;
+		case 76: tct.addText("\x1C사\x04지타리우스, \x1C비\x04르고, \x1C아\x04쿠아리우스, \x1C피\x04스케스"); break;
+		case 77: tct.addText("\x1C사\x04쿠라모리 카오리, \x1C토\x04요카와 후카, \x1B모\x04모세 리오, \x1B바\x04바 코노미, \x11니\x04카이도 치즈루"); break;
+		case 78: tct.addText("\x1C사\x04쿠라모리 카오리, \x1C토\x04요카와 후카, \x1D키\x04타카미 레이카, \x1B바\x04바 코노미"); break;
+		case 79: tct.addText("\x11스\x04오 모모코, \x10마\x04이하마 아유무, \x03로\x04코, \x1D나\x04가요시 스바루"); break;
+		case 80: tct.addText("\x08스\x04콜피오, \x08아\x04리에스, \x08타\x04우러스, \x08제\x04미니"); break;
+		case 81: tct.addText("\x1C시\x04라이시 츠무기, \x1C사\x04쿠라모리 카오리, \x1B줄\x04리아, \x01키\x04쿠치 마코토, \x11노\x04노하라 아카네"); break;
+		case 82: tct.addText("\x1B시\x04노미야 카렌, \x11이\x04부키 츠바사, \x11노\x04노하라 아카네"); break;
+		case 83: tct.addText("\x10시\x04죠 타카네, \x1F토\x04쿠가와 마츠리, \x11미\x04야오 미야, \x1B코\x04사카 우미"); break;
+		case 84: tct.addText("\x0F아\x04키즈키 리츠코, \x1C사\x04타케 미나코, \x06마\x04츠다 아리사, \x08키\x04노시타 히나타"); break;
+		case 85: tct.addText("\x08아\x04마미 하루카, \x11스\x04오 모모코, \x19후\x04쿠다 노리코, \x06마\x04츠다 아리사, \x1C요\x04코야마 나오"); break;
+		case 86: tct.addText("\x0F아\x04키즈키 리츠코, \x1B시\x04노미야 카렌"); break;
+		case 87: tct.addText("\x11야\x04부키 카나, \x1F토\x04쿠가와 마츠리, \x06카\x04스가 미라이, \x17나\x04나오 유리코, \x1C에\x04밀리 스튜어트"); break;
+		case 88: tct.addText("\x1C에\x04밀리 스튜어트, \x1F토\x04쿠가와 마츠리"); break;
+		case 89: tct.addText("\x11오\x04오가미 타마키, \x1B하\x04코자키 세리카, \x11노\x04노하라 아카네"); break;
+		case 90: tct.addText("\x11이\x04부키 츠바사, \x1C사\x04쿠라모리 카오리, \x1D키\x04타카미 레이카, \x1C모\x04치즈키 안나, \x1B하\x04코자키 세리카"); break;
+		case 91: tct.addText("\x11이\x04부키 츠바사, \x1B코\x04사카 우미"); break;
+		case 92: tct.addText("\x06카\x04스가 미라이, \x1C모\x04가미 시즈카, \x11이\x04부키 츠바사"); break;
+		case 93: tct.addText("\x06카\x04스가 미라이, \x1C모\x04가미 시즈카, \x1B하\x04코자키 세리카"); break;
+		case 94: tct.addText("\x06카\x04스가 미라이, \x11야\x04부키 카나, \x0F타\x04나카 코토하"); break;
+		case 95: tct.addText("\x06카\x04스가 미라이, \x11이\x04부키 츠바사, \x17나\x04나오 유리코, \x1C마\x04카베 미즈키, \x1C모\x04치즈키 안나"); break;
+		case 96: tct.addText("\x06카\x04스가 미라이, \x1F토\x04쿠가와 마츠리, \x11미\x04야오 미야"); break;
+		case 97: tct.addText("\x1B코\x04사카 우미, \x1C요\x04코야마 나오, \x15타\x04카야마 사요코, \x1C사\x04타케 미나코, \x19후\x04쿠다 노리코"); break;
+		case 98: tct.addText("\x1B코\x04사카 우미, \x01토\x04코로 메구미, \x15타\x04카야마 사요코, \x1C토\x04요카와 후카, \x1C요\x04코야마 나오"); break;
+		case 99: tct.addText("\x1C키\x04사라기 치하야, \x1C모\x04가미 시즈카"); break;
+		case 100: tct.addText("\x01키\x04쿠치 마코토, \x10미\x04우라 아즈사, \x01하\x04기와라 유키호, \x10마\x04이하마 아유무, \x11야\x04부키 카나"); break;
+		case 101: tct.addText("\x1C키\x04사라기 치하야, \x10시\x04죠 타카네, \x10미\x04우라 아즈사"); break;
+		case 102: tct.addText("\x1D키\x04타카미 레이카, \x1B줄\x04리아, \x15타\x04카야마 사요코"); break;
+		case 103: tct.addText("\x1C키\x04사라기 치하야, \x1B줄\x04리아, \x1F토\x04쿠가와 마츠리, \x1C에\x04밀리 스튜어트, \x1C토\x04요카와 후카"); break;
+		case 104: tct.addText("\x1D키\x04타자와 시호, \x1B코\x04사카 우미, \x06마\x04츠다 아리사"); break;
+		case 105: tct.addText("\x1C키\x04사라기 치하야, \x0F타\x04나카 코토하, \x1D키\x04타자와 시호, \x01토\x04코로 메구미"); break;
+		case 106: tct.addText("\x01키\x04쿠치 마코토, \x01하\x04기와라 유키호, \x07호\x04시이 미키, \x1B미\x04나세 이오리"); break;
+		case 107: tct.addText("\x1C키\x04사라기 치하야, \x07호\x04시이 미키, \x1C에\x04밀리 스튜어트, \x01키\x04쿠치 마코토, \x08아\x04마미 하루카"); break;
+		case 108: tct.addText("\x01키\x04쿠치 마코토, \x03후\x04타미 마미, \x10마\x04이하마 아유무, \x0F시\x04마바라 엘레나"); break;
+		case 109: tct.addText("\x11타\x04카츠키 야요이, \x11오\x04오가미 타마키, \x11야\x04부키 카나, \x19나\x04카타니 이쿠"); break;
+		case 110: tct.addText("\x0F타\x04나카 코토하, \x1B코\x04사카 우미"); break;
+		case 111: tct.addText("\x0F타\x04나카 코토하, \x01토\x04코로 메구미, \x11미\x04야오 미야, \x1B코\x04사카 우미, \x11오\x04오가미 타마키"); break;
+		case 112: tct.addText("\x1D텐\x04쿠바시 토모카, \x19나\x04카타니 이쿠"); break;
+		case 113: tct.addText("\x1F토\x04쿠가와 마츠리, \x1B바\x04바 코노미"); break;
+		case 114: tct.addText("\x01토\x04코로 메구미, \x1B줄\x04리아"); break;
+		case 115: tct.addText("\x1B하\x04코자키 세리카, \x1C모\x04치즈키 안나, \x08키\x04노시타 히나타, \x11오\x04오가미 타마키"); break;
+		case 116: tct.addText("\x1B하\x04코자키 세리카, \x11미\x04야오 미야"); break;
+		case 117: tct.addText("\x07호\x04시이 미키, \x11이\x04부키 츠바사, \x1B줄\x04리아, \x1D키\x04타카미 레이카"); break;
+		case 118: tct.addText("\x03후\x04타미 아미, \x08키\x04노시타 히나타"); break;
+        }
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.displayText();
+        SetMemory(0x640B58, SetTo, txtPtr);
+        SetDeaths((13), (7), 0, (186));
+        PreserveTrigger();
+        AnswerExecArray[getcurpl()] = 0;
+    }
+    if (AnswerExecArray[getcurpl()] > 0) {
+        AnswerExecArray[getcurpl()] += 1;
+    }
+}
+
+function AnswerStart() {
+    if(
+        Deaths((13), (0), 1, (186)) && 
+        Deaths((13), (1), 6, (186))
+    ){
+        if (AnswerExecArray[getcurpl()] == 0){
+            AnswerExecArray[getcurpl()] = 1;
+            AnswerExec();
+        }
+    }
+}

@@ -1,0 +1,228 @@
+import Variables as v;
+import Inventory as inv;
+import String as string;
+import timeline as tL;
+import Crafting as cr;
+import Main as m;
+
+const s = StringBuffer(1000);
+const k = PVariable();
+function SortInven();
+
+function AddItem(percent, item, amount) {
+	var random = 0;
+	var temp = 0;
+	random = dwrand() % 101;
+	
+	if(random <= percent)
+	{
+		for(var i = 0; i < v.MaxInven; i++)
+		{
+			if(strcmp(inv.InvenName[21 * getcurpl() + i], item) == 0)
+			{
+				inv.InvenAmount[21 * getcurpl() + i] += amount;
+				if(strcmp(item, v.UnsawnTimber.name) == 0)
+					v.ITEM_UnsawnTimber[getcurpl()] += amount;
+				else if(strcmp(item, v.Timber.name) == 0) 
+					v.ITEM_Timber[getcurpl()] += amount;
+				else if(strcmp(item, v.IronOre.name) == 0) 
+					v.ITEM_IronOre[getcurpl()] += amount;
+				else if(strcmp(item, v.HPPotion1.name) == 0) 
+					v.ITEM_HPPotion1[getcurpl()] += amount;
+				else if(strcmp(item, v.HPPotion2.name) == 0) 
+					v.ITEM_HPPotion2[getcurpl()] += amount;
+				else if(strcmp(item, v.HPPotion3.name) == 0) 
+					v.ITEM_HPPotion3[getcurpl()] += amount;
+				else if(strcmp(item, v.HPPotion4.name) == 0) 
+					v.ITEM_HPPotion4[getcurpl()] += amount;
+				else if(strcmp(item, v.HPPotion5.name) == 0) 
+					v.ITEM_HPPotion5[getcurpl()] += amount;
+				else if(strcmp(item, v.GoblinTooth.name) == 0) 
+					v.ITEM_GoblinTooth[getcurpl()] += amount;
+				k[getcurpl()] = 1;
+			}
+			else if(k[getcurpl()] == 0 && inv.InvenAmount[21 * getcurpl() + i] == 0)
+			{
+				if(strcmp(item, v.UnsawnTimber.name) == 0)
+				{
+					inv.InvenName[21 * getcurpl() + i] = v.UnsawnTimber.name;
+					if(v.LoadItem[getcurpl()] == 0) v.ITEM_UnsawnTimber[getcurpl()] += amount;
+					v.LoadItem[getcurpl()] = 0;
+				}
+				else if(strcmp(item, v.Timber.name) == 0)
+				{
+					inv.InvenName[21 * getcurpl() + i] = v.Timber.name;
+					v.ITEM_Timber[getcurpl()] += amount;
+				}
+				else if(strcmp(item, v.IronOre.name) == 0)
+				{
+					inv.InvenName[21 * getcurpl() + i] = v.IronOre.name;
+					v.ITEM_IronOre[getcurpl()] += amount;
+				}
+				else if(strcmp(item, v.HPPotion1.name) == 0)
+				{
+					inv.InvenName[21 * getcurpl() + i] = v.HPPotion1.name;
+					v.ITEM_HPPotion1[getcurpl()] += amount;
+				}
+				else if(strcmp(item, v.HPPotion2.name) == 0)
+				{
+					inv.InvenName[21 * getcurpl() + i] = v.HPPotion2.name;
+					v.ITEM_HPPotion2[getcurpl()] += amount;
+				}
+				else if(strcmp(item, v.HPPotion3.name) == 0)
+				{
+					inv.InvenName[21 * getcurpl() + i] = v.HPPotion3.name;
+					v.ITEM_HPPotion3[getcurpl()] += amount;
+				}
+				else if(strcmp(item, v.HPPotion4.name) == 0)
+				{
+					inv.InvenName[21 * getcurpl() + i] = v.HPPotion4.name;
+					v.ITEM_HPPotion4[getcurpl()] += amount;
+				}
+				else if(strcmp(item, v.HPPotion5.name) == 0)
+				{
+					inv.InvenName[21 * getcurpl() + i] = v.HPPotion5.name;
+					v.ITEM_HPPotion5[getcurpl()] += amount;
+				}
+				else if(strcmp(item, v.GoblinTooth.name) == 0)
+				{
+					inv.InvenName[21 * getcurpl() + i] = v.GoblinTooth.name;
+					v.ITEM_GoblinTooth[getcurpl()] += amount;
+				}
+				inv.InvenAmount[21 * getcurpl() + i] += amount;
+				k[getcurpl()] = 1;
+			}
+		}
+		if(k[getcurpl()] == 1) s.print("\x11[",ptr2s(item), "]\x04을 \x11[", amount, "]\x04개 획득했습니다.");
+		k[getcurpl()] = 0;
+	}
+}
+function RemoveItem(item, amount) {
+	for(var i = 0; i < v.MaxInven; i++)
+	{
+		if(strcmp(item, inv.InvenName[21 * getcurpl() + i]) == 0)
+		{
+			inv.InvenAmount[21 * getcurpl() + i] -= 1;
+			if(strcmp(item, v.UnsawnTimber.name) == 0) v.ITEM_UnsawnTimber[getcurpl()] -= 1;
+			else if(strcmp(item, v.Timber.name) == 0) v.ITEM_Timber[getcurpl()] -= 1;
+			else if(strcmp(item, v.IronOre.name) == 0) v.ITEM_IronOre[getcurpl()] -= 1;
+			else if(strcmp(item, v.HPPotion1.name) == 0) v.ITEM_HPPotion1[getcurpl()] -= 1;
+			else if(strcmp(item, v.HPPotion2.name) == 0) v.ITEM_HPPotion2[getcurpl()] -= 1;
+			else if(strcmp(item, v.HPPotion3.name) == 0) v.ITEM_HPPotion3[getcurpl()] -= 1;
+			else if(strcmp(item, v.HPPotion4.name) == 0) v.ITEM_HPPotion4[getcurpl()] -= 1;
+			else if(strcmp(item, v.HPPotion5.name) == 0) v.ITEM_HPPotion5[getcurpl()] -= 1;
+			else if(strcmp(item, v.GoblinTooth.name) == 0) v.ITEM_GoblinTooth[getcurpl()] -= 1;
+			
+			if(inv.InvenAmount[21 * getcurpl() + i] == 0)
+			{
+				inv.InvenName[21 * getcurpl() + i] = Db("\x04-");
+				inv.UseItem[getcurpl()] = 0;
+				SortInven();
+			}
+		}
+	}
+}
+function SortInven() {
+	for(var i = 0; i < (v.MaxInven - 1); i++)
+	{
+		if(inv.InvenAmount[21 * getcurpl() + i] == 0)
+		{
+			inv.InvenName[21 * getcurpl() + i] = inv.InvenName[21 * getcurpl() + i + 1];
+			inv.InvenAmount[21 * getcurpl() + i] = inv.InvenAmount[21 * getcurpl() + i + 1];
+			inv.InvenName[21 * getcurpl() + i + 1] = Db("\x04-");
+			inv.InvenAmount[21 * getcurpl() + i + 1] = 0;
+		}	
+	}
+}
+function hotkeyUnitEPD(epd ,player ,hotkey ,slot) {
+	    const targetOrderSpecial = dwread_epd(epd + 0xA5 / 4) & 0xFF00;
+	    var alphaID = 0;
+	    if(epd == 19025)
+	    {
+	        alphaID = 1 + targetOrderSpecial * 8;
+	    }
+	    else{
+	        alphaID = 1701 - (0x27821 - epd) / 0x54 + targetOrderSpecial * 8;
+	    }
+	    SetMemoryEPD(EPD(0x57FE60) + 2121 * player + 12 * hotkey + slot, SetTo, alphaID);
+}
+function UnitStop() {
+	if(getcurpl() == 0 ) MoveUnit(1, "Terran Marine", CurrentPlayer, "Anywhere", "stop");
+}
+function EPDBring(Location, UnitEPD) {
+	const posUnitX, posUnitY = dwbreak(dwread_epd(UnitEPD + 0x28 / 4))[[0,1]];
+	
+	const LocEPD = Location * 5 +EPD(0x58DC60);
+	if(
+		MemoryEPD(LocEPD, AtMost, posUnitX) &&
+		MemoryEPD(LocEPD + 2, AtLeast, posUnitX) &&
+		MemoryEPD(LocEPD + 1, AtMost, posUnitY) &&
+		MemoryEPD(LocEPD + 3, AtLeast, posUnitY)
+	){
+		return True;
+	}
+	return False;
+}
+function TextClear() {
+	s.printAt(0," ");
+	s.printAt(1," ");
+	s.printAt(2," ");
+	s.printAt(3," ");
+	s.printAt(4," ");
+	s.printAt(5," ");
+	s.printAt(6," ");
+	s.printAt(7," ");
+	s.printAt(8," ");
+	s.printAt(9," ");
+	s.printAt(10," ");
+	s.print("\n\n\n\n\n\n\n\n\n\n");
+}
+function Heal() {
+	if(getcurpl() == 0) ModifyUnitHitPoints(1, "Terran Marine", P1, "Anywhere", 100);
+	else if(getcurpl() == 1) ModifyUnitHitPoints(1, "Terran Ghost", P2, "Anywhere", 100);
+	else if(getcurpl() == 2) ModifyUnitHitPoints(1, "Terran Vulture", P3, "Anywhere", 100);
+	else if(getcurpl() == 3) ModifyUnitHitPoints(1, 61, P4, "Anywhere", 100);
+	else if(getcurpl() == 4) ModifyUnitHitPoints(1, 74, P5, "Anywhere", 100);
+	else if(getcurpl() == 5) ModifyUnitHitPoints(1, 16, P6, "Anywhere", 100);
+}
+function CreateCharacter() {
+	// 1 Player
+	if(getcurpl() == 0)
+	{
+	 	/*bwrite(0x65FD00 + 18424 + 0 * 1, 71); // 마린 그래픽 시민으로 변경
+	  	bwrite(0x65FD00 + 14776 + 0 * 1, 130); // 지상무기 NONE
+	    bwrite(0x65FD00 + 6624 + 0 * 1, 130); // 공중무기 NONE
+	    wwrite(0x65FD00 + 12936 + 0 * 2, 15); // 초상화 시민으로 변경*/
+	    
+	    const WireOffset = f_dwread_epd(EPD(0x68C204));
+	    SetMemory(WireOffset + 4, SetTo, 51183680);
+	    SetMemory(WireOffset + 8, SetTo, 1717648419);
+	    SetMemory(WireOffset + 12, SetTo, 34013184);
+	    const GrpOffset = f_dwread_epd(EPD(0x68C1FC));
+	    SetMemory(GrpOffset + 4, SetTo, 33947680);
+	    SetMemory(GrpOffset + 8, SetTo, 679157266);
+	    SetMemory(GrpOffset + 12, SetTo, 16973824);
+	    
+	    dwwrite(0x65FD00 + 9808 + 0 * 4, v.user_MaxHp[0] * 256); // 마린 체력
+	    
+		v.user_Character[0] = epdread_epd(EPD(0x628438));
+		CreateUnit(1, "Terran Marine", "Start", P1);
+		
+		v.isSurvive[0] = 1;
+		v.print[0] = 1;
+		hotkeyUnitEPD(v.user_Character[0], 0, 1, 0);
+	}
+}
+function CloseInven() {
+	// 화면상에 보이는 모든 텍스트 초기화
+	TextClear();
+	v.isInventory[getcurpl()] = 0;
+	inv.InvenPage[getcurpl()] = 1;
+	inv.InvenSlot[getcurpl()] = 1;
+}
+function TextClear2() {
+	// 특정 로케이션에서 표시하는 텍스트를 초기화
+	TextClear();
+	RemoveUnitAt(0, "Vulture Spider Mine", "mine 1", CurrentPlayer);
+	RemoveUnitAt(0, "Protoss Observer", "mine 1", CurrentPlayer);
+}

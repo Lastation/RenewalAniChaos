@@ -1,6 +1,7 @@
 [TriggerEditor\Main.eps]
 
 [unlimiter]
+[noAirCollision]
 [main]
 input: ..\..\..\..\..\NEW!6.scx
 output: ..\..\..\..\..\..\..\Starcraft\Maps\RenewalAniChaos\RenewalAniChaos_T.scx
@@ -15,5 +16,8 @@ MSQCSpecial.Exactly(2) : MSQCSpecialBuffer, 200
 MSQCSpecial.Exactly(3) : MSQCSpecialBuffer, 300
 MSQCSpecial.Exactly(4) : MSQCSpecialBuffer, 400
 MSQCCondiction.Exactly(1) ; xy , MSQCValue : MSQCBuffer
-QCDebug: false
+QCUnit: 58
+QCLoc: 161
+QCPlayer: 9
+Z : Terran SCV, 1
 

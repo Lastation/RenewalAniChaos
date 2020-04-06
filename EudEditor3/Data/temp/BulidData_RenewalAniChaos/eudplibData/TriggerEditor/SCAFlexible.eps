@@ -2,21 +2,21 @@ import Variable as n0;
 
 const ws = 0x58F44A;
 const EntryPointLength = 8;//EntryPointLength
-const SpaceLength = 436;//DataBufferSize
-const ObjectCount = 2;//ObjectCount
+const SpaceLength = 200;//DataBufferSize
+const ObjectCount = 1;//ObjectCount
 
 function Init(){
     MPQAddFile('SCARCHIVEMAPCODE', py_open('scakeyfile', 'rb').read());
     MPQAddFile('SCARCHIVEDATA', py_open('scadatafile', 'rb').read());
     //EntryPoint
-    dwwrite_epd(EPD(ws) + 0, 3599334607);
-    dwwrite_epd(EPD(ws) + 1, 2977582137);
-    dwwrite_epd(EPD(ws) + 2, 1524592876);
-    dwwrite_epd(EPD(ws) + 3, 1479812784);
-    dwwrite_epd(EPD(ws) + 4, 1641708409);
-    dwwrite_epd(EPD(ws) + 5, 3613508294);
-    dwwrite_epd(EPD(ws) + 6, 2666161686);
-    dwwrite_epd(EPD(ws) + 7, 2019681173);
+    dwwrite_epd(EPD(ws) + 0, 1597271686);
+    dwwrite_epd(EPD(ws) + 1, 2239000578);
+    dwwrite_epd(EPD(ws) + 2, 1953446045);
+    dwwrite_epd(EPD(ws) + 3, 3118244298);
+    dwwrite_epd(EPD(ws) + 4, 1830805785);
+    dwwrite_epd(EPD(ws) + 5, 2433224599);
+    dwwrite_epd(EPD(ws) + 6, 3095640197);
+    dwwrite_epd(EPD(ws) + 7, 3765570326);
     
 }
 
@@ -30,13 +30,10 @@ function ResetValue(tagNum, index){
     const cp = getcurpl();
     switch(tagNum){
     case 0:
-        const alen = n0.CharacterExp.length / 8;
+        const alen = n0.SaveExp.length / 8;
         for(var i = 0 ; i < alen; i++){
-            n0.CharacterExp[alen * cp + i] = 0;
+            n0.SaveExp[alen * cp + i] = 0;
         }
-        break;
-    case 1:
-        n0.Unit_Death[cp] = 0;
         break;
     }
 }
@@ -46,11 +43,8 @@ function SaveValue(tagNum, Value, index){
     const cp = getcurpl();
     switch(tagNum){
     case 0:
-        const alen = n0.CharacterExp.length / 8;
-        n0.CharacterExp[alen * cp + index] = Value;
-        break;
-    case 1:
-        n0.Unit_Death[cp] = Value;
+        const alen = n0.SaveExp.length / 8;
+        n0.SaveExp[alen * cp + index] = Value;
         break;
     }
 }
@@ -61,9 +55,9 @@ function SaveDataWriteValue(tagNum, BaseAddress, index){
     switch(tagNum){
     case 0:
         {
-        const alen = n0.CharacterExp.length / 8;
+        const alen = n0.SaveExp.length / 8;
         for(var i = 0 ; i < alen ; i ++){
-            const objValue = n0.CharacterExp[alen * cp + i];
+            const objValue = n0.SaveExp[alen * cp + i];
             if(objValue != 0){
                 if (objValue > 0xFFFF){
                     wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x3000 + tagNum);
@@ -84,26 +78,6 @@ function SaveDataWriteValue(tagNum, BaseAddress, index){
                  }
             }
         }
-        }
-        break;
-    case 1:
-        {
-        const objValue = n0.Unit_Death[cp];
-        if(objValue != 0){
-            if (objValue > 0xFFFF){
-                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x1000 + tagNum);
-                index++;
-                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue / 0x10000);
-                index++;
-                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue % 0x10000);
-                index++;
-             }else{
-                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x2000 + tagNum);
-                index++;
-                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue);
-                index++;
-             }
-         }
         }
         break;
     }

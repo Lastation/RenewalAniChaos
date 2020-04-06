@@ -31,18 +31,22 @@ function onPluginStart() 	// 초기화 함수
 
 function MainLoop()
 {
-	unitID.Get_UnitID();
-
+	const cp = getcurpl();
+	
+	unitID.Get_UnitID(cp);
+		
+	scaSetting.LoadCharacterExp(cp);		// Load
+	
 	if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
 	{
-		selectText.SetIndex();				// 유닛 클릭 인식
-		selectText.CharacterTextNum();	// 캐릭터 번호 설정
-		selectText.CharacterText();		// 캐릭터 선택 텍스트
-		announce.Announce_Init();		// 상태창 텍스트
+		selectText.SetIndex(cp);				// 유닛 클릭 인식
+		selectText.CharacterTextNum(cp);		// 캐릭터 번호 설정
+		selectText.CharacterText(cp);			// 캐릭터 선택 텍스트
+		announce.Announce_Init();			// 상태창 텍스트
 		
-		ppty.PropertyText();			// 특성 텍스트
+		ppty.PropertyText();					// 특성 텍스트
 		
-		if (Switch((253), (2)))				// TestMode
+		if (Switch((253), (2)))					// TestMode
 		{
 			testmode.TestMode();
 		}
@@ -50,35 +54,34 @@ function MainLoop()
 	
 	if(Switch((255), (2)))	// Switch - StartSwich Set 일경우
 	{
-		buildText.BuildingText();		// 건물 텍스트
-		shopText.ShopText();			// 상점 텍스트
+		buildText.BuildingText(cp);			// 건물 텍스트
+		shopText.ShopText(cp);				// 상점 텍스트
 		
-		deathText.SetDeathValue();	// 사망 트리거
-		deathText.DeathText();		// 사망 텍스트
+		deathText.SetDeathValue(cp);			// 사망 트리거
+		deathText.DeathText(cp);				// 사망 텍스트
 		
-		init.SetBuildingHP();			// 건물 체력 관련
-		init.SetVariable();				// 기본 변수 설정
+		init.SetBuildingHP(cp);				// 건물 체력 관련
+		init.SetVariable(cp);					// 기본 변수 설정
 		
-		ppty.Property_S();			// S 특성
-		ppty.Property_C();			// C 특성
-		ppty.Property_A();			// A 특성
+		ppty.Property(cp);					// S,C,A 특성
 		
-		marge.MargeSound();			// 캐릭터 스킬 사운드 & 스킬 텍스트
-		announce.Announce_Ingame();	// 캐릭터 상태창 텍스트
+		marge.MargeSound(cp);				// 캐릭터 스킬 사운드 & 스킬 텍스트
+		
+		announce.Announce_Marge(cp);		// 캐릭터 상태창 텍스트
+		
+		scaSetting.SaveCharacterExp(cp);		// Save
 	}
 }
 
 function beforeTriggerExec() 
 {
-	sca.Exec();
-	scaSetting.AddCharacterExp();
-	
 	EUDPlayerLoop()();
-
+	
+	sca.Exec();
 	if(getcurpl() < 6)
 	{
 		MainLoop();
 	}
-	
+
 	EUDEndPlayerLoop();
 }

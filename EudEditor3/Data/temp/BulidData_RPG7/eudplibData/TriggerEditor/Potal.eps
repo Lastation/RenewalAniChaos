@@ -1,0 +1,107 @@
+import Function as func;
+import Variables as v;
+import String as str;
+
+const s = StringBuffer(1000);
+
+function onPluginStart()
+{
+	CreateUnit(1, "Terran Beacon", "Potal 01", P7);
+	CreateUnit(1, "Terran Beacon", "Potal 02", P7);
+	CreateUnit(1, "Terran Beacon", "Potal 03", P7);
+	CreateUnit(1, "Terran Beacon", "Potal 04", P7);
+	CreateUnit(1, "Terran Beacon", "Potal 05", P7);
+	CreateUnit(1, "Terran Beacon", "Potal 06", P7);
+	CreateUnit(1, "Terran Beacon", "Potal 07", P7);
+	
+}
+
+function beforeTriggerExec()
+{
+	EUDPlayerLoop()();
+		if(getcurpl() < 6)
+		{
+			if(Deaths(CurrentPlayer, Exactly, 8, "Terran Dropship"))
+			{
+				if(func.EPDBring(23, v.user_Character[getcurpl()])) {
+					// Potal 01 (24)
+					MoveUnit(0, "(any unit)", CurrentPlayer, "Potal 01", "Potal 02");
+				} else if(func.EPDBring(24, v.user_Character[getcurpl()])) {
+					// Potal 02 (25)
+					MoveUnit(0, "(any unit)", CurrentPlayer, "Potal 02", "Potal 01");
+				} else if(func.EPDBring(25, v.user_Character[getcurpl()])) {
+					// Potal 03 (26)
+					MoveUnit(0, "(any unit)", CurrentPlayer, "Potal 03", "Potal 04");
+				} else if(func.EPDBring(26, v.user_Character[getcurpl()])) {
+					// Potal 04 (27)
+					MoveUnit(0, "(any unit)", CurrentPlayer, "Potal 04", "Potal 03");
+				} else if(func.EPDBring(27, v.user_Character[getcurpl()])) {
+					// Potal 05 (28)
+					MoveUnit(0, "(any unit)", CurrentPlayer, "Potal 05", "Potal 06");
+				} else if(func.EPDBring(28, v.user_Character[getcurpl()])) {
+					// Potal 06 (29)
+					MoveUnit(0, "(any unit)", CurrentPlayer, "Potal 06", "Potal 05");
+				}
+			}
+			
+			if(func.EPDBring(23, v.user_Character[getcurpl()]))// Potal 01 (24)
+			{
+				s.printAt(8, " ");
+				s.printAt(9, "\x13\x17= ", str.Field01, " =");
+				s.printAt(10, "\x13\x04", str.Info_Field01);
+				if(Bring(CurrentPlayer, Exactly, 0, "Protoss Observer", "mine 1"))
+					CreateUnit(1, "Protoss Observer", "mine 1", CurrentPlayer);
+			} else if(Bring(CurrentPlayer, Exactly, 1, "Protoss Observer", "mine 1")) {
+				RemoveUnitAt(1, "Protoss Observer", "mine 1", CurrentPlayer);
+				func.TextClear();
+			}
+			
+			if(func.EPDBring(24, v.user_Character[getcurpl()])) // Potal 02 (25)
+			{
+				s.printAt(9, " ");
+				s.printAt(10, "\x13\x17= ", str.Village01, " =");
+				if(Bring(CurrentPlayer, Exactly, 0, "Protoss Observer", "mine 1"))
+					CreateUnit(2, "Protoss Observer", "mine 1", CurrentPlayer);
+			} else if(Bring(CurrentPlayer, Exactly, 2, "Protoss Observer", "mine 1")) {
+				RemoveUnitAt(2, "Protoss Observer", "mine 1", CurrentPlayer);
+				func.TextClear();
+			}
+			
+			if(func.EPDBring(25, v.user_Character[getcurpl()])) // Potal 03 (26)
+			{
+				s.printAt(8, " ");
+				s.printAt(9, "\x13\x17= ", str.Field02, " =");
+				s.printAt(10, "\x13\x04", str.Info_Field02);
+				if(Bring(CurrentPlayer, Exactly, 0, "Protoss Observer", "mine 1"))
+					CreateUnit(3, "Protoss Observer", "mine 1", CurrentPlayer);
+			} else if(Bring(CurrentPlayer, Exactly, 3, "Protoss Observer", "mine 1")) {
+				RemoveUnitAt(3, "Protoss Observer", "mine 1", CurrentPlayer);
+				func.TextClear();
+			}
+			
+			if(func.EPDBring(26, v.user_Character[getcurpl()])) // Potal 04 (27)
+			{
+				s.printAt(8, " ");
+				s.printAt(9, "\x13\x17= ", str.Field01, " =");
+				s.printAt(10, "\x13\x04", str.Info_Field01);
+				if(Bring(CurrentPlayer, Exactly, 0, "Protoss Observer", "mine 1"))
+					CreateUnit(4, "Protoss Observer", "mine 1", CurrentPlayer);
+			} else if(Bring(CurrentPlayer, Exactly, 4, "Protoss Observer", "mine 1")) {
+				RemoveUnitAt(4, "Protoss Observer", "mine 1", CurrentPlayer);
+				func.TextClear();
+			}
+			
+			if(func.EPDBring(27, v.user_Character[getcurpl()])) // Potal 05 (28)
+			{
+				s.printAt(8, " ");
+				s.printAt(9, "\x13\x17= ", str.Field03, " =");
+				s.printAt(10, "\x13\x04", str.Info_Field03);
+				if(Bring(CurrentPlayer, Exactly, 0, "Protoss Observer", "mine 1"))
+					CreateUnit(5, "Protoss Observer", "mine 1", CurrentPlayer);
+			} else if(Bring(CurrentPlayer, Exactly, 5, "Protoss Observer", "mine 1")) {
+				RemoveUnitAt(5, "Protoss Observer", "mine 1", CurrentPlayer);
+				func.TextClear();
+			}
+		}
+	EUDEndPlayerLoop();
+}

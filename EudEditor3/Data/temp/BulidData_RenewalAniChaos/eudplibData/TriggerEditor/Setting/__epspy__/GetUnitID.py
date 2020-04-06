@@ -128,34 +128,32 @@ def _LSH(l, r):
 
 # (Line 1) import Variable as v;
 import Variable as v
-# (Line 4) function Get_UnitID()
+# (Line 4) function Get_UnitID(cp)
 # (Line 5) {
 @EUDFunc
-def Get_UnitID():
-    # (Line 6) const cp = getcurpl();
-    cp = f_getcurpl()
-    # (Line 8) if (MemoryEPD(EPD(0x6284E8) + 12 *cp, AtLeast, 1))
+def Get_UnitID(cp):
+    # (Line 6) if (MemoryEPD(EPD(0x6284E8) + 12 *cp, AtLeast, 1))
     if EUDIf()(MemoryEPD(EPD(0x6284E8) + 12 * cp, AtLeast, 1)):
-        # (Line 9) {
-        # (Line 10) const selectedUnit = EPD(0x6284E8) + 12 * cp;
+        # (Line 7) {
+        # (Line 8) const selectedUnit = EPD(0x6284E8) + 12 * cp;
         selectedUnit = EPD(0x6284E8) + 12 * cp
-        # (Line 11) v.Unit_NowIndex[cp] = epdread_epd(selectedUnit);
+        # (Line 9) v.Unit_NowIndex[cp] = epdread_epd(selectedUnit);
         _ARRW(v.Unit_NowIndex, cp) << (f_epdread_epd(selectedUnit))
-        # (Line 12) v.PlayerID[cp] = bread_epd(v.Unit_NowIndex[cp] + 0x4C/4, 0);
+        # (Line 10) v.PlayerID[cp] = bread_epd(v.Unit_NowIndex[cp] + 0x4C/4, 0);
         _ARRW(v.PlayerID, cp) << (f_bread_epd(v.Unit_NowIndex[cp] + 0x4C // 4, 0))
-        # (Line 14) if(v.Unit_NowIndex[cp] != v.Unit_PrevIndex[cp] )
+        # (Line 12) if(v.Unit_NowIndex[cp] != v.Unit_PrevIndex[cp] )
         if EUDIf()(v.Unit_NowIndex[cp] == v.Unit_PrevIndex[cp], neg=True):
-            # (Line 15) {
-            # (Line 16) v.Unit_PrevIndex[cp] = v.Unit_NowIndex[cp];
+            # (Line 13) {
+            # (Line 14) v.Unit_PrevIndex[cp] = v.Unit_NowIndex[cp];
             _ARRW(v.Unit_PrevIndex, cp) << (v.Unit_NowIndex[cp])
-            # (Line 17) v.Unit_ID[cp] = bread_epd(v.Unit_NowIndex[cp] + 0x64/4, 0);
+            # (Line 15) v.Unit_ID[cp] = bread_epd(v.Unit_NowIndex[cp] + 0x64/4, 0);
             _ARRW(v.Unit_ID, cp) << (f_bread_epd(v.Unit_NowIndex[cp] + 0x64 // 4, 0))
-            # (Line 18) v.Unit_HP[cp] = dwread_epd(v.Unit_NowIndex[cp] + 0x008 / 4);
+            # (Line 16) v.Unit_HP[cp] = dwread_epd(v.Unit_NowIndex[cp] + 0x008 / 4);
             _ARRW(v.Unit_HP, cp) << (f_dwread_epd(v.Unit_NowIndex[cp] + 0x008 // 4))
-            # (Line 19) v.Unit_HP[cp] = v.Unit_HP[cp] / 256;
+            # (Line 17) v.Unit_HP[cp] = v.Unit_HP[cp] / 256;
             _ARRW(v.Unit_HP, cp) << (v.Unit_HP[cp] // 256)
-            # (Line 20) }
-            # (Line 21) }
+            # (Line 18) }
+            # (Line 19) }
         EUDEndIf()
-        # (Line 22) }
+        # (Line 20) }
     EUDEndIf()
