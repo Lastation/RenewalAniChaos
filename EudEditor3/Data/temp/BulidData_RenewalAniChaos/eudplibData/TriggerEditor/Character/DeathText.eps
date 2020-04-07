@@ -52,6 +52,8 @@ function SetDeathValue(cp)
 		v.DeathOre_Text[3] = v.DeathOre;
 		v.DeathOre_Text[4] = v.DeathOre;
 		v.DeathOre_Text[5] = v.DeathOre;
+		
+		v.Death_Score[cp] += 1;
 	}
 }
 
@@ -69,4 +71,14 @@ function DeathText(cp)
 		SetDeaths((13), (7), 0, (211));
 		v.DeathOre_Text[cp] = 0;
 	}
+}
+
+function SetKillScore(cp)
+{
+	if (Kills(CurrentPlayer, AtLeast, 1, 51))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 51); }
+	if (Kills(CurrentPlayer, AtLeast, 1, 77))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 77); }
+	if (Kills(CurrentPlayer, AtLeast, 1, 74))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 74); }
+	if (Kills(CurrentPlayer, AtLeast, 1, 16))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 16); }
+	if (Kills(CurrentPlayer, AtLeast, 1, 54))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 54); }
+	if (Kills(CurrentPlayer, AtLeast, 1, 99))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 99); }
 }

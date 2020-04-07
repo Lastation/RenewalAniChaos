@@ -1,5 +1,4 @@
 import SCArchive as sca;
-import SCAFlexible as scf;
 
 import Variable as v;
 import customText as tct;
@@ -7,80 +6,84 @@ import customText as tct;
 var txtPtr, btnPtr, btnPos, oldCP;
 const trgk = $T('Artanis & safhfh');
 
-function PingCheck();
-function ShowCharacterExp();
+function SCAMain(cp);
+function SCAMessage(cp);
+function GetExp(cp);
+function AddExp(cp, exp);
 
-function ResetCharacterExp(cp)
-{
-	for (var i = 0; i < v.CharacterMax; i++)
-	{
-		v.SaveExp[8 * v.CharacterMax + cp] = 0;
-	}
-}
-
-function AddCharacterExp(HeroNumber, cp)
-{		
-	if (Deaths(CurrentPlayer, AtLeast, 1, " `AddExp"))
-	{
-		const Exp = dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
-		v.SaveExp[8 * HeroNumber + cp] += Exp;
-		sca.SaveData(0);
-		
-		SetDeaths(CurrentPlayer, SetTo, 0, " `AddExp");
-	}
-}
-
-function SaveCharacterExp(cp)
+function SCAMain(cp)
 {
 	if(sca.ConnectStatus() == 1)
 	{
-		const HeroNumber = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp));
-		
-		AddCharacterExp(HeroNumber, cp);
-
-		switch(sca.GetLastMessage())
+		switch(v.SCAStatus[cp])
 		{
-			case 5:
-				tct.makeText("\x13\x04",ptr2s(v.Hero_Name[HeroNumber]),"의 정보를 저장중입니다.");
-				tct.addText("\n\x13\x17[ \x04",ptr2s(v.Hero_Name[HeroNumber])," \x17] \x04EXP : ", v.SaveExp[8 * HeroNumber + cp],"");
-				
-				txtPtr = dwread_epd(EPD(0x640B58));
-				tct.displayText();
-				SetMemory(0x640B58, SetTo, txtPtr);
+			case 0:
+				sca.LoadData(0);
+				v.SCAStatus[cp] = 2;
 				break;
-			case 6:
-				tct.print("\x13\x04",ptr2s(v.Hero_Name[HeroNumber]),"의 저장을 완료하였습니다.");
-				tct.addText("\n\x13\x17[ \x04",ptr2s(v.Hero_Name[HeroNumber])," \x17] \x04EXP : ", v.SaveExp[8 * HeroNumber + cp],"");
-				
-				txtPtr = dwread_epd(EPD(0x640B58));
-				tct.displayText();
-				SetMemory(0x640B58, SetTo, txtPtr);
-				sca.ResetLastMessage();
+			case 1:
+				AddExp(cp, v.Exp_Add[cp]);
+				GetExp(cp);
+				sca.SaveData(0);
+				v.SCAStatus[cp] = 2;
+				break;
+			case 2:
+				if (Deaths(CurrentPlayer, AtLeast, 1, " `SaveExp")) 
+				{
+					v.Exp_Add[cp] = dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
+					v.Exp_Total[cp] += dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
+					SetDeaths(CurrentPlayer, SetTo, 0, " `SaveExp");
+					v.SCAStatus[cp] = 1;
+				}
 				break;
 		}
+		SCAMessage(cp);
+		if (v.Exp_Player[cp] == 0) { GetExp(cp); }
 	}
 }
 
-function LoadCharacterExp(cp)
+
+function SCAMessage(cp)
 {
-	if(sca.ConnectStatus() == 1)
+	switch(sca.GetLastMessage())
 	{
-		if (v.isLoad[cp] == 0) { sca.LoadData(0); v.isLoad[cp] = 1; }
-		
-		switch(sca.GetLastMessage())
-		{
-			case 3:
-				txtPtr = dwread_epd(EPD(0x640B58));
-				tct.print("\x13\x04저장된  정보를 불러오는 중입니다.");
-				SetMemory(0x640B58, SetTo, txtPtr);
-				break;
-			case 4:
-				txtPtr = dwread_epd(EPD(0x640B58));
-				tct.print("\x13\x04저장된 정보를 불러오는데 성공하였습니다.");
-				SetMemory(0x640B58, SetTo, txtPtr);
-				v.isLoad[cp] = 1;
-				sca.ResetLastMessage();
-				break;
-		}
+		case 3:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\x13\x04저장된  정보를 불러오는 중입니다.");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			sca.ResetLastMessage();
+			break;
+		case 4:
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.print("\x13\x04저장된 정보를 불러오는데 성공하였습니다.");
+			SetMemory(0x640B58, SetTo, txtPtr);
+			sca.ResetLastMessage();
+			break;
+		case 5:
+			tct.makeText("\x13\x04", ptr2s(v.Hero_Name[v.Hero_Num[cp]]), "의 정보를 저장중입니다.");
+			tct.addText("\n\x13\x17[ \x04", ptr2s(v.Hero_Name[v.Hero_Num[cp]]), " \x17] \x04EXP : ", v.Exp_Player[cp], "");
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.displayText();
+			SetMemory(0x640B58, SetTo, txtPtr);
+			sca.ResetLastMessage();
+			break;
+		case 6:
+			tct.makeText("\x13\x04",ptr2s(v.Hero_Name[v.Hero_Num[cp]]),"의 저장을 완료하였습니다.");
+			tct.addText("\n\x13\x17[ \x04",ptr2s(v.Hero_Name[v.Hero_Num[cp]])," \x17] \x04EXP : ", v.Exp_Player[cp], "");
+			txtPtr = dwread_epd(EPD(0x640B58));
+			tct.displayText();
+			SetMemory(0x640B58, SetTo, txtPtr);
+			sca.ResetLastMessage();
+			break;
 	}
+}
+
+function GetExp(cp)
+{
+	if (v.Hero_Num[cp] <= 20) 	{ v.Exp_Player[cp] = v.Exp_Group[20 * cp + (v.Hero_Num[cp] - 1)]; }
+}
+
+function AddExp(cp, exp)
+{
+	if (v.Hero_Num[cp] <= 20) 	{ v.Exp_Group[20 * cp + (v.Hero_Num[cp] - 1)] += exp; }
 }

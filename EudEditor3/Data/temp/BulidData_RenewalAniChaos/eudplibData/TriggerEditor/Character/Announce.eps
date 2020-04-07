@@ -102,8 +102,7 @@ function Announce_Ingame(cp)
 
 function Announce_Exp(cp)
 {
-	const HeroNumber = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp));
-	tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO Skill \x04사용가능 \x1CON　\x07Exp \x04", v.SaveExp[8 * HeroNumber + cp], "");
+	tct.chatAnnouncement("　\x17[ \x04", ptr2s(v.Hero_Name[v.Hero_Num[cp]]), "\x17 ]　\x07Exp \x04", v.Exp_Player[cp], "　\x1FCS \x04", dwread_epd(EPD(0x58A364 + 48 * 164 + 4 * cp)), "　\x08K\x04/\x1BD \x08", v.Kill_Score[cp], "\x04/\x1B", v.Death_Score[cp], "");
 }
 
 function Announce_Marge(cp)

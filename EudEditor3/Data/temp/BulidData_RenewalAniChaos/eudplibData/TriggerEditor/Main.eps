@@ -23,7 +23,6 @@ const trgk = $T('Artanis & safhfh');
 function onPluginStart() 	// 초기화 함수
 {
 	sca.Init();
-	sca.LoadData(0);
 	
     	EUDPlayerLoop()();
     	EUDEndPlayerLoop();
@@ -34,8 +33,8 @@ function MainLoop()
 	const cp = getcurpl();
 	
 	unitID.Get_UnitID(cp);
-		
-	scaSetting.LoadCharacterExp(cp);		// Load
+	
+	scaSetting.SCAMain(cp);		// SCA Setting
 	
 	if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
 	{
@@ -57,6 +56,7 @@ function MainLoop()
 		buildText.BuildingText(cp);			// 건물 텍스트
 		shopText.ShopText(cp);				// 상점 텍스트
 		
+		deathText.SetKillScore(cp);			// 킬 스코어
 		deathText.SetDeathValue(cp);			// 사망 트리거
 		deathText.DeathText(cp);				// 사망 텍스트
 		
@@ -66,22 +66,20 @@ function MainLoop()
 		ppty.Property(cp);					// S,C,A 특성
 		
 		marge.MargeSound(cp);				// 캐릭터 스킬 사운드 & 스킬 텍스트
-		
 		announce.Announce_Marge(cp);		// 캐릭터 상태창 텍스트
-		
-		scaSetting.SaveCharacterExp(cp);		// Save
 	}
 }
 
 function beforeTriggerExec() 
 {
+	sca.Exec();
+	
 	EUDPlayerLoop()();
 	
-	sca.Exec();
 	if(getcurpl() < 6)
 	{
 		MainLoop();
 	}
-
+	
 	EUDEndPlayerLoop();
 }

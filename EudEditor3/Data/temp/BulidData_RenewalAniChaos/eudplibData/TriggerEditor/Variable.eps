@@ -1,10 +1,13 @@
 // SCA Variable
-const PlayerExp = PVariable();
+const SCAStatus 		= PVariable();
 
-const isLoad = PVariable();
+const Exp_Total		= PVariable();
+const Exp_Add		= PVariable();	
+const Exp_Group 	= EUDArray(160);
+const Exp_Player		= PVariable();	// 현재 캐릭터 경험치
 
-const CharacterMax = 18;
-const SaveExp = EUDArray(CharacterMax * 8);
+const Kill_Score		= PVariable();	// 킬
+const Death_Score	= PVariable();	// 사망
 
 const AnnounceList = PVariable();
 

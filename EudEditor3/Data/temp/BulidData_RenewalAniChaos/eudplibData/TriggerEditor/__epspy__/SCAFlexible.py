@@ -132,8 +132,8 @@ import Variable as n0
 ws = _CGFW(lambda: [0x58F44A], 1)[0]
 # (Line 4) const EntryPointLength = 8;//EntryPointLength
 EntryPointLength = _CGFW(lambda: [8], 1)[0]
-# (Line 5) const SpaceLength = 200;//DataBufferSize
-SpaceLength = _CGFW(lambda: [200], 1)[0]
+# (Line 5) const SpaceLength = 400;//DataBufferSize
+SpaceLength = _CGFW(lambda: [400], 1)[0]
 # (Line 6) const ObjectCount = 1;//ObjectCount
 ObjectCount = _CGFW(lambda: [1], 1)[0]
 # (Line 8) function Init(){
@@ -143,22 +143,22 @@ def Init():
     MPQAddFile('SCARCHIVEMAPCODE', open('scakeyfile', 'rb').read())
     # (Line 10) MPQAddFile('SCARCHIVEDATA', py_open('scadatafile', 'rb').read());
     MPQAddFile('SCARCHIVEDATA', open('scadatafile', 'rb').read())
-    # (Line 12) dwwrite_epd(EPD(ws) + 0, 1597271686);
-    f_dwwrite_epd(EPD(ws) + 0, 1597271686)
-    # (Line 13) dwwrite_epd(EPD(ws) + 1, 2239000578);
-    f_dwwrite_epd(EPD(ws) + 1, 2239000578)
-    # (Line 14) dwwrite_epd(EPD(ws) + 2, 1953446045);
-    f_dwwrite_epd(EPD(ws) + 2, 1953446045)
-    # (Line 15) dwwrite_epd(EPD(ws) + 3, 3118244298);
-    f_dwwrite_epd(EPD(ws) + 3, 3118244298)
-    # (Line 16) dwwrite_epd(EPD(ws) + 4, 1830805785);
-    f_dwwrite_epd(EPD(ws) + 4, 1830805785)
-    # (Line 17) dwwrite_epd(EPD(ws) + 5, 2433224599);
-    f_dwwrite_epd(EPD(ws) + 5, 2433224599)
-    # (Line 18) dwwrite_epd(EPD(ws) + 6, 3095640197);
-    f_dwwrite_epd(EPD(ws) + 6, 3095640197)
-    # (Line 19) dwwrite_epd(EPD(ws) + 7, 3765570326);
-    f_dwwrite_epd(EPD(ws) + 7, 3765570326)
+    # (Line 12) dwwrite_epd(EPD(ws) + 0, 2059293105);
+    f_dwwrite_epd(EPD(ws) + 0, 2059293105)
+    # (Line 13) dwwrite_epd(EPD(ws) + 1, 1703546271);
+    f_dwwrite_epd(EPD(ws) + 1, 1703546271)
+    # (Line 14) dwwrite_epd(EPD(ws) + 2, 743146189);
+    f_dwwrite_epd(EPD(ws) + 2, 743146189)
+    # (Line 15) dwwrite_epd(EPD(ws) + 3, 2034185685);
+    f_dwwrite_epd(EPD(ws) + 3, 2034185685)
+    # (Line 16) dwwrite_epd(EPD(ws) + 4, 2760856512);
+    f_dwwrite_epd(EPD(ws) + 4, 2760856512)
+    # (Line 17) dwwrite_epd(EPD(ws) + 5, 1359405682);
+    f_dwwrite_epd(EPD(ws) + 5, 1359405682)
+    # (Line 18) dwwrite_epd(EPD(ws) + 6, 1895429617);
+    f_dwwrite_epd(EPD(ws) + 6, 1895429617)
+    # (Line 19) dwwrite_epd(EPD(ws) + 7, 2151857190);
+    f_dwwrite_epd(EPD(ws) + 7, 2151857190)
     # (Line 21) }
     # (Line 24) function Exec(){
 
@@ -177,17 +177,17 @@ def ResetValue(tagNum, index):
     EUDSwitch(tagNum)
     # (Line 32) case 0:
     _t1 = EUDSwitchCase()
-    # (Line 33) const alen = n0.SaveExp.length / 8;
+    # (Line 33) const alen = n0.Exp_Group.length / 8;
     if _t1(0):
-        alen = n0.SaveExp.length // 8
+        alen = n0.Exp_Group.length // 8
         # (Line 34) for(var i = 0 ; i < alen; i++){
         i = EUDVariable()
         i << (0)
         if EUDWhile()(i >= alen, neg=True):
             def _t3():
                 i.__iadd__(1)
-            # (Line 35) n0.SaveExp[alen * cp + i] = 0;
-            _ARRW(n0.SaveExp, alen * cp + i) << (0)
+            # (Line 35) n0.Exp_Group[alen * cp + i] = 0;
+            _ARRW(n0.Exp_Group, alen * cp + i) << (0)
             # (Line 36) }
             # (Line 37) break;
             EUDSetContinuePoint()
@@ -207,11 +207,11 @@ def SaveValue(tagNum, Value, index):
     EUDSwitch(tagNum)
     # (Line 45) case 0:
     _t1 = EUDSwitchCase()
-    # (Line 46) const alen = n0.SaveExp.length / 8;
+    # (Line 46) const alen = n0.Exp_Group.length / 8;
     if _t1(0):
-        alen = n0.SaveExp.length // 8
-        # (Line 47) n0.SaveExp[alen * cp + index] = Value;
-        _ARRW(n0.SaveExp, alen * cp + index) << (Value)
+        alen = n0.Exp_Group.length // 8
+        # (Line 47) n0.Exp_Group[alen * cp + index] = Value;
+        _ARRW(n0.Exp_Group, alen * cp + index) << (Value)
         # (Line 48) break;
         EUDBreak()
         # (Line 49) }
@@ -229,16 +229,16 @@ def SaveDataWriteValue(tagNum, BaseAddress, index):
     _t1 = EUDSwitchCase()
     # (Line 57) {
     if _t1(0):
-        # (Line 58) const alen = n0.SaveExp.length / 8;
-        alen = n0.SaveExp.length // 8
+        # (Line 58) const alen = n0.Exp_Group.length / 8;
+        alen = n0.Exp_Group.length // 8
         # (Line 59) for(var i = 0 ; i < alen ; i ++){
         i = EUDVariable()
         i << (0)
         if EUDWhile()(i >= alen, neg=True):
             def _t3():
                 i.__iadd__(1)
-            # (Line 60) const objValue = n0.SaveExp[alen * cp + i];
-            objValue = n0.SaveExp[alen * cp + i]
+            # (Line 60) const objValue = n0.Exp_Group[alen * cp + i];
+            objValue = n0.Exp_Group[alen * cp + i]
             # (Line 61) if(objValue != 0){
             if EUDIf()(objValue == 0, neg=True):
                 # (Line 62) if (objValue > 0xFFFF){

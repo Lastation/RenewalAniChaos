@@ -2,21 +2,21 @@ import Variable as n0;
 
 const ws = 0x58F44A;
 const EntryPointLength = 8;//EntryPointLength
-const SpaceLength = 200;//DataBufferSize
+const SpaceLength = 400;//DataBufferSize
 const ObjectCount = 1;//ObjectCount
 
 function Init(){
     MPQAddFile('SCARCHIVEMAPCODE', py_open('scakeyfile', 'rb').read());
     MPQAddFile('SCARCHIVEDATA', py_open('scadatafile', 'rb').read());
     //EntryPoint
-    dwwrite_epd(EPD(ws) + 0, 1597271686);
-    dwwrite_epd(EPD(ws) + 1, 2239000578);
-    dwwrite_epd(EPD(ws) + 2, 1953446045);
-    dwwrite_epd(EPD(ws) + 3, 3118244298);
-    dwwrite_epd(EPD(ws) + 4, 1830805785);
-    dwwrite_epd(EPD(ws) + 5, 2433224599);
-    dwwrite_epd(EPD(ws) + 6, 3095640197);
-    dwwrite_epd(EPD(ws) + 7, 3765570326);
+    dwwrite_epd(EPD(ws) + 0, 2059293105);
+    dwwrite_epd(EPD(ws) + 1, 1703546271);
+    dwwrite_epd(EPD(ws) + 2, 743146189);
+    dwwrite_epd(EPD(ws) + 3, 2034185685);
+    dwwrite_epd(EPD(ws) + 4, 2760856512);
+    dwwrite_epd(EPD(ws) + 5, 1359405682);
+    dwwrite_epd(EPD(ws) + 6, 1895429617);
+    dwwrite_epd(EPD(ws) + 7, 2151857190);
     
 }
 
@@ -30,9 +30,9 @@ function ResetValue(tagNum, index){
     const cp = getcurpl();
     switch(tagNum){
     case 0:
-        const alen = n0.SaveExp.length / 8;
+        const alen = n0.Exp_Group.length / 8;
         for(var i = 0 ; i < alen; i++){
-            n0.SaveExp[alen * cp + i] = 0;
+            n0.Exp_Group[alen * cp + i] = 0;
         }
         break;
     }
@@ -43,8 +43,8 @@ function SaveValue(tagNum, Value, index){
     const cp = getcurpl();
     switch(tagNum){
     case 0:
-        const alen = n0.SaveExp.length / 8;
-        n0.SaveExp[alen * cp + index] = Value;
+        const alen = n0.Exp_Group.length / 8;
+        n0.Exp_Group[alen * cp + index] = Value;
         break;
     }
 }
@@ -55,9 +55,9 @@ function SaveDataWriteValue(tagNum, BaseAddress, index){
     switch(tagNum){
     case 0:
         {
-        const alen = n0.SaveExp.length / 8;
+        const alen = n0.Exp_Group.length / 8;
         for(var i = 0 ; i < alen ; i ++){
-            const objValue = n0.SaveExp[alen * cp + i];
+            const objValue = n0.Exp_Group[alen * cp + i];
             if(objValue != 0){
                 if (objValue > 0xFFFF){
                     wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x3000 + tagNum);

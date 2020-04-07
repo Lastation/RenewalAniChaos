@@ -227,29 +227,67 @@ def SetDeathValue(cp):
         _ARRW(v.DeathOre_Text, 4) << (v.DeathOre)
         # (Line 54) v.DeathOre_Text[5] = v.DeathOre;
         _ARRW(v.DeathOre_Text, 5) << (v.DeathOre)
-        # (Line 55) }
-        # (Line 56) }
+        # (Line 56) v.Death_Score[cp] += 1;
+        _ARRW(v.Death_Score, cp).__iadd__(1)
+        # (Line 57) }
+        # (Line 58) }
     EUDEndIf()
-    # (Line 59) function DeathText(cp)
+    # (Line 61) function DeathText(cp)
 
-# (Line 60) {
+# (Line 62) {
 @EUDFunc
 def DeathText(cp):
-    # (Line 61) if (v.DeathOre_Text[cp] != 0)
+    # (Line 63) if (v.DeathOre_Text[cp] != 0)
     if EUDIf()(v.DeathOre_Text[cp] == 0, neg=True):
-        # (Line 62) {
-        # (Line 63) const value = dwread_epd(EPD(0x58A364 + 48 * 211 + 4 * cp));
+        # (Line 64) {
+        # (Line 65) const value = dwread_epd(EPD(0x58A364 + 48 * 211 + 4 * cp));
         value = f_dwread_epd(EPD(0x58A364 + 48 * 211 + 4 * cp))
-        # (Line 65) txtPtr = dwread_epd(EPD(0x640B58));
-        txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 66) tct.print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17", ptr2s(v.Hero_Name[value]), "\x04이 치명상을 입었습니다. \x19::\n\n\x13\x07", v.Team_Num, "\x04Team \x17+ ", v.DeathOre_Text[cp], " \x04Ore\n");
-        tct.f_print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17", ptr2s(v.Hero_Name[value]), "\x04이 치명상을 입었습니다. \x19::\n\n\x13\x07", v.Team_Num, "\x04Team \x17+ ", v.DeathOre_Text[cp], " \x04Ore\n")
         # (Line 67) txtPtr = dwread_epd(EPD(0x640B58));
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 69) SetDeaths((13), (7), 0, (211));
-        # (Line 70) v.DeathOre_Text[cp] = 0;
+        # (Line 68) tct.print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17", ptr2s(v.Hero_Name[value]), "\x04이 치명상을 입었습니다. \x19::\n\n\x13\x07", v.Team_Num, "\x04Team \x17+ ", v.DeathOre_Text[cp], " \x04Ore\n");
+        tct.f_print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17", ptr2s(v.Hero_Name[value]), "\x04이 치명상을 입었습니다. \x19::\n\n\x13\x07", v.Team_Num, "\x04Team \x17+ ", v.DeathOre_Text[cp], " \x04Ore\n")
+        # (Line 69) txtPtr = dwread_epd(EPD(0x640B58));
+        txtPtr << (f_dwread_epd(EPD(0x640B58)))
+        # (Line 71) SetDeaths((13), (7), 0, (211));
+        # (Line 72) v.DeathOre_Text[cp] = 0;
         DoActions(SetDeaths((13), (7), 0, (211)))
         _ARRW(v.DeathOre_Text, cp) << (0)
-        # (Line 71) }
-        # (Line 72) }
+        # (Line 73) }
+        # (Line 74) }
+    EUDEndIf()
+    # (Line 76) function SetKillScore(cp)
+
+# (Line 77) {
+@EUDFunc
+def SetKillScore(cp):
+    # (Line 78) if (Kills(CurrentPlayer, AtLeast, 1, 51))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 51); }
+    if EUDIf()(Kills(CurrentPlayer, AtLeast, 1, 51)):
+        _ARRW(v.Kill_Score, cp).__iadd__(1)
+        DoActions(SetKills(CurrentPlayer, Subtract, 1, 51))
+        # (Line 79) if (Kills(CurrentPlayer, AtLeast, 1, 77))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 77); }
+    EUDEndIf()
+    if EUDIf()(Kills(CurrentPlayer, AtLeast, 1, 77)):
+        _ARRW(v.Kill_Score, cp).__iadd__(1)
+        DoActions(SetKills(CurrentPlayer, Subtract, 1, 77))
+        # (Line 80) if (Kills(CurrentPlayer, AtLeast, 1, 74))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 74); }
+    EUDEndIf()
+    if EUDIf()(Kills(CurrentPlayer, AtLeast, 1, 74)):
+        _ARRW(v.Kill_Score, cp).__iadd__(1)
+        DoActions(SetKills(CurrentPlayer, Subtract, 1, 74))
+        # (Line 81) if (Kills(CurrentPlayer, AtLeast, 1, 16))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 16); }
+    EUDEndIf()
+    if EUDIf()(Kills(CurrentPlayer, AtLeast, 1, 16)):
+        _ARRW(v.Kill_Score, cp).__iadd__(1)
+        DoActions(SetKills(CurrentPlayer, Subtract, 1, 16))
+        # (Line 82) if (Kills(CurrentPlayer, AtLeast, 1, 54))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 54); }
+    EUDEndIf()
+    if EUDIf()(Kills(CurrentPlayer, AtLeast, 1, 54)):
+        _ARRW(v.Kill_Score, cp).__iadd__(1)
+        DoActions(SetKills(CurrentPlayer, Subtract, 1, 54))
+        # (Line 83) if (Kills(CurrentPlayer, AtLeast, 1, 99))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 99); }
+    EUDEndIf()
+    if EUDIf()(Kills(CurrentPlayer, AtLeast, 1, 99)):
+        _ARRW(v.Kill_Score, cp).__iadd__(1)
+        DoActions(SetKills(CurrentPlayer, Subtract, 1, 99))
+        # (Line 84) }
     EUDEndIf()

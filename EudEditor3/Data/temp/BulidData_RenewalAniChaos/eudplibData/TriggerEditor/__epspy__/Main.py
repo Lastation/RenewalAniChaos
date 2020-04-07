@@ -164,53 +164,53 @@ trgk = _CGFW(lambda: [GetStringIndex('Artanis & safhfh')], 1)[0]
 def onPluginStart():
     # (Line 25) sca.Init();
     sca.Init()
-    # (Line 26) sca.LoadData(0);
-    sca.LoadData(0)
-    # (Line 28) EUDPlayerLoop()();
+    # (Line 27) EUDPlayerLoop()();
     EUDPlayerLoop()()
-    # (Line 29) EUDEndPlayerLoop();
+    # (Line 28) EUDEndPlayerLoop();
     EUDEndPlayerLoop()
-    # (Line 30) }
-    # (Line 32) function MainLoop()
+    # (Line 29) }
+    # (Line 31) function MainLoop()
 
-# (Line 33) {
+# (Line 32) {
 @EUDFunc
 def MainLoop():
-    # (Line 34) const cp = getcurpl();
+    # (Line 33) const cp = getcurpl();
     cp = f_getcurpl()
-    # (Line 36) unitID.Get_UnitID(cp);
+    # (Line 35) unitID.Get_UnitID(cp);
     unitID.Get_UnitID(cp)
-    # (Line 38) scaSetting.LoadCharacterExp(cp);		// Load
-    scaSetting.LoadCharacterExp(cp)
-    # (Line 40) if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
+    # (Line 37) scaSetting.SCAMain(cp);		// SCA Setting
+    scaSetting.SCAMain(cp)
+    # (Line 39) if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
     if EUDIf()(Switch((255), (3))):
-        # (Line 41) {
-        # (Line 42) selectText.SetIndex(cp);				// 유닛 클릭 인식
+        # (Line 40) {
+        # (Line 41) selectText.SetIndex(cp);				// 유닛 클릭 인식
         selectText.SetIndex(cp)
-        # (Line 43) selectText.CharacterTextNum(cp);		// 캐릭터 번호 설정
+        # (Line 42) selectText.CharacterTextNum(cp);		// 캐릭터 번호 설정
         selectText.CharacterTextNum(cp)
-        # (Line 44) selectText.CharacterText(cp);			// 캐릭터 선택 텍스트
+        # (Line 43) selectText.CharacterText(cp);			// 캐릭터 선택 텍스트
         selectText.CharacterText(cp)
-        # (Line 45) announce.Announce_Init();			// 상태창 텍스트
+        # (Line 44) announce.Announce_Init();			// 상태창 텍스트
         announce.Announce_Init()
-        # (Line 47) ppty.PropertyText();					// 특성 텍스트
+        # (Line 46) ppty.PropertyText();					// 특성 텍스트
         ppty.PropertyText()
-        # (Line 49) if (Switch((253), (2)))					// TestMode
+        # (Line 48) if (Switch((253), (2)))					// TestMode
         if EUDIf()(Switch((253), (2))):
-            # (Line 50) {
-            # (Line 51) testmode.TestMode();
+            # (Line 49) {
+            # (Line 50) testmode.TestMode();
             testmode.TestMode()
+            # (Line 51) }
             # (Line 52) }
-            # (Line 53) }
         EUDEndIf()
-        # (Line 55) if(Switch((255), (2)))	// Switch - StartSwich Set 일경우
+        # (Line 54) if(Switch((255), (2)))	// Switch - StartSwich Set 일경우
     EUDEndIf()
     if EUDIf()(Switch((255), (2))):
-        # (Line 56) {
-        # (Line 57) buildText.BuildingText(cp);			// 건물 텍스트
+        # (Line 55) {
+        # (Line 56) buildText.BuildingText(cp);			// 건물 텍스트
         buildText.BuildingText(cp)
-        # (Line 58) shopText.ShopText(cp);				// 상점 텍스트
+        # (Line 57) shopText.ShopText(cp);				// 상점 텍스트
         shopText.ShopText(cp)
+        # (Line 59) deathText.SetKillScore(cp);			// 킬 스코어
+        deathText.SetKillScore(cp)
         # (Line 60) deathText.SetDeathValue(cp);			// 사망 트리거
         deathText.SetDeathValue(cp)
         # (Line 61) deathText.DeathText(cp);				// 사망 텍스트
@@ -223,29 +223,27 @@ def MainLoop():
         ppty.Property(cp)
         # (Line 68) marge.MargeSound(cp);				// 캐릭터 스킬 사운드 & 스킬 텍스트
         marge.MargeSound(cp)
-        # (Line 70) announce.Announce_Marge(cp);		// 캐릭터 상태창 텍스트
+        # (Line 69) announce.Announce_Marge(cp);		// 캐릭터 상태창 텍스트
         announce.Announce_Marge(cp)
-        # (Line 72) scaSetting.SaveCharacterExp(cp);		// Save
-        scaSetting.SaveCharacterExp(cp)
-        # (Line 73) }
-        # (Line 74) }
+        # (Line 70) }
+        # (Line 71) }
     EUDEndIf()
-    # (Line 76) function beforeTriggerExec()
+    # (Line 73) function beforeTriggerExec()
 
-# (Line 77) {
+# (Line 74) {
 @EUDFunc
 def beforeTriggerExec():
-    # (Line 78) EUDPlayerLoop()();
-    EUDPlayerLoop()()
-    # (Line 80) sca.Exec();
+    # (Line 75) sca.Exec();
     sca.Exec()
-    # (Line 81) if(getcurpl() < 6)
+    # (Line 77) EUDPlayerLoop()();
+    EUDPlayerLoop()()
+    # (Line 79) if(getcurpl() < 6)
     if EUDIf()(f_getcurpl() >= 6, neg=True):
-        # (Line 82) {
-        # (Line 83) MainLoop();
+        # (Line 80) {
+        # (Line 81) MainLoop();
         MainLoop()
-        # (Line 84) }
-        # (Line 86) EUDEndPlayerLoop();
+        # (Line 82) }
+        # (Line 84) EUDEndPlayerLoop();
     EUDEndIf()
     EUDEndPlayerLoop()
-    # (Line 87) }
+    # (Line 85) }
