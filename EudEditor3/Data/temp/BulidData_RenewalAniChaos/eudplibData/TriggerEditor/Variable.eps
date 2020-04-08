@@ -1,22 +1,26 @@
 // SCA Variable
 const SCAStatus 		= PVariable();
 
-const Exp_Total		= PVariable();
-const Exp_Add		= PVariable();	
-const Exp_Group 	= EUDArray(160);
-const Exp_Player		= PVariable();	// 현재 캐릭터 경험치
+const Exp_Total		= PVariable();		// Exp 토탈
+const CS_Total		= PVariable();		// CS 토탈
 
-const Kill_Score		= PVariable();	// 킬
-const Death_Score	= PVariable();	// 사망
+const Exp_Group 	= EUDArray(160);	// Exp
+const CS_Group 		= PVariable();		// CS
+
+const Exp_Player		= PVariable();		// 현재 캐릭터 경험치
+const CS_Player		= PVariable();		// 현재 캐릭터 CS
+
+const Kill_Score		= PVariable();		// 킬
+const Death_Score	= PVariable();		// 사망
 
 const AnnounceList = PVariable();
 
 // Common Variable
-const Unit_Death = PVariable();
-const Hero_Text = PVariable();
+const Unit_Death 	= PVariable();
+const Hero_Text 		= PVariable();
 
-const Unit_ID = PVariable();
-const PlayerID = PVariable();
+const Unit_ID 		= PVariable();
+const PlayerID 		= PVariable();
 
 const Hero_Index = PVariable();
 const Unit_PrevIndex = PVariable();

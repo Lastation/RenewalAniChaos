@@ -34,14 +34,14 @@ function MainLoop()
 	
 	unitID.Get_UnitID(cp);
 	
-	scaSetting.SCAMain(cp);		// SCA Setting
+	scaSetting.SCAMain(cp);			// SCA Setting
+	announce.Announce_Marge(cp);	// 상태창 텍스트
 	
 	if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
 	{
 		selectText.SetIndex(cp);				// 유닛 클릭 인식
 		selectText.CharacterTextNum(cp);		// 캐릭터 번호 설정
 		selectText.CharacterText(cp);			// 캐릭터 선택 텍스트
-		announce.Announce_Init();			// 상태창 텍스트
 		
 		ppty.PropertyText();					// 특성 텍스트
 		
@@ -66,7 +66,6 @@ function MainLoop()
 		ppty.Property(cp);					// S,C,A 특성
 		
 		marge.MargeSound(cp);				// 캐릭터 스킬 사운드 & 스킬 텍스트
-		announce.Announce_Marge(cp);		// 캐릭터 상태창 텍스트
 	}
 }
 

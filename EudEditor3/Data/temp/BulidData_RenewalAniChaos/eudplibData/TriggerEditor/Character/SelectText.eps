@@ -224,7 +224,7 @@ function CharacterText(cp)
 		txtPtr = dwread_epd(EPD(0x640B58));
 		tct.displayText();
 		SetMemory(0x640B58, SetTo, txtPtr);
-
+		v.Hero_Num[cp] = v.Hero_Text[cp];
 		v.Hero_Text[cp] = 0;
 	}
 }

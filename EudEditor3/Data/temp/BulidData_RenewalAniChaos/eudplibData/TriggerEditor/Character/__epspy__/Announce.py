@@ -337,45 +337,57 @@ def Announce_Ingame(cp):
 # (Line 104) {
 @EUDFunc
 def Announce_Exp(cp):
-    # (Line 105) tct.chatAnnouncement("　\x17[ \x04", ptr2s(v.Hero_Name[v.Hero_Num[cp]]), "\x17 ]　\x07Exp \x04", v.Exp_Player[cp], "　\x1FCS \x04", dwread_epd(EPD(0x58A364 + 48 * 164 + 4 * cp)), "　\x08K\x04/\x1BD \x08", v.Kill_Score[cp], "\x04/\x1B", v.Death_Score[cp], "");
-    tct.f_chatAnnouncement("　\x17[ \x04", ptr2s(v.Hero_Name[v.Hero_Num[cp]]), "\x17 ]　\x07Exp \x04", v.Exp_Player[cp], "　\x1FCS \x04", f_dwread_epd(EPD(0x58A364 + 48 * 164 + 4 * cp)), "　\x08K\x04/\x1BD \x08", v.Kill_Score[cp], "\x04/\x1B", v.Death_Score[cp], "")
-    # (Line 106) }
-    # (Line 108) function Announce_Marge(cp)
+    # (Line 105) tct.chatAnnouncement(
+    # (Line 106) "　\x17[ \x04", ptr2s(v.Hero_Name[v.Hero_Num[cp]]),
+    # (Line 107) "\x17 ]　\x07Exp \x04", v.Exp_Player[cp],
+    # (Line 108) "　\x1FCS \x04", v.CS_Player[cp],
+    # (Line 109) "　\x08K\x04/\x1BD \x08", v.Kill_Score[cp],
+    # (Line 110) "\x04/\x1B", v.Death_Score[cp], ""
+    # (Line 111) );
+    tct.f_chatAnnouncement("　\x17[ \x04", ptr2s(v.Hero_Name[v.Hero_Num[cp]]), "\x17 ]　\x07Exp \x04", v.Exp_Player[cp], "　\x1FCS \x04", v.CS_Player[cp], "　\x08K\x04/\x1BD \x08", v.Kill_Score[cp], "\x04/\x1B", v.Death_Score[cp], "")
+    # (Line 112) }
+    # (Line 114) function Announce_Marge(cp)
 
-# (Line 109) {
+# (Line 115) {
 @EUDFunc
 def Announce_Marge(cp):
-    # (Line 110) if (Deaths(CurrentPlayer, AtLeast, 1, "Terran SCV"))
+    # (Line 116) if (Deaths(CurrentPlayer, AtLeast, 1, "Terran SCV"))
     if EUDIf()(Deaths(CurrentPlayer, AtLeast, 1, "Terran SCV")):
-        # (Line 111) {
-        # (Line 112) SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV");
-        # (Line 114) if (v.AnnounceList[cp] < 1) 	{ v.AnnounceList[cp] += 1; }
+        # (Line 117) {
+        # (Line 118) SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV");
+        # (Line 120) if (v.AnnounceList[cp] < 1) 	{ v.AnnounceList[cp] += 1; }
         DoActions(SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV"))
         if EUDIf()(v.AnnounceList[cp] >= 1, neg=True):
             _ARRW(v.AnnounceList, cp).__iadd__(1)
-            # (Line 115) else 						{ v.AnnounceList[cp] 	= 0; }
+            # (Line 121) else 						{ v.AnnounceList[cp] 	= 0; }
         if EUDElse()():
             _ARRW(v.AnnounceList, cp) << (0)
-            # (Line 116) }
+            # (Line 122) }
         EUDEndIf()
-        # (Line 118) switch(v.AnnounceList[cp])
+        # (Line 124) switch(v.AnnounceList[cp])
     EUDEndIf()
     EUDSwitch(v.AnnounceList[cp])
-    # (Line 119) {
-    # (Line 120) case 0:
+    # (Line 125) {
+    # (Line 126) case 0:
     _t3 = EUDSwitchCase()
-    # (Line 121) Announce_Ingame(cp);
+    # (Line 127) if (Switch(255, Set))		Announce_Ingame(cp);
     if _t3(0):
-        Announce_Ingame(cp)
-        # (Line 122) break;
+        if EUDIf()(Switch(255, Set)):
+            Announce_Ingame(cp)
+            # (Line 128) if (Switch(255, Cleared))	Announce_Init();
+        EUDEndIf()
+        if EUDIf()(Switch(255, Cleared)):
+            Announce_Init()
+            # (Line 129) break;
+        EUDEndIf()
         EUDBreak()
-        # (Line 123) case 1:
-    _t4 = EUDSwitchCase()
-    # (Line 124) Announce_Exp(cp);
-    if _t4(1):
+        # (Line 130) case 1:
+    _t6 = EUDSwitchCase()
+    # (Line 131) Announce_Exp(cp);
+    if _t6(1):
         Announce_Exp(cp)
-        # (Line 125) break;
+        # (Line 132) break;
         EUDBreak()
-        # (Line 126) }
-    # (Line 127) }
+        # (Line 133) }
+    # (Line 134) }
     EUDEndSwitch()

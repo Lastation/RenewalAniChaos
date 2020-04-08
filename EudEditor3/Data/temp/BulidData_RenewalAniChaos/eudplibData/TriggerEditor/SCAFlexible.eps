@@ -3,20 +3,20 @@ import Variable as n0;
 const ws = 0x58F44A;
 const EntryPointLength = 8;//EntryPointLength
 const SpaceLength = 400;//DataBufferSize
-const ObjectCount = 1;//ObjectCount
+const ObjectCount = 2;//ObjectCount
 
 function Init(){
     MPQAddFile('SCARCHIVEMAPCODE', py_open('scakeyfile', 'rb').read());
     MPQAddFile('SCARCHIVEDATA', py_open('scadatafile', 'rb').read());
     //EntryPoint
-    dwwrite_epd(EPD(ws) + 0, 2059293105);
-    dwwrite_epd(EPD(ws) + 1, 1703546271);
-    dwwrite_epd(EPD(ws) + 2, 743146189);
-    dwwrite_epd(EPD(ws) + 3, 2034185685);
-    dwwrite_epd(EPD(ws) + 4, 2760856512);
-    dwwrite_epd(EPD(ws) + 5, 1359405682);
-    dwwrite_epd(EPD(ws) + 6, 1895429617);
-    dwwrite_epd(EPD(ws) + 7, 2151857190);
+    dwwrite_epd(EPD(ws) + 0, 3041221999);
+    dwwrite_epd(EPD(ws) + 1, 1725936974);
+    dwwrite_epd(EPD(ws) + 2, 3095269463);
+    dwwrite_epd(EPD(ws) + 3, 1017410940);
+    dwwrite_epd(EPD(ws) + 4, 2049924309);
+    dwwrite_epd(EPD(ws) + 5, 2404358437);
+    dwwrite_epd(EPD(ws) + 6, 3580060289);
+    dwwrite_epd(EPD(ws) + 7, 1800717993);
     
 }
 
@@ -30,11 +30,18 @@ function ResetValue(tagNum, index){
     const cp = getcurpl();
     switch(tagNum){
     case 0:
+    {
         const alen = n0.Exp_Group.length / 8;
         for(var i = 0 ; i < alen; i++){
             n0.Exp_Group[alen * cp + i] = 0;
         }
         break;
+    }
+    case 1:
+    {
+        n0.CS_Group[cp] = 0;
+        break;
+    }
     }
 }
 
@@ -43,9 +50,16 @@ function SaveValue(tagNum, Value, index){
     const cp = getcurpl();
     switch(tagNum){
     case 0:
+    {
         const alen = n0.Exp_Group.length / 8;
         n0.Exp_Group[alen * cp + index] = Value;
         break;
+    }
+    case 1:
+    {
+        n0.CS_Group[cp] = Value;
+        break;
+    }
     }
 }
 
@@ -78,6 +92,26 @@ function SaveDataWriteValue(tagNum, BaseAddress, index){
                  }
             }
         }
+        }
+        break;
+    case 1:
+        {
+        const objValue = n0.CS_Group[cp];
+        if(objValue != 0){
+            if (objValue > 0xFFFF){
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x1000 + tagNum);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue / 0x10000);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue % 0x10000);
+                index++;
+             }else{
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x2000 + tagNum);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue);
+                index++;
+             }
+         }
         }
         break;
     }

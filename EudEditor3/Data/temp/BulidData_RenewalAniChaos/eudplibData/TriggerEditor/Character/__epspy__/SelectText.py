@@ -644,8 +644,10 @@ def CharacterText(cp):
         # (Line 225) tct.displayText();
         tct.f_displayText()
         # (Line 226) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 228) v.Hero_Text[cp] = 0;
+        # (Line 227) v.Hero_Num[cp] = v.Hero_Text[cp];
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
+        _ARRW(v.Hero_Num, cp) << (v.Hero_Text[cp])
+        # (Line 228) v.Hero_Text[cp] = 0;
         _ARRW(v.Hero_Text, cp) << (0)
         # (Line 229) }
         # (Line 230) }

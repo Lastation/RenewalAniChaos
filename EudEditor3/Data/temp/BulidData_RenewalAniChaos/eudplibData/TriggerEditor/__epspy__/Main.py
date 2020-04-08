@@ -178,19 +178,19 @@ def MainLoop():
     cp = f_getcurpl()
     # (Line 35) unitID.Get_UnitID(cp);
     unitID.Get_UnitID(cp)
-    # (Line 37) scaSetting.SCAMain(cp);		// SCA Setting
+    # (Line 37) scaSetting.SCAMain(cp);			// SCA Setting
     scaSetting.SCAMain(cp)
-    # (Line 39) if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
+    # (Line 38) announce.Announce_Marge(cp);	// 상태창 텍스트
+    announce.Announce_Marge(cp)
+    # (Line 40) if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
     if EUDIf()(Switch((255), (3))):
-        # (Line 40) {
-        # (Line 41) selectText.SetIndex(cp);				// 유닛 클릭 인식
+        # (Line 41) {
+        # (Line 42) selectText.SetIndex(cp);				// 유닛 클릭 인식
         selectText.SetIndex(cp)
-        # (Line 42) selectText.CharacterTextNum(cp);		// 캐릭터 번호 설정
+        # (Line 43) selectText.CharacterTextNum(cp);		// 캐릭터 번호 설정
         selectText.CharacterTextNum(cp)
-        # (Line 43) selectText.CharacterText(cp);			// 캐릭터 선택 텍스트
+        # (Line 44) selectText.CharacterText(cp);			// 캐릭터 선택 텍스트
         selectText.CharacterText(cp)
-        # (Line 44) announce.Announce_Init();			// 상태창 텍스트
-        announce.Announce_Init()
         # (Line 46) ppty.PropertyText();					// 특성 텍스트
         ppty.PropertyText()
         # (Line 48) if (Switch((253), (2)))					// TestMode
@@ -223,27 +223,25 @@ def MainLoop():
         ppty.Property(cp)
         # (Line 68) marge.MargeSound(cp);				// 캐릭터 스킬 사운드 & 스킬 텍스트
         marge.MargeSound(cp)
-        # (Line 69) announce.Announce_Marge(cp);		// 캐릭터 상태창 텍스트
-        announce.Announce_Marge(cp)
+        # (Line 69) }
         # (Line 70) }
-        # (Line 71) }
     EUDEndIf()
-    # (Line 73) function beforeTriggerExec()
+    # (Line 72) function beforeTriggerExec()
 
-# (Line 74) {
+# (Line 73) {
 @EUDFunc
 def beforeTriggerExec():
-    # (Line 75) sca.Exec();
+    # (Line 74) sca.Exec();
     sca.Exec()
-    # (Line 77) EUDPlayerLoop()();
+    # (Line 76) EUDPlayerLoop()();
     EUDPlayerLoop()()
-    # (Line 79) if(getcurpl() < 6)
+    # (Line 78) if(getcurpl() < 6)
     if EUDIf()(f_getcurpl() >= 6, neg=True):
-        # (Line 80) {
-        # (Line 81) MainLoop();
+        # (Line 79) {
+        # (Line 80) MainLoop();
         MainLoop()
-        # (Line 82) }
-        # (Line 84) EUDEndPlayerLoop();
+        # (Line 81) }
+        # (Line 83) EUDEndPlayerLoop();
     EUDEndIf()
     EUDEndPlayerLoop()
-    # (Line 85) }
+    # (Line 84) }

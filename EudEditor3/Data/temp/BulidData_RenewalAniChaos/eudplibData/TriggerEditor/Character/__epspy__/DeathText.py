@@ -164,9 +164,9 @@ def SetDeathValue(cp):
                     DoActions(SetSwitch((23), (4)))
                     # (Line 23) }
                 EUDEndIf()
-                # (Line 24) else { SetDeaths((13), (7), 120 + v.Level[cp] * 12, (210)); }
+                # (Line 24) else { SetDeaths(CurrentPlayer, SetTo, 120 + v.Level[cp] * 12, (210)); }
             if EUDElse()():
-                DoActions(SetDeaths((13), (7), 120 + v.Level[cp] * 12, (210)))
+                DoActions(SetDeaths(CurrentPlayer, SetTo, 120 + v.Level[cp] * 12, (210)))
                 # (Line 26) if (Bring((6), (1), 6, (162), (153))) { SetScore((7), (8), 5, (7)); }
             EUDEndIf()
             if EUDIf()(Bring((6), (1), 6, (162), (153))):
@@ -199,9 +199,9 @@ def SetDeathValue(cp):
                     DoActions(SetSwitch((23), (4)))
                     # (Line 40) }
                 EUDEndIf()
-                # (Line 41) else { SetDeaths((13), (7), 120 + v.Level[cp] * 12, (210)); }
+                # (Line 41) else { SetDeaths(CurrentPlayer, SetTo, 120 + v.Level[cp] * 12, (210)); }
             if EUDElse()():
-                DoActions(SetDeaths((13), (7), 120 + v.Level[cp] * 12, (210)))
+                DoActions(SetDeaths(CurrentPlayer, SetTo, 120 + v.Level[cp] * 12, (210)))
                 # (Line 43) if (Bring((7), (1), 6, (162), (153))) { SetScore((7), (8), 5, (7)); }
             EUDEndIf()
             if EUDIf()(Bring((7), (1), 6, (162), (153))):

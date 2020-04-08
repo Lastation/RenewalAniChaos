@@ -25,88 +25,109 @@ import Character.TextC.Tenkei 		as tenkei;
 function MargeSound(cp)
 {
 	// 1 ~ 6
-	if (v.Sound_Text1[cp] != 0)
+	if (Deaths((13), (0), 1, (186)))
 	{
-		rusaruka.NormalText(cp);
-		chtholly.NormalText(cp);
-		maihime.NormalText(cp);
-		tenshi.NormalText(cp);
-		miyuki.NormalText(cp);
-		negev.NormalText(cp);
+		v.Sound_Text1[cp] = dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * cp));
+		SetDeaths((13), (7), 0, (186));
+		
+		const Condition = v.Sound_Text1[cp];
+		if (Condition >= 1000 	&& Condition < 2000 )		rusaruka.NormalText(cp);
+		if (Condition >= 2000 	&& Condition < 3000 )		chtholly.NormalText(cp);
+		if (Condition >= 3000 	&& Condition < 4000 )		maihime.NormalText(cp);
+		if (Condition >= 4000 	&& Condition < 5000 )		tenshi.NormalText(cp);
+		if (Condition >= 5000 	&& Condition < 6000 )		miyuki.NormalText(cp);
+		if (Condition >= 6000 	&& Condition < 7000 )		negev.NormalText(cp);
 	}
 	
 	// 7 ~ 12
-	if (v.Sound_Text2[cp] != 0)
+	if (Deaths((13), (0), 1, (174)))
 	{
-		cecillia.NormalText(cp);
-		anzu.NormalText(cp);
-		hotomoka.NormalText(cp);
-		alterego.NormalText(cp);
-		ryuzu.NormalText(cp);
-		//kurumi.NormalText(cp);
+		v.Sound_Text2[cp] = dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * cp));
+		SetDeaths((13), (7), 0, (174));
+		
+		const Condition = v.Sound_Text2[cp];
+		if (Condition >= 1000 	&& Condition < 2000 )		cecillia.NormalText(cp);
+		if (Condition >= 2000 	&& Condition < 3000 )		anzu.NormalText(cp);
+		if (Condition >= 3000 	&& Condition < 4000 )		hotomoka.NormalText(cp);
+		if (Condition >= 4000 	&& Condition < 5000 )		alterego.NormalText(cp);
+		if (Condition >= 5000 	&& Condition < 6000 )		ryuzu.NormalText(cp);
+		//if (Condition >= 6000 && Condition[cp] < 7000 )	kurumi.NormalText(cp);
 	}
 	
 	// 13 ~ 18
-	if (v.Sound_Text3[cp] != 0)
+	if (Deaths((13), (0), 1, (117)))
 	{
-		sakura.NormalText(cp);
-		yashiro.NormalText(cp);
-		rin.NormalText(cp);
-		seraphim.NormalText(cp);
-		kiana.NormalText(cp);
-		tenkei.NormalText(cp);
+		v.Sound_Text3[cp] = dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * cp));
+		SetDeaths((13), (7), 0, (117));
+		
+		const Condition = v.Sound_Text3[cp];
+		
+		if (Condition >= 1000 	&& Condition < 2000 )		sakura.NormalText(cp);
+		if (Condition >= 2000 	&& Condition < 3000 )		yashiro.NormalText(cp);
+		if (Condition >= 3000 	&& Condition < 4000 )		rin.NormalText(cp);
+		if (Condition >= 4000 	&& Condition < 5000 )		seraphim.NormalText(cp);
+		if (Condition >= 5000 	&& Condition < 6000 )		kiana.NormalText(cp);
+		if (Condition >= 6000 	&& Condition < 7000 )		tenkei.NormalText(cp);
 	}
 	
-	if (v.Sound_Text_Uilti[cp] != 0)
+	if (Deaths((13), (0), 1, (222)))
 	{
+		v.Sound_Text_Uilti[cp] = dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * cp));
+		SetDeaths((13), (7), 0, (222));
+		
+		const Condition = v.Sound_Text_Uilti[cp];
 		// 1 ~ 6
-		rusaruka.UiltimateText(cp);
-		chtholly.UiltimateText(cp);
-		maihime.UiltimateText(cp);
-		tenshi.UiltimateText(cp);
-		miyuki.UiltimateText(cp);
-		negev.UiltimateText(cp);
+		if (Condition >= 1000 	&& Condition < 2000 )		rusaruka.UiltimateText(cp);
+		if (Condition >= 2000 	&& Condition < 3000 )		chtholly.UiltimateText(cp);
+		if (Condition >= 3000 	&& Condition < 4000 )		maihime.UiltimateText(cp);
+		if (Condition >= 4000 	&& Condition < 5000 )		tenshi.UiltimateText(cp);
+		if (Condition >= 5000 	&& Condition < 6000 )		miyuki.UiltimateText(cp);
+		if (Condition >= 6000 	&& Condition < 7000 )		negev.UiltimateText(cp);
 		
 		// 7 ~ 12
-		cecillia.UiltimateText(cp);
-		anzu.UiltimateText(cp);
-		hotomoka.UiltimateText(cp);
-		alterego.UiltimateText(cp);
-		ryuzu.UiltimateText(cp);
-		//kurumi.UiltimateText(cp);
+		if (Condition >= 7000 	&& Condition < 8000 )		cecillia.UiltimateText(cp);
+		if (Condition >= 8000 	&& Condition < 9000 )		anzu.UiltimateText(cp);
+		if (Condition >= 9000 	&& Condition < 10000 )		hotomoka.UiltimateText(cp);
+		if (Condition >= 10000 	&& Condition < 11000 )		alterego.UiltimateText(cp);
+		if (Condition >= 11000 	&& Condition < 12000 )		ryuzu.UiltimateText(cp);
+		//if (Condition >= 12000 && Condition < 13000 )		kurumi.UiltimateText(cp);
 		
 		// 13 ~ 18
-		sakura.UiltimateText(cp);
-		yashiro.UiltimateText(cp);
-		rin.UiltimateText(cp);
-		seraphim.UiltimateText(cp);
-		kiana.UiltimateText(cp);
-		tenkei.UiltimateText(cp);
+		if (Condition >= 13000 	&& Condition < 14000 )		sakura.UiltimateText(cp);
+		if (Condition >= 14000 	&& Condition < 15000 )		yashiro.UiltimateText(cp);
+		if (Condition >= 15000 	&& Condition < 16000 )		rin.UiltimateText(cp);
+		if (Condition >= 16000 	&& Condition < 17000 )		seraphim.UiltimateText(cp);
+		if (Condition >= 17000 	&& Condition < 18000 )		kiana.UiltimateText(cp);
+		if (Condition >= 18000 	&& Condition < 19000 )		tenkei.UiltimateText(cp);
 	}
-	if (v.Sound_Text_Uniq[cp] != 0)
+	if (Deaths((13), (0), 1, (188)))
 	{
+		v.Sound_Text_Uniq[cp] = dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * cp));
+		SetDeaths((13), (7), 0, (188));
+		
+		const Condition = v.Sound_Text_Uniq[cp];
 		// 1 ~ 6
-		rusaruka.UniqueText(cp);
-		chtholly.UniqueText(cp);
-		maihime.UniqueText(cp);
-		tenshi.UniqueText(cp);
-		miyuki.UniqueText(cp);
-		negev.UniqueText(cp);
+		if (Condition >= 1000 	&& Condition < 2000 )		rusaruka.UniqueText(cp);
+		if (Condition >= 2000 	&& Condition < 3000 )		chtholly.UniqueText(cp);
+		if (Condition >= 3000 	&& Condition < 4000 )		maihime.UniqueText(cp);
+		if (Condition >= 4000 	&& Condition < 5000 )		tenshi.UniqueText(cp);
+		if (Condition >= 5000 	&& Condition < 6000 )		miyuki.UniqueText(cp);
+		if (Condition >= 6000 	&& Condition < 7000 )		negev.UniqueText(cp);
 		
-		// 7 ~ 12
-		cecillia.UniqueText(cp);
-		anzu.UniqueText(cp);
-		hotomoka.UniqueText(cp);
-		alterego.UniqueText(cp);
-		ryuzu.UniqueText(cp);
-		//kurumi.UniqueText(cp);
+		// 7 ~ 12// 7 ~ 12
+		if (Condition >= 7000 	&& Condition < 8000 )		cecillia.UniqueText(cp);
+		if (Condition >= 8000 	&& Condition < 9000 )		anzu.UniqueText(cp);
+		if (Condition >= 9000 	&& Condition < 10000 )		hotomoka.UniqueText(cp);
+		if (Condition >= 10000 	&& Condition < 11000 )		alterego.UniqueText(cp);
+		if (Condition >= 11000 	&& Condition < 12000 )		ryuzu.UniqueText(cp);
+		//if (Condition >= 12000 && Condition < 13000 )		kurumi.UniqueText(cp);
 		
-		// 13 ~ 18
-		sakura.UniqueText(cp);
-		yashiro.UniqueText(cp);
-		rin.UniqueText(cp);
-		seraphim.UniqueText(cp);
-		kiana.UniqueText(cp);
-		tenkei.UniqueText(cp);
+		// 13 ~ 18// 13 ~ 18
+		if (Condition >= 13000 	&& Condition < 14000 )		sakura.UniqueText(cp);
+		if (Condition >= 14000 	&& Condition < 15000 )		yashiro.UniqueText(cp);
+		if (Condition >= 15000 	&& Condition < 16000 )		rin.UniqueText(cp);
+		if (Condition >= 16000 	&& Condition < 17000 )		seraphim.UniqueText(cp);
+		if (Condition >= 17000 	&& Condition < 18000 )		kiana.UniqueText(cp);
+		if (Condition >= 18000 	&& Condition < 19000 )		tenkei.UniqueText(cp);
 	}
 }
