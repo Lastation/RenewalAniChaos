@@ -14,7 +14,7 @@ function SetVariable(cp)
        v.EXP_Now[cp] = dwread_epd(EPD(0x58A364 + 48 * 185 + 4 * cp));
        v.DeathCount[cp] = dwread_epd(EPD(0x58A364 + 48 * 210 + 4 * cp))/12;
        v.Unique_Cool[cp] = dwread_epd(EPD(0x58A364 + 48 * 203 + 4 * cp))/12;
-       v.Level[cp] = dwread_epd(EPD(0x5822F4 + 4 * cp));
+       
 	
 	switch (v.Hero_Num[cp])	// 방어력 관련
 	{

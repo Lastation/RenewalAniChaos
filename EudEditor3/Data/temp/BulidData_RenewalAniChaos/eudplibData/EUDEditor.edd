@@ -4,7 +4,7 @@
 [noAirCollision]
 [main]
 input: ..\..\..\..\..\NEW!6.scx
-output: ..\..\..\..\..\..\..\Starcraft\Maps\RenewalAniChaos\RenewalAniChaos.scx
+output: ..\..\..\..\..\..\..\Starcraft\Maps\RenewalAniChaos\RenewalAniChaos_T.scx
 [DataEditor.py]
 [ExtraDataEditor.py]
 [dataDumper]
@@ -18,4 +18,5 @@ MSQCSpecial.Exactly(4) : MSQCSpecialBuffer, 400
 MSQCCondiction.Exactly(1) ; xy , MSQCValue : MSQCBuffer
 QCDebug : False
 ` : Terran SCV, 1
+[eudTurbo]
 

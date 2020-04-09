@@ -152,8 +152,6 @@ def SetVariable(cp):
     _ARRW(v.DeathCount, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 210 + 4 * cp)) // 12)
     # (Line 16) v.Unique_Cool[cp] = dwread_epd(EPD(0x58A364 + 48 * 203 + 4 * cp))/12;
     _ARRW(v.Unique_Cool, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 203 + 4 * cp)) // 12)
-    # (Line 17) v.Level[cp] = dwread_epd(EPD(0x5822F4 + 4 * cp));
-    _ARRW(v.Level, cp) << (f_dwread_epd(EPD(0x5822F4 + 4 * cp)))
     # (Line 19) switch (v.Hero_Num[cp])	// 방어력 관련
     EUDSwitch(v.Hero_Num[cp])
     # (Line 20) {

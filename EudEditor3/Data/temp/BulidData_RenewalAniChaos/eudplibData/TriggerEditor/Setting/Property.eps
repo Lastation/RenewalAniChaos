@@ -59,11 +59,11 @@ function Property_S(cp)
 		}
 	}
 	
-	if (Deaths(cp, (10), 1000, (223)))
+	if (Deaths(cp, Exactly, 1000, (223)))
 	{
 		if (v.Level[cp] != dwread_epd(EPD(0x5822F4 + 4 * cp))) 
 		{
-			SetMemoryEPD(EPD(0x58D2B0 + 0x207C * ((0) / 46) + (cp) * (46 - 31 * ((0) / 46)) + ((0) % 46)), (8), bitlshift(1, 8 * (((cp) * (46 - 31 * ((0) / 46)) + ((0) % 46)) % 4)));
+			SetMemoryEPD(EPD(0x58D2B0 + 0x207C * ((0) / 46) + cp * (46 - 31 * ((0) / 46)) + ((0) % 46)), (8), bitlshift(1, 8 * (((cp) * (46 - 31 * ((0) / 46)) + ((0) % 46)) % 4)));
 			v.Level[cp] = dwread_epd(EPD(0x5822F4 + 4 * cp));
 		}
 		if (Deaths((13), (10), 0, (204)) && bread(0x58D2B0 + 0x207C * ((0) / 46) + (cp) * (46 - 31 * ((0) / 46)) + ((0) % 46)) >= 62) 
@@ -71,25 +71,29 @@ function Property_S(cp)
 			bwrite(0x58D2B0 + 0x207C * ((0) / 46) + (cp) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
 		}
 	}
+	else
+	{
+		v.Level[cp] = dwread_epd(EPD(0x5822F4 + 4 * cp));
+	}
 }
 
 function Property_C(cp)
 {
-	if (Deaths((13), (10), 2720, (223)))
+	if (Deaths((13), (10), 3440, (223)))
 	{
 		v.Mana_Property[cp] = 100;
 
 		if (cp >= 0 && cp <= 2)
 		{
-			if (Deaths((0), (0), 2000, (223)) && Deaths((0), (1), 2999, (223))) { v.Mana_Property[cp] += 100; }
-			if (Deaths((1), (0), 2000, (223)) && Deaths((1), (1), 2999, (223))) { v.Mana_Property[cp] += 100; }
-			if (Deaths((2), (0), 2000, (223)) && Deaths((2), (1), 2999, (223))) { v.Mana_Property[cp] += 100; }
+			if (Deaths((0), (0), 2000, (223)) && Deaths((0), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
+			if (Deaths((1), (0), 2000, (223)) && Deaths((1), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
+			if (Deaths((2), (0), 2000, (223)) && Deaths((2), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
 		}
 		if (cp >= 3 && cp <= 5)
 		{
-			if (Deaths((3), (0), 2000, (223)) && Deaths((3), (1), 2999, (223))) { v.Mana_Property[cp] += 100; }
-			if (Deaths((4), (0), 2000, (223)) && Deaths((4), (1), 2999, (223))) { v.Mana_Property[cp] += 100; }
-			if (Deaths((5), (0), 2000, (223)) && Deaths((5), (1), 2999, (223))) { v.Mana_Property[cp] += 100; }
+			if (Deaths((3), (0), 2000, (223)) && Deaths((3), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
+			if (Deaths((4), (0), 2000, (223)) && Deaths((4), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
+			if (Deaths((5), (0), 2000, (223)) && Deaths((5), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
 		}
 		SetResources((13), (8), v.Mana_Property[cp], (1));
 		SetDeaths((13), (7), 2000, (223));
@@ -99,7 +103,7 @@ function Property_C(cp)
 
 function Property_A() 
 {
-	if (Deaths((13), (10), 3720, (223)))
+	if (Deaths((13), (10), 5440, (223)))
 	{
 		SetDeaths((13), (8), 10, (205));
 		SetDeaths((13), (7), 3000, (223));

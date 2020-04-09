@@ -18,4 +18,5 @@ MSQCSpecial.Exactly(4) : MSQCSpecialBuffer, 400
 MSQCCondiction.Exactly(1) ; xy , MSQCValue : MSQCBuffer
 QCDebug : False
 ` : Terran SCV, 1
+[eudTurbo]
 

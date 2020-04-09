@@ -24,23 +24,27 @@ function SCAMain(cp)
 				v.SCAStatus[cp] = 3;
 				break;
 			case 1:
-				GetExp(cp);
-				sca.SaveData(0);
-				v.SCAStatus[cp] = 2;
+				if (Switch("TestModeSwitch", Cleared))
+				{ sca.SaveData(0); }
+				v.SCAStatus[cp] = 3;
 				break;
 			case 2:
-				if (Deaths(CurrentPlayer, Exactly, 1000, 175) && Switch("TestModeSwitch", Cleared)) 
-				{
-					v.Exp_Total[cp] 	= dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
-					v.CS_Total[cp] 	= dwread_epd(EPD(0x58A364 + 48 * 164 + 4 * cp));
-					
-					AddExp(cp, v.Exp_Total[cp]);
-					AddCS(cp, v.CS_Total[cp]);
-					
-					v.SCAStatus[cp] = 1;
-					
-					SetDeaths(CurrentPlayer, SetTo, 360, 175);
+				const Exp 	= dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
+				const Cs 	= dwread_epd(EPD(0x58A364 + 48 * 164 + 4 * cp));
+				
+				v.Exp_Total[cp] 									+= Exp;
+				v.CS_Total[cp] 									+= Cs;
+				
+				if (v.Hero_Num[cp] <= 20) 
+				{ 
+					v.Exp_Group[20 * cp + (v.Hero_Num[cp] - 1)] 		+= Exp; 
+					v.CS_Group[20 * cp + (v.Hero_Num[cp] - 1)] 		= Cs;
+					v.Kill_Total[20 * cp + (v.Hero_Num[cp] - 1)] 		+= v.Kill_Score[cp];
+					v.Death_Total[20 * cp + (v.Hero_Num[cp] - 1)] 	+= v.Death_Score[cp];
 				}
+				
+				v.SCAStatus[cp] = 1;
+				SetDeaths(CurrentPlayer, SetTo, 360, 175);
 				break;
 			case 3:
 				if (Switch(255, Cleared))
@@ -54,8 +58,10 @@ function SCAMain(cp)
       	 				{ v.Hero_Num[cp] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)); }
 					GetExp(cp);
 					GetCS(cp);
-					v.SCAStatus[cp] = 2;
+					
 				}
+				
+				if (Deaths(CurrentPlayer, Exactly, 1000, 175)) { v.SCAStatus[cp] = 2; SetSwitch(255, Clear); }
 				break;
 		}
 		SCAMessage(cp);
@@ -93,20 +99,6 @@ function SCAMessage(cp)
 			SetMemory(0x640B58, SetTo, txtPtr);
 			sca.ResetLastMessage();
 			break;
-		case 5:
-			tct.makeText("\x13\x04", ptr2s(v.Hero_Name[v.Hero_Num[cp]]), "의 정보를 저장중입니다.");
-			txtPtr = dwread_epd(EPD(0x640B58));
-			tct.displayText();
-			SetMemory(0x640B58, SetTo, txtPtr);
-			sca.ResetLastMessage();
-			break;
-		case 6:
-			tct.makeText("\x13\x04",ptr2s(v.Hero_Name[v.Hero_Num[cp]]),"의 저장을 완료하였습니다.");
-			txtPtr = dwread_epd(EPD(0x640B58));
-			tct.displayText();
-			SetMemory(0x640B58, SetTo, txtPtr);
-			sca.ResetLastMessage();
-			break;
 	}
 }
 
@@ -119,7 +111,7 @@ function GetExp(cp)
 		if (v.Hero_Num[cp] <= 20)
 		{ v.Exp_Player[cp] = v.Exp_Group[20 * cp + (v.Hero_Num[cp] - 1)]; }
 	}
-	else if (Switch(255, Set) && v.Exp_Player[cp] != value)
+	else if (v.Exp_Player[cp] != value && Switch(255, Set))
 	{
 		v.Exp_Player[cp] = value; 
 	}
@@ -129,23 +121,13 @@ function GetCS(cp)
 {
 	const value = dwread_epd(EPD(0x58A364 + 48 * 164 + 4 * cp));
 	
-	if (v.CS_Player[cp] != v.CS_Group[cp] && Switch(255, Cleared))
+	if (v.CS_Player[cp] != v.CS_Group[20 * cp + (v.Hero_Num[cp] - 1)] && Switch(255, Cleared))
 	{
-		v.CS_Player[cp] = v.CS_Group[cp]; 
+		if (v.Hero_Num[cp] <= 20)
+		{ v.CS_Player[cp] = v.CS_Group[20 * cp + (v.Hero_Num[cp] - 1)]; }
 	}
-	else if (Switch(255, Set) && v.CS_Player[cp] != value)
+	else if (v.CS_Player[cp] != value && Switch(255, Set))
 	{
 		v.CS_Player[cp] = value; 
 	}
-}
-
-
-function AddExp(cp, exp)
-{
-	if (v.Hero_Num[cp] <= 20) 	{ v.Exp_Group[20 * cp + (v.Hero_Num[cp] - 1)] += exp; }
-}
-
-function AddCS(cp, cs)
-{
-	v.CS_Group[cp] += cs;
 }

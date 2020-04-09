@@ -130,525 +130,594 @@ def _LSH(l, r):
 import customText as tct
 # (Line 2) import Variable as v;
 import Variable as v
-# (Line 4) var txtPtr, btnPtr, btnPos, oldCP;
+# (Line 3) import SCArchive as sca;
+import SCArchive as sca
+# (Line 5) var txtPtr, btnPtr, btnPos, oldCP;
 txtPtr, btnPtr, btnPos, oldCP = EUDCreateVariables(4)
-# (Line 5) const trgk = $T('Artanis & safhfh');
+# (Line 6) const trgk = $T('Artanis & safhfh');
 trgk = _CGFW(lambda: [GetStringIndex('Artanis & safhfh')], 1)[0]
-# (Line 7) function SetIndex(cp)
-# (Line 8) {
+# (Line 8) function EndTotalText(cp);
+# (Line 10) function SetIndex(cp)
+# (Line 11) {
 @EUDFunc
 def SetIndex(cp):
-    # (Line 9) if (Switch((255), (3)) && Bring((13), (0), 1, (15), (96)))
+    # (Line 12) if (Switch((255), (3)) && Bring((13), (0), 1, (15), (96)))
     if EUDIf()(EUDSCAnd()(Switch((255), (3)))(Bring((13), (0), 1, (15), (96)))()):
-        # (Line 10) {
-        # (Line 11) if (Bring((13), (0), 1, (15), (32)) && v.Hero_Index[cp] != 1) 		{ v.Hero_Index[cp] = 1; }
+        # (Line 13) {
+        # (Line 14) if (Bring((13), (0), 1, (15), (32)) && v.Hero_Index[cp] != 1) 		{ v.Hero_Index[cp] = 1; }
         if EUDIf()(EUDSCAnd()(Bring((13), (0), 1, (15), (32)))(v.Hero_Index[cp] == 1, neg=True)()):
             _ARRW(v.Hero_Index, cp) << (1)
-            # (Line 12) if (Bring((13), (0), 1, (15), (117)) && v.Hero_Index[cp] != 2)		{ v.Hero_Index[cp] = 2; }
+            # (Line 15) if (Bring((13), (0), 1, (15), (117)) && v.Hero_Index[cp] != 2)		{ v.Hero_Index[cp] = 2; }
         EUDEndIf()
         if EUDIf()(EUDSCAnd()(Bring((13), (0), 1, (15), (117)))(v.Hero_Index[cp] == 2, neg=True)()):
             _ARRW(v.Hero_Index, cp) << (2)
-            # (Line 13) if (Bring((13), (0), 1, (15), (121)) && v.Hero_Index[cp] != 3) 		{ v.Hero_Index[cp] = 3; }
+            # (Line 16) if (Bring((13), (0), 1, (15), (121)) && v.Hero_Index[cp] != 3) 		{ v.Hero_Index[cp] = 3; }
         EUDEndIf()
         if EUDIf()(EUDSCAnd()(Bring((13), (0), 1, (15), (121)))(v.Hero_Index[cp] == 3, neg=True)()):
             _ARRW(v.Hero_Index, cp) << (3)
-            # (Line 14) if (Bring((13), (0), 1, (15), (125)) && v.Hero_Index[cp] != 4) 		{ v.Hero_Index[cp] = 4; }
+            # (Line 17) if (Bring((13), (0), 1, (15), (125)) && v.Hero_Index[cp] != 4) 		{ v.Hero_Index[cp] = 4; }
         EUDEndIf()
         if EUDIf()(EUDSCAnd()(Bring((13), (0), 1, (15), (125)))(v.Hero_Index[cp] == 4, neg=True)()):
             _ARRW(v.Hero_Index, cp) << (4)
-            # (Line 15) if (Bring((13), (0), 1, (15), (126)) && v.Hero_Index[cp] != 5) 		{ v.Hero_Index[cp] = 5; }
+            # (Line 18) if (Bring((13), (0), 1, (15), (126)) && v.Hero_Index[cp] != 5) 		{ v.Hero_Index[cp] = 5; }
         EUDEndIf()
         if EUDIf()(EUDSCAnd()(Bring((13), (0), 1, (15), (126)))(v.Hero_Index[cp] == 5, neg=True)()):
             _ARRW(v.Hero_Index, cp) << (5)
-            # (Line 16) if (Bring((13), (0), 1, (15), (133)) && v.Hero_Index[cp] != 6) 		{ v.Hero_Index[cp] = 6; }
+            # (Line 19) if (Bring((13), (0), 1, (15), (133)) && v.Hero_Index[cp] != 6) 		{ v.Hero_Index[cp] = 6; }
         EUDEndIf()
         if EUDIf()(EUDSCAnd()(Bring((13), (0), 1, (15), (133)))(v.Hero_Index[cp] == 6, neg=True)()):
             _ARRW(v.Hero_Index, cp) << (6)
-            # (Line 17) if (Bring((13), (0), 1, (15), (143)) && v.Hero_Index[cp] != 7) 		{ v.Hero_Index[cp] = 7; }
+            # (Line 20) if (Bring((13), (0), 1, (15), (143)) && v.Hero_Index[cp] != 7) 		{ v.Hero_Index[cp] = 7; }
         EUDEndIf()
         if EUDIf()(EUDSCAnd()(Bring((13), (0), 1, (15), (143)))(v.Hero_Index[cp] == 7, neg=True)()):
             _ARRW(v.Hero_Index, cp) << (7)
-            # (Line 18) if (Bring((13), (0), 1, (15), (145)) && v.Hero_Index[cp] != 8) 		{ v.Hero_Index[cp] = 8; }
+            # (Line 21) if (Bring((13), (0), 1, (15), (145)) && v.Hero_Index[cp] != 8) 		{ v.Hero_Index[cp] = 8; }
         EUDEndIf()
         if EUDIf()(EUDSCAnd()(Bring((13), (0), 1, (15), (145)))(v.Hero_Index[cp] == 8, neg=True)()):
             _ARRW(v.Hero_Index, cp) << (8)
-            # (Line 19) if (Bring((13), (0), 1, (15), (148)) && v.Hero_Index[cp] != 9) 		{ v.Hero_Index[cp] = 9; }
+            # (Line 22) if (Bring((13), (0), 1, (15), (148)) && v.Hero_Index[cp] != 9) 		{ v.Hero_Index[cp] = 9; }
         EUDEndIf()
         if EUDIf()(EUDSCAnd()(Bring((13), (0), 1, (15), (148)))(v.Hero_Index[cp] == 9, neg=True)()):
             _ARRW(v.Hero_Index, cp) << (9)
-            # (Line 20) if (Bring((13), (0), 1, (15), (150)) && v.Hero_Index[cp] != 10) 	{ v.Hero_Index[cp] = 10; }
+            # (Line 23) if (Bring((13), (0), 1, (15), (150)) && v.Hero_Index[cp] != 10) 	{ v.Hero_Index[cp] = 10; }
         EUDEndIf()
         if EUDIf()(EUDSCAnd()(Bring((13), (0), 1, (15), (150)))(v.Hero_Index[cp] == 10, neg=True)()):
             _ARRW(v.Hero_Index, cp) << (10)
-            # (Line 21) if (Bring((13), (0), 1, (15), (154)) && v.Hero_Index[cp] != 11)	 	{ v.Hero_Index[cp] = 11; }
+            # (Line 24) if (Bring((13), (0), 1, (15), (154)) && v.Hero_Index[cp] != 11)	 	{ v.Hero_Index[cp] = 11; }
         EUDEndIf()
         if EUDIf()(EUDSCAnd()(Bring((13), (0), 1, (15), (154)))(v.Hero_Index[cp] == 11, neg=True)()):
             _ARRW(v.Hero_Index, cp) << (11)
-            # (Line 22) if (Bring((13), (0), 1, (15), (157)) && v.Hero_Index[cp] != 12) 	{ v.Hero_Index[cp] = 12; }
+            # (Line 25) if (Bring((13), (0), 1, (15), (157)) && v.Hero_Index[cp] != 12) 	{ v.Hero_Index[cp] = 12; }
         EUDEndIf()
         if EUDIf()(EUDSCAnd()(Bring((13), (0), 1, (15), (157)))(v.Hero_Index[cp] == 12, neg=True)()):
             _ARRW(v.Hero_Index, cp) << (12)
-            # (Line 23) if (Bring((13), (0), 1, (15), (163)) && v.Hero_Index[cp] != 13) 	{ v.Hero_Index[cp] = 13; }
+            # (Line 26) if (Bring((13), (0), 1, (15), (163)) && v.Hero_Index[cp] != 13) 	{ v.Hero_Index[cp] = 13; }
         EUDEndIf()
         if EUDIf()(EUDSCAnd()(Bring((13), (0), 1, (15), (163)))(v.Hero_Index[cp] == 13, neg=True)()):
             _ARRW(v.Hero_Index, cp) << (13)
-            # (Line 24) if (Bring((13), (0), 1, (15), (164)) && v.Hero_Index[cp] != 14) 	{ v.Hero_Index[cp] = 14; }
+            # (Line 27) if (Bring((13), (0), 1, (15), (164)) && v.Hero_Index[cp] != 14) 	{ v.Hero_Index[cp] = 14; }
         EUDEndIf()
         if EUDIf()(EUDSCAnd()(Bring((13), (0), 1, (15), (164)))(v.Hero_Index[cp] == 14, neg=True)()):
             _ARRW(v.Hero_Index, cp) << (14)
-            # (Line 25) if (Bring((13), (0), 1, (15), (166)) && v.Hero_Index[cp] != 15) 	{ v.Hero_Index[cp] = 15; }
+            # (Line 28) if (Bring((13), (0), 1, (15), (166)) && v.Hero_Index[cp] != 15) 	{ v.Hero_Index[cp] = 15; }
         EUDEndIf()
         if EUDIf()(EUDSCAnd()(Bring((13), (0), 1, (15), (166)))(v.Hero_Index[cp] == 15, neg=True)()):
             _ARRW(v.Hero_Index, cp) << (15)
-            # (Line 26) if (Bring((13), (0), 1, (15), (168)) && v.Hero_Index[cp] != 16) 	{ v.Hero_Index[cp] = 16; }
+            # (Line 29) if (Bring((13), (0), 1, (15), (168)) && v.Hero_Index[cp] != 16) 	{ v.Hero_Index[cp] = 16; }
         EUDEndIf()
         if EUDIf()(EUDSCAnd()(Bring((13), (0), 1, (15), (168)))(v.Hero_Index[cp] == 16, neg=True)()):
             _ARRW(v.Hero_Index, cp) << (16)
-            # (Line 27) if (Bring((13), (0), 1, (15), (170)) && v.Hero_Index[cp] != 17) 	{ v.Hero_Index[cp] = 17; }
+            # (Line 30) if (Bring((13), (0), 1, (15), (170)) && v.Hero_Index[cp] != 17) 	{ v.Hero_Index[cp] = 17; }
         EUDEndIf()
         if EUDIf()(EUDSCAnd()(Bring((13), (0), 1, (15), (170)))(v.Hero_Index[cp] == 17, neg=True)()):
             _ARRW(v.Hero_Index, cp) << (17)
-            # (Line 28) if (Bring((13), (0), 1, (15), (171)) && v.Hero_Index[cp] != 18) 	{ v.Hero_Index[cp] = 18; }
+            # (Line 31) if (Bring((13), (0), 1, (15), (171)) && v.Hero_Index[cp] != 18) 	{ v.Hero_Index[cp] = 18; }
         EUDEndIf()
         if EUDIf()(EUDSCAnd()(Bring((13), (0), 1, (15), (171)))(v.Hero_Index[cp] == 18, neg=True)()):
             _ARRW(v.Hero_Index, cp) << (18)
-            # (Line 30) if (v.Hero_Index[cp] != 0 && v.Hero_Text[cp] != v.Hero_Index[cp])
+            # (Line 33) if (v.Hero_Index[cp] != 0 && v.Hero_Text[cp] != v.Hero_Index[cp])
         EUDEndIf()
         if EUDIf()(EUDSCAnd()(v.Hero_Index[cp] == 0, neg=True)(v.Hero_Text[cp] == v.Hero_Index[cp], neg=True)()):
-            # (Line 31) {
-            # (Line 32) v.Hero_Text[cp] = v.Hero_Index[cp];
+            # (Line 34) {
+            # (Line 35) v.Hero_Text[cp] = v.Hero_Index[cp];
             _ARRW(v.Hero_Text, cp) << (v.Hero_Index[cp])
-            # (Line 33) v.Hero_Index[cp] = 0;
+            # (Line 36) v.Hero_Index[cp] = 0;
             _ARRW(v.Hero_Index, cp) << (0)
-            # (Line 34) }
-            # (Line 35) }
+            # (Line 37) }
+            # (Line 38) }
         EUDEndIf()
-        # (Line 36) }
+        # (Line 39) }
     EUDEndIf()
-    # (Line 38) function CharacterTextNum(cp)
+    # (Line 41) function CharacterTextNum(cp)
 
-# (Line 39) {
+# (Line 42) {
 @EUDFunc
 def CharacterTextNum(cp):
-    # (Line 40) v.Unit_Death[cp] = dwread_epd(EPD(0x58A364 + 48 * v.Unit_ID[cp] + 4 * v.PlayerID[cp]));
+    # (Line 43) v.Unit_Death[cp] = dwread_epd(EPD(0x58A364 + 48 * v.Unit_ID[cp] + 4 * v.PlayerID[cp]));
     _ARRW(v.Unit_Death, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * v.Unit_ID[cp] + 4 * v.PlayerID[cp])))
-    # (Line 42) switch (v.Unit_ID[cp])
+    # (Line 45) switch (v.Unit_ID[cp])
     EUDSwitch(v.Unit_ID[cp])
-    # (Line 43) {
-    # (Line 44) case 51:
+    # (Line 46) {
+    # (Line 47) case 51:
     _t1 = EUDSwitchCase()
-    # (Line 45) if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 1; }	// Rusaruka
+    # (Line 48) if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 1; }	// Rusaruka
     if _t1(51):
         if EUDIf()(EUDSCOr()(v.PlayerID[cp] == 8)(v.Unit_Death[cp] == 1000)()):
             _ARRW(v.Hero_Text, cp) << (1)
-            # (Line 46) if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 8; }	// Anzu
+            # (Line 49) if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 8; }	// Anzu
         EUDEndIf()
         if EUDIf()(EUDSCOr()(v.PlayerID[cp] == 9)(v.Unit_Death[cp] == 2000)()):
             _ARRW(v.Hero_Text, cp) << (8)
-            # (Line 47) if (v.PlayerID[cp] == 10 	|| v.Unit_Death[cp] == 3000) { v.Hero_Text[cp] = 9; }	// HotoMoka
+            # (Line 50) if (v.PlayerID[cp] == 10 	|| v.Unit_Death[cp] == 3000) { v.Hero_Text[cp] = 9; }	// HotoMoka
         EUDEndIf()
         if EUDIf()(EUDSCOr()(v.PlayerID[cp] == 10)(v.Unit_Death[cp] == 3000)()):
             _ARRW(v.Hero_Text, cp) << (9)
-            # (Line 48) v.Unit_ID[cp] = 0;
+            # (Line 51) v.Unit_ID[cp] = 0;
         EUDEndIf()
         _ARRW(v.Unit_ID, cp) << (0)
-        # (Line 49) break;
+        # (Line 52) break;
         EUDBreak()
-        # (Line 50) case 77:
+        # (Line 53) case 77:
     _t5 = EUDSwitchCase()
-    # (Line 51) if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 2; }	// Chtholly
+    # (Line 54) if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 2; }	// Chtholly
     if _t5(77):
         if EUDIf()(EUDSCOr()(v.PlayerID[cp] == 8)(v.Unit_Death[cp] == 1000)()):
             _ARRW(v.Hero_Text, cp) << (2)
-            # (Line 52) if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 7; }	// Cecilia
+            # (Line 55) if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 7; }	// Cecilia
         EUDEndIf()
         if EUDIf()(EUDSCOr()(v.PlayerID[cp] == 9)(v.Unit_Death[cp] == 2000)()):
             _ARRW(v.Hero_Text, cp) << (7)
-            # (Line 53) if (v.PlayerID[cp] == 10 	|| v.Unit_Death[cp] == 3000) { v.Hero_Text[cp] = 10; }	// Alther Ago
+            # (Line 56) if (v.PlayerID[cp] == 10 	|| v.Unit_Death[cp] == 3000) { v.Hero_Text[cp] = 10; }	// Alther Ago
         EUDEndIf()
         if EUDIf()(EUDSCOr()(v.PlayerID[cp] == 10)(v.Unit_Death[cp] == 3000)()):
             _ARRW(v.Hero_Text, cp) << (10)
-            # (Line 54) if (v.PlayerID[cp] == 11 	|| v.Unit_Death[cp] == 4000) { v.Hero_Text[cp] = 17; }	// Kiana
+            # (Line 57) if (v.PlayerID[cp] == 11 	|| v.Unit_Death[cp] == 4000) { v.Hero_Text[cp] = 17; }	// Kiana
         EUDEndIf()
         if EUDIf()(EUDSCOr()(v.PlayerID[cp] == 11)(v.Unit_Death[cp] == 4000)()):
             _ARRW(v.Hero_Text, cp) << (17)
-            # (Line 55) v.Unit_ID[cp] = 0;
+            # (Line 58) v.Unit_ID[cp] = 0;
         EUDEndIf()
         _ARRW(v.Unit_ID, cp) << (0)
-        # (Line 56) break;
+        # (Line 59) break;
         EUDBreak()
-        # (Line 57) case 74:
+        # (Line 60) case 74:
     _t10 = EUDSwitchCase()
-    # (Line 58) if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 3; }	// Maihime
+    # (Line 61) if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 3; }	// Maihime
     if _t10(74):
         if EUDIf()(EUDSCOr()(v.PlayerID[cp] == 8)(v.Unit_Death[cp] == 1000)()):
             _ARRW(v.Hero_Text, cp) << (3)
-            # (Line 59) if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 3000) { v.Hero_Text[cp] = 4; }	// Tenshi
+            # (Line 62) if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 3000) { v.Hero_Text[cp] = 4; }	// Tenshi
         EUDEndIf()
         if EUDIf()(EUDSCOr()(v.PlayerID[cp] == 9)(v.Unit_Death[cp] == 3000)()):
             _ARRW(v.Hero_Text, cp) << (4)
-            # (Line 60) if (v.PlayerID[cp] == 10 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 5; }	// Miyuki
+            # (Line 63) if (v.PlayerID[cp] == 10 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 5; }	// Miyuki
         EUDEndIf()
         if EUDIf()(EUDSCOr()(v.PlayerID[cp] == 10)(v.Unit_Death[cp] == 2000)()):
             _ARRW(v.Hero_Text, cp) << (5)
-            # (Line 61) v.Unit_ID[cp] = 0;
+            # (Line 64) v.Unit_ID[cp] = 0;
         EUDEndIf()
         _ARRW(v.Unit_ID, cp) << (0)
-        # (Line 62) break;
+        # (Line 65) break;
         EUDBreak()
-        # (Line 63) case 16:
+        # (Line 66) case 16:
     _t14 = EUDSwitchCase()
-    # (Line 64) if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 6; }	// Negev
+    # (Line 67) if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 6; }	// Negev
     if _t14(16):
         if EUDIf()(EUDSCOr()(v.PlayerID[cp] == 8)(v.Unit_Death[cp] == 1000)()):
             _ARRW(v.Hero_Text, cp) << (6)
-            # (Line 65) if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 11; }	// Kurumi
+            # (Line 68) if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 11; }	// Kurumi
         EUDEndIf()
         if EUDIf()(EUDSCOr()(v.PlayerID[cp] == 9)(v.Unit_Death[cp] == 2000)()):
             _ARRW(v.Hero_Text, cp) << (11)
-            # (Line 66) if (v.PlayerID[cp] == 10 	|| v.Unit_Death[cp] == 3000) { v.Hero_Text[cp] = 13; }	// Sakura
+            # (Line 69) if (v.PlayerID[cp] == 10 	|| v.Unit_Death[cp] == 3000) { v.Hero_Text[cp] = 13; }	// Sakura
         EUDEndIf()
         if EUDIf()(EUDSCOr()(v.PlayerID[cp] == 10)(v.Unit_Death[cp] == 3000)()):
             _ARRW(v.Hero_Text, cp) << (13)
-            # (Line 67) if (v.PlayerID[cp] == 11 	|| v.Unit_Death[cp] == 4000) { v.Hero_Text[cp] = 16; }	// Seraphim
+            # (Line 70) if (v.PlayerID[cp] == 11 	|| v.Unit_Death[cp] == 4000) { v.Hero_Text[cp] = 16; }	// Seraphim
         EUDEndIf()
         if EUDIf()(EUDSCOr()(v.PlayerID[cp] == 11)(v.Unit_Death[cp] == 4000)()):
             _ARRW(v.Hero_Text, cp) << (16)
-            # (Line 68) v.Unit_ID[cp] = 0;
+            # (Line 71) v.Unit_ID[cp] = 0;
         EUDEndIf()
         _ARRW(v.Unit_ID, cp) << (0)
-        # (Line 69) break;
+        # (Line 72) break;
         EUDBreak()
-        # (Line 70) case 54:
+        # (Line 73) case 54:
     _t19 = EUDSwitchCase()
-    # (Line 71) if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 12; }	// Ryuzu
+    # (Line 74) if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 12; }	// Ryuzu
     if _t19(54):
         if EUDIf()(EUDSCOr()(v.PlayerID[cp] == 8)(v.Unit_Death[cp] == 1000)()):
             _ARRW(v.Hero_Text, cp) << (12)
-            # (Line 72) if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 15; }	// Rin
+            # (Line 75) if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 15; }	// Rin
         EUDEndIf()
         if EUDIf()(EUDSCOr()(v.PlayerID[cp] == 9)(v.Unit_Death[cp] == 2000)()):
             _ARRW(v.Hero_Text, cp) << (15)
-            # (Line 73) v.Unit_ID[cp] = 0;
+            # (Line 76) v.Unit_ID[cp] = 0;
         EUDEndIf()
         _ARRW(v.Unit_ID, cp) << (0)
-        # (Line 74) break;
+        # (Line 77) break;
         EUDBreak()
-        # (Line 75) case 99:
+        # (Line 78) case 99:
     _t22 = EUDSwitchCase()
-    # (Line 76) if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 14; }	// Yashiro
+    # (Line 79) if (v.PlayerID[cp] == 8 	|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 14; }	// Yashiro
     if _t22(99):
         if EUDIf()(EUDSCOr()(v.PlayerID[cp] == 8)(v.Unit_Death[cp] == 1000)()):
             _ARRW(v.Hero_Text, cp) << (14)
-            # (Line 77) if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 18; }	// Tenkai
+            # (Line 80) if (v.PlayerID[cp] == 9 	|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 18; }	// Tenkai
         EUDEndIf()
         if EUDIf()(EUDSCOr()(v.PlayerID[cp] == 9)(v.Unit_Death[cp] == 2000)()):
             _ARRW(v.Hero_Text, cp) << (18)
-            # (Line 78) v.Unit_ID[cp] = 0;
+            # (Line 81) v.Unit_ID[cp] = 0;
         EUDEndIf()
         _ARRW(v.Unit_ID, cp) << (0)
-        # (Line 79) break;
+        # (Line 82) break;
         EUDBreak()
-        # (Line 81) }
-    # (Line 82) }
+        # (Line 84) }
+    # (Line 85) }
     EUDEndSwitch()
-    # (Line 85) function CharacterText(cp)
+    # (Line 88) function CharacterText(cp)
 
-# (Line 86) {
+# (Line 89) {
 @EUDFunc
 def CharacterText(cp):
-    # (Line 87) if (v.Hero_Text[cp] >= 1 && Deaths((13), (1), 9999, (223)))
-    if EUDIf()(EUDSCAnd()(v.Hero_Text[cp] >= 1)(Deaths((13), (1), 9999, (223)))()):
-        # (Line 88) {
-        # (Line 89) tct.makeText("\n\x13\x17[ \x04",ptr2s(v.Hero_Name[v.Hero_Text[cp]])," \x17]");
-        tct.f_makeText("\n\x13\x17[ \x04", ptr2s(v.Hero_Name[v.Hero_Text[cp]]), " \x17]")
-        # (Line 90) switch (v.Hero_Text[cp])
-        EUDSwitch(v.Hero_Text[cp])
+    # (Line 90) if (v.Hero_Text[cp] >= 1 && Deaths((13), (1), 9999, (223)) && Deaths(CurrentPlayer, Exactly, 0, " Struct. Mond"))
+    if EUDIf()(EUDSCAnd()(v.Hero_Text[cp] >= 1)(Deaths((13), (1), 9999, (223)))(Deaths(CurrentPlayer, Exactly, 0, " Struct. Mond"))()):
         # (Line 91) {
-        # (Line 92) case 1:
+        # (Line 92) tct.makeText("\n\x13\x17[ \x04",ptr2s(v.Hero_Name[v.Hero_Text[cp]])," \x17]");
+        tct.f_makeText("\n\x13\x17[ \x04", ptr2s(v.Hero_Name[v.Hero_Text[cp]]), " \x17]")
+        # (Line 93) switch (v.Hero_Text[cp])
+        EUDSwitch(v.Hero_Text[cp])
+        # (Line 94) {
+        # (Line 95) case 1:
         _t2 = EUDSwitchCase()
-        # (Line 93) tct.addText("\n\x13\x04- \x17Dies irae \x04-");
+        # (Line 96) tct.addText("\n\x13\x04- \x17Dies irae \x04-");
         if _t2(1):
             tct.f_addText("\n\x13\x04- \x17Dies irae \x04-")
-            # (Line 94) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+            # (Line 97) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.")
-            # (Line 95) tct.addText("\n\x13\x04처음하는 플레이어에게 추천합니다.");
+            # (Line 98) tct.addText("\n\x13\x04처음하는 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04처음하는 플레이어에게 추천합니다.")
-            # (Line 96) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04만능 \x1F#\x04조작쉬움");
+            # (Line 99) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04만능 \x1F#\x04조작쉬움");
             tct.f_addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04만능 \x1F#\x04조작쉬움")
-            # (Line 97) break;
+            # (Line 100) break;
             EUDBreak()
-            # (Line 98) case 2:
+            # (Line 101) case 2:
         _t3 = EUDSwitchCase()
-        # (Line 99) tct.addText("\n\x13\x04- \x17종말에 뭐 하세요? 바쁘세요? 구해 주실 수 있나요? \x04-");
+        # (Line 102) tct.addText("\n\x13\x04- \x17종말에 뭐 하세요? 바쁘세요? 구해 주실 수 있나요? \x04-");
         if _t3(2):
             tct.f_addText("\n\x13\x04- \x17종말에 뭐 하세요? 바쁘세요? 구해 주실 수 있나요? \x04-")
-            # (Line 100) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+            # (Line 103) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.")
-            # (Line 101) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+            # (Line 104) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04숙련된 플레이어에게 추천합니다.")
-            # (Line 102) tct.addText("\n\n\x13\x1F#\x04공성특화++ \x1F#\x04지속딜 \x1F#\x04조작어려움");
+            # (Line 105) tct.addText("\n\n\x13\x1F#\x04공성특화++ \x1F#\x04지속딜 \x1F#\x04조작어려움");
             tct.f_addText("\n\n\x13\x1F#\x04공성특화++ \x1F#\x04지속딜 \x1F#\x04조작어려움")
-            # (Line 103) break;
+            # (Line 106) break;
             EUDBreak()
-            # (Line 104) case 3:
+            # (Line 107) case 3:
         _t4 = EUDSwitchCase()
-        # (Line 105) tct.addText("\n\x13\x04- \x17퀄리디아 코드 \x04-");
+        # (Line 108) tct.addText("\n\x13\x04- \x17퀄리디아 코드 \x04-");
         if _t4(3):
             tct.f_addText("\n\x13\x04- \x17퀄리디아 코드 \x04-")
-            # (Line 106) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
+            # (Line 109) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.")
-            # (Line 107) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
+            # (Line 110) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04적응된 플레이어에게 추천합니다.")
-            # (Line 108) tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04지속딜 \x1F#\x04만능궁 \x1F#\x04조작보통");
+            # (Line 111) tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04지속딜 \x1F#\x04만능궁 \x1F#\x04조작보통");
             tct.f_addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04지속딜 \x1F#\x04만능궁 \x1F#\x04조작보통")
-            # (Line 109) break;
+            # (Line 112) break;
             EUDBreak()
-            # (Line 110) case 4:
+            # (Line 113) case 4:
         _t5 = EUDSwitchCase()
-        # (Line 111) tct.addText("\n\x13\x04- \x17동방 스카이 아레나 \x04-");
+        # (Line 114) tct.addText("\n\x13\x04- \x17동방 스카이 아레나 \x04-");
         if _t5(4):
             tct.f_addText("\n\x13\x04- \x17동방 스카이 아레나 \x04-")
-            # (Line 112) tct.addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.");
+            # (Line 115) tct.addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.")
-            # (Line 113) tct.addText("\n\x13\x04처음하는 플레이어에게 추천합니다.");
+            # (Line 116) tct.addText("\n\x13\x04처음하는 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04처음하는 플레이어에게 추천합니다.")
-            # (Line 114) tct.addText("\n\n\x13\x1F#\x04설치 \x1F#\x04만능 \x1F#\x04조작보통");
+            # (Line 117) tct.addText("\n\n\x13\x1F#\x04설치 \x1F#\x04만능 \x1F#\x04조작보통");
             tct.f_addText("\n\n\x13\x1F#\x04설치 \x1F#\x04만능 \x1F#\x04조작보통")
-            # (Line 115) break;
+            # (Line 118) break;
             EUDBreak()
-            # (Line 116) case 5:
+            # (Line 119) case 5:
         _t6 = EUDSwitchCase()
-        # (Line 117) tct.addText("\n\x13\x04- \x17당신과 그녀와 그녀의 사랑 \x04-");
+        # (Line 120) tct.addText("\n\x13\x04- \x17당신과 그녀와 그녀의 사랑 \x04-");
         if _t6(5):
             tct.f_addText("\n\x13\x04- \x17당신과 그녀와 그녀의 사랑 \x04-")
-            # (Line 118) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
+            # (Line 121) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.")
-            # (Line 119) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
+            # (Line 122) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04적응된 플레이어에게 추천합니다.")
-            # (Line 120) tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간강한딜 \x1F#\x04만능궁 \x1F#\x04조작어려움");
+            # (Line 123) tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간강한딜 \x1F#\x04만능궁 \x1F#\x04조작어려움");
             tct.f_addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간강한딜 \x1F#\x04만능궁 \x1F#\x04조작어려움")
-            # (Line 121) break;
+            # (Line 124) break;
             EUDBreak()
-            # (Line 122) case 6:
+            # (Line 125) case 6:
         _t7 = EUDSwitchCase()
-        # (Line 123) tct.addText("\n\x13\x04- \x17소녀전선 \x04-");
+        # (Line 126) tct.addText("\n\x13\x04- \x17소녀전선 \x04-");
         if _t7(6):
             tct.f_addText("\n\x13\x04- \x17소녀전선 \x04-")
-            # (Line 124) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+            # (Line 127) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.")
-            # (Line 125) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
+            # (Line 128) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04적응된 플레이어에게 추천합니다.")
-            # (Line 126) tct.addText("\n\n\x13\x1F#\x04공성 \x1F#\x04순간딜 \x1F#\x04조작보통");
+            # (Line 129) tct.addText("\n\n\x13\x1F#\x04공성 \x1F#\x04순간딜 \x1F#\x04조작보통");
             tct.f_addText("\n\n\x13\x1F#\x04공성 \x1F#\x04순간딜 \x1F#\x04조작보통")
-            # (Line 127) break;
+            # (Line 130) break;
             EUDBreak()
-            # (Line 128) case 7:
+            # (Line 131) case 7:
         _t8 = EUDSwitchCase()
-        # (Line 129) tct.addText("\n\x13\x04- \x17킹스레이드 \x04-");
+        # (Line 132) tct.addText("\n\x13\x04- \x17킹스레이드 \x04-");
         if _t8(7):
             tct.f_addText("\n\x13\x04- \x17킹스레이드 \x04-")
-            # (Line 130) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
+            # (Line 133) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.")
-            # (Line 131) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+            # (Line 134) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04숙련된 플레이어에게 추천합니다.")
-            # (Line 132) tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작어려움");
+            # (Line 135) tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작어려움");
             tct.f_addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작어려움")
-            # (Line 133) break;
+            # (Line 136) break;
             EUDBreak()
-            # (Line 134) case 8:
+            # (Line 137) case 8:
         _t9 = EUDSwitchCase()
-        # (Line 135) tct.addText("\n\x13\x04- \x17PROJECT iM@S CINDERELLA GIRLS \x04-");
+        # (Line 138) tct.addText("\n\x13\x04- \x17PROJECT iM@S CINDERELLA GIRLS \x04-");
         if _t9(8):
             tct.f_addText("\n\x13\x04- \x17PROJECT iM@S CINDERELLA GIRLS \x04-")
-            # (Line 136) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+            # (Line 139) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.")
-            # (Line 137) tct.addText("\n\x13\x04처음하는 플레이어에게 추천합니다.");
+            # (Line 140) tct.addText("\n\x13\x04처음하는 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04처음하는 플레이어에게 추천합니다.")
-            # (Line 138) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작쉬움");
+            # (Line 141) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작쉬움");
             tct.f_addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작쉬움")
-            # (Line 139) break;
+            # (Line 142) break;
             EUDBreak()
-            # (Line 140) case 9:
+            # (Line 143) case 9:
         _t10 = EUDSwitchCase()
-        # (Line 141) tct.addText("\n\x13\x04- \x17주문은 토끼입니까? \x04-");
+        # (Line 144) tct.addText("\n\x13\x04- \x17주문은 토끼입니까? \x04-");
         if _t10(9):
             tct.f_addText("\n\x13\x04- \x17주문은 토끼입니까? \x04-")
-            # (Line 142) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+            # (Line 145) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.")
-            # (Line 143) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+            # (Line 146) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04숙련된 플레이어에게 추천합니다.")
-            # (Line 144) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
+            # (Line 147) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
             tct.f_addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움")
-            # (Line 145) break;
+            # (Line 148) break;
             EUDBreak()
-            # (Line 146) case 10:
+            # (Line 149) case 10:
         _t11 = EUDSwitchCase()
-        # (Line 147) tct.addText("\n\x13\x04- \x17Fate/Extra CCC \x04-");
+        # (Line 150) tct.addText("\n\x13\x04- \x17Fate/Extra CCC \x04-");
         if _t11(10):
             tct.f_addText("\n\x13\x04- \x17Fate/Extra CCC \x04-")
-            # (Line 148) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+            # (Line 151) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.")
-            # (Line 149) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+            # (Line 152) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04숙련된 플레이어에게 추천합니다.")
-            # (Line 150) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
+            # (Line 153) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
             tct.f_addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움")
-            # (Line 151) break;
+            # (Line 154) break;
             EUDBreak()
-            # (Line 152) case 11:
+            # (Line 155) case 11:
         _t12 = EUDSwitchCase()
-        # (Line 153) tct.addText("\n\x13\x04- \x17DATE A LIVE \x04-");
+        # (Line 156) tct.addText("\n\x13\x04- \x17DATE A LIVE \x04-");
         if _t12(11):
             tct.f_addText("\n\x13\x04- \x17DATE A LIVE \x04-")
-            # (Line 154) tct.addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.");
+            # (Line 157) tct.addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.")
-            # (Line 155) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+            # (Line 158) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04숙련된 플레이어에게 추천합니다.")
-            # (Line 156) tct.addText("\n\n\x13\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04모드 \x1F#\x04조작어려움");
+            # (Line 159) tct.addText("\n\n\x13\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04모드 \x1F#\x04조작어려움");
             tct.f_addText("\n\n\x13\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04모드 \x1F#\x04조작어려움")
-            # (Line 157) break;
+            # (Line 160) break;
             EUDBreak()
-            # (Line 158) case 12:
+            # (Line 161) case 12:
         _t13 = EUDSwitchCase()
-        # (Line 159) tct.addText("\n\x13\x04- \x17ClockWork Planet \x04-");
+        # (Line 162) tct.addText("\n\x13\x04- \x17ClockWork Planet \x04-");
         if _t13(12):
             tct.f_addText("\n\x13\x04- \x17ClockWork Planet \x04-")
-            # (Line 160) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
+            # (Line 163) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.")
-            # (Line 161) tct.addText("\n\x13\x04처음하는 플레이어에게 추천합니다.");
+            # (Line 164) tct.addText("\n\x13\x04처음하는 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04처음하는 플레이어에게 추천합니다.")
-            # (Line 162) tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작쉬움");
+            # (Line 165) tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작쉬움");
             tct.f_addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작쉬움")
-            # (Line 163) break;
+            # (Line 166) break;
             EUDBreak()
-            # (Line 164) case 13:
+            # (Line 167) case 13:
         _t14 = EUDSwitchCase()
-        # (Line 165) tct.addText("\n\x13\x04- \x17Fate/stay night");
+        # (Line 168) tct.addText("\n\x13\x04- \x17Fate/stay night");
         if _t14(13):
             tct.f_addText("\n\x13\x04- \x17Fate/stay night")
-            # (Line 166) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+            # (Line 169) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.")
-            # (Line 167) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+            # (Line 170) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04숙련된 플레이어에게 추천합니다.")
-            # (Line 168) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
+            # (Line 171) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
             tct.f_addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움")
-            # (Line 169) break;
+            # (Line 172) break;
             EUDBreak()
-            # (Line 170) case 14:
+            # (Line 173) case 14:
         _t15 = EUDSwitchCase()
-        # (Line 171) tct.addText("\n\x13\x04- \x17나만이 없는 거리\x04-");
+        # (Line 174) tct.addText("\n\x13\x04- \x17나만이 없는 거리\x04-");
         if _t15(14):
             tct.f_addText("\n\x13\x04- \x17나만이 없는 거리\x04-")
-            # (Line 172) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
+            # (Line 175) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.")
-            # (Line 173) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+            # (Line 176) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04숙련된 플레이어에게 추천합니다.")
-            # (Line 174) tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04스택 \x1F#\x04조작매우어려움");
+            # (Line 177) tct.addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04스택 \x1F#\x04조작매우어려움");
             tct.f_addText("\n\n\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04스택 \x1F#\x04조작매우어려움")
-            # (Line 175) break;
+            # (Line 178) break;
             EUDBreak()
-            # (Line 176) case 15:
+            # (Line 179) case 15:
         _t16 = EUDSwitchCase()
-        # (Line 177) tct.addText("\n\x13\x04- \x17Shelter \x04-");
+        # (Line 180) tct.addText("\n\x13\x04- \x17Shelter \x04-");
         if _t16(15):
             tct.f_addText("\n\x13\x04- \x17Shelter \x04-")
-            # (Line 178) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
+            # (Line 181) tct.addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17공성전\x04에 특화 되어있습니다.")
-            # (Line 179) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
+            # (Line 182) tct.addText("\n\x13\x04숙련된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04숙련된 플레이어에게 추천합니다.")
-            # (Line 180) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
+            # (Line 183) tct.addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
             tct.f_addText("\n\n\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움")
-            # (Line 181) break;
+            # (Line 184) break;
             EUDBreak()
-            # (Line 182) case 16:
+            # (Line 185) case 16:
         _t17 = EUDSwitchCase()
-        # (Line 183) tct.addText("\n\x13\x04- \x17영원한 7일의 도시 \x04-");
+        # (Line 186) tct.addText("\n\x13\x04- \x17영원한 7일의 도시 \x04-");
         if _t17(16):
             tct.f_addText("\n\x13\x04- \x17영원한 7일의 도시 \x04-")
-            # (Line 184) tct.addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.");
+            # (Line 187) tct.addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.")
-            # (Line 185) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
+            # (Line 188) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04적응된 플레이어에게 추천합니다.")
-            # (Line 186) tct.addText("\n\n\x13\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04조작보통 \x1F#\x04특수");
+            # (Line 189) tct.addText("\n\n\x13\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04조작보통 \x1F#\x04특수");
             tct.f_addText("\n\n\x13\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04조작보통 \x1F#\x04특수")
-            # (Line 187) break;
+            # (Line 190) break;
             EUDBreak()
-            # (Line 188) case 17:
+            # (Line 191) case 17:
         _t18 = EUDSwitchCase()
-        # (Line 189) tct.addText("\n\x04- \x17붕괴 3rd \x04-");
+        # (Line 192) tct.addText("\n\x04- \x17붕괴 3rd \x04-");
         if _t18(17):
             tct.f_addText("\n\x04- \x17붕괴 3rd \x04-")
-            # (Line 190) tct.addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.");
+            # (Line 193) tct.addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17모든전투\x04에 특화 되어있습니다.")
-            # (Line 191) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
+            # (Line 194) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04적응된 플레이어에게 추천합니다.")
-            # (Line 192) tct.addText("\n\n\x13\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04조작보통 \x1F#\x04특수");
+            # (Line 195) tct.addText("\n\n\x13\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04조작보통 \x1F#\x04특수");
             tct.f_addText("\n\n\x13\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04조작보통 \x1F#\x04특수")
-            # (Line 193) break;
+            # (Line 196) break;
             EUDBreak()
-            # (Line 194) case 18:
+            # (Line 197) case 18:
         _t19 = EUDSwitchCase()
-        # (Line 195) tct.addText("\n\x13\x04- \x17K RETURN OF KINGS \x04-");
+        # (Line 198) tct.addText("\n\x13\x04- \x17K RETURN OF KINGS \x04-");
         if _t19(18):
             tct.f_addText("\n\x13\x04- \x17K RETURN OF KINGS \x04-")
-            # (Line 196) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
+            # (Line 199) tct.addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.");
             tct.f_addText("\n\n\x13\x17대인전\x04에 특화 되어있습니다.")
-            # (Line 197) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
+            # (Line 200) tct.addText("\n\x13\x04적응된 플레이어에게 추천합니다.");
             tct.f_addText("\n\x13\x04적응된 플레이어에게 추천합니다.")
-            # (Line 198) tct.addText("\n\n\x13\x1F#\x04대인 \x1F#\x04순간딜 \x1F#\x04조작보통");
+            # (Line 201) tct.addText("\n\n\x13\x1F#\x04대인 \x1F#\x04순간딜 \x1F#\x04조작보통");
             tct.f_addText("\n\n\x13\x1F#\x04대인 \x1F#\x04순간딜 \x1F#\x04조작보통")
-            # (Line 199) break;
+            # (Line 202) break;
             EUDBreak()
-            # (Line 200) }
-        # (Line 202) if (cp >=0 && cp <= 2 && Switch((249), (2)))
+            # (Line 203) }
+        # (Line 205) if (cp >=0 && cp <= 2 && Switch((249), (2)))
         EUDEndSwitch()
         if EUDIf()(EUDSCAnd()(cp >= 0)(cp <= 2)(Switch((249), (2)))()):
-            # (Line 203) {
-            # (Line 204) if (v.Hero_Text[cp] == 3
+            # (Line 206) {
+            # (Line 207) if (v.Hero_Text[cp] == 3
             _t21 = EUDIf()
-            # (Line 205) || v.Hero_Text[cp] == 5
-            # (Line 206) || v.Hero_Text[cp] == 7
-            # (Line 207) || v.Hero_Text[cp] == 12
-            # (Line 208) || v.Hero_Text[cp] == 18)
+            # (Line 208) || v.Hero_Text[cp] == 5
+            # (Line 209) || v.Hero_Text[cp] == 7
+            # (Line 210) || v.Hero_Text[cp] == 12
+            # (Line 211) || v.Hero_Text[cp] == 18)
             if _t21(EUDSCOr()(v.Hero_Text[cp] == 3)(v.Hero_Text[cp] == 5)(v.Hero_Text[cp] == 7)(v.Hero_Text[cp] == 12)(v.Hero_Text[cp] == 18)()):
-                # (Line 209) { tct.addText("\n\n\x13\x04선택할수 없습니다.\n"); }
+                # (Line 212) { tct.addText("\n\n\x13\x04선택할수 없습니다.\n"); }
                 tct.f_addText("\n\n\x13\x04선택할수 없습니다.\n")
-                # (Line 210) else { tct.addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"); }
+                # (Line 213) else { tct.addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"); }
             if EUDElse()():
                 tct.f_addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n")
-                # (Line 211) }
+                # (Line 214) }
             EUDEndIf()
-            # (Line 212) else if (cp >=3 && cp <= 5 && Switch((248), (2)))
+            # (Line 215) else if (cp >=3 && cp <= 5 && Switch((248), (2)))
         if EUDElseIf()(EUDSCAnd()(cp >= 3)(cp <= 5)(Switch((248), (2)))()):
-            # (Line 213) {
-            # (Line 214) if (v.Hero_Text[cp] == 3
+            # (Line 216) {
+            # (Line 217) if (v.Hero_Text[cp] == 3
             _t23 = EUDIf()
-            # (Line 215) || v.Hero_Text[cp] == 5
-            # (Line 216) || v.Hero_Text[cp] == 7
-            # (Line 217) || v.Hero_Text[cp] == 12
-            # (Line 218) || v.Hero_Text[cp] == 18)
+            # (Line 218) || v.Hero_Text[cp] == 5
+            # (Line 219) || v.Hero_Text[cp] == 7
+            # (Line 220) || v.Hero_Text[cp] == 12
+            # (Line 221) || v.Hero_Text[cp] == 18)
             if _t23(EUDSCOr()(v.Hero_Text[cp] == 3)(v.Hero_Text[cp] == 5)(v.Hero_Text[cp] == 7)(v.Hero_Text[cp] == 12)(v.Hero_Text[cp] == 18)()):
-                # (Line 219) { tct.addText("\n\n\x13\x04선택할수 없습니다.\n"); }
+                # (Line 222) { tct.addText("\n\n\x13\x04선택할수 없습니다.\n"); }
                 tct.f_addText("\n\n\x13\x04선택할수 없습니다.\n")
-                # (Line 220) else { tct.addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"); }
+                # (Line 223) else { tct.addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"); }
             if EUDElse()():
                 tct.f_addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n")
-                # (Line 221) }
+                # (Line 224) }
             EUDEndIf()
-            # (Line 222) else { tct.addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"); }
+            # (Line 225) else { tct.addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n"); }
         if EUDElse()():
             tct.f_addText("\n\n\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.\n")
-            # (Line 224) txtPtr = dwread_epd(EPD(0x640B58));
+            # (Line 227) txtPtr = dwread_epd(EPD(0x640B58));
         EUDEndIf()
         txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 225) tct.displayText();
+        # (Line 228) tct.displayText();
         tct.f_displayText()
-        # (Line 226) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 227) v.Hero_Num[cp] = v.Hero_Text[cp];
+        # (Line 229) SetMemory(0x640B58, SetTo, txtPtr);
+        # (Line 230) v.Hero_Num[cp] = v.Hero_Text[cp];
         DoActions(SetMemory(0x640B58, SetTo, txtPtr))
         _ARRW(v.Hero_Num, cp) << (v.Hero_Text[cp])
-        # (Line 228) v.Hero_Text[cp] = 0;
+        # (Line 231) v.Hero_Text[cp] = 0;
         _ARRW(v.Hero_Text, cp) << (0)
-        # (Line 229) }
-        # (Line 230) }
+        # (Line 232) }
+        # (Line 233) else if (Deaths(CurrentPlayer, AtLeast, 2, " Struct. Mond") && Deaths(CurrentPlayer, AtMost, 360, " Struct. Mond"))
+    if EUDElseIf()(EUDSCAnd()(Deaths(CurrentPlayer, AtLeast, 2, " Struct. Mond"))(Deaths(CurrentPlayer, AtMost, 360, " Struct. Mond"))()):
+        # (Line 234) {
+        # (Line 235) EndTotalText(cp);
+        EndTotalText(cp)
+        # (Line 236) }
+        # (Line 237) }
     EUDEndIf()
+    # (Line 240) function EndTotalText(cp)
+
+# (Line 241) {
+@EUDFunc
+def EndTotalText(cp):
+    # (Line 242) const Exp 	= dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
+    Exp = f_dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp))
+    # (Line 244) tct.makeText("\n\x13\x17[ \x04",ptr2s(v.Hero_Name[v.Hero_Num[cp]])," \x17]");
+    tct.f_makeText("\n\x13\x17[ \x04", ptr2s(v.Hero_Name[v.Hero_Num[cp]]), " \x17]")
+    # (Line 245) tct.addText("\n\n\x13\x04얻은 경험치 : ", Exp, "　\x19[ Total ", v.Exp_Group[20 * cp + (v.Hero_Num[cp] - 1)], " ]");
+    tct.f_addText("\n\n\x13\x04얻은 경험치 : ", Exp, "　\x19[ Total ", v.Exp_Group[20 * cp + (v.Hero_Num[cp] - 1)], " ]")
+    # (Line 246) tct.addText("\n\x13\x04잡은 크립 : ",  v.CS_Group[20 * cp + (v.Hero_Num[cp] - 1)], "　\x19[ Total ", v.CS_Total[cp]," ]");
+    tct.f_addText("\n\x13\x04잡은 크립 : ", v.CS_Group[20 * cp + (v.Hero_Num[cp] - 1)], "　\x19[ Total ", v.CS_Total[cp], " ]")
+    # (Line 247) tct.addText("\n\x13\x04Kill : \x08",  v.Kill_Score[cp],"　\x19[ Total ", v.Kill_Total[20 * cp + (v.Hero_Num[cp] - 1)]," ]");
+    tct.f_addText("\n\x13\x04Kill : \x08", v.Kill_Score[cp], "　\x19[ Total ", v.Kill_Total[20 * cp + (v.Hero_Num[cp] - 1)], " ]")
+    # (Line 248) tct.addText("\n\x13\x04Death : \x08",  v.Death_Score[cp], "　\x19[ Total ", v.Death_Total[20 * cp + (v.Hero_Num[cp] - 1)]," ]");
+    tct.f_addText("\n\x13\x04Death : \x08", v.Death_Score[cp], "　\x19[ Total ", v.Death_Total[20 * cp + (v.Hero_Num[cp] - 1)], " ]")
+    # (Line 250) if (sca.ConnectStatus() == 1)
+    if EUDIf()(sca.ConnectStatus() == 1):
+        # (Line 251) {
+        # (Line 252) switch(sca.GetLastMessage())
+        EUDSwitch(sca.GetLastMessage())
+        # (Line 253) {
+        # (Line 254) case 5:
+        _t2 = EUDSwitchCase()
+        # (Line 255) tct.addText("\n\n\x13\x1F저장 중\x04입니다.");
+        if _t2(5):
+            tct.f_addText("\n\n\x13\x1F저장 중\x04입니다.")
+            # (Line 256) break;
+            EUDBreak()
+            # (Line 257) case 6:
+        _t3 = EUDSwitchCase()
+        # (Line 258) tct.addText("\n\n\x13\x1F저장 완료\x04되었습니다. 수고하셨습니다.");
+        if _t3(6):
+            tct.f_addText("\n\n\x13\x1F저장 완료\x04되었습니다. 수고하셨습니다.")
+            # (Line 259) break;
+            EUDBreak()
+            # (Line 260) }
+        # (Line 261) }
+        EUDEndSwitch()
+        # (Line 262) else if (sca.ConnectStatus() == 0)
+    if EUDElseIf()(sca.ConnectStatus() == 0):
+        # (Line 263) {
+        # (Line 264) tct.addText("\n\n\x13\x08SCA\x04 런쳐가 꺼져있어 저장이 불가능합니다.");
+        tct.f_addText("\n\n\x13\x08SCA\x04 런쳐가 꺼져있어 저장이 불가능합니다.")
+        # (Line 265) }
+        # (Line 266) else if (Switch(255, Set))
+    if EUDElseIf()(Switch(255, Set)):
+        # (Line 267) {
+        # (Line 268) tct.addText("\n\n\x13\x08TEST\x04 모드에서는 저장이 불가능합니다.");
+        tct.f_addText("\n\n\x13\x08TEST\x04 모드에서는 저장이 불가능합니다.")
+        # (Line 269) }
+        # (Line 271) txtPtr = dwread_epd(EPD(0x640B58));
+    EUDEndIf()
+    txtPtr << (f_dwread_epd(EPD(0x640B58)))
+    # (Line 272) tct.displayText();
+    tct.f_displayText()
+    # (Line 273) SetMemory(0x640B58, SetTo, txtPtr);
+    # (Line 274) }
+    DoActions(SetMemory(0x640B58, SetTo, txtPtr))

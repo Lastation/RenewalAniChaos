@@ -1,8 +1,11 @@
 import customText as tct;
 import Variable as v;
+import SCArchive as sca;
 
 var txtPtr, btnPtr, btnPos, oldCP;
 const trgk = $T('Artanis & safhfh');
+
+function EndTotalText(cp);
 
 function SetIndex(cp) 
 {
@@ -84,7 +87,7 @@ function CharacterTextNum(cp)
 
 function CharacterText(cp)
 {
-	if (v.Hero_Text[cp] >= 1 && Deaths((13), (1), 9999, (223)))
+	if (v.Hero_Text[cp] >= 1 && Deaths((13), (1), 9999, (223)) && Deaths(CurrentPlayer, Exactly, 0, " Struct. Mond"))
 	{
 		tct.makeText("\n\x13\x17[ \x04",ptr2s(v.Hero_Name[v.Hero_Text[cp]])," \x17]");
 		switch (v.Hero_Text[cp]) 
@@ -227,4 +230,46 @@ function CharacterText(cp)
 		v.Hero_Num[cp] = v.Hero_Text[cp];
 		v.Hero_Text[cp] = 0;
 	}
+	else if (Deaths(CurrentPlayer, AtLeast, 2, " Struct. Mond") && Deaths(CurrentPlayer, AtMost, 360, " Struct. Mond"))
+	{
+		EndTotalText(cp);
+	}
 }
+
+
+function EndTotalText(cp)
+{
+	const Exp 	= dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
+	
+	tct.makeText("\n\x13\x17[ \x04",ptr2s(v.Hero_Name[v.Hero_Num[cp]])," \x17]");
+	tct.addText("\n\n\x13\x04얻은 경험치 : ", Exp, "　\x19[ Total ", v.Exp_Group[20 * cp + (v.Hero_Num[cp] - 1)], " ]");
+	tct.addText("\n\x13\x04잡은 크립 : ",  v.CS_Group[20 * cp + (v.Hero_Num[cp] - 1)], "　\x19[ Total ", v.CS_Total[cp]," ]");
+	tct.addText("\n\x13\x04Kill : \x08",  v.Kill_Score[cp],"　\x19[ Total ", v.Kill_Total[20 * cp + (v.Hero_Num[cp] - 1)]," ]");
+	tct.addText("\n\x13\x04Death : \x08",  v.Death_Score[cp], "　\x19[ Total ", v.Death_Total[20 * cp + (v.Hero_Num[cp] - 1)]," ]");
+	
+	if (sca.ConnectStatus() == 1)
+	{
+		switch(sca.GetLastMessage())
+		{
+			case 5:
+				tct.addText("\n\n\x13\x1F저장 중\x04입니다.");
+				break;
+			case 6:
+				tct.addText("\n\n\x13\x1F저장 완료\x04되었습니다. 수고하셨습니다.");
+				break;
+	 	}
+ 	}
+ 	else if (sca.ConnectStatus() == 0)
+ 	{
+ 		tct.addText("\n\n\x13\x08SCA\x04 런쳐가 꺼져있어 저장이 불가능합니다.");
+ 	}
+ 	else if (Switch(255, Set))
+ 	{
+ 		tct.addText("\n\n\x13\x08TEST\x04 모드에서는 저장이 불가능합니다.");
+ 	}
+ 	
+	txtPtr = dwread_epd(EPD(0x640B58));
+	tct.displayText();
+	SetMemory(0x640B58, SetTo, txtPtr);
+}
+		
