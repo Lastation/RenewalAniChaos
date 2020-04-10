@@ -16,7 +16,7 @@ function SCASave(cp);
 
 function SCAMain(cp)
 {
-	if(sca.ConnectStatus() == 1 && sca.CommandStatus() == 0 && ElapsedTime(AtLeast, 20))
+	if(sca.ConnectStatus() == 1 && sca.CommandStatus() == 0)
 	{
 		switch(v.SCAStatus[cp])
 		{
@@ -50,7 +50,6 @@ function SCAMain(cp)
 				if (Deaths(CurrentPlayer, Exactly, 1000, 175)) { v.SCAStatus[cp] = 2; SetSwitch(255, Clear); }
 				break;
 		}
-		SCAMessage(cp);
 	}
 	else
 	{
@@ -89,25 +88,6 @@ function SCASave(cp)
 	}
 	
 	SetDeaths(CurrentPlayer, SetTo, 360, 175);
-}
-
-function SCAMessage(cp)
-{
-	switch(sca.GetLastMessage())
-	{
-		case 3:
-			txtPtr = dwread_epd(EPD(0x640B58));
-			tct.print("\x13\x04저장된  정보를 불러오는 중입니다.");
-			SetMemory(0x640B58, SetTo, txtPtr);
-			sca.ResetLastMessage();
-			break;
-		case 4:
-			txtPtr = dwread_epd(EPD(0x640B58));
-			tct.print("\x13\x04저장된 정보를 불러오는데 성공하였습니다.");
-			SetMemory(0x640B58, SetTo, txtPtr);
-			sca.ResetLastMessage();
-			break;
-	}
 }
 
 function GetExp(cp)

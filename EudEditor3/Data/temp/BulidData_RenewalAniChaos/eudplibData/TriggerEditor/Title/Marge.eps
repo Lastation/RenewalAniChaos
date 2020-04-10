@@ -5,6 +5,7 @@ import Variable as v;
 import Title.Total.Exp as totalexp;
 import Title.Total.Kill as totalkill;
 import Title.Total.CS as totalcs;
+import SCArchive as sca;
 
 const index = PVariable();
 var txtPtr, btnPtr, btnPos, oldCP;
@@ -22,18 +23,21 @@ function Key_input(cp);
 	
 function Title_Marge(cp)
 {
-	Key_input(cp);
-	Set_PName(cp);
-	
-	switch(tv.View_Title[cp])
+	if(sca.ConnectStatus() == 1)
 	{
-		case 1:
-			SetTitle_Total_Text(cp);
-			break;
-		case 2:
-			tv.View_Title_Now[cp] = 0;
-			tv.Select_Title[cp] = 0;
-			break;
+		Key_input(cp);
+		Set_PName(cp);
+		
+		switch(tv.View_Title[cp])
+		{
+			case 1:
+				SetTitle_Total_Text(cp);
+				break;
+			case 2:
+				tv.View_Title_Now[cp] = 0;
+				tv.Select_Title[cp] = 0;
+				break;
+		}
 	}
 }
 
@@ -156,9 +160,7 @@ function Set_PName_Index(cp, value)
 		if ( tv.Enable_Title_Num[cp] > tv.View_Title_Num * tv.View_Title_Now[cp] + index[cp])
 		{
 			tv.Title_Name_Front[cp] = value + tv.View_Title_Num * tv.View_Title_Now[cp] + index[cp];
-			tv.View_Title[cp] = 0;
-			tv.Select_Title[cp] = 0;
-			tv.View_Title_Now[cp] = 0;
+			tv.View_Title[cp] = 2;
 			tct.print("\n\n\n\n\n\n\n\n\n\n\n");
 		}
 		SetDeaths(CurrentPlayer, SetTo, 0, "Zerg Larva");

@@ -239,8 +239,8 @@ def beforeTriggerExec():
     sca.Exec()
     # (Line 79) EUDPlayerLoop()();
     EUDPlayerLoop()()
-    # (Line 81) if(getcurpl() < 6)
-    if EUDIf()(f_getcurpl() >= 6, neg=True):
+    # (Line 81) if(getcurpl() < 6 && ElapsedTime(AtLeast, 10))
+    if EUDIf()(EUDSCAnd()(f_getcurpl() >= 6, neg=True)(ElapsedTime(AtLeast, 10))()):
         # (Line 82) {
         # (Line 83) MainLoop();
         MainLoop()
