@@ -147,8 +147,8 @@ trgk = _CGFW(lambda: [GetStringIndex('Artanis & safhfh')], 1)[0]
 # (Line 18) {
 @EUDFunc
 def SCAMain(cp):
-    # (Line 19) if(sca.ConnectStatus() == 1 && sca.CommandStatus() == 0)
-    if EUDIf()(EUDSCAnd()(sca.ConnectStatus() == 1)(sca.CommandStatus() == 0)()):
+    # (Line 19) if(sca.ConnectStatus() == 1 && sca.CommandStatus() == 0 && ElapsedTime(AtLeast, 20))
+    if EUDIf()(EUDSCAnd()(sca.ConnectStatus() == 1)(sca.CommandStatus() == 0)(ElapsedTime(AtLeast, 20))()):
         # (Line 20) {
         # (Line 21) switch(v.SCAStatus[cp])
         EUDSwitch(v.SCAStatus[cp])

@@ -16,7 +16,7 @@ function SCASave(cp);
 
 function SCAMain(cp)
 {
-	if(sca.ConnectStatus() == 1 && sca.CommandStatus() == 0)
+	if(sca.ConnectStatus() == 1 && sca.CommandStatus() == 0 && ElapsedTime(AtLeast, 20))
 	{
 		switch(v.SCAStatus[cp])
 		{
