@@ -147,8 +147,8 @@ trgk = _CGFW(lambda: [GetStringIndex('Artanis & safhfh')], 1)[0]
 # (Line 18) {
 @EUDFunc
 def SCAMain(cp):
-    # (Line 19) if(sca.ConnectStatus() == 1 && sca.CommandStatus() == 0 && ElapsedTime(AtLeast, 20))
-    if EUDIf()(EUDSCAnd()(sca.ConnectStatus() == 1)(sca.CommandStatus() == 0)(ElapsedTime(AtLeast, 20))()):
+    # (Line 19) if(sca.ConnectStatus() == 1 && sca.CommandStatus() == 0)
+    if EUDIf()(EUDSCAnd()(sca.ConnectStatus() == 1)(sca.CommandStatus() == 0)()):
         # (Line 20) {
         # (Line 21) switch(v.SCAStatus[cp])
         EUDSwitch(v.SCAStatus[cp])
@@ -216,156 +216,117 @@ def SCAMain(cp):
             EUDEndIf()
             EUDBreak()
             # (Line 52) }
-        # (Line 53) SCAMessage(cp);
+        # (Line 53) }
         EUDEndSwitch()
-        SCAMessage(cp)
-        # (Line 54) }
-        # (Line 55) else
-        # (Line 56) {
+        # (Line 54) else
+        # (Line 55) {
     if EUDElse()():
-        # (Line 57) if (Switch(255, Cleared))
+        # (Line 56) if (Switch(255, Cleared))
         if EUDIf()(Switch(255, Cleared)):
-            # (Line 58) {
-            # (Line 59) GetExp(cp);
+            # (Line 57) {
+            # (Line 58) GetExp(cp);
             GetExp(cp)
-            # (Line 60) GetCS(cp);
+            # (Line 59) GetCS(cp);
             GetCS(cp)
-            # (Line 61) }
-            # (Line 62) else
-            # (Line 63) {
+            # (Line 60) }
+            # (Line 61) else
+            # (Line 62) {
         if EUDElse()():
-            # (Line 64) if (v.Hero_Num[cp] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)))
+            # (Line 63) if (v.Hero_Num[cp] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)))
             if EUDIf()(v.Hero_Num[cp] == f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)), neg=True):
-                # (Line 65) { v.Hero_Num[cp] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)); }
+                # (Line 64) { v.Hero_Num[cp] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)); }
                 _ARRW(v.Hero_Num, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)))
-                # (Line 66) GetExp(cp);
+                # (Line 65) GetExp(cp);
             EUDEndIf()
             GetExp(cp)
-            # (Line 67) GetCS(cp);
+            # (Line 66) GetCS(cp);
             GetCS(cp)
-            # (Line 68) }
-            # (Line 70) if (Deaths(CurrentPlayer, Exactly, 1000, 175)) { SCASave(cp); SetSwitch(255, Clear); }
+            # (Line 67) }
+            # (Line 69) if (Deaths(CurrentPlayer, Exactly, 1000, 175)) { SCASave(cp); SetSwitch(255, Clear); }
         EUDEndIf()
         if EUDIf()(Deaths(CurrentPlayer, Exactly, 1000, 175)):
             SCASave(cp)
             DoActions(SetSwitch(255, Clear))
-            # (Line 71) }
+            # (Line 70) }
         EUDEndIf()
-        # (Line 72) }
+        # (Line 71) }
     EUDEndIf()
-    # (Line 74) function SCASave(cp)
+    # (Line 73) function SCASave(cp)
 
-# (Line 75) {
+# (Line 74) {
 @EUDFunc
 def SCASave(cp):
-    # (Line 76) const Exp 	= dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
+    # (Line 75) const Exp 	= dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
     Exp = f_dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp))
-    # (Line 77) const Cs 	= dwread_epd(EPD(0x58A364 + 48 * 164 + 4 * cp));
+    # (Line 76) const Cs 	= dwread_epd(EPD(0x58A364 + 48 * 164 + 4 * cp));
     Cs = f_dwread_epd(EPD(0x58A364 + 48 * 164 + 4 * cp))
-    # (Line 79) v.Exp_Total[cp] 									+= Exp;
+    # (Line 78) v.Exp_Total[cp] 									+= Exp;
     _ARRW(v.Exp_Total, cp).__iadd__(Exp)
-    # (Line 80) v.CS_Total[cp] 									+= Cs;
+    # (Line 79) v.CS_Total[cp] 									+= Cs;
     _ARRW(v.CS_Total, cp).__iadd__(Cs)
-    # (Line 81) v.Kill_All[cp] 										+= v.Kill_Score[cp];
+    # (Line 80) v.Kill_All[cp] 										+= v.Kill_Score[cp];
     _ARRW(v.Kill_All, cp).__iadd__(v.Kill_Score[cp])
-    # (Line 83) if (v.Hero_Num[cp] <= 20)
+    # (Line 82) if (v.Hero_Num[cp] <= 20)
     if EUDIf()(v.Hero_Num[cp] <= 20):
-        # (Line 84) {
-        # (Line 85) v.Exp_Group[20 * cp + (v.Hero_Num[cp] - 1)] 		+= Exp;
+        # (Line 83) {
+        # (Line 84) v.Exp_Group[20 * cp + (v.Hero_Num[cp] - 1)] 		+= Exp;
         _ARRW(v.Exp_Group, 20 * cp + (v.Hero_Num[cp] - 1)).__iadd__(Exp)
-        # (Line 86) v.CS_Group[20 * cp + (v.Hero_Num[cp] - 1)] 		= Cs;
+        # (Line 85) v.CS_Group[20 * cp + (v.Hero_Num[cp] - 1)] 		= Cs;
         _ARRW(v.CS_Group, 20 * cp + (v.Hero_Num[cp] - 1)) << (Cs)
-        # (Line 87) v.Kill_Total[20 * cp + (v.Hero_Num[cp] - 1)] 		+= v.Kill_Score[cp];
+        # (Line 86) v.Kill_Total[20 * cp + (v.Hero_Num[cp] - 1)] 		+= v.Kill_Score[cp];
         _ARRW(v.Kill_Total, 20 * cp + (v.Hero_Num[cp] - 1)).__iadd__(v.Kill_Score[cp])
-        # (Line 88) v.Death_Total[20 * cp + (v.Hero_Num[cp] - 1)] 	+= v.Death_Score[cp];
+        # (Line 87) v.Death_Total[20 * cp + (v.Hero_Num[cp] - 1)] 	+= v.Death_Score[cp];
         _ARRW(v.Death_Total, 20 * cp + (v.Hero_Num[cp] - 1)).__iadd__(v.Death_Score[cp])
-        # (Line 89) }
-        # (Line 91) SetDeaths(CurrentPlayer, SetTo, 360, 175);
+        # (Line 88) }
+        # (Line 90) SetDeaths(CurrentPlayer, SetTo, 360, 175);
     EUDEndIf()
-    # (Line 92) }
+    # (Line 91) }
     DoActions(SetDeaths(CurrentPlayer, SetTo, 360, 175))
-    # (Line 94) function SCAMessage(cp)
+    # (Line 93) function GetExp(cp)
 
-# (Line 95) {
-@EUDFunc
-def SCAMessage(cp):
-    # (Line 96) switch(sca.GetLastMessage())
-    EUDSwitch(sca.GetLastMessage())
-    # (Line 97) {
-    # (Line 98) case 3:
-    _t1 = EUDSwitchCase()
-    # (Line 99) txtPtr = dwread_epd(EPD(0x640B58));
-    if _t1(3):
-        txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 100) tct.print("\x13\x04저장된  정보를 불러오는 중입니다.");
-        tct.f_print("\x13\x04저장된  정보를 불러오는 중입니다.")
-        # (Line 101) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 102) sca.ResetLastMessage();
-        DoActions(SetMemory(0x640B58, SetTo, txtPtr))
-        sca.ResetLastMessage()
-        # (Line 103) break;
-        EUDBreak()
-        # (Line 104) case 4:
-    _t2 = EUDSwitchCase()
-    # (Line 105) txtPtr = dwread_epd(EPD(0x640B58));
-    if _t2(4):
-        txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 106) tct.print("\x13\x04저장된 정보를 불러오는데 성공하였습니다.");
-        tct.f_print("\x13\x04저장된 정보를 불러오는데 성공하였습니다.")
-        # (Line 107) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 108) sca.ResetLastMessage();
-        DoActions(SetMemory(0x640B58, SetTo, txtPtr))
-        sca.ResetLastMessage()
-        # (Line 109) break;
-        EUDBreak()
-        # (Line 110) }
-    # (Line 111) }
-    EUDEndSwitch()
-    # (Line 113) function GetExp(cp)
-
-# (Line 114) {
+# (Line 94) {
 @EUDFunc
 def GetExp(cp):
-    # (Line 115) const value = dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
+    # (Line 95) const value = dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
     value = f_dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp))
-    # (Line 117) if (v.Exp_Player[cp] != v.Exp_Group[20 * cp + (v.Hero_Num[cp] - 1)] && Switch(255, Cleared))
+    # (Line 97) if (v.Exp_Player[cp] != v.Exp_Group[20 * cp + (v.Hero_Num[cp] - 1)] && Switch(255, Cleared))
     if EUDIf()(EUDSCAnd()(v.Exp_Player[cp] == v.Exp_Group[20 * cp + (v.Hero_Num[cp] - 1)], neg=True)(Switch(255, Cleared))()):
-        # (Line 118) {
-        # (Line 119) if (v.Hero_Num[cp] <= 20)
+        # (Line 98) {
+        # (Line 99) if (v.Hero_Num[cp] <= 20)
         if EUDIf()(v.Hero_Num[cp] <= 20):
-            # (Line 120) { v.Exp_Player[cp] = v.Exp_Group[20 * cp + (v.Hero_Num[cp] - 1)]; }
+            # (Line 100) { v.Exp_Player[cp] = v.Exp_Group[20 * cp + (v.Hero_Num[cp] - 1)]; }
             _ARRW(v.Exp_Player, cp) << (v.Exp_Group[20 * cp + (v.Hero_Num[cp] - 1)])
-            # (Line 121) }
+            # (Line 101) }
         EUDEndIf()
-        # (Line 122) else if (v.Exp_Player[cp] != value && Switch(255, Set))
+        # (Line 102) else if (v.Exp_Player[cp] != value && Switch(255, Set))
     if EUDElseIf()(EUDSCAnd()(v.Exp_Player[cp] == value, neg=True)(Switch(255, Set))()):
-        # (Line 123) {
-        # (Line 124) v.Exp_Player[cp] = value;
+        # (Line 103) {
+        # (Line 104) v.Exp_Player[cp] = value;
         _ARRW(v.Exp_Player, cp) << (value)
-        # (Line 125) }
-        # (Line 126) }
+        # (Line 105) }
+        # (Line 106) }
     EUDEndIf()
-    # (Line 128) function GetCS(cp)
+    # (Line 108) function GetCS(cp)
 
-# (Line 129) {
+# (Line 109) {
 @EUDFunc
 def GetCS(cp):
-    # (Line 130) const value = dwread_epd(EPD(0x58A364 + 48 * 164 + 4 * cp));
+    # (Line 110) const value = dwread_epd(EPD(0x58A364 + 48 * 164 + 4 * cp));
     value = f_dwread_epd(EPD(0x58A364 + 48 * 164 + 4 * cp))
-    # (Line 132) if (v.CS_Player[cp] != v.CS_Group[20 * cp + (v.Hero_Num[cp] - 1)] && Switch(255, Cleared))
+    # (Line 112) if (v.CS_Player[cp] != v.CS_Group[20 * cp + (v.Hero_Num[cp] - 1)] && Switch(255, Cleared))
     if EUDIf()(EUDSCAnd()(v.CS_Player[cp] == v.CS_Group[20 * cp + (v.Hero_Num[cp] - 1)], neg=True)(Switch(255, Cleared))()):
-        # (Line 133) {
-        # (Line 134) if (v.Hero_Num[cp] <= 20)
+        # (Line 113) {
+        # (Line 114) if (v.Hero_Num[cp] <= 20)
         if EUDIf()(v.Hero_Num[cp] <= 20):
-            # (Line 135) { v.CS_Player[cp] = v.CS_Group[20 * cp + (v.Hero_Num[cp] - 1)]; }
+            # (Line 115) { v.CS_Player[cp] = v.CS_Group[20 * cp + (v.Hero_Num[cp] - 1)]; }
             _ARRW(v.CS_Player, cp) << (v.CS_Group[20 * cp + (v.Hero_Num[cp] - 1)])
-            # (Line 136) }
+            # (Line 116) }
         EUDEndIf()
-        # (Line 137) else if (v.CS_Player[cp] != value && Switch(255, Set))
+        # (Line 117) else if (v.CS_Player[cp] != value && Switch(255, Set))
     if EUDElseIf()(EUDSCAnd()(v.CS_Player[cp] == value, neg=True)(Switch(255, Set))()):
-        # (Line 138) {
-        # (Line 139) v.CS_Player[cp] = value;
+        # (Line 118) {
+        # (Line 119) v.CS_Player[cp] = value;
         _ARRW(v.CS_Player, cp) << (value)
-        # (Line 140) }
-        # (Line 141) }
+        # (Line 120) }
+        # (Line 121) }
     EUDEndIf()
