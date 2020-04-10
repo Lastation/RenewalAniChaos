@@ -74,30 +74,30 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Combo");
       PreserveTrigger();
-      CreateUnit(4, "40 + 1n Mojo", "[Skill]Unit_Wait_8", CurrentPlayer);
+      CreateUnit(4, "80 + 1n Artanis", "[Skill]Unit_Wait_8", CurrentPlayer);
       CreateUnit(4, "60 + 1n Archon", "[Skill]Unit_Wait_8", CurrentPlayer);
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("18.Iwahune", " * Samir Duran", CurrentPlayer, "Anywhere");
       LMove(170, x, y);
-      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       MoveUnit(1, "60 + 1n Archon", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       MoveLocation("18.Iwahune", " * Samir Duran", CurrentPlayer, "Anywhere");
       LMove(170, -x, -y);
-      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       MoveUnit(1, "60 + 1n Archon", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       MoveLocation("18.Iwahune", " * Samir Duran", CurrentPlayer, "Anywhere");
       LMove(170, -y, x);
-      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       MoveUnit(1, "60 + 1n Archon", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       MoveLocation("18.Iwahune", " * Samir Duran", CurrentPlayer, "Anywhere");
       LMove(170, y, -x);
-      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       MoveUnit(1, "60 + 1n Archon", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       KillUnitAt(All, "60 + 1n Archon", "Anywhere", CurrentPlayer);
       MoveLocation("18.Iwahune", " * Samir Duran", CurrentPlayer, "Anywhere");
-      Order("40 + 1n Mojo", CurrentPlayer, "Anywhere", Attack, "18.Iwahune");
+      Order("80 + 1n Artanis", CurrentPlayer, "Anywhere", Attack, "18.Iwahune");
       Wait(120);
-      KillUnitAt(All, "40 + 1n Mojo", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "80 + 1n Artanis", "Anywhere", CurrentPlayer);
       Wait(0);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
    },
@@ -197,30 +197,30 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Combo");
       PreserveTrigger();
-      CreateUnit(4, "40 + 1n Wraith", "[Skill]Unit_Wait_8", CurrentPlayer);
+      CreateUnit(4, "80 + 1n Tom Kazansky", "[Skill]Unit_Wait_8", CurrentPlayer);
       CreateUnit(4, "60 + 1n Archon", "[Skill]Unit_Wait_8", CurrentPlayer);
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("18.Iwahune", " * Samir Duran", CurrentPlayer, "Anywhere");
       LMove(170, x, y);
-      MoveUnit(1, "40 + 1n Wraith", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "80 + 1n Tom Kazansky", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       MoveUnit(1, "60 + 1n Archon", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       MoveLocation("18.Iwahune", " * Samir Duran", CurrentPlayer, "Anywhere");
       LMove(170, -x, -y);
-      MoveUnit(1, "40 + 1n Wraith", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "80 + 1n Tom Kazansky", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       MoveUnit(1, "60 + 1n Archon", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       MoveLocation("18.Iwahune", " * Samir Duran", CurrentPlayer, "Anywhere");
       LMove(170, -y, x);
-      MoveUnit(1, "40 + 1n Wraith", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "80 + 1n Tom Kazansky", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       MoveUnit(1, "60 + 1n Archon", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       MoveLocation("18.Iwahune", " * Samir Duran", CurrentPlayer, "Anywhere");
       LMove(170, y, -x);
-      MoveUnit(1, "40 + 1n Wraith", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "80 + 1n Tom Kazansky", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       MoveUnit(1, "60 + 1n Archon", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       KillUnitAt(All, "60 + 1n Archon", "Anywhere", CurrentPlayer);
       MoveLocation("18.Iwahune", " * Samir Duran", CurrentPlayer, "Anywhere");
-      Order("40 + 1n Wraith", CurrentPlayer, "Anywhere", Attack, "18.Iwahune");
+      Order("80 + 1n Tom Kazansky", CurrentPlayer, "Anywhere", Attack, "18.Iwahune");
       Wait(120);
-      KillUnitAt(All, "40 + 1n Wraith", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", CurrentPlayer);
       Wait(0);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
    },
@@ -705,8 +705,11 @@ Trigger { -- Skill : S
       MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       MoveUnit(1, " Creep. Dunkelheit", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       KillUnitAt(All, "40 + 1n Guardian", "Anywhere", CurrentPlayer);
-      KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", CurrentPlayer);
+      MoveLocation("18.Iwahune", " * Samir Duran", CurrentPlayer, "Anywhere");
+      MoveUnit(All, " Creep. Dunkelheit", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      Order(" Creep. Dunkelheit", CurrentPlayer, "Anywhere", Attack, "Anywhere");
       Wait(0);
+      KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", CurrentPlayer);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
    },
 }
