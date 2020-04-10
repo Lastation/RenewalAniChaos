@@ -822,25 +822,34 @@ Trigger { -- Skill : S
       Comment("Skill : Ultimate");
       PreserveTrigger();
       CreateUnit(8, "50 + 1n Battlecruiser", "[Skill]Unit_Wait_8", CurrentPlayer);
+      CreateUnit(8, "40 + 1n Goliath", "[Skill]Unit_Wait_8", CurrentPlayer);
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("18.Iwahune", " * Samir Duran", CurrentPlayer, "Anywhere");
       LMove(170, x1, y1);
       MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "40 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       LMove(170, i_x, i_y);
       MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "40 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       LMove(170, i_x, i_y);
       MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "40 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       LMove(170, i_x, i_y);
       MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "40 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       MoveLocation("18.Iwahune", " * Samir Duran", CurrentPlayer, "Anywhere");
       LMove(170, -x1, -y1);
       MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "40 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       LMove(170, -i_x, -i_y);
       MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "40 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       LMove(170, -i_x, -i_y);
       MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "40 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       LMove(170, -i_x, -i_y);
       MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "40 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop2");
    },
 }
@@ -859,25 +868,34 @@ Trigger { -- Skill : S
       Comment("Skill : Ultimate");
       PreserveTrigger();
       CreateUnit(8, "50 + 1n Battlecruiser", "[Skill]Unit_Wait_8", CurrentPlayer);
+      CreateUnit(8, "40 + 1n Goliath", "[Skill]Unit_Wait_8", CurrentPlayer);
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("18.Iwahune", " * Samir Duran", CurrentPlayer, "Anywhere");
       LMove(170, x2, y2);
       MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "40 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       LMove(170, i_x, i_y);
       MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "40 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       LMove(170, i_x, i_y);
       MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "40 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       LMove(170, i_x, i_y);
       MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "40 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       MoveLocation("18.Iwahune", " * Samir Duran", CurrentPlayer, "Anywhere");
       LMove(170, -x2, -y2);
       MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "40 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       LMove(170, -i_x, -i_y);
       MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "40 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       LMove(170, -i_x, -i_y);
       MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "40 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       LMove(170, -i_x, -i_y);
       MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(1, "40 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop2");
    },
 }
@@ -896,7 +914,9 @@ Trigger { -- Skill : S
       Comment("Skill : Ultimate");
       PreserveTrigger();
       KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", CurrentPlayer);
+      Order("40 + 1n Goliath", CurrentPlayer, "Anywhere", Attack, "Anywhere");
       Wait(0);
+      KillUnitAt(All, "40 + 1n Goliath", "Anywhere", CurrentPlayer);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop2");
    },
 }
@@ -1017,7 +1037,7 @@ Trigger { -- Skill : S
       Comment("Skill : Ultimate");
       PreserveTrigger();
       MoveLocation("18.Iwahune", " * Samir Duran", CurrentPlayer, "Anywhere");
-      LMove(170, -4 * interval, 4 * interval);
+      LMove(170, -5 * interval, 5 * interval);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
    },
 }
@@ -1100,7 +1120,7 @@ Trigger { -- Skill : S
       Comment("Skill : Ultimate");
       PreserveTrigger();
       MoveLocation("18.Iwahune", " * Samir Duran", CurrentPlayer, "Anywhere");
-      LMove(170, -4 * interval, 4 * interval);
+      LMove(170, -5 * interval, 5 * interval);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
    },
 }
@@ -1160,6 +1180,90 @@ Trigger { -- Skill : S
       Comment("Skill : Ultimate");
       PreserveTrigger();
       Order("130 + 1n Norad", CurrentPlayer, "Anywhere", Attack, "Anywhere");
+      Wait(0);
+      KillUnitAt(All, "130 + 1n Norad", "Anywhere", CurrentPlayer);
+      Wait(0);
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
+   },
+}
+
+
+interval = 75;
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 2000, " * Samir Duran");
+      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 10, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      MoveLocation("18.Iwahune", " * Samir Duran", CurrentPlayer, "Anywhere");
+      LMove(170, -5 * interval, 5 * interval);
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+   },
+}
+
+for i = 0, 8, 1 do
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 2000, " * Samir Duran");
+      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 10, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, i + 1, " `SkillLoop");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      CreateUnit(9, "130 + 1n Norad", "[Skill]Unit_Wait_8", CurrentPlayer);
+      SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
+      LMove(170, interval, 0);
+      MoveUnit(1, "130 + 1n Norad", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      LMove(170, interval, 0);
+      MoveUnit(1, "130 + 1n Norad", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      LMove(170, interval, 0);
+      MoveUnit(1, "130 + 1n Norad", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      LMove(170, interval, 0);
+      MoveUnit(1, "130 + 1n Norad", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      LMove(170, interval, 0);
+      MoveUnit(1, "130 + 1n Norad", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      LMove(170, interval, 0);
+      MoveUnit(1, "130 + 1n Norad", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      LMove(170, interval, 0);
+      MoveUnit(1, "130 + 1n Norad", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      LMove(170, interval, 0);
+      MoveUnit(1, "130 + 1n Norad", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      LMove(170, interval, 0);
+      MoveUnit(1, "130 + 1n Norad", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      LMove(170, -9 * interval, -interval);
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+   },
+}
+
+
+end
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 2000, " * Samir Duran");
+      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 10, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 10, " `SkillLoop");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      Order("130 + 1n Norad", CurrentPlayer, "Anywhere", Attack, "Anywhere");
       Wait(500);
       KillUnitAt(All, "130 + 1n Norad", "Anywhere", CurrentPlayer);
       Wait(0);
@@ -1174,7 +1278,7 @@ Trigger { -- Skill : S
       Deaths(CurrentPlayer, Exactly, 2000, " * Samir Duran");
       Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
       Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
-      Deaths(CurrentPlayer, Exactly, 10, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 11, " `SkillCount");
       Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop");
    },
    actions = {
@@ -1194,7 +1298,7 @@ Trigger { -- Skill : S
       Deaths(CurrentPlayer, Exactly, 2000, " * Samir Duran");
       Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
       Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
-      Deaths(CurrentPlayer, Exactly, 10, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 11, " `SkillCount");
       Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop");
    },
    actions = {

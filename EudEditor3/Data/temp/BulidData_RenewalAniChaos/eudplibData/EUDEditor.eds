@@ -4,7 +4,7 @@
 [noAirCollision]
 [main]
 input: ..\..\..\..\..\NEW!6.scx
-output: ..\..\..\..\..\..\..\Starcraft\Maps\RenewalAniChaos\RenewalAniChaos_T.scx
+output: D:\StarCraft\Maps\making\RenewalAniChaos_T_KAT.scx
 [DataEditor.py]
 [ExtraDataEditor.py]
 [dataDumper]
