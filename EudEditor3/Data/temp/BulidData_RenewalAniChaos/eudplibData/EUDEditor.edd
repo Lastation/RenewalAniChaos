@@ -16,8 +16,16 @@ MSQCSpecial.Exactly(2) : MSQCSpecialBuffer, 200
 MSQCSpecial.Exactly(3) : MSQCSpecialBuffer, 300
 MSQCSpecial.Exactly(4) : MSQCSpecialBuffer, 400
 MSQCCondiction.Exactly(1) ; xy , MSQCValue : MSQCBuffer
-QCUnit: 58
-QCLoc: 161
-QCPlayer: 9
-Z : Terran SCV, 1
+QCDebug : False
+` : Terran SCV, 1
+D : Terran SCV, 2
+A : Terran SCV, 3
+F8 : Terran SCV, 4
+Z : Terran SCV, 5
+1 : Zerg Larva, 1
+2 : Zerg Larva, 2
+3 : Zerg Larva, 3
+4 : Zerg Larva, 4
+5 : Zerg Larva, 5
+[eudTurbo]
 

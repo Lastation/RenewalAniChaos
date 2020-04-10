@@ -37,7 +37,7 @@ def onPluginStart():
         SetMemory(0x662428, Add, 151040),# units:Hit Points  index:54    from 476160 To 627200
         SetMemory(0x662478, Add, 151040),# units:Hit Points  index:74    from 476160 To 627200
         SetMemory(0x662484, Add, 151040),# units:Hit Points  index:77    from 476160 To 627200
-        SetMemory(0x66248C, Add, 5120000),# units:Hit Points  index:79    from 28160000 To 33280000
+        SetMemory(0x66248C, Add, 0),# units:Hit Points  index:79    from 28160000 To 28160000
         SetMemory(0x6624DC, Add, 166400),# units:Hit Points  index:99    from 460800 To 627200
         SetMemory(0x662504, Add, 25472000),# units:Hit Points  index:109    from 51200 To 25523200
         SetMemory(0x66251C, Add, -25600),# units:Hit Points  index:115    from 128000 To 102400
@@ -98,21 +98,42 @@ def onPluginStart():
         SetMemory(0x663E60, Add, 3),# units:Rank/Sublabel  index:144    from 0 To 3
         SetMemory(0x663E70, Add, 196608),# units:Rank/Sublabel  index:162    from 0 To 3
         SetMemory(0x663E7C, Add, 512),# units:Rank/Sublabel  index:173    from 0 To 2
+        SetMemory(0x662EB0, Add, 55),# units:Comp AI Idle  index:16    from 2 To 57
         SetMemory(0x662ECC, Add, 1761607680),# units:Comp AI Idle  index:47    from 2 To 107
+        SetMemory(0x662ED0, Add, 922746880),# units:Comp AI Idle  index:51    from 2 To 57
+        SetMemory(0x662ED4, Add, 14080),# units:Comp AI Idle  index:53    from 2 To 57
+        SetMemory(0x662ED4, Add, 3604480),# units:Comp AI Idle  index:54    from 2 To 57
+        SetMemory(0x662EE8, Add, 3604480),# units:Comp AI Idle  index:74    from 2 To 57
+        SetMemory(0x662EEC, Add, 14080),# units:Comp AI Idle  index:77    from 2 To 57
         SetMemory(0x662EF4, Add, -8388608),# units:Comp AI Idle  index:86    from 130 To 2
+        SetMemory(0x662F00, Add, 922746880),# units:Comp AI Idle  index:99    from 2 To 57
         SetMemory(0x662F0C, Add, -15104),# units:Comp AI Idle  index:109    from 156 To 97
         SetMemory(0x662F10, Add, -2583691264),# units:Comp AI Idle  index:115    from 156 To 2
         SetMemory(0x662F14, Add, -8716288),# units:Comp AI Idle  index:118    from 156 To 23
         SetMemory(0x662F18, Add, -133),# units:Comp AI Idle  index:120    from 156 To 23
         SetMemory(0x662F20, Add, -18944),# units:Comp AI Idle  index:129    from 97 To 23
         SetMemory(0x662F30, Add, -83),# units:Comp AI Idle  index:144    from 101 To 18
+        SetMemory(0x662278, Add, 55),# units:Human AI Idle  index:16    from 2 To 57
         SetMemory(0x662294, Add, 1761607680),# units:Human AI Idle  index:47    from 2 To 107
+        SetMemory(0x662298, Add, 922746880),# units:Human AI Idle  index:51    from 2 To 57
+        SetMemory(0x66229C, Add, 14080),# units:Human AI Idle  index:53    from 2 To 57
+        SetMemory(0x66229C, Add, 3604480),# units:Human AI Idle  index:54    from 2 To 57
+        SetMemory(0x6622B0, Add, 3604480),# units:Human AI Idle  index:74    from 2 To 57
+        SetMemory(0x6622B4, Add, 14080),# units:Human AI Idle  index:77    from 2 To 57
         SetMemory(0x6622BC, Add, -8388608),# units:Human AI Idle  index:86    from 130 To 2
+        SetMemory(0x6622C8, Add, 922746880),# units:Human AI Idle  index:99    from 2 To 57
         SetMemory(0x6622D4, Add, 18944),# units:Human AI Idle  index:109    from 23 To 97
         SetMemory(0x6622D8, Add, -352321536),# units:Human AI Idle  index:115    from 23 To 2
         SetMemory(0x6622E8, Add, -18944),# units:Human AI Idle  index:129    from 97 To 23
         SetMemory(0x6622F8, Add, -83),# units:Human AI Idle  index:144    from 101 To 18
+        SetMemory(0x6648A8, Add, 55),# units:Return to Idle  index:16    from 2 To 57
         SetMemory(0x6648C4, Add, 1761607680),# units:Return to Idle  index:47    from 2 To 107
+        SetMemory(0x6648C8, Add, 922746880),# units:Return to Idle  index:51    from 2 To 57
+        SetMemory(0x6648CC, Add, 14080),# units:Return to Idle  index:53    from 2 To 57
+        SetMemory(0x6648CC, Add, 3604480),# units:Return to Idle  index:54    from 2 To 57
+        SetMemory(0x6648E0, Add, 3604480),# units:Return to Idle  index:74    from 2 To 57
+        SetMemory(0x6648E4, Add, 14080),# units:Return to Idle  index:77    from 2 To 57
+        SetMemory(0x6648F8, Add, 922746880),# units:Return to Idle  index:99    from 2 To 57
         SetMemory(0x664904, Add, 18944),# units:Return to Idle  index:109    from 23 To 97
         SetMemory(0x664908, Add, -352321536),# units:Return to Idle  index:115    from 23 To 2
         SetMemory(0x664918, Add, -18944),# units:Return to Idle  index:129    from 97 To 23

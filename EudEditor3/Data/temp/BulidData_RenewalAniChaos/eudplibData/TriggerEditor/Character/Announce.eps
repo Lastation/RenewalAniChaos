@@ -19,7 +19,7 @@ function Announce_Adv(value, cp)
 		if (value == 0)
 		{ tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04", v.Level[cp], ""); }
 		if (value == 1)
-		{ tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04", v.Level[cp], ""); }
+		{ tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO Skill \x04사용가능 \x1COFF　\x07Level \x04", v.Level[cp], ""); }
 	}
 	else if (Deaths((13), (10), 0, (210)) && v.Unique_Cool[cp] != 0)
 	{
@@ -100,15 +100,33 @@ function Announce_Ingame(cp)
 	}
 }
 
-function Announce_Exp(cp)
+function Announce_Character(cp)
 {
-	const HeroNumber = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp));
-	tct.chatAnnouncement("　\x1B남은 포션 갯수 \x04: ", v.Potion[cp], "　\x1FO Skill \x04사용가능 \x1CON　\x07Exp \x04", v.SaveExp[8 * HeroNumber + cp], "");
+	if(Switch(255, Cleared))
+	{
+		tct.chatAnnouncement(
+		"　\x17[ \x04", ptr2s(v.Hero_Name[v.Hero_Num[cp]]), 
+		"\x17 ]　\x07Exp \x04", v.Exp_Player[cp], 
+		"　\x1FCS \x04", v.CS_Player[cp], 
+		"　\x08K\x04/\x1BD \x08", v.Kill_Total[20 * cp + (v.Hero_Num[cp] - 1)], 
+		"\x04/\x1B", v.Death_Total[20 * cp + (v.Hero_Num[cp] - 1)], ""
+		);
+	}
+	else
+	{
+		tct.chatAnnouncement(
+		"　\x17[ \x04", ptr2s(v.Hero_Name[v.Hero_Num[cp]]), 
+		"\x17 ]　\x07Exp \x04", v.Exp_Player[cp], 
+		"　\x1FCS \x04", v.CS_Player[cp], 
+		"　\x08K\x04/\x1BD \x08", v.Kill_Score[cp], 
+		"\x04/\x1B", v.Death_Score[cp], ""
+		);
+	}
 }
 
 function Announce_Marge(cp)
 {
-	if (Deaths(CurrentPlayer, AtLeast, 1, "Terran SCV"))
+	if (Deaths(CurrentPlayer, Exactly, 1, "Terran SCV"))
 	{
 		SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV");
 		
@@ -119,10 +137,11 @@ function Announce_Marge(cp)
 	switch(v.AnnounceList[cp])
 	{
 		case 0:
-			Announce_Ingame(cp);
+			if (Switch(255, Set))		Announce_Ingame(cp);
+			if (Switch(255, Cleared))	Announce_Init();
 			break;
 		case 1:
-			Announce_Exp(cp);
+			Announce_Character(cp);
 			break;
 	}
 }

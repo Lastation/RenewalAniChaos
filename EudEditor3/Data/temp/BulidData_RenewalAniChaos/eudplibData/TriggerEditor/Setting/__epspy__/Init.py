@@ -152,66 +152,37 @@ def SetVariable(cp):
     _ARRW(v.DeathCount, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 210 + 4 * cp)) // 12)
     # (Line 16) v.Unique_Cool[cp] = dwread_epd(EPD(0x58A364 + 48 * 203 + 4 * cp))/12;
     _ARRW(v.Unique_Cool, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 203 + 4 * cp)) // 12)
-    # (Line 17) v.Hero_Num[cp] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp));
-    _ARRW(v.Hero_Num, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)))
-    # (Line 18) v.Level[cp] = dwread_epd(EPD(0x5822F4 + 4 * cp));
-    _ARRW(v.Level, cp) << (f_dwread_epd(EPD(0x5822F4 + 4 * cp)))
-    # (Line 20) if (Deaths((13), (0), 1, (186))) { v.Sound_Text1[cp] = dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * cp)); 		SetDeaths((13), (7), 0, (186)); }
-    if EUDIf()(Deaths((13), (0), 1, (186))):
-        _ARRW(v.Sound_Text1, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * cp)))
-        DoActions(SetDeaths((13), (7), 0, (186)))
-        # (Line 21) if (Deaths((13), (0), 1, (174))) { v.Sound_Text2[cp] = dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * cp)); 		SetDeaths((13), (7), 0, (174)); }
-    EUDEndIf()
-    if EUDIf()(Deaths((13), (0), 1, (174))):
-        _ARRW(v.Sound_Text2, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * cp)))
-        DoActions(SetDeaths((13), (7), 0, (174)))
-        # (Line 22) if (Deaths((13), (0), 1, (117))) { v.Sound_Text3[cp] = dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * cp)); 		SetDeaths((13), (7), 0, (117)); }
-    EUDEndIf()
-    if EUDIf()(Deaths((13), (0), 1, (117))):
-        _ARRW(v.Sound_Text3, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * cp)))
-        DoActions(SetDeaths((13), (7), 0, (117)))
-        # (Line 23) if (Deaths((13), (0), 1, (222))) { v.Sound_Text_Uilti[cp] = dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * cp)); 	SetDeaths((13), (7), 0, (222)); }
-    EUDEndIf()
-    if EUDIf()(Deaths((13), (0), 1, (222))):
-        _ARRW(v.Sound_Text_Uilti, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * cp)))
-        DoActions(SetDeaths((13), (7), 0, (222)))
-        # (Line 24) if (Deaths((13), (0), 1, (188))) { v.Sound_Text_Uniq[cp] = dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * cp)); SetDeaths((13), (7), 0, (188)); }
-    EUDEndIf()
-    if EUDIf()(Deaths((13), (0), 1, (188))):
-        _ARRW(v.Sound_Text_Uniq, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * cp)))
-        DoActions(SetDeaths((13), (7), 0, (188)))
-        # (Line 26) switch (v.Hero_Num[cp])	// 방어력 관련
-    EUDEndIf()
+    # (Line 19) switch (v.Hero_Num[cp])	// 방어력 관련
     EUDSwitch(v.Hero_Num[cp])
-    # (Line 27) {
-    # (Line 28) case 10:
-    _t6 = EUDSwitchCase()
-    # (Line 29) if(Deaths((13), (0), 1, (204)))
-    if _t6(10):
+    # (Line 20) {
+    # (Line 21) case 10:
+    _t1 = EUDSwitchCase()
+    # (Line 22) if(Deaths((13), (0), 1, (204)))
+    if _t1(10):
         if EUDIf()(Deaths((13), (0), 1, (204))):
-            # (Line 30) {
-            # (Line 31) bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp) + 10);
+            # (Line 23) {
+            # (Line 24) bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp) + 10);
             f_bwrite(0x58D2B0 + 0x207C * ((2) // 46) + (cp) * (46 - 31 * ((2) // 46)) + ((2) % 46), f_bread(0x58D2B0 + 0 + 46 * cp) + 10)
-            # (Line 32) SetDeaths((13), (9), 1, (204));
-            # (Line 33) }
+            # (Line 25) SetDeaths((13), (9), 1, (204));
+            # (Line 26) }
             DoActions(SetDeaths((13), (9), 1, (204)))
-            # (Line 34) else
-            # (Line 35) {
+            # (Line 27) else
+            # (Line 28) {
         if EUDElse()():
-            # (Line 36) bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp));
+            # (Line 29) bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp));
             f_bwrite(0x58D2B0 + 0x207C * ((2) // 46) + (cp) * (46 - 31 * ((2) // 46)) + ((2) % 46), f_bread(0x58D2B0 + 0 + 46 * cp))
-            # (Line 37) }
-            # (Line 38) break;
+            # (Line 30) }
+            # (Line 31) break;
         EUDEndIf()
         EUDBreak()
-        # (Line 39) default:
-    # (Line 40) bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp));
+        # (Line 32) default:
+    # (Line 33) bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp));
     if EUDSwitchDefault()():
         f_bwrite(0x58D2B0 + 0x207C * ((2) // 46) + (cp) * (46 - 31 * ((2) // 46)) + ((2) % 46), f_bread(0x58D2B0 + 0 + 46 * cp))
-        # (Line 41) break;
+        # (Line 34) break;
         EUDBreak()
-        # (Line 42) }
-    # (Line 45) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
+        # (Line 35) }
+    # (Line 38) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
     EUDEndSwitch()
     f_bwrite(0x58D2B0 + 0x207C * ((9) // 46) + (cp) * (46 - 31 * ((9) // 46)) + ((9) % 46), f_bread(0x58D2B0 + 7 + 46 * cp))
-    # (Line 46) }
+    # (Line 39) }

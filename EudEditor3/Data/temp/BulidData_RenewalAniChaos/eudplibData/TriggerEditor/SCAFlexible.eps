@@ -1,22 +1,23 @@
 import Variable as n0;
+import TitleVariable as n1;
 
 const ws = 0x58F44A;
 const EntryPointLength = 8;//EntryPointLength
-const SpaceLength = 200;//DataBufferSize
-const ObjectCount = 1;//ObjectCount
+const SpaceLength = 400;//DataBufferSize
+const ObjectCount = 8;//ObjectCount
 
 function Init(){
     MPQAddFile('SCARCHIVEMAPCODE', py_open('scakeyfile', 'rb').read());
     MPQAddFile('SCARCHIVEDATA', py_open('scadatafile', 'rb').read());
     //EntryPoint
-    dwwrite_epd(EPD(ws) + 0, 1597271686);
-    dwwrite_epd(EPD(ws) + 1, 2239000578);
-    dwwrite_epd(EPD(ws) + 2, 1953446045);
-    dwwrite_epd(EPD(ws) + 3, 3118244298);
-    dwwrite_epd(EPD(ws) + 4, 1830805785);
-    dwwrite_epd(EPD(ws) + 5, 2433224599);
-    dwwrite_epd(EPD(ws) + 6, 3095640197);
-    dwwrite_epd(EPD(ws) + 7, 3765570326);
+    dwwrite_epd(EPD(ws) + 0, 369838336);
+    dwwrite_epd(EPD(ws) + 1, 3754295484);
+    dwwrite_epd(EPD(ws) + 2, 1906593429);
+    dwwrite_epd(EPD(ws) + 3, 1504489224);
+    dwwrite_epd(EPD(ws) + 4, 850517448);
+    dwwrite_epd(EPD(ws) + 5, 422940432);
+    dwwrite_epd(EPD(ws) + 6, 2365655450);
+    dwwrite_epd(EPD(ws) + 7, 3093231813);
     
 }
 
@@ -30,11 +31,57 @@ function ResetValue(tagNum, index){
     const cp = getcurpl();
     switch(tagNum){
     case 0:
-        const alen = n0.SaveExp.length / 8;
+    {
+        const alen = n0.Exp_Group.length / 8;
         for(var i = 0 ; i < alen; i++){
-            n0.SaveExp[alen * cp + i] = 0;
+            n0.Exp_Group[alen * cp + i] = 0;
         }
         break;
+    }
+    case 1:
+    {
+        const alen = n0.CS_Group.length / 8;
+        for(var i = 0 ; i < alen; i++){
+            n0.CS_Group[alen * cp + i] = 0;
+        }
+        break;
+    }
+    case 2:
+    {
+        const alen = n0.Kill_Total.length / 8;
+        for(var i = 0 ; i < alen; i++){
+            n0.Kill_Total[alen * cp + i] = 0;
+        }
+        break;
+    }
+    case 3:
+    {
+        const alen = n0.Death_Total.length / 8;
+        for(var i = 0 ; i < alen; i++){
+            n0.Death_Total[alen * cp + i] = 0;
+        }
+        break;
+    }
+    case 4:
+    {
+        n0.CS_Total[cp] = 0;
+        break;
+    }
+    case 5:
+    {
+        n0.Exp_Total[cp] = 0;
+        break;
+    }
+    case 6:
+    {
+        n1.Title_Name_Front[cp] = 0;
+        break;
+    }
+    case 7:
+    {
+        n0.Kill_All[cp] = 0;
+        break;
+    }
     }
 }
 
@@ -43,9 +90,49 @@ function SaveValue(tagNum, Value, index){
     const cp = getcurpl();
     switch(tagNum){
     case 0:
-        const alen = n0.SaveExp.length / 8;
-        n0.SaveExp[alen * cp + index] = Value;
+    {
+        const alen = n0.Exp_Group.length / 8;
+        n0.Exp_Group[alen * cp + index] = Value;
         break;
+    }
+    case 1:
+    {
+        const alen = n0.CS_Group.length / 8;
+        n0.CS_Group[alen * cp + index] = Value;
+        break;
+    }
+    case 2:
+    {
+        const alen = n0.Kill_Total.length / 8;
+        n0.Kill_Total[alen * cp + index] = Value;
+        break;
+    }
+    case 3:
+    {
+        const alen = n0.Death_Total.length / 8;
+        n0.Death_Total[alen * cp + index] = Value;
+        break;
+    }
+    case 4:
+    {
+        n0.CS_Total[cp] = Value;
+        break;
+    }
+    case 5:
+    {
+        n0.Exp_Total[cp] = Value;
+        break;
+    }
+    case 6:
+    {
+        n1.Title_Name_Front[cp] = Value;
+        break;
+    }
+    case 7:
+    {
+        n0.Kill_All[cp] = Value;
+        break;
+    }
     }
 }
 
@@ -55,9 +142,9 @@ function SaveDataWriteValue(tagNum, BaseAddress, index){
     switch(tagNum){
     case 0:
         {
-        const alen = n0.SaveExp.length / 8;
+        const alen = n0.Exp_Group.length / 8;
         for(var i = 0 ; i < alen ; i ++){
-            const objValue = n0.SaveExp[alen * cp + i];
+            const objValue = n0.Exp_Group[alen * cp + i];
             if(objValue != 0){
                 if (objValue > 0xFFFF){
                     wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x3000 + tagNum);
@@ -78,6 +165,167 @@ function SaveDataWriteValue(tagNum, BaseAddress, index){
                  }
             }
         }
+        }
+        break;
+    case 1:
+        {
+        const alen = n0.CS_Group.length / 8;
+        for(var i = 0 ; i < alen ; i ++){
+            const objValue = n0.CS_Group[alen * cp + i];
+            if(objValue != 0){
+                if (objValue > 0xFFFF){
+                    wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x3000 + tagNum);
+                    index++;
+                    wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, i);
+                    index++;
+                    wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue / 0x10000);
+                    index++;
+                    wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue % 0x10000);
+                    index++;
+                 }else{
+                    wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x4000 + tagNum);
+                    index++;
+                    wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, i);
+                    index++;
+                    wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue);
+                    index++;
+                 }
+            }
+        }
+        }
+        break;
+    case 2:
+        {
+        const alen = n0.Kill_Total.length / 8;
+        for(var i = 0 ; i < alen ; i ++){
+            const objValue = n0.Kill_Total[alen * cp + i];
+            if(objValue != 0){
+                if (objValue > 0xFFFF){
+                    wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x3000 + tagNum);
+                    index++;
+                    wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, i);
+                    index++;
+                    wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue / 0x10000);
+                    index++;
+                    wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue % 0x10000);
+                    index++;
+                 }else{
+                    wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x4000 + tagNum);
+                    index++;
+                    wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, i);
+                    index++;
+                    wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue);
+                    index++;
+                 }
+            }
+        }
+        }
+        break;
+    case 3:
+        {
+        const alen = n0.Death_Total.length / 8;
+        for(var i = 0 ; i < alen ; i ++){
+            const objValue = n0.Death_Total[alen * cp + i];
+            if(objValue != 0){
+                if (objValue > 0xFFFF){
+                    wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x3000 + tagNum);
+                    index++;
+                    wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, i);
+                    index++;
+                    wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue / 0x10000);
+                    index++;
+                    wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue % 0x10000);
+                    index++;
+                 }else{
+                    wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x4000 + tagNum);
+                    index++;
+                    wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, i);
+                    index++;
+                    wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue);
+                    index++;
+                 }
+            }
+        }
+        }
+        break;
+    case 4:
+        {
+        const objValue = n0.CS_Total[cp];
+        if(objValue != 0){
+            if (objValue > 0xFFFF){
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x1000 + tagNum);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue / 0x10000);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue % 0x10000);
+                index++;
+             }else{
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x2000 + tagNum);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue);
+                index++;
+             }
+         }
+        }
+        break;
+    case 5:
+        {
+        const objValue = n0.Exp_Total[cp];
+        if(objValue != 0){
+            if (objValue > 0xFFFF){
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x1000 + tagNum);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue / 0x10000);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue % 0x10000);
+                index++;
+             }else{
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x2000 + tagNum);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue);
+                index++;
+             }
+         }
+        }
+        break;
+    case 6:
+        {
+        const objValue = n1.Title_Name_Front[cp];
+        if(objValue != 0){
+            if (objValue > 0xFFFF){
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x1000 + tagNum);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue / 0x10000);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue % 0x10000);
+                index++;
+             }else{
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x2000 + tagNum);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue);
+                index++;
+             }
+         }
+        }
+        break;
+    case 7:
+        {
+        const objValue = n0.Kill_All[cp];
+        if(objValue != 0){
+            if (objValue > 0xFFFF){
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x1000 + tagNum);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue / 0x10000);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue % 0x10000);
+                index++;
+             }else{
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x2000 + tagNum);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue);
+                index++;
+             }
+         }
         }
         break;
     }
