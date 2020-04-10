@@ -12,10 +12,11 @@ function GetExp(cp);
 function GetCS(cp);
 function AddExp(cp, exp);
 function AddCS(cp, cs);
+function SCASave(cp);
 
 function SCAMain(cp)
 {
-	if(sca.ConnectStatus() == 1)
+	if(sca.ConnectStatus() == 1 && sca.CommandStatus() == 0)
 	{
 		switch(v.SCAStatus[cp])
 		{
@@ -29,22 +30,8 @@ function SCAMain(cp)
 				v.SCAStatus[cp] = 3;
 				break;
 			case 2:
-				const Exp 	= dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
-				const Cs 	= dwread_epd(EPD(0x58A364 + 48 * 164 + 4 * cp));
-				
-				v.Exp_Total[cp] 									+= Exp;
-				v.CS_Total[cp] 									+= Cs;
-				
-				if (v.Hero_Num[cp] <= 20) 
-				{ 
-					v.Exp_Group[20 * cp + (v.Hero_Num[cp] - 1)] 		+= Exp; 
-					v.CS_Group[20 * cp + (v.Hero_Num[cp] - 1)] 		= Cs;
-					v.Kill_Total[20 * cp + (v.Hero_Num[cp] - 1)] 		+= v.Kill_Score[cp];
-					v.Death_Total[20 * cp + (v.Hero_Num[cp] - 1)] 	+= v.Death_Score[cp];
-				}
-				
+				SCASave(cp);
 				v.SCAStatus[cp] = 1;
-				SetDeaths(CurrentPlayer, SetTo, 360, 175);
 				break;
 			case 3:
 				if (Switch(255, Cleared))
@@ -58,7 +45,6 @@ function SCAMain(cp)
       	 				{ v.Hero_Num[cp] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)); }
 					GetExp(cp);
 					GetCS(cp);
-					
 				}
 				
 				if (Deaths(CurrentPlayer, Exactly, 1000, 175)) { v.SCAStatus[cp] = 2; SetSwitch(255, Clear); }
@@ -80,7 +66,29 @@ function SCAMain(cp)
 			GetExp(cp);
 			GetCS(cp);
 		}
+		
+		if (Deaths(CurrentPlayer, Exactly, 1000, 175)) { SCASave(cp); SetSwitch(255, Clear); }
 	}
+}
+
+function SCASave(cp)
+{				
+	const Exp 	= dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
+	const Cs 	= dwread_epd(EPD(0x58A364 + 48 * 164 + 4 * cp));
+	
+	v.Exp_Total[cp] 									+= Exp;
+	v.CS_Total[cp] 									+= Cs;
+	v.Kill_All[cp] 										+= v.Kill_Score[cp];
+	
+	if (v.Hero_Num[cp] <= 20) 
+	{ 
+		v.Exp_Group[20 * cp + (v.Hero_Num[cp] - 1)] 		+= Exp; 
+		v.CS_Group[20 * cp + (v.Hero_Num[cp] - 1)] 		= Cs;
+		v.Kill_Total[20 * cp + (v.Hero_Num[cp] - 1)] 		+= v.Kill_Score[cp];
+		v.Death_Total[20 * cp + (v.Hero_Num[cp] - 1)] 	+= v.Death_Score[cp];
+	}
+	
+	SetDeaths(CurrentPlayer, SetTo, 360, 175);
 }
 
 function SCAMessage(cp)

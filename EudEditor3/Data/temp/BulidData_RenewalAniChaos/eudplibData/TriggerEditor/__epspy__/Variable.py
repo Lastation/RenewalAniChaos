@@ -132,99 +132,99 @@ SCAStatus = _CGFW(lambda: [PVariable()], 1)[0]
 Exp_Total = _CGFW(lambda: [PVariable()], 1)[0]
 # (Line 5) const CS_Total		= PVariable();		// CS 토탈
 CS_Total = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 6) const Kill_Total		= EUDArray(160);	// Kill 토탈
+# (Line 6) const Kill_All			= PVariable();		// Kill 토탈
+Kill_All = _CGFW(lambda: [PVariable()], 1)[0]
+# (Line 7) const Kill_Total		= EUDArray(160);	// Kill 캐릭터 토탈
 Kill_Total = _CGFW(lambda: [EUDArray(160)], 1)[0]
-# (Line 7) const Death_Total	= EUDArray(160);	// Death 토탈
+# (Line 8) const Death_Total	= EUDArray(160);	// Death 토탈
 Death_Total = _CGFW(lambda: [EUDArray(160)], 1)[0]
-# (Line 9) const Exp_Group 	= EUDArray(160);	// Exp
+# (Line 10) const Exp_Group 	= EUDArray(160);	// Exp
 Exp_Group = _CGFW(lambda: [EUDArray(160)], 1)[0]
-# (Line 10) const CS_Group 		= EUDArray(160);	// CS
+# (Line 11) const CS_Group 		= EUDArray(160);	// CS
 CS_Group = _CGFW(lambda: [EUDArray(160)], 1)[0]
-# (Line 12) const Exp_Player		= PVariable();		// 현재 캐릭터 경험치
+# (Line 13) const Exp_Player		= PVariable();		// 현재 캐릭터 경험치
 Exp_Player = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 13) const CS_Player		= PVariable();		// 현재 캐릭터 CS
+# (Line 14) const CS_Player		= PVariable();		// 현재 캐릭터 CS
 CS_Player = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 15) const Kill_Score		= PVariable();		// 킬
+# (Line 16) const Kill_Score		= PVariable();		// 킬
 Kill_Score = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 16) const Death_Score	= PVariable();		// 사망
+# (Line 17) const Death_Score	= PVariable();		// 사망
 Death_Score = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 18) const AnnounceList = PVariable();
+# (Line 19) const AnnounceList = PVariable();
 AnnounceList = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 21) const Unit_Death 	= PVariable();
+# (Line 22) const Unit_Death 	= PVariable();
 Unit_Death = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 22) const Hero_Text 		= PVariable();
+# (Line 23) const Hero_Text 		= PVariable();
 Hero_Text = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 24) const Unit_ID 		= PVariable();
+# (Line 25) const Unit_ID 		= PVariable();
 Unit_ID = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 25) const PlayerID 		= PVariable();
+# (Line 26) const PlayerID 		= PVariable();
 PlayerID = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 27) const Hero_Index = PVariable();
+# (Line 28) const Hero_Index = PVariable();
 Hero_Index = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 28) const Unit_PrevIndex = PVariable();
+# (Line 29) const Unit_PrevIndex = PVariable();
 Unit_PrevIndex = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 29) const Unit_NowIndex = PVariable();
+# (Line 30) const Unit_NowIndex = PVariable();
 Unit_NowIndex = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 31) const Level = PVariable();
+# (Line 32) const Level = PVariable();
 Level = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 32) const Unique_Cool = PVariable();
+# (Line 33) const Unique_Cool = PVariable();
 Unique_Cool = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 34) const EXP_Need = PVariable();
+# (Line 35) const EXP_Need = PVariable();
 EXP_Need = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 35) const EXP_Now = PVariable();
+# (Line 36) const EXP_Now = PVariable();
 EXP_Now = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 36) const Potion = PVariable();
+# (Line 37) const Potion = PVariable();
 Potion = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 37) const DeathCount = PVariable();
+# (Line 38) const DeathCount = PVariable();
 DeathCount = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 39) const Sound_Text1 = PVariable();
+# (Line 40) const Sound_Text1 = PVariable();
 Sound_Text1 = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 40) const Sound_Text2 = PVariable();
+# (Line 41) const Sound_Text2 = PVariable();
 Sound_Text2 = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 41) const Sound_Text3 = PVariable();
+# (Line 42) const Sound_Text3 = PVariable();
 Sound_Text3 = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 43) const Sound_Text_Uilti = PVariable();
+# (Line 44) const Sound_Text_Uilti = PVariable();
 Sound_Text_Uilti = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 44) const Sound_Text_Uniq = PVariable();
+# (Line 45) const Sound_Text_Uniq = PVariable();
 Sound_Text_Uniq = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 46) const Hero_Num = PVariable();
+# (Line 47) const Hero_Num = PVariable();
 Hero_Num = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 48) const Mana_Property = PVariable();
+# (Line 49) const Mana_Property = PVariable();
 Mana_Property = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 49) const Upgrade_Armor = PVariable();
+# (Line 50) const Upgrade_Armor = PVariable();
 Upgrade_Armor = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 50) const DeathOre_Text = PVariable();
+# (Line 51) const DeathOre_Text = PVariable();
 DeathOre_Text = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 52) const Unit_HP 		= PVariable();		// 건물 체력
+# (Line 53) const Unit_HP 		= PVariable();		// 건물 체력
 Unit_HP = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 53) const BuildingText 	= PVariable();		// 건물 텍스트
+# (Line 54) const BuildingText 	= PVariable();		// 건물 텍스트
 BuildingText = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 54) const BuildingIndex  = PVariable();		// 건물 인덱스
+# (Line 55) const BuildingIndex  = PVariable();		// 건물 인덱스
 BuildingIndex = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 56) var DeathOre = 0;
-DeathOre = EUDCreateVariables(1)
-_IGVA([DeathOre], lambda: [0])
-# (Line 57) var Team_Num = 0;
-Team_Num = EUDCreateVariables(1)
-_IGVA([Team_Num], lambda: [0])
-# (Line 59) const Hero_Name =
-# (Line 60) [Db("#REF"),
-# (Line 61) Db("루살카 슈베게린"),
-# (Line 62) Db("크톨리 노타 세니오리스"),
-# (Line 63) Db("텐카와 마이히메"),
-# (Line 64) Db("히나나위 텐시"),
-# (Line 65) Db("소네 미유키"),
-# (Line 66) Db("네게브"),
-# (Line 67) Db("세실리아"),
-# (Line 68) Db("후타바 안즈"),
-# (Line 69) Db("호토 모카"),
-# (Line 70) Db("수수께끼의 얼터에고 Λ"),
-# (Line 71) Db("토키사키 쿠루미"),
-# (Line 72) Db("류즈"),
-# (Line 73) Db("사쿠라"),
-# (Line 74) Db("야시로 가쿠"),
-# (Line 75) Db("린"),
-# (Line 76) Db("세라핌"),
-# (Line 77) Db("키아나 카스라나"),
-# (Line 78) Db("이와후네 텐케이"),
-# (Line 79) Db("#REF")];
+# (Line 57) const DeathOre 		= PVariable();
+DeathOre = _CGFW(lambda: [PVariable()], 1)[0]
+# (Line 58) const Team_Num 	= PVariable();
+Team_Num = _CGFW(lambda: [PVariable()], 1)[0]
+# (Line 60) const Hero_Name =
+# (Line 61) [Db("#REF"),
+# (Line 62) Db("루살카 슈베게린"),
+# (Line 63) Db("크톨리 노타 세니오리스"),
+# (Line 64) Db("텐카와 마이히메"),
+# (Line 65) Db("히나나위 텐시"),
+# (Line 66) Db("소네 미유키"),
+# (Line 67) Db("네게브"),
+# (Line 68) Db("세실리아"),
+# (Line 69) Db("후타바 안즈"),
+# (Line 70) Db("호토 모카"),
+# (Line 71) Db("수수께끼의 얼터에고 Λ"),
+# (Line 72) Db("토키사키 쿠루미"),
+# (Line 73) Db("류즈"),
+# (Line 74) Db("사쿠라"),
+# (Line 75) Db("야시로 가쿠"),
+# (Line 76) Db("린"),
+# (Line 77) Db("세라핌"),
+# (Line 78) Db("키아나 카스라나"),
+# (Line 79) Db("이와후네 텐케이"),
+# (Line 80) Db("#REF")];
 Hero_Name = _CGFW(lambda: [_ARR(FlattenList([Db("#REF"), Db("루살카 슈베게린"), Db("크톨리 노타 세니오리스"), Db("텐카와 마이히메"), Db("히나나위 텐시"), Db("소네 미유키"), Db("네게브"), Db("세실리아"), Db("후타바 안즈"), Db("호토 모카"), Db("수수께끼의 얼터에고 Λ"), Db("토키사키 쿠루미"), Db("류즈"), Db("사쿠라"), Db("야시로 가쿠"), Db("린"), Db("세라핌"), Db("키아나 카스라나"), Db("이와후네 텐케이"), Db("#REF")]))], 1)[0]

@@ -707,8 +707,8 @@ def EndTotalText(cp):
         # (Line 264) tct.addText("\n\n\x13\x08SCA\x04 런쳐가 꺼져있어 저장이 불가능합니다.");
         tct.f_addText("\n\n\x13\x08SCA\x04 런쳐가 꺼져있어 저장이 불가능합니다.")
         # (Line 265) }
-        # (Line 266) else if (Switch(255, Set))
-    if EUDElseIf()(Switch(255, Set)):
+        # (Line 266) else if (Switch("TestModeSwitch", Set))
+    if EUDElseIf()(Switch("TestModeSwitch", Set)):
         # (Line 267) {
         # (Line 268) tct.addText("\n\n\x13\x08TEST\x04 모드에서는 저장이 불가능합니다.");
         tct.f_addText("\n\n\x13\x08TEST\x04 모드에서는 저장이 불가능합니다.")

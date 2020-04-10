@@ -17,6 +17,8 @@ import Character.DeathText as deathText;			// 사망 텍스트
 import Character.Marge as marge;				// 유닛 스킬 텍스트
 import Character.Announce as announce;			// 상태창 텍스트
 
+import Title.Marge as title;						// 타이틀 관련
+
 var txtPtr, btnPtr, btnPos, oldCP;
 const trgk = $T('Artanis & safhfh');
 
@@ -36,6 +38,7 @@ function MainLoop()
 	
 	scaSetting.SCAMain(cp);			// SCA Setting
 	announce.Announce_Marge(cp);	// 상태창 텍스트
+	title.Title_Marge(cp);
 	
 	if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
 	{

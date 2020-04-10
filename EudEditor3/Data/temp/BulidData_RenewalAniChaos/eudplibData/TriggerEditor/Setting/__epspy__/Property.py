@@ -261,68 +261,71 @@ def Property_S(cp):
 # (Line 81) {
 @EUDFunc
 def Property_C(cp):
-    # (Line 82) if (Deaths((13), (10), 3440, (223)))
-    if EUDIf()(Deaths((13), (10), 3440, (223))):
+    # (Line 82) if (Deaths((13), (10), 2720, (223)) && cp >= 0 && cp <= 2)
+    if EUDIf()(EUDSCAnd()(Deaths((13), (10), 2720, (223)))(cp >= 0)(cp <= 2)()):
         # (Line 83) {
         # (Line 84) v.Mana_Property[cp] = 100;
         _ARRW(v.Mana_Property, cp) << (100)
-        # (Line 86) if (cp >= 0 && cp <= 2)
-        if EUDIf()(EUDSCAnd()(cp >= 0)(cp <= 2)()):
-            # (Line 87) {
-            # (Line 88) if (Deaths((0), (0), 2000, (223)) && Deaths((0), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
-            if EUDIf()(EUDSCAnd()(Deaths((0), (0), 2000, (223)))(Deaths((0), (1), 3999, (223)))()):
-                _ARRW(v.Mana_Property, cp).__iadd__(100)
-                # (Line 89) if (Deaths((1), (0), 2000, (223)) && Deaths((1), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
-            EUDEndIf()
-            if EUDIf()(EUDSCAnd()(Deaths((1), (0), 2000, (223)))(Deaths((1), (1), 3999, (223)))()):
-                _ARRW(v.Mana_Property, cp).__iadd__(100)
-                # (Line 90) if (Deaths((2), (0), 2000, (223)) && Deaths((2), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
-            EUDEndIf()
-            if EUDIf()(EUDSCAnd()(Deaths((2), (0), 2000, (223)))(Deaths((2), (1), 3999, (223)))()):
-                _ARRW(v.Mana_Property, cp).__iadd__(100)
-                # (Line 91) }
-            EUDEndIf()
-            # (Line 92) if (cp >= 3 && cp <= 5)
+        # (Line 86) if (Deaths((0), (0), 2000, (223)) && Deaths((0), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
+        if EUDIf()(EUDSCAnd()(Deaths((0), (0), 2000, (223)))(Deaths((0), (1), 3999, (223)))()):
+            _ARRW(v.Mana_Property, cp).__iadd__(100)
+            # (Line 87) if (Deaths((1), (0), 2000, (223)) && Deaths((1), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
         EUDEndIf()
-        if EUDIf()(EUDSCAnd()(cp >= 3)(cp <= 5)()):
-            # (Line 93) {
-            # (Line 94) if (Deaths((3), (0), 2000, (223)) && Deaths((3), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
-            if EUDIf()(EUDSCAnd()(Deaths((3), (0), 2000, (223)))(Deaths((3), (1), 3999, (223)))()):
-                _ARRW(v.Mana_Property, cp).__iadd__(100)
-                # (Line 95) if (Deaths((4), (0), 2000, (223)) && Deaths((4), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
-            EUDEndIf()
-            if EUDIf()(EUDSCAnd()(Deaths((4), (0), 2000, (223)))(Deaths((4), (1), 3999, (223)))()):
-                _ARRW(v.Mana_Property, cp).__iadd__(100)
-                # (Line 96) if (Deaths((5), (0), 2000, (223)) && Deaths((5), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
-            EUDEndIf()
-            if EUDIf()(EUDSCAnd()(Deaths((5), (0), 2000, (223)))(Deaths((5), (1), 3999, (223)))()):
-                _ARRW(v.Mana_Property, cp).__iadd__(100)
-                # (Line 97) }
-            EUDEndIf()
-            # (Line 98) SetResources((13), (8), v.Mana_Property[cp], (1));
+        if EUDIf()(EUDSCAnd()(Deaths((1), (0), 2000, (223)))(Deaths((1), (1), 3999, (223)))()):
+            _ARRW(v.Mana_Property, cp).__iadd__(100)
+            # (Line 88) if (Deaths((2), (0), 2000, (223)) && Deaths((2), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
         EUDEndIf()
-        # (Line 99) SetDeaths((13), (7), 2000, (223));
+        if EUDIf()(EUDSCAnd()(Deaths((2), (0), 2000, (223)))(Deaths((2), (1), 3999, (223)))()):
+            _ARRW(v.Mana_Property, cp).__iadd__(100)
+            # (Line 90) SetResources((13), (8), v.Mana_Property[cp], (1));
+        EUDEndIf()
+        # (Line 91) SetDeaths((13), (7), 2000, (223));
         DoActions(SetResources((13), (8), v.Mana_Property[cp], (1)))
-        # (Line 100) tct.print("\n\n\x13\x19C 특성 \x04효과 +", v.Mana_Property[cp], " \x07Gas\n\n");
+        # (Line 92) tct.print("\n\n\x13\x19C 특성 \x04효과 +", v.Mana_Property[cp], " \x07Gas\n\n");
         DoActions(SetDeaths((13), (7), 2000, (223)))
         tct.f_print("\n\n\x13\x19C 특성 \x04효과 +", v.Mana_Property[cp], " \x07Gas\n\n")
-        # (Line 101) }
-        # (Line 102) }
+        # (Line 93) }
+        # (Line 95) if (Deaths((13), (10), 2720, (223)) && cp >= 3 && cp <= 5)
     EUDEndIf()
-    # (Line 104) function Property_A()
+    if EUDIf()(EUDSCAnd()(Deaths((13), (10), 2720, (223)))(cp >= 3)(cp <= 5)()):
+        # (Line 96) {
+        # (Line 97) v.Mana_Property[cp] = 100;
+        _ARRW(v.Mana_Property, cp) << (100)
+        # (Line 99) if (Deaths((3), (0), 2000, (223)) && Deaths((3), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
+        if EUDIf()(EUDSCAnd()(Deaths((3), (0), 2000, (223)))(Deaths((3), (1), 3999, (223)))()):
+            _ARRW(v.Mana_Property, cp).__iadd__(100)
+            # (Line 100) if (Deaths((4), (0), 2000, (223)) && Deaths((4), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
+        EUDEndIf()
+        if EUDIf()(EUDSCAnd()(Deaths((4), (0), 2000, (223)))(Deaths((4), (1), 3999, (223)))()):
+            _ARRW(v.Mana_Property, cp).__iadd__(100)
+            # (Line 101) if (Deaths((5), (0), 2000, (223)) && Deaths((5), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
+        EUDEndIf()
+        if EUDIf()(EUDSCAnd()(Deaths((5), (0), 2000, (223)))(Deaths((5), (1), 3999, (223)))()):
+            _ARRW(v.Mana_Property, cp).__iadd__(100)
+            # (Line 103) SetResources((13), (8), v.Mana_Property[cp], (1));
+        EUDEndIf()
+        # (Line 104) SetDeaths((13), (7), 2000, (223));
+        DoActions(SetResources((13), (8), v.Mana_Property[cp], (1)))
+        # (Line 105) tct.print("\n\n\x13\x19C 특성 \x04효과 +", v.Mana_Property[cp], " \x07Gas\n\n");
+        DoActions(SetDeaths((13), (7), 2000, (223)))
+        tct.f_print("\n\n\x13\x19C 특성 \x04효과 +", v.Mana_Property[cp], " \x07Gas\n\n")
+        # (Line 106) }
+        # (Line 107) }
+    EUDEndIf()
+    # (Line 109) function Property_A()
 
-# (Line 105) {
+# (Line 110) {
 @EUDFunc
 def Property_A():
-    # (Line 106) if (Deaths((13), (10), 5440, (223)))
-    if EUDIf()(Deaths((13), (10), 5440, (223))):
-        # (Line 107) {
-        # (Line 108) SetDeaths((13), (8), 10, (205));
-        # (Line 109) SetDeaths((13), (7), 3000, (223));
+    # (Line 111) if (Deaths((13), (10), 3720, (223)))
+    if EUDIf()(Deaths((13), (10), 3720, (223))):
+        # (Line 112) {
+        # (Line 113) SetDeaths((13), (8), 10, (205));
+        # (Line 114) SetDeaths((13), (7), 3000, (223));
         DoActions(SetDeaths((13), (8), 10, (205)))
-        # (Line 110) tct.print("\x13\x19A 특성 \x04효과 +10 \x1FShield");
+        # (Line 115) tct.print("\x13\x19A 특성 \x04효과 +10 \x1FShield");
         DoActions(SetDeaths((13), (7), 3000, (223)))
         tct.f_print("\x13\x19A 특성 \x04효과 +10 \x1FShield")
-        # (Line 111) }
-        # (Line 112) }
+        # (Line 116) }
+        # (Line 117) }
     EUDEndIf()

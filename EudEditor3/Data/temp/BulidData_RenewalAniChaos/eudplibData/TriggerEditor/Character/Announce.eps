@@ -126,7 +126,7 @@ function Announce_Character(cp)
 
 function Announce_Marge(cp)
 {
-	if (Deaths(CurrentPlayer, AtLeast, 1, "Terran SCV"))
+	if (Deaths(CurrentPlayer, Exactly, 1, "Terran SCV"))
 	{
 		SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV");
 		

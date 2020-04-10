@@ -1,0 +1,28 @@
+import TitleVariable as tv;
+import Variable as v;
+
+function Total_CS_Setting(cp)
+{
+	if 		(v.Exp_Total[cp] < 	2000	)		{ tv.Enable_Title_Num[cp] = 0; 	}
+	else if 	(v.Exp_Total[cp] < 	4000	)		{ tv.Enable_Title_Num[cp] = 1; 	}
+	else if 	(v.Exp_Total[cp] < 	6000	)		{ tv.Enable_Title_Num[cp] = 2; 	}
+	else if 	(v.Exp_Total[cp] < 	10000	)		{ tv.Enable_Title_Num[cp] = 3; 	}
+	else if 	(v.Exp_Total[cp] < 	20000	)		{ tv.Enable_Title_Num[cp] = 4; 	}
+	else if 	(v.Exp_Total[cp] < 	30000	)		{ tv.Enable_Title_Num[cp] = 5; 	}
+	else if 	(v.Exp_Total[cp] < 	40000	)		{ tv.Enable_Title_Num[cp] = 6; 	}
+	else if 	(v.Exp_Total[cp] < 	50000	)		{ tv.Enable_Title_Num[cp] = 7; 	}
+	else if 	(v.Exp_Total[cp] < 	60000	)		{ tv.Enable_Title_Num[cp] = 8; 	}
+	else if 	(v.Exp_Total[cp] < 	70000	)		{ tv.Enable_Title_Num[cp] = 9; 	}
+	else if 	(v.Exp_Total[cp] < 	80000	)		{ tv.Enable_Title_Num[cp] = 10; 	}
+	else if 	(v.Exp_Total[cp] < 	90000	)		{ tv.Enable_Title_Num[cp] = 11; 	}
+	else if 	(v.Exp_Total[cp] < 	100000	)		{ tv.Enable_Title_Num[cp] = 12; 	}
+	else if 	(v.Exp_Total[cp] < 	120000	)		{ tv.Enable_Title_Num[cp] = 13; 	}
+	else if 	(v.Exp_Total[cp] < 	140000	)		{ tv.Enable_Title_Num[cp] = 14;	}
+	else if 	(v.Exp_Total[cp] < 	160000	)		{ tv.Enable_Title_Num[cp] = 15; 	}
+	else if 	(v.Exp_Total[cp] < 	180000	)		{ tv.Enable_Title_Num[cp] = 16; 	}
+	else if 	(v.Exp_Total[cp] < 	200000	)		{ tv.Enable_Title_Num[cp] = 17; 	}
+	else if 	(v.Exp_Total[cp] < 	300000	)		{ tv.Enable_Title_Num[cp] = 18; 	}
+	else if 	(v.Exp_Total[cp] < 	400000	)		{ tv.Enable_Title_Num[cp] = 19; 	}
+	else if 	(v.Exp_Total[cp] < 	500000	)		{ tv.Enable_Title_Num[cp] = 20; 	}
+	else 										{ tv.Enable_Title_Num[cp] = 21; 	}
+}

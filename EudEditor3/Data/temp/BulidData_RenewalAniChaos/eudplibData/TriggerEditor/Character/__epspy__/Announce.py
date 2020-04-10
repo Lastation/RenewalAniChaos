@@ -368,8 +368,8 @@ def Announce_Character(cp):
 # (Line 128) {
 @EUDFunc
 def Announce_Marge(cp):
-    # (Line 129) if (Deaths(CurrentPlayer, AtLeast, 1, "Terran SCV"))
-    if EUDIf()(Deaths(CurrentPlayer, AtLeast, 1, "Terran SCV")):
+    # (Line 129) if (Deaths(CurrentPlayer, Exactly, 1, "Terran SCV"))
+    if EUDIf()(Deaths(CurrentPlayer, Exactly, 1, "Terran SCV")):
         # (Line 130) {
         # (Line 131) SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV");
         # (Line 133) if (v.AnnounceList[cp] < 1) 	{ v.AnnounceList[cp] += 1; }

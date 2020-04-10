@@ -1,22 +1,23 @@
 import Variable as n0;
+import TitleVariable as n1;
 
 const ws = 0x58F44A;
 const EntryPointLength = 8;//EntryPointLength
 const SpaceLength = 400;//DataBufferSize
-const ObjectCount = 6;//ObjectCount
+const ObjectCount = 8;//ObjectCount
 
 function Init(){
     MPQAddFile('SCARCHIVEMAPCODE', py_open('scakeyfile', 'rb').read());
     MPQAddFile('SCARCHIVEDATA', py_open('scadatafile', 'rb').read());
     //EntryPoint
-    dwwrite_epd(EPD(ws) + 0, 2497790392);
-    dwwrite_epd(EPD(ws) + 1, 2155746947);
-    dwwrite_epd(EPD(ws) + 2, 2357057995);
-    dwwrite_epd(EPD(ws) + 3, 3166136878);
-    dwwrite_epd(EPD(ws) + 4, 3948378741);
-    dwwrite_epd(EPD(ws) + 5, 2600356297);
-    dwwrite_epd(EPD(ws) + 6, 2050548435);
-    dwwrite_epd(EPD(ws) + 7, 2190592537);
+    dwwrite_epd(EPD(ws) + 0, 1852450096);
+    dwwrite_epd(EPD(ws) + 1, 845600137);
+    dwwrite_epd(EPD(ws) + 2, 3150061373);
+    dwwrite_epd(EPD(ws) + 3, 1042440429);
+    dwwrite_epd(EPD(ws) + 4, 2908351354);
+    dwwrite_epd(EPD(ws) + 5, 2918513302);
+    dwwrite_epd(EPD(ws) + 6, 2035265280);
+    dwwrite_epd(EPD(ws) + 7, 1251474312);
     
 }
 
@@ -71,6 +72,16 @@ function ResetValue(tagNum, index){
         n0.Exp_Total[cp] = 0;
         break;
     }
+    case 6:
+    {
+        n1.Title_Name_Front[cp] = 0;
+        break;
+    }
+    case 7:
+    {
+        n0.Kill_All[cp] = 0;
+        break;
+    }
     }
 }
 
@@ -110,6 +121,16 @@ function SaveValue(tagNum, Value, index){
     case 5:
     {
         n0.Exp_Total[cp] = Value;
+        break;
+    }
+    case 6:
+    {
+        n1.Title_Name_Front[cp] = Value;
+        break;
+    }
+    case 7:
+    {
+        n0.Kill_All[cp] = Value;
         break;
     }
     }
@@ -250,6 +271,46 @@ function SaveDataWriteValue(tagNum, BaseAddress, index){
     case 5:
         {
         const objValue = n0.Exp_Total[cp];
+        if(objValue != 0){
+            if (objValue > 0xFFFF){
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x1000 + tagNum);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue / 0x10000);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue % 0x10000);
+                index++;
+             }else{
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x2000 + tagNum);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue);
+                index++;
+             }
+         }
+        }
+        break;
+    case 6:
+        {
+        const objValue = n1.Title_Name_Front[cp];
+        if(objValue != 0){
+            if (objValue > 0xFFFF){
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x1000 + tagNum);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue / 0x10000);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue % 0x10000);
+                index++;
+             }else{
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x2000 + tagNum);
+                index++;
+                wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue);
+                index++;
+             }
+         }
+        }
+        break;
+    case 7:
+        {
+        const objValue = n0.Kill_All[cp];
         if(objValue != 0){
             if (objValue > 0xFFFF){
                 wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x1000 + tagNum);
