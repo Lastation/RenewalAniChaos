@@ -42,9 +42,7 @@ function MainLoop()
 	
 	if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
 	{
-		selectText.SetIndex(cp);				// 유닛 클릭 인식
-		selectText.CharacterTextNum(cp);		// 캐릭터 번호 설정
-		selectText.CharacterText(cp);			// 캐릭터 선택 텍스트
+		selectText.CharacterTextNum(cp);		// 캐릭터 클릭 인식
 		
 		ppty.PropertyText();					// 특성 텍스트
 		
