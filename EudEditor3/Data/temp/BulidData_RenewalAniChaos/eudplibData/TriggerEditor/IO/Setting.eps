@@ -1,10 +1,5 @@
 import SCArchive as sca;
-
 import Variable as v;
-import customText as tct;
-
-var txtPtr, btnPtr, btnPos, oldCP;
-const trgk = $T('Artanis & safhfh');
 
 function SCAMain(cp);
 function SCAMessage(cp);
@@ -16,24 +11,27 @@ function SCASave(cp);
 
 function SCAMain(cp)
 {
+	if(sca.ConnectStatus() == 1 && sca.GetLastMessage() == 1 && v.SCAStatus[cp] == 0)
+	{ v.SCAStatus[cp] = 1; }
+	
 	if(sca.ConnectStatus() == 1 && sca.CommandStatus() == 0)
 	{
 		switch(v.SCAStatus[cp])
 		{
-			case 0:
-				sca.LoadData(0);
-				v.SCAStatus[cp] = 3;
-				break;
 			case 1:
-				if (Switch("TestModeSwitch", Cleared))
-				{ sca.SaveData(0); }
-				v.SCAStatus[cp] = 3;
+				sca.LoadData(0);
+				v.SCAStatus[cp] = 4;
 				break;
 			case 2:
-				SCASave(cp);
-				v.SCAStatus[cp] = 1;
+				if (Switch("TestModeSwitch", Cleared))
+				{ sca.SaveData(0); }
+				v.SCAStatus[cp] = 4;
 				break;
 			case 3:
+				SCASave(cp);
+				v.SCAStatus[cp] = 2;
+				break;
+			case 4:
 				if (Switch(255, Cleared))
 				{
 					GetExp(cp);
@@ -46,8 +44,7 @@ function SCAMain(cp)
 					GetExp(cp);
 					GetCS(cp);
 				}
-				
-				if (Deaths(CurrentPlayer, Exactly, 1000, 175)) { v.SCAStatus[cp] = 2; SetSwitch(255, Clear); }
+				if (Deaths(CurrentPlayer, Exactly, 1000, 175)) { v.SCAStatus[cp] = 3; SetSwitch(255, Clear); }
 				break;
 		}
 	}

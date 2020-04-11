@@ -134,8 +134,8 @@ import TitleVariable as n1
 ws = _CGFW(lambda: [0x58F44A], 1)[0]
 # (Line 5) const EntryPointLength = 8;//EntryPointLength
 EntryPointLength = _CGFW(lambda: [8], 1)[0]
-# (Line 6) const SpaceLength = 400;//DataBufferSize
-SpaceLength = _CGFW(lambda: [400], 1)[0]
+# (Line 6) const SpaceLength = 100;//DataBufferSize
+SpaceLength = _CGFW(lambda: [100], 1)[0]
 # (Line 7) const ObjectCount = 8;//ObjectCount
 ObjectCount = _CGFW(lambda: [8], 1)[0]
 # (Line 9) function Init(){
@@ -145,22 +145,22 @@ def Init():
     MPQAddFile('SCARCHIVEMAPCODE', open('scakeyfile', 'rb').read())
     # (Line 11) MPQAddFile('SCARCHIVEDATA', py_open('scadatafile', 'rb').read());
     MPQAddFile('SCARCHIVEDATA', open('scadatafile', 'rb').read())
-    # (Line 13) dwwrite_epd(EPD(ws) + 0, 1825991477);
-    f_dwwrite_epd(EPD(ws) + 0, 1825991477)
-    # (Line 14) dwwrite_epd(EPD(ws) + 1, 3783097328);
-    f_dwwrite_epd(EPD(ws) + 1, 3783097328)
-    # (Line 15) dwwrite_epd(EPD(ws) + 2, 1477757283);
-    f_dwwrite_epd(EPD(ws) + 2, 1477757283)
-    # (Line 16) dwwrite_epd(EPD(ws) + 3, 1792611576);
-    f_dwwrite_epd(EPD(ws) + 3, 1792611576)
-    # (Line 17) dwwrite_epd(EPD(ws) + 4, 3333039613);
-    f_dwwrite_epd(EPD(ws) + 4, 3333039613)
-    # (Line 18) dwwrite_epd(EPD(ws) + 5, 2551264195);
-    f_dwwrite_epd(EPD(ws) + 5, 2551264195)
-    # (Line 19) dwwrite_epd(EPD(ws) + 6, 996893819);
-    f_dwwrite_epd(EPD(ws) + 6, 996893819)
-    # (Line 20) dwwrite_epd(EPD(ws) + 7, 1271718936);
-    f_dwwrite_epd(EPD(ws) + 7, 1271718936)
+    # (Line 13) dwwrite_epd(EPD(ws) + 0, 2951484000);
+    f_dwwrite_epd(EPD(ws) + 0, 2951484000)
+    # (Line 14) dwwrite_epd(EPD(ws) + 1, 1943101966);
+    f_dwwrite_epd(EPD(ws) + 1, 1943101966)
+    # (Line 15) dwwrite_epd(EPD(ws) + 2, 2140467765);
+    f_dwwrite_epd(EPD(ws) + 2, 2140467765)
+    # (Line 16) dwwrite_epd(EPD(ws) + 3, 2116214818);
+    f_dwwrite_epd(EPD(ws) + 3, 2116214818)
+    # (Line 17) dwwrite_epd(EPD(ws) + 4, 1668565297);
+    f_dwwrite_epd(EPD(ws) + 4, 1668565297)
+    # (Line 18) dwwrite_epd(EPD(ws) + 5, 3050426778);
+    f_dwwrite_epd(EPD(ws) + 5, 3050426778)
+    # (Line 19) dwwrite_epd(EPD(ws) + 6, 716671258);
+    f_dwwrite_epd(EPD(ws) + 6, 716671258)
+    # (Line 20) dwwrite_epd(EPD(ws) + 7, 1534523540);
+    f_dwwrite_epd(EPD(ws) + 7, 1534523540)
     # (Line 22) }
     # (Line 25) function Exec(){
 

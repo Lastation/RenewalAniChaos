@@ -10,12 +10,8 @@ output: D:\StarCraft\Maps\making\RenewalAniChaos_T_KAT.scx
 [dataDumper]
 ..\temp\custom_txt.tbl : 0x6D5A30, copy
 
+
 [MSQC]
-MSQCSpecial.Exactly(1) : MSQCSpecialBuffer, 100
-MSQCSpecial.Exactly(2) : MSQCSpecialBuffer, 200
-MSQCSpecial.Exactly(3) : MSQCSpecialBuffer, 300
-MSQCSpecial.Exactly(4) : MSQCSpecialBuffer, 400
-MSQCCondiction.Exactly(1) ; xy , MSQCValue : MSQCBuffer
 QCDebug : False
 ` : Terran SCV, 1
 D : Terran SCV, 2

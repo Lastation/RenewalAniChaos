@@ -748,6 +748,7 @@ def onPluginStart():
         SetMemory(0x6574E0, Add, 96),# weapons:Maximum Range  index:28    from 384 To 480
         SetMemory(0x6574E4, Add, -128),# weapons:Maximum Range  index:29    from 224 To 96
         SetMemory(0x6574FC, Add, 113),# weapons:Maximum Range  index:35    from 15 To 128
+        SetMemory(0x657500, Add, 17),# weapons:Maximum Range  index:36    from 15 To 32
         SetMemory(0x657510, Add, 39),# weapons:Maximum Range  index:40    from 25 To 64
         SetMemory(0x657514, Add, 39),# weapons:Maximum Range  index:41    from 25 To 64
         SetMemory(0x657518, Add, 14),# weapons:Maximum Range  index:42    from 2 To 16
@@ -757,6 +758,7 @@ def onPluginStart():
         SetMemory(0x657558, Add, -160),# weapons:Maximum Range  index:58    from 288 To 128
         SetMemory(0x657568, Add, 96),# weapons:Maximum Range  index:62    from 32 To 128
         SetMemory(0x657570, Add, 81),# weapons:Maximum Range  index:64    from 15 To 96
+        SetMemory(0x657574, Add, 17),# weapons:Maximum Range  index:65    from 15 To 32
         SetMemory(0x657578, Add, 32),# weapons:Maximum Range  index:66    from 128 To 160
         SetMemory(0x65757C, Add, 128),# weapons:Maximum Range  index:67    from 128 To 256
         SetMemory(0x657580, Add, 64),# weapons:Maximum Range  index:68    from 96 To 160
@@ -766,6 +768,7 @@ def onPluginStart():
         SetMemory(0x657594, Add, 128),# weapons:Maximum Range  index:73    from 128 To 256
         SetMemory(0x6575A4, Add, 160),# weapons:Maximum Range  index:77    from 160 To 320
         SetMemory(0x6575C4, Add, 305),# weapons:Maximum Range  index:85    from 15 To 320
+        SetMemory(0x6575C8, Add, 17),# weapons:Maximum Range  index:86    from 15 To 32
         SetMemory(0x657634, Add, 64),# weapons:Maximum Range  index:113    from 192 To 256
         SetMemory(0x657640, Add, 32),# weapons:Maximum Range  index:116    from 192 To 224
         SetMemory(0x6571D0, Add, 2),# weapons:Damage Upgrade  index:0    from 7 To 9

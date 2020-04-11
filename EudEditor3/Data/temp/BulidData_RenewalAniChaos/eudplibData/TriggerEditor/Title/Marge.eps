@@ -8,7 +8,8 @@ import Title.Total.CS as totalcs;
 import SCArchive as sca;
 
 const index = PVariable();
-var txtPtr, btnPtr, btnPos, oldCP;
+const s = StringBuffer();
+
 
 function SetTitle_Total_Text(cp);
 function SetTitle_Exp_Text(cp);
@@ -55,15 +56,11 @@ function SetTitle_Total_Text(cp)
 			SetTitle_CS_Text(cp);
 			break;
 		default:
-			tct.makeText("　　\x17[ \x04업적 칭호 목록 \x17]");
-	 		tct.addText("\n　　\x17[ \x041 \x17]　\x04통합 경험치 업적 \x17");
-			tct.addText("\n　　\x17[ \x042 \x17]　\x04통합 처치 업적 \x17");
-			tct.addText("\n　　\x17[ \x043 \x17]　\x04통합 크립 파괴 업적 \x17");
-			tct.addText("\n\n\n\n");
-
-			txtPtr = dwread_epd(EPD(0x640B58));
-			tct.displayText();
-			SetMemory(0x640B58, SetTo, txtPtr);
+			s.printAt(0, "　　\x17[ \x04업적 칭호 목록 \x17]");
+	 		s.printAt(1, "　　\x17[ \x041 \x17]　\x04통합 경험치 업적 \x17");
+			s.printAt(2, "　　\x17[ \x042 \x17]　\x04통합 처치 업적 \x17");
+			s.printAt(3, "　　\x17[ \x043 \x17]　\x04통합 크립 파괴 업적 \x17");
+			s.printAt(4, "\n\n\n\n");
 			break;
 	}
 }
@@ -72,7 +69,7 @@ function SetTitle_Exp_Text(cp)
 {
 	totalexp.Total_Exp_Setting(cp);
 	
-	tct.makeText("　　\x17[ \x04보유 통합 경험치 업적 칭호 목록 \x17]　", v.Exp_Total[cp], " \x1FExp");
+	s.printAt(0, "　　\x17[ \x04보유 통합 경험치 업적 칭호 목록 \x17]　", v.Exp_Total[cp], " \x1FExp");
 	for (var i = 0; i < tv.View_Title_Num; i++)
 	{
 		index[cp] = tv.View_Title_Num * tv.View_Title_Now[cp] + i;
@@ -80,18 +77,14 @@ function SetTitle_Exp_Text(cp)
 		if (tv.Title_Max[cp] > index[cp])
 		{
 			if (tv.Enable_Title_Num[cp] > index[cp])
-			{ tct.addText("\n　　\x17[ \x04", i + 1, " \x17]　\x04",ptr2s(tv.Total_Exp_Title[index[cp]])," \x04　", tv.Total_Exp_Need[index[cp]], " \x1FExp"); }
+			{ s.printAt(i + 1, "　　\x17[ \x04", i + 1, " \x17]　\x04",ptr2s(tv.Total_Exp_Title[index[cp]])," \x04　", tv.Total_Exp_Need[index[cp]], " \x1FExp"); }
 			else
-			{ tct.addText("\n　　\x17[ \x04", i + 1, " \x17]　\x05",ptr2s(tv.Total_Exp_Title[index[cp]])," \x04　", tv.Total_Exp_Need[index[cp]], " \x1FExp"); }
+			{ s.printAt(i + 1, "　　\x17[ \x04", i + 1, " \x17]　\x05",ptr2s(tv.Total_Exp_Title[index[cp]])," \x04　", tv.Total_Exp_Need[index[cp]], " \x1FExp"); }
 		}
-		else
-		{ tct.addText("\n"); }
+		else { s.printAt(i + 1, "\n"); }
 	}
-	tct.addText("\n　　\x04", tv.View_Title_Now[cp] + 1, " 페이지 / 이전 [\x17A\x04] 다음 [\x17D\x04] 돌아가기 [\x17Z\x04]");
-	
-	txtPtr = dwread_epd(EPD(0x640B58));
-	tct.displayText();
-	SetMemory(0x640B58, SetTo, txtPtr);
+	s.printAt(6, "\n");
+	s.printAt(7, "　　\x04", tv.View_Title_Now[cp] + 1, " 페이지 / 이전 [\x17A\x04] 다음 [\x17D\x04] 돌아가기 [\x17Z\x04]");
 	
 	Set_PName_Index(cp, 100);
 }
@@ -100,7 +93,7 @@ function SetTitle_Kill_Text(cp)
 {
 	totalkill.Total_Kill_Setting(cp);
 	
-	tct.makeText("　　\x17[ \x04보유 통합 처치 업적 칭호 목록 \x17]　", v.Kill_All[cp], " \x1FKill");
+	s.printAt(0, "　　\x17[ \x04보유 통합 처치 업적 칭호 목록 \x17]　", v.Kill_All[cp], " \x1FKill");
 	for (var i = 0; i < tv.View_Title_Num; i++)
 	{
 		index[cp] = tv.View_Title_Num * tv.View_Title_Now[cp] + i;
@@ -108,18 +101,14 @@ function SetTitle_Kill_Text(cp)
 		if (tv.Title_Max[cp] > index[cp])
 		{
 			if (tv.Enable_Title_Num[cp] > index[cp])
-			{ tct.addText("\n　　\x17[ \x04", i + 1, " \x17]　\x04",ptr2s(tv.Total_Kill_Title[index[cp]])," \x04　", tv.Total_Kill_Need[index[cp]], " \x1FKill"); }
+			{ s.printAt(i + 1, "　　\x17[ \x04", i + 1, " \x17]　\x04",ptr2s(tv.Total_Kill_Title[index[cp]])," \x04　", tv.Total_Kill_Need[index[cp]], " \x1FKill"); }
 			else
-			{ tct.addText("\n　　\x17[ \x04", i + 1, " \x17]　\x05",ptr2s(tv.Total_Kill_Title[index[cp]])," \x04　", tv.Total_Kill_Need[index[cp]], " \x1FKill"); }
+			{ s.printAt(i + 1, "　　\x17[ \x04", i + 1, " \x17]　\x05",ptr2s(tv.Total_Kill_Title[index[cp]])," \x04　", tv.Total_Kill_Need[index[cp]], " \x1FKill"); }
 		}
-		else
-		{ tct.addText("\n"); }
+		else { s.printAt(i + 1, "\n"); }
 	}
-	tct.addText("\n　　\x04", tv.View_Title_Now[cp] + 1, " 페이지 / 이전 [\x17A\x04] 다음 [\x17D\x04] 돌아가기 [\x17Z\x04]");
-	
-	txtPtr = dwread_epd(EPD(0x640B58));
-	tct.displayText();
-	SetMemory(0x640B58, SetTo, txtPtr);
+	s.printAt(6, "\n");
+	s.printAt(7, "　　\x04", tv.View_Title_Now[cp] + 1, " 페이지 / 이전 [\x17A\x04] 다음 [\x17D\x04] 돌아가기 [\x17Z\x04]");
 	
 	Set_PName_Index(cp, 200);
 }
@@ -128,7 +117,7 @@ function SetTitle_CS_Text(cp)
 {
 	totalcs.Total_CS_Setting(cp);
 	
-	tct.makeText("　　\x17[ \x04보유 통합 크립 파괴 업적 칭호 목록 \x17]　", v.CS_Total[cp], " \x1FCS");
+	s.printAt(0, "　　\x17[ \x04보유 통합 크립 파괴 업적 칭호 목록 \x17]　", v.CS_Total[cp], " \x1FCS");
 	for (var i = 0; i < tv.View_Title_Num; i++)
 	{
 		index[cp] = tv.View_Title_Num * tv.View_Title_Now[cp] + i;
@@ -136,18 +125,14 @@ function SetTitle_CS_Text(cp)
 		if (tv.Title_Max[cp] > index[cp])
 		{
 			if (tv.Enable_Title_Num[cp] > index[cp])
-			{ tct.addText("\n　　\x17[ \x04", i + 1, " \x17]　\x04",ptr2s(tv.Total_CS_Title[index[cp]])," \x04　", tv.Total_CS_Need[index[cp]], " \x1FCS"); }
+			{ s.printAt(i + 1, "　　\x17[ \x04", i + 1, " \x17]　\x04",ptr2s(tv.Total_CS_Title[index[cp]])," \x04　", tv.Total_CS_Need[index[cp]], " \x1FCS"); }
 			else
-			{ tct.addText("\n　　\x17[ \x04", i + 1, " \x17]　\x05",ptr2s(tv.Total_CS_Title[index[cp]])," \x04　", tv.Total_CS_Need[index[cp]], " \x1FCS"); }
+			{ s.printAt(i + 1, "　　\x17[ \x04", i + 1, " \x17]　\x05",ptr2s(tv.Total_CS_Title[index[cp]])," \x04　", tv.Total_CS_Need[index[cp]], " \x1FCS"); }
 		}
-		else
-		{ tct.addText("\n"); }
+		else { s.printAt(i + 1, "\n"); }
 	}
-	tct.addText("\n　　\x04", tv.View_Title_Now[cp] + 1, " 페이지 / 이전 [\x17A\x04] 다음 [\x17D\x04] 돌아가기 [\x17Z\x04]");
-	
-	txtPtr = dwread_epd(EPD(0x640B58));
-	tct.displayText();
-	SetMemory(0x640B58, SetTo, txtPtr);
+	s.printAt(6, "\n");
+	s.printAt(7, "　　\x04", tv.View_Title_Now[cp] + 1, " 페이지 / 이전 [\x17A\x04] 다음 [\x17D\x04] 돌아가기 [\x17Z\x04]");
 	
 	Set_PName_Index(cp, 300);
 }
@@ -161,7 +146,7 @@ function Set_PName_Index(cp, value)
 		{
 			tv.Title_Name_Front[cp] = value + tv.View_Title_Num * tv.View_Title_Now[cp] + index[cp];
 			tv.View_Title[cp] = 2;
-			tct.print("\n\n\n\n\n\n\n\n\n\n\n");
+			s.print("\n\n\n\n\n\n\n\n\n\n\n");
 		}
 		SetDeaths(CurrentPlayer, SetTo, 0, "Zerg Larva");
 	}
@@ -201,7 +186,7 @@ function Key_input(cp)
 		SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV");
 		
 		if (tv.View_Title[cp] < 1) 	{ tv.View_Title[cp] += 1; }
-		else 					{ tv.View_Title[cp] = 0; tct.print("\n\n\n\n\n\n\n\n\n\n\n"); }
+		else 					{ tv.View_Title[cp] = 0; s.print("\n\n\n\n\n\n\n\n\n\n\n"); }
 	}
 	
 	if (Deaths(CurrentPlayer, Exactly, 5, "Terran SCV"))
