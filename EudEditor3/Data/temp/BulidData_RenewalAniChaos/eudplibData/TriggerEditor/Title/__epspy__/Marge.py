@@ -142,381 +142,360 @@ from Title.Total import CS as totalcs
 import SCArchive as sca
 # (Line 10) const index = PVariable();
 index = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 11) var txtPtr, btnPtr, btnPos, oldCP;
-txtPtr, btnPtr, btnPos, oldCP = EUDCreateVariables(4)
-# (Line 13) function SetTitle_Total_Text(cp);
-# (Line 14) function SetTitle_Exp_Text(cp);
-# (Line 15) function SetTitle_Kill_Text(cp);
-# (Line 16) function SetTitle_CS_Text(cp);
-# (Line 18) function Set_PName_Index(cp, value);		// 닉네임 배열 위치 설정
-# (Line 19) function Set_PName(cp);					// 닉네임 설정
-# (Line 21) function Key_input(cp);
-# (Line 24) function Title_Marge(cp)
-# (Line 25) {
+# (Line 11) const s = StringBuffer();
+s = _CGFW(lambda: [StringBuffer()], 1)[0]
+# (Line 14) function SetTitle_Total_Text(cp);
+# (Line 15) function SetTitle_Exp_Text(cp);
+# (Line 16) function SetTitle_Kill_Text(cp);
+# (Line 17) function SetTitle_CS_Text(cp);
+# (Line 19) function Set_PName_Index(cp, value);		// 닉네임 배열 위치 설정
+# (Line 20) function Set_PName(cp);					// 닉네임 설정
+# (Line 22) function Key_input(cp);
+# (Line 25) function Title_Marge(cp)
+# (Line 26) {
 @EUDFunc
 def Title_Marge(cp):
-    # (Line 26) if(sca.ConnectStatus() == 1)
+    # (Line 27) if(sca.ConnectStatus() == 1)
     if EUDIf()(sca.ConnectStatus() == 1):
-        # (Line 27) {
-        # (Line 28) Key_input(cp);
+        # (Line 28) {
+        # (Line 29) Key_input(cp);
         Key_input(cp)
-        # (Line 29) Set_PName(cp);
+        # (Line 30) Set_PName(cp);
         Set_PName(cp)
-        # (Line 31) switch(tv.View_Title[cp])
+        # (Line 32) switch(tv.View_Title[cp])
         EUDSwitch(tv.View_Title[cp])
-        # (Line 32) {
-        # (Line 33) case 1:
+        # (Line 33) {
+        # (Line 34) case 1:
         _t2 = EUDSwitchCase()
-        # (Line 34) SetTitle_Total_Text(cp);
+        # (Line 35) SetTitle_Total_Text(cp);
         if _t2(1):
             SetTitle_Total_Text(cp)
-            # (Line 35) break;
+            # (Line 36) break;
             EUDBreak()
-            # (Line 36) case 2:
+            # (Line 37) case 2:
         _t3 = EUDSwitchCase()
-        # (Line 37) tv.View_Title_Now[cp] = 0;
+        # (Line 38) tv.View_Title_Now[cp] = 0;
         if _t3(2):
             _ARRW(tv.View_Title_Now, cp) << (0)
-            # (Line 38) tv.Select_Title[cp] = 0;
+            # (Line 39) tv.Select_Title[cp] = 0;
             _ARRW(tv.Select_Title, cp) << (0)
-            # (Line 39) break;
+            # (Line 40) break;
             EUDBreak()
-            # (Line 40) }
-        # (Line 41) }
-        EUDEndSwitch()
+            # (Line 41) }
         # (Line 42) }
+        EUDEndSwitch()
+        # (Line 43) }
     EUDEndIf()
-    # (Line 44) function SetTitle_Total_Text(cp)
+    # (Line 45) function SetTitle_Total_Text(cp)
 
-# (Line 45) {
+# (Line 46) {
 @EUDFunc
 def SetTitle_Total_Text(cp):
-    # (Line 46) switch(tv.Select_Title[cp])
+    # (Line 47) switch(tv.Select_Title[cp])
     EUDSwitch(tv.Select_Title[cp])
-    # (Line 47) {
-    # (Line 48) case 1:
+    # (Line 48) {
+    # (Line 49) case 1:
     _t1 = EUDSwitchCase()
-    # (Line 49) SetTitle_Exp_Text(cp);
+    # (Line 50) SetTitle_Exp_Text(cp);
     if _t1(1):
         SetTitle_Exp_Text(cp)
-        # (Line 50) break;
+        # (Line 51) break;
         EUDBreak()
-        # (Line 51) case 2:
+        # (Line 52) case 2:
     _t2 = EUDSwitchCase()
-    # (Line 52) SetTitle_Kill_Text(cp);
+    # (Line 53) SetTitle_Kill_Text(cp);
     if _t2(2):
         SetTitle_Kill_Text(cp)
-        # (Line 53) break;
+        # (Line 54) break;
         EUDBreak()
-        # (Line 54) case 3:
+        # (Line 55) case 3:
     _t3 = EUDSwitchCase()
-    # (Line 55) SetTitle_CS_Text(cp);
+    # (Line 56) SetTitle_CS_Text(cp);
     if _t3(3):
         SetTitle_CS_Text(cp)
-        # (Line 56) break;
+        # (Line 57) break;
         EUDBreak()
-        # (Line 57) default:
-    # (Line 58) tct.makeText("　　\x17[ \x04업적 칭호 목록 \x17]");
+        # (Line 58) default:
+    # (Line 59) s.printAt(0, "　　\x17[ \x04업적 칭호 목록 \x17]");
     if EUDSwitchDefault()():
-        tct.f_makeText("　　\x17[ \x04업적 칭호 목록 \x17]")
-        # (Line 59) tct.addText("\n　　\x17[ \x041 \x17]　\x04통합 경험치 업적 \x17");
-        tct.f_addText("\n　　\x17[ \x041 \x17]　\x04통합 경험치 업적 \x17")
-        # (Line 60) tct.addText("\n　　\x17[ \x042 \x17]　\x04통합 처치 업적 \x17");
-        tct.f_addText("\n　　\x17[ \x042 \x17]　\x04통합 처치 업적 \x17")
-        # (Line 61) tct.addText("\n　　\x17[ \x043 \x17]　\x04통합 크립 파괴 업적 \x17");
-        tct.f_addText("\n　　\x17[ \x043 \x17]　\x04통합 크립 파괴 업적 \x17")
-        # (Line 62) tct.addText("\n\n\n\n");
-        tct.f_addText("\n\n\n\n")
-        # (Line 64) txtPtr = dwread_epd(EPD(0x640B58));
-        txtPtr << (f_dwread_epd(EPD(0x640B58)))
-        # (Line 65) tct.displayText();
-        tct.f_displayText()
-        # (Line 66) SetMemory(0x640B58, SetTo, txtPtr);
-        # (Line 67) break;
-        DoActions(SetMemory(0x640B58, SetTo, txtPtr))
+        s.printAt(0, "　　\x17[ \x04업적 칭호 목록 \x17]")
+        # (Line 60) s.printAt(1, "　　\x17[ \x041 \x17]　\x04통합 경험치 업적 \x17");
+        s.printAt(1, "　　\x17[ \x041 \x17]　\x04통합 경험치 업적 \x17")
+        # (Line 61) s.printAt(2, "　　\x17[ \x042 \x17]　\x04통합 처치 업적 \x17");
+        s.printAt(2, "　　\x17[ \x042 \x17]　\x04통합 처치 업적 \x17")
+        # (Line 62) s.printAt(3, "　　\x17[ \x043 \x17]　\x04통합 크립 파괴 업적 \x17");
+        s.printAt(3, "　　\x17[ \x043 \x17]　\x04통합 크립 파괴 업적 \x17")
+        # (Line 63) s.printAt(4, "\n\n\n\n");
+        s.printAt(4, "\n\n\n\n")
+        # (Line 64) break;
         EUDBreak()
-        # (Line 68) }
-    # (Line 69) }
+        # (Line 65) }
+    # (Line 66) }
     EUDEndSwitch()
-    # (Line 71) function SetTitle_Exp_Text(cp)
+    # (Line 68) function SetTitle_Exp_Text(cp)
 
-# (Line 72) {
+# (Line 69) {
 @EUDFunc
 def SetTitle_Exp_Text(cp):
-    # (Line 73) totalexp.Total_Exp_Setting(cp);
+    # (Line 70) totalexp.Total_Exp_Setting(cp);
     totalexp.Total_Exp_Setting(cp)
-    # (Line 75) tct.makeText("　　\x17[ \x04보유 통합 경험치 업적 칭호 목록 \x17]　", v.Exp_Total[cp], " \x1FExp");
-    tct.f_makeText("　　\x17[ \x04보유 통합 경험치 업적 칭호 목록 \x17]　", v.Exp_Total[cp], " \x1FExp")
-    # (Line 76) for (var i = 0; i < tv.View_Title_Num; i++)
+    # (Line 72) s.printAt(0, "　　\x17[ \x04보유 통합 경험치 업적 칭호 목록 \x17]　", v.Exp_Total[cp], " \x1FExp");
+    s.printAt(0, "　　\x17[ \x04보유 통합 경험치 업적 칭호 목록 \x17]　", v.Exp_Total[cp], " \x1FExp")
+    # (Line 73) for (var i = 0; i < tv.View_Title_Num; i++)
     i = EUDVariable()
     i << (0)
     if EUDWhile()(i >= tv.View_Title_Num, neg=True):
         def _t2():
             i.__iadd__(1)
-        # (Line 77) {
-        # (Line 78) index[cp] = tv.View_Title_Num * tv.View_Title_Now[cp] + i;
+        # (Line 74) {
+        # (Line 75) index[cp] = tv.View_Title_Num * tv.View_Title_Now[cp] + i;
         _ARRW(index, cp) << (tv.View_Title_Num * tv.View_Title_Now[cp] + i)
-        # (Line 80) if (tv.Title_Max[cp] > index[cp])
+        # (Line 77) if (tv.Title_Max[cp] > index[cp])
         if EUDIf()(tv.Title_Max[cp] <= index[cp], neg=True):
-            # (Line 81) {
-            # (Line 82) if (tv.Enable_Title_Num[cp] > index[cp])
+            # (Line 78) {
+            # (Line 79) if (tv.Enable_Title_Num[cp] > index[cp])
             if EUDIf()(tv.Enable_Title_Num[cp] <= index[cp], neg=True):
-                # (Line 83) { tct.addText("\n　　\x17[ \x04", i + 1, " \x17]　\x04",ptr2s(tv.Total_Exp_Title[index[cp]])," \x04　", tv.Total_Exp_Need[index[cp]], " \x1FExp"); }
-                tct.f_addText("\n　　\x17[ \x04", i + 1, " \x17]　\x04", ptr2s(tv.Total_Exp_Title[index[cp]]), " \x04　", tv.Total_Exp_Need[index[cp]], " \x1FExp")
-                # (Line 84) else
-                # (Line 85) { tct.addText("\n　　\x17[ \x04", i + 1, " \x17]　\x05",ptr2s(tv.Total_Exp_Title[index[cp]])," \x04　", tv.Total_Exp_Need[index[cp]], " \x1FExp"); }
+                # (Line 80) { s.printAt(i + 1, "　　\x17[ \x04", i + 1, " \x17]　\x04",ptr2s(tv.Total_Exp_Title[index[cp]])," \x04　", tv.Total_Exp_Need[index[cp]], " \x1FExp"); }
+                s.printAt(i + 1, "　　\x17[ \x04", i + 1, " \x17]　\x04", ptr2s(tv.Total_Exp_Title[index[cp]]), " \x04　", tv.Total_Exp_Need[index[cp]], " \x1FExp")
+                # (Line 81) else
+                # (Line 82) { s.printAt(i + 1, "　　\x17[ \x04", i + 1, " \x17]　\x05",ptr2s(tv.Total_Exp_Title[index[cp]])," \x04　", tv.Total_Exp_Need[index[cp]], " \x1FExp"); }
             if EUDElse()():
-                tct.f_addText("\n　　\x17[ \x04", i + 1, " \x17]　\x05", ptr2s(tv.Total_Exp_Title[index[cp]]), " \x04　", tv.Total_Exp_Need[index[cp]], " \x1FExp")
-                # (Line 86) }
+                s.printAt(i + 1, "　　\x17[ \x04", i + 1, " \x17]　\x05", ptr2s(tv.Total_Exp_Title[index[cp]]), " \x04　", tv.Total_Exp_Need[index[cp]], " \x1FExp")
+                # (Line 83) }
             EUDEndIf()
-            # (Line 87) else
-            # (Line 88) { tct.addText("\n"); }
+            # (Line 84) else { s.printAt(i + 1, "\n"); }
         if EUDElse()():
-            tct.f_addText("\n")
-            # (Line 89) }
+            s.printAt(i + 1, "\n")
+            # (Line 85) }
         EUDEndIf()
-        # (Line 90) tct.addText("\n　　\x04", tv.View_Title_Now[cp] + 1, " 페이지 / 이전 [\x17A\x04] 다음 [\x17D\x04] 돌아가기 [\x17Z\x04]");
+        # (Line 86) s.printAt(6, "\n");
         EUDSetContinuePoint()
         _t2()
     EUDEndWhile()
-    tct.f_addText("\n　　\x04", tv.View_Title_Now[cp] + 1, " 페이지 / 이전 [\x17A\x04] 다음 [\x17D\x04] 돌아가기 [\x17Z\x04]")
-    # (Line 92) txtPtr = dwread_epd(EPD(0x640B58));
-    txtPtr << (f_dwread_epd(EPD(0x640B58)))
-    # (Line 93) tct.displayText();
-    tct.f_displayText()
-    # (Line 94) SetMemory(0x640B58, SetTo, txtPtr);
-    # (Line 96) Set_PName_Index(cp, 100);
-    DoActions(SetMemory(0x640B58, SetTo, txtPtr))
+    s.printAt(6, "\n")
+    # (Line 87) s.printAt(7, "　　\x04", tv.View_Title_Now[cp] + 1, " 페이지 / 이전 [\x17A\x04] 다음 [\x17D\x04] 돌아가기 [\x17Z\x04]");
+    s.printAt(7, "　　\x04", tv.View_Title_Now[cp] + 1, " 페이지 / 이전 [\x17A\x04] 다음 [\x17D\x04] 돌아가기 [\x17Z\x04]")
+    # (Line 89) Set_PName_Index(cp, 100);
     Set_PName_Index(cp, 100)
-    # (Line 97) }
-    # (Line 99) function SetTitle_Kill_Text(cp)
+    # (Line 90) }
+    # (Line 92) function SetTitle_Kill_Text(cp)
 
-# (Line 100) {
+# (Line 93) {
 @EUDFunc
 def SetTitle_Kill_Text(cp):
-    # (Line 101) totalkill.Total_Kill_Setting(cp);
+    # (Line 94) totalkill.Total_Kill_Setting(cp);
     totalkill.Total_Kill_Setting(cp)
-    # (Line 103) tct.makeText("　　\x17[ \x04보유 통합 처치 업적 칭호 목록 \x17]　", v.Kill_All[cp], " \x1FKill");
-    tct.f_makeText("　　\x17[ \x04보유 통합 처치 업적 칭호 목록 \x17]　", v.Kill_All[cp], " \x1FKill")
-    # (Line 104) for (var i = 0; i < tv.View_Title_Num; i++)
+    # (Line 96) s.printAt(0, "　　\x17[ \x04보유 통합 처치 업적 칭호 목록 \x17]　", v.Kill_All[cp], " \x1FKill");
+    s.printAt(0, "　　\x17[ \x04보유 통합 처치 업적 칭호 목록 \x17]　", v.Kill_All[cp], " \x1FKill")
+    # (Line 97) for (var i = 0; i < tv.View_Title_Num; i++)
     i = EUDVariable()
     i << (0)
     if EUDWhile()(i >= tv.View_Title_Num, neg=True):
         def _t2():
             i.__iadd__(1)
-        # (Line 105) {
-        # (Line 106) index[cp] = tv.View_Title_Num * tv.View_Title_Now[cp] + i;
+        # (Line 98) {
+        # (Line 99) index[cp] = tv.View_Title_Num * tv.View_Title_Now[cp] + i;
         _ARRW(index, cp) << (tv.View_Title_Num * tv.View_Title_Now[cp] + i)
-        # (Line 108) if (tv.Title_Max[cp] > index[cp])
+        # (Line 101) if (tv.Title_Max[cp] > index[cp])
         if EUDIf()(tv.Title_Max[cp] <= index[cp], neg=True):
-            # (Line 109) {
-            # (Line 110) if (tv.Enable_Title_Num[cp] > index[cp])
+            # (Line 102) {
+            # (Line 103) if (tv.Enable_Title_Num[cp] > index[cp])
             if EUDIf()(tv.Enable_Title_Num[cp] <= index[cp], neg=True):
-                # (Line 111) { tct.addText("\n　　\x17[ \x04", i + 1, " \x17]　\x04",ptr2s(tv.Total_Kill_Title[index[cp]])," \x04　", tv.Total_Kill_Need[index[cp]], " \x1FKill"); }
-                tct.f_addText("\n　　\x17[ \x04", i + 1, " \x17]　\x04", ptr2s(tv.Total_Kill_Title[index[cp]]), " \x04　", tv.Total_Kill_Need[index[cp]], " \x1FKill")
-                # (Line 112) else
-                # (Line 113) { tct.addText("\n　　\x17[ \x04", i + 1, " \x17]　\x05",ptr2s(tv.Total_Kill_Title[index[cp]])," \x04　", tv.Total_Kill_Need[index[cp]], " \x1FKill"); }
+                # (Line 104) { s.printAt(i + 1, "　　\x17[ \x04", i + 1, " \x17]　\x04",ptr2s(tv.Total_Kill_Title[index[cp]])," \x04　", tv.Total_Kill_Need[index[cp]], " \x1FKill"); }
+                s.printAt(i + 1, "　　\x17[ \x04", i + 1, " \x17]　\x04", ptr2s(tv.Total_Kill_Title[index[cp]]), " \x04　", tv.Total_Kill_Need[index[cp]], " \x1FKill")
+                # (Line 105) else
+                # (Line 106) { s.printAt(i + 1, "　　\x17[ \x04", i + 1, " \x17]　\x05",ptr2s(tv.Total_Kill_Title[index[cp]])," \x04　", tv.Total_Kill_Need[index[cp]], " \x1FKill"); }
             if EUDElse()():
-                tct.f_addText("\n　　\x17[ \x04", i + 1, " \x17]　\x05", ptr2s(tv.Total_Kill_Title[index[cp]]), " \x04　", tv.Total_Kill_Need[index[cp]], " \x1FKill")
-                # (Line 114) }
+                s.printAt(i + 1, "　　\x17[ \x04", i + 1, " \x17]　\x05", ptr2s(tv.Total_Kill_Title[index[cp]]), " \x04　", tv.Total_Kill_Need[index[cp]], " \x1FKill")
+                # (Line 107) }
             EUDEndIf()
-            # (Line 115) else
-            # (Line 116) { tct.addText("\n"); }
+            # (Line 108) else { s.printAt(i + 1, "\n"); }
         if EUDElse()():
-            tct.f_addText("\n")
-            # (Line 117) }
+            s.printAt(i + 1, "\n")
+            # (Line 109) }
         EUDEndIf()
-        # (Line 118) tct.addText("\n　　\x04", tv.View_Title_Now[cp] + 1, " 페이지 / 이전 [\x17A\x04] 다음 [\x17D\x04] 돌아가기 [\x17Z\x04]");
+        # (Line 110) s.printAt(6, "\n");
         EUDSetContinuePoint()
         _t2()
     EUDEndWhile()
-    tct.f_addText("\n　　\x04", tv.View_Title_Now[cp] + 1, " 페이지 / 이전 [\x17A\x04] 다음 [\x17D\x04] 돌아가기 [\x17Z\x04]")
-    # (Line 120) txtPtr = dwread_epd(EPD(0x640B58));
-    txtPtr << (f_dwread_epd(EPD(0x640B58)))
-    # (Line 121) tct.displayText();
-    tct.f_displayText()
-    # (Line 122) SetMemory(0x640B58, SetTo, txtPtr);
-    # (Line 124) Set_PName_Index(cp, 200);
-    DoActions(SetMemory(0x640B58, SetTo, txtPtr))
+    s.printAt(6, "\n")
+    # (Line 111) s.printAt(7, "　　\x04", tv.View_Title_Now[cp] + 1, " 페이지 / 이전 [\x17A\x04] 다음 [\x17D\x04] 돌아가기 [\x17Z\x04]");
+    s.printAt(7, "　　\x04", tv.View_Title_Now[cp] + 1, " 페이지 / 이전 [\x17A\x04] 다음 [\x17D\x04] 돌아가기 [\x17Z\x04]")
+    # (Line 113) Set_PName_Index(cp, 200);
     Set_PName_Index(cp, 200)
-    # (Line 125) }
-    # (Line 127) function SetTitle_CS_Text(cp)
+    # (Line 114) }
+    # (Line 116) function SetTitle_CS_Text(cp)
 
-# (Line 128) {
+# (Line 117) {
 @EUDFunc
 def SetTitle_CS_Text(cp):
-    # (Line 129) totalcs.Total_CS_Setting(cp);
+    # (Line 118) totalcs.Total_CS_Setting(cp);
     totalcs.Total_CS_Setting(cp)
-    # (Line 131) tct.makeText("　　\x17[ \x04보유 통합 크립 파괴 업적 칭호 목록 \x17]　", v.CS_Total[cp], " \x1FCS");
-    tct.f_makeText("　　\x17[ \x04보유 통합 크립 파괴 업적 칭호 목록 \x17]　", v.CS_Total[cp], " \x1FCS")
-    # (Line 132) for (var i = 0; i < tv.View_Title_Num; i++)
+    # (Line 120) s.printAt(0, "　　\x17[ \x04보유 통합 크립 파괴 업적 칭호 목록 \x17]　", v.CS_Total[cp], " \x1FCS");
+    s.printAt(0, "　　\x17[ \x04보유 통합 크립 파괴 업적 칭호 목록 \x17]　", v.CS_Total[cp], " \x1FCS")
+    # (Line 121) for (var i = 0; i < tv.View_Title_Num; i++)
     i = EUDVariable()
     i << (0)
     if EUDWhile()(i >= tv.View_Title_Num, neg=True):
         def _t2():
             i.__iadd__(1)
-        # (Line 133) {
-        # (Line 134) index[cp] = tv.View_Title_Num * tv.View_Title_Now[cp] + i;
+        # (Line 122) {
+        # (Line 123) index[cp] = tv.View_Title_Num * tv.View_Title_Now[cp] + i;
         _ARRW(index, cp) << (tv.View_Title_Num * tv.View_Title_Now[cp] + i)
-        # (Line 136) if (tv.Title_Max[cp] > index[cp])
+        # (Line 125) if (tv.Title_Max[cp] > index[cp])
         if EUDIf()(tv.Title_Max[cp] <= index[cp], neg=True):
-            # (Line 137) {
-            # (Line 138) if (tv.Enable_Title_Num[cp] > index[cp])
+            # (Line 126) {
+            # (Line 127) if (tv.Enable_Title_Num[cp] > index[cp])
             if EUDIf()(tv.Enable_Title_Num[cp] <= index[cp], neg=True):
-                # (Line 139) { tct.addText("\n　　\x17[ \x04", i + 1, " \x17]　\x04",ptr2s(tv.Total_CS_Title[index[cp]])," \x04　", tv.Total_CS_Need[index[cp]], " \x1FCS"); }
-                tct.f_addText("\n　　\x17[ \x04", i + 1, " \x17]　\x04", ptr2s(tv.Total_CS_Title[index[cp]]), " \x04　", tv.Total_CS_Need[index[cp]], " \x1FCS")
-                # (Line 140) else
-                # (Line 141) { tct.addText("\n　　\x17[ \x04", i + 1, " \x17]　\x05",ptr2s(tv.Total_CS_Title[index[cp]])," \x04　", tv.Total_CS_Need[index[cp]], " \x1FCS"); }
+                # (Line 128) { s.printAt(i + 1, "　　\x17[ \x04", i + 1, " \x17]　\x04",ptr2s(tv.Total_CS_Title[index[cp]])," \x04　", tv.Total_CS_Need[index[cp]], " \x1FCS"); }
+                s.printAt(i + 1, "　　\x17[ \x04", i + 1, " \x17]　\x04", ptr2s(tv.Total_CS_Title[index[cp]]), " \x04　", tv.Total_CS_Need[index[cp]], " \x1FCS")
+                # (Line 129) else
+                # (Line 130) { s.printAt(i + 1, "　　\x17[ \x04", i + 1, " \x17]　\x05",ptr2s(tv.Total_CS_Title[index[cp]])," \x04　", tv.Total_CS_Need[index[cp]], " \x1FCS"); }
             if EUDElse()():
-                tct.f_addText("\n　　\x17[ \x04", i + 1, " \x17]　\x05", ptr2s(tv.Total_CS_Title[index[cp]]), " \x04　", tv.Total_CS_Need[index[cp]], " \x1FCS")
-                # (Line 142) }
+                s.printAt(i + 1, "　　\x17[ \x04", i + 1, " \x17]　\x05", ptr2s(tv.Total_CS_Title[index[cp]]), " \x04　", tv.Total_CS_Need[index[cp]], " \x1FCS")
+                # (Line 131) }
             EUDEndIf()
-            # (Line 143) else
-            # (Line 144) { tct.addText("\n"); }
+            # (Line 132) else { s.printAt(i + 1, "\n"); }
         if EUDElse()():
-            tct.f_addText("\n")
-            # (Line 145) }
+            s.printAt(i + 1, "\n")
+            # (Line 133) }
         EUDEndIf()
-        # (Line 146) tct.addText("\n　　\x04", tv.View_Title_Now[cp] + 1, " 페이지 / 이전 [\x17A\x04] 다음 [\x17D\x04] 돌아가기 [\x17Z\x04]");
+        # (Line 134) s.printAt(6, "\n");
         EUDSetContinuePoint()
         _t2()
     EUDEndWhile()
-    tct.f_addText("\n　　\x04", tv.View_Title_Now[cp] + 1, " 페이지 / 이전 [\x17A\x04] 다음 [\x17D\x04] 돌아가기 [\x17Z\x04]")
-    # (Line 148) txtPtr = dwread_epd(EPD(0x640B58));
-    txtPtr << (f_dwread_epd(EPD(0x640B58)))
-    # (Line 149) tct.displayText();
-    tct.f_displayText()
-    # (Line 150) SetMemory(0x640B58, SetTo, txtPtr);
-    # (Line 152) Set_PName_Index(cp, 300);
-    DoActions(SetMemory(0x640B58, SetTo, txtPtr))
+    s.printAt(6, "\n")
+    # (Line 135) s.printAt(7, "　　\x04", tv.View_Title_Now[cp] + 1, " 페이지 / 이전 [\x17A\x04] 다음 [\x17D\x04] 돌아가기 [\x17Z\x04]");
+    s.printAt(7, "　　\x04", tv.View_Title_Now[cp] + 1, " 페이지 / 이전 [\x17A\x04] 다음 [\x17D\x04] 돌아가기 [\x17Z\x04]")
+    # (Line 137) Set_PName_Index(cp, 300);
     Set_PName_Index(cp, 300)
-    # (Line 153) }
-    # (Line 155) function Set_PName_Index(cp, value)
+    # (Line 138) }
+    # (Line 140) function Set_PName_Index(cp, value)
+
+# (Line 141) {
+@EUDFunc
+def Set_PName_Index(cp, value):
+    # (Line 142) if (Deaths(CurrentPlayer, AtLeast, 1, "Zerg Larva"))
+    if EUDIf()(Deaths(CurrentPlayer, AtLeast, 1, "Zerg Larva")):
+        # (Line 143) {
+        # (Line 144) index[cp] = dwread_epd(EPD(0x58A364 + 48 * 35 + 4 * cp)) - 1;
+        _ARRW(index, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 35 + 4 * cp)) - 1)
+        # (Line 145) if ( tv.Enable_Title_Num[cp] > tv.View_Title_Num * tv.View_Title_Now[cp] + index[cp])
+        if EUDIf()(tv.Enable_Title_Num[cp] <= tv.View_Title_Num * tv.View_Title_Now[cp] + index[cp], neg=True):
+            # (Line 146) {
+            # (Line 147) tv.Title_Name_Front[cp] = value + tv.View_Title_Num * tv.View_Title_Now[cp] + index[cp];
+            _ARRW(tv.Title_Name_Front, cp) << (value + tv.View_Title_Num * tv.View_Title_Now[cp] + index[cp])
+            # (Line 148) tv.View_Title[cp] = 2;
+            _ARRW(tv.View_Title, cp) << (2)
+            # (Line 149) s.print("\n\n\n\n\n\n\n\n\n\n\n");
+            s.print("\n\n\n\n\n\n\n\n\n\n\n")
+            # (Line 150) }
+            # (Line 151) SetDeaths(CurrentPlayer, SetTo, 0, "Zerg Larva");
+        EUDEndIf()
+        # (Line 152) }
+        DoActions(SetDeaths(CurrentPlayer, SetTo, 0, "Zerg Larva"))
+        # (Line 153) }
+    EUDEndIf()
+    # (Line 155) function Set_PName(cp)
 
 # (Line 156) {
 @EUDFunc
-def Set_PName_Index(cp, value):
-    # (Line 157) if (Deaths(CurrentPlayer, AtLeast, 1, "Zerg Larva"))
-    if EUDIf()(Deaths(CurrentPlayer, AtLeast, 1, "Zerg Larva")):
-        # (Line 158) {
-        # (Line 159) index[cp] = dwread_epd(EPD(0x58A364 + 48 * 35 + 4 * cp)) - 1;
-        _ARRW(index, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 35 + 4 * cp)) - 1)
-        # (Line 160) if ( tv.Enable_Title_Num[cp] > tv.View_Title_Num * tv.View_Title_Now[cp] + index[cp])
-        if EUDIf()(tv.Enable_Title_Num[cp] <= tv.View_Title_Num * tv.View_Title_Now[cp] + index[cp], neg=True):
-            # (Line 161) {
-            # (Line 162) tv.Title_Name_Front[cp] = value + tv.View_Title_Num * tv.View_Title_Now[cp] + index[cp];
-            _ARRW(tv.Title_Name_Front, cp) << (value + tv.View_Title_Num * tv.View_Title_Now[cp] + index[cp])
-            # (Line 163) tv.View_Title[cp] = 2;
-            _ARRW(tv.View_Title, cp) << (2)
-            # (Line 164) tct.print("\n\n\n\n\n\n\n\n\n\n\n");
-            tct.f_print("\n\n\n\n\n\n\n\n\n\n\n")
-            # (Line 165) }
-            # (Line 166) SetDeaths(CurrentPlayer, SetTo, 0, "Zerg Larva");
-        EUDEndIf()
-        # (Line 167) }
-        DoActions(SetDeaths(CurrentPlayer, SetTo, 0, "Zerg Larva"))
-        # (Line 168) }
-    EUDEndIf()
-    # (Line 170) function Set_PName(cp)
-
-# (Line 171) {
-@EUDFunc
 def Set_PName(cp):
-    # (Line 172) if (tv.Title_Name_Front[cp] >= 100 && tv.Title_Name_Front[cp] < 200)
+    # (Line 157) if (tv.Title_Name_Front[cp] >= 100 && tv.Title_Name_Front[cp] < 200)
     if EUDIf()(EUDSCAnd()(tv.Title_Name_Front[cp] >= 100)(tv.Title_Name_Front[cp] >= 200, neg=True)()):
-        # (Line 173) {
-        # (Line 174) SetPName(getcurpl(), ptr2s(tv.Total_Exp_Title[tv.Title_Name_Front[cp] - 100]), tct.str(0x57EEEB + 36 * getcurpl()));
+        # (Line 158) {
+        # (Line 159) SetPName(getcurpl(), ptr2s(tv.Total_Exp_Title[tv.Title_Name_Front[cp] - 100]), tct.str(0x57EEEB + 36 * getcurpl()));
         SetPName(f_getcurpl(), ptr2s(tv.Total_Exp_Title[tv.Title_Name_Front[cp] - 100]), tct.f_str(0x57EEEB + 36 * f_getcurpl()))
-        # (Line 175) }
-        # (Line 176) else if (tv.Title_Name_Front[cp] >= 200 && tv.Title_Name_Front[cp] < 300)
+        # (Line 160) }
+        # (Line 161) else if (tv.Title_Name_Front[cp] >= 200 && tv.Title_Name_Front[cp] < 300)
     if EUDElseIf()(EUDSCAnd()(tv.Title_Name_Front[cp] >= 200)(tv.Title_Name_Front[cp] >= 300, neg=True)()):
-        # (Line 177) {
-        # (Line 178) SetPName(getcurpl(), ptr2s(tv.Total_Kill_Title[tv.Title_Name_Front[cp] - 200]), tct.str(0x57EEEB + 36 * getcurpl()));
+        # (Line 162) {
+        # (Line 163) SetPName(getcurpl(), ptr2s(tv.Total_Kill_Title[tv.Title_Name_Front[cp] - 200]), tct.str(0x57EEEB + 36 * getcurpl()));
         SetPName(f_getcurpl(), ptr2s(tv.Total_Kill_Title[tv.Title_Name_Front[cp] - 200]), tct.f_str(0x57EEEB + 36 * f_getcurpl()))
-        # (Line 179) }
-        # (Line 180) else if (tv.Title_Name_Front[cp] >= 300 && tv.Title_Name_Front[cp] < 400)
+        # (Line 164) }
+        # (Line 165) else if (tv.Title_Name_Front[cp] >= 300 && tv.Title_Name_Front[cp] < 400)
     if EUDElseIf()(EUDSCAnd()(tv.Title_Name_Front[cp] >= 300)(tv.Title_Name_Front[cp] >= 400, neg=True)()):
-        # (Line 181) {
-        # (Line 182) SetPName(getcurpl(), ptr2s(tv.Total_CS_Title[tv.Title_Name_Front[cp] - 300]), tct.str(0x57EEEB + 36 * getcurpl()));
+        # (Line 166) {
+        # (Line 167) SetPName(getcurpl(), ptr2s(tv.Total_CS_Title[tv.Title_Name_Front[cp] - 300]), tct.str(0x57EEEB + 36 * getcurpl()));
         SetPName(f_getcurpl(), ptr2s(tv.Total_CS_Title[tv.Title_Name_Front[cp] - 300]), tct.f_str(0x57EEEB + 36 * f_getcurpl()))
-        # (Line 183) }
-        # (Line 184) }
+        # (Line 168) }
+        # (Line 169) }
     EUDEndIf()
-    # (Line 186) function Key_input(cp)
+    # (Line 171) function Key_input(cp)
 
-# (Line 187) {
+# (Line 172) {
 @EUDFunc
 def Key_input(cp):
-    # (Line 188) if (Deaths(CurrentPlayer, Exactly, 2, "Terran SCV"))
+    # (Line 173) if (Deaths(CurrentPlayer, Exactly, 2, "Terran SCV"))
     if EUDIf()(Deaths(CurrentPlayer, Exactly, 2, "Terran SCV")):
-        # (Line 189) {
-        # (Line 190) if (tv.Title_Max[cp] > tv.View_Title_Now[cp] * tv.View_Title_Num + tv.View_Title_Num) { tv.View_Title_Now[cp] += 1; }
+        # (Line 174) {
+        # (Line 175) if (tv.Title_Max[cp] > tv.View_Title_Now[cp] * tv.View_Title_Num + tv.View_Title_Num) { tv.View_Title_Now[cp] += 1; }
         if EUDIf()(tv.Title_Max[cp] <= tv.View_Title_Now[cp] * tv.View_Title_Num + tv.View_Title_Num, neg=True):
             _ARRW(tv.View_Title_Now, cp).__iadd__(1)
-            # (Line 191) SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV");
+            # (Line 176) SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV");
         EUDEndIf()
-        # (Line 192) }
+        # (Line 177) }
         DoActions(SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV"))
-        # (Line 193) else if (Deaths(CurrentPlayer, Exactly, 3, "Terran SCV"))
+        # (Line 178) else if (Deaths(CurrentPlayer, Exactly, 3, "Terran SCV"))
     if EUDElseIf()(Deaths(CurrentPlayer, Exactly, 3, "Terran SCV")):
-        # (Line 194) {
-        # (Line 195) if (tv.View_Title_Now[cp] > 0) { tv.View_Title_Now[cp] -= 1; }
+        # (Line 179) {
+        # (Line 180) if (tv.View_Title_Now[cp] > 0) { tv.View_Title_Now[cp] -= 1; }
         if EUDIf()(tv.View_Title_Now[cp] <= 0, neg=True):
             _ARRW(tv.View_Title_Now, cp).__isub__(1)
-            # (Line 196) SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV");
+            # (Line 181) SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV");
         EUDEndIf()
-        # (Line 197) }
+        # (Line 182) }
         DoActions(SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV"))
-        # (Line 199) if (Deaths(CurrentPlayer, Exactly, 4, "Terran SCV"))
+        # (Line 184) if (Deaths(CurrentPlayer, Exactly, 4, "Terran SCV"))
     EUDEndIf()
     if EUDIf()(Deaths(CurrentPlayer, Exactly, 4, "Terran SCV")):
-        # (Line 200) {
-        # (Line 201) SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV");
-        # (Line 203) if (tv.View_Title[cp] < 1) 	{ tv.View_Title[cp] += 1; }
+        # (Line 185) {
+        # (Line 186) SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV");
+        # (Line 188) if (tv.View_Title[cp] < 1) 	{ tv.View_Title[cp] += 1; }
         DoActions(SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV"))
         if EUDIf()(tv.View_Title[cp] >= 1, neg=True):
             _ARRW(tv.View_Title, cp).__iadd__(1)
-            # (Line 204) else 					{ tv.View_Title[cp] = 0; tct.print("\n\n\n\n\n\n\n\n\n\n\n"); }
+            # (Line 189) else 					{ tv.View_Title[cp] = 0; s.print("\n\n\n\n\n\n\n\n\n\n\n"); }
         if EUDElse()():
             _ARRW(tv.View_Title, cp) << (0)
-            tct.f_print("\n\n\n\n\n\n\n\n\n\n\n")
-            # (Line 205) }
+            s.print("\n\n\n\n\n\n\n\n\n\n\n")
+            # (Line 190) }
         EUDEndIf()
-        # (Line 207) if (Deaths(CurrentPlayer, Exactly, 5, "Terran SCV"))
+        # (Line 192) if (Deaths(CurrentPlayer, Exactly, 5, "Terran SCV"))
     EUDEndIf()
     if EUDIf()(Deaths(CurrentPlayer, Exactly, 5, "Terran SCV")):
-        # (Line 208) {
-        # (Line 209) tv.Select_Title[cp] = 0;
+        # (Line 193) {
+        # (Line 194) tv.Select_Title[cp] = 0;
         _ARRW(tv.Select_Title, cp) << (0)
-        # (Line 210) tv.View_Title_Now[cp] = 0;
+        # (Line 195) tv.View_Title_Now[cp] = 0;
         _ARRW(tv.View_Title_Now, cp) << (0)
-        # (Line 211) SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV");
-        # (Line 212) }
+        # (Line 196) SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV");
+        # (Line 197) }
         DoActions(SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV"))
-        # (Line 214) if (Deaths(CurrentPlayer, Exactly, 1, "Zerg Larva") && tv.Select_Title[cp] == 0 && tv.View_Title[cp] == 1) { tv.Select_Title[cp] = 1; SetDeaths(CurrentPlayer, SetTo, 0, "Zerg Larva"); }
+        # (Line 199) if (Deaths(CurrentPlayer, Exactly, 1, "Zerg Larva") && tv.Select_Title[cp] == 0 && tv.View_Title[cp] == 1) { tv.Select_Title[cp] = 1; SetDeaths(CurrentPlayer, SetTo, 0, "Zerg Larva"); }
     EUDEndIf()
     if EUDIf()(EUDSCAnd()(Deaths(CurrentPlayer, Exactly, 1, "Zerg Larva"))(tv.Select_Title[cp] == 0)(tv.View_Title[cp] == 1)()):
         _ARRW(tv.Select_Title, cp) << (1)
         DoActions(SetDeaths(CurrentPlayer, SetTo, 0, "Zerg Larva"))
-        # (Line 215) if (Deaths(CurrentPlayer, Exactly, 2, "Zerg Larva") && tv.Select_Title[cp] == 0 && tv.View_Title[cp] == 1) { tv.Select_Title[cp] = 2; SetDeaths(CurrentPlayer, SetTo, 0, "Zerg Larva"); }
+        # (Line 200) if (Deaths(CurrentPlayer, Exactly, 2, "Zerg Larva") && tv.Select_Title[cp] == 0 && tv.View_Title[cp] == 1) { tv.Select_Title[cp] = 2; SetDeaths(CurrentPlayer, SetTo, 0, "Zerg Larva"); }
     EUDEndIf()
     if EUDIf()(EUDSCAnd()(Deaths(CurrentPlayer, Exactly, 2, "Zerg Larva"))(tv.Select_Title[cp] == 0)(tv.View_Title[cp] == 1)()):
         _ARRW(tv.Select_Title, cp) << (2)
         DoActions(SetDeaths(CurrentPlayer, SetTo, 0, "Zerg Larva"))
-        # (Line 216) if (Deaths(CurrentPlayer, Exactly, 3, "Zerg Larva") && tv.Select_Title[cp] == 0 && tv.View_Title[cp] == 1) { tv.Select_Title[cp] = 3; SetDeaths(CurrentPlayer, SetTo, 0, "Zerg Larva"); }
+        # (Line 201) if (Deaths(CurrentPlayer, Exactly, 3, "Zerg Larva") && tv.Select_Title[cp] == 0 && tv.View_Title[cp] == 1) { tv.Select_Title[cp] = 3; SetDeaths(CurrentPlayer, SetTo, 0, "Zerg Larva"); }
     EUDEndIf()
     if EUDIf()(EUDSCAnd()(Deaths(CurrentPlayer, Exactly, 3, "Zerg Larva"))(tv.Select_Title[cp] == 0)(tv.View_Title[cp] == 1)()):
         _ARRW(tv.Select_Title, cp) << (3)
         DoActions(SetDeaths(CurrentPlayer, SetTo, 0, "Zerg Larva"))
-        # (Line 217) if (Deaths(CurrentPlayer, Exactly, 4, "Zerg Larva") && tv.Select_Title[cp] == 0 && tv.View_Title[cp] == 1) { tv.Select_Title[cp] = 4; SetDeaths(CurrentPlayer, SetTo, 0, "Zerg Larva"); }
+        # (Line 202) if (Deaths(CurrentPlayer, Exactly, 4, "Zerg Larva") && tv.Select_Title[cp] == 0 && tv.View_Title[cp] == 1) { tv.Select_Title[cp] = 4; SetDeaths(CurrentPlayer, SetTo, 0, "Zerg Larva"); }
     EUDEndIf()
     if EUDIf()(EUDSCAnd()(Deaths(CurrentPlayer, Exactly, 4, "Zerg Larva"))(tv.Select_Title[cp] == 0)(tv.View_Title[cp] == 1)()):
         _ARRW(tv.Select_Title, cp) << (4)
         DoActions(SetDeaths(CurrentPlayer, SetTo, 0, "Zerg Larva"))
-        # (Line 218) if (Deaths(CurrentPlayer, Exactly, 5, "Zerg Larva") && tv.Select_Title[cp] == 0 && tv.View_Title[cp] == 1) { tv.Select_Title[cp] = 5; SetDeaths(CurrentPlayer, SetTo, 0, "Zerg Larva"); }
+        # (Line 203) if (Deaths(CurrentPlayer, Exactly, 5, "Zerg Larva") && tv.Select_Title[cp] == 0 && tv.View_Title[cp] == 1) { tv.Select_Title[cp] = 5; SetDeaths(CurrentPlayer, SetTo, 0, "Zerg Larva"); }
     EUDEndIf()
     if EUDIf()(EUDSCAnd()(Deaths(CurrentPlayer, Exactly, 5, "Zerg Larva"))(tv.Select_Title[cp] == 0)(tv.View_Title[cp] == 1)()):
         _ARRW(tv.Select_Title, cp) << (5)
         DoActions(SetDeaths(CurrentPlayer, SetTo, 0, "Zerg Larva"))
-        # (Line 219) }
+        # (Line 204) }
     EUDEndIf()

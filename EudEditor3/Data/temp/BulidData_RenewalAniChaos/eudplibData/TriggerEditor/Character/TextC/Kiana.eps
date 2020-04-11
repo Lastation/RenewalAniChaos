@@ -1,7 +1,6 @@
-import customText as tct;
 import Variable as v;
 
-var txtPtr, btnPtr, btnPos, oldCP;
+const s = StringBuffer();
 
 function NormalText(cp)
 {
@@ -9,7 +8,7 @@ function NormalText(cp)
 	{
 	case 5000:
 		PlayWAV("Kiana_01.ogg");
-		tct.print("\n\n\x13\x0FKiana\n\x13\x04Neko Charm!\n\n");
+		s.print("\n\n\x13\x0FKiana\n\x13\x04Neko Charm!\n\n");
 		v.Sound_Text3[cp] = 0;
 		break;
 	}

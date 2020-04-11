@@ -1,8 +1,6 @@
-import customText as tct;
 import Variable as v;
 
-var txtPtr, btnPtr, btnPos, oldCP;
-const trgk = $T('Artanis & safhfh');
+const s = StringBuffer();
 
 function SetDeathValue(cp)
 {
@@ -36,6 +34,9 @@ function SetDeathValue(cp)
 			else { SetDeaths(CurrentPlayer, SetTo, 120 + v.Level[cp] * 12, (210)); }
 			
 			if (Bring((6), (1), 6, (162), (153))) { SetScore((6), (8), 5, (7)); }
+			SetResources((0), (8), v.DeathOre[cp], (0));
+			SetResources((1), (8), v.DeathOre[cp], (0));
+			SetResources((2), (8), v.DeathOre[cp], (0));
 			SetResources((3), (8), v.DeathOre[cp], (0));
 			SetResources((4), (8), v.DeathOre[cp], (0));
 			SetResources((5), (8), v.DeathOre[cp], (0));
@@ -62,6 +63,9 @@ function SetDeathValue(cp)
 			SetResources((0), (8), v.DeathOre[cp], (0));
 			SetResources((1), (8), v.DeathOre[cp], (0));
 			SetResources((2), (8), v.DeathOre[cp], (0));
+			SetResources((3), (8), v.DeathOre[cp], (0));
+			SetResources((4), (8), v.DeathOre[cp], (0));
+			SetResources((5), (8), v.DeathOre[cp], (0));
 		}
 		
 		v.DeathOre_Text[cp] = v.DeathOre[cp];
@@ -77,10 +81,11 @@ function DeathText(cp)
 	{
 		const value = dwread_epd(EPD(0x58A364 + 48 * 211 + 4 * cp));
 		
-		txtPtr = dwread_epd(EPD(0x640B58));
-		tct.print("\n\x13\x08!! Warning !!\n\x13\x19:: \x17", ptr2s(v.Hero_Name[value]), "\x04이 치명상을 입었습니다. \x19::\n\n\x13\x07", v.Team_Num[cp], "\x04Team \x17+ ", v.DeathOre_Text[cp], " \x04Ore\n");
-		txtPtr = dwread_epd(EPD(0x640B58));
-
+		s.printAt(1,"\n\x13\x08!! Warning !!\n\x13\x19:: \x17", 
+		ptr2s(v.Hero_Name[value]), "\x04이 치명상을 입었습니다. \x19::\n\n\x13\x07", 
+		v.Team_Num[cp], "\x04Team \x17+ ",
+		v.DeathOre_Text[cp], " \x04Ore\n");
+		
 		SetDeaths((13), (7), 0, (211));
 		v.DeathOre_Text[cp] = 0;
 	}

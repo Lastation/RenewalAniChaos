@@ -1,4 +1,3 @@
-import customText as tct;
 import Variable as v;
 
 import SCArchive as sca;
@@ -19,9 +18,6 @@ import Character.Announce as announce;			// 상태창 텍스트
 
 import Title.Marge as title;						// 타이틀 관련
 
-var txtPtr, btnPtr, btnPos, oldCP;
-const trgk = $T('Artanis & safhfh');
-
 function onPluginStart() 	// 초기화 함수
 {
 	sca.Init();
@@ -36,8 +32,8 @@ function MainLoop()
 	
 	unitID.Get_UnitID(cp);
 	
-	scaSetting.SCAMain(cp);			// SCA Setting
 	announce.Announce_Marge(cp);	// 상태창 텍스트
+	scaSetting.SCAMain(cp);			// SCA Setting
 	title.Title_Marge(cp);
 	
 	if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
@@ -72,14 +68,18 @@ function MainLoop()
 
 function beforeTriggerExec() 
 {
-	sca.Exec();
-	
 	EUDPlayerLoop()();
 	
-	if(getcurpl() < 6 && ElapsedTime(AtLeast, 10))
+	if(getcurpl() < 6)
 	{
 		MainLoop();
 	}
 	
 	EUDEndPlayerLoop();
+}
+
+function afterTriggerExec()
+{
+	if (ElapsedTime(AtLeast, 15))
+	{ sca.Exec(); }
 }

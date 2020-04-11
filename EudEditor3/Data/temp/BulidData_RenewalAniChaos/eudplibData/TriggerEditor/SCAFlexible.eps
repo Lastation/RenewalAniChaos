@@ -3,21 +3,21 @@ import TitleVariable as n1;
 
 const ws = 0x58F44A;
 const EntryPointLength = 8;//EntryPointLength
-const SpaceLength = 400;//DataBufferSize
+const SpaceLength = 100;//DataBufferSize
 const ObjectCount = 8;//ObjectCount
 
 function Init(){
     MPQAddFile('SCARCHIVEMAPCODE', py_open('scakeyfile', 'rb').read());
     MPQAddFile('SCARCHIVEDATA', py_open('scadatafile', 'rb').read());
     //EntryPoint
-    dwwrite_epd(EPD(ws) + 0, 1580677550);
-    dwwrite_epd(EPD(ws) + 1, 3335583866);
-    dwwrite_epd(EPD(ws) + 2, 3168563722);
-    dwwrite_epd(EPD(ws) + 3, 1478758964);
-    dwwrite_epd(EPD(ws) + 4, 905498745);
-    dwwrite_epd(EPD(ws) + 5, 3784928459);
-    dwwrite_epd(EPD(ws) + 6, 2361281654);
-    dwwrite_epd(EPD(ws) + 7, 2244428771);
+    dwwrite_epd(EPD(ws) + 0, 2120914151);
+    dwwrite_epd(EPD(ws) + 1, 2521760054);
+    dwwrite_epd(EPD(ws) + 2, 3837447349);
+    dwwrite_epd(EPD(ws) + 3, 2833183119);
+    dwwrite_epd(EPD(ws) + 4, 1117282207);
+    dwwrite_epd(EPD(ws) + 5, 1447746260);
+    dwwrite_epd(EPD(ws) + 6, 1724586796);
+    dwwrite_epd(EPD(ws) + 7, 2855545414);
     
 }
 

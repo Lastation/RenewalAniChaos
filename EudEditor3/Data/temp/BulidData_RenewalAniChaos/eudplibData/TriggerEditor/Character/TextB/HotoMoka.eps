@@ -1,7 +1,6 @@
-import customText as tct;
 import Variable as v;
 
-var txtPtr, btnPtr, btnPos, oldCP;
+const s = StringBuffer();
 
 function NormalText(cp)
 {
@@ -10,12 +9,12 @@ function NormalText(cp)
 	case 3110:
 		PlayWAV("HotoMoka_01.ogg");
 		v.Sound_Text2[cp] = 0;
-		tct.print("\n\n\x13\x1BHoto Moka\n\x13\x04어서오세욧~\n\n");
+		s.print("\n\n\x13\x1BHoto Moka\n\x13\x04어서오세욧~\n\n");
 		break;
 	case 3210:
 		PlayWAV("HotoMoka_02.ogg");
 		v.Sound_Text2[cp] = 0;
-		tct.print("\n\n\x13\x1BHoto Moka\n\x13\x04코코아가 젤 첨에 되고 싶었던거 기억나?\n\n");
+		s.print("\n\n\x13\x1BHoto Moka\n\x13\x04코코아가 젤 첨에 되고 싶었던거 기억나?\n\n");
 		break;
 	case 3220:
 		PlayWAV("HotoMoka_03.ogg");
@@ -23,7 +22,7 @@ function NormalText(cp)
 		break;
 	case 3221:
 		v.Sound_Text2[cp] = 0;
-		tct.print("\n\n\x13\x1BHoto Moka\n\x13\x04마법사!\n\n");
+		s.print("\n\n\x13\x1BHoto Moka\n\x13\x04마법사!\n\n");
 		break;
 	}
 }
@@ -35,11 +34,11 @@ function UiltimateText(cp)
 	case 9000:
 		PlayWAV("HotoMoka_Uiltimate.ogg");
 		v.Sound_Text_Uilti[cp] = 0;
-		tct.print("\n\n\x13\x1BHoto Moka\n\n\x13\x04나, 준비해올게\n\n");
+		s.printAt(3,"\x13\x1BHoto Moka\n\n\x13\x04나, 준비해올게");
 		break;
 	case 9001:
 		v.Sound_Text_Uilti[cp] = 0;
-		tct.print("\n\n\x13\x1BHoto Moka\n\n\x13\x04좋아, 준비 완료!\n\n");
+		s.printAt(3,"\x13\x1BHoto Moka\n\n\x13\x04좋아, 준비 완료!");
 		break;
 	}
 }
@@ -51,9 +50,7 @@ function UniqueText(cp)
 	case 9000:
 		PlayWAV("HotoMoka_00.ogg");
 		v.Sound_Text_Uniq[cp] = 0;
-		txtPtr = dwread_epd(EPD(0x640B58));
-		tct.print("\n\n\x13\x1BHoto Moka\n\n\x13\x04이 앞에는 전파가 닿지 않으니까\n\x13\x04핸드폰은 쓰지 못한단다?\n\n");
-		SetMemory(0x640B58, SetTo, txtPtr);
+		s.printAt(3,"\x13\x1BHoto Moka\n\n\x13\x04이 앞에는 전파가 닿지 않으니까\n\x13\x04핸드폰은 쓰지 못한단다?");
 		break;
 	}
 }
