@@ -186,10 +186,10 @@ def SetDeathValue(cp):
                 # (Line 34) else { SetDeaths(CurrentPlayer, SetTo, 120 + v.Level[cp] * 12, (210)); }
             if EUDElse()():
                 DoActions(SetDeaths(CurrentPlayer, SetTo, 120 + v.Level[cp] * 12, (210)))
-                # (Line 36) if (Bring((6), (1), 6, (162), (153))) { SetScore((6), (8), 5, (7)); }
+                # (Line 36) if (Bring((6), (1), 6, (162), (153))) { SetScore((7), (8), 5, (7)); }
             EUDEndIf()
             if EUDIf()(Bring((6), (1), 6, (162), (153))):
-                DoActions(SetScore((6), (8), 5, (7)))
+                DoActions(SetScore((7), (8), 5, (7)))
                 # (Line 37) SetResources((0), (8), v.DeathOre[cp], (0));
             EUDEndIf()
             # (Line 38) SetResources((1), (8), v.DeathOre[cp], (0));
@@ -240,10 +240,10 @@ def SetDeathValue(cp):
                 # (Line 60) else { SetDeaths(CurrentPlayer, SetTo, 120 + v.Level[cp] * 12, (210)); }
             if EUDElse()():
                 DoActions(SetDeaths(CurrentPlayer, SetTo, 120 + v.Level[cp] * 12, (210)))
-                # (Line 62) if (Bring((7), (1), 6, (162), (153))) { SetScore((7), (8), 5, (7)); }
+                # (Line 62) if (Bring((7), (1), 6, (162), (153))) { SetScore((6), (8), 5, (7)); }
             EUDEndIf()
             if EUDIf()(Bring((7), (1), 6, (162), (153))):
-                DoActions(SetScore((7), (8), 5, (7)))
+                DoActions(SetScore((6), (8), 5, (7)))
                 # (Line 63) SetResources((0), (8), v.DeathOre[cp], (0));
             EUDEndIf()
             # (Line 64) SetResources((1), (8), v.DeathOre[cp], (0));

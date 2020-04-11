@@ -158,8 +158,6 @@ from Title import Marge as title
 # (Line 22) {
 @EUDFunc
 def onPluginStart():
-    # (Line 23) sca.Init();
-    sca.Init()
     # (Line 25) EUDPlayerLoop()();
     EUDPlayerLoop()()
     # (Line 26) EUDEndPlayerLoop();
@@ -176,10 +174,6 @@ def MainLoop():
     unitID.Get_UnitID(cp)
     # (Line 35) announce.Announce_Marge(cp);	// 상태창 텍스트
     announce.Announce_Marge(cp)
-    # (Line 36) scaSetting.SCAMain(cp);			// SCA Setting
-    scaSetting.SCAMain(cp)
-    # (Line 37) title.Title_Marge(cp);
-    title.Title_Marge(cp)
     # (Line 39) if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
     if EUDIf()(Switch((255), (3))):
         # (Line 40) {
@@ -242,9 +236,5 @@ def beforeTriggerExec():
 # (Line 82) {
 @EUDFunc
 def afterTriggerExec():
-    # (Line 83) if (ElapsedTime(AtLeast, 15))
-    if EUDIf()(ElapsedTime(AtLeast, 15)):
-        # (Line 84) { sca.Exec(); }
-        sca.Exec()
-        # (Line 85) }
-    EUDEndIf()
+    # (Line 85) }
+    pass

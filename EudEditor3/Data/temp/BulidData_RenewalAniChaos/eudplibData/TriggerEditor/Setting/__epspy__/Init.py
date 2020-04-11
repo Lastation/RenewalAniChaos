@@ -152,37 +152,42 @@ def SetVariable(cp):
     _ARRW(v.DeathCount, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 210 + 4 * cp)) // 12)
     # (Line 16) v.Unique_Cool[cp] = dwread_epd(EPD(0x58A364 + 48 * 203 + 4 * cp))/12;
     _ARRW(v.Unique_Cool, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 203 + 4 * cp)) // 12)
-    # (Line 19) switch (v.Hero_Num[cp])	// 방어력 관련
+    # (Line 18) if (bread(0x58D2B0 + 0x207C * ((7) / 46) + (cp) * (46 - 31 * ((7) / 46)) + ((7) % 46)) != bread(0x58D2B0 + 35 + 46 * cp))
+    if EUDIf()(f_bread(0x58D2B0 + 0x207C * ((7) // 46) + (cp) * (46 - 31 * ((7) // 46)) + ((7) % 46)) == f_bread(0x58D2B0 + 35 + 46 * cp), neg=True):
+        # (Line 19) { bwrite(0x58D2B0 + 0x207C * ((35) / 46) + (cp) * (46 - 31 * ((35) / 46)) + ((35) % 46), bread(0x58D2B0 + 7 + 46 * cp)); }
+        f_bwrite(0x58D2B0 + 0x207C * ((35) // 46) + (cp) * (46 - 31 * ((35) // 46)) + ((35) % 46), f_bread(0x58D2B0 + 7 + 46 * cp))
+        # (Line 21) switch (v.Hero_Num[cp])	// 방어력 관련
+    EUDEndIf()
     EUDSwitch(v.Hero_Num[cp])
-    # (Line 20) {
-    # (Line 21) case 10:
-    _t1 = EUDSwitchCase()
-    # (Line 22) if(Deaths((13), (0), 1, (204)))
-    if _t1(10):
+    # (Line 22) {
+    # (Line 23) case 10:
+    _t2 = EUDSwitchCase()
+    # (Line 24) if(Deaths((13), (0), 1, (204)))
+    if _t2(10):
         if EUDIf()(Deaths((13), (0), 1, (204))):
-            # (Line 23) {
-            # (Line 24) bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp) + 10);
+            # (Line 25) {
+            # (Line 26) bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp) + 10);
             f_bwrite(0x58D2B0 + 0x207C * ((2) // 46) + (cp) * (46 - 31 * ((2) // 46)) + ((2) % 46), f_bread(0x58D2B0 + 0 + 46 * cp) + 10)
-            # (Line 25) SetDeaths((13), (9), 1, (204));
-            # (Line 26) }
+            # (Line 27) SetDeaths((13), (9), 1, (204));
+            # (Line 28) }
             DoActions(SetDeaths((13), (9), 1, (204)))
-            # (Line 27) else
-            # (Line 28) {
+            # (Line 29) else
+            # (Line 30) {
         if EUDElse()():
-            # (Line 29) bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp));
+            # (Line 31) bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp));
             f_bwrite(0x58D2B0 + 0x207C * ((2) // 46) + (cp) * (46 - 31 * ((2) // 46)) + ((2) % 46), f_bread(0x58D2B0 + 0 + 46 * cp))
-            # (Line 30) }
-            # (Line 31) break;
+            # (Line 32) }
+            # (Line 33) break;
         EUDEndIf()
         EUDBreak()
-        # (Line 32) default:
-    # (Line 33) bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp));
+        # (Line 34) default:
+    # (Line 35) bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp));
     if EUDSwitchDefault()():
         f_bwrite(0x58D2B0 + 0x207C * ((2) // 46) + (cp) * (46 - 31 * ((2) // 46)) + ((2) % 46), f_bread(0x58D2B0 + 0 + 46 * cp))
-        # (Line 34) break;
+        # (Line 36) break;
         EUDBreak()
-        # (Line 35) }
-    # (Line 38) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
+        # (Line 37) }
+    # (Line 40) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
     EUDEndSwitch()
     f_bwrite(0x58D2B0 + 0x207C * ((9) // 46) + (cp) * (46 - 31 * ((9) // 46)) + ((9) % 46), f_bread(0x58D2B0 + 7 + 46 * cp))
-    # (Line 39) }
+    # (Line 41) }
