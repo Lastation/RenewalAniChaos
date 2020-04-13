@@ -20,7 +20,7 @@ import Title.Marge as title;						// 타이틀 관련
 
 function onPluginStart() 	// 초기화 함수
 {
-	//sca.Init();
+	sca.Init();
 	
     	EUDPlayerLoop()();
     	EUDEndPlayerLoop();
@@ -32,9 +32,9 @@ function MainLoop()
 	
 	unitID.Get_UnitID(cp);
 	
-	announce.Announce_Marge(cp);	// 상태창 텍스트
+	//announce.Announce_Marge(cp);	// 상태창 텍스트
 	//scaSetting.SCAMain(cp);			// SCA Setting
-	//title.Title_Marge(cp);
+	title.Title_Marge(cp);
 	
 	if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
 	{
@@ -80,6 +80,6 @@ function beforeTriggerExec()
 
 function afterTriggerExec()
 {
-	//if (ElapsedTime(AtLeast, 15))
-	//{ sca.Exec(); }
+	if (ElapsedTime(AtLeast, 15))
+	{ sca.Exec(); }
 }
