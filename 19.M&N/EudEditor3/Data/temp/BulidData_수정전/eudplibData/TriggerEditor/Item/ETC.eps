@@ -1,0 +1,32 @@
+object Item {
+	var name;
+	var price;
+	var content;
+	var max;
+};
+
+const itemUnsawnTimber 	= Item();
+const itemTimber 		= Item();
+const itemIronOre 		= Item();
+
+const UnsawnTimber 	= PVariable();
+const Timber 		= PVariable();
+const IronOre 		= PVariable();
+
+function SetEtcItemInfo()
+{
+	itemUnsawnTimber.name 		= Db("원목");
+	itemUnsawnTimber.price 		= 20;
+	itemUnsawnTimber.content 	= Db("");
+	itemUnsawnTimber.max 		= 50;
+	
+	itemTimber.name 			= Db("목재");
+	itemTimber.price 			= 20;
+	itemTimber.content 			= Db("");
+	itemTimber.max				= 50;
+	
+	itemIronOre.name 			= Db("철광석");
+	itemIronOre.price 			= 20;
+	itemIronOre.content 		= Db("");
+	itemIronOre.max				= 99;
+}

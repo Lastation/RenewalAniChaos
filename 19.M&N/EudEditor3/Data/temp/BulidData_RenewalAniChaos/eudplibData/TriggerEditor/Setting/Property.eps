@@ -1,0 +1,114 @@
+import Variable as v;
+
+const s = StringBuffer();
+
+function Property_S(cp);
+function Property_C(cp);
+function Property_A();
+
+function PropertyText() 
+{
+	if (Deaths((13), (10), 10000, (223)))
+	{
+		s.printAt(0, "\x13\x1F[S] : \x1B원거리에서 업그레이드\x04가 가능해집니다.");
+		s.printAt(1, "\x13\x19레벨\x04당 영웅 방어력이 1 증가합니다.");
+		s.printAt(2, "\x13\x19팀원포함 최대 업그레이드\x04가 공격력이 2, 방어력이 1 증가합니다. [\x17Max 1\x04]");
+		s.printAt(3, "\n");
+		s.printAt(4, "\x13\x1F[C] : \x1B마나디스크\x04를 하나 가지고 시작합니다.");
+		s.printAt(5, "\x13\x1915 레벨 \x04이후 1분마다 마나가 \x17200/300/400 \x04회복됩니다.");
+		s.printAt(6, "\n");
+		s.printAt(7, "\x13\x1F[A] : \x041분 마다 궁극기 게이지가 \x1910 \x04회복됩니다.");
+		s.printAt(8, "\x13\x1920 레벨 \x04이전 \x1B마나 최대치\x04가 레벨당 \x1710 \x04추가로 증가합니다.");
+	}
+}
+
+function Property(cp)
+{
+	Property_S(cp);
+	Property_C(cp);
+	Property_A();
+}
+
+function Property_S(cp)
+{
+	if (cp >= 0 && cp <= 2 &&  bread(0x58D088 + 0x21F0 * ((0) / 46) + cp * (46 - 31 * ((0) / 46)) + ((0) % 46)) == 60)
+	{
+		if (Deaths((0), (10), 1000, (223)) || Deaths((1), (10), 1000, (223)) || Deaths((2), (10), 1000, (223)))
+		{
+			bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (0) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+			bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (1) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+			bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (2) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+			bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (0) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+			bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (1) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+			bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (2) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+		}
+	}
+	if (cp >= 3 && cp <= 5 &&  bread(0x58D088 + 0x21F0 * ((0) / 46) + cp * (46 - 31 * ((0) / 46)) + ((0) % 46)) == 60)
+	{
+		if (Deaths((3), (10), 1000, (223)) || Deaths((4), (10), 1000, (223)) || Deaths((5), (10), 1000, (223)))
+		{
+			bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (3) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+			bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (4) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+			bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (5) * (46 - 31 * ((7) / 46)) + ((7) % 46), 82);
+			bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (3) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+			bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (4) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+			bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (5) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+		}
+	}
+	
+	if (Deaths(cp, Exactly, 1000, (223)))
+	{
+		if (v.Level[cp] != dwread_epd(EPD(0x5822F4 + 4 * cp))) 
+		{
+			SetMemoryEPD(EPD(0x58D2B0 + 0x207C * ((0) / 46) + cp * (46 - 31 * ((0) / 46)) + ((0) % 46)), (8), bitlshift(1, 8 * (((cp) * (46 - 31 * ((0) / 46)) + ((0) % 46)) % 4)));
+			v.Level[cp] = dwread_epd(EPD(0x5822F4 + 4 * cp));
+		}
+		if (Deaths((13), (10), 0, (204)) && bread(0x58D2B0 + 0x207C * ((0) / 46) + (cp) * (46 - 31 * ((0) / 46)) + ((0) % 46)) >= 62) 
+		{
+			bwrite(0x58D2B0 + 0x207C * ((0) / 46) + (cp) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+		}
+	}
+	else
+	{
+		v.Level[cp] = dwread_epd(EPD(0x5822F4 + 4 * cp));
+	}
+}
+
+function Property_C(cp)
+{
+	if (Deaths((13), (10), 2720, (223)) && cp >= 0 && cp <= 2)
+	{
+		v.Mana_Property[cp] = 100;
+
+		if (Deaths((0), (0), 2000, (223)) && Deaths((0), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
+		if (Deaths((1), (0), 2000, (223)) && Deaths((1), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
+		if (Deaths((2), (0), 2000, (223)) && Deaths((2), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
+
+		SetResources((13), (8), v.Mana_Property[cp], (1));
+		SetDeaths((13), (7), 2000, (223));
+		s.print("\n\n\x13\x19C 특성 \x04효과 +", v.Mana_Property[cp], " \x07Gas\n\n");
+	}
+	
+	if (Deaths((13), (10), 2720, (223)) && cp >= 3 && cp <= 5)
+	{
+		v.Mana_Property[cp] = 100;
+
+		if (Deaths((3), (0), 2000, (223)) && Deaths((3), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
+		if (Deaths((4), (0), 2000, (223)) && Deaths((4), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
+		if (Deaths((5), (0), 2000, (223)) && Deaths((5), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
+		
+		SetResources((13), (8), v.Mana_Property[cp], (1));
+		SetDeaths((13), (7), 2000, (223));
+		s.print("\n\n\x13\x19C 특성 \x04효과 +", v.Mana_Property[cp], " \x07Gas\n\n");
+	}
+}
+
+function Property_A() 
+{
+	if (Deaths((13), (10), 3720, (223)))
+	{
+		SetDeaths((13), (8), 10, (205));
+		SetDeaths((13), (7), 3000, (223));
+		s.print("\x13\x19A 특성 \x04효과 +10 \x1FShield");
+	}
+}

@@ -1,0 +1,154 @@
+import Variables as v;
+import SCArchive as sca;
+import Function as func;
+
+const s = StringBuffer(1000);
+const SaveTimer = PVariable();
+
+function onPluginStart()
+{
+	
+}
+function beforeTriggerExec()
+{	
+	EUDPlayerLoop()();
+		//eprintln(v.LoadState[getcurpl()]);
+		if(getcurpl() < 6)
+		{
+			if(v.LoadState[getcurpl()] == 0)
+			{
+				if(sca.ConnectStatus() == 1)
+				{
+					v.LoadState[getcurpl()] = 1;
+					sca.LoadData(0);
+				}
+				else
+				{
+					s.printAt(0, " ");
+					s.printAt(1, " ");
+					s.printAt(2, "\x13\x04SCArchive 연결을 기다리는 중입니다.");
+				}
+				
+			}
+			
+			if(v.LoadState[getcurpl()] == 1)
+			{
+				s.printAt(0, "\x13\x1d[1] \x17Level \x04: ", v.Slot1_Level[getcurpl()], " \x17Exp \x04: ", v.Slot1_Exp[getcurpl()]);
+				s.printAt(1, "\x13\x1d[2] \x17Level \x04: ", v.Slot2_Level[getcurpl()], " \x17Exp \x04: ", v.Slot2_Exp[getcurpl()]);
+				s.printAt(2, "\x13\x1d[3] \x17Level \x04: ", v.Slot3_Level[getcurpl()], " \x17Exp \x04: ", v.Slot3_Exp[getcurpl()]);
+				s.printAt(3, "\x13\x1d[4] \x17Level \x04: ", v.Slot4_Level[getcurpl()], " \x17Exp \x04: ", v.Slot4_Exp[getcurpl()]);
+				s.printAt(4, "\x13\x1d[5] \x17Level \x04: ", v.Slot5_Level[getcurpl()], " \x17Exp \x04: ", v.Slot5_Exp[getcurpl()]);
+				s.printAt(5, " ");
+				s.printAt(6, "\x13\x1f키보드 숫자키를 이용");
+				
+				// Slot 1 {
+					if(Deaths(CurrentPlayer, Exactly, 1, "Cave") && sca.GetLastMessage() == 4)
+					{
+						if(v.Slot1_Level[getcurpl()] == 0)
+						{
+							v.LoadState[getcurpl()] = 2;
+							v.user_Slot[getcurpl()] = 1;
+							v.user_Level[0] = 1;
+						    v.user_MaxHp[0] = 1000;
+						    v.user_MaxMp[0] = 100;
+						    v.user_MpRecovery[0] = 20;
+							func.CreateCharacter();
+							sca.ResetLastMessage();
+							func.TextClear();
+						} 
+						else 
+						{
+							v.user_Slot[getcurpl()] = 1;
+							v.LoadState[getcurpl()] = 3;
+							sca.LoadData(1);
+							func.TextClear();
+							sca.ResetLastMessage();
+						}
+					}
+				//}
+				// Slot 2 {
+					if(Deaths(CurrentPlayer, Exactly, 2, "Cave") && sca.GetLastMessage() == 4)
+					{
+						if(v.Slot1_Level[getcurpl()] == 0)
+						{
+							v.LoadState[getcurpl()] = 2;
+							v.user_Slot[getcurpl()] = 2;
+							v.user_Level[0] = 1;
+						    v.user_MaxHp[0] = 1000;
+						    v.user_MaxMp[0] = 100;
+						    v.user_MpRecovery[0] = 20;
+							func.CreateCharacter();
+							sca.ResetLastMessage();
+							func.TextClear();
+						} 
+						else 
+						{
+							v.user_Slot[getcurpl()] = 2;
+							v.LoadState[getcurpl()] = 3;
+							sca.LoadData(1);
+							func.TextClear();
+							sca.ResetLastMessage();
+						}
+					}
+				//}
+				
+				
+			}
+			
+			if(v.LoadState[getcurpl()] == 3 && sca.GetLastMessage() == 4)
+			{
+				sca.ResetLastMessage();
+				func.CreateCharacter();
+				v.LoadState[getcurpl()] = 4;
+			}
+		}
+		
+		if(v.SaveState[getcurpl()] == 1 && sca.GetLastMessage() == 6) 
+		{
+			sca.ResetLastMessage();
+			SaveTimer[getcurpl()] = 500;
+			
+		}
+		if(SaveTimer[getcurpl()] > 0) SaveTimer[getcurpl()] -= 1;
+		if(SaveTimer[getcurpl()] == 1)
+		{
+			s.print("\x04", v.user_Slot[getcurpl()], "번 슬롯에 저장합니다");
+			sca.SaveData(v.user_Slot[getcurpl()]);
+			v.SaveState[getcurpl()] = 2;
+		}
+		if(getcurpl() < 6)
+		{
+			// save {
+				if(Deaths(CurrentPlayer, Exactly, 2, "Terran SCV") && sca.ConnectStatus() == 1) // save 채팅인식
+				{
+					if(v.user_Slot[getcurpl()] == 1)
+					{
+						v.Slot1_Level[getcurpl()] = v.user_Level[getcurpl()];
+						v.Slot1_Exp[getcurpl()] = v.user_Exp[getcurpl()];
+						sca.SaveData(0);
+						v.SaveState[getcurpl()] = 1;
+					}
+					else if(v.user_Slot[getcurpl()] == 2)
+					{
+						v.Slot2_Level[getcurpl()] = v.user_Level[getcurpl()];
+						v.Slot2_Exp[getcurpl()] = v.user_Exp[getcurpl()];
+						sca.SaveData(0);
+						v.SaveState[getcurpl()] = 1;
+					}
+					
+				}
+			//}
+			
+			if(Deaths(CurrentPlayer, Exactly, 3, "Terran SCV"))
+			{
+				v.LoadState[getcurpl()] = 0;
+				RemoveUnit("(any unit)", CurrentPlayer);
+			}
+			
+			if(Deaths(CurrentPlayer, Exactly, 4, "Terran SCV"))
+			{
+				
+			}
+		}
+	EUDEndPlayerLoop();
+}

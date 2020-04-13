@@ -21,6 +21,7 @@ import Character.TextC.Seraphim 	as seraphim;
 import Character.TextC.Kiana 		as kiana;
 import Character.TextC.Tenkei 		as tenkei;
 
+import Character.TextD.MN 		as mn;
 
 function MargeSound(cp)
 {
@@ -70,6 +71,17 @@ function MargeSound(cp)
 		tenkei.NormalText(cp);
 	}
 	
+	// 19 ~ 24
+	if (Deaths((13), (0), 1, (157)))
+	{
+		v.Sound_Text4[cp] = dwread_epd(EPD(0x58A364 + 48 * 157 + 4 * cp));
+		SetDeaths((13), (7), 0, (157));
+		
+		const Condition = v.Sound_Text4[cp];
+		
+		mn.NormalText(cp);
+	}
+	
 	if (Deaths((13), (0), 1, (222)))
 	{
 		v.Sound_Text_Uilti[cp] = dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * cp));
@@ -99,6 +111,8 @@ function MargeSound(cp)
 		seraphim.UiltimateText(cp);
 		kiana.UiltimateText(cp);
 		tenkei.UiltimateText(cp);
+		
+		mn.UiltimateText(cp);
 	}
 	if (Deaths((13), (0), 1, (188)))
 	{
@@ -129,5 +143,7 @@ function MargeSound(cp)
 		seraphim.UniqueText(cp);
 		kiana.UniqueText(cp);
 		tenkei.UniqueText(cp);
+		
+		mn.UniqueText(cp);
 	}
 }

@@ -1,0 +1,20 @@
+import SCArchive as sca;
+import customText as tct;
+
+function scaloading() {
+	EUDPlayerLoop()();
+	if (getcurpl() == 0 || getcurpl() == 1 || getcurpl() == 2 || getcurpl() == 3 || getcurpl() == 4 || getcurpl() == 5) {
+		if(Deaths(CurrentPlayer,Exactly,8,"key ]")){
+			switch(sca.GetLastMessage() ){
+				case 1:
+					tct.chatAnnouncement("\x04데이터를 저장합니다.");
+					sca.SaveData(0);
+				case 2:
+					tct.chatAnnouncement("\x04런처를 연결하세요.");
+				case 7:
+					tct.chatAnnouncement("\x04런처를 연결하세요.");
+			}
+		}
+	}
+	EUDEndPlayerLoop();
+}

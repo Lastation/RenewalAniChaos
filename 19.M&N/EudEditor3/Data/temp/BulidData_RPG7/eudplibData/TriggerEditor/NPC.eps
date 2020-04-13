@@ -1,0 +1,74 @@
+import Variables as v;
+import Function as func;
+
+const s = StringBuffer(1000);
+const Siz = PVariable();
+
+function beforeTriggerExec()
+{
+	EUDPlayerLoop()();
+	// Siz {
+		if(Deaths(CurrentPlayer, Exactly, 8, "Terran Dropship") && func.EPDBring(18, v.user_Character[getcurpl()]))
+		{
+			if(Siz[getcurpl()] == 0)
+			{
+				Siz[getcurpl()] = 1;
+				func.CloseInven();
+			}
+		}
+		
+		if(Siz[getcurpl()] == 1)
+		{
+			func.UnitStop();
+			s.printAt(0, "\x13\x1b[ 시즈 ]");
+			s.printAt(1, " ");
+			s.printAt(2, "\x13\x1d[ 2 ] \x04구매");
+			s.printAt(3, "\x13\x1d[ 3 ] \x04판매");
+			s.printAt(4, "\x13\x1d[ 4 ] \x04나가기");
+			
+			if(Deaths(CurrentPlayer, Exactly, 2, "Cave"))
+			{
+				Siz[getcurpl()] = 2;
+				SetDeaths(CurrentPlayer, SetTo, 0, "Cave");
+			} else if(Deaths(CurrentPlayer, Exactly, 3, "Cave")) {
+				Siz[getcurpl()] = 3;
+				SetDeaths(CurrentPlayer, SetTo, 0, "Cave");
+			} else if(Deaths(CurrentPlayer, Exactly, 4, "Cave")) {
+				Siz[getcurpl()] = 0;
+				SetDeaths(CurrentPlayer, SetTo, 0, "Cave");
+				func.TextClear();
+			} 
+		}
+		
+		if(Siz[getcurpl()] == 2)
+		{
+			func.UnitStop();
+			s.printAt(0, "\x13\x1b아이템 구매");
+			s.printAt(1, " ");
+			s.printAt(2, "\x13\x1d[ 2 ] \x04최하급 체력 물약");
+			s.printAt(3, "\x13\x1d[ 3 ] \x04하급 체력 물약");
+			s.printAt(4, "\x13\x1d[ 4 ] \x04뒤로가기");
+			
+			if(Deaths(CurrentPlayer, Exactly, 2, "Cave"))
+			{
+				if(v.user_Gold[getcurpl()] >= v.HPPotion1.price)
+				{
+					v.user_Gold[getcurpl()] -= v.HPPotion1.price;
+					v.user_TotalSpendGold[getcurpl()] += v.HPPotion1.price;
+					func.AddItem(100, v.HPPotion1.name, 1);
+				} else s.print("\x04골드가 부족합니다.");
+			} else if(Deaths(CurrentPlayer, Exactly, 3, "Cave")) {
+				if(v.user_Gold[getcurpl()] >= v.HPPotion2.price)
+				{
+					v.user_Gold[getcurpl()] -= v.HPPotion2.price;
+					v.user_TotalSpendGold[getcurpl()] += v.HPPotion2.price;
+					func.AddItem(100, v.HPPotion2.name, 1);
+				} else s.print("\x04골드가 부족합니다.");
+			} else if(Deaths(CurrentPlayer, Exactly, 4, "Cave")) {
+				Siz[getcurpl()] = 1;
+				func.TextClear();
+			}
+		}
+	//}
+	EUDEndPlayerLoop();
+}

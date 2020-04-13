@@ -1,0 +1,33 @@
+import Variable as v;
+
+const s = StringBuffer(1000);
+
+function NewCharacter();
+
+function NewCharacter()
+{
+	const cp = getcurpl();
+	
+	v.userLevel[cp] = 1;
+	v.userMaxHp[cp] = 320;
+	v.userJob[cp] = 1;
+	v.userCharacter[cp] = epdread_epd(EPD(0x628438));
+	
+	switch(cp)
+	{
+		case 0:
+			dwwrite(0x65FD00 + 9808 + 0 * 4, v.userMaxHp[getcurpl()] * 256);
+			CreateUnit(1, "Terran Marine", "Start", CurrentPlayer);
+			break;
+		case 1:
+			CreateUnit(1, "Terran Ghost", "Start", CurrentPlayer);
+			break;
+		case 2:
+			CreateUnit(1, "Sarah Kerrigan", "Start", CurrentPlayer);
+			break;
+	}
+
+	s.print("\x04플레이어들의 유닛을 생성합니다.");
+	
+	v.isAlive[cp] = 1;
+}

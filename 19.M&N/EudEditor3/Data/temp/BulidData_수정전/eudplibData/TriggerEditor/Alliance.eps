@@ -1,0 +1,27 @@
+function SetAlliance()
+{
+	if(getcurpl() < 6)
+	{
+		SetAllianceStatus(P1, Ally);
+		SetAllianceStatus(P2, Ally);
+		SetAllianceStatus(P3, Ally);
+		SetAllianceStatus(P4, Ally);
+		SetAllianceStatus(P5, Ally);
+		SetAllianceStatus(P6, Ally);
+		SetAllianceStatus(P7, Ally);
+	}
+	if(getcurpl() == 6)
+	{
+		SetAllianceStatus(P1, Ally);
+		SetAllianceStatus(P2, Ally);
+		SetAllianceStatus(P3, Ally);
+		SetAllianceStatus(P4, Ally);
+		SetAllianceStatus(P5, Ally);
+		SetAllianceStatus(P6, Ally);
+		SetAllianceStatus(P8, Ally);
+	}
+	if(getcurpl() == 7)
+	{
+		SetAllianceStatus(P7, Ally);
+	}
+}

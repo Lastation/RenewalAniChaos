@@ -184,47 +184,49 @@ Sound_Text1 = _CGFW(lambda: [PVariable()], 1)[0]
 Sound_Text2 = _CGFW(lambda: [PVariable()], 1)[0]
 # (Line 42) const Sound_Text3 = PVariable();
 Sound_Text3 = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 44) const Sound_Text_Uilti = PVariable();
+# (Line 43) const Sound_Text4 = PVariable();
+Sound_Text4 = _CGFW(lambda: [PVariable()], 1)[0]
+# (Line 45) const Sound_Text_Uilti = PVariable();
 Sound_Text_Uilti = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 45) const Sound_Text_Uniq = PVariable();
+# (Line 46) const Sound_Text_Uniq = PVariable();
 Sound_Text_Uniq = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 47) const Hero_Num = PVariable();
+# (Line 48) const Hero_Num = PVariable();
 Hero_Num = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 49) const Mana_Property = PVariable();
+# (Line 50) const Mana_Property = PVariable();
 Mana_Property = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 50) const Upgrade_Armor = PVariable();
+# (Line 51) const Upgrade_Armor = PVariable();
 Upgrade_Armor = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 51) const DeathOre_Text = PVariable();
+# (Line 52) const DeathOre_Text = PVariable();
 DeathOre_Text = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 53) const Unit_HP 		= PVariable();		// 건물 체력
+# (Line 54) const Unit_HP 		= PVariable();		// 건물 체력
 Unit_HP = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 54) const BuildingText 	= PVariable();		// 건물 텍스트
+# (Line 55) const BuildingText 	= PVariable();		// 건물 텍스트
 BuildingText = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 55) const BuildingIndex  = PVariable();		// 건물 인덱스
+# (Line 56) const BuildingIndex  = PVariable();		// 건물 인덱스
 BuildingIndex = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 57) const DeathOre 		= PVariable();
+# (Line 58) const DeathOre 		= PVariable();
 DeathOre = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 58) const Team_Num 	= PVariable();
+# (Line 59) const Team_Num 	= PVariable();
 Team_Num = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 60) const Hero_Name =
-# (Line 61) [Db("#REF"),
-# (Line 62) Db("루살카 슈베게린"),
-# (Line 63) Db("크톨리 노타 세니오리스"),
-# (Line 64) Db("텐카와 마이히메"),
-# (Line 65) Db("히나나위 텐시"),
-# (Line 66) Db("소네 미유키"),
-# (Line 67) Db("네게브"),
-# (Line 68) Db("세실리아"),
-# (Line 69) Db("후타바 안즈"),
-# (Line 70) Db("호토 모카"),
-# (Line 71) Db("수수께끼의 얼터에고 Λ"),
-# (Line 72) Db("토키사키 쿠루미"),
-# (Line 73) Db("류즈"),
-# (Line 74) Db("사쿠라"),
-# (Line 75) Db("야시로 가쿠"),
-# (Line 76) Db("린"),
-# (Line 77) Db("세라핌"),
-# (Line 78) Db("키아나 카스라나"),
-# (Line 79) Db("이와후네 텐케이"),
-# (Line 80) Db("#REF")];
+# (Line 61) const Hero_Name =
+# (Line 62) [Db("#REF"),
+# (Line 63) Db("루살카 슈베게린"),
+# (Line 64) Db("크톨리 노타 세니오리스"),
+# (Line 65) Db("텐카와 마이히메"),
+# (Line 66) Db("히나나위 텐시"),
+# (Line 67) Db("소네 미유키"),
+# (Line 68) Db("네게브"),
+# (Line 69) Db("세실리아"),
+# (Line 70) Db("후타바 안즈"),
+# (Line 71) Db("호토 모카"),
+# (Line 72) Db("수수께끼의 얼터에고 Λ"),
+# (Line 73) Db("토키사키 쿠루미"),
+# (Line 74) Db("류즈"),
+# (Line 75) Db("사쿠라"),
+# (Line 76) Db("야시로 가쿠"),
+# (Line 77) Db("린"),
+# (Line 78) Db("세라핌"),
+# (Line 79) Db("키아나 카스라나"),
+# (Line 80) Db("이와후네 텐케이"),
+# (Line 81) Db("#REF")];
 Hero_Name = _CGFW(lambda: [_ARR(FlattenList([Db("#REF"), Db("루살카 슈베게린"), Db("크톨리 노타 세니오리스"), Db("텐카와 마이히메"), Db("히나나위 텐시"), Db("소네 미유키"), Db("네게브"), Db("세실리아"), Db("후타바 안즈"), Db("호토 모카"), Db("수수께끼의 얼터에고 Λ"), Db("토키사키 쿠루미"), Db("류즈"), Db("사쿠라"), Db("야시로 가쿠"), Db("린"), Db("세라핌"), Db("키아나 카스라나"), Db("이와후네 텐케이"), Db("#REF")]))], 1)[0]
