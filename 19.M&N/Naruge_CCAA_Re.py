@@ -1,7 +1,21 @@
 
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 210, " `SkillStep");
+      Deaths(CurrentPlayer, AtMost, 2, " `SkillCount");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      MoveLocation("19.M&N_Bozo2", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
+   },
+}
 
 Trigger { -- Skill : S
-   players = {Force1},
+   players = {Force1, Force2},
    conditions = {
       Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
       Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
@@ -22,7 +36,7 @@ Trigger { -- Skill : S
 
 
 Trigger { -- Skill : S
-   players = {Force1},
+   players = {Force1, Force2},
    conditions = {
       Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
       Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
@@ -33,14 +47,16 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
-      Wait(6000);
-      SetDeaths(CurrentPlayer, Add, 2, " `SkillCount");
+      Wait(4000);
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
    },
 }
 
+
+
 Trigger { -- Skill : S
-   players = {Force1},
+   players = {Force1, Force2},
    conditions = {
       Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
       Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
@@ -81,7 +97,7 @@ Trigger { -- Skill : S
 }
 
 Trigger { -- Skill : S
-   players = {Force1},
+   players = {Force1, Force2},
    conditions = {
       Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
       Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
@@ -107,6 +123,95 @@ Trigger { -- Skill : S
       GiveUnits(All, "130 + 1n Arbiter", Allies, "19.M&N_Bozo", CurrentPlayer);
    },
 }
+
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 210, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 3, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      SetSwitch("Recall - M&N", Clear);
+      Wait(2000);
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
+   },
+}
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 210, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 3, " `SkillCount");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      KillUnitAt(All, "80 + 1n Goliath", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "80 + 1n Vulture", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "80 + 1n Marine", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "80 + 1n Tank", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "80 + 1n Mutalisk", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "80 + 1n Guardian", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "80 + 1n Artanis", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "80 + 1n Ghost", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "100 + 1n Dragoon", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "120 + 1n Archon", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "130 + 1n Norad", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "130 + 1n Arbiter", "Anywhere", CurrentPlayer);
+   },
+}
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 210, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 3, " `SkillCount");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      KillUnitAt(All, "40 + 1n Marine", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Ghost", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Goliath", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Wraith", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Firebat", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Zergling", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, " Creep. Licht", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Drone", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Guardian", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Zealot", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 3n Zeratul", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Mojo", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Lurker", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "50 + 1n Tank", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "60 + 3n Siege", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "60 + 1n Siege", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "60 + 1n Hydralisk", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "60 + 1n High Templar", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "60 + 1n Archon", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "60 + 3n Ghost", "Anywhere", CurrentPlayer);
+   },
+}
+
+
 
 interval = 100;
 
@@ -453,74 +558,6 @@ Trigger { -- Skill : S
    },
 }
 
-Trigger { -- Skill : S
-   players = {Force1, Force2},
-   conditions = {
-      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
-      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
-      Deaths(CurrentPlayer, Exactly, 210, " `SkillStep");
-      Deaths(CurrentPlayer, Exactly, 8, " `SkillCount");
-   },
-   actions = {
-      Comment("Skill : Ultimate");
-      PreserveTrigger();
-      RemoveUnitAt(All, "80 + 1n Goliath", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "80 + 1n Vulture", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "80 + 1n Marine", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "80 + 1n Tank", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "80 + 1n Mutalisk", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "80 + 1n Guardian", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "80 + 1n Artanis", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "80 + 1n Ghost", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "100 + 1n Dragoon", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "120 + 1n Archon", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "130 + 1n Norad", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "130 + 1n Arbiter", "Anywhere", CurrentPlayer);
-   },
-}
-Trigger { -- Skill : S
-   players = {Force1, Force2},
-   conditions = {
-      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
-      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
-      Deaths(CurrentPlayer, Exactly, 210, " `SkillStep");
-      Deaths(CurrentPlayer, Exactly, 8, " `SkillCount");
-   },
-   actions = {
-      Comment("Skill : Ultimate");
-      PreserveTrigger();
-      RemoveUnitAt(All, "40 + 1n Marine", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "40 + 1n Ghost", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, " Creep. Dunkelheit", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "40 + 1n Goliath", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "40 + 1n Firebat", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "40 + 1n Zergling", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, " Creep. Licht", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "40 + 1n Drone", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "40 + 1n Guardian", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "40 + 1n Zealot", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "40 + 3n Zeratul", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "40 + 1n Gantrithor", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "40 + 1n Lurker", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "50 + 1n Tank", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "60 + 3n Siege", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "60 + 1n Siege", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "60 + 1n Hydralisk", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "60 + 1n Dragoon", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "60 + 1n High Templar", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "60 + 1n Archon", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", CurrentPlayer);
-      RemoveUnitAt(All, "60 + 3n Ghost", "Anywhere", CurrentPlayer);
-   },
-}
-
-
 
 Trigger { -- Skill : S
    players = {Force1, Force2},
@@ -534,7 +571,6 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
-      SetSwitch("Recall - M&N", Clear);
       Wait(500);
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillCount");
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");

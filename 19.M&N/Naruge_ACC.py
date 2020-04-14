@@ -36,30 +36,37 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Combo");
       PreserveTrigger();
-      CreateUnit(4, "80 + 1n Artanis", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      CreateUnit(4, "40 + 1n Mojo", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      CreateUnit(4, "40 + 1n Wraith", "[Skill]Unit_Wait_8", CurrentPlayer);  
       CreateUnit(4, "Protoss Dark Templar", "[Skill]Unit_Wait_8", CurrentPlayer);  
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("19.M&N", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
       LMove(172, x, y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Wraith", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
       LMove(172, -x, -y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Wraith", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
       LMove(172, -y, x);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Wraith", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
       LMove(172, y, -x);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Wraith", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       KillUnitAt(All, "Protoss Dark Templar", "Anywhere", CurrentPlayer);
       MoveLocation("19.M&N", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
-      Order("80 + 1n Artanis", CurrentPlayer, "Anywhere", Attack, "19.M&N");
+      Order("40 + 1n Mojo", CurrentPlayer, "Anywhere", Attack, "19.M&N");
+      Order("40 + 1n Wraith", CurrentPlayer, "Anywhere", Attack, "19.M&N");
       Wait(0);
-      KillUnitAt(All, "80 + 1n Artanis", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Mojo", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Wraith", "Anywhere", CurrentPlayer);
       Wait(0);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
    },
@@ -170,40 +177,40 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Combo");
       PreserveTrigger();
-      CreateUnit(9, "80 + 1n Artanis", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      CreateUnit(9, "40 + 1n Mojo", "[Skill]Unit_Wait_8", CurrentPlayer);  
       CreateUnit(9, "Protoss Dark Templar", "[Skill]Unit_Wait_8", CurrentPlayer);  
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("19.M&N", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
       LMove(172, x, y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       KillUnitAt(All, "Protoss Dark Templar", "Anywhere", CurrentPlayer);
       MoveLocation("19.M&N", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
-      Order("80 + 1n Artanis", CurrentPlayer, "Anywhere", Attack, "19.M&N");
+      Order("40 + 1n Mojo", CurrentPlayer, "Anywhere", Attack, "19.M&N");
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
    },
 }
@@ -221,7 +228,7 @@ Trigger { -- Skill : S
       Comment("Skill : Combo");
       PreserveTrigger();
       Wait(0);
-      RemoveUnitAt(All, "80 + 1n Artanis", "Anywhere", CurrentPlayer);
+      RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", CurrentPlayer);
       CreateUnit(9, "Target", "[Skill]Unit_Wait_8", CurrentPlayer);  
       CreateUnit(9, " Unit. Hoffnung 25000", "[Skill]Unit_Wait_8", CurrentPlayer);  
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
@@ -276,40 +283,40 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Combo");
       PreserveTrigger();
-      CreateUnit(9, "80 + 1n Artanis", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      CreateUnit(9, "40 + 1n Mojo", "[Skill]Unit_Wait_8", CurrentPlayer);  
       CreateUnit(9, "Protoss Dark Templar", "[Skill]Unit_Wait_8", CurrentPlayer);  
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("19.M&N", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
       LMove(172, x, y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       KillUnitAt(All, "Protoss Dark Templar", "Anywhere", CurrentPlayer);
       MoveLocation("19.M&N", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
-      Order("80 + 1n Artanis", CurrentPlayer, "Anywhere", Attack, "19.M&N");
+      Order("40 + 1n Mojo", CurrentPlayer, "Anywhere", Attack, "19.M&N");
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
    },
 }
@@ -327,7 +334,7 @@ Trigger { -- Skill : S
       Comment("Skill : Combo");
       PreserveTrigger();
       Wait(0);
-      RemoveUnitAt(All, "80 + 1n Artanis", "Anywhere", CurrentPlayer);
+      RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", CurrentPlayer);
       CreateUnit(9, "Target", "[Skill]Unit_Wait_8", CurrentPlayer);  
       CreateUnit(9, " Unit. Hoffnung 25000", "[Skill]Unit_Wait_8", CurrentPlayer);  
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
@@ -382,40 +389,40 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Combo");
       PreserveTrigger();
-      CreateUnit(9, "80 + 1n Artanis", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      CreateUnit(9, "40 + 1n Mojo", "[Skill]Unit_Wait_8", CurrentPlayer);  
       CreateUnit(9, "Protoss Dark Templar", "[Skill]Unit_Wait_8", CurrentPlayer);  
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("19.M&N", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
       LMove(172, x, y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, i_x, i_y);
-      MoveUnit(1, "80 + 1n Artanis", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       KillUnitAt(All, "Protoss Dark Templar", "Anywhere", CurrentPlayer);
       MoveLocation("19.M&N", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
-      Order("80 + 1n Artanis", CurrentPlayer, "Anywhere", Attack, "19.M&N");
+      Order("40 + 1n Mojo", CurrentPlayer, "Anywhere", Attack, "19.M&N");
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
    },
 }
@@ -433,7 +440,7 @@ Trigger { -- Skill : S
       Comment("Skill : Combo");
       PreserveTrigger();
       Wait(0);
-      RemoveUnitAt(All, "80 + 1n Artanis", "Anywhere", CurrentPlayer);
+      RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", CurrentPlayer);
       CreateUnit(9, "Target", "[Skill]Unit_Wait_8", CurrentPlayer);  
       CreateUnit(9, " Unit. Hoffnung 25000", "[Skill]Unit_Wait_8", CurrentPlayer);  
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
@@ -469,6 +476,14 @@ Trigger { -- Skill : S
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
    },
 }
+
+
+x = 96;
+y = 48;
+
+i_x = -24;
+i_y = -12;
+
 Trigger { -- Skill : S
    players = {Force1, Force2},
    conditions = {
@@ -481,12 +496,220 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Combo");
       PreserveTrigger();
-      SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
-      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
+      CreateUnit(9, "40 + 1n Mojo", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      CreateUnit(9, "Protoss Dark Templar", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
+      MoveLocation("19.M&N", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
+      LMove(172, x, y);
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      LMove(172, i_x, i_y);
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      LMove(172, i_x, i_y);
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      LMove(172, i_x, i_y);
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      LMove(172, i_x, i_y);
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      LMove(172, i_x, i_y);
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      LMove(172, i_x, i_y);
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      LMove(172, i_x, i_y);
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      LMove(172, i_x, i_y);
+      MoveUnit(1, "40 + 1n Mojo", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "Protoss Dark Templar", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      KillUnitAt(All, "Protoss Dark Templar", "Anywhere", CurrentPlayer);
+      MoveLocation("19.M&N", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
+      Order("40 + 1n Mojo", CurrentPlayer, "Anywhere", Attack, "19.M&N");
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+   },
+}
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 3, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 7, " `SkillLoop");
+   },
+   actions = {
+      Comment("Skill : Combo");
+      PreserveTrigger();
+      Wait(0);
+      RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", CurrentPlayer);
+      CreateUnit(9, "Target", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      CreateUnit(9, " Unit. Hoffnung 25000", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
+      MoveLocation("19.M&N", " * Infested Kerrigan", CurrentPlayer, "Anywhere");
+      LMove(172, x, y);
+      MoveUnit(1, "Target", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, " Unit. Hoffnung 25000", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      LMove(172, i_x, i_y);
+      MoveUnit(1, "Target", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, " Unit. Hoffnung 25000", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      LMove(172, i_x, i_y);
+      MoveUnit(1, "Target", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, " Unit. Hoffnung 25000", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      LMove(172, i_x, i_y);
+      MoveUnit(1, "Target", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, " Unit. Hoffnung 25000", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      LMove(172, i_x, i_y);
+      MoveUnit(1, "Target", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, " Unit. Hoffnung 25000", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      LMove(172, i_x, i_y);
+      MoveUnit(1, "Target", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, " Unit. Hoffnung 25000", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      LMove(172, i_x, i_y);
+      MoveUnit(1, "Target", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, " Unit. Hoffnung 25000", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      LMove(172, i_x, i_y);
+      MoveUnit(1, "Target", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, " Unit. Hoffnung 25000", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      LMove(172, i_x, i_y);
+      KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "Target", "Anywhere", CurrentPlayer);
+      Wait(0);
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
    },
 }
 
 
+
+Trigger { -- Skill : S
+   players = {Force1},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 3, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 8, " `SkillLoop");
+      Bring(P4, AtLeast, 1, "Any unit", "19.M&N_Bozo2");
+   },
+   actions = {
+      Comment("Skill : Combo");
+      PreserveTrigger();
+      SetDeaths(P4, SetTo, 360, " `NarugeTarget");
+   },
+}
+Trigger { -- Skill : S
+   players = {Force1},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 3, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 8, " `SkillLoop");
+      Bring(P5, AtLeast, 1, "Any unit", "19.M&N_Bozo2");
+   },
+   actions = {
+      Comment("Skill : Combo");
+      PreserveTrigger();
+      SetDeaths(P5, SetTo, 360, " `NarugeTarget");
+   },
+}
+Trigger { -- Skill : S
+   players = {Force1},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 3, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 8, " `SkillLoop");
+      Bring(P6, AtLeast, 1, "Any unit", "19.M&N_Bozo2");
+   },
+   actions = {
+      Comment("Skill : Combo");
+      PreserveTrigger();
+      SetDeaths(P6, SetTo, 360, " `NarugeTarget");
+   },
+}
+Trigger { -- Skill : S
+   players = {Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 3, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 8, " `SkillLoop");
+      Bring(P1, AtLeast, 1, "Any unit", "19.M&N_Bozo2");
+   },
+   actions = {
+      Comment("Skill : Combo");
+      PreserveTrigger();
+      SetDeaths(P1, SetTo, 360, " `NarugeTarget");
+   },
+}
+Trigger { -- Skill : S
+   players = {Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 3, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 8, " `SkillLoop");
+      Bring(P2, AtLeast, 1, "Any unit", "19.M&N_Bozo2");
+   },
+   actions = {
+      Comment("Skill : Combo");
+      PreserveTrigger();
+      SetDeaths(P2, SetTo, 360, " `NarugeTarget");
+   },
+}
+Trigger { -- Skill : S
+   players = {Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 3, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 8, " `SkillLoop");
+      Bring(P3, AtLeast, 1, "Any unit", "19.M&N_Bozo2");
+   },
+   actions = {
+      Comment("Skill : Combo");
+      PreserveTrigger();
+      SetDeaths(P3, SetTo, 360, " `NarugeTarget");
+   },
+}
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, AtLeast, 1, " `NarugeTarget");
+   },
+   actions = {
+      Comment("Skill : Combo");
+      PreserveTrigger();
+      SetDeaths(CurrentPlayer, Subtract, 1, " `NarugeTarget");
+   },
+}
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 3, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 8, " `SkillLoop");
+   },
+   actions = {
+      Comment("Skill : Combo");
+      PreserveTrigger();
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
+   },
+}
 
 Trigger { -- Skill : S
    players = {Force1, Force2},

@@ -602,6 +602,113 @@ Trigger { -- Skill : S
 }
 
 
+Trigger { -- Skill : S
+   players = {Force1},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 3, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 8, " `SkillLoop");
+      Bring(P4, AtLeast, 1, "Any unit", "19.M&N_Bozo2");
+   },
+   actions = {
+      Comment("Skill : Combo");
+      PreserveTrigger();
+      SetDeaths(P4, SetTo, 360, " `NarugeTarget");
+   },
+}
+Trigger { -- Skill : S
+   players = {Force1},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 3, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 8, " `SkillLoop");
+      Bring(P5, AtLeast, 1, "Any unit", "19.M&N_Bozo2");
+   },
+   actions = {
+      Comment("Skill : Combo");
+      PreserveTrigger();
+      SetDeaths(P5, SetTo, 360, " `NarugeTarget");
+   },
+}
+Trigger { -- Skill : S
+   players = {Force1},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 3, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 8, " `SkillLoop");
+      Bring(P6, AtLeast, 1, "Any unit", "19.M&N_Bozo2");
+   },
+   actions = {
+      Comment("Skill : Combo");
+      PreserveTrigger();
+      SetDeaths(P6, SetTo, 360, " `NarugeTarget");
+   },
+}
+Trigger { -- Skill : S
+   players = {Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 3, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 8, " `SkillLoop");
+      Bring(P1, AtLeast, 1, "Any unit", "19.M&N_Bozo2");
+   },
+   actions = {
+      Comment("Skill : Combo");
+      PreserveTrigger();
+      SetDeaths(P1, SetTo, 360, " `NarugeTarget");
+   },
+}
+Trigger { -- Skill : S
+   players = {Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 3, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 8, " `SkillLoop");
+      Bring(P2, AtLeast, 1, "Any unit", "19.M&N_Bozo2");
+   },
+   actions = {
+      Comment("Skill : Combo");
+      PreserveTrigger();
+      SetDeaths(P2, SetTo, 360, " `NarugeTarget");
+   },
+}
+Trigger { -- Skill : S
+   players = {Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 3, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 8, " `SkillLoop");
+      Bring(P3, AtLeast, 1, "Any unit", "19.M&N_Bozo2");
+   },
+   actions = {
+      Comment("Skill : Combo");
+      PreserveTrigger();
+      SetDeaths(P3, SetTo, 360, " `NarugeTarget");
+   },
+}
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, AtLeast, 1, " `NarugeTarget");
+   },
+   actions = {
+      Comment("Skill : Combo");
+      PreserveTrigger();
+      SetDeaths(CurrentPlayer, Subtract, 1, " `NarugeTarget");
+   },
+}
 
 Trigger { -- Skill : S
    players = {Force1, Force2},

@@ -897,6 +897,7 @@ def onPluginStart():
         SetMemory(0x6569DC, Add, 7340032),# weapons:Attack Angle  index:78    from 16 To 128
         SetMemory(0x656A00, Add, 28672),# weapons:Attack Angle  index:113    from 16 To 128
         SetMemory(0x656A00, Add, 7340032),# weapons:Attack Angle  index:114    from 16 To 128
+        SetMemory(0x6C9EF8, Add, 1706),# flingy:Speed  index:0    from 1707 To 3413
         SetMemory(0x6C9F18, Add, 1279),# flingy:Speed  index:8    from 1 To 1280
         SetMemory(0x6C9F1C, Add, 1279),# flingy:Speed  index:9    from 1 To 1280
         SetMemory(0x6C9F34, Add, 829),# flingy:Speed  index:15    from 1 To 830

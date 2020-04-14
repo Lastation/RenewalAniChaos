@@ -174,6 +174,8 @@ def MainLoop():
     cp = f_getcurpl()
     # (Line 33) unitID.Get_UnitID(cp);
     unitID.Get_UnitID(cp)
+    # (Line 35) announce.Announce_Marge(cp);	// 상태창 텍스트
+    announce.Announce_Marge(cp)
     # (Line 37) title.Title_Marge(cp);
     title.Title_Marge(cp)
     # (Line 39) if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
