@@ -240,8 +240,6 @@ function ClassicTriggerStarter() {
         setcurpl(7);
     }
 }
-function WaitableTriggerExec() {
-}
 function onPluginStart() {
     	randomize();
 	sca.Init();
@@ -249,50 +247,9 @@ function onPluginStart() {
 function beforeTriggerExec() 
 {
    	EUDPlayerLoop()();
-      	WaitableTriggerExec();
        ClassicTriggerExec();
        
        const cp = getcurpl();
-
-	sca.Exec();
-	
-	switch(sca.ConnectStatus())
-	{
-	case 0:
-		tct.print("\x13\x04런처와 연결이 끊겼습니다.");
-		break;
-	case 1:
-		tct.print("\x13\x04런처와 연결되었습니다.");
-		break;
-	}
-	
-	switch(sca.GetLastMessage())
-	{
-		case 1:
-			tct.print(v.Player_EXP[cp], "");
-			sca.SaveData(0);
-			v.Player_EXP[cp] = 0;
-			break;
-		case 2:
-			tct.print("\x13\x04연결이 끊어졌습니다.");
-			break;
-		case 5:
-			tct.print("\x13\x04Player_EXP의 정보를 저장중입니다.");
-			break;
-		case 6:
-			tct.print("\x13\x04Player_EXP의 저장을 완료하였습니다.");
-			break;
-		case 7:
-			tct.print("\x13\x04런처를 연결해 주세요.");
-			break;
-		case 9:
-			tct.print("\x13\x04런처연결에 실패하였습니다.");
-			break;
-		default:
-			tct.print("\x13\x04런처연결에 실패하였습니다.");
-			sca.ResetLastMessage();
-			break;
-	}
        
     	EUDEndPlayerLoop();
    	ClassicTriggerStarter();

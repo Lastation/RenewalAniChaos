@@ -567,123 +567,35 @@ def ClassicTriggerStarter():
         # (Line 241) }
         # (Line 242) }
     EUDEndIf()
-    # (Line 243) function WaitableTriggerExec() {
-
-@EUDFunc
-def WaitableTriggerExec():
-    # (Line 244) }
-    # (Line 245) function onPluginStart() {
-    pass
+    # (Line 243) function onPluginStart() {
 
 @EUDFunc
 def onPluginStart():
-    # (Line 246) randomize();
+    # (Line 244) randomize();
     f_randomize()
-    # (Line 247) sca.Init();
+    # (Line 245) sca.Init();
     sca.Init()
-    # (Line 248) }
-    # (Line 249) function beforeTriggerExec()
+    # (Line 246) }
+    # (Line 247) function beforeTriggerExec()
 
-# (Line 250) {
+# (Line 248) {
 @EUDFunc
 def beforeTriggerExec():
-    # (Line 251) EUDPlayerLoop()();
+    # (Line 249) EUDPlayerLoop()();
     EUDPlayerLoop()()
-    # (Line 252) WaitableTriggerExec();
-    WaitableTriggerExec()
-    # (Line 253) ClassicTriggerExec();
+    # (Line 250) ClassicTriggerExec();
     ClassicTriggerExec()
-    # (Line 255) const cp = getcurpl();
+    # (Line 252) const cp = getcurpl();
     cp = f_getcurpl()
-    # (Line 257) sca.Exec();
-    sca.Exec()
-    # (Line 259) switch(sca.ConnectStatus())
-    EUDSwitch(sca.ConnectStatus())
-    # (Line 260) {
-    # (Line 261) case 0:
-    _t1 = EUDSwitchCase()
-    # (Line 262) tct.print("\x13\x04런처와 연결이 끊겼습니다.");
-    if _t1(0):
-        tct.f_print("\x13\x04런처와 연결이 끊겼습니다.")
-        # (Line 263) break;
-        EUDBreak()
-        # (Line 264) case 1:
-    _t2 = EUDSwitchCase()
-    # (Line 265) tct.print("\x13\x04런처와 연결되었습니다.");
-    if _t2(1):
-        tct.f_print("\x13\x04런처와 연결되었습니다.")
-        # (Line 266) break;
-        EUDBreak()
-        # (Line 267) }
-    # (Line 269) switch(sca.GetLastMessage())
-    EUDEndSwitch()
-    EUDSwitch(sca.GetLastMessage())
-    # (Line 270) {
-    # (Line 271) case 1:
-    _t3 = EUDSwitchCase()
-    # (Line 272) tct.print(v.Player_EXP[cp], "");
-    if _t3(1):
-        tct.f_print(v.Player_EXP[cp], "")
-        # (Line 273) sca.SaveData(0);
-        sca.SaveData(0)
-        # (Line 274) v.Player_EXP[cp] = 0;
-        _ARRW(v.Player_EXP, cp) << (0)
-        # (Line 275) break;
-        EUDBreak()
-        # (Line 276) case 2:
-    _t4 = EUDSwitchCase()
-    # (Line 277) tct.print("\x13\x04연결이 끊어졌습니다.");
-    if _t4(2):
-        tct.f_print("\x13\x04연결이 끊어졌습니다.")
-        # (Line 278) break;
-        EUDBreak()
-        # (Line 279) case 5:
-    _t5 = EUDSwitchCase()
-    # (Line 280) tct.print("\x13\x04Player_EXP의 정보를 저장중입니다.");
-    if _t5(5):
-        tct.f_print("\x13\x04Player_EXP의 정보를 저장중입니다.")
-        # (Line 281) break;
-        EUDBreak()
-        # (Line 282) case 6:
-    _t6 = EUDSwitchCase()
-    # (Line 283) tct.print("\x13\x04Player_EXP의 저장을 완료하였습니다.");
-    if _t6(6):
-        tct.f_print("\x13\x04Player_EXP의 저장을 완료하였습니다.")
-        # (Line 284) break;
-        EUDBreak()
-        # (Line 285) case 7:
-    _t7 = EUDSwitchCase()
-    # (Line 286) tct.print("\x13\x04런처를 연결해 주세요.");
-    if _t7(7):
-        tct.f_print("\x13\x04런처를 연결해 주세요.")
-        # (Line 287) break;
-        EUDBreak()
-        # (Line 288) case 9:
-    _t8 = EUDSwitchCase()
-    # (Line 289) tct.print("\x13\x04런처연결에 실패하였습니다.");
-    if _t8(9):
-        tct.f_print("\x13\x04런처연결에 실패하였습니다.")
-        # (Line 290) break;
-        EUDBreak()
-        # (Line 291) default:
-    # (Line 292) tct.print("\x13\x04런처연결에 실패하였습니다.");
-    if EUDSwitchDefault()():
-        tct.f_print("\x13\x04런처연결에 실패하였습니다.")
-        # (Line 293) sca.ResetLastMessage();
-        sca.ResetLastMessage()
-        # (Line 294) break;
-        EUDBreak()
-        # (Line 295) }
-    # (Line 297) EUDEndPlayerLoop();
-    EUDEndSwitch()
+    # (Line 254) EUDEndPlayerLoop();
     EUDEndPlayerLoop()
-    # (Line 298) ClassicTriggerStarter();
+    # (Line 255) ClassicTriggerStarter();
     ClassicTriggerStarter()
-    # (Line 299) }
-    # (Line 300) function afterTriggerExec()
+    # (Line 256) }
+    # (Line 257) function afterTriggerExec()
 
-# (Line 301) {
+# (Line 258) {
 @EUDFunc
 def afterTriggerExec():
-    # (Line 303) }
+    # (Line 260) }
     pass

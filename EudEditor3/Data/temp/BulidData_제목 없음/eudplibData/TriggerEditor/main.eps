@@ -1,0 +1,2186 @@
+import BGMPlayer as BGM;
+import tempcustomText as tct;
+
+var txtPtr, btnPtr, btnPos, oldCP;
+const trgk = $T('Artanis & safhfh');
+
+
+
+
+const ClassicTriggerExecTimer0 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec0() {
+    if (ClassicTriggerExecTimer0[getcurpl()] == 1) {
+        SetSwitch((200), (11));
+        SetSwitch((201), (11));
+        SetSwitch((202), (11));
+        SetSwitch((203), (11));
+        SetSwitch((204), (11));
+        SetSwitch((205), (11));
+        SetSwitch((206), (11));
+        SetSwitch((207), (11));
+        SetMemory(0x6509A0, SetTo, 0);
+        PreserveTrigger();
+        ClassicTriggerExecTimer0[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer0[getcurpl()] > 0) {
+        ClassicTriggerExecTimer0[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer1 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec1() {
+    if (ClassicTriggerExecTimer1[getcurpl()] == 1) {
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\n\n\x13\x04난이도를 설정해주세요\n\n\n\n\x13\x1F                                      ← Nomarl         \x08Hard→                                        \n\n\n");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        CenterView((170));
+        PreserveTrigger();
+        ClassicTriggerExecTimer1[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer1[getcurpl()] > 0) {
+        ClassicTriggerExecTimer1[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer2 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec2() {
+    if (ClassicTriggerExecTimer2[getcurpl()] == 1) {
+        tct.chatAnnouncement("\x13대문자 X / \x04재생시간 : ", dwread_epd(15 * 12 + 7), "초 \x05/ \x1b남은 곡 : ", dwread_epd(177 * 12 + 7), "개 \x05");
+        PreserveTrigger();
+        ClassicTriggerExecTimer2[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer2[getcurpl()] > 0) {
+        ClassicTriggerExecTimer2[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer3 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec3() {
+    if (ClassicTriggerExecTimer3[getcurpl()] == 1) {
+        LeaderBoardScore((4), "곡");
+        PreserveTrigger();
+        ClassicTriggerExecTimer3[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer3[getcurpl()] > 0) {
+        ClassicTriggerExecTimer3[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer4 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec4() {
+    if (ClassicTriggerExecTimer4[getcurpl()] == 1) {
+        CreateUnit(1, (0), (6), (7));
+        CreateUnit(1, (2), (7), (7));
+        CreateUnit(1, (3), (8), (7));
+        CreateUnit(1, (5), (9), (7));
+        CreateUnit(1, (8), (10), (7));
+        CreateUnit(1, (9), (11), (7));
+        CreateUnit(1, (10), (12), (7));
+        CreateUnit(1, (11), (13), (7));
+        CreateUnit(1, (12), (14), (7));
+        CreateUnit(1, (17), (15), (7));
+        CreateUnit(1, (20), (16), (7));
+        CreateUnit(1, (21), (17), (7));
+        CreateUnit(1, (22), (18), (7));
+        CreateUnit(1, (23), (19), (7));
+        CreateUnit(1, (25), (20), (7));
+        CreateUnit(1, (28), (21), (7));
+        CreateUnit(1, (29), (22), (7));
+        CreateUnit(1, (30), (23), (7));
+        CreateUnit(1, (32), (24), (7));
+        CreateUnit(1, (34), (25), (7));
+        CreateUnit(1, (35), (26), (7));
+        CreateUnit(1, (36), (27), (7));
+        CreateUnit(1, (37), (28), (7));
+        CreateUnit(1, (38), (29), (7));
+        CreateUnit(1, (39), (30), (7));
+        CreateUnit(1, (40), (31), (7));
+        CreateUnit(1, (41), (32), (7));
+        CreateUnit(1, (42), (33), (7));
+        CreateUnit(1, (43), (34), (7));
+        CreateUnit(1, (44), (35), (7));
+        CreateUnit(1, (45), (36), (7));
+        CreateUnit(1, (46), (37), (7));
+        CreateUnit(1, (47), (38), (7));
+        CreateUnit(1, (48), (39), (7));
+        CreateUnit(1, (49), (40), (7));
+        CreateUnit(1, (50), (41), (7));
+        CreateUnit(1, (51), (42), (7));
+        CreateUnit(1, (52), (43), (7));
+        CreateUnit(1, (53), (44), (7));
+        CreateUnit(1, (54), (45), (7));
+        CreateUnit(1, (55), (46), (7));
+        CreateUnit(1, (56), (47), (7));
+        CreateUnit(1, (57), (48), (7));
+        CreateUnit(1, (160), (49), (7));
+        CreateUnit(1, (59), (50), (7));
+        CreateUnit(1, (60), (51), (7));
+        CreateUnit(1, (61), (52), (7));
+        CreateUnit(1, (62), (53), (7));
+        CreateUnit(1, (63), (54), (7));
+        CreateUnit(1, (64), (55), (7));
+    }
+    if (ClassicTriggerExecTimer4[getcurpl()] > 0) {
+        ClassicTriggerExecTimer4[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer5 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec5() {
+    if (ClassicTriggerExecTimer5[getcurpl()] == 1) {
+        CreateUnit(1, (65), (56), (7));
+        CreateUnit(1, (66), (57), (7));
+        CreateUnit(1, (67), (58), (7));
+        CreateUnit(1, (68), (59), (7));
+        CreateUnit(1, (69), (60), (7));
+        CreateUnit(1, (70), (61), (7));
+        CreateUnit(1, (71), (62), (7));
+        CreateUnit(1, (161), (63), (7));
+        CreateUnit(1, (74), (65), (7));
+        CreateUnit(1, (75), (66), (7));
+        CreateUnit(1, (76), (67), (7));
+        CreateUnit(1, (77), (68), (7));
+        CreateUnit(1, (78), (69), (7));
+        CreateUnit(1, (79), (70), (7));
+        CreateUnit(1, (162), (71), (7));
+        CreateUnit(1, (81), (72), (7));
+        CreateUnit(1, (82), (73), (7));
+        CreateUnit(1, (83), (74), (7));
+        CreateUnit(1, (84), (75), (7));
+        CreateUnit(1, (159), (76), (7));
+        CreateUnit(1, (86), (77), (7));
+        CreateUnit(1, (87), (78), (7));
+        CreateUnit(1, (88), (79), (7));
+        CreateUnit(1, (89), (80), (7));
+        CreateUnit(1, (90), (81), (7));
+        CreateUnit(1, (91), (82), (7));
+        CreateUnit(1, (92), (83), (7));
+        CreateUnit(1, (93), (84), (7));
+        CreateUnit(1, (94), (85), (7));
+        CreateUnit(1, (95), (86), (7));
+        CreateUnit(1, (96), (87), (7));
+        CreateUnit(1, (97), (88), (7));
+        CreateUnit(1, (98), (89), (7));
+        CreateUnit(1, (99), (91), (7));
+        CreateUnit(1, (100), (92), (7));
+        CreateUnit(1, (102), (93), (7));
+        CreateUnit(1, (103), (94), (7));
+        CreateUnit(1, (104), (95), (7));
+        CreateUnit(1, (106), (96), (7));
+        CreateUnit(1, (107), (97), (7));
+        CreateUnit(1, (108), (98), (7));
+        CreateUnit(1, (109), (99), (7));
+        CreateUnit(1, (110), (100), (7));
+        CreateUnit(1, (111), (101), (7));
+        CreateUnit(1, (113), (102), (7));
+        CreateUnit(1, (114), (103), (7));
+        CreateUnit(1, (115), (104), (7));
+        CreateUnit(1, (116), (105), (7));
+        CreateUnit(1, (117), (106), (7));
+        CreateUnit(1, (118), (107), (7));
+    }
+    if (ClassicTriggerExecTimer5[getcurpl()] > 0) {
+        ClassicTriggerExecTimer5[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer6 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec6() {
+    if (ClassicTriggerExecTimer6[getcurpl()] == 1) {
+        CreateUnit(1, (119), (108), (7));
+        CreateUnit(1, (120), (109), (7));
+        CreateUnit(1, (121), (110), (7));
+        CreateUnit(1, (122), (111), (7));
+        CreateUnit(1, (123), (112), (7));
+        CreateUnit(1, (124), (113), (7));
+        CreateUnit(1, (125), (114), (7));
+        CreateUnit(1, (126), (115), (7));
+        CreateUnit(1, (127), (116), (7));
+        CreateUnit(1, (128), (117), (7));
+        CreateUnit(1, (129), (118), (7));
+        CreateUnit(1, (130), (119), (7));
+        CreateUnit(1, (131), (120), (7));
+        CreateUnit(1, (132), (121), (7));
+        CreateUnit(1, (133), (122), (7));
+        CreateUnit(1, (134), (123), (7));
+        CreateUnit(1, (135), (124), (7));
+        CreateUnit(1, (136), (125), (7));
+        CreateUnit(1, (137), (126), (7));
+        CreateUnit(1, (138), (127), (7));
+        CreateUnit(1, (139), (128), (7));
+        CreateUnit(1, (140), (129), (7));
+        CreateUnit(1, (141), (130), (7));
+        CreateUnit(1, (142), (131), (7));
+        CreateUnit(1, (143), (132), (7));
+        CreateUnit(1, (144), (133), (7));
+        CreateUnit(1, (145), (134), (7));
+        CreateUnit(1, (146), (135), (7));
+        CreateUnit(1, (147), (136), (7));
+        CreateUnit(1, (148), (137), (7));
+        CreateUnit(1, (149), (138), (7));
+        CreateUnit(1, (150), (139), (7));
+        CreateUnit(1, (151), (140), (7));
+        CreateUnit(1, (152), (141), (7));
+        CreateUnit(1, (153), (142), (7));
+        CreateUnit(1, (154), (143), (7));
+        CreateUnit(1, (155), (144), (7));
+        CreateUnit(1, (156), (145), (7));
+        CreateUnit(1, (157), (146), (7));
+        CreateUnit(1, (158), (147), (7));
+        CreateUnit(1, (163), (148), (7));
+        CreateUnit(1, (164), (149), (7));
+        CreateUnit(1, (165), (150), (7));
+        CreateUnit(1, (166), (151), (7));
+        CreateUnit(1, (167), (152), (7));
+        CreateUnit(1, (168), (153), (7));
+        CreateUnit(1, (169), (154), (7));
+        CreateUnit(1, (170), (155), (7));
+        CreateUnit(1, (171), (156), (7));
+        CreateUnit(1, (172), (157), (7));
+        CreateUnit(1, (173), (158), (7));
+    }
+    if (ClassicTriggerExecTimer6[getcurpl()] > 0) {
+        ClassicTriggerExecTimer6[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer7 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec7() {
+    if (ClassicTriggerExecTimer7[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04 AniSong \x032010 - \x0112020 \x08by.Kurokumo");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer7[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer7[getcurpl()] > 0) {
+        ClassicTriggerExecTimer7[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer8 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec8() {
+    if (ClassicTriggerExecTimer8[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04우리들의 LIVE 너와의 LIFE\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer8[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer8[getcurpl()] > 0) {
+        ClassicTriggerExecTimer8[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer9 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec9() {
+    if (ClassicTriggerExecTimer9[getcurpl()] == 1) {
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x12\x08 Hint : \x04 1번힌트");
+        SetMemory(0x640B58, SetTo, txtPtr);
+    }
+    if (ClassicTriggerExecTimer9[getcurpl()] > 0) {
+        ClassicTriggerExecTimer9[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer10 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec10() {
+    if (ClassicTriggerExecTimer10[getcurpl()] == 1) {
+        PreserveTrigger();
+        KillUnit((72), (7));
+        ClassicTriggerExecTimer10[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer10[getcurpl()] > 0) {
+        ClassicTriggerExecTimer10[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer11 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec11() {
+    if (ClassicTriggerExecTimer11[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04우정 노 체인지\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer11[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer11[getcurpl()] > 0) {
+        ClassicTriggerExecTimer11[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer12 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec12() {
+    if (ClassicTriggerExecTimer12[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04Snow Halation\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer12[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer12[getcurpl()] > 0) {
+        ClassicTriggerExecTimer12[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer13 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec13() {
+    if (ClassicTriggerExecTimer13[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04baby maybe 사랑의버튼\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer13[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer13[getcurpl()] > 0) {
+        ClassicTriggerExecTimer13[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer14 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec14() {
+    if (ClassicTriggerExecTimer14[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04여름빛 미소로 1,2,Jump\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer14[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer14[getcurpl()] > 0) {
+        ClassicTriggerExecTimer14[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer15 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec15() {
+    if (ClassicTriggerExecTimer15[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04꼬옥'love'로 접근중 !\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer15[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer15[getcurpl()] > 0) {
+        ClassicTriggerExecTimer15[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer16 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec16() {
+    if (ClassicTriggerExecTimer16[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04사랑해 만세\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer16[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer16[getcurpl()] > 0) {
+        ClassicTriggerExecTimer16[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer17 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec17() {
+    if (ClassicTriggerExecTimer17[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04Wonderful Rush\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer17[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer17[getcurpl()] > 0) {
+        ClassicTriggerExecTimer17[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer18 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec18() {
+    if (ClassicTriggerExecTimer18[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04Oh,love & peace!\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer18[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer18[getcurpl()] > 0) {
+        ClassicTriggerExecTimer18[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer19 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec19() {
+    if (ClassicTriggerExecTimer19[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04Music S.T.A.R.T\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer19[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer19[getcurpl()] > 0) {
+        ClassicTriggerExecTimer19[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer20 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec20() {
+    if (ClassicTriggerExecTimer20[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04MOMENT RING\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer20[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer20[getcurpl()] > 0) {
+        ClassicTriggerExecTimer20[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer21 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec21() {
+    if (ClassicTriggerExecTimer21[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04Soldier game\n\x13\x03Artist : \x1F아야세 에리, \x0E소노다 우미, \x08니시키노 마키");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer21[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer21[getcurpl()] > 0) {
+        ClassicTriggerExecTimer21[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer22 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec22() {
+    if (ClassicTriggerExecTimer22[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04우리들은 지금 속에서\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer22[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer22[getcurpl()] > 0) {
+        ClassicTriggerExecTimer22[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer23 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec23() {
+    if (ClassicTriggerExecTimer23[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04분명 청춘이 들려올거야\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer23[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer23[getcurpl()] > 0) {
+        ClassicTriggerExecTimer23[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer24 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec24() {
+    if (ClassicTriggerExecTimer24[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04나아가 Tomorrow\n\x13\x03Artist : \x11코사카 호노카, \x0E소노다 우미, \x05미나미 코토리");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer24[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer24[getcurpl()] > 0) {
+        ClassicTriggerExecTimer24[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer25 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec25() {
+    if (ClassicTriggerExecTimer25[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04START:DASH!!\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer25[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer25[getcurpl()] > 0) {
+        ClassicTriggerExecTimer25[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer26 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec26() {
+    if (ClassicTriggerExecTimer26[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04지금부터의 Someday\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer26[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer26[getcurpl()] > 0) {
+        ClassicTriggerExecTimer26[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer27 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec27() {
+    if (ClassicTriggerExecTimer27[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04Wonder zone\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer27[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer27[getcurpl()] > 0) {
+        ClassicTriggerExecTimer27[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer28 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec28() {
+    if (ClassicTriggerExecTimer28[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04No brand girls\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer28[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer28[getcurpl()] > 0) {
+        ClassicTriggerExecTimer28[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer29 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec29() {
+    if (ClassicTriggerExecTimer29[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04미열에서 Mystery\n\x13\x03Artist : \x07lily white");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer29[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer29[getcurpl()] > 0) {
+        ClassicTriggerExecTimer29[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer30 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec30() {
+    if (ClassicTriggerExecTimer30[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04Cutie Panther\n\x13\x03Artist : \x17BiBi");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer30[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer30[getcurpl()] > 0) {
+        ClassicTriggerExecTimer30[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer31 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec31() {
+    if (ClassicTriggerExecTimer31[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04Pure girls project\n\x13\x03Artist : \x1BPrintemps");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer31[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer31[getcurpl()] > 0) {
+        ClassicTriggerExecTimer31[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer32 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec32() {
+    if (ClassicTriggerExecTimer32[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04보물들\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer32[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer32[getcurpl()] > 0) {
+        ClassicTriggerExecTimer32[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer33 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec33() {
+    if (ClassicTriggerExecTimer33[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04그것은 우리들의 기적\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer33[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer33[getcurpl()] > 0) {
+        ClassicTriggerExecTimer33[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer34 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec34() {
+    if (ClassicTriggerExecTimer34[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04어떤 때라도 계속\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer34[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer34[getcurpl()] > 0) {
+        ClassicTriggerExecTimer34[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer35 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec35() {
+    if (ClassicTriggerExecTimer35[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04꿈의 문\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer35[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer35[getcurpl()] > 0) {
+        ClassicTriggerExecTimer35[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer36 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec36() {
+    if (ClassicTriggerExecTimer36[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04Love wing bell\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer36[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer36[getcurpl()] > 0) {
+        ClassicTriggerExecTimer36[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer37 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec37() {
+    if (ClassicTriggerExecTimer37[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04Dancing stars on me!\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer37[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer37[getcurpl()] > 0) {
+        ClassicTriggerExecTimer37[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer38 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec38() {
+    if (ClassicTriggerExecTimer38[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04KiRa-KiRa Sensation!\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer38[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer38[getcurpl()] > 0) {
+        ClassicTriggerExecTimer38[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer39 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec39() {
+    if (ClassicTriggerExecTimer39[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04Shangri-La Shower\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer39[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer39[getcurpl()] > 0) {
+        ClassicTriggerExecTimer39[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer40 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec40() {
+    if (ClassicTriggerExecTimer40[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04겨울이 준 예감\n\x13\x03Artist : \x17BiBi");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer40[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer40[getcurpl()] > 0) {
+        ClassicTriggerExecTimer40[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer41 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec41() {
+    if (ClassicTriggerExecTimer41[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04미는 μ’sic의 미\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer41[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer41[getcurpl()] > 0) {
+        ClassicTriggerExecTimer41[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer42 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec42() {
+    if (ClassicTriggerExecTimer42[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04Angelic Angel\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer42[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer42[getcurpl()] > 0) {
+        ClassicTriggerExecTimer42[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer43 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec43() {
+    if (ClassicTriggerExecTimer43[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04SUNNY DAY SONG\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer43[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer43[getcurpl()] > 0) {
+        ClassicTriggerExecTimer43[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer44 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec44() {
+    if (ClassicTriggerExecTimer44[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04우리들은 하나의 빛\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer44[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer44[getcurpl()] > 0) {
+        ClassicTriggerExecTimer44[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer45 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec45() {
+    if (ClassicTriggerExecTimer45[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04HEART to HEART!\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer45[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer45[getcurpl()] > 0) {
+        ClassicTriggerExecTimer45[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer46 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec46() {
+    if (ClassicTriggerExecTimer46[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04안녕이란 말에 안녕!\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer46[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer46[getcurpl()] > 0) {
+        ClassicTriggerExecTimer46[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer47 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec47() {
+    if (ClassicTriggerExecTimer47[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04PSYCHIC FIRE\n\x13\x03Artist : \x17BiBi");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer47[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer47[getcurpl()] > 0) {
+        ClassicTriggerExecTimer47[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer48 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec48() {
+    if (ClassicTriggerExecTimer48[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04NO EXIT ORION\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer48[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer48[getcurpl()] > 0) {
+        ClassicTriggerExecTimer48[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer49 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec49() {
+    if (ClassicTriggerExecTimer49[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04폭풍 속의 사랑이니까\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer49[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer49[getcurpl()] > 0) {
+        ClassicTriggerExecTimer49[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer50 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec50() {
+    if (ClassicTriggerExecTimer50[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04Super LOVE＝Super LIVE!\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer50[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer50[getcurpl()] > 0) {
+        ClassicTriggerExecTimer50[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer51 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec51() {
+    if (ClassicTriggerExecTimer51[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04카구야의 성에서 춤추고 싶어\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer51[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer51[getcurpl()] > 0) {
+        ClassicTriggerExecTimer51[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer52 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec52() {
+    if (ClassicTriggerExecTimer52[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04WILD STARS\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer52[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer52[getcurpl()] > 0) {
+        ClassicTriggerExecTimer52[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer53 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec53() {
+    if (ClassicTriggerExecTimer53[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04흔한 슬픔의 끝\n\x13\x03Artist : \x1F아야세 에리");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer53[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer53[getcurpl()] > 0) {
+        ClassicTriggerExecTimer53[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer54 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec54() {
+    if (ClassicTriggerExecTimer54[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04고독한 Heaven\n\x13\x03Artist : \x07코이즈미 하나요");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer54[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer54[getcurpl()] > 0) {
+        ClassicTriggerExecTimer54[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer55 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec55() {
+    if (ClassicTriggerExecTimer55[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04지금부터\n\x13\x03Artist : \x08μ's");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer55[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer55[getcurpl()] > 0) {
+        ClassicTriggerExecTimer55[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer56 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec56() {
+    if (ClassicTriggerExecTimer56[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04니코프리♥여자의 길\n\x13\x03Artist : \x1B야자와 니코");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer56[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer56[getcurpl()] > 0) {
+        ClassicTriggerExecTimer56[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer57 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec57() {
+    if (ClassicTriggerExecTimer57[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04니코프리♥여자의 길\n\x13\x03Artist : \x1B야자와 니코");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer57[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer57[getcurpl()] > 0) {
+        ClassicTriggerExecTimer57[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer58 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec58() {
+    if (ClassicTriggerExecTimer58[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04니코프리♥여자의 길\n\x13\x03Artist : \x1B야자와 니코");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer58[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer58[getcurpl()] > 0) {
+        ClassicTriggerExecTimer58[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer59 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec59() {
+    if (ClassicTriggerExecTimer59[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04니코프리♥여자의 길\n\x13\x03Artist : \x1B야자와 니코");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer59[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer59[getcurpl()] > 0) {
+        ClassicTriggerExecTimer59[getcurpl()] += 1;
+    }
+
+}
+const ClassicTriggerExecTimer60 = [0, 0, 0, 0, 0, 0, 0, 0];
+function ClassicTriggerExec60() {
+    if (ClassicTriggerExecTimer60[getcurpl()] == 1) {
+        PreserveTrigger();
+        txtPtr = dwread_epd(EPD(0x640B58));
+        tct.print("\x13\x04니코프리♥여자의 길\n\x13\x03Artist : \x1B야자와 니코");
+        SetMemory(0x640B58, SetTo, txtPtr);
+        ClassicTriggerExecTimer60[getcurpl()] = 0;
+    }
+    if (ClassicTriggerExecTimer60[getcurpl()] > 0) {
+        ClassicTriggerExecTimer60[getcurpl()] += 1;
+    }
+
+}
+function ClassicTriggerStarter0() {
+    if(
+        Always()
+    ){
+        if (ClassicTriggerExecTimer0[getcurpl()] == 0){
+            ClassicTriggerExecTimer0[getcurpl()] = 1;
+            ClassicTriggerExec0();
+        }
+    }
+}
+function ClassicTriggerStarter1() {
+    if(
+        Deaths((7), (0), 9000, (15))
+    ){
+        if (ClassicTriggerExecTimer1[getcurpl()] == 0){
+            ClassicTriggerExecTimer1[getcurpl()] = 1;
+            ClassicTriggerExec1();
+        }
+    }
+}
+function ClassicTriggerStarter2() {
+    if(
+        Always()
+    ){
+        if (ClassicTriggerExecTimer2[getcurpl()] == 0){
+            ClassicTriggerExecTimer2[getcurpl()] = 1;
+            ClassicTriggerExec2();
+        }
+    }
+}
+function ClassicTriggerStarter3() {
+    if(
+        Always()
+    ){
+        if (ClassicTriggerExecTimer3[getcurpl()] == 0){
+            ClassicTriggerExecTimer3[getcurpl()] = 1;
+            ClassicTriggerExec3();
+        }
+    }
+}
+function ClassicTriggerStarter4() {
+    if(
+        Always()
+    ){
+        if (ClassicTriggerExecTimer4[getcurpl()] == 0){
+            ClassicTriggerExecTimer4[getcurpl()] = 1;
+            ClassicTriggerExec4();
+        }
+    }
+}
+function ClassicTriggerStarter5() {
+    if(
+        Always()
+    ){
+        if (ClassicTriggerExecTimer5[getcurpl()] == 0){
+            ClassicTriggerExecTimer5[getcurpl()] = 1;
+            ClassicTriggerExec5();
+        }
+    }
+}
+function ClassicTriggerStarter6() {
+    if(
+        Always()
+    ){
+        if (ClassicTriggerExecTimer6[getcurpl()] == 0){
+            ClassicTriggerExecTimer6[getcurpl()] = 1;
+            ClassicTriggerExec6();
+        }
+    }
+}
+function ClassicTriggerStarter7() {
+    if(
+        Deaths((7), (10), 0, (179))
+    ){
+        if (ClassicTriggerExecTimer7[getcurpl()] == 0){
+            ClassicTriggerExecTimer7[getcurpl()] = 1;
+            ClassicTriggerExec7();
+        }
+    }
+}
+function ClassicTriggerStarter8() {
+    if(
+        Deaths((7), (10), 1, (179))
+    ){
+        if (ClassicTriggerExecTimer8[getcurpl()] == 0){
+            ClassicTriggerExecTimer8[getcurpl()] = 1;
+            ClassicTriggerExec8();
+        }
+    }
+}
+function ClassicTriggerStarter9() {
+    if(
+        Bring((7), (10), 1, (229), ("location 1"))
+    ){
+        if (ClassicTriggerExecTimer9[getcurpl()] == 0){
+            ClassicTriggerExecTimer9[getcurpl()] = 1;
+            ClassicTriggerExec9();
+        }
+    }
+}
+function ClassicTriggerStarter10() {
+    if(
+        Always()
+    ){
+        if (ClassicTriggerExecTimer10[getcurpl()] == 0){
+            ClassicTriggerExecTimer10[getcurpl()] = 1;
+            ClassicTriggerExec10();
+        }
+    }
+}
+function ClassicTriggerStarter11() {
+    if(
+        Deaths((7), (10), 2, (179))
+    ){
+        if (ClassicTriggerExecTimer11[getcurpl()] == 0){
+            ClassicTriggerExecTimer11[getcurpl()] = 1;
+            ClassicTriggerExec11();
+        }
+    }
+}
+function ClassicTriggerStarter12() {
+    if(
+        Deaths((7), (10), 3, (179))
+    ){
+        if (ClassicTriggerExecTimer12[getcurpl()] == 0){
+            ClassicTriggerExecTimer12[getcurpl()] = 1;
+            ClassicTriggerExec12();
+        }
+    }
+}
+function ClassicTriggerStarter13() {
+    if(
+        Deaths((7), (10), 4, (179))
+    ){
+        if (ClassicTriggerExecTimer13[getcurpl()] == 0){
+            ClassicTriggerExecTimer13[getcurpl()] = 1;
+            ClassicTriggerExec13();
+        }
+    }
+}
+function ClassicTriggerStarter14() {
+    if(
+        Deaths((7), (10), 5, (179))
+    ){
+        if (ClassicTriggerExecTimer14[getcurpl()] == 0){
+            ClassicTriggerExecTimer14[getcurpl()] = 1;
+            ClassicTriggerExec14();
+        }
+    }
+}
+function ClassicTriggerStarter15() {
+    if(
+        Deaths((7), (10), 6, (179))
+    ){
+        if (ClassicTriggerExecTimer15[getcurpl()] == 0){
+            ClassicTriggerExecTimer15[getcurpl()] = 1;
+            ClassicTriggerExec15();
+        }
+    }
+}
+function ClassicTriggerStarter16() {
+    if(
+        Deaths((7), (10), 7, (179))
+    ){
+        if (ClassicTriggerExecTimer16[getcurpl()] == 0){
+            ClassicTriggerExecTimer16[getcurpl()] = 1;
+            ClassicTriggerExec16();
+        }
+    }
+}
+function ClassicTriggerStarter17() {
+    if(
+        Deaths((7), (10), 8, (179))
+    ){
+        if (ClassicTriggerExecTimer17[getcurpl()] == 0){
+            ClassicTriggerExecTimer17[getcurpl()] = 1;
+            ClassicTriggerExec17();
+        }
+    }
+}
+function ClassicTriggerStarter18() {
+    if(
+        Deaths((7), (10), 9, (179))
+    ){
+        if (ClassicTriggerExecTimer18[getcurpl()] == 0){
+            ClassicTriggerExecTimer18[getcurpl()] = 1;
+            ClassicTriggerExec18();
+        }
+    }
+}
+function ClassicTriggerStarter19() {
+    if(
+        Deaths((7), (10), 10, (179))
+    ){
+        if (ClassicTriggerExecTimer19[getcurpl()] == 0){
+            ClassicTriggerExecTimer19[getcurpl()] = 1;
+            ClassicTriggerExec19();
+        }
+    }
+}
+function ClassicTriggerStarter20() {
+    if(
+        Deaths((7), (10), 11, (179))
+    ){
+        if (ClassicTriggerExecTimer20[getcurpl()] == 0){
+            ClassicTriggerExecTimer20[getcurpl()] = 1;
+            ClassicTriggerExec20();
+        }
+    }
+}
+function ClassicTriggerStarter21() {
+    if(
+        Deaths((7), (10), 12, (179))
+    ){
+        if (ClassicTriggerExecTimer21[getcurpl()] == 0){
+            ClassicTriggerExecTimer21[getcurpl()] = 1;
+            ClassicTriggerExec21();
+        }
+    }
+}
+function ClassicTriggerStarter22() {
+    if(
+        Deaths((7), (10), 13, (179))
+    ){
+        if (ClassicTriggerExecTimer22[getcurpl()] == 0){
+            ClassicTriggerExecTimer22[getcurpl()] = 1;
+            ClassicTriggerExec22();
+        }
+    }
+}
+function ClassicTriggerStarter23() {
+    if(
+        Deaths((7), (10), 14, (179))
+    ){
+        if (ClassicTriggerExecTimer23[getcurpl()] == 0){
+            ClassicTriggerExecTimer23[getcurpl()] = 1;
+            ClassicTriggerExec23();
+        }
+    }
+}
+function ClassicTriggerStarter24() {
+    if(
+        Deaths((7), (10), 15, (179))
+    ){
+        if (ClassicTriggerExecTimer24[getcurpl()] == 0){
+            ClassicTriggerExecTimer24[getcurpl()] = 1;
+            ClassicTriggerExec24();
+        }
+    }
+}
+function ClassicTriggerStarter25() {
+    if(
+        Deaths((7), (10), 16, (179))
+    ){
+        if (ClassicTriggerExecTimer25[getcurpl()] == 0){
+            ClassicTriggerExecTimer25[getcurpl()] = 1;
+            ClassicTriggerExec25();
+        }
+    }
+}
+function ClassicTriggerStarter26() {
+    if(
+        Deaths((7), (10), 17, (179))
+    ){
+        if (ClassicTriggerExecTimer26[getcurpl()] == 0){
+            ClassicTriggerExecTimer26[getcurpl()] = 1;
+            ClassicTriggerExec26();
+        }
+    }
+}
+function ClassicTriggerStarter27() {
+    if(
+        Deaths((7), (10), 18, (179))
+    ){
+        if (ClassicTriggerExecTimer27[getcurpl()] == 0){
+            ClassicTriggerExecTimer27[getcurpl()] = 1;
+            ClassicTriggerExec27();
+        }
+    }
+}
+function ClassicTriggerStarter28() {
+    if(
+        Deaths((7), (10), 19, (179))
+    ){
+        if (ClassicTriggerExecTimer28[getcurpl()] == 0){
+            ClassicTriggerExecTimer28[getcurpl()] = 1;
+            ClassicTriggerExec28();
+        }
+    }
+}
+function ClassicTriggerStarter29() {
+    if(
+        Deaths((7), (10), 20, (179))
+    ){
+        if (ClassicTriggerExecTimer29[getcurpl()] == 0){
+            ClassicTriggerExecTimer29[getcurpl()] = 1;
+            ClassicTriggerExec29();
+        }
+    }
+}
+function ClassicTriggerStarter30() {
+    if(
+        Deaths((7), (10), 21, (179))
+    ){
+        if (ClassicTriggerExecTimer30[getcurpl()] == 0){
+            ClassicTriggerExecTimer30[getcurpl()] = 1;
+            ClassicTriggerExec30();
+        }
+    }
+}
+function ClassicTriggerStarter31() {
+    if(
+        Deaths((7), (10), 22, (179))
+    ){
+        if (ClassicTriggerExecTimer31[getcurpl()] == 0){
+            ClassicTriggerExecTimer31[getcurpl()] = 1;
+            ClassicTriggerExec31();
+        }
+    }
+}
+function ClassicTriggerStarter32() {
+    if(
+        Deaths((7), (10), 23, (179))
+    ){
+        if (ClassicTriggerExecTimer32[getcurpl()] == 0){
+            ClassicTriggerExecTimer32[getcurpl()] = 1;
+            ClassicTriggerExec32();
+        }
+    }
+}
+function ClassicTriggerStarter33() {
+    if(
+        Deaths((7), (10), 24, (179))
+    ){
+        if (ClassicTriggerExecTimer33[getcurpl()] == 0){
+            ClassicTriggerExecTimer33[getcurpl()] = 1;
+            ClassicTriggerExec33();
+        }
+    }
+}
+function ClassicTriggerStarter34() {
+    if(
+        Deaths((7), (10), 25, (179))
+    ){
+        if (ClassicTriggerExecTimer34[getcurpl()] == 0){
+            ClassicTriggerExecTimer34[getcurpl()] = 1;
+            ClassicTriggerExec34();
+        }
+    }
+}
+function ClassicTriggerStarter35() {
+    if(
+        Deaths((7), (10), 26, (179))
+    ){
+        if (ClassicTriggerExecTimer35[getcurpl()] == 0){
+            ClassicTriggerExecTimer35[getcurpl()] = 1;
+            ClassicTriggerExec35();
+        }
+    }
+}
+function ClassicTriggerStarter36() {
+    if(
+        Deaths((7), (10), 27, (179))
+    ){
+        if (ClassicTriggerExecTimer36[getcurpl()] == 0){
+            ClassicTriggerExecTimer36[getcurpl()] = 1;
+            ClassicTriggerExec36();
+        }
+    }
+}
+function ClassicTriggerStarter37() {
+    if(
+        Deaths((7), (10), 28, (179))
+    ){
+        if (ClassicTriggerExecTimer37[getcurpl()] == 0){
+            ClassicTriggerExecTimer37[getcurpl()] = 1;
+            ClassicTriggerExec37();
+        }
+    }
+}
+function ClassicTriggerStarter38() {
+    if(
+        Deaths((7), (10), 29, (179))
+    ){
+        if (ClassicTriggerExecTimer38[getcurpl()] == 0){
+            ClassicTriggerExecTimer38[getcurpl()] = 1;
+            ClassicTriggerExec38();
+        }
+    }
+}
+function ClassicTriggerStarter39() {
+    if(
+        Deaths((7), (10), 30, (179))
+    ){
+        if (ClassicTriggerExecTimer39[getcurpl()] == 0){
+            ClassicTriggerExecTimer39[getcurpl()] = 1;
+            ClassicTriggerExec39();
+        }
+    }
+}
+function ClassicTriggerStarter40() {
+    if(
+        Deaths((7), (10), 31, (179))
+    ){
+        if (ClassicTriggerExecTimer40[getcurpl()] == 0){
+            ClassicTriggerExecTimer40[getcurpl()] = 1;
+            ClassicTriggerExec40();
+        }
+    }
+}
+function ClassicTriggerStarter41() {
+    if(
+        Deaths((7), (10), 32, (179))
+    ){
+        if (ClassicTriggerExecTimer41[getcurpl()] == 0){
+            ClassicTriggerExecTimer41[getcurpl()] = 1;
+            ClassicTriggerExec41();
+        }
+    }
+}
+function ClassicTriggerStarter42() {
+    if(
+        Deaths((7), (10), 33, (179))
+    ){
+        if (ClassicTriggerExecTimer42[getcurpl()] == 0){
+            ClassicTriggerExecTimer42[getcurpl()] = 1;
+            ClassicTriggerExec42();
+        }
+    }
+}
+function ClassicTriggerStarter43() {
+    if(
+        Deaths((7), (10), 34, (179))
+    ){
+        if (ClassicTriggerExecTimer43[getcurpl()] == 0){
+            ClassicTriggerExecTimer43[getcurpl()] = 1;
+            ClassicTriggerExec43();
+        }
+    }
+}
+function ClassicTriggerStarter44() {
+    if(
+        Deaths((7), (10), 35, (179))
+    ){
+        if (ClassicTriggerExecTimer44[getcurpl()] == 0){
+            ClassicTriggerExecTimer44[getcurpl()] = 1;
+            ClassicTriggerExec44();
+        }
+    }
+}
+function ClassicTriggerStarter45() {
+    if(
+        Deaths((7), (10), 36, (179))
+    ){
+        if (ClassicTriggerExecTimer45[getcurpl()] == 0){
+            ClassicTriggerExecTimer45[getcurpl()] = 1;
+            ClassicTriggerExec45();
+        }
+    }
+}
+function ClassicTriggerStarter46() {
+    if(
+        Deaths((7), (10), 37, (179))
+    ){
+        if (ClassicTriggerExecTimer46[getcurpl()] == 0){
+            ClassicTriggerExecTimer46[getcurpl()] = 1;
+            ClassicTriggerExec46();
+        }
+    }
+}
+function ClassicTriggerStarter47() {
+    if(
+        Deaths((7), (10), 38, (179))
+    ){
+        if (ClassicTriggerExecTimer47[getcurpl()] == 0){
+            ClassicTriggerExecTimer47[getcurpl()] = 1;
+            ClassicTriggerExec47();
+        }
+    }
+}
+function ClassicTriggerStarter48() {
+    if(
+        Deaths((7), (10), 39, (179))
+    ){
+        if (ClassicTriggerExecTimer48[getcurpl()] == 0){
+            ClassicTriggerExecTimer48[getcurpl()] = 1;
+            ClassicTriggerExec48();
+        }
+    }
+}
+function ClassicTriggerStarter49() {
+    if(
+        Deaths((7), (10), 40, (179))
+    ){
+        if (ClassicTriggerExecTimer49[getcurpl()] == 0){
+            ClassicTriggerExecTimer49[getcurpl()] = 1;
+            ClassicTriggerExec49();
+        }
+    }
+}
+function ClassicTriggerStarter50() {
+    if(
+        Deaths((7), (10), 41, (179))
+    ){
+        if (ClassicTriggerExecTimer50[getcurpl()] == 0){
+            ClassicTriggerExecTimer50[getcurpl()] = 1;
+            ClassicTriggerExec50();
+        }
+    }
+}
+function ClassicTriggerStarter51() {
+    if(
+        Deaths((7), (10), 42, (179))
+    ){
+        if (ClassicTriggerExecTimer51[getcurpl()] == 0){
+            ClassicTriggerExecTimer51[getcurpl()] = 1;
+            ClassicTriggerExec51();
+        }
+    }
+}
+function ClassicTriggerStarter52() {
+    if(
+        Deaths((7), (10), 43, (179))
+    ){
+        if (ClassicTriggerExecTimer52[getcurpl()] == 0){
+            ClassicTriggerExecTimer52[getcurpl()] = 1;
+            ClassicTriggerExec52();
+        }
+    }
+}
+function ClassicTriggerStarter53() {
+    if(
+        Deaths((7), (10), 44, (179))
+    ){
+        if (ClassicTriggerExecTimer53[getcurpl()] == 0){
+            ClassicTriggerExecTimer53[getcurpl()] = 1;
+            ClassicTriggerExec53();
+        }
+    }
+}
+function ClassicTriggerStarter54() {
+    if(
+        Deaths((7), (10), 45, (179))
+    ){
+        if (ClassicTriggerExecTimer54[getcurpl()] == 0){
+            ClassicTriggerExecTimer54[getcurpl()] = 1;
+            ClassicTriggerExec54();
+        }
+    }
+}
+function ClassicTriggerStarter55() {
+    if(
+        Deaths((7), (10), 46, (179))
+    ){
+        if (ClassicTriggerExecTimer55[getcurpl()] == 0){
+            ClassicTriggerExecTimer55[getcurpl()] = 1;
+            ClassicTriggerExec55();
+        }
+    }
+}
+function ClassicTriggerStarter56() {
+    if(
+        Deaths((7), (10), 47, (179))
+    ){
+        if (ClassicTriggerExecTimer56[getcurpl()] == 0){
+            ClassicTriggerExecTimer56[getcurpl()] = 1;
+            ClassicTriggerExec56();
+        }
+    }
+}
+function ClassicTriggerStarter57() {
+    if(
+        Deaths((7), (10), 47, (179))
+    ){
+        if (ClassicTriggerExecTimer57[getcurpl()] == 0){
+            ClassicTriggerExecTimer57[getcurpl()] = 1;
+            ClassicTriggerExec57();
+        }
+    }
+}
+function ClassicTriggerStarter58() {
+    if(
+        Deaths((7), (10), 47, (179))
+    ){
+        if (ClassicTriggerExecTimer58[getcurpl()] == 0){
+            ClassicTriggerExecTimer58[getcurpl()] = 1;
+            ClassicTriggerExec58();
+        }
+    }
+}
+function ClassicTriggerStarter59() {
+    if(
+        Deaths((7), (10), 47, (179))
+    ){
+        if (ClassicTriggerExecTimer59[getcurpl()] == 0){
+            ClassicTriggerExecTimer59[getcurpl()] = 1;
+            ClassicTriggerExec59();
+        }
+    }
+}
+function ClassicTriggerStarter60() {
+    if(
+        Deaths((7), (10), 47, (179))
+    ){
+        if (ClassicTriggerExecTimer60[getcurpl()] == 0){
+            ClassicTriggerExecTimer60[getcurpl()] = 1;
+            ClassicTriggerExec60();
+        }
+    }
+}
+function ClassicTriggerExec() {
+    ClassicTriggerExec0();
+    ClassicTriggerExec1();
+    ClassicTriggerExec2();
+    ClassicTriggerExec3();
+    ClassicTriggerExec4();
+    ClassicTriggerExec5();
+    ClassicTriggerExec6();
+    ClassicTriggerExec7();
+    ClassicTriggerExec8();
+    ClassicTriggerExec9();
+    ClassicTriggerExec10();
+    ClassicTriggerExec11();
+    ClassicTriggerExec12();
+    ClassicTriggerExec13();
+    ClassicTriggerExec14();
+    ClassicTriggerExec15();
+    ClassicTriggerExec16();
+    ClassicTriggerExec17();
+    ClassicTriggerExec18();
+    ClassicTriggerExec19();
+    ClassicTriggerExec20();
+    ClassicTriggerExec21();
+    ClassicTriggerExec22();
+    ClassicTriggerExec23();
+    ClassicTriggerExec24();
+    ClassicTriggerExec25();
+    ClassicTriggerExec26();
+    ClassicTriggerExec27();
+    ClassicTriggerExec28();
+    ClassicTriggerExec29();
+    ClassicTriggerExec30();
+    ClassicTriggerExec31();
+    ClassicTriggerExec32();
+    ClassicTriggerExec33();
+    ClassicTriggerExec34();
+    ClassicTriggerExec35();
+    ClassicTriggerExec36();
+    ClassicTriggerExec37();
+    ClassicTriggerExec38();
+    ClassicTriggerExec39();
+    ClassicTriggerExec40();
+    ClassicTriggerExec41();
+    ClassicTriggerExec42();
+    ClassicTriggerExec43();
+    ClassicTriggerExec44();
+    ClassicTriggerExec45();
+    ClassicTriggerExec46();
+    ClassicTriggerExec47();
+    ClassicTriggerExec48();
+    ClassicTriggerExec49();
+    ClassicTriggerExec50();
+    ClassicTriggerExec51();
+    ClassicTriggerExec52();
+    ClassicTriggerExec53();
+    ClassicTriggerExec54();
+    ClassicTriggerExec55();
+    ClassicTriggerExec56();
+    ClassicTriggerExec57();
+    ClassicTriggerExec58();
+    ClassicTriggerExec59();
+    ClassicTriggerExec60();
+}
+function ClassicTriggerStarter() {
+    //플레이어 1
+    if (playerexist(0)){
+        setcurpl(0);
+        ClassicTriggerStarter0();
+        ClassicTriggerStarter1();
+        ClassicTriggerStarter2();
+        ClassicTriggerStarter3();
+        ClassicTriggerStarter7();
+        ClassicTriggerStarter8();
+        ClassicTriggerStarter9();
+        ClassicTriggerStarter10();
+        ClassicTriggerStarter11();
+        ClassicTriggerStarter12();
+        ClassicTriggerStarter13();
+        ClassicTriggerStarter14();
+        ClassicTriggerStarter15();
+        ClassicTriggerStarter16();
+        ClassicTriggerStarter17();
+        ClassicTriggerStarter18();
+        ClassicTriggerStarter19();
+        ClassicTriggerStarter20();
+        ClassicTriggerStarter21();
+        ClassicTriggerStarter22();
+        ClassicTriggerStarter23();
+        ClassicTriggerStarter24();
+        ClassicTriggerStarter25();
+        ClassicTriggerStarter26();
+        ClassicTriggerStarter27();
+        ClassicTriggerStarter28();
+        ClassicTriggerStarter29();
+        ClassicTriggerStarter30();
+        ClassicTriggerStarter31();
+        ClassicTriggerStarter32();
+        ClassicTriggerStarter33();
+        ClassicTriggerStarter34();
+        ClassicTriggerStarter35();
+        ClassicTriggerStarter36();
+        ClassicTriggerStarter37();
+        ClassicTriggerStarter38();
+        ClassicTriggerStarter39();
+        ClassicTriggerStarter40();
+        ClassicTriggerStarter41();
+        ClassicTriggerStarter42();
+        ClassicTriggerStarter43();
+        ClassicTriggerStarter44();
+        ClassicTriggerStarter45();
+        ClassicTriggerStarter46();
+        ClassicTriggerStarter47();
+        ClassicTriggerStarter48();
+        ClassicTriggerStarter49();
+        ClassicTriggerStarter50();
+        ClassicTriggerStarter51();
+        ClassicTriggerStarter52();
+        ClassicTriggerStarter53();
+        ClassicTriggerStarter54();
+        ClassicTriggerStarter55();
+        ClassicTriggerStarter56();
+        ClassicTriggerStarter57();
+        ClassicTriggerStarter58();
+        ClassicTriggerStarter59();
+        ClassicTriggerStarter60();
+    }
+    //플레이어 2
+    if (playerexist(1)){
+        setcurpl(1);
+        ClassicTriggerStarter0();
+        ClassicTriggerStarter1();
+        ClassicTriggerStarter2();
+        ClassicTriggerStarter3();
+        ClassicTriggerStarter7();
+        ClassicTriggerStarter8();
+        ClassicTriggerStarter9();
+        ClassicTriggerStarter10();
+        ClassicTriggerStarter11();
+        ClassicTriggerStarter12();
+        ClassicTriggerStarter13();
+        ClassicTriggerStarter14();
+        ClassicTriggerStarter15();
+        ClassicTriggerStarter16();
+        ClassicTriggerStarter17();
+        ClassicTriggerStarter18();
+        ClassicTriggerStarter19();
+        ClassicTriggerStarter20();
+        ClassicTriggerStarter21();
+        ClassicTriggerStarter22();
+        ClassicTriggerStarter23();
+        ClassicTriggerStarter24();
+        ClassicTriggerStarter25();
+        ClassicTriggerStarter26();
+        ClassicTriggerStarter27();
+        ClassicTriggerStarter28();
+        ClassicTriggerStarter29();
+        ClassicTriggerStarter30();
+        ClassicTriggerStarter31();
+        ClassicTriggerStarter32();
+        ClassicTriggerStarter33();
+        ClassicTriggerStarter34();
+        ClassicTriggerStarter35();
+        ClassicTriggerStarter36();
+        ClassicTriggerStarter37();
+        ClassicTriggerStarter38();
+        ClassicTriggerStarter39();
+        ClassicTriggerStarter40();
+        ClassicTriggerStarter41();
+        ClassicTriggerStarter42();
+        ClassicTriggerStarter43();
+        ClassicTriggerStarter44();
+        ClassicTriggerStarter45();
+        ClassicTriggerStarter46();
+        ClassicTriggerStarter47();
+        ClassicTriggerStarter48();
+        ClassicTriggerStarter49();
+        ClassicTriggerStarter50();
+        ClassicTriggerStarter51();
+        ClassicTriggerStarter52();
+        ClassicTriggerStarter53();
+        ClassicTriggerStarter54();
+        ClassicTriggerStarter55();
+        ClassicTriggerStarter56();
+        ClassicTriggerStarter57();
+        ClassicTriggerStarter58();
+        ClassicTriggerStarter59();
+        ClassicTriggerStarter60();
+    }
+    //플레이어 3
+    if (playerexist(2)){
+        setcurpl(2);
+        ClassicTriggerStarter0();
+        ClassicTriggerStarter1();
+        ClassicTriggerStarter2();
+        ClassicTriggerStarter3();
+        ClassicTriggerStarter7();
+        ClassicTriggerStarter8();
+        ClassicTriggerStarter9();
+        ClassicTriggerStarter10();
+        ClassicTriggerStarter11();
+        ClassicTriggerStarter12();
+        ClassicTriggerStarter13();
+        ClassicTriggerStarter14();
+        ClassicTriggerStarter15();
+        ClassicTriggerStarter16();
+        ClassicTriggerStarter17();
+        ClassicTriggerStarter18();
+        ClassicTriggerStarter19();
+        ClassicTriggerStarter20();
+        ClassicTriggerStarter21();
+        ClassicTriggerStarter22();
+        ClassicTriggerStarter23();
+        ClassicTriggerStarter24();
+        ClassicTriggerStarter25();
+        ClassicTriggerStarter26();
+        ClassicTriggerStarter27();
+        ClassicTriggerStarter28();
+        ClassicTriggerStarter29();
+        ClassicTriggerStarter30();
+        ClassicTriggerStarter31();
+        ClassicTriggerStarter32();
+        ClassicTriggerStarter33();
+        ClassicTriggerStarter34();
+        ClassicTriggerStarter35();
+        ClassicTriggerStarter36();
+        ClassicTriggerStarter37();
+        ClassicTriggerStarter38();
+        ClassicTriggerStarter39();
+        ClassicTriggerStarter40();
+        ClassicTriggerStarter41();
+        ClassicTriggerStarter42();
+        ClassicTriggerStarter43();
+        ClassicTriggerStarter44();
+        ClassicTriggerStarter45();
+        ClassicTriggerStarter46();
+        ClassicTriggerStarter47();
+        ClassicTriggerStarter48();
+        ClassicTriggerStarter49();
+        ClassicTriggerStarter50();
+        ClassicTriggerStarter51();
+        ClassicTriggerStarter52();
+        ClassicTriggerStarter53();
+        ClassicTriggerStarter54();
+        ClassicTriggerStarter55();
+        ClassicTriggerStarter56();
+        ClassicTriggerStarter57();
+        ClassicTriggerStarter58();
+        ClassicTriggerStarter59();
+        ClassicTriggerStarter60();
+    }
+    //플레이어 4
+    if (playerexist(3)){
+        setcurpl(3);
+        ClassicTriggerStarter0();
+        ClassicTriggerStarter1();
+        ClassicTriggerStarter2();
+        ClassicTriggerStarter3();
+        ClassicTriggerStarter7();
+        ClassicTriggerStarter8();
+        ClassicTriggerStarter9();
+        ClassicTriggerStarter10();
+        ClassicTriggerStarter11();
+        ClassicTriggerStarter12();
+        ClassicTriggerStarter13();
+        ClassicTriggerStarter14();
+        ClassicTriggerStarter15();
+        ClassicTriggerStarter16();
+        ClassicTriggerStarter17();
+        ClassicTriggerStarter18();
+        ClassicTriggerStarter19();
+        ClassicTriggerStarter20();
+        ClassicTriggerStarter21();
+        ClassicTriggerStarter22();
+        ClassicTriggerStarter23();
+        ClassicTriggerStarter24();
+        ClassicTriggerStarter25();
+        ClassicTriggerStarter26();
+        ClassicTriggerStarter27();
+        ClassicTriggerStarter28();
+        ClassicTriggerStarter29();
+        ClassicTriggerStarter30();
+        ClassicTriggerStarter31();
+        ClassicTriggerStarter32();
+        ClassicTriggerStarter33();
+        ClassicTriggerStarter34();
+        ClassicTriggerStarter35();
+        ClassicTriggerStarter36();
+        ClassicTriggerStarter37();
+        ClassicTriggerStarter38();
+        ClassicTriggerStarter39();
+        ClassicTriggerStarter40();
+        ClassicTriggerStarter41();
+        ClassicTriggerStarter42();
+        ClassicTriggerStarter43();
+        ClassicTriggerStarter44();
+        ClassicTriggerStarter45();
+        ClassicTriggerStarter46();
+        ClassicTriggerStarter47();
+        ClassicTriggerStarter48();
+        ClassicTriggerStarter49();
+        ClassicTriggerStarter50();
+        ClassicTriggerStarter51();
+        ClassicTriggerStarter52();
+        ClassicTriggerStarter53();
+        ClassicTriggerStarter54();
+        ClassicTriggerStarter55();
+        ClassicTriggerStarter56();
+        ClassicTriggerStarter57();
+        ClassicTriggerStarter58();
+        ClassicTriggerStarter59();
+        ClassicTriggerStarter60();
+    }
+    //플레이어 5
+    if (playerexist(4)){
+        setcurpl(4);
+        ClassicTriggerStarter0();
+        ClassicTriggerStarter1();
+        ClassicTriggerStarter2();
+        ClassicTriggerStarter3();
+        ClassicTriggerStarter7();
+        ClassicTriggerStarter8();
+        ClassicTriggerStarter9();
+        ClassicTriggerStarter10();
+        ClassicTriggerStarter11();
+        ClassicTriggerStarter12();
+        ClassicTriggerStarter13();
+        ClassicTriggerStarter14();
+        ClassicTriggerStarter15();
+        ClassicTriggerStarter16();
+        ClassicTriggerStarter17();
+        ClassicTriggerStarter18();
+        ClassicTriggerStarter19();
+        ClassicTriggerStarter20();
+        ClassicTriggerStarter21();
+        ClassicTriggerStarter22();
+        ClassicTriggerStarter23();
+        ClassicTriggerStarter24();
+        ClassicTriggerStarter25();
+        ClassicTriggerStarter26();
+        ClassicTriggerStarter27();
+        ClassicTriggerStarter28();
+        ClassicTriggerStarter29();
+        ClassicTriggerStarter30();
+        ClassicTriggerStarter31();
+        ClassicTriggerStarter32();
+        ClassicTriggerStarter33();
+        ClassicTriggerStarter34();
+        ClassicTriggerStarter35();
+        ClassicTriggerStarter36();
+        ClassicTriggerStarter37();
+        ClassicTriggerStarter38();
+        ClassicTriggerStarter39();
+        ClassicTriggerStarter40();
+        ClassicTriggerStarter41();
+        ClassicTriggerStarter42();
+        ClassicTriggerStarter43();
+        ClassicTriggerStarter44();
+        ClassicTriggerStarter45();
+        ClassicTriggerStarter46();
+        ClassicTriggerStarter47();
+        ClassicTriggerStarter48();
+        ClassicTriggerStarter49();
+        ClassicTriggerStarter50();
+        ClassicTriggerStarter51();
+        ClassicTriggerStarter52();
+        ClassicTriggerStarter53();
+        ClassicTriggerStarter54();
+        ClassicTriggerStarter55();
+        ClassicTriggerStarter56();
+        ClassicTriggerStarter57();
+        ClassicTriggerStarter58();
+        ClassicTriggerStarter59();
+        ClassicTriggerStarter60();
+    }
+    //플레이어 6
+    if (playerexist(5)){
+        setcurpl(5);
+        ClassicTriggerStarter0();
+        ClassicTriggerStarter1();
+        ClassicTriggerStarter2();
+        ClassicTriggerStarter3();
+        ClassicTriggerStarter7();
+        ClassicTriggerStarter8();
+        ClassicTriggerStarter9();
+        ClassicTriggerStarter10();
+        ClassicTriggerStarter11();
+        ClassicTriggerStarter12();
+        ClassicTriggerStarter13();
+        ClassicTriggerStarter14();
+        ClassicTriggerStarter15();
+        ClassicTriggerStarter16();
+        ClassicTriggerStarter17();
+        ClassicTriggerStarter18();
+        ClassicTriggerStarter19();
+        ClassicTriggerStarter20();
+        ClassicTriggerStarter21();
+        ClassicTriggerStarter22();
+        ClassicTriggerStarter23();
+        ClassicTriggerStarter24();
+        ClassicTriggerStarter25();
+        ClassicTriggerStarter26();
+        ClassicTriggerStarter27();
+        ClassicTriggerStarter28();
+        ClassicTriggerStarter29();
+        ClassicTriggerStarter30();
+        ClassicTriggerStarter31();
+        ClassicTriggerStarter32();
+        ClassicTriggerStarter33();
+        ClassicTriggerStarter34();
+        ClassicTriggerStarter35();
+        ClassicTriggerStarter36();
+        ClassicTriggerStarter37();
+        ClassicTriggerStarter38();
+        ClassicTriggerStarter39();
+        ClassicTriggerStarter40();
+        ClassicTriggerStarter41();
+        ClassicTriggerStarter42();
+        ClassicTriggerStarter43();
+        ClassicTriggerStarter44();
+        ClassicTriggerStarter45();
+        ClassicTriggerStarter46();
+        ClassicTriggerStarter47();
+        ClassicTriggerStarter48();
+        ClassicTriggerStarter49();
+        ClassicTriggerStarter50();
+        ClassicTriggerStarter51();
+        ClassicTriggerStarter52();
+        ClassicTriggerStarter53();
+        ClassicTriggerStarter54();
+        ClassicTriggerStarter55();
+        ClassicTriggerStarter56();
+        ClassicTriggerStarter57();
+        ClassicTriggerStarter58();
+        ClassicTriggerStarter59();
+        ClassicTriggerStarter60();
+    }
+    //플레이어 7
+    if (playerexist(6)){
+        setcurpl(6);
+        ClassicTriggerStarter0();
+        ClassicTriggerStarter1();
+        ClassicTriggerStarter2();
+        ClassicTriggerStarter3();
+        ClassicTriggerStarter7();
+        ClassicTriggerStarter8();
+        ClassicTriggerStarter9();
+        ClassicTriggerStarter10();
+        ClassicTriggerStarter11();
+        ClassicTriggerStarter12();
+        ClassicTriggerStarter13();
+        ClassicTriggerStarter14();
+        ClassicTriggerStarter15();
+        ClassicTriggerStarter16();
+        ClassicTriggerStarter17();
+        ClassicTriggerStarter18();
+        ClassicTriggerStarter19();
+        ClassicTriggerStarter20();
+        ClassicTriggerStarter21();
+        ClassicTriggerStarter22();
+        ClassicTriggerStarter23();
+        ClassicTriggerStarter24();
+        ClassicTriggerStarter25();
+        ClassicTriggerStarter26();
+        ClassicTriggerStarter27();
+        ClassicTriggerStarter28();
+        ClassicTriggerStarter29();
+        ClassicTriggerStarter30();
+        ClassicTriggerStarter31();
+        ClassicTriggerStarter32();
+        ClassicTriggerStarter33();
+        ClassicTriggerStarter34();
+        ClassicTriggerStarter35();
+        ClassicTriggerStarter36();
+        ClassicTriggerStarter37();
+        ClassicTriggerStarter38();
+        ClassicTriggerStarter39();
+        ClassicTriggerStarter40();
+        ClassicTriggerStarter41();
+        ClassicTriggerStarter42();
+        ClassicTriggerStarter43();
+        ClassicTriggerStarter44();
+        ClassicTriggerStarter45();
+        ClassicTriggerStarter46();
+        ClassicTriggerStarter47();
+        ClassicTriggerStarter48();
+        ClassicTriggerStarter49();
+        ClassicTriggerStarter50();
+        ClassicTriggerStarter51();
+        ClassicTriggerStarter52();
+        ClassicTriggerStarter53();
+        ClassicTriggerStarter54();
+        ClassicTriggerStarter55();
+        ClassicTriggerStarter56();
+        ClassicTriggerStarter57();
+        ClassicTriggerStarter58();
+        ClassicTriggerStarter59();
+        ClassicTriggerStarter60();
+    }
+    //플레이어 8
+    if (playerexist(7)){
+        setcurpl(7);
+        ClassicTriggerStarter0();
+        ClassicTriggerStarter1();
+        ClassicTriggerStarter2();
+        ClassicTriggerStarter3();
+        ClassicTriggerStarter4();
+        ClassicTriggerStarter7();
+        ClassicTriggerStarter8();
+        ClassicTriggerStarter9();
+        ClassicTriggerStarter10();
+        ClassicTriggerStarter11();
+        ClassicTriggerStarter12();
+        ClassicTriggerStarter13();
+        ClassicTriggerStarter14();
+        ClassicTriggerStarter15();
+        ClassicTriggerStarter16();
+        ClassicTriggerStarter17();
+        ClassicTriggerStarter18();
+        ClassicTriggerStarter19();
+        ClassicTriggerStarter20();
+        ClassicTriggerStarter21();
+        ClassicTriggerStarter22();
+        ClassicTriggerStarter23();
+        ClassicTriggerStarter24();
+        ClassicTriggerStarter25();
+        ClassicTriggerStarter26();
+        ClassicTriggerStarter27();
+        ClassicTriggerStarter28();
+        ClassicTriggerStarter29();
+        ClassicTriggerStarter30();
+        ClassicTriggerStarter31();
+        ClassicTriggerStarter32();
+        ClassicTriggerStarter33();
+        ClassicTriggerStarter34();
+        ClassicTriggerStarter35();
+        ClassicTriggerStarter36();
+        ClassicTriggerStarter37();
+        ClassicTriggerStarter38();
+        ClassicTriggerStarter39();
+        ClassicTriggerStarter40();
+        ClassicTriggerStarter41();
+        ClassicTriggerStarter42();
+        ClassicTriggerStarter43();
+        ClassicTriggerStarter44();
+        ClassicTriggerStarter45();
+        ClassicTriggerStarter46();
+        ClassicTriggerStarter47();
+        ClassicTriggerStarter48();
+        ClassicTriggerStarter49();
+        ClassicTriggerStarter50();
+        ClassicTriggerStarter51();
+        ClassicTriggerStarter52();
+        ClassicTriggerStarter53();
+        ClassicTriggerStarter54();
+        ClassicTriggerStarter55();
+        ClassicTriggerStarter56();
+        ClassicTriggerStarter57();
+        ClassicTriggerStarter58();
+        ClassicTriggerStarter59();
+        ClassicTriggerStarter60();
+    }
+}
+function WaitableTriggerExec() {
+}
+function onPluginStart() {
+    randomize();
+
+}
+function beforeTriggerExec() {
+    EUDPlayerLoop()();
+        WaitableTriggerExec();
+        ClassicTriggerExec();
+    EUDEndPlayerLoop();
+    ClassicTriggerStarter();
+    BGM.Player();
+}
+function afterTriggerExec() {
+}

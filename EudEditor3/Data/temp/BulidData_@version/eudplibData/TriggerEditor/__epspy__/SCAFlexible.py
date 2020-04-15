@@ -143,22 +143,22 @@ def Init():
     MPQAddFile('SCARCHIVEMAPCODE', open('scakeyfile', 'rb').read())
     # (Line 10) MPQAddFile('SCARCHIVEDATA', py_open('scadatafile', 'rb').read());
     MPQAddFile('SCARCHIVEDATA', open('scadatafile', 'rb').read())
-    # (Line 12) dwwrite_epd(EPD(ws) + 0, 3462207441);
-    f_dwwrite_epd(EPD(ws) + 0, 3462207441)
-    # (Line 13) dwwrite_epd(EPD(ws) + 1, 1790421965);
-    f_dwwrite_epd(EPD(ws) + 1, 1790421965)
-    # (Line 14) dwwrite_epd(EPD(ws) + 2, 841376908);
-    f_dwwrite_epd(EPD(ws) + 2, 841376908)
-    # (Line 15) dwwrite_epd(EPD(ws) + 3, 1957021710);
-    f_dwwrite_epd(EPD(ws) + 3, 1957021710)
-    # (Line 16) dwwrite_epd(EPD(ws) + 4, 852267627);
-    f_dwwrite_epd(EPD(ws) + 4, 852267627)
-    # (Line 17) dwwrite_epd(EPD(ws) + 5, 1954551143);
-    f_dwwrite_epd(EPD(ws) + 5, 1954551143)
-    # (Line 18) dwwrite_epd(EPD(ws) + 6, 2513469629);
-    f_dwwrite_epd(EPD(ws) + 6, 2513469629)
-    # (Line 19) dwwrite_epd(EPD(ws) + 7, 1555762889);
-    f_dwwrite_epd(EPD(ws) + 7, 1555762889)
+    # (Line 12) dwwrite_epd(EPD(ws) + 0, 1806584732);
+    f_dwwrite_epd(EPD(ws) + 0, 1806584732)
+    # (Line 13) dwwrite_epd(EPD(ws) + 1, 782298380);
+    f_dwwrite_epd(EPD(ws) + 1, 782298380)
+    # (Line 14) dwwrite_epd(EPD(ws) + 2, 3880799334);
+    f_dwwrite_epd(EPD(ws) + 2, 3880799334)
+    # (Line 15) dwwrite_epd(EPD(ws) + 3, 1713103625);
+    f_dwwrite_epd(EPD(ws) + 3, 1713103625)
+    # (Line 16) dwwrite_epd(EPD(ws) + 4, 2103081766);
+    f_dwwrite_epd(EPD(ws) + 4, 2103081766)
+    # (Line 17) dwwrite_epd(EPD(ws) + 5, 3439864143);
+    f_dwwrite_epd(EPD(ws) + 5, 3439864143)
+    # (Line 18) dwwrite_epd(EPD(ws) + 6, 3003170259);
+    f_dwwrite_epd(EPD(ws) + 6, 3003170259)
+    # (Line 19) dwwrite_epd(EPD(ws) + 7, 3701052857);
+    f_dwwrite_epd(EPD(ws) + 7, 3701052857)
     # (Line 21) }
     # (Line 24) function Exec(){
 
@@ -177,152 +177,156 @@ def ResetValue(tagNum, index):
     EUDSwitch(tagNum)
     # (Line 32) case 0:
     _t1 = EUDSwitchCase()
-    # (Line 33) n0.Player_EXP[cp] = 0;
+    # (Line 33) {
     if _t1(0):
+        # (Line 34) n0.Player_EXP[cp] = 0;
         _ARRW(n0.Player_EXP, cp) << (0)
-        # (Line 34) break;
+        # (Line 35) break;
         EUDBreak()
-        # (Line 35) }
-    # (Line 36) }
+        # (Line 36) }
+        # (Line 37) }
+    # (Line 38) }
     EUDEndSwitch()
-    # (Line 39) function SaveValue(tagNum, Value, index){
+    # (Line 41) function SaveValue(tagNum, Value, index){
 
 @EUDFunc
 def SaveValue(tagNum, Value, index):
-    # (Line 40) const cp = getcurpl();
+    # (Line 42) const cp = getcurpl();
     cp = f_getcurpl()
-    # (Line 41) switch(tagNum){
+    # (Line 43) switch(tagNum){
     EUDSwitch(tagNum)
-    # (Line 42) case 0:
+    # (Line 44) case 0:
     _t1 = EUDSwitchCase()
-    # (Line 43) n0.Player_EXP[cp] = Value;
+    # (Line 45) {
     if _t1(0):
+        # (Line 46) n0.Player_EXP[cp] = Value;
         _ARRW(n0.Player_EXP, cp) << (Value)
-        # (Line 44) break;
+        # (Line 47) break;
         EUDBreak()
-        # (Line 45) }
-    # (Line 46) }
+        # (Line 48) }
+        # (Line 49) }
+    # (Line 50) }
     EUDEndSwitch()
-    # (Line 49) function SaveDataWriteValue(tagNum, BaseAddress, index){
+    # (Line 53) function SaveDataWriteValue(tagNum, BaseAddress, index){
 
 @EUDFunc
 def SaveDataWriteValue(tagNum, BaseAddress, index):
-    # (Line 50) const cp = getcurpl();
+    # (Line 54) const cp = getcurpl();
     cp = f_getcurpl()
-    # (Line 51) switch(tagNum){
+    # (Line 55) switch(tagNum){
     EUDSwitch(tagNum)
-    # (Line 52) case 0:
+    # (Line 56) case 0:
     _t1 = EUDSwitchCase()
-    # (Line 53) {
+    # (Line 57) {
     if _t1(0):
-        # (Line 54) const objValue = n0.Player_EXP[cp];
+        # (Line 58) const objValue = n0.Player_EXP[cp];
         objValue = n0.Player_EXP[cp]
-        # (Line 55) if(objValue != 0){
+        # (Line 59) if(objValue != 0){
         if EUDIf()(objValue == 0, neg=True):
-            # (Line 56) if (objValue > 0xFFFF){
+            # (Line 60) if (objValue > 0xFFFF){
             if EUDIf()(objValue <= 0xFFFF, neg=True):
-                # (Line 57) wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x1000 + tagNum);
+                # (Line 61) wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x1000 + tagNum);
                 f_wwrite_epd(BaseAddress + index // 2, (index % 2) * 2, 0x1000 + tagNum)
-                # (Line 58) index++;
-                index.__iadd__(1)
-                # (Line 59) wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue / 0x10000);
-                f_wwrite_epd(BaseAddress + index // 2, (index % 2) * 2, objValue // 0x10000)
-                # (Line 60) index++;
-                index.__iadd__(1)
-                # (Line 61) wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue % 0x10000);
-                f_wwrite_epd(BaseAddress + index // 2, (index % 2) * 2, objValue % 0x10000)
                 # (Line 62) index++;
                 index.__iadd__(1)
-                # (Line 63) }else{
+                # (Line 63) wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue / 0x10000);
+                f_wwrite_epd(BaseAddress + index // 2, (index % 2) * 2, objValue // 0x10000)
+                # (Line 64) index++;
+                index.__iadd__(1)
+                # (Line 65) wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue % 0x10000);
+                f_wwrite_epd(BaseAddress + index // 2, (index % 2) * 2, objValue % 0x10000)
+                # (Line 66) index++;
+                index.__iadd__(1)
+                # (Line 67) }else{
             if EUDElse()():
-                # (Line 64) wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x2000 + tagNum);
+                # (Line 68) wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, 0x2000 + tagNum);
                 f_wwrite_epd(BaseAddress + index // 2, (index % 2) * 2, 0x2000 + tagNum)
-                # (Line 65) index++;
+                # (Line 69) index++;
                 index.__iadd__(1)
-                # (Line 66) wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue);
+                # (Line 70) wwrite_epd(BaseAddress + index / 2, (index % 2) * 2, objValue);
                 f_wwrite_epd(BaseAddress + index // 2, (index % 2) * 2, objValue)
-                # (Line 67) index++;
+                # (Line 71) index++;
                 index.__iadd__(1)
-                # (Line 68) }
-                # (Line 69) }
+                # (Line 72) }
+                # (Line 73) }
             EUDEndIf()
-            # (Line 70) }
+            # (Line 74) }
         EUDEndIf()
-        # (Line 71) break;
+        # (Line 75) break;
         EUDBreak()
-        # (Line 72) }
-    # (Line 74) return index;
+        # (Line 76) }
+    # (Line 78) return index;
     EUDEndSwitch()
     EUDReturn(index)
-    # (Line 75) }
-    # (Line 78) function LoadDataReadValue(BaseAddress, i){
+    # (Line 79) }
+    # (Line 82) function LoadDataReadValue(BaseAddress, i){
 
 @EUDFunc
 def LoadDataReadValue(BaseAddress, i):
-    # (Line 79) const indicator = wread_epd(BaseAddress + i / 2, (i % 2) * 2);
+    # (Line 83) const indicator = wread_epd(BaseAddress + i / 2, (i % 2) * 2);
     indicator = f_wread_epd(BaseAddress + i // 2, (i % 2) * 2)
-    # (Line 81) if (indicator != 0){
+    # (Line 85) if (indicator != 0){
     if EUDIf()(indicator == 0, neg=True):
-        # (Line 82) const spec = indicator / 0x1000;
+        # (Line 86) const spec = indicator / 0x1000;
         spec = indicator // 0x1000
-        # (Line 83) const ObjNum = indicator % 0x1000;
+        # (Line 87) const ObjNum = indicator % 0x1000;
         ObjNum = indicator % 0x1000
-        # (Line 84) var vindex = 0;
+        # (Line 88) var vindex = 0;
         vindex = EUDVariable()
         vindex << (0)
-        # (Line 85) var value = 0;
+        # (Line 89) var value = 0;
         value = EUDVariable()
         value << (0)
-        # (Line 86) if (spec == 1){
+        # (Line 90) if (spec == 1){
         if EUDIf()(spec == 1):
-            # (Line 88) i++;
+            # (Line 92) i++;
             i.__iadd__(1)
-            # (Line 89) const value1 = wread_epd(BaseAddress + i / 2, (i % 2) * 2);
+            # (Line 93) const value1 = wread_epd(BaseAddress + i / 2, (i % 2) * 2);
             value1 = f_wread_epd(BaseAddress + i // 2, (i % 2) * 2)
-            # (Line 90) i++;
+            # (Line 94) i++;
             i.__iadd__(1)
-            # (Line 91) const value2 = wread_epd(BaseAddress + i / 2, (i % 2) * 2);
+            # (Line 95) const value2 = wread_epd(BaseAddress + i / 2, (i % 2) * 2);
             value2 = f_wread_epd(BaseAddress + i // 2, (i % 2) * 2)
-            # (Line 92) value = value1 * 0x10000 + value2;
+            # (Line 96) value = value1 * 0x10000 + value2;
             value << (value1 * 0x10000 + value2)
-            # (Line 93) }else if (spec == 2){
+            # (Line 97) }else if (spec == 2){
         if EUDElseIf()(spec == 2):
-            # (Line 95) i++;
-            i.__iadd__(1)
-            # (Line 96) value = wread_epd(BaseAddress + i / 2, (i % 2) * 2);
-            value << (f_wread_epd(BaseAddress + i // 2, (i % 2) * 2))
-            # (Line 97) }else if (spec == 3){
-        if EUDElseIf()(spec == 3):
             # (Line 99) i++;
             i.__iadd__(1)
-            # (Line 100) vindex = wread_epd(BaseAddress + i / 2, (i % 2) * 2);
-            vindex << (f_wread_epd(BaseAddress + i // 2, (i % 2) * 2))
-            # (Line 101) i++;
-            i.__iadd__(1)
-            # (Line 102) const value1 = wread_epd(BaseAddress + i / 2, (i % 2) * 2);
-            value1 = f_wread_epd(BaseAddress + i // 2, (i % 2) * 2)
+            # (Line 100) value = wread_epd(BaseAddress + i / 2, (i % 2) * 2);
+            value << (f_wread_epd(BaseAddress + i // 2, (i % 2) * 2))
+            # (Line 101) }else if (spec == 3){
+        if EUDElseIf()(spec == 3):
             # (Line 103) i++;
             i.__iadd__(1)
-            # (Line 104) const value2 = wread_epd(BaseAddress + i / 2, (i % 2) * 2);
-            value2 = f_wread_epd(BaseAddress + i // 2, (i % 2) * 2)
-            # (Line 105) value = value1 * 0x10000 + value2;
-            value << (value1 * 0x10000 + value2)
-            # (Line 106) }else if (spec == 4){
-        if EUDElseIf()(spec == 4):
-            # (Line 108) i++;
-            i.__iadd__(1)
-            # (Line 109) vindex = wread_epd(BaseAddress + i / 2, (i % 2) * 2);
+            # (Line 104) vindex = wread_epd(BaseAddress + i / 2, (i % 2) * 2);
             vindex << (f_wread_epd(BaseAddress + i // 2, (i % 2) * 2))
-            # (Line 110) i++;
+            # (Line 105) i++;
             i.__iadd__(1)
-            # (Line 111) value = wread_epd(BaseAddress + i / 2, (i % 2) * 2);
+            # (Line 106) const value1 = wread_epd(BaseAddress + i / 2, (i % 2) * 2);
+            value1 = f_wread_epd(BaseAddress + i // 2, (i % 2) * 2)
+            # (Line 107) i++;
+            i.__iadd__(1)
+            # (Line 108) const value2 = wread_epd(BaseAddress + i / 2, (i % 2) * 2);
+            value2 = f_wread_epd(BaseAddress + i // 2, (i % 2) * 2)
+            # (Line 109) value = value1 * 0x10000 + value2;
+            value << (value1 * 0x10000 + value2)
+            # (Line 110) }else if (spec == 4){
+        if EUDElseIf()(spec == 4):
+            # (Line 112) i++;
+            i.__iadd__(1)
+            # (Line 113) vindex = wread_epd(BaseAddress + i / 2, (i % 2) * 2);
+            vindex << (f_wread_epd(BaseAddress + i // 2, (i % 2) * 2))
+            # (Line 114) i++;
+            i.__iadd__(1)
+            # (Line 115) value = wread_epd(BaseAddress + i / 2, (i % 2) * 2);
             value << (f_wread_epd(BaseAddress + i // 2, (i % 2) * 2))
-            # (Line 112) }
-            # (Line 113) SaveValue(ObjNum, value, vindex);
+            # (Line 116) }
+            # (Line 117) SaveValue(ObjNum, value, vindex);
         EUDEndIf()
         SaveValue(ObjNum, value, vindex)
-        # (Line 114) }
-        # (Line 115) return i;
+        # (Line 118) }
+        # (Line 119) return i;
     EUDEndIf()
     EUDReturn(i)
-    # (Line 116) }
+    # (Line 120) }

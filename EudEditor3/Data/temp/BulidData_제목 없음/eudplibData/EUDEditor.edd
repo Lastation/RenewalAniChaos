@@ -1,0 +1,10 @@
+[main]
+input: ..\..\..\..\..\..\..\Starcraft\Maps\KuroKumo\ddd.scx
+output: ..\..\..\..\..\..\..\Starcraft\Maps\KuroKumo\Test.scx
+[DataEditor.py]
+[ExtraDataEditor.py]
+[dataDumper]
+
+
+
+

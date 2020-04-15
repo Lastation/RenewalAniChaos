@@ -1,0 +1,34 @@
+const s = StringBuffer();
+
+function Answer_Text()
+{
+	const now_music = dwread_epd(EPD(0x58A364 + 48 * 179 + 4 * 7));
+	
+	switch(now_music)
+	{
+		case 0:
+			s.printAt(0, "\x13\x04 AniSong \x032010 - \x0112020 \x08by.Kurokumo");
+			break;
+		case 1:
+			s.printAt(0, "\x13\x04우리들의 LIVE 너와의 LIFE\n\x13\x03Artist : \x08μ's");
+			break;
+		case 2:
+			s.printAt(0, "\x13\x04우정 노 체인지\n\x13\x03Artist : \x08μ's");
+			break;
+		case 3:
+			s.printAt(0, "\x13\x04Snow Halation\n\x13\x03Artist : \x08μ's");
+			break;
+		case 4:
+			s.printAt(0, "\x13\x04baby maybe 사랑의버튼\n\x13\x03Artist : \x08μ's");
+			break;
+		case 5:
+			s.printAt(0, "\x13\x04여름빛 미소로 1,2,Jump\n\x13\x03Artist : \x08μ's");
+			break;
+		case 6:
+			s.printAt(0, "\x13\x04꼬옥'love'로 접근중 !\n\x13\x03Artist : \x08μ's");
+			break;
+		case 7:
+			s.printAt(0, "\x13\x04사랑해 만세\n\x13\x03Artist : \x08μ's");
+			break;
+	}
+}

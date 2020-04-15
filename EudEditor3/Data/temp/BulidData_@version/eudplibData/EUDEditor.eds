@@ -170,7 +170,6 @@ QCDebug: false
 0x58D904, Exactly, 154 : Zerg Egg, 153
 0x58D904, Exactly, 155 : Zerg Egg, 154
 0x58D904, Exactly, 156 : Zerg Egg, 155
-
 [chatEvent]
 __patternAddr__: 0x58D904
 __encoding__: cp949, UTF-8
