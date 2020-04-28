@@ -1,0 +1,213 @@
+import variable_data as vd;
+import variable_round as vr;
+
+const s = StringBuffer();
+
+function Event_Print(cp);
+function Trainning_Ticket();
+function Cloth_Ticket();
+function Album_Ticket();
+function Event_Unit(top, down);
+
+function event_score(cp)
+{
+	if (Kills(cp, AtLeast, 1, 90))
+	{
+		SetDeaths(P6, Add,150 +  dwrand() % 30, "Event_Score");
+		SetKills(cp, Subtract, 1, 90);
+	}
+	
+	if (Deaths(P6, AtLeast, 1000, "Event_Score") && Deaths(P7, AtMost, 0, "Event_Score"))
+	{
+		SetDeaths(Force1, SetTo, 1, "Event_Score");
+		SetDeaths(P7, Add, 1, "Event_Score");
+		SetResources(Force1, Add, 100, Ore);
+	}
+	if (Deaths(P6, AtLeast, 3000, "Event_Score") && Deaths(P7, AtMost, 1, "Event_Score"))
+	{
+		SetDeaths(Force1, SetTo, 2, "Event_Score");
+		SetDeaths(P7, Add, 1, "Event_Score");
+		SetResources(Force1, Add, 1, Gas);
+	}
+	if (Deaths(P6, AtLeast, 5000, "Event_Score") && Deaths(P7, AtMost, 2, "Event_Score"))
+	{
+		SetDeaths(Force1, SetTo, 3, "Event_Score");
+		SetDeaths(P7, Add, 1, "Event_Score");
+		CreateUnit(1, 64, "MedalGacha", Force1);
+	}
+	if (Deaths(P6, AtLeast, 7500, "Event_Score") && Deaths(P7, AtMost, 3, "Event_Score"))
+	{
+		SetDeaths(Force1, SetTo, 4, "Event_Score");
+		SetDeaths(P7, Add, 1, "Event_Score");
+		Album_Ticket();
+	}
+	if (Deaths(P6, AtLeast, 10000, "Event_Score") && Deaths(P7, AtMost, 4, "Event_Score"))
+	{
+		SetDeaths(Force1, SetTo, 5, "Event_Score");
+		SetDeaths(P7, Add, 1, "Event_Score");
+		CreateUnit(1, 7, "MedalGacha", Force1);
+	}
+	if (Deaths(P6, AtLeast, 11000, "Event_Score") && Deaths(P7, AtMost, 5, "Event_Score"))
+	{
+		SetDeaths(Force1, SetTo, 6, "Event_Score");
+		SetDeaths(P7, Add, 1, "Event_Score");
+		SetResources(Force1, Add, 200, Ore);
+	}
+	if (Deaths(P6, AtLeast, 12000, "Event_Score") && Deaths(P7, AtMost, 6, "Event_Score"))
+	{
+		SetDeaths(Force1, SetTo, 7, "Event_Score");
+		SetDeaths(P7, Add, 1, "Event_Score");
+		SetResources(Force1, Add, 2, Gas);
+	}
+	if (Deaths(P6, AtLeast, 13000, "Event_Score") && Deaths(P7, AtMost, 7, "Event_Score"))
+	{
+		SetDeaths(Force1, SetTo, 8, "Event_Score");
+		SetDeaths(P7, Add, 1, "Event_Score");
+		SetResources(Force1, Add, 300, Ore);
+	}
+	if (Deaths(P6, AtLeast, 14000, "Event_Score") && Deaths(P7, AtMost, 8, "Event_Score"))
+	{
+		SetDeaths(Force1, SetTo, 9, "Event_Score");
+		SetDeaths(P7, Add, 1, "Event_Score");
+		SetResources(Force1, Add, 3, Gas);
+	}
+	if (Deaths(P6, AtLeast, 15000, "Event_Score") && Deaths(P7, AtMost, 9, "Event_Score"))
+	{
+		SetDeaths(Force1, SetTo, 10, "Event_Score");
+		SetDeaths(P7, Add, 1, "Event_Score");
+		CreateUnit(1, 7, "MedalGacha", Force1);
+	}
+	
+	if (Deaths(P6, Exactly, 2, "Round"))
+	{
+		const event = dwread_epd(182 * 12 + 5);
+		Event_Unit(vr.event_Top[event], vr.event_Down[event]);
+	}
+	
+	Event_Print(cp);
+}
+
+function Event_Print(cp)
+{
+	if (cp < 5)
+	{
+		if (Deaths(cp, Exactly, 1, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F1000\x04점 달성 보상 - 100 \x0F골드\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
+		if (Deaths(cp, Exactly, 2, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F3000\x04점 달성 보상 - 1 \x0FGas\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
+		if (Deaths(cp, Exactly, 3, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F5000\x04점 달성 보상 - 1 \x0F메달 티켓\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
+		if (Deaths(cp, Exactly, 4, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F7500\x04점 달성 보상 - 1 \x0F앨범 티켓\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
+		if (Deaths(cp, Exactly, 5, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F10000\x04점 달성 보상 - 1 \x0F플레티넘 티켓\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
+		if (Deaths(cp, Exactly, 6, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F11000\x04점 달성 보상 - 200 \x0F골드\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
+		if (Deaths(cp, Exactly, 7, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F12000\x04점 달성 보상 - 2 \x0FGas\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
+		if (Deaths(cp, Exactly, 8, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F13000\x04점 달성 보상 - 300 \x0F골드\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
+		if (Deaths(cp, Exactly, 9, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F14000\x04점 달성 보상 - 3 \x0FGas\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
+		if (Deaths(cp, Exactly, 10, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F15000\x04점 달성 보상 - 1 \x0F플레티넘 티켓\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
+	}
+}
+
+function Trainning_Ticket()
+{
+	var random = dwrand() % 3;
+		
+	switch(random)
+	{
+	case 0:
+		CreateUnit(1, 126, "JewelGacha", Force1);
+		break;
+	case 1:
+		CreateUnit(1, 127, "JewelGacha", Force1);
+		break;
+	case 2:
+		CreateUnit(1, 135, "JewelGacha", Force1);
+		break;
+	}
+}
+
+function Cloth_Ticket()
+{
+	var random = dwrand() % 3;
+	
+	switch(random)
+	{
+	case 0:
+		CreateUnit(1, 116, "JewelGacha", Force1);
+		break;
+	case 1:
+		CreateUnit(1, 122, "JewelGacha", Force1);
+		break;
+	case 2:
+		CreateUnit(1, 123, "JewelGacha", Force1);
+		break;
+	}
+}
+
+function Album_Ticket()
+{
+	CreateUnit(1, 136 + dwrand() % 3, "JewelGacha", Force1);
+}
+
+function Event_Unit(top, down)
+{
+	if (Deaths(P6, AtLeast, 0, "Event_Score") && Deaths(P6, AtMost, 4999, "Event_Score"))
+	{
+		SetDeaths(P6, SetTo, 0, "Round");
+		SetDeaths(P6, SetTo, 0, "Event_Score");
+		SetDeaths(P7, SetTo, 0, "Event_Score");
+		SetDeaths(AllPlayers, SetTo, 0, "event_index");
+	}
+	else if (Deaths(P6, AtLeast, 5000, "Event_Score") && Deaths(P6, AtMost, 11999, "Event_Score"))
+	{
+		if (down  == 999)
+		{ 
+			var random = dwrand()%12 + 4;  
+			var type = dwrand()%3;
+			
+			switch(type)
+			{
+			case 0:
+				CreateUnit(1, vd.Princess_Unit_Index[random], "MedalGacha Create", Force1);
+				break;
+			case 1:
+				CreateUnit(1, vd.Fairy_Unit_Index[random], "MedalGacha Create", Force1);
+				break;
+			case 2:
+				CreateUnit(1, vd.Angel_Unit_Index[random], "MedalGacha Create", Force1);
+				break;
+			}
+		}
+		else
+		{ CreateUnit(1, down, "MedalGacha Create", Force1); }
+		
+		SetDeaths(P6, SetTo, 0, "Round");
+		SetDeaths(P6, SetTo, 0, "Event_Score");
+		SetDeaths(P7, SetTo, 0, "Event_Score");
+		SetDeaths(AllPlayers, SetTo, 0, "event_index");
+	}
+	else if (Deaths(P6, AtLeast, 12000, "Event_Score"))
+	{
+		if (top  == 1000)
+		{ 
+			var random = dwrand()%4;
+			var type = dwrand()%3;
+			
+			switch(type)
+			{
+			case 0:
+				CreateUnit(1, vd.Princess_Unit_Index[random], "MedalGacha Create", Force1);
+				break;
+			case 1:
+				CreateUnit(1, vd.Fairy_Unit_Index[random], "MedalGacha Create", Force1);
+				break;
+			case 2:
+				CreateUnit(1, vd.Angel_Unit_Index[random], "MedalGacha Create", Force1);
+				break;
+			}
+		}
+		else
+		{ CreateUnit(1, top, "MedalGacha Create", Force1); }
+		
+		SetDeaths(P6, SetTo, 0, "Round");
+		SetDeaths(P6, SetTo, 0, "Event_Score");
+		SetDeaths(P7, SetTo, 0, "Event_Score");
+		SetDeaths(AllPlayers, SetTo, 0, "event_index");
+	}
+}

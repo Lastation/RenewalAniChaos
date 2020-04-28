@@ -1,0 +1,21 @@
+const Unit_NowIndex 	= PVariable();
+const Unit_PrevIndex 	= PVariable();
+const PlayerID 			= PVariable();
+const Unit_ID 			= PVariable();
+
+function Get_UnitID(cp)
+{
+    	if (MemoryEPD(EPD(0x6284E8) + 12 * cp, AtLeast, 1)) 
+    	{
+		const selectedUnit = EPD(0x6284E8) + 12 * cp;
+		
+        	Unit_NowIndex[cp] = epdread_epd(selectedUnit);
+        	PlayerID[cp] = bread_epd(Unit_NowIndex[cp] + 0x4C/4, 0);
+		
+        	if(Unit_NowIndex[cp] != Unit_PrevIndex[cp] )
+        	{
+        		Unit_PrevIndex[cp] = Unit_NowIndex[cp];
+            		Unit_ID[cp] = bread_epd(Unit_NowIndex[cp] + 0x64/4, 0);
+        	}
+       }
+}

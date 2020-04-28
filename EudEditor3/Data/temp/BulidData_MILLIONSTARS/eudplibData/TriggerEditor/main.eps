@@ -1,0 +1,51 @@
+import unit as ut;
+import getunitID as id;
+import round as rd;
+import text_Announce as ta;
+import variable_data as vd;
+import Player.playermain as pm;
+
+function onPluginStart()
+{
+	randomize();
+
+	// 일반형 - 프린세스
+	SetMemory(0x515BC8, SetTo, 256);	// 소형 - 프린세스 	100%
+	SetMemory(0x515BCC, SetTo, 128);	// 중형 - 페어리 		50%
+	SetMemory(0x515BD0, SetTo, 192);	// 대형 - 엔젤 		75%
+	
+	// 폭발형 - 페어리
+	SetMemory(0x515BA0, SetTo, 192);	// 소형 - 프린세스 	75%
+	SetMemory(0x515BA4, SetTo, 256);	// 중형 - 페어리 		100%
+	SetMemory(0x515BA8, SetTo, 128);	// 대형 - 엔젤 		50%
+	
+	// 진동형 - 엔젤
+	SetMemory(0x515BB4, SetTo, 128);	// 소형 - 프린세스 	50%
+	SetMemory(0x515BB8, SetTo, 192);	// 중형 - 페어리 		75%
+	SetMemory(0x515BBC, SetTo, 256);	// 대형 - 엔젤		100%
+	
+	ut.Set_Info();
+}
+
+function beforeTriggerExec()
+{
+	EUDPlayerLoop()();
+	
+	const cp = getcurpl();
+	
+	pm.main(cp);
+	id.Get_UnitID(cp);
+	ta.Event_Announcement(cp);
+	
+	EUDEndPlayerLoop();
+
+	rd.Set_Round_HP();
+	
+	if (Bring(P12, AtLeast, 1, 112, "Anywhere")) 
+	{ RemoveUnitAt(All, "(any unit)", "Anywhere", P12); }
+}
+
+function afterTriggerExec()
+{
+	
+}

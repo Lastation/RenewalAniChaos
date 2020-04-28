@@ -174,6 +174,8 @@ def MainLoop():
     cp = f_getcurpl()
     # (Line 33) unitID.Get_UnitID(cp);
     unitID.Get_UnitID(cp)
+    # (Line 35) announce.Announce_Marge(cp);	// 상태창 텍스트
+    announce.Announce_Marge(cp)
     # (Line 37) title.Title_Marge(cp);
     title.Title_Marge(cp)
     # (Line 39) if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
@@ -214,33 +216,51 @@ def MainLoop():
         # (Line 65) marge.MargeSound(cp);				// 캐릭터 스킬 사운드 & 스킬 텍스트
         marge.MargeSound(cp)
         # (Line 66) }
-        # (Line 67) }
+        # (Line 69) if (Deaths(CurrentPlayer, Exactly, 1000, 175)) 	// 점수창
     EUDEndIf()
-    # (Line 69) function beforeTriggerExec()
-
-# (Line 70) {
-@EUDFunc
-def beforeTriggerExec():
-    # (Line 71) EUDPlayerLoop()();
-    EUDPlayerLoop()()
-    # (Line 73) if(getcurpl() < 6)
-    if EUDIf()(f_getcurpl() >= 6, neg=True):
-        # (Line 74) {
-        # (Line 75) MainLoop();
-        MainLoop()
-        # (Line 76) }
-        # (Line 78) EUDEndPlayerLoop();
+    if EUDIf()(Deaths(CurrentPlayer, Exactly, 1000, 175)):
+        # (Line 70) {
+        # (Line 71) scaSetting.SCASave(cp);
+        scaSetting.SCASave(cp)
+        # (Line 72) SetSwitch(255, Clear);
+        # (Line 73) }
+        DoActions(SetSwitch(255, Clear))
+        # (Line 75) if (v.Hero_Num[cp] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)))
     EUDEndIf()
-    EUDEndPlayerLoop()
+    if EUDIf()(v.Hero_Num[cp] == f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)), neg=True):
+        # (Line 76) { v.Hero_Num[cp] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)); }
+        _ARRW(v.Hero_Num, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)))
+        # (Line 77) scaSetting.GetExp(cp);
+    EUDEndIf()
+    scaSetting.GetExp(cp)
+    # (Line 78) scaSetting.GetCS(cp);
+    scaSetting.GetCS(cp)
     # (Line 79) }
-    # (Line 81) function afterTriggerExec()
+    # (Line 81) function beforeTriggerExec()
 
 # (Line 82) {
 @EUDFunc
+def beforeTriggerExec():
+    # (Line 83) EUDPlayerLoop()();
+    EUDPlayerLoop()()
+    # (Line 85) if(getcurpl() < 6)
+    if EUDIf()(f_getcurpl() >= 6, neg=True):
+        # (Line 86) {
+        # (Line 87) MainLoop();
+        MainLoop()
+        # (Line 88) }
+        # (Line 90) EUDEndPlayerLoop();
+    EUDEndIf()
+    EUDEndPlayerLoop()
+    # (Line 91) }
+    # (Line 93) function afterTriggerExec()
+
+# (Line 94) {
+@EUDFunc
 def afterTriggerExec():
-    # (Line 83) if (ElapsedTime(AtLeast, 15))
+    # (Line 95) if (ElapsedTime(AtLeast, 15))
     if EUDIf()(ElapsedTime(AtLeast, 15)):
-        # (Line 84) { sca.Exec(); }
+        # (Line 96) { sca.Exec(); }
         sca.Exec()
-        # (Line 85) }
+        # (Line 97) }
     EUDEndIf()

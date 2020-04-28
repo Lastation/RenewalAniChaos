@@ -1,3 +1,4 @@
+import customText as ct;
 import Variable as v;
 import SCArchive as sca;
 
@@ -16,6 +17,7 @@ function CharacterTextNum(cp)
 		if 		(v.PlayerID[cp] == 8 		|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 1; }	// Rusaruka
 		else if 	(v.PlayerID[cp] == 9 		|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 8; }	// Anzu
 		else if 	(v.PlayerID[cp] == 10 	|| v.Unit_Death[cp] == 3000) { v.Hero_Text[cp] = 9; }	// HotoMoka
+		else if 	(v.PlayerID[cp] == 11 	|| v.Unit_Death[cp] == 4000) { v.Hero_Text[cp] = 19; }	// Margot & Naruge
 		 v.Unit_ID[cp] = 0;
 		break;
 	case 77:
@@ -157,12 +159,14 @@ function CharacterText(cp)
 			s.printAt(7, "\n");
 			break;
 		case 11:
+			/*
 			s.printAt(1, "\x13\x04- \x17DATE A LIVE \x04-");
 			s.printAt(2, "\n");
 			s.printAt(3, "\x13\x17모든전투\x04에 특화 되어있습니다.");
 			s.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
 			s.printAt(6, "\x13\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04모드 \x1F#\x04조작어려움");
 			s.printAt(7, "\n");
+			*/
 			break;
 		case 12:
 			s.printAt(1, "\x13\x04- \x17ClockWork Planet \x04-");
@@ -209,13 +213,15 @@ function CharacterText(cp)
 			s.printAt(7, "\n");
 			break;
 		case 17:
-			s.printAt(1, "\x04- \x17붕괴 3rd \x04-");
+			/*
+			s.printAt(1, "\x13\x04- \x17붕괴 3rd \x04-");
 			s.printAt(2, "\n");
 			s.printAt(3, "\x13\x17모든전투\x04에 특화 되어있습니다.");
 			s.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
 			s.printAt(5, "\n");
 			s.printAt(6, "\x13\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04조작보통 \x1F#\x04특수");
 			s.printAt(7, "\n");
+			*/
 			break;
 		case 18:
 			s.printAt(1, "\x13\x04- \x17K RETURN OF KINGS \x04-");
@@ -226,6 +232,16 @@ function CharacterText(cp)
 			s.printAt(6, "\x13\x1F#\x04대인 \x1F#\x04순간딜 \x1F#\x04조작보통");
 			s.printAt(7, "\n");
 			break;
+		case 19:
+			s.printAt(1, "\x13\x04- \x17경계선상의 호라이즌 \x04-");
+			s.printAt(2, "\n");
+			s.printAt(3, "\x13\x17모든전투\x04에 특화 되어있습니다.");
+			s.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
+			s.printAt(5, "\n");
+			s.printAt(6, "\x13\x1F#\x04만능 \x1F#\x04저격 \x1F#\x04보조 \x1F#\x04조작보통");
+			s.printAt(7, "\n");
+			break;
+			
 	}
 	
 	if (cp >=0 && cp <= 2 && Switch((249), (2)))
@@ -279,13 +295,15 @@ function EndTotalText(cp)
 				break;
 	 	}
  	}
- 	else if (sca.ConnectStatus() == 0)
+ 	else
  	{
- 		s.printAt(8, "\x13\x08SCA\x04 런쳐가 꺼져있어 저장이 불가능합니다.");
+ 		s.printAt(8, "\x13\x1F", ct.str(0x57EEEB + 36 * cp),"\x04님 수고하셨습니다.");
  	}
+ 	/*
  	else if (Switch("TestModeSwitch", Set))
  	{
  		s.printAt(8, "\x13\x08TEST\x04 모드에서는 저장이 불가능합니다.");
  	}
+ 	*/
 }
 		

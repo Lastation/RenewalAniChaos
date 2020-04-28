@@ -1,0 +1,312 @@
+
+const s = StringBuffer();
+
+function Trainning_Ticket(cp);
+function Cloth_Ticket(cp);
+
+function Title_Effect(cp)
+{
+	if (Bring(cp, AtLeast, 1, 175, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 175);
+		if (Deaths(cp, AtLeast, 1440, 175))
+		{
+			s.print("\n\x13\x1F아쿠아리우스 \x04수집 효과 +1 메달 티켓\n");
+			SetDeaths(cp, Add, 100, "Protoss Probe");
+			SetDeaths(cp, SetTo, 0, 175);
+		}
+	}
+	
+	if (Bring(cp, AtLeast, 1, 174, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 174);
+		if (Deaths(cp, AtLeast, 1440, 174))
+		{
+			s.print("\n\x13\x1F캔서 \x04수집 효과 +50 골드\n");
+			SetResources(cp, Add, 50, Ore);
+			SetDeaths(cp, SetTo, 0, 174);
+		}
+	}
+	
+	if (Bring(cp, AtLeast, 1, 173, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 173);
+		if (Deaths(cp, AtLeast, 1440, 173))
+		{
+			s.print("\n\x13\x1F제미니 \x04수집 효과 +50 골드\n");
+			SetResources(cp, Add, 50, Ore);
+			SetDeaths(cp, SetTo, 0, 173);
+		}
+	}
+	
+	if (Bring(cp, AtLeast, 1, 172, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 172);
+		if (Deaths(cp, AtLeast, 1440, 172))
+		{
+			s.print("\n\x13\x1F카프리콘 \x04수집 효과 +50 골드\n");
+			SetResources(cp, Add, 50, Ore);
+			SetDeaths(cp, SetTo, 0, 172);
+		}
+	}
+	
+	if (Bring(cp, AtLeast, 1, 171, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 171);
+		if (Deaths(cp, AtLeast, 1440, 171))
+		{
+			s.print("\n\x13\x1F피스케스 \x04수집 효과 +50 골드\n");
+			SetResources(cp, Add, 50, Ore);
+			SetDeaths(cp, SetTo, 0, 171);
+		}
+	}
+	
+	if (Bring(cp, AtLeast, 1, 170, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 170);
+		if (Deaths(cp, AtLeast, 21600, 170))
+		{
+			s.print("\n\x13\x1F리브라 \x04수집 효과 +1 특훈 티켓\n");
+			Trainning_Ticket(cp);
+			SetDeaths(cp, SetTo, 0, 170);
+		}
+	}
+	
+	if (Bring(cp, AtLeast, 1, 169, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 169);
+		if (Deaths(cp, AtLeast, 21600, 169))
+		{
+			s.print("\n\x13\x1F비르고 \x04수집 효과 +1 특훈 티켓\n");
+			Trainning_Ticket(cp);
+			SetDeaths(cp, SetTo, 0, 169);
+		}
+	}
+		
+	if (Bring(cp, AtLeast, 1, 168, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 168);
+		if (Deaths(cp, AtLeast, 11520, 168))
+		{
+			s.print("\n\x13\x1F사지타리어스 \x04수집 효과 +1 의상 티켓\n");
+			Cloth_Ticket(cp);
+			SetDeaths(cp, SetTo, 0, 168);
+		}
+	}
+		
+	if (Bring(cp, AtLeast, 1, 167, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 167);
+		if (Deaths(cp, AtLeast, 11520, 167))
+		{
+			s.print("\n\x13\x1F타우러스 \x04수집 효과 +1 의상 티켓\n");
+			Cloth_Ticket(cp);
+			SetDeaths(cp, SetTo, 0, 167);
+		}
+	}
+		
+	if (Bring(cp, AtLeast, 1, 166, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 166);
+		if (Deaths(cp, AtLeast, 12960, 166))
+		{
+			s.print("\n\x13\x1F아리에스 \x04수집 효과 +1 특훈 티켓\n");
+			Trainning_Ticket(cp);
+			SetDeaths(cp, SetTo, 0, 166);
+		}
+	}
+		
+	if (Bring(cp, AtLeast, 1, 165, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 165);
+		if (Deaths(cp, AtLeast, 8640, 165))
+		{
+			s.print("\n\x13\x1F레오 \x04수집 효과 +200 골드\n");
+			SetResources(cp, Add, 200, Ore);
+			
+			SetDeaths(cp, SetTo, 0, 165);
+		}
+	}	
+	
+	if (Bring(cp, AtLeast, 1, 164, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 164);
+		if (Deaths(cp, AtLeast, 12960, 164))
+		{
+			s.print("\n\x13\x1F스콜피오 \x04수집 효과 +1 특훈 티켓\n");
+			Trainning_Ticket(cp);
+			SetDeaths(cp, SetTo, 0, 164);
+		}
+	}
+
+	// 프린세스
+	if (Bring(cp, AtLeast, 1, 163, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 163);
+		if (Deaths(cp, AtLeast, 8640, 163))
+		{
+			s.print("\n\x13\x1B샤를로트 샬럿 \x04수집 효과 +1 가스\n");
+			SetResources(cp, Add, 1, Gas);
+			SetDeaths(cp, SetTo, 0, 163);
+		}
+	}
+	
+	if (Bring(cp, AtLeast, 1, 160, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 160);
+		if (Deaths(cp, AtLeast, 8640, 160))
+		{
+			s.print("\n\x13\x1B트윙클 리듬 \x04수집 효과 +1 가스\n");
+			SetResources(cp, Add, 1, Gas);
+			SetDeaths(cp, SetTo, 0, 160);
+		}
+	}
+	
+	if (Bring(cp, AtLeast, 1, 159, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 159);
+		if (Deaths(cp, AtLeast, 8640, 159))
+		{
+			s.print("\n\x13\x1B스타 엘리먼츠 \x04수집 효과 +1 가스\n");
+			SetResources(cp, Add, 1, Gas);
+			SetDeaths(cp, SetTo, 0, 159);
+		}
+	}
+	
+	if (Bring(cp, AtLeast, 1, 155, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 155);
+		if (Deaths(cp, AtLeast, 8640, 155))
+		{
+			s.print("\n\x13\x1B섬광☆HANABI단 \x04수집 효과 +1 가스\n");
+			SetResources(cp, Add, 1, Gas);
+			SetDeaths(cp, SetTo, 0, 155);
+		}
+	}
+	
+	// 페어리
+	if (Bring(cp, AtLeast, 1, 154, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 154);
+		if (Deaths(cp, AtLeast, 8640, 154))
+		{
+			s.print("\n\x13\x1CD/Zeal \x04수집 효과 +1 가스\n");
+			SetResources(cp, Add, 1, Gas);
+			SetDeaths(cp, SetTo, 0, 154);
+		}
+	}
+	
+	if (Bring(cp, AtLeast, 1, 152, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 152);
+		if (Deaths(cp, AtLeast, 8640, 152))
+		{
+			s.print("\n\x13\x1CEscape \x04수집 효과 +1 가스\n");
+			SetResources(cp, Add, 1, Gas);
+			SetDeaths(cp, SetTo, 0, 152);
+		}
+	}
+	
+	if (Bring(cp, AtLeast, 1, 151, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 151);
+		if (Deaths(cp, AtLeast, 8640, 151))
+		{
+			s.print("\n\x13\x1CJelly PoP Beans \x04수집 효과 +1 가스\n");
+			SetResources(cp, Add, 1, Gas);
+			SetDeaths(cp, SetTo, 0, 151);
+		}
+	}
+	
+	if (Bring(cp, AtLeast, 1, 148, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 148);
+		if (Deaths(cp, AtLeast, 8640, 148))
+		{
+			s.print("\n\x13\x1C야상영양 -그레이스 녹턴- \x04수집 효과 +1 가스\n");
+			SetResources(cp, Add, 1, Gas);
+			SetDeaths(cp, SetTo, 0, 148);
+		}
+	}
+	
+	// 엔젤
+	if (Bring(cp, AtLeast, 1, 147, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 147);
+		if (Deaths(cp, AtLeast, 8640, 147))
+		{
+			s.print("\n\x13\x19클리어스카이 \x04수집 효과 +1 가스\n");
+			SetResources(cp, Add, 1, Gas);
+			SetDeaths(cp, SetTo, 0, 147);
+		}
+	}
+	
+	if (Bring(cp, AtLeast, 1, 142, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 142);
+		if (Deaths(cp, AtLeast, 8640, 142))
+		{
+			s.print("\n\x13\x19 4 Luxury \x04수집 효과 +1 가스\n");
+			SetResources(cp, Add, 1, Gas);
+			SetDeaths(cp, SetTo, 0, 142);
+		}
+	}
+	
+	if (Bring(cp, AtLeast, 1, 140, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 140);
+		if (Deaths(cp, AtLeast, 8640, 140))
+		{
+			s.print("\n\x13\x19리루캔 ~3 little candy~ \x04수집 효과 +1 가스\n");
+			SetResources(cp, Add, 1, Gas);
+			SetDeaths(cp, SetTo, 0, 140);
+		}
+	}
+	
+	if (Bring(cp, AtLeast, 1, 139, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 139);
+		if (Deaths(cp, AtLeast, 8640, 139))
+		{
+			s.print("\n\x13\x19피코피코 플래닛츠 \x04수집 효과 +1 가스\n");
+			SetResources(cp, Add, 1, Gas);
+			SetDeaths(cp, SetTo, 0, 139);
+		}
+	}
+}
+
+function Trainning_Ticket(cp)
+{
+	var random = dwrand() % 3;
+		
+	switch(random)
+	{
+	case 0:
+		CreateUnit(1, 126, "JewelGacha", cp);
+		break;
+	case 1:
+		CreateUnit(1, 127, "JewelGacha", cp);
+		break;
+	case 2:
+		CreateUnit(1, 135, "JewelGacha", cp);
+		break;
+	}
+}
+
+function Cloth_Ticket(cp)
+{
+	var random = dwrand() % 3;
+	
+	switch(random)
+	{
+	case 0:
+		CreateUnit(1, 116, "JewelGacha", cp);
+		break;
+	case 1:
+		CreateUnit(1, 122, "JewelGacha", cp);
+		break;
+	case 2:
+		CreateUnit(1, 123, "JewelGacha", cp);
+		break;
+	}
+}

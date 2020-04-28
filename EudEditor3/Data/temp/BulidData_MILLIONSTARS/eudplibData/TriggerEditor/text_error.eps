@@ -1,0 +1,32 @@
+import variable_round as vr;
+
+function Event_Announcement(cp)
+{
+	switch (cp)
+	{
+	case 0:
+		vr.round_Now[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player1")'));
+		break;
+	case 1:
+		vr.round_Now[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player2")'));
+		break;
+	case 2:
+		vr.round_Now[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player3")'));
+		break;
+	case 3:
+		vr.round_Now[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player4")'));
+		break;
+	case 4:
+		vr.round_Now[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player5")'));
+		break;
+	}
+	
+	f_eprintln("\x04", dwread_epd(185 * 12 + 6), " \x1F주차 타입 ", ptr2s(vr.unit_Type[vr.round_type]), 
+	" \x17진행도 \x04", dwread_epd(204 * 12 + 6), "/60 ", 
+	"\x08 라인 \x04", vr.round_Now[cp], "/", vr.round_Max);
+
+	if (Deaths(P6, Exactly, 1, "Round"))
+	{
+		f_eprintln("\x04이벤트가 진행중입니다.");
+	}
+}

@@ -1,0 +1,48 @@
+const main_bgm = PVariable();					// 음악 정보
+var random 		= 0 ;				// 랜덤
+
+const  s = StringBuffer();
+
+function PlaySound(cp)
+{
+	if (Deaths(P6, Exactly, 0, "Round") && Deaths(cp, Exactly, 100, "event_index"))
+	{
+		random = dwrand() % 5;
+		
+		if (main_bgm[cp] != 1 && random == 0)
+		{
+			main_bgm[cp] = 1;
+			PlayWAV("main_01.ogg");
+			SetDeaths(cp, SetTo, 0, "event_index");
+		}
+		if (main_bgm[cp] != 2 && random == 1)
+		{
+			main_bgm[cp] = 2;
+			PlayWAV("main_02.ogg");
+			SetDeaths(cp, SetTo, 0, "event_index");
+		}
+		if (main_bgm[cp] != 3 && random == 2)
+		{
+			main_bgm[cp] = 3;
+			PlayWAV("main_03.ogg");
+			SetDeaths(cp, SetTo, 0, "event_index");
+		}
+		if (main_bgm[cp] != 4 && random == 3)
+		{
+			main_bgm[cp] = 4;
+			PlayWAV("main_04.ogg");
+			SetDeaths(cp, SetTo, 0, "event_index");
+		}
+		if (main_bgm[cp] != 5 && random == 4)
+		{
+			main_bgm[cp] = 5;
+			PlayWAV("main_05.ogg");
+			SetDeaths(cp, SetTo, 0, "event_index");
+		}
+	}
+	if (Deaths(P6, Exactly, 0, "Round") && Deaths(cp, Exactly, 99, "event_index"))
+	{
+		PlayWAV("event_00.ogg");
+		SetDeaths(cp, SetTo, 0, "event_index");
+	}
+}

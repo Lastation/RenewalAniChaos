@@ -1,0 +1,183 @@
+import variable_title as vt;
+import variable_data as vd;
+
+function Set_Title(id);
+function Title_Value(id, value);
+function Check_Title(id, num, value);
+
+function Set_Title(id)
+{
+	if (Deaths(P8, AtLeast, 100, id) && Deaths(P8, AtMost, 199, id))	
+	{ Title_Value(id, 1); }
+	if (Deaths(P8, AtLeast, 200, id) && Deaths(P8, AtMost, 399, id))	
+	{ Title_Value(id, 2); }
+	if (Deaths(P8, AtLeast, 400, id) && Deaths(P8, AtMost, 799, id))	
+	{ Title_Value(id, 3); }
+	if (Deaths(P8, AtLeast, 800, id))
+	{ Title_Value(id, 4); }
+}
+
+function Title_Value(id, value)
+{
+	switch(id)
+	{
+	// Princess
+	case 27: 
+		settbl(1318, 0, ptr2s(vt.title_35[value]));
+		break;
+	case 88: 
+		settbl(1319, 0, ptr2s(vt.title_36[value]));
+		break;
+	case 99:
+		settbl(1320, 0, ptr2s(vt.title_37[value]));
+		break;
+	case 100:
+		settbl(1321, 0, ptr2s(vt.title_38[value]));
+		break;
+	case 61:
+		settbl(1322, 0, ptr2s(vt.title_39[value]));
+		break;
+	case 65:
+		settbl(1323, 0, ptr2s(vt.title_40[value]));
+		break;
+	case 66:
+		settbl(1324, 0, ptr2s(vt.title_41[value]));
+		break;
+	case 67:
+		settbl(1325, 0, ptr2s(vt.title_42[value]));
+		break;
+	case 68:
+		settbl(1326, 0, ptr2s(vt.title_43[value]));
+		break;
+	case 70:
+		settbl(1327, 0, ptr2s(vt.title_44[value]));
+		break;
+	case 71:
+		settbl(1328, 0, ptr2s(vt.title_45[value]));
+		break;
+	case 74:
+		settbl(1329, 0, ptr2s(vt.title_46[value]));
+		break;
+	case 75:
+		settbl(1330, 0, ptr2s(vt.title_47[value]));
+		break;
+	case 76:
+		settbl(1331, 0, ptr2s(vt.title_48[value]));
+		break;
+	case 77:
+		settbl(1332, 0, ptr2s(vt.title_49[value]));
+		break;
+	case 78:
+		settbl(1333, 0, ptr2s(vt.title_50[value]));
+		break;
+	case 79:
+		settbl(1334, 0, ptr2s(vt.title_51[value]));
+		break;
+		
+	// Fairy
+	case 29:
+		settbl(1335, 0, ptr2s(vt.title_18[value]));
+		break;
+	case 80:
+		settbl(1336, 0, ptr2s(vt.title_19[value]));
+		break;
+	case 63:
+		settbl(1337, 0, ptr2s(vt.title_20[value]));
+		break;
+	case 87:
+		settbl(1338, 0, ptr2s(vt.title_21[value]));
+		break;
+	case 39:
+		settbl(1339, 0, ptr2s(vt.title_22[value]));
+		break;
+	case 40:
+		settbl(1340, 0, ptr2s(vt.title_23[value]));
+		break;
+	case 43:
+		settbl(1341, 0, ptr2s(vt.title_24[value]));
+		break;
+	case 44:
+		settbl(1342, 0, ptr2s(vt.title_25[value]));
+		break;
+	case 46:
+		settbl(1343, 0, ptr2s(vt.title_26[value]));
+		break;
+	case 48:
+		settbl(1344, 0, ptr2s(vt.title_27[value]));
+		break;
+	case 51:
+		settbl(1345, 0, ptr2s(vt.title_28[value]));
+		break;
+	case 52:
+		settbl(1346, 0, ptr2s(vt.title_29[value]));
+		break;
+	case 53: 
+		settbl(1347, 0, ptr2s(vt.title_30[value]));
+		break;
+	case 54:
+		settbl(1348, 0, ptr2s(vt.title_31[value]));
+		break;
+	case 55: 
+		settbl(1349, 0, ptr2s(vt.title_32[value]));
+		break;
+	case 56:
+		settbl(1350, 0, ptr2s(vt.title_33[value]));
+		break;
+	case 60:
+		settbl(1351, 0, ptr2s(vt.title_34[value]));
+		break;
+	
+	// Angel
+	case 28:
+		settbl(1352, 0, ptr2s(vt.title_01[value]));
+		break;
+	case 32:
+		settbl(1353, 0, ptr2s(vt.title_02[value]));
+		break;
+	case 102:
+		settbl(1354, 0, ptr2s(vt.title_03[value]));
+		break;
+	case 104:
+		settbl(1355, 0, ptr2s(vt.title_04[value]));
+		break;
+	case 0:
+		settbl(1356, 0, ptr2s(vt.title_05[value]));
+		break;
+	case 1:
+		settbl(1357, 0, ptr2s(vt.title_06[value]));
+		break;
+	case 2:
+		settbl(1358, 0, ptr2s(vt.title_07[value]));
+		break;
+	case 8:
+		settbl(1359, 0, ptr2s(vt.title_08[value]));
+		break;
+	case 9:
+		settbl(1360, 0, ptr2s(vt.title_09[value]));
+		break;
+	case 10:
+		settbl(1361, 0, ptr2s(vt.title_10[value]));
+		break;
+	case 12:
+		settbl(1362, 0, ptr2s(vt.title_11[value]));
+		break;
+	case 16:
+		settbl(1363, 0, ptr2s(vt.title_12[value]));
+		break;
+	case 19:
+		settbl(1364, 0, ptr2s(vt.title_13[value]));
+		break;
+	case 20:
+		settbl(1365, 0, ptr2s(vt.title_14[value]));
+		break;
+	case 21:
+		settbl(1366, 0, ptr2s(vt.title_15[value]));
+		break;
+	case 37:
+		settbl(1367, 0, ptr2s(vt.title_16[value]));
+		break;
+	case 38:
+		settbl(1368, 0, ptr2s(vt.title_17[value]));
+		break;
+	}
+}

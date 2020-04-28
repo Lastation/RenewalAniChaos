@@ -1,0 +1,85 @@
+import variable_round as vr;
+
+const s = StringBuffer();
+var round = 0;
+var isevent = 0;
+
+function Set_Round_HP()
+{
+	if (round != dwread_epd(EPD(0x58A364 + 48 * 185 + 4 * 6)) && round < 70)
+	{
+		round = dwread_epd(EPD(0x58A364 + 48 * 185 + 4 * 6));
+		var round_check = round%10;
+		
+		switch (round_check)
+		{
+		case 1:
+		case 4:
+		case 7:
+			dwwrite(0x65FD00 + 9808 + 93 * 4, vr.round_hp[round] * 256);
+			SetDeaths(P7, SetTo, 0, "Line_type");
+			
+			if (Deaths(P6, AtMost, 240, "music_length"))
+			{ SetDeaths(AllPlayers, SetTo, 100, "event_index"); }
+			break;
+		case 2:
+		case 5:
+		case 8:
+			dwwrite(0x65FD00 + 9808 + 94 * 4, vr.round_hp[round] * 256);
+			SetDeaths(P7, SetTo, 1, "Line_type");
+			
+			if (Deaths(P6, AtMost, 240, "music_length"))
+			{ SetDeaths(AllPlayers, SetTo, 100, "event_index"); }
+			break;
+		case 3:
+		case 6:
+		case 9:
+			dwwrite(0x65FD00 + 9808 + 95 * 4, vr.round_hp[round] * 256);
+			SetDeaths(P7, SetTo, 2, "Line_type");
+			
+			if(round_check == 9)
+			{ SetDeaths(AllPlayers, SetTo, 99, "event_index"); }
+			else if (Deaths(P6, Exactly, 0, "Round"))
+			{ SetDeaths(AllPlayers, SetTo, 100, "event_index"); }
+			break;
+		case 0:
+			dwwrite(0x65FD00 + 9808 + 96 * 4, vr.round_hp[round] * 256);
+			SetDeaths(P7, SetTo, 3, "Line_type");
+			break;
+		}
+	}
+	else if (dwread_epd(EPD(0x58A364 + 48 * 185 + 4 * 6)) >= 70)
+	{
+		Victory();
+	}
+	
+	if (round % 10 == 9 && Deaths(P7, Exactly, 0, "event_index") && round < 60)
+	{
+		// Event
+		vr.event = dwrand() % 30 + 1;
+		
+		if (vr.event_Flag[vr.event] == 0)
+		{
+			SetDeaths(P7, SetTo, vr.event, "event_index");
+			SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type");
+		}
+	}
+	
+	if (round % 10 == 0 && Deaths(P6, Exactly, 0, "Round") && round != 0 && round < 70)
+	{
+		// Event
+		vr.event = dwread_epd(182 * 12 + 6);
+		settbl(91, 0,  ptr2s(vr.event_name[vr.event]));
+		
+		if (Bring(Force1, Exactly, 1, 112, "Anywhere")) {dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round/10] * 256 * 1); }		// 체력
+		if (Bring(Force1, Exactly, 2, 112, "Anywhere")) {dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round/10] * 256 * 2); }		// 체력
+		if (Bring(Force1, Exactly, 3, 112, "Anywhere")) {dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round/10] * 256 * 3); }		// 체력
+		if (Bring(Force1, Exactly, 4, 112, "Anywhere")) {dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round/10] * 256 * 4); }		// 체력
+		if (Bring(Force1, Exactly, 5, 112, "Anywhere")) {dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round/10] * 256 * 5); }		// 체력
+    		bwrite(0x65FD00 + 14544 + 90 * 1, 30 + vr.event_Type[vr.event]);
+		SetDeaths(AllPlayers, SetTo, vr.event, "event_index");
+		SetDeaths(P6, SetTo, 1, "Round");
+		vr.event_Flag[vr.event] = 1;
+		
+	}
+}

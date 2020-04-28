@@ -223,6 +223,7 @@ def onPluginStart():
         SetMemory(0x65FF34, Add, -256),# units:Armor  index:109    from 1 To 0
         SetMemory(0x65FF38, Add, 33554432),# units:Armor  index:115    from 1 To 3
         SetMemory(0x6620C0, Add, -768),# units:Right-click Action  index:41    from 4 To 1
+        SetMemory(0x6620C4, Add, 83886080),# units:Right-click Action  index:47    from 1 To 6
         SetMemory(0x662108, Add, 16777216),# units:Right-click Action  index:115    from 0 To 1
         SetMemory(0x662118, Add, 262144),# units:Right-click Action  index:130    from 2 To 6
         SetMemory(0x662084, Add, -492),# units:Ready Sound  index:98    from 1041 To 549
@@ -897,6 +898,7 @@ def onPluginStart():
         SetMemory(0x6569DC, Add, 7340032),# weapons:Attack Angle  index:78    from 16 To 128
         SetMemory(0x656A00, Add, 28672),# weapons:Attack Angle  index:113    from 16 To 128
         SetMemory(0x656A00, Add, 7340032),# weapons:Attack Angle  index:114    from 16 To 128
+        SetMemory(0x6C9EF8, Add, 1706),# flingy:Speed  index:0    from 1707 To 3413
         SetMemory(0x6C9F18, Add, 1279),# flingy:Speed  index:8    from 1 To 1280
         SetMemory(0x6C9F1C, Add, 1279),# flingy:Speed  index:9    from 1 To 1280
         SetMemory(0x6C9F34, Add, 829),# flingy:Speed  index:15    from 1 To 830

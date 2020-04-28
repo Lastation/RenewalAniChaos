@@ -15,21 +15,6 @@ Trigger { -- Skill : Combo
       Deaths(CurrentPlayer, Exactly, 4000, " * Fenix");
       Deaths(CurrentPlayer, Exactly, 110, " `SkillStep");
       Bring(CurrentPlayer, AtLeast, 1, " * Fenix", "Anywhere");
-      Deaths(CurrentPlayer, Exactly, 0, " `SkillWait");
-   },
-   actions = {
-      Comment("Skill : Combo");
-      PreserveTrigger();
-	  MoveUnit(All, "50 + 1n Tank", CurrentPlayer, "Anywhere", "[Skill]HoldPosition");
-   },
-}
-
-Trigger { -- Skill : Combo
-   players = {Force1, Force2},
-   conditions = {
-      Deaths(CurrentPlayer, Exactly, 4000, " * Fenix");
-      Deaths(CurrentPlayer, Exactly, 110, " `SkillStep");
-      Bring(CurrentPlayer, AtLeast, 1, " * Fenix", "Anywhere");
       Deaths(CurrentPlayer, Exactly, 0, " `SkillCount");
       Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop");
       Deaths(CurrentPlayer, Exactly, 0, " `SkillWait");

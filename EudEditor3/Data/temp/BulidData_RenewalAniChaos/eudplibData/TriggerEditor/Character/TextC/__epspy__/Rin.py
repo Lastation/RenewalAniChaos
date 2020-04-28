@@ -144,8 +144,8 @@ def NormalText(cp):
         # (Line 11) v.Sound_Text3[cp] = 0;
         DoActions(PlayWAV("Rin_01.ogg"))
         _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 12) s.print(3,"\n\n\x13\x1BRin\n\x13\x04이 앞에 무엇이 있는 걸까?\n\n");
-        s.print(3, "\n\n\x13\x1BRin\n\x13\x04이 앞에 무엇이 있는 걸까?\n\n")
+        # (Line 12) s.print("\n\n\x13\x1BRin\n\x13\x04이 앞에 무엇이 있는 걸까?\n\n");
+        s.print("\n\n\x13\x1BRin\n\x13\x04이 앞에 무엇이 있는 걸까?\n\n")
         # (Line 13) break;
         EUDBreak()
         # (Line 14) case 3001:

@@ -1,0 +1,79 @@
+import variable_round as vr;
+import variable_music as vm;
+
+const AnnounceList = PVariable();
+
+function Change_Announcement(cp);
+function Event_Announcement(cp);
+function Check_Line(cp);
+
+function Change_Announcement(cp)
+{
+	if (Deaths(CurrentPlayer, Exactly, 1, "Terran SCV"))
+	{
+		SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV");
+		
+		if (AnnounceList[cp] < 2) 	{ AnnounceList[cp] += 1; }
+		else 						{ AnnounceList[cp] 	= 0; }
+	}
+}
+
+function Event_Announcement(cp)
+{
+	Change_Announcement(cp);
+	switch(AnnounceList[cp])
+	{
+	case 0:
+		if (Bring(cp, AtLeast, 1, 112, "Anywhere"))
+		{ Check_Line(cp); }
+		f_eprintln("\x04", dwread_epd(185 * 12 + 6), " \x0F주차 스케줄 ", ptr2s(vr.unit_Type[dwread_epd(207 * 12 + 6)]), 
+		" \x17진행도 \x04", dwread_epd(204 * 12 + 6), "/60 ", 
+		"\x08 라인 \x04", vr.round_Now[cp], "/", 70);
+		break;
+	case 1:
+		if (Deaths(P6, Exactly, 0, "Round") && Deaths(P7, Exactly, 0, "event_index"))
+		{
+			f_eprintln("\x04이벤트 준비중입니다.");
+		}
+		else if (Deaths(P6, Exactly, 0, "Round") && Deaths(P7, AtLeast, 1, "event_index"))
+		{
+			f_eprintln("\x1F예정 이벤트 타입 ", ptr2s(vr.unit_Type[dwread_epd(205 * 12 + 6)]));
+		}
+		else if (Deaths(P6, Exactly, 1, "Round"))
+		{
+			f_eprintln("\x1F이벤트 타입 ", ptr2s(vr.unit_Type[dwread_epd(205 * 12 + 6)]),
+			" \x19 점수 : \x04", dwread_epd(208 * 12 + 5));
+		}
+		else
+		{
+			f_eprintln("\x04이벤트 정산중입니다.", 
+			" \19 최종 점수 : \x04", dwread_epd(208 * 12 + 5));
+		}
+		break;
+	case 2:
+		f_eprintln("\x1F# N\x04ow Playing - ", ptr2s(vm.music_name[dwread_epd(35 * 12 + cp)]));
+		break;
+	}
+}
+
+function Check_Line(cp)
+{
+	switch (cp)
+	{
+	case 0:
+		vr.round_Now[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player1")'));
+		break;
+	case 1:
+		vr.round_Now[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player2")'));
+		break;
+	case 2:
+		vr.round_Now[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player3")'));
+		break;
+	case 3:
+		vr.round_Now[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player4")'));
+		break;
+	case 4:
+		vr.round_Now[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player5")'));
+		break;
+	}
+}

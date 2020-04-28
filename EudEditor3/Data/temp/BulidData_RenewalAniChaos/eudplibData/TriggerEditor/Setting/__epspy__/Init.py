@@ -187,7 +187,34 @@ def SetVariable(cp):
         # (Line 36) break;
         EUDBreak()
         # (Line 37) }
-    # (Line 40) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
+    # (Line 40) switch (v.Hero_Num[cp])	// 공격력 관련
     EUDEndSwitch()
-    f_bwrite(0x58D2B0 + 0x207C * ((9) // 46) + (cp) * (46 - 31 * ((9) // 46)) + ((9) % 46), f_bread(0x58D2B0 + 7 + 46 * cp))
-    # (Line 41) }
+    EUDSwitch(v.Hero_Num[cp])
+    # (Line 41) {
+    # (Line 42) case 19:
+    _t4 = EUDSwitchCase()
+    # (Line 43) if(Deaths(CurrentPlayer, Exactly, 210, " `SkillStep"))
+    if _t4(19):
+        if EUDIf()(Deaths(CurrentPlayer, Exactly, 210, " `SkillStep")):
+            # (Line 44) {
+            # (Line 45) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
+            f_bwrite(0x58D2B0 + 0x207C * ((9) // 46) + (cp) * (46 - 31 * ((9) // 46)) + ((9) % 46), f_bread(0x58D2B0 + 7 + 46 * cp))
+            # (Line 46) }
+            # (Line 47) else
+            # (Line 48) {
+        if EUDElse()():
+            # (Line 49) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
+            f_bwrite(0x58D2B0 + 0x207C * ((9) // 46) + (cp) * (46 - 31 * ((9) // 46)) + ((9) % 46), f_bread(0x58D2B0 + 7 + 46 * cp))
+            # (Line 50) }
+            # (Line 51) break;
+        EUDEndIf()
+        EUDBreak()
+        # (Line 52) default:
+    # (Line 53) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
+    if EUDSwitchDefault()():
+        f_bwrite(0x58D2B0 + 0x207C * ((9) // 46) + (cp) * (46 - 31 * ((9) // 46)) + ((9) % 46), f_bread(0x58D2B0 + 7 + 46 * cp))
+        # (Line 54) break;
+        EUDBreak()
+        # (Line 55) }
+    # (Line 58) }
+    EUDEndSwitch()

@@ -36,6 +36,23 @@ function SetVariable(cp)
 		break;
 	}
 	
-	// 공격력 관련
-	bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
+	
+	switch (v.Hero_Num[cp])	// 공격력 관련
+	{
+	case 19:
+		if(Deaths(CurrentPlayer, Exactly, 210, " `SkillStep"))
+		{
+			bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
+		}
+		else 
+		{ 
+			bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
+		}
+		break;
+	default:
+		bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
+		break;
+	}
+
+
 }
