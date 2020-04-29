@@ -1370,6 +1370,26 @@ TriggerEditorSetting
 InitializeComponent
 </summary>
 </member>
+<member name="T:EUD_Editor_3.BGMManager">
+<summary>
+BGMManager
+</summary>
+</member>
+<member name="M:EUD_Editor_3.BGMManager.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:EUD_Editor_3.MacroFuncSetting">
+<summary>
+MacroFuncSetting
+</summary>
+</member>
+<member name="M:EUD_Editor_3.MacroFuncSetting.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
 <member name="T:EUD_Editor_3.SCASetting">
 <summary>
 SCASetting
@@ -1386,6 +1406,16 @@ ProjectExplorer
 </summary>
 </member>
 <member name="M:EUD_Editor_3.ProjectExplorer.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:EUD_Editor_3.BGMPlayerConverter">
+<summary>
+BGMPlayerConverter
+</summary>
+</member>
+<member name="M:EUD_Editor_3.BGMPlayerConverter.InitializeComponent">
 <summary>
 InitializeComponent
 </summary>

@@ -64,6 +64,18 @@ function MainLoop()
 		
 		marge.MargeSound(cp);				// 캐릭터 스킬 사운드 & 스킬 텍스트
 	}
+	
+	// 점수 설정
+	if (Deaths(CurrentPlayer, Exactly, 1000, 175)) 	// 점수창
+	{
+		scaSetting.SCASave(cp);
+		SetSwitch(255, Clear);
+	}
+	
+	if (v.Hero_Num[cp] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)))
+      	 { v.Hero_Num[cp] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)); }
+	scaSetting.GetExp(cp);
+	scaSetting.GetCS(cp);
 }
 
 function beforeTriggerExec() 
