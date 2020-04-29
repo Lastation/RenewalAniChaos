@@ -9,14 +9,14 @@ function Init(){
     MPQAddFile('SCARCHIVEMAPCODE', py_open('scakeyfile', 'rb').read());
     MPQAddFile('SCARCHIVEDATA', py_open('scadatafile', 'rb').read());
     //EntryPoint
-    dwwrite_epd(EPD(ws) + 0, 3462207441);
-    dwwrite_epd(EPD(ws) + 1, 1790421965);
-    dwwrite_epd(EPD(ws) + 2, 841376908);
-    dwwrite_epd(EPD(ws) + 3, 1957021710);
-    dwwrite_epd(EPD(ws) + 4, 852267627);
-    dwwrite_epd(EPD(ws) + 5, 1954551143);
-    dwwrite_epd(EPD(ws) + 6, 2513469629);
-    dwwrite_epd(EPD(ws) + 7, 1555762889);
+    dwwrite_epd(EPD(ws) + 0, 1528882697);
+    dwwrite_epd(EPD(ws) + 1, 2269211878);
+    dwwrite_epd(EPD(ws) + 2, 2575128501);
+    dwwrite_epd(EPD(ws) + 3, 2545941678);
+    dwwrite_epd(EPD(ws) + 4, 1653663150);
+    dwwrite_epd(EPD(ws) + 5, 2086822642);
+    dwwrite_epd(EPD(ws) + 6, 2628784388);
+    dwwrite_epd(EPD(ws) + 7, 2151522709);
     
 }
 
@@ -30,8 +30,10 @@ function ResetValue(tagNum, index){
     const cp = getcurpl();
     switch(tagNum){
     case 0:
+    {
         n0.Player_EXP[cp] = 0;
         break;
+    }
     }
 }
 
@@ -40,8 +42,10 @@ function SaveValue(tagNum, Value, index){
     const cp = getcurpl();
     switch(tagNum){
     case 0:
+    {
         n0.Player_EXP[cp] = Value;
         break;
+    }
     }
 }
 
