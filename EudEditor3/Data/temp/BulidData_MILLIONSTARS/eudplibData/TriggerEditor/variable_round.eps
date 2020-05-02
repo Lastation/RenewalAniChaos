@@ -1,5 +1,6 @@
 var round;									// 현재 라운드
 const round_Now 	= PVariable();			// 현재 라인 유닛
+const Unit_Count 	= PVariable();			// 유닛 갯수
 var event 			= 0;						// 이벤트 번호
 
 // Round HealthPoint
@@ -10,7 +11,8 @@ const round_hp =
 1569, 1729, 1900, 2083, 2278, 2485, 2705, 2939, 3186, 12,
 3723, 4013, 4319, 4640, 4978, 5331, 5702, 6090, 6495, 15,
 7361, 7822, 8302, 8802, 9321, 9862, 10423, 11005, 11609, 18,
-12883, 13554, 14249, 14967, 15709, 16476, 17267, 18084, 18926, 20];
+12883, 13554, 14249, 14967, 15709, 16476, 17267, 18084, 18926, 21,
+20689, 21611, 22560, 23536, 24541, 25574, 26636, 27727, 28848, 30];
 
 const unit_Type =
 [Db("\x1B댄스 [프린세스]"),
@@ -19,57 +21,69 @@ Db("\x19비쥬얼 [엔젤]"),
 Db("\x0FAllType [모든 타입]")];
 
 const event_hp =
-[100, 500, 1000, 2000, 3000, 4000, 5000];
+[100, 200, 400, 700, 1000, 1500, 3000];
 
 const event_name =
 [Db(u2b("\x04#REF")),
-Db(u2b("\x15Hello \x04콘체르토")),
-Db(u2b("\x04심층 머메이드 VS \x19얼라이언스 스타더스트")),
-Db(u2b("\x04심연의 \x1F파랑, \x04열염의 \x08주홍")),
-Db(u2b("\x10B\x19e\x10a\x19t \x10the \x1FW\x19o\x1Fr\x19l\x1Fd\x19!\x1F!\x19!")),
+Db(u2b("\x19Justice \x1BOR \x1CVoice")),
+Db(u2b("\x1CEternal Harmony")),
+Db(u2b("\x1C기다림의 Lacrima")),
+Db(u2b("\x19러\x04닝 \x19하잇")),
+Db(u2b("\x19White \x0FVows")),
+Db(u2b("\x08협기난무")),
+Db(u2b("\x1BCherry Colored Love")),
+Db(u2b("\x08H\x04OME, \x19S\x04WEET \x11F\x10R\x1BI\x04ENDS\x08H\x04IP")),
+Db(u2b("\x1Fbrave HARMONY")),
 Db(u2b("\x04Su\x1Dper \x1CDup\x04er")),
 Db(u2b("\x1B메멘토? \x0F모멘트♪ \x11루루루루루☆")),
-Db(u2b("\x1E백\x10화\x04는 \x1E월\x15하\x04에 \x1C져\x0F버\x04리거늘")),
-Db(u2b("\x08협기난무")),
-Db(u2b("\x15Fermata in Rapsodia")),
-Db(u2b("\x1F눈동자 속의 시리우스")),
-Db(u2b("\x1BCherry Colored Love")),
-Db(u2b("\x1C기다림의 Lacrima")),
-Db(u2b("\x19World Changer")),
-Db(u2b("\x04G\x1B♡\x04F")),
-Db(u2b("\x1BGirl \x11meets \x1CWonder")),
-Db(u2b("\x08붉은 세계가 \x04사라질 \x08무렵")),
-Db(u2b("\x04래빗 \x1B퍼")),
-Db(u2b("\x19러\x04닝 \x19하잇")),
 Db(u2b("\x15dans l'obscurite")),
-Db(u2b("\x04Flyers\x1B!\x1C!\x19!")),
-Db(u2b("\x19White \x0FVows")),
-Db(u2b("\x11f\x0Fr\x18u\x1Bi\x04t\x08y l\x11o\x10v\x1Fe")),
-Db(u2b("\x08L\x19E\x0EA\x1BD\x18E\x11R\x1C!\x19!")),
-Db(u2b("\x1C프리뮬러")),
-Db(u2b("\x04Episode. \x1CTiara")),
-Db(u2b("\x19Justice \x1BOR \x1CVoice")),
-Db(u2b("\x10피\x0F코\x10피\x0F코 \x08I\x0FI\x19K\x10O\x11! \x08인\x1C베\x11이\x0F더")),
 Db(u2b("\x1CBonnes! Bonnes!! Vacances!!!")),
+Db(u2b("\x19Angelic Parade♪")),
+Db(u2b("\x1C프리뮬러")),
+Db(u2b("\x04STANDING ALIVE")),
+Db(u2b("\x11선 리듬 오케스트라♪")),
+Db(u2b("\x10P\x1BR\x1FETTY \x10D\x0FRE\x10A\x0FME\x1BR")),
+Db(u2b("\x04G\x1B♡\x04F")),
+Db(u2b("\x10피\x0F코\x10피\x0F코 \x08I\x0FI\x19K\x10O\x11! \x08인\x1C베\x11이\x0F더")),
 Db(u2b("\x1F월요일의 크림소다")),
-Db(u2b("\x19성장\x10Chu→\x1BLOVER!!"))];
-
-const event_Flag =
-[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+Db(u2b("\x19성장\x10Chu→\x1BLOVER!!")),
+Db(u2b("\x15Hello \x04콘체르토")),
+Db(u2b("\x10B\x19e\x10a\x19t \x10the \x1FW\x19o\x1Fr\x19l\x1Fd\x19!\x1F!\x19!")),
+Db(u2b("\x1F눈동자 속의 시리우스")),
+Db(u2b("\x11f\x0Fr\x18u\x1Bi\x04t\x08y l\x11o\x10v\x1Fe")),
+Db(u2b("\x1BPrincess Be Ambitious!!")),
+Db(u2b("\x19별무리의 심포니아")),
+Db(u2b("\x0FBirth of \x04Color")),
+Db(u2b("\x10Starry Melody")),
+Db(u2b("\x19구호는 스타트 업!")),
+Db(u2b("\x15Fermata in Rapsodia")),
+Db(u2b("\x04래빗 \x1B퍼")),
+Db(u2b("\x19World Changer")),
+Db(u2b("\x08L\x19E\x0EA\x1BD\x18E\x11R\x1C!\x19!")),];
 
 const event_Type = 
-[0, 1, 0, 2, 0, 0, 2, 0, 1, 1, 1, 
-2, 2, 0, 2, 2, 1, 0, 0, 1, 1, 
-2, 2, 1, 1, 0, 1, 2, 0, 1, 2];
+[0, 1, 1, 2, 0, 2, 
+1, 2, 0, 1, 0, 
+2, 1, 0, 2, 1, 
+2, 2, 0, 2, 2, 
+1, 2, 1, 0, 1, 
+2, 0, 2, 0, 0, 
+0, 1, 0, 0, 1];
 
 const event_Top = 
-[0, 87, 1000, 100, 99, 66, 20, 76, 55, 102, 61,
-12, 37, 29, 87, 2, 77, 28, 78, 68, 1000,
-19, 8, 27, 54, 61, 60, 10, 79, 43, 9];
+[0, 60, 76, 70, 10, 19, 
+10, 12, 71, 44, 66, 
+67, 68, 66, 0, 39,
+1, 0, 100, 87, 2, 
+43, 9, 87, 99, 63, 
+43, 61, 28, 102, 2, 
+80, 29, 28, 29, 27];
 
 const event_Down = 
-[0, 71, 999, 0, 48, 78, 67, 60, 10, 29, 74,
-53, 70, 28, 21, 55, 37, 88, 10, 54, 999,
-53, 43, 29, 39, 77, 56, 2, 66, 48, 68];
+[0, 56, 56, 37, 78, 53,
+55, 53, 55, 37, 78, 
+20, 54, 79, 38, 54, 
+53, 77, 78, 21, 10, 
+48, 68, 71, 48, 74, 
+8, 67, 54, 48, 61, 
+104, 102, 88, 28, 29];

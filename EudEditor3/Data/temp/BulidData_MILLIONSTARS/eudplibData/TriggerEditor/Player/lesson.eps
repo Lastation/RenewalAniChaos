@@ -7,7 +7,9 @@ const s = StringBuffer();
 
 function Lesson_Unit(cp);
 function Lesson_Check(cp);
-function Album_Unit(cp);
+function Random_Album_Ticket(cp);
+function Type_Album_Ticket(cp);
+function Album_Ticket_Effect(ID, type, isRandom, cp);
 
 function Add_Weapon_Damage(ID, index);
 function Add_Weapon_Increase(ID, index);
@@ -18,11 +20,12 @@ function Weapon_Text_Angel();
 
 function Marge(cp)
 {
-    	if (MemoryEPD(EPD(0x6284E8) + 12 * cp, AtLeast, 1)) 
-    	{ Lesson_Check(cp); }
+	if (MemoryEPD(EPD(0x6284E8) + 12 * cp, AtLeast, 1) && Deaths(cp, Exactly, 0, "Event_Score")) 
+	{ Lesson_Check(cp); }
     	
-    	Album_Unit(cp);
-    	Lesson_Unit(cp);
+	Random_Album_Ticket(cp);
+	Type_Album_Ticket(cp);
+	Lesson_Unit(cp);
 }
 
 function Lesson_Unit(cp)
@@ -70,105 +73,182 @@ function Lesson_Unit(cp)
 	}
 }
 
-function Album_Unit(cp)
+function Random_Album_Ticket(cp)
 {
-	if (Bring(cp, AtLeast, 1, 136, "JewelGacha Step 1"))
+	if (Bring(cp, AtLeast, 1, 114, "JewelGacha Step 1"))
 	{
+		KillUnitAt(1, 114, "JewelGacha Step 1", cp);
+		
+		var type = dwrand()% 3;
     		var random = dwrand() % 17;
     		
-		SetDeaths(P6, Add, vd.Album_Weapon_Damage[random], vd.Princess_Unit_Index[random]);
-		SetDeaths(P7, Add, 1, vd.Princess_Unit_Index[random]);
-		KillUnitAt(1,  136, "JewelGacha Step 1", cp);
-		
-		if (Deaths(cp, Exactly, 0, "unit_music_length"))
-		{ SetDeaths(Force1, SetTo, 1 +  random, "unit_music_index"); }
-		
-		if (Deaths(P6, AtLeast, 400, vd.Princess_Unit_Index[random]))
-		{
-			Add_Weapon_Increase(vd.Princess_Weapon_Index[random], 4);
-			SetDeaths(P6, Subtract, 400, vd.Princess_Unit_Index[random]);
-		}
-		if (Deaths(P6, AtLeast, 300, vd.Princess_Unit_Index[random]))
-		{
-			Add_Weapon_Increase(vd.Princess_Weapon_Index[random], 3);
-			SetDeaths(P6, Subtract, 300, vd.Princess_Unit_Index[random]);
-		}
-		if (Deaths(P6, AtLeast, 200, vd.Princess_Unit_Index[random]))
-		{
-			Add_Weapon_Increase(vd.Princess_Weapon_Index[random], 2);
-			SetDeaths(P6, Subtract, 200, vd.Princess_Unit_Index[random]);
-		}
-		if (Deaths(P6, AtLeast, 100, vd.Princess_Unit_Index[random]))
-		{
-			Add_Weapon_Increase(vd.Princess_Weapon_Index[random], 1);
-			SetDeaths(P6, Subtract, 100, vd.Princess_Unit_Index[random]);
-		}
+    		Album_Ticket_Effect(random, type, 0, cp);
+	}
+}
+
+function Type_Album_Ticket(cp)
+{
+	if (Bring(cp, AtLeast, 1, 138, "JewelGacha Step 1"))
+	{
+		if(Bring(cp, AtLeast, 1, 28, "lounge_Cloth")) 	{ Album_Ticket_Effect(0, 2, 1, cp); 		}
+		if(Bring(cp, AtLeast, 1, 32, "lounge_Cloth")) 	{ Album_Ticket_Effect(1, 2, 1, cp); 		}
+		if(Bring(cp, AtLeast, 1, 102, "lounge_Cloth")) 	{ Album_Ticket_Effect(2, 2, 1, cp); 		}
+		if(Bring(cp, AtLeast, 1, 104, "lounge_Cloth")) 	{ Album_Ticket_Effect(3, 2, 1, cp); 		}
+		if(Bring(cp, AtLeast, 1, 0, "lounge_Cloth")) 		{ Album_Ticket_Effect(4, 2, 1, cp); 		}
+		if(Bring(cp, AtLeast, 1, 1, "lounge_Cloth")) 		{ Album_Ticket_Effect(5, 2, 1, cp);		}
+		if(Bring(cp, AtLeast, 1, 2, "lounge_Cloth")) 		{ Album_Ticket_Effect(6, 2, 1, cp); 		}
+		if(Bring(cp, AtLeast, 1, 8, "lounge_Cloth")) 		{ Album_Ticket_Effect(7, 2, 1, cp); 		}
+		if(Bring(cp, AtLeast, 1, 9, "lounge_Cloth")) 		{ Album_Ticket_Effect(8, 2, 1, cp); 		}
+		if(Bring(cp, AtLeast, 1, 10, "lounge_Cloth")) 	{ Album_Ticket_Effect(9,  2, 1, cp); 	}
+		if(Bring(cp, AtLeast, 1, 12, "lounge_Cloth")) 	{ Album_Ticket_Effect(10, 2, 1, cp); 	}
+		if(Bring(cp, AtLeast, 1, 16, "lounge_Cloth")) 	{ Album_Ticket_Effect(11, 2, 1, cp); 	}
+		if(Bring(cp, AtLeast, 1, 19, "lounge_Cloth")) 	{ Album_Ticket_Effect(12, 2, 1, cp); 	}
+		if(Bring(cp, AtLeast, 1, 20, "lounge_Cloth")) 	{ Album_Ticket_Effect(13, 2, 1, cp); 	}
+		if(Bring(cp, AtLeast, 1, 21, "lounge_Cloth")) 	{ Album_Ticket_Effect(14, 2, 1, cp); 	}
+		if(Bring(cp, AtLeast, 1, 37, "lounge_Cloth")) 	{ Album_Ticket_Effect(15, 2, 1, cp); 	}
+		if(Bring(cp, AtLeast, 1, 38, "lounge_Cloth")) 	{ Album_Ticket_Effect(16, 2, 1, cp); 	}
 	}
 	
 	if (Bring(cp, AtLeast, 1, 137, "JewelGacha Step 1"))
 	{
-    		var random = dwrand() % 17;
-    		
-		SetDeaths(P6, Add, vd.Album_Weapon_Damage[random], vd.Fairy_Unit_Index[random]);
-		SetDeaths(P7, Add, 1, vd.Fairy_Unit_Index[random]);
-		KillUnitAt(1,  137, "JewelGacha Step 1", cp);
-		
-		if (Deaths(cp, Exactly, 0, "unit_music_length"))
-		{ SetDeaths(Force1, SetTo, 18 +  random, "unit_music_index"); }
-		
-		if (Deaths(P6, AtLeast, 400, vd.Fairy_Unit_Index[random]))
-		{
-			Add_Weapon_Increase(vd.Fairy_Weapon_Index[random], 4);
-			SetDeaths(P6, Subtract, 400, vd.Fairy_Unit_Index[random]);
-		}
-		if (Deaths(P6, AtLeast, 300, vd.Fairy_Unit_Index[random]))
-		{
-			Add_Weapon_Increase(vd.Fairy_Weapon_Index[random], 3);
-			SetDeaths(P6, Subtract, 300, vd.Fairy_Unit_Index[random]);
-		}
-		if (Deaths(P6, AtLeast, 200, vd.Fairy_Unit_Index[random]))
-		{
-			Add_Weapon_Increase(vd.Fairy_Weapon_Index[random], 2);
-			SetDeaths(P6, Subtract, 200, vd.Fairy_Unit_Index[random]);
-		}
-		if (Deaths(P6, AtLeast, 100, vd.Fairy_Unit_Index[random]))
-		{
-			Add_Weapon_Increase(vd.Fairy_Weapon_Index[random], 1);
-			SetDeaths(P6, Subtract, 100, vd.Fairy_Unit_Index[random]);
-		}
+		if(Bring(cp, AtLeast, 1, 29, "lounge_Cloth")) 	{ Album_Ticket_Effect(0, 1, 2, cp); 		}
+		if(Bring(cp, AtLeast, 1, 80, "lounge_Cloth")) 	{ Album_Ticket_Effect(1, 1, 2, cp); 		}
+		if(Bring(cp, AtLeast, 1, 63, "lounge_Cloth")) 	{ Album_Ticket_Effect(2, 1, 2, cp); 		}
+		if(Bring(cp, AtLeast, 1, 87, "lounge_Cloth")) 	{ Album_Ticket_Effect(3, 1, 2, cp); 		}
+		if(Bring(cp, AtLeast, 1, 39, "lounge_Cloth")) 	{ Album_Ticket_Effect(4, 1, 2, cp); 		}
+		if(Bring(cp, AtLeast, 1, 40, "lounge_Cloth")) 	{ Album_Ticket_Effect(5, 1, 2, cp); 		}
+		if(Bring(cp, AtLeast, 1, 43, "lounge_Cloth")) 	{ Album_Ticket_Effect(6, 1, 2, cp); 		}
+		if(Bring(cp, AtLeast, 1, 44, "lounge_Cloth")) 	{ Album_Ticket_Effect(7, 1, 2, cp); 		}
+		if(Bring(cp, AtLeast, 1, 46, "lounge_Cloth")) 	{ Album_Ticket_Effect(8, 1, 2, cp); 		}
+		if(Bring(cp, AtLeast, 1, 48, "lounge_Cloth")) 	{ Album_Ticket_Effect(9,  1, 2, cp); 	}
+		if(Bring(cp, AtLeast, 1, 51, "lounge_Cloth")) 	{ Album_Ticket_Effect(10, 1, 2, cp); 	}
+		if(Bring(cp, AtLeast, 1, 52, "lounge_Cloth")) 	{ Album_Ticket_Effect(11, 1, 2, cp); 	}
+		if(Bring(cp, AtLeast, 1, 53, "lounge_Cloth")) 	{ Album_Ticket_Effect(12, 1, 2, cp); 	}
+		if(Bring(cp, AtLeast, 1, 54, "lounge_Cloth")) 	{ Album_Ticket_Effect(13, 1, 2, cp); 	}
+		if(Bring(cp, AtLeast, 1, 55, "lounge_Cloth")) 	{ Album_Ticket_Effect(14, 1, 2, cp); 	}
+		if(Bring(cp, AtLeast, 1, 56, "lounge_Cloth")) 	{ Album_Ticket_Effect(15, 1, 2, cp); 	}
+		if(Bring(cp, AtLeast, 1, 60, "lounge_Cloth")) 	{ Album_Ticket_Effect(16, 1, 2, cp); 	}
 	}
-	
-	if (Bring(cp, AtLeast, 1, 138, "JewelGacha Step 1"))
+	if (Bring(cp, AtLeast, 1, 136, "JewelGacha Step 1"))
 	{
-    		var random = dwrand() % 17;
-    		
-		SetDeaths(P6, Add, vd.Album_Weapon_Damage[random], vd.Angel_Unit_Index[random]);
-		SetDeaths(P7, Add, 1, vd.Angel_Unit_Index[random]);
-		KillUnitAt(1,  138, "JewelGacha Step 1", cp);
+		if(Bring(cp, AtLeast, 1, 27, "lounge_Cloth")) 	{ Album_Ticket_Effect(0, 0, 3, cp); 		}
+		if(Bring(cp, AtLeast, 1, 88, "lounge_Cloth")) 	{ Album_Ticket_Effect(1, 0, 3, cp); 		}
+		if(Bring(cp, AtLeast, 1, 99, "lounge_Cloth")) 	{ Album_Ticket_Effect(2, 0, 3, cp); 		}
+		if(Bring(cp, AtLeast, 1, 100, "lounge_Cloth")) 	{ Album_Ticket_Effect(3, 0, 3, cp); 		}
+		if(Bring(cp, AtLeast, 1, 61, "lounge_Cloth")) 	{ Album_Ticket_Effect(4, 0, 3, cp); 		}
+		if(Bring(cp, AtLeast, 1, 65, "lounge_Cloth")) 	{ Album_Ticket_Effect(5, 0, 3, cp); 		}
+		if(Bring(cp, AtLeast, 1, 66, "lounge_Cloth")) 	{ Album_Ticket_Effect(6, 0, 3, cp); 		}
+		if(Bring(cp, AtLeast, 1, 67, "lounge_Cloth")) 	{ Album_Ticket_Effect(7, 0, 3, cp); 		}
+		if(Bring(cp, AtLeast, 1, 68, "lounge_Cloth")) 	{ Album_Ticket_Effect(8, 0, 3, cp); 		}
+		if(Bring(cp, AtLeast, 1, 70, "lounge_Cloth")) 	{ Album_Ticket_Effect(9, 0, 3, cp); 		}
+		if(Bring(cp, AtLeast, 1, 71, "lounge_Cloth")) 	{ Album_Ticket_Effect(10, 0, 3, cp); 	}
+		if(Bring(cp, AtLeast, 1, 74, "lounge_Cloth")) 	{ Album_Ticket_Effect(11, 0, 3, cp); 	}
+		if(Bring(cp, AtLeast, 1, 75, "lounge_Cloth")) 	{ Album_Ticket_Effect(12, 0, 3, cp); 	}
+		if(Bring(cp, AtLeast, 1, 76, "lounge_Cloth")) 	{ Album_Ticket_Effect(13, 0, 3, cp); 	}
+		if(Bring(cp, AtLeast, 1, 77, "lounge_Cloth")) 	{ Album_Ticket_Effect(14, 0, 3, cp); 	}
+		if(Bring(cp, AtLeast, 1, 78, "lounge_Cloth")) 	{ Album_Ticket_Effect(15, 0, 3, cp); 	}
+		if(Bring(cp, AtLeast, 1, 79, "lounge_Cloth")) 	{ Album_Ticket_Effect(16, 0, 3, cp); 	}
+	}
+}
+
+function Album_Ticket_Effect(ID, type, isRandom, cp)
+{
+    	switch (isRandom)
+    	{
+    	case 1:
+    		KillUnitAt(1, 138, "JewelGacha Step 1", cp);
+    		break;
+    	case 2:
+    		KillUnitAt(1, 137, "JewelGacha Step 1", cp);
+    		break;
+    	case 3:
+    		KillUnitAt(1, 136, "JewelGacha Step 1", cp);
+    		break;
+    	}
+
+    	switch (type)
+    	{
+    	case 0:
+		SetDeaths(P6, Add, vd.Album_Weapon_Damage[ID], vd.Princess_Unit_Index[ID]);
+		SetDeaths(P7, Add, 1, vd.Princess_Unit_Index[ID]);
 		
-		if (Deaths(cp, Exactly, 0, "unit_music_length"))
-		{ SetDeaths(Force1, SetTo, 35 +  random, "unit_music_index"); }
+		SetDeaths(Force1, SetTo, 1 +  ID, "unit_music_index");
 		
-		if (Deaths(P6, AtLeast, 400, vd.Angel_Unit_Index[random]))
+		if (Deaths(P6, AtLeast, 400, vd.Princess_Unit_Index[ID]))
 		{
-			Add_Weapon_Increase(vd.Angel_Weapon_Index[random], 4);
-			SetDeaths(P6, Subtract, 400, vd.Angel_Unit_Index[random]);
+			Add_Weapon_Increase(vd.Princess_Weapon_Index[ID], 4);
+			SetDeaths(P6, Subtract, 400, vd.Princess_Unit_Index[ID]);
 		}
-		if (Deaths(P6, AtLeast, 300, vd.Angel_Unit_Index[random]))
+		if (Deaths(P6, AtLeast, 300, vd.Princess_Unit_Index[ID]))
 		{
-			Add_Weapon_Increase(vd.Angel_Weapon_Index[random], 3);
-			SetDeaths(P6, Subtract, 300, vd.Angel_Unit_Index[random]);
+			Add_Weapon_Increase(vd.Princess_Weapon_Index[ID], 3);
+			SetDeaths(P6, Subtract, 300, vd.Princess_Unit_Index[ID]);
 		}
-		if (Deaths(P6, AtLeast, 200, vd.Angel_Unit_Index[random]))
+		if (Deaths(P6, AtLeast, 200, vd.Princess_Unit_Index[ID]))
 		{
-			Add_Weapon_Increase(vd.Angel_Weapon_Index[random], 2);
-			SetDeaths(P6, Subtract, 200, vd.Angel_Unit_Index[random]);
+			Add_Weapon_Increase(vd.Princess_Weapon_Index[ID], 2);
+			SetDeaths(P6, Subtract, 200, vd.Princess_Unit_Index[ID]);
 		}
-		if (Deaths(P6, AtLeast, 100, vd.Angel_Unit_Index[random]))
+		if (Deaths(P6, AtLeast, 100, vd.Princess_Unit_Index[ID]))
 		{
-			Add_Weapon_Increase(vd.Angel_Weapon_Index[random], 1);
-			SetDeaths(P6, Subtract, 100, vd.Angel_Unit_Index[random]);
+			Add_Weapon_Increase(vd.Princess_Weapon_Index[ID], 1);
+			SetDeaths(P6, Subtract, 100, vd.Princess_Unit_Index[ID]);
 		}
+		break;
+    	case 1:
+		SetDeaths(P6, Add, vd.Album_Weapon_Damage[ID], vd.Fairy_Unit_Index[ID]);
+		SetDeaths(P7, Add, 1, vd.Fairy_Unit_Index[ID]);
+		
+		SetDeaths(Force1, SetTo, 18 +  ID, "unit_music_index");
+		
+		if (Deaths(P6, AtLeast, 400, vd.Fairy_Unit_Index[ID]))
+		{
+			Add_Weapon_Increase(vd.Fairy_Weapon_Index[ID], 4);
+			SetDeaths(P6, Subtract, 400, vd.Fairy_Unit_Index[ID]);
+		}
+		if (Deaths(P6, AtLeast, 300, vd.Fairy_Unit_Index[ID]))
+		{
+			Add_Weapon_Increase(vd.Fairy_Weapon_Index[ID], 3);
+			SetDeaths(P6, Subtract, 300, vd.Fairy_Unit_Index[ID]);
+		}
+		if (Deaths(P6, AtLeast, 200, vd.Fairy_Unit_Index[ID]))
+		{
+			Add_Weapon_Increase(vd.Fairy_Weapon_Index[ID], 2);
+			SetDeaths(P6, Subtract, 200, vd.Fairy_Unit_Index[ID]);
+		}
+		if (Deaths(P6, AtLeast, 100, vd.Fairy_Unit_Index[ID]))
+		{
+			Add_Weapon_Increase(vd.Fairy_Weapon_Index[ID], 1);
+			SetDeaths(P6, Subtract, 100, vd.Fairy_Unit_Index[ID]);
+		}
+		break;
+	case 2:
+		SetDeaths(P6, Add, vd.Album_Weapon_Damage[ID], vd.Angel_Unit_Index[ID]);
+		SetDeaths(P7, Add, 1, vd.Angel_Unit_Index[ID]);
+		
+		SetDeaths(Force1, SetTo, 35 +  ID, "unit_music_index");
+		
+		if (Deaths(P6, AtLeast, 400, vd.Angel_Unit_Index[ID]))
+		{
+			Add_Weapon_Increase(vd.Angel_Weapon_Index[ID], 4);
+			SetDeaths(P6, Subtract, 400, vd.Angel_Unit_Index[ID]);
+		}
+		if (Deaths(P6, AtLeast, 300, vd.Angel_Unit_Index[ID]))
+		{
+			Add_Weapon_Increase(vd.Angel_Weapon_Index[ID], 3);
+			SetDeaths(P6, Subtract, 300, vd.Angel_Unit_Index[ID]);
+		}
+		if (Deaths(P6, AtLeast, 200, vd.Angel_Unit_Index[ID]))
+		{
+			Add_Weapon_Increase(vd.Angel_Weapon_Index[ID], 2);
+			SetDeaths(P6, Subtract, 200, vd.Angel_Unit_Index[ID]);
+		}
+		if (Deaths(P6, AtLeast, 100, vd.Angel_Unit_Index[ID]))
+		{
+			Add_Weapon_Increase(vd.Angel_Weapon_Index[ID], 1);
+			SetDeaths(P6, Subtract, 100, vd.Angel_Unit_Index[ID]);
+		}
+		break;
 	}
 }
 
@@ -256,7 +336,6 @@ function Add_Weapon_Damage(ID, index)
 function Add_Weapon_Increase(ID, value)
 {
 	wwrite(0x6564E0 + 4504 + ID * 2, wread(0x6564E0 + 4504 + ID * 2) + value);		// 업글 증가량
-	KillUnitAt(1, 123, "JewelGacha", CurrentPlayer);
 }
 
 function Weapon_Text_Princess()

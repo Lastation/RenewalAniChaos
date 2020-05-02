@@ -136,18 +136,24 @@ from Player import title as te
 from Player import lesson as ln
 # (Line 5) import Player.event as et;
 from Player import event as et
-# (Line 7) function main(cp)
-# (Line 8) {
+# (Line 6) import Player.cloth as cl;
+from Player import cloth as cl
+# (Line 8) function main(cp)
+# (Line 9) {
 @EUDFunc
 def f_main(cp):
-    # (Line 9) sp.Marge(cp);
+    # (Line 10) sp.Marge(cp);
     sp.Marge(cp)
-    # (Line 10) ln.Marge(cp);
+    # (Line 11) ln.Marge(cp);
     ln.Marge(cp)
-    # (Line 12) sd.PlaySound(cp);
+    # (Line 13) sd.PlaySound(cp);
     sd.PlaySound(cp)
-    # (Line 13) te.Title_Effect(cp);
+    # (Line 14) te.Title_Effect(cp);
     te.Title_Effect(cp)
-    # (Line 14) et.event_score(cp);
+    # (Line 15) et.event_score(cp);
     et.f_event_score(cp)
-    # (Line 15) }
+    # (Line 16) cl.Cloth_Ticket(cp);
+    cl.Cloth_Ticket(cp)
+    # (Line 17) cl.Producer_Buff(cp);
+    cl.Producer_Buff(cp)
+    # (Line 18) }

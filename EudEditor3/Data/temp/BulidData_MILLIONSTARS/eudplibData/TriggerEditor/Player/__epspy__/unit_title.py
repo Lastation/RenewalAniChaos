@@ -130,399 +130,662 @@ def _LSH(l, r):
 import variable_title as vt
 # (Line 2) import variable_data as vd;
 import variable_data as vd
-# (Line 4) function Set_Title(id);
-# (Line 5) function Title_Value(id, value);
-# (Line 6) function Check_Title(id, num, value);
-# (Line 8) function Set_Title(id)
-# (Line 9) {
+# (Line 3) import getunitID as id;
+import getunitID as id
+# (Line 5) function Cloth_Ticket(cp);
+# (Line 6) function Cloth_Ticket_Effect(ID, Index, cp);
+# (Line 8) function Set_Title(ID, Index);
+# (Line 9) function Title_Value(id, value);
+# (Line 10) function Check_Title(id, num, value);
+# (Line 12) const s = StringBuffer();
+s = _CGFW(lambda: [StringBuffer()], 1)[0]
+# (Line 14) function Cloth_Ticket(cp)
+# (Line 15) {
 @EUDFunc
-def Set_Title(id):
-    # (Line 10) if (Deaths(P8, AtLeast, 100, id) && Deaths(P8, AtMost, 199, id))
-    if EUDIf()(EUDSCAnd()(Deaths(P8, AtLeast, 100, id))(Deaths(P8, AtMost, 199, id))()):
-        # (Line 11) { Title_Value(id, 1); }
-        Title_Value(id, 1)
-        # (Line 12) if (Deaths(P8, AtLeast, 200, id) && Deaths(P8, AtMost, 399, id))
+def Cloth_Ticket(cp):
+    # (Line 16) if (Bring(cp, AtLeast, 1, 123, "JewelGacha Step 1"))
+    if EUDIf()(Bring(cp, AtLeast, 1, 123, "JewelGacha Step 1")):
+        # (Line 17) {
+        # (Line 18) if(Bring(cp, AtLeast, 1, 28, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(28 ,35, cp); 	}
+        if EUDIf()(Bring(cp, AtLeast, 1, 28, "lounge_Cloth")):
+            Cloth_Ticket_Effect(28, 35, cp)
+            # (Line 19) if(Bring(cp, AtLeast, 1, 32, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(32 ,36, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 32, "lounge_Cloth")):
+            Cloth_Ticket_Effect(32, 36, cp)
+            # (Line 20) if(Bring(cp, AtLeast, 1, 102, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(102 ,37, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 102, "lounge_Cloth")):
+            Cloth_Ticket_Effect(102, 37, cp)
+            # (Line 21) if(Bring(cp, AtLeast, 1, 104, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(104 ,38, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 104, "lounge_Cloth")):
+            Cloth_Ticket_Effect(104, 38, cp)
+            # (Line 22) if(Bring(cp, AtLeast, 1, 0, "lounge_Cloth")) 		{ Cloth_Ticket_Effect(0 ,39, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 0, "lounge_Cloth")):
+            Cloth_Ticket_Effect(0, 39, cp)
+            # (Line 23) if(Bring(cp, AtLeast, 1, 1, "lounge_Cloth")) 		{ Cloth_Ticket_Effect(1 ,40, cp);	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 1, "lounge_Cloth")):
+            Cloth_Ticket_Effect(1, 40, cp)
+            # (Line 24) if(Bring(cp, AtLeast, 1, 2, "lounge_Cloth")) 		{ Cloth_Ticket_Effect(2 ,41, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 2, "lounge_Cloth")):
+            Cloth_Ticket_Effect(2, 41, cp)
+            # (Line 25) if(Bring(cp, AtLeast, 1, 8, "lounge_Cloth")) 		{ Cloth_Ticket_Effect(8 ,42, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 8, "lounge_Cloth")):
+            Cloth_Ticket_Effect(8, 42, cp)
+            # (Line 26) if(Bring(cp, AtLeast, 1, 9, "lounge_Cloth")) 		{ Cloth_Ticket_Effect(9 ,43, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 9, "lounge_Cloth")):
+            Cloth_Ticket_Effect(9, 43, cp)
+            # (Line 27) if(Bring(cp, AtLeast, 1, 10, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(10 ,44, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 10, "lounge_Cloth")):
+            Cloth_Ticket_Effect(10, 44, cp)
+            # (Line 28) if(Bring(cp, AtLeast, 1, 12, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(12 ,45, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 12, "lounge_Cloth")):
+            Cloth_Ticket_Effect(12, 45, cp)
+            # (Line 29) if(Bring(cp, AtLeast, 1, 16, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(16 ,46, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 16, "lounge_Cloth")):
+            Cloth_Ticket_Effect(16, 46, cp)
+            # (Line 30) if(Bring(cp, AtLeast, 1, 19, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(19 ,47, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 19, "lounge_Cloth")):
+            Cloth_Ticket_Effect(19, 47, cp)
+            # (Line 31) if(Bring(cp, AtLeast, 1, 20, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(20 ,48, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 20, "lounge_Cloth")):
+            Cloth_Ticket_Effect(20, 48, cp)
+            # (Line 32) if(Bring(cp, AtLeast, 1, 21, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(21 ,49, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 21, "lounge_Cloth")):
+            Cloth_Ticket_Effect(21, 49, cp)
+            # (Line 33) if(Bring(cp, AtLeast, 1, 37, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(37 ,50, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 37, "lounge_Cloth")):
+            Cloth_Ticket_Effect(37, 50, cp)
+            # (Line 34) if(Bring(cp, AtLeast, 1, 38, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(38 ,51, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 38, "lounge_Cloth")):
+            Cloth_Ticket_Effect(38, 51, cp)
+            # (Line 35) }
+        EUDEndIf()
+        # (Line 37) if (Bring(cp, AtLeast, 1, 122, "JewelGacha Step 1"))
     EUDEndIf()
-    if EUDIf()(EUDSCAnd()(Deaths(P8, AtLeast, 200, id))(Deaths(P8, AtMost, 399, id))()):
-        # (Line 13) { Title_Value(id, 2); }
-        Title_Value(id, 2)
-        # (Line 14) if (Deaths(P8, AtLeast, 400, id) && Deaths(P8, AtMost, 799, id))
+    if EUDIf()(Bring(cp, AtLeast, 1, 122, "JewelGacha Step 1")):
+        # (Line 38) {
+        # (Line 39) if(Bring(cp, AtLeast, 1, 29, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(29 ,18, cp); 	}
+        if EUDIf()(Bring(cp, AtLeast, 1, 29, "lounge_Cloth")):
+            Cloth_Ticket_Effect(29, 18, cp)
+            # (Line 40) if(Bring(cp, AtLeast, 1, 80, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(80 ,19, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 80, "lounge_Cloth")):
+            Cloth_Ticket_Effect(80, 19, cp)
+            # (Line 41) if(Bring(cp, AtLeast, 1, 63, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(63 ,20, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 63, "lounge_Cloth")):
+            Cloth_Ticket_Effect(63, 20, cp)
+            # (Line 42) if(Bring(cp, AtLeast, 1, 87, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(87 ,21, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 87, "lounge_Cloth")):
+            Cloth_Ticket_Effect(87, 21, cp)
+            # (Line 43) if(Bring(cp, AtLeast, 1, 39, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(39 ,22, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 39, "lounge_Cloth")):
+            Cloth_Ticket_Effect(39, 22, cp)
+            # (Line 44) if(Bring(cp, AtLeast, 1, 40, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(40 ,23, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 40, "lounge_Cloth")):
+            Cloth_Ticket_Effect(40, 23, cp)
+            # (Line 45) if(Bring(cp, AtLeast, 1, 43, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(43 ,24, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 43, "lounge_Cloth")):
+            Cloth_Ticket_Effect(43, 24, cp)
+            # (Line 46) if(Bring(cp, AtLeast, 1, 44, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(44 ,25, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 44, "lounge_Cloth")):
+            Cloth_Ticket_Effect(44, 25, cp)
+            # (Line 47) if(Bring(cp, AtLeast, 1, 46, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(46 ,26, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 46, "lounge_Cloth")):
+            Cloth_Ticket_Effect(46, 26, cp)
+            # (Line 48) if(Bring(cp, AtLeast, 1, 48, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(48 ,27, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 48, "lounge_Cloth")):
+            Cloth_Ticket_Effect(48, 27, cp)
+            # (Line 49) if(Bring(cp, AtLeast, 1, 51, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(51 ,28, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 51, "lounge_Cloth")):
+            Cloth_Ticket_Effect(51, 28, cp)
+            # (Line 50) if(Bring(cp, AtLeast, 1, 52, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(52 ,29, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 52, "lounge_Cloth")):
+            Cloth_Ticket_Effect(52, 29, cp)
+            # (Line 51) if(Bring(cp, AtLeast, 1, 53, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(53 ,30, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 53, "lounge_Cloth")):
+            Cloth_Ticket_Effect(53, 30, cp)
+            # (Line 52) if(Bring(cp, AtLeast, 1, 54, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(54 ,31, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 54, "lounge_Cloth")):
+            Cloth_Ticket_Effect(54, 31, cp)
+            # (Line 53) if(Bring(cp, AtLeast, 1, 55, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(55 ,32, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 55, "lounge_Cloth")):
+            Cloth_Ticket_Effect(55, 32, cp)
+            # (Line 54) if(Bring(cp, AtLeast, 1, 56, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(56 ,33, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 56, "lounge_Cloth")):
+            Cloth_Ticket_Effect(56, 33, cp)
+            # (Line 55) if(Bring(cp, AtLeast, 1, 60, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(60 ,34, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 60, "lounge_Cloth")):
+            Cloth_Ticket_Effect(60, 34, cp)
+            # (Line 56) }
+        EUDEndIf()
+        # (Line 57) if (Bring(cp, AtLeast, 1, 116, "JewelGacha Step 1"))
     EUDEndIf()
-    if EUDIf()(EUDSCAnd()(Deaths(P8, AtLeast, 400, id))(Deaths(P8, AtMost, 799, id))()):
-        # (Line 15) { Title_Value(id, 3); }
-        Title_Value(id, 3)
-        # (Line 16) if (Deaths(P8, AtLeast, 800, id))
+    if EUDIf()(Bring(cp, AtLeast, 1, 116, "JewelGacha Step 1")):
+        # (Line 58) {
+        # (Line 59) if(Bring(cp, AtLeast, 1, 27, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(27, 1, cp); 	}
+        if EUDIf()(Bring(cp, AtLeast, 1, 27, "lounge_Cloth")):
+            Cloth_Ticket_Effect(27, 1, cp)
+            # (Line 60) if(Bring(cp, AtLeast, 1, 88, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(88, 2, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 88, "lounge_Cloth")):
+            Cloth_Ticket_Effect(88, 2, cp)
+            # (Line 61) if(Bring(cp, AtLeast, 1, 99, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(99, 3, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 99, "lounge_Cloth")):
+            Cloth_Ticket_Effect(99, 3, cp)
+            # (Line 62) if(Bring(cp, AtLeast, 1, 100, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(100, 4, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 100, "lounge_Cloth")):
+            Cloth_Ticket_Effect(100, 4, cp)
+            # (Line 63) if(Bring(cp, AtLeast, 1, 61, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(61, 5, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 61, "lounge_Cloth")):
+            Cloth_Ticket_Effect(61, 5, cp)
+            # (Line 64) if(Bring(cp, AtLeast, 1, 65, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(65, 6, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 65, "lounge_Cloth")):
+            Cloth_Ticket_Effect(65, 6, cp)
+            # (Line 65) if(Bring(cp, AtLeast, 1, 66, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(66, 7, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 66, "lounge_Cloth")):
+            Cloth_Ticket_Effect(66, 7, cp)
+            # (Line 66) if(Bring(cp, AtLeast, 1, 67, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(67, 8, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 67, "lounge_Cloth")):
+            Cloth_Ticket_Effect(67, 8, cp)
+            # (Line 67) if(Bring(cp, AtLeast, 1, 68, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(68, 9, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 68, "lounge_Cloth")):
+            Cloth_Ticket_Effect(68, 9, cp)
+            # (Line 68) if(Bring(cp, AtLeast, 1, 70, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(70, 10, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 70, "lounge_Cloth")):
+            Cloth_Ticket_Effect(70, 10, cp)
+            # (Line 69) if(Bring(cp, AtLeast, 1, 71, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(71, 11, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 71, "lounge_Cloth")):
+            Cloth_Ticket_Effect(71, 11, cp)
+            # (Line 70) if(Bring(cp, AtLeast, 1, 74, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(74, 12, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 74, "lounge_Cloth")):
+            Cloth_Ticket_Effect(74, 12, cp)
+            # (Line 71) if(Bring(cp, AtLeast, 1, 75, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(75, 13, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 75, "lounge_Cloth")):
+            Cloth_Ticket_Effect(75, 13, cp)
+            # (Line 72) if(Bring(cp, AtLeast, 1, 76, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(76, 14, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 76, "lounge_Cloth")):
+            Cloth_Ticket_Effect(76, 14, cp)
+            # (Line 73) if(Bring(cp, AtLeast, 1, 77, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(77, 15, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 77, "lounge_Cloth")):
+            Cloth_Ticket_Effect(77, 15, cp)
+            # (Line 74) if(Bring(cp, AtLeast, 1, 78, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(78, 16, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 78, "lounge_Cloth")):
+            Cloth_Ticket_Effect(78, 16, cp)
+            # (Line 75) if(Bring(cp, AtLeast, 1, 79, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(79, 17, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 79, "lounge_Cloth")):
+            Cloth_Ticket_Effect(79, 17, cp)
+            # (Line 76) }
+        EUDEndIf()
+        # (Line 77) }
     EUDEndIf()
-    if EUDIf()(Deaths(P8, AtLeast, 800, id)):
-        # (Line 17) { Title_Value(id, 4); }
-        Title_Value(id, 4)
-        # (Line 18) }
-    EUDEndIf()
-    # (Line 20) function Title_Value(id, value)
+    # (Line 79) function Cloth_Ticket_Effect(ID, Index, cp)
 
-# (Line 21) {
+# (Line 80) {
 @EUDFunc
-def Title_Value(id, value):
-    # (Line 22) switch(id)
-    EUDSwitch(id)
-    # (Line 23) {
-    # (Line 25) case 27:
+def Cloth_Ticket_Effect(ID, Index, cp):
+    # (Line 81) SetDeaths(P8, Add, 100, ID);
+    # (Line 82) s.print("\n\x13", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), "\x04 에게 의상을 선물하였습니다.\n");
+    DoActions(SetDeaths(P8, Add, 100, ID))
+    s.print("\n\x13", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), "\x04 에게 의상을 선물하였습니다.\n")
+    # (Line 83) Set_Title(ID, Index);
+    Set_Title(ID, Index)
+    # (Line 84) }
+    # (Line 86) function Set_Title(ID, Index)
+
+# (Line 87) {
+@EUDFunc
+def Set_Title(ID, Index):
+    # (Line 88) if (Deaths(P8, AtLeast, 100, ID) && vt.title_flag[Index] == 0)
+    if EUDIf()(EUDSCAnd()(Deaths(P8, AtLeast, 100, ID))(vt.title_flag[Index] == 0)()):
+        # (Line 89) {
+        # (Line 90) Title_Value(ID, 1); vt.title_flag[Index] = 1;
+        Title_Value(ID, 1)
+        _ARRW(vt.title_flag, Index) << (1)
+        # (Line 91) bwrite(0x6564E0 + 2776 + ID * 1, vd.Title1_Effect_Speed[(Index-1)%17]); // 공격 속도
+        f_bwrite(0x6564E0 + 2776 + ID * 1, vd.Title1_Effect_Speed[(Index - 1) % 17])
+        # (Line 92) }
+        # (Line 93) if (Deaths(P8, AtLeast, 200, ID) && vt.title_flag[Index] == 1)
+    EUDEndIf()
+    if EUDIf()(EUDSCAnd()(Deaths(P8, AtLeast, 200, ID))(vt.title_flag[Index] == 1)()):
+        # (Line 94) {
+        # (Line 95) Title_Value(ID, 2); vt.title_flag[Index] = 2;
+        Title_Value(ID, 2)
+        _ARRW(vt.title_flag, Index) << (2)
+        # (Line 96) bwrite(0x6564E0 + 2776 + ID * 1, vd.Title2_Effect_Speed[(Index-1)%17]); // 공격 속도
+        f_bwrite(0x6564E0 + 2776 + ID * 1, vd.Title2_Effect_Speed[(Index - 1) % 17])
+        # (Line 97) }
+        # (Line 98) if (Deaths(P8, AtLeast, 400, ID) && vt.title_flag[Index] == 2)
+    EUDEndIf()
+    if EUDIf()(EUDSCAnd()(Deaths(P8, AtLeast, 400, ID))(vt.title_flag[Index] == 2)()):
+        # (Line 99) {
+        # (Line 100) Title_Value(ID, 3); vt.title_flag[Index] = 3;
+        Title_Value(ID, 3)
+        _ARRW(vt.title_flag, Index) << (3)
+        # (Line 101) bwrite(0x6564E0 + 2776 + ID * 1, vd.Title3_Effect_Speed[(Index-1)%17]); // 공격 속도
+        f_bwrite(0x6564E0 + 2776 + ID * 1, vd.Title3_Effect_Speed[(Index - 1) % 17])
+        # (Line 102) }
+        # (Line 103) if (Deaths(P8, AtLeast, 800, ID) && vt.title_flag[Index] == 3)
+    EUDEndIf()
+    if EUDIf()(EUDSCAnd()(Deaths(P8, AtLeast, 800, ID))(vt.title_flag[Index] == 3)()):
+        # (Line 104) {
+        # (Line 105) Title_Value(id, 4); vt.title_flag[Index] = 4;
+        Title_Value(id, 4)
+        _ARRW(vt.title_flag, Index) << (4)
+        # (Line 106) bwrite(0x6564E0 + 2776 + ID * 1, vd.Title4_Effect_Speed[(Index-1)%17]); // 공격 속도
+        f_bwrite(0x6564E0 + 2776 + ID * 1, vd.Title4_Effect_Speed[(Index - 1) % 17])
+        # (Line 107) }
+        # (Line 108) }
+    EUDEndIf()
+    # (Line 110) function Title_Value(id, value)
+
+# (Line 111) {
+@EUDFunc
+def Title_Value(id_1, value):
+    # (Line 112) switch(id)
+    EUDSwitch(id_1)
+    # (Line 113) {
+    # (Line 115) case 27:
     _t1 = EUDSwitchCase()
-    # (Line 26) settbl(1318, 0, ptr2s(vt.title_35[value]));
+    # (Line 116) settbl(1318, 0, ptr2s(vt.title_35[value]));
     if _t1(27):
         f_settbl(1318, 0, ptr2s(vt.title_35[value]))
-        # (Line 27) break;
+        # (Line 117) break;
         EUDBreak()
-        # (Line 28) case 88:
+        # (Line 118) case 88:
     _t2 = EUDSwitchCase()
-    # (Line 29) settbl(1319, 0, ptr2s(vt.title_36[value]));
+    # (Line 119) settbl(1319, 0, ptr2s(vt.title_36[value]));
     if _t2(88):
         f_settbl(1319, 0, ptr2s(vt.title_36[value]))
-        # (Line 30) break;
+        # (Line 120) break;
         EUDBreak()
-        # (Line 31) case 99:
+        # (Line 121) case 99:
     _t3 = EUDSwitchCase()
-    # (Line 32) settbl(1320, 0, ptr2s(vt.title_37[value]));
+    # (Line 122) settbl(1320, 0, ptr2s(vt.title_37[value]));
     if _t3(99):
         f_settbl(1320, 0, ptr2s(vt.title_37[value]))
-        # (Line 33) break;
+        # (Line 123) break;
         EUDBreak()
-        # (Line 34) case 100:
+        # (Line 124) case 100:
     _t4 = EUDSwitchCase()
-    # (Line 35) settbl(1321, 0, ptr2s(vt.title_38[value]));
+    # (Line 125) settbl(1321, 0, ptr2s(vt.title_38[value]));
     if _t4(100):
         f_settbl(1321, 0, ptr2s(vt.title_38[value]))
-        # (Line 36) break;
+        # (Line 126) break;
         EUDBreak()
-        # (Line 37) case 61:
+        # (Line 127) case 61:
     _t5 = EUDSwitchCase()
-    # (Line 38) settbl(1322, 0, ptr2s(vt.title_39[value]));
+    # (Line 128) settbl(1322, 0, ptr2s(vt.title_39[value]));
     if _t5(61):
         f_settbl(1322, 0, ptr2s(vt.title_39[value]))
-        # (Line 39) break;
+        # (Line 129) break;
         EUDBreak()
-        # (Line 40) case 65:
+        # (Line 130) case 65:
     _t6 = EUDSwitchCase()
-    # (Line 41) settbl(1323, 0, ptr2s(vt.title_40[value]));
+    # (Line 131) settbl(1323, 0, ptr2s(vt.title_40[value]));
     if _t6(65):
         f_settbl(1323, 0, ptr2s(vt.title_40[value]))
-        # (Line 42) break;
+        # (Line 132) break;
         EUDBreak()
-        # (Line 43) case 66:
+        # (Line 133) case 66:
     _t7 = EUDSwitchCase()
-    # (Line 44) settbl(1324, 0, ptr2s(vt.title_41[value]));
+    # (Line 134) settbl(1324, 0, ptr2s(vt.title_41[value]));
     if _t7(66):
         f_settbl(1324, 0, ptr2s(vt.title_41[value]))
-        # (Line 45) break;
+        # (Line 135) break;
         EUDBreak()
-        # (Line 46) case 67:
+        # (Line 136) case 67:
     _t8 = EUDSwitchCase()
-    # (Line 47) settbl(1325, 0, ptr2s(vt.title_42[value]));
+    # (Line 137) settbl(1325, 0, ptr2s(vt.title_42[value]));
     if _t8(67):
         f_settbl(1325, 0, ptr2s(vt.title_42[value]))
-        # (Line 48) break;
+        # (Line 138) break;
         EUDBreak()
-        # (Line 49) case 68:
+        # (Line 139) case 68:
     _t9 = EUDSwitchCase()
-    # (Line 50) settbl(1326, 0, ptr2s(vt.title_43[value]));
+    # (Line 140) settbl(1326, 0, ptr2s(vt.title_43[value]));
     if _t9(68):
         f_settbl(1326, 0, ptr2s(vt.title_43[value]))
-        # (Line 51) break;
+        # (Line 141) break;
         EUDBreak()
-        # (Line 52) case 70:
+        # (Line 142) case 70:
     _t10 = EUDSwitchCase()
-    # (Line 53) settbl(1327, 0, ptr2s(vt.title_44[value]));
+    # (Line 143) settbl(1327, 0, ptr2s(vt.title_44[value]));
     if _t10(70):
         f_settbl(1327, 0, ptr2s(vt.title_44[value]))
-        # (Line 54) break;
+        # (Line 144) break;
         EUDBreak()
-        # (Line 55) case 71:
+        # (Line 145) case 71:
     _t11 = EUDSwitchCase()
-    # (Line 56) settbl(1328, 0, ptr2s(vt.title_45[value]));
+    # (Line 146) settbl(1328, 0, ptr2s(vt.title_45[value]));
     if _t11(71):
         f_settbl(1328, 0, ptr2s(vt.title_45[value]))
-        # (Line 57) break;
+        # (Line 147) break;
         EUDBreak()
-        # (Line 58) case 74:
+        # (Line 148) case 74:
     _t12 = EUDSwitchCase()
-    # (Line 59) settbl(1329, 0, ptr2s(vt.title_46[value]));
+    # (Line 149) settbl(1329, 0, ptr2s(vt.title_46[value]));
     if _t12(74):
         f_settbl(1329, 0, ptr2s(vt.title_46[value]))
-        # (Line 60) break;
+        # (Line 150) break;
         EUDBreak()
-        # (Line 61) case 75:
+        # (Line 151) case 75:
     _t13 = EUDSwitchCase()
-    # (Line 62) settbl(1330, 0, ptr2s(vt.title_47[value]));
+    # (Line 152) settbl(1330, 0, ptr2s(vt.title_47[value]));
     if _t13(75):
         f_settbl(1330, 0, ptr2s(vt.title_47[value]))
-        # (Line 63) break;
+        # (Line 153) break;
         EUDBreak()
-        # (Line 64) case 76:
+        # (Line 154) case 76:
     _t14 = EUDSwitchCase()
-    # (Line 65) settbl(1331, 0, ptr2s(vt.title_48[value]));
+    # (Line 155) settbl(1331, 0, ptr2s(vt.title_48[value]));
     if _t14(76):
         f_settbl(1331, 0, ptr2s(vt.title_48[value]))
-        # (Line 66) break;
+        # (Line 156) break;
         EUDBreak()
-        # (Line 67) case 77:
+        # (Line 157) case 77:
     _t15 = EUDSwitchCase()
-    # (Line 68) settbl(1332, 0, ptr2s(vt.title_49[value]));
+    # (Line 158) settbl(1332, 0, ptr2s(vt.title_49[value]));
     if _t15(77):
         f_settbl(1332, 0, ptr2s(vt.title_49[value]))
-        # (Line 69) break;
+        # (Line 159) break;
         EUDBreak()
-        # (Line 70) case 78:
+        # (Line 160) case 78:
     _t16 = EUDSwitchCase()
-    # (Line 71) settbl(1333, 0, ptr2s(vt.title_50[value]));
+    # (Line 161) settbl(1333, 0, ptr2s(vt.title_50[value]));
     if _t16(78):
         f_settbl(1333, 0, ptr2s(vt.title_50[value]))
-        # (Line 72) break;
+        # (Line 162) break;
         EUDBreak()
-        # (Line 73) case 79:
+        # (Line 163) case 79:
     _t17 = EUDSwitchCase()
-    # (Line 74) settbl(1334, 0, ptr2s(vt.title_51[value]));
+    # (Line 164) settbl(1334, 0, ptr2s(vt.title_51[value]));
     if _t17(79):
         f_settbl(1334, 0, ptr2s(vt.title_51[value]))
-        # (Line 75) break;
+        # (Line 165) break;
         EUDBreak()
-        # (Line 78) case 29:
+        # (Line 168) case 29:
     _t18 = EUDSwitchCase()
-    # (Line 79) settbl(1335, 0, ptr2s(vt.title_18[value]));
+    # (Line 169) settbl(1335, 0, ptr2s(vt.title_18[value]));
     if _t18(29):
         f_settbl(1335, 0, ptr2s(vt.title_18[value]))
-        # (Line 80) break;
+        # (Line 170) break;
         EUDBreak()
-        # (Line 81) case 80:
+        # (Line 171) case 80:
     _t19 = EUDSwitchCase()
-    # (Line 82) settbl(1336, 0, ptr2s(vt.title_19[value]));
+    # (Line 172) settbl(1336, 0, ptr2s(vt.title_19[value]));
     if _t19(80):
         f_settbl(1336, 0, ptr2s(vt.title_19[value]))
-        # (Line 83) break;
+        # (Line 173) break;
         EUDBreak()
-        # (Line 84) case 63:
+        # (Line 174) case 63:
     _t20 = EUDSwitchCase()
-    # (Line 85) settbl(1337, 0, ptr2s(vt.title_20[value]));
+    # (Line 175) settbl(1337, 0, ptr2s(vt.title_20[value]));
     if _t20(63):
         f_settbl(1337, 0, ptr2s(vt.title_20[value]))
-        # (Line 86) break;
+        # (Line 176) break;
         EUDBreak()
-        # (Line 87) case 87:
+        # (Line 177) case 87:
     _t21 = EUDSwitchCase()
-    # (Line 88) settbl(1338, 0, ptr2s(vt.title_21[value]));
+    # (Line 178) settbl(1338, 0, ptr2s(vt.title_21[value]));
     if _t21(87):
         f_settbl(1338, 0, ptr2s(vt.title_21[value]))
-        # (Line 89) break;
+        # (Line 179) break;
         EUDBreak()
-        # (Line 90) case 39:
+        # (Line 180) case 39:
     _t22 = EUDSwitchCase()
-    # (Line 91) settbl(1339, 0, ptr2s(vt.title_22[value]));
+    # (Line 181) settbl(1339, 0, ptr2s(vt.title_22[value]));
     if _t22(39):
         f_settbl(1339, 0, ptr2s(vt.title_22[value]))
-        # (Line 92) break;
+        # (Line 182) break;
         EUDBreak()
-        # (Line 93) case 40:
+        # (Line 183) case 40:
     _t23 = EUDSwitchCase()
-    # (Line 94) settbl(1340, 0, ptr2s(vt.title_23[value]));
+    # (Line 184) settbl(1340, 0, ptr2s(vt.title_23[value]));
     if _t23(40):
         f_settbl(1340, 0, ptr2s(vt.title_23[value]))
-        # (Line 95) break;
+        # (Line 185) break;
         EUDBreak()
-        # (Line 96) case 43:
+        # (Line 186) case 43:
     _t24 = EUDSwitchCase()
-    # (Line 97) settbl(1341, 0, ptr2s(vt.title_24[value]));
+    # (Line 187) settbl(1341, 0, ptr2s(vt.title_24[value]));
     if _t24(43):
         f_settbl(1341, 0, ptr2s(vt.title_24[value]))
-        # (Line 98) break;
+        # (Line 188) break;
         EUDBreak()
-        # (Line 99) case 44:
+        # (Line 189) case 44:
     _t25 = EUDSwitchCase()
-    # (Line 100) settbl(1342, 0, ptr2s(vt.title_25[value]));
+    # (Line 190) settbl(1342, 0, ptr2s(vt.title_25[value]));
     if _t25(44):
         f_settbl(1342, 0, ptr2s(vt.title_25[value]))
-        # (Line 101) break;
+        # (Line 191) break;
         EUDBreak()
-        # (Line 102) case 46:
+        # (Line 192) case 46:
     _t26 = EUDSwitchCase()
-    # (Line 103) settbl(1343, 0, ptr2s(vt.title_26[value]));
+    # (Line 193) settbl(1343, 0, ptr2s(vt.title_26[value]));
     if _t26(46):
         f_settbl(1343, 0, ptr2s(vt.title_26[value]))
-        # (Line 104) break;
+        # (Line 194) break;
         EUDBreak()
-        # (Line 105) case 48:
+        # (Line 195) case 48:
     _t27 = EUDSwitchCase()
-    # (Line 106) settbl(1344, 0, ptr2s(vt.title_27[value]));
+    # (Line 196) settbl(1344, 0, ptr2s(vt.title_27[value]));
     if _t27(48):
         f_settbl(1344, 0, ptr2s(vt.title_27[value]))
-        # (Line 107) break;
+        # (Line 197) break;
         EUDBreak()
-        # (Line 108) case 51:
+        # (Line 198) case 51:
     _t28 = EUDSwitchCase()
-    # (Line 109) settbl(1345, 0, ptr2s(vt.title_28[value]));
+    # (Line 199) settbl(1345, 0, ptr2s(vt.title_28[value]));
     if _t28(51):
         f_settbl(1345, 0, ptr2s(vt.title_28[value]))
-        # (Line 110) break;
+        # (Line 200) break;
         EUDBreak()
-        # (Line 111) case 52:
+        # (Line 201) case 52:
     _t29 = EUDSwitchCase()
-    # (Line 112) settbl(1346, 0, ptr2s(vt.title_29[value]));
+    # (Line 202) settbl(1346, 0, ptr2s(vt.title_29[value]));
     if _t29(52):
         f_settbl(1346, 0, ptr2s(vt.title_29[value]))
-        # (Line 113) break;
+        # (Line 203) break;
         EUDBreak()
-        # (Line 114) case 53:
+        # (Line 204) case 53:
     _t30 = EUDSwitchCase()
-    # (Line 115) settbl(1347, 0, ptr2s(vt.title_30[value]));
+    # (Line 205) settbl(1347, 0, ptr2s(vt.title_30[value]));
     if _t30(53):
         f_settbl(1347, 0, ptr2s(vt.title_30[value]))
-        # (Line 116) break;
+        # (Line 206) break;
         EUDBreak()
-        # (Line 117) case 54:
+        # (Line 207) case 54:
     _t31 = EUDSwitchCase()
-    # (Line 118) settbl(1348, 0, ptr2s(vt.title_31[value]));
+    # (Line 208) settbl(1348, 0, ptr2s(vt.title_31[value]));
     if _t31(54):
         f_settbl(1348, 0, ptr2s(vt.title_31[value]))
-        # (Line 119) break;
+        # (Line 209) break;
         EUDBreak()
-        # (Line 120) case 55:
+        # (Line 210) case 55:
     _t32 = EUDSwitchCase()
-    # (Line 121) settbl(1349, 0, ptr2s(vt.title_32[value]));
+    # (Line 211) settbl(1349, 0, ptr2s(vt.title_32[value]));
     if _t32(55):
         f_settbl(1349, 0, ptr2s(vt.title_32[value]))
-        # (Line 122) break;
+        # (Line 212) break;
         EUDBreak()
-        # (Line 123) case 56:
+        # (Line 213) case 56:
     _t33 = EUDSwitchCase()
-    # (Line 124) settbl(1350, 0, ptr2s(vt.title_33[value]));
+    # (Line 214) settbl(1350, 0, ptr2s(vt.title_33[value]));
     if _t33(56):
         f_settbl(1350, 0, ptr2s(vt.title_33[value]))
-        # (Line 125) break;
+        # (Line 215) break;
         EUDBreak()
-        # (Line 126) case 60:
+        # (Line 216) case 60:
     _t34 = EUDSwitchCase()
-    # (Line 127) settbl(1351, 0, ptr2s(vt.title_34[value]));
+    # (Line 217) settbl(1351, 0, ptr2s(vt.title_34[value]));
     if _t34(60):
         f_settbl(1351, 0, ptr2s(vt.title_34[value]))
-        # (Line 128) break;
+        # (Line 218) break;
         EUDBreak()
-        # (Line 131) case 28:
+        # (Line 221) case 28:
     _t35 = EUDSwitchCase()
-    # (Line 132) settbl(1352, 0, ptr2s(vt.title_01[value]));
+    # (Line 222) settbl(1352, 0, ptr2s(vt.title_01[value]));
     if _t35(28):
         f_settbl(1352, 0, ptr2s(vt.title_01[value]))
-        # (Line 133) break;
+        # (Line 223) break;
         EUDBreak()
-        # (Line 134) case 32:
+        # (Line 224) case 32:
     _t36 = EUDSwitchCase()
-    # (Line 135) settbl(1353, 0, ptr2s(vt.title_02[value]));
+    # (Line 225) settbl(1353, 0, ptr2s(vt.title_02[value]));
     if _t36(32):
         f_settbl(1353, 0, ptr2s(vt.title_02[value]))
-        # (Line 136) break;
+        # (Line 226) break;
         EUDBreak()
-        # (Line 137) case 102:
+        # (Line 227) case 102:
     _t37 = EUDSwitchCase()
-    # (Line 138) settbl(1354, 0, ptr2s(vt.title_03[value]));
+    # (Line 228) settbl(1354, 0, ptr2s(vt.title_03[value]));
     if _t37(102):
         f_settbl(1354, 0, ptr2s(vt.title_03[value]))
-        # (Line 139) break;
+        # (Line 229) break;
         EUDBreak()
-        # (Line 140) case 104:
+        # (Line 230) case 104:
     _t38 = EUDSwitchCase()
-    # (Line 141) settbl(1355, 0, ptr2s(vt.title_04[value]));
+    # (Line 231) settbl(1355, 0, ptr2s(vt.title_04[value]));
     if _t38(104):
         f_settbl(1355, 0, ptr2s(vt.title_04[value]))
-        # (Line 142) break;
+        # (Line 232) break;
         EUDBreak()
-        # (Line 143) case 0:
+        # (Line 233) case 0:
     _t39 = EUDSwitchCase()
-    # (Line 144) settbl(1356, 0, ptr2s(vt.title_05[value]));
+    # (Line 234) settbl(1356, 0, ptr2s(vt.title_05[value]));
     if _t39(0):
         f_settbl(1356, 0, ptr2s(vt.title_05[value]))
-        # (Line 145) break;
+        # (Line 235) break;
         EUDBreak()
-        # (Line 146) case 1:
+        # (Line 236) case 1:
     _t40 = EUDSwitchCase()
-    # (Line 147) settbl(1357, 0, ptr2s(vt.title_06[value]));
+    # (Line 237) settbl(1357, 0, ptr2s(vt.title_06[value]));
     if _t40(1):
         f_settbl(1357, 0, ptr2s(vt.title_06[value]))
-        # (Line 148) break;
+        # (Line 238) break;
         EUDBreak()
-        # (Line 149) case 2:
+        # (Line 239) case 2:
     _t41 = EUDSwitchCase()
-    # (Line 150) settbl(1358, 0, ptr2s(vt.title_07[value]));
+    # (Line 240) settbl(1358, 0, ptr2s(vt.title_07[value]));
     if _t41(2):
         f_settbl(1358, 0, ptr2s(vt.title_07[value]))
-        # (Line 151) break;
+        # (Line 241) break;
         EUDBreak()
-        # (Line 152) case 8:
+        # (Line 242) case 8:
     _t42 = EUDSwitchCase()
-    # (Line 153) settbl(1359, 0, ptr2s(vt.title_08[value]));
+    # (Line 243) settbl(1359, 0, ptr2s(vt.title_08[value]));
     if _t42(8):
         f_settbl(1359, 0, ptr2s(vt.title_08[value]))
-        # (Line 154) break;
+        # (Line 244) break;
         EUDBreak()
-        # (Line 155) case 9:
+        # (Line 245) case 9:
     _t43 = EUDSwitchCase()
-    # (Line 156) settbl(1360, 0, ptr2s(vt.title_09[value]));
+    # (Line 246) settbl(1360, 0, ptr2s(vt.title_09[value]));
     if _t43(9):
         f_settbl(1360, 0, ptr2s(vt.title_09[value]))
-        # (Line 157) break;
+        # (Line 247) break;
         EUDBreak()
-        # (Line 158) case 10:
+        # (Line 248) case 10:
     _t44 = EUDSwitchCase()
-    # (Line 159) settbl(1361, 0, ptr2s(vt.title_10[value]));
+    # (Line 249) settbl(1361, 0, ptr2s(vt.title_10[value]));
     if _t44(10):
         f_settbl(1361, 0, ptr2s(vt.title_10[value]))
-        # (Line 160) break;
+        # (Line 250) break;
         EUDBreak()
-        # (Line 161) case 12:
+        # (Line 251) case 12:
     _t45 = EUDSwitchCase()
-    # (Line 162) settbl(1362, 0, ptr2s(vt.title_11[value]));
+    # (Line 252) settbl(1362, 0, ptr2s(vt.title_11[value]));
     if _t45(12):
         f_settbl(1362, 0, ptr2s(vt.title_11[value]))
-        # (Line 163) break;
+        # (Line 253) break;
         EUDBreak()
-        # (Line 164) case 16:
+        # (Line 254) case 16:
     _t46 = EUDSwitchCase()
-    # (Line 165) settbl(1363, 0, ptr2s(vt.title_12[value]));
+    # (Line 255) settbl(1363, 0, ptr2s(vt.title_12[value]));
     if _t46(16):
         f_settbl(1363, 0, ptr2s(vt.title_12[value]))
-        # (Line 166) break;
+        # (Line 256) break;
         EUDBreak()
-        # (Line 167) case 19:
+        # (Line 257) case 19:
     _t47 = EUDSwitchCase()
-    # (Line 168) settbl(1364, 0, ptr2s(vt.title_13[value]));
+    # (Line 258) settbl(1364, 0, ptr2s(vt.title_13[value]));
     if _t47(19):
         f_settbl(1364, 0, ptr2s(vt.title_13[value]))
-        # (Line 169) break;
+        # (Line 259) break;
         EUDBreak()
-        # (Line 170) case 20:
+        # (Line 260) case 20:
     _t48 = EUDSwitchCase()
-    # (Line 171) settbl(1365, 0, ptr2s(vt.title_14[value]));
+    # (Line 261) settbl(1365, 0, ptr2s(vt.title_14[value]));
     if _t48(20):
         f_settbl(1365, 0, ptr2s(vt.title_14[value]))
-        # (Line 172) break;
+        # (Line 262) break;
         EUDBreak()
-        # (Line 173) case 21:
+        # (Line 263) case 21:
     _t49 = EUDSwitchCase()
-    # (Line 174) settbl(1366, 0, ptr2s(vt.title_15[value]));
+    # (Line 264) settbl(1366, 0, ptr2s(vt.title_15[value]));
     if _t49(21):
         f_settbl(1366, 0, ptr2s(vt.title_15[value]))
-        # (Line 175) break;
+        # (Line 265) break;
         EUDBreak()
-        # (Line 176) case 37:
+        # (Line 266) case 37:
     _t50 = EUDSwitchCase()
-    # (Line 177) settbl(1367, 0, ptr2s(vt.title_16[value]));
+    # (Line 267) settbl(1367, 0, ptr2s(vt.title_16[value]));
     if _t50(37):
         f_settbl(1367, 0, ptr2s(vt.title_16[value]))
-        # (Line 178) break;
+        # (Line 268) break;
         EUDBreak()
-        # (Line 179) case 38:
+        # (Line 269) case 38:
     _t51 = EUDSwitchCase()
-    # (Line 180) settbl(1368, 0, ptr2s(vt.title_17[value]));
+    # (Line 270) settbl(1368, 0, ptr2s(vt.title_17[value]));
     if _t51(38):
         f_settbl(1368, 0, ptr2s(vt.title_17[value]))
-        # (Line 181) break;
+        # (Line 271) break;
         EUDBreak()
-        # (Line 182) }
-    # (Line 183) }
+        # (Line 272) }
+    # (Line 273) }
     EUDEndSwitch()

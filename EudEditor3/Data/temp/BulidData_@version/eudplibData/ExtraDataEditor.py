@@ -5,8 +5,8 @@ def onPluginStart():
     # 와이어 프레임
     WireOffset = f_epdread_epd(EPD(0x68C204))
     DoActions([
-        SetMemoryEPD(WireOffset + 447, SetTo, 100663300),
-        SetMemoryEPD(WireOffset + 448, SetTo, 328152384),
+        SetMemoryEPD(WireOffset + 447, SetTo, 117571588),
+        SetMemoryEPD(WireOffset + 448, SetTo, 4001378617),
         SetMemoryEPD(WireOffset + 449, SetTo, 84344832),
     ])
     GrpOffset = f_epdread_epd(EPD(0x68C1FC))

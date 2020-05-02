@@ -1,20 +1,110 @@
 import variable_title as vt;
 import variable_data as vd;
+import getunitID as id;
 
-function Set_Title(id);
+function Cloth_Ticket(cp);
+function Cloth_Ticket_Effect(ID, Index, cp);
+
+function Set_Title(ID, Index);
 function Title_Value(id, value);
 function Check_Title(id, num, value);
 
-function Set_Title(id)
+const s = StringBuffer();
+
+function Cloth_Ticket(cp)
 {
-	if (Deaths(P8, AtLeast, 100, id) && Deaths(P8, AtMost, 199, id))	
-	{ Title_Value(id, 1); }
-	if (Deaths(P8, AtLeast, 200, id) && Deaths(P8, AtMost, 399, id))	
-	{ Title_Value(id, 2); }
-	if (Deaths(P8, AtLeast, 400, id) && Deaths(P8, AtMost, 799, id))	
-	{ Title_Value(id, 3); }
-	if (Deaths(P8, AtLeast, 800, id))
-	{ Title_Value(id, 4); }
+	if (Bring(cp, AtLeast, 1, 123, "JewelGacha Step 1"))
+	{
+		if(Bring(cp, AtLeast, 1, 28, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(28 ,35, cp); 	}
+		if(Bring(cp, AtLeast, 1, 32, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(32 ,36, cp); 	}
+		if(Bring(cp, AtLeast, 1, 102, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(102 ,37, cp); 	}
+		if(Bring(cp, AtLeast, 1, 104, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(104 ,38, cp); 	}
+		if(Bring(cp, AtLeast, 1, 0, "lounge_Cloth")) 		{ Cloth_Ticket_Effect(0 ,39, cp); 	}
+		if(Bring(cp, AtLeast, 1, 1, "lounge_Cloth")) 		{ Cloth_Ticket_Effect(1 ,40, cp);	}
+		if(Bring(cp, AtLeast, 1, 2, "lounge_Cloth")) 		{ Cloth_Ticket_Effect(2 ,41, cp); 	}
+		if(Bring(cp, AtLeast, 1, 8, "lounge_Cloth")) 		{ Cloth_Ticket_Effect(8 ,42, cp); 	}
+		if(Bring(cp, AtLeast, 1, 9, "lounge_Cloth")) 		{ Cloth_Ticket_Effect(9 ,43, cp); 	}
+		if(Bring(cp, AtLeast, 1, 10, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(10 ,44, cp); 	}
+		if(Bring(cp, AtLeast, 1, 12, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(12 ,45, cp); 	}
+		if(Bring(cp, AtLeast, 1, 16, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(16 ,46, cp); 	}
+		if(Bring(cp, AtLeast, 1, 19, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(19 ,47, cp); 	}
+		if(Bring(cp, AtLeast, 1, 20, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(20 ,48, cp); 	}
+		if(Bring(cp, AtLeast, 1, 21, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(21 ,49, cp); 	}
+		if(Bring(cp, AtLeast, 1, 37, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(37 ,50, cp); 	}
+		if(Bring(cp, AtLeast, 1, 38, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(38 ,51, cp); 	}
+	}
+	
+	if (Bring(cp, AtLeast, 1, 122, "JewelGacha Step 1"))
+	{
+		if(Bring(cp, AtLeast, 1, 29, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(29 ,18, cp); 	}
+		if(Bring(cp, AtLeast, 1, 80, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(80 ,19, cp); 	}
+		if(Bring(cp, AtLeast, 1, 63, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(63 ,20, cp); 	}
+		if(Bring(cp, AtLeast, 1, 87, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(87 ,21, cp); 	}
+		if(Bring(cp, AtLeast, 1, 39, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(39 ,22, cp); 	}
+		if(Bring(cp, AtLeast, 1, 40, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(40 ,23, cp); 	}
+		if(Bring(cp, AtLeast, 1, 43, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(43 ,24, cp); 	}
+		if(Bring(cp, AtLeast, 1, 44, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(44 ,25, cp); 	}
+		if(Bring(cp, AtLeast, 1, 46, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(46 ,26, cp); 	}
+		if(Bring(cp, AtLeast, 1, 48, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(48 ,27, cp); 	}
+		if(Bring(cp, AtLeast, 1, 51, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(51 ,28, cp); 	}
+		if(Bring(cp, AtLeast, 1, 52, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(52 ,29, cp); 	}
+		if(Bring(cp, AtLeast, 1, 53, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(53 ,30, cp); 	}
+		if(Bring(cp, AtLeast, 1, 54, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(54 ,31, cp); 	}
+		if(Bring(cp, AtLeast, 1, 55, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(55 ,32, cp); 	}
+		if(Bring(cp, AtLeast, 1, 56, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(56 ,33, cp); 	}
+		if(Bring(cp, AtLeast, 1, 60, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(60 ,34, cp); 	}
+	}
+	if (Bring(cp, AtLeast, 1, 116, "JewelGacha Step 1"))
+	{
+		if(Bring(cp, AtLeast, 1, 27, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(27, 1, cp); 	}
+		if(Bring(cp, AtLeast, 1, 88, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(88, 2, cp); 	}
+		if(Bring(cp, AtLeast, 1, 99, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(99, 3, cp); 	}
+		if(Bring(cp, AtLeast, 1, 100, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(100, 4, cp); 	}
+		if(Bring(cp, AtLeast, 1, 61, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(61, 5, cp); 	}
+		if(Bring(cp, AtLeast, 1, 65, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(65, 6, cp); 	}
+		if(Bring(cp, AtLeast, 1, 66, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(66, 7, cp); 	}
+		if(Bring(cp, AtLeast, 1, 67, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(67, 8, cp); 	}
+		if(Bring(cp, AtLeast, 1, 68, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(68, 9, cp); 	}
+		if(Bring(cp, AtLeast, 1, 70, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(70, 10, cp); 	}
+		if(Bring(cp, AtLeast, 1, 71, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(71, 11, cp); 	}
+		if(Bring(cp, AtLeast, 1, 74, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(74, 12, cp); 	}
+		if(Bring(cp, AtLeast, 1, 75, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(75, 13, cp); 	}
+		if(Bring(cp, AtLeast, 1, 76, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(76, 14, cp); 	}
+		if(Bring(cp, AtLeast, 1, 77, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(77, 15, cp); 	}
+		if(Bring(cp, AtLeast, 1, 78, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(78, 16, cp); 	}
+		if(Bring(cp, AtLeast, 1, 79, "lounge_Cloth")) 	{ Cloth_Ticket_Effect(79, 17, cp); 	}
+	}
+}
+
+function Cloth_Ticket_Effect(ID, Index, cp)
+{
+	SetDeaths(P8, Add, 100, ID);
+	s.print("\n\x13", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), "\x04 에게 의상을 선물하였습니다.\n");
+	Set_Title(ID, Index);
+}
+
+function Set_Title(ID, Index)
+{
+	if (Deaths(P8, AtLeast, 100, ID) && vt.title_flag[Index] == 0)
+	{ 
+		Title_Value(ID, 1); vt.title_flag[Index] = 1;
+		bwrite(0x6564E0 + 2776 + ID * 1, vd.Title1_Effect_Speed[(Index-1)%17]); // 공격 속도
+	}
+	if (Deaths(P8, AtLeast, 200, ID) && vt.title_flag[Index] == 1)
+	{ 
+		Title_Value(ID, 2); vt.title_flag[Index] = 2; 
+		bwrite(0x6564E0 + 2776 + ID * 1, vd.Title2_Effect_Speed[(Index-1)%17]); // 공격 속도
+	}
+	if (Deaths(P8, AtLeast, 400, ID) && vt.title_flag[Index] == 2)	
+	{ 
+		Title_Value(ID, 3); vt.title_flag[Index] = 3; 
+		bwrite(0x6564E0 + 2776 + ID * 1, vd.Title3_Effect_Speed[(Index-1)%17]); // 공격 속도
+	}
+	if (Deaths(P8, AtLeast, 800, ID) && vt.title_flag[Index] == 3)
+	{ 
+		Title_Value(id, 4); vt.title_flag[Index] = 4;
+		bwrite(0x6564E0 + 2776 + ID * 1, vd.Title4_Effect_Speed[(Index-1)%17]); // 공격 속도
+	}
 }
 
 function Title_Value(id, value)

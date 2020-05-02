@@ -5,7 +5,7 @@ const  s = StringBuffer();
 
 function PlaySound(cp)
 {
-	if (Deaths(P6, Exactly, 0, "Round") && Deaths(cp, Exactly, 100, "event_index"))
+	if (Deaths(cp, Exactly, 100, "event_index"))
 	{
 		random = dwrand() % 5;
 		
@@ -40,7 +40,7 @@ function PlaySound(cp)
 			SetDeaths(cp, SetTo, 0, "event_index");
 		}
 	}
-	if (Deaths(P6, Exactly, 0, "Round") && Deaths(cp, Exactly, 99, "event_index"))
+	if (Deaths(cp, Exactly, 99, "event_index"))
 	{
 		PlayWAV("event_00.ogg");
 		SetDeaths(cp, SetTo, 0, "event_index");

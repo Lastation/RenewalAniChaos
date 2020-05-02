@@ -137,8 +137,8 @@ s = _CGFW(lambda: [StringBuffer()], 1)[0]
 # (Line 7) {
 @EUDFunc
 def PlaySound(cp):
-    # (Line 8) if (Deaths(P6, Exactly, 0, "Round") && Deaths(cp, Exactly, 100, "event_index"))
-    if EUDIf()(EUDSCAnd()(Deaths(P6, Exactly, 0, "Round"))(Deaths(cp, Exactly, 100, "event_index"))()):
+    # (Line 8) if (Deaths(cp, Exactly, 100, "event_index"))
+    if EUDIf()(Deaths(cp, Exactly, 100, "event_index")):
         # (Line 9) {
         # (Line 10) random = dwrand() % 5;
         random << (f_dwrand() % 5)
@@ -198,9 +198,9 @@ def PlaySound(cp):
             DoActions(SetDeaths(cp, SetTo, 0, "event_index"))
             # (Line 42) }
         EUDEndIf()
-        # (Line 43) if (Deaths(P6, Exactly, 0, "Round") && Deaths(cp, Exactly, 99, "event_index"))
+        # (Line 43) if (Deaths(cp, Exactly, 99, "event_index"))
     EUDEndIf()
-    if EUDIf()(EUDSCAnd()(Deaths(P6, Exactly, 0, "Round"))(Deaths(cp, Exactly, 99, "event_index"))()):
+    if EUDIf()(Deaths(cp, Exactly, 99, "event_index")):
         # (Line 44) {
         # (Line 45) PlayWAV("event_00.ogg");
         # (Line 46) SetDeaths(cp, SetTo, 0, "event_index");

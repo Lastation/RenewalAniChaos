@@ -43,7 +43,6 @@ function Set_Info()
 	}
 }
 
-
 function Set_Unit_Info(ID, index)
 {
 	bwrite(0x65FD00 + 12472 + ID * 1, vd.Base_Unit_Sight[index]);				// 인지거리

@@ -18,9 +18,7 @@ function Set_Round_HP()
 		case 7:
 			dwwrite(0x65FD00 + 9808 + 93 * 4, vr.round_hp[round] * 256);
 			SetDeaths(P7, SetTo, 0, "Line_type");
-			
-			if (Deaths(P6, AtMost, 240, "music_length"))
-			{ SetDeaths(AllPlayers, SetTo, 100, "event_index"); }
+			SetDeaths(Force1, SetTo, 100, "event_index");
 			break;
 		case 2:
 		case 5:
@@ -29,18 +27,17 @@ function Set_Round_HP()
 			SetDeaths(P7, SetTo, 1, "Line_type");
 			
 			if (Deaths(P6, AtMost, 240, "music_length"))
-			{ SetDeaths(AllPlayers, SetTo, 100, "event_index"); }
+			SetDeaths(Force1, SetTo, 100, "event_index");
 			break;
 		case 3:
 		case 6:
 		case 9:
 			dwwrite(0x65FD00 + 9808 + 95 * 4, vr.round_hp[round] * 256);
 			SetDeaths(P7, SetTo, 2, "Line_type");
-			
-			if(round_check == 9)
-			{ SetDeaths(AllPlayers, SetTo, 99, "event_index"); }
-			else if (Deaths(P6, Exactly, 0, "Round"))
-			{ SetDeaths(AllPlayers, SetTo, 100, "event_index"); }
+			if (round_check == 9)
+			{ SetDeaths(Force1, SetTo, 99, "event_index"); }
+			else
+			{ SetDeaths(Force1, SetTo, 100, "event_index"); }
 			break;
 		case 0:
 			dwwrite(0x65FD00 + 9808 + 96 * 4, vr.round_hp[round] * 256);
@@ -53,23 +50,71 @@ function Set_Round_HP()
 		Victory();
 	}
 	
-	if (round % 10 == 9 && Deaths(P7, Exactly, 0, "event_index") && round < 60)
+	if (round == 9 && Deaths(P7, Exactly, 0, "event_index"))
 	{
 		// Event
-		vr.event = dwrand() % 30 + 1;
+		vr.event = dwrand() % 5 + 1;
 		
-		if (vr.event_Flag[vr.event] == 0)
-		{
-			SetDeaths(P7, SetTo, vr.event, "event_index");
-			SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type");
-		}
+		SetDeaths(P7, SetTo, vr.event, "event_index");
+		SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type");
+		settbl(91, 0,  ptr2s(vr.event_name[vr.event]));
+	}
+	
+	if (round == 19 && Deaths(P7, Exactly, 0, "event_index"))
+	{
+		// Event
+		vr.event = dwrand() % 5 + 6;
+		
+		SetDeaths(P7, SetTo, vr.event, "event_index");
+		SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type");
+		settbl(91, 0,  ptr2s(vr.event_name[vr.event]));
+	}
+	
+	if (round == 29 && Deaths(P7, Exactly, 0, "event_index"))
+	{
+		// Event
+		vr.event = dwrand() % 5 + 11;
+		
+		SetDeaths(P7, SetTo, vr.event, "event_index");
+		SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type");
+		settbl(91, 0,  ptr2s(vr.event_name[vr.event]));
+	}
+	
+	if (round == 39 && Deaths(P7, Exactly, 0, "event_index"))
+	{
+		// Event
+		vr.event = dwrand() % 5 + 16;
+		
+		SetDeaths(P7, SetTo, vr.event, "event_index");
+		SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type");
+		settbl(91, 0,  ptr2s(vr.event_name[vr.event]));
+	}
+	
+	
+	if (round == 49 && Deaths(P7, Exactly, 0, "event_index"))
+	{
+		// Event
+		vr.event = dwrand() % 5 + 21;
+		
+		SetDeaths(P7, SetTo, vr.event, "event_index");
+		SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type");
+		settbl(91, 0,  ptr2s(vr.event_name[vr.event]));
+	}
+	
+	if (round == 59 && Deaths(P7, Exactly, 0, "event_index"))
+	{
+		// Event
+		vr.event = dwrand() % 5 + 26;
+		
+		SetDeaths(P7, SetTo, vr.event, "event_index");
+		SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type");
+		settbl(91, 0,  ptr2s(vr.event_name[vr.event]));
 	}
 	
 	if (round % 10 == 0 && Deaths(P6, Exactly, 0, "Round") && round != 0 && round < 70)
 	{
 		// Event
 		vr.event = dwread_epd(182 * 12 + 6);
-		settbl(91, 0,  ptr2s(vr.event_name[vr.event]));
 		
 		if (Bring(Force1, Exactly, 1, 112, "Anywhere")) {dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round/10] * 256 * 1); }		// 체력
 		if (Bring(Force1, Exactly, 2, 112, "Anywhere")) {dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round/10] * 256 * 2); }		// 체력
@@ -79,7 +124,6 @@ function Set_Round_HP()
     		bwrite(0x65FD00 + 14544 + 90 * 1, 30 + vr.event_Type[vr.event]);
 		SetDeaths(AllPlayers, SetTo, vr.event, "event_index");
 		SetDeaths(P6, SetTo, 1, "Round");
-		vr.event_Flag[vr.event] = 1;
 		
 	}
 }

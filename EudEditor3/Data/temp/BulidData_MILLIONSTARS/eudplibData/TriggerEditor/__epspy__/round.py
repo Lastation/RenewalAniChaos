@@ -165,132 +165,187 @@ def Set_Round_HP():
         if _t4(7):
             f_dwwrite(0x65FD00 + 9808 + 93 * 4, vr.round_hp[round] * 256)
             # (Line 20) SetDeaths(P7, SetTo, 0, "Line_type");
-            # (Line 22) if (Deaths(P6, AtMost, 240, "music_length"))
+            # (Line 21) SetDeaths(Force1, SetTo, 100, "event_index");
             DoActions(SetDeaths(P7, SetTo, 0, "Line_type"))
-            if EUDIf()(Deaths(P6, AtMost, 240, "music_length")):
-                # (Line 23) { SetDeaths(AllPlayers, SetTo, 100, "event_index"); }
-                DoActions(SetDeaths(AllPlayers, SetTo, 100, "event_index"))
-                # (Line 24) break;
-            EUDEndIf()
+            # (Line 22) break;
+            DoActions(SetDeaths(Force1, SetTo, 100, "event_index"))
             EUDBreak()
-            # (Line 25) case 2:
+            # (Line 23) case 2:
+        _t5 = EUDSwitchCase()
+        # (Line 24) case 5:
+        if _t5(2):
+            pass
         _t6 = EUDSwitchCase()
-        # (Line 26) case 5:
-        if _t6(2):
+        # (Line 25) case 8:
+        if _t6(5):
             pass
         _t7 = EUDSwitchCase()
-        # (Line 27) case 8:
-        if _t7(5):
-            pass
-        _t8 = EUDSwitchCase()
-        # (Line 28) dwwrite(0x65FD00 + 9808 + 94 * 4, vr.round_hp[round] * 256);
-        if _t8(8):
+        # (Line 26) dwwrite(0x65FD00 + 9808 + 94 * 4, vr.round_hp[round] * 256);
+        if _t7(8):
             f_dwwrite(0x65FD00 + 9808 + 94 * 4, vr.round_hp[round] * 256)
-            # (Line 29) SetDeaths(P7, SetTo, 1, "Line_type");
-            # (Line 31) if (Deaths(P6, AtMost, 240, "music_length"))
+            # (Line 27) SetDeaths(P7, SetTo, 1, "Line_type");
+            # (Line 29) if (Deaths(P6, AtMost, 240, "music_length"))
             DoActions(SetDeaths(P7, SetTo, 1, "Line_type"))
             if EUDIf()(Deaths(P6, AtMost, 240, "music_length")):
-                # (Line 32) { SetDeaths(AllPlayers, SetTo, 100, "event_index"); }
-                DoActions(SetDeaths(AllPlayers, SetTo, 100, "event_index"))
-                # (Line 33) break;
+                # (Line 30) SetDeaths(Force1, SetTo, 100, "event_index");
+                # (Line 31) break;
+                DoActions(SetDeaths(Force1, SetTo, 100, "event_index"))
             EUDEndIf()
             EUDBreak()
-            # (Line 34) case 3:
+            # (Line 32) case 3:
+        _t9 = EUDSwitchCase()
+        # (Line 33) case 6:
+        if _t9(3):
+            pass
         _t10 = EUDSwitchCase()
-        # (Line 35) case 6:
-        if _t10(3):
+        # (Line 34) case 9:
+        if _t10(6):
             pass
         _t11 = EUDSwitchCase()
-        # (Line 36) case 9:
-        if _t11(6):
-            pass
-        _t12 = EUDSwitchCase()
-        # (Line 37) dwwrite(0x65FD00 + 9808 + 95 * 4, vr.round_hp[round] * 256);
-        if _t12(9):
+        # (Line 35) dwwrite(0x65FD00 + 9808 + 95 * 4, vr.round_hp[round] * 256);
+        if _t11(9):
             f_dwwrite(0x65FD00 + 9808 + 95 * 4, vr.round_hp[round] * 256)
-            # (Line 38) SetDeaths(P7, SetTo, 2, "Line_type");
-            # (Line 40) if(round_check == 9)
+            # (Line 36) SetDeaths(P7, SetTo, 2, "Line_type");
+            # (Line 37) if (round_check == 9)
             DoActions(SetDeaths(P7, SetTo, 2, "Line_type"))
             if EUDIf()(round_check == 9):
-                # (Line 41) { SetDeaths(AllPlayers, SetTo, 99, "event_index"); }
-                DoActions(SetDeaths(AllPlayers, SetTo, 99, "event_index"))
-                # (Line 42) else if (Deaths(P6, Exactly, 0, "Round"))
-            if EUDElseIf()(Deaths(P6, Exactly, 0, "Round")):
-                # (Line 43) { SetDeaths(AllPlayers, SetTo, 100, "event_index"); }
-                DoActions(SetDeaths(AllPlayers, SetTo, 100, "event_index"))
-                # (Line 44) break;
+                # (Line 38) { SetDeaths(Force1, SetTo, 99, "event_index"); }
+                DoActions(SetDeaths(Force1, SetTo, 99, "event_index"))
+                # (Line 39) else
+                # (Line 40) { SetDeaths(Force1, SetTo, 100, "event_index"); }
+            if EUDElse()():
+                DoActions(SetDeaths(Force1, SetTo, 100, "event_index"))
+                # (Line 41) break;
             EUDEndIf()
             EUDBreak()
-            # (Line 45) case 0:
-        _t15 = EUDSwitchCase()
-        # (Line 46) dwwrite(0x65FD00 + 9808 + 96 * 4, vr.round_hp[round] * 256);
-        if _t15(0):
+            # (Line 42) case 0:
+        _t13 = EUDSwitchCase()
+        # (Line 43) dwwrite(0x65FD00 + 9808 + 96 * 4, vr.round_hp[round] * 256);
+        if _t13(0):
             f_dwwrite(0x65FD00 + 9808 + 96 * 4, vr.round_hp[round] * 256)
-            # (Line 47) SetDeaths(P7, SetTo, 3, "Line_type");
-            # (Line 48) break;
+            # (Line 44) SetDeaths(P7, SetTo, 3, "Line_type");
+            # (Line 45) break;
             DoActions(SetDeaths(P7, SetTo, 3, "Line_type"))
             EUDBreak()
-            # (Line 49) }
-        # (Line 50) }
+            # (Line 46) }
+        # (Line 47) }
         EUDEndSwitch()
-        # (Line 51) else if (dwread_epd(EPD(0x58A364 + 48 * 185 + 4 * 6)) >= 70)
+        # (Line 48) else if (dwread_epd(EPD(0x58A364 + 48 * 185 + 4 * 6)) >= 70)
     if EUDElseIf()(f_dwread_epd(EPD(0x58A364 + 48 * 185 + 4 * 6)) >= 70):
-        # (Line 52) {
-        # (Line 53) Victory();
-        # (Line 54) }
+        # (Line 49) {
+        # (Line 50) Victory();
+        # (Line 51) }
         DoActions(Victory())
-        # (Line 56) if (round % 10 == 9 && Deaths(P7, Exactly, 0, "event_index") && round < 60)
+        # (Line 53) if (round == 9 && Deaths(P7, Exactly, 0, "event_index"))
     EUDEndIf()
-    if EUDIf()(EUDSCAnd()(round % 10 == 9)(Deaths(P7, Exactly, 0, "event_index"))(round >= 60, neg=True)()):
-        # (Line 57) {
-        # (Line 59) vr.event = dwrand() % 30 + 1;
-        _ATTW(vr, 'event') << (f_dwrand() % 30 + 1)
-        # (Line 61) if (vr.event_Flag[vr.event] == 0)
-        if EUDIf()(vr.event_Flag[vr.event] == 0):
-            # (Line 62) {
-            # (Line 63) SetDeaths(P7, SetTo, vr.event, "event_index");
-            # (Line 64) SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type");
-            DoActions(SetDeaths(P7, SetTo, vr.event, "event_index"))
-            # (Line 65) }
-            DoActions(SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type"))
-            # (Line 66) }
-        EUDEndIf()
-        # (Line 68) if (round % 10 == 0 && Deaths(P6, Exactly, 0, "Round") && round != 0 && round < 70)
+    if EUDIf()(EUDSCAnd()(round == 9)(Deaths(P7, Exactly, 0, "event_index"))()):
+        # (Line 54) {
+        # (Line 56) vr.event = dwrand() % 5 + 1;
+        _ATTW(vr, 'event') << (f_dwrand() % 5 + 1)
+        # (Line 58) SetDeaths(P7, SetTo, vr.event, "event_index");
+        # (Line 59) SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type");
+        DoActions(SetDeaths(P7, SetTo, vr.event, "event_index"))
+        # (Line 60) settbl(91, 0,  ptr2s(vr.event_name[vr.event]));
+        DoActions(SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type"))
+        f_settbl(91, 0, ptr2s(vr.event_name[vr.event]))
+        # (Line 61) }
+        # (Line 63) if (round == 19 && Deaths(P7, Exactly, 0, "event_index"))
+    EUDEndIf()
+    if EUDIf()(EUDSCAnd()(round == 19)(Deaths(P7, Exactly, 0, "event_index"))()):
+        # (Line 64) {
+        # (Line 66) vr.event = dwrand() % 5 + 6;
+        _ATTW(vr, 'event') << (f_dwrand() % 5 + 6)
+        # (Line 68) SetDeaths(P7, SetTo, vr.event, "event_index");
+        # (Line 69) SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type");
+        DoActions(SetDeaths(P7, SetTo, vr.event, "event_index"))
+        # (Line 70) settbl(91, 0,  ptr2s(vr.event_name[vr.event]));
+        DoActions(SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type"))
+        f_settbl(91, 0, ptr2s(vr.event_name[vr.event]))
+        # (Line 71) }
+        # (Line 73) if (round == 29 && Deaths(P7, Exactly, 0, "event_index"))
+    EUDEndIf()
+    if EUDIf()(EUDSCAnd()(round == 29)(Deaths(P7, Exactly, 0, "event_index"))()):
+        # (Line 74) {
+        # (Line 76) vr.event = dwrand() % 5 + 11;
+        _ATTW(vr, 'event') << (f_dwrand() % 5 + 11)
+        # (Line 78) SetDeaths(P7, SetTo, vr.event, "event_index");
+        # (Line 79) SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type");
+        DoActions(SetDeaths(P7, SetTo, vr.event, "event_index"))
+        # (Line 80) settbl(91, 0,  ptr2s(vr.event_name[vr.event]));
+        DoActions(SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type"))
+        f_settbl(91, 0, ptr2s(vr.event_name[vr.event]))
+        # (Line 81) }
+        # (Line 83) if (round == 39 && Deaths(P7, Exactly, 0, "event_index"))
+    EUDEndIf()
+    if EUDIf()(EUDSCAnd()(round == 39)(Deaths(P7, Exactly, 0, "event_index"))()):
+        # (Line 84) {
+        # (Line 86) vr.event = dwrand() % 5 + 16;
+        _ATTW(vr, 'event') << (f_dwrand() % 5 + 16)
+        # (Line 88) SetDeaths(P7, SetTo, vr.event, "event_index");
+        # (Line 89) SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type");
+        DoActions(SetDeaths(P7, SetTo, vr.event, "event_index"))
+        # (Line 90) settbl(91, 0,  ptr2s(vr.event_name[vr.event]));
+        DoActions(SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type"))
+        f_settbl(91, 0, ptr2s(vr.event_name[vr.event]))
+        # (Line 91) }
+        # (Line 94) if (round == 49 && Deaths(P7, Exactly, 0, "event_index"))
+    EUDEndIf()
+    if EUDIf()(EUDSCAnd()(round == 49)(Deaths(P7, Exactly, 0, "event_index"))()):
+        # (Line 95) {
+        # (Line 97) vr.event = dwrand() % 5 + 21;
+        _ATTW(vr, 'event') << (f_dwrand() % 5 + 21)
+        # (Line 99) SetDeaths(P7, SetTo, vr.event, "event_index");
+        # (Line 100) SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type");
+        DoActions(SetDeaths(P7, SetTo, vr.event, "event_index"))
+        # (Line 101) settbl(91, 0,  ptr2s(vr.event_name[vr.event]));
+        DoActions(SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type"))
+        f_settbl(91, 0, ptr2s(vr.event_name[vr.event]))
+        # (Line 102) }
+        # (Line 104) if (round == 59 && Deaths(P7, Exactly, 0, "event_index"))
+    EUDEndIf()
+    if EUDIf()(EUDSCAnd()(round == 59)(Deaths(P7, Exactly, 0, "event_index"))()):
+        # (Line 105) {
+        # (Line 107) vr.event = dwrand() % 5 + 26;
+        _ATTW(vr, 'event') << (f_dwrand() % 5 + 26)
+        # (Line 109) SetDeaths(P7, SetTo, vr.event, "event_index");
+        # (Line 110) SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type");
+        DoActions(SetDeaths(P7, SetTo, vr.event, "event_index"))
+        # (Line 111) settbl(91, 0,  ptr2s(vr.event_name[vr.event]));
+        DoActions(SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type"))
+        f_settbl(91, 0, ptr2s(vr.event_name[vr.event]))
+        # (Line 112) }
+        # (Line 114) if (round % 10 == 0 && Deaths(P6, Exactly, 0, "Round") && round != 0 && round < 70)
     EUDEndIf()
     if EUDIf()(EUDSCAnd()(round % 10 == 0)(Deaths(P6, Exactly, 0, "Round"))(round == 0, neg=True)(round >= 70, neg=True)()):
-        # (Line 69) {
-        # (Line 71) vr.event = dwread_epd(182 * 12 + 6);
+        # (Line 115) {
+        # (Line 117) vr.event = dwread_epd(182 * 12 + 6);
         _ATTW(vr, 'event') << (f_dwread_epd(182 * 12 + 6))
-        # (Line 72) settbl(91, 0,  ptr2s(vr.event_name[vr.event]));
-        f_settbl(91, 0, ptr2s(vr.event_name[vr.event]))
-        # (Line 74) if (Bring(Force1, Exactly, 1, 112, "Anywhere")) {dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round/10] * 256 * 1); }		// 체력
+        # (Line 119) if (Bring(Force1, Exactly, 1, 112, "Anywhere")) {dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round/10] * 256 * 1); }		// 체력
         if EUDIf()(Bring(Force1, Exactly, 1, 112, "Anywhere")):
             f_dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round // 10] * 256 * 1)
-            # (Line 75) if (Bring(Force1, Exactly, 2, 112, "Anywhere")) {dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round/10] * 256 * 2); }		// 체력
+            # (Line 120) if (Bring(Force1, Exactly, 2, 112, "Anywhere")) {dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round/10] * 256 * 2); }		// 체력
         EUDEndIf()
         if EUDIf()(Bring(Force1, Exactly, 2, 112, "Anywhere")):
             f_dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round // 10] * 256 * 2)
-            # (Line 76) if (Bring(Force1, Exactly, 3, 112, "Anywhere")) {dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round/10] * 256 * 3); }		// 체력
+            # (Line 121) if (Bring(Force1, Exactly, 3, 112, "Anywhere")) {dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round/10] * 256 * 3); }		// 체력
         EUDEndIf()
         if EUDIf()(Bring(Force1, Exactly, 3, 112, "Anywhere")):
             f_dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round // 10] * 256 * 3)
-            # (Line 77) if (Bring(Force1, Exactly, 4, 112, "Anywhere")) {dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round/10] * 256 * 4); }		// 체력
+            # (Line 122) if (Bring(Force1, Exactly, 4, 112, "Anywhere")) {dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round/10] * 256 * 4); }		// 체력
         EUDEndIf()
         if EUDIf()(Bring(Force1, Exactly, 4, 112, "Anywhere")):
             f_dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round // 10] * 256 * 4)
-            # (Line 78) if (Bring(Force1, Exactly, 5, 112, "Anywhere")) {dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round/10] * 256 * 5); }		// 체력
+            # (Line 123) if (Bring(Force1, Exactly, 5, 112, "Anywhere")) {dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round/10] * 256 * 5); }		// 체력
         EUDEndIf()
         if EUDIf()(Bring(Force1, Exactly, 5, 112, "Anywhere")):
             f_dwwrite(0x65FD00 + 9808 + 90 * 4, vr.event_hp[round // 10] * 256 * 5)
-            # (Line 79) bwrite(0x65FD00 + 14544 + 90 * 1, 30 + vr.event_Type[vr.event]);
+            # (Line 124) bwrite(0x65FD00 + 14544 + 90 * 1, 30 + vr.event_Type[vr.event]);
         EUDEndIf()
         f_bwrite(0x65FD00 + 14544 + 90 * 1, 30 + vr.event_Type[vr.event])
-        # (Line 80) SetDeaths(AllPlayers, SetTo, vr.event, "event_index");
-        # (Line 81) SetDeaths(P6, SetTo, 1, "Round");
+        # (Line 125) SetDeaths(AllPlayers, SetTo, vr.event, "event_index");
+        # (Line 126) SetDeaths(P6, SetTo, 1, "Round");
         DoActions(SetDeaths(AllPlayers, SetTo, vr.event, "event_index"))
-        # (Line 82) vr.event_Flag[vr.event] = 1;
+        # (Line 128) }
         DoActions(SetDeaths(P6, SetTo, 1, "Round"))
-        _ARRW(vr.event_Flag, vr.event) << (1)
-        # (Line 84) }
-        # (Line 85) }
+        # (Line 129) }
     EUDEndIf()

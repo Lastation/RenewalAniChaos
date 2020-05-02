@@ -190,106 +190,106 @@ def Set_Info():
         EUDSetContinuePoint()
         _t2()
     EUDEndWhile()
-    # (Line 47) function Set_Unit_Info(ID, index)
+    # (Line 46) function Set_Unit_Info(ID, index)
 
-# (Line 48) {
+# (Line 47) {
 @EUDFunc
 def Set_Unit_Info(ID, index):
-    # (Line 49) bwrite(0x65FD00 + 12472 + ID * 1, vd.Base_Unit_Sight[index]);				// 인지거리
+    # (Line 48) bwrite(0x65FD00 + 12472 + ID * 1, vd.Base_Unit_Sight[index]);				// 인지거리
     f_bwrite(0x65FD00 + 12472 + ID * 1, vd.Base_Unit_Sight[index])
-    # (Line 50) bwrite(0x65FD00 + 13624 + ID * 1, vd.Base_Unit_Sight[index]);				// 시야
+    # (Line 49) bwrite(0x65FD00 + 13624 + ID * 1, vd.Base_Unit_Sight[index]);				// 시야
     f_bwrite(0x65FD00 + 13624 + ID * 1, vd.Base_Unit_Sight[index])
-    # (Line 51) }
-    # (Line 53) function Set_Weapon_Info(ID, index)
+    # (Line 50) }
+    # (Line 52) function Set_Weapon_Info(ID, index)
 
-# (Line 54) {
+# (Line 53) {
 @EUDFunc
 def Set_Weapon_Info(ID, index):
-    # (Line 56) wwrite(0x6564E0 + 2512 + ID * 2, vd.Base_Weapon_Damage[index]);		// 기본 데미지
+    # (Line 55) wwrite(0x6564E0 + 2512 + ID * 2, vd.Base_Weapon_Damage[index]);		// 기본 데미지
     f_wwrite(0x6564E0 + 2512 + ID * 2, vd.Base_Weapon_Damage[index])
-    # (Line 57) wwrite(0x6564E0 + 4504 + ID * 2, vd.Base_Weapon_Increase[index]);		// 업글 증가량
+    # (Line 56) wwrite(0x6564E0 + 4504 + ID * 2, vd.Base_Weapon_Increase[index]);		// 업글 증가량
     f_wwrite(0x6564E0 + 4504 + ID * 2, vd.Base_Weapon_Increase[index])
-    # (Line 58) bwrite(0x6564E0 + 2776 + ID * 1, vd.Base_Weapon_Speed[index]);			// 공격 속도
+    # (Line 57) bwrite(0x6564E0 + 2776 + ID * 1, vd.Base_Weapon_Speed[index]);			// 공격 속도
     f_bwrite(0x6564E0 + 2776 + ID * 1, vd.Base_Weapon_Speed[index])
-    # (Line 59) bwrite(0x6564E0 + 3984 + ID * 4, vd.Base_Weapon_Range[index]);			// 사거리
+    # (Line 58) bwrite(0x6564E0 + 3984 + ID * 4, vd.Base_Weapon_Range[index]);			// 사거리
     f_bwrite(0x6564E0 + 3984 + ID * 4, vd.Base_Weapon_Range[index])
-    # (Line 61) if (vd.Base_Weapon_Splash[index] != 0)									// 스플레시
+    # (Line 60) if (vd.Base_Weapon_Splash[index] != 0)									// 스플레시
     if EUDIf()(vd.Base_Weapon_Splash[index] == 0, neg=True):
-        # (Line 62) {
-        # (Line 63) bwrite(0x6564E0 + 536 + ID * 1, 3);									// 스플레시 - O
+        # (Line 61) {
+        # (Line 62) bwrite(0x6564E0 + 536 + ID * 1, 3);									// 스플레시 - O
         f_bwrite(0x6564E0 + 536 + ID * 1, 3)
-        # (Line 64) wwrite(0x6564E0 + 936 + ID * 2, vd.Base_Weapon_Splash[index]);		// 스플레시 100% 범위
+        # (Line 63) wwrite(0x6564E0 + 936 + ID * 2, vd.Base_Weapon_Splash[index]);		// 스플레시 100% 범위
         f_wwrite(0x6564E0 + 936 + ID * 2, vd.Base_Weapon_Splash[index])
-        # (Line 65) }
-        # (Line 66) else
-        # (Line 67) {
+        # (Line 64) }
+        # (Line 65) else
+        # (Line 66) {
     if EUDElse()():
-        # (Line 68) bwrite(0x6564E0 + 536 + ID * 1, 1);									// 스플레시 - X
+        # (Line 67) bwrite(0x6564E0 + 536 + ID * 1, 1);									// 스플레시 - X
         f_bwrite(0x6564E0 + 536 + ID * 1, 1)
+        # (Line 68) }
         # (Line 69) }
-        # (Line 70) }
     EUDEndIf()
-    # (Line 72) function Set_Title_Info(type, ID, index)
+    # (Line 71) function Set_Title_Info(type, ID, index)
 
-# (Line 73) {
+# (Line 72) {
 @EUDFunc
 def Set_Title_Info(type, ID, index):
-    # (Line 74) switch(type)
+    # (Line 73) switch(type)
     EUDSwitch(type)
-    # (Line 75) {
-    # (Line 76) case 0:
+    # (Line 74) {
+    # (Line 75) case 0:
     _t1 = EUDSwitchCase()
-    # (Line 77) bwrite(0x65FD00 + 16592 + ID * 1, vd.Princess_Unit_Title[index]);
+    # (Line 76) bwrite(0x65FD00 + 16592 + ID * 1, vd.Princess_Unit_Title[index]);
     if _t1(0):
         f_bwrite(0x65FD00 + 16592 + ID * 1, vd.Princess_Unit_Title[index])
-        # (Line 78) break;
+        # (Line 77) break;
         EUDBreak()
-        # (Line 79) case 1:
+        # (Line 78) case 1:
     _t2 = EUDSwitchCase()
-    # (Line 80) bwrite(0x65FD00 + 16592 + ID * 1, vd.Fairy_Unit_Title[index]);
+    # (Line 79) bwrite(0x65FD00 + 16592 + ID * 1, vd.Fairy_Unit_Title[index]);
     if _t2(1):
         f_bwrite(0x65FD00 + 16592 + ID * 1, vd.Fairy_Unit_Title[index])
-        # (Line 81) break;
+        # (Line 80) break;
         EUDBreak()
-        # (Line 82) case 2:
+        # (Line 81) case 2:
     _t3 = EUDSwitchCase()
-    # (Line 83) bwrite(0x65FD00 + 16592 + ID * 1, vd.Angel_Unit_Title[index]);
+    # (Line 82) bwrite(0x65FD00 + 16592 + ID * 1, vd.Angel_Unit_Title[index]);
     if _t3(2):
         f_bwrite(0x65FD00 + 16592 + ID * 1, vd.Angel_Unit_Title[index])
-        # (Line 84) break;
+        # (Line 83) break;
         EUDBreak()
-        # (Line 85) }
-    # (Line 86) }
+        # (Line 84) }
+    # (Line 85) }
     EUDEndSwitch()
-    # (Line 88) function Set_Name_Info(type, ID, index)
+    # (Line 87) function Set_Name_Info(type, ID, index)
 
-# (Line 89) {
+# (Line 88) {
 @EUDFunc
 def Set_Name_Info(type, ID, index):
-    # (Line 90) switch(type)
+    # (Line 89) switch(type)
     EUDSwitch(type)
-    # (Line 91) {
-    # (Line 92) case 0:
+    # (Line 90) {
+    # (Line 91) case 0:
     _t1 = EUDSwitchCase()
-    # (Line 93) wwrite(0x6564E0 + 3584 + ID * 2, vd.Princess_Weapon_Name[index]);
+    # (Line 92) wwrite(0x6564E0 + 3584 + ID * 2, vd.Princess_Weapon_Name[index]);
     if _t1(0):
         f_wwrite(0x6564E0 + 3584 + ID * 2, vd.Princess_Weapon_Name[index])
-        # (Line 94) break;
+        # (Line 93) break;
         EUDBreak()
-        # (Line 95) case 1:
+        # (Line 94) case 1:
     _t2 = EUDSwitchCase()
-    # (Line 96) wwrite(0x6564E0 + 3584 + ID * 2, vd.Fairy_Weapon_Name[index]);
+    # (Line 95) wwrite(0x6564E0 + 3584 + ID * 2, vd.Fairy_Weapon_Name[index]);
     if _t2(1):
         f_wwrite(0x6564E0 + 3584 + ID * 2, vd.Fairy_Weapon_Name[index])
-        # (Line 97) break;
+        # (Line 96) break;
         EUDBreak()
-        # (Line 98) case 2:
+        # (Line 97) case 2:
     _t3 = EUDSwitchCase()
-    # (Line 99) wwrite(0x6564E0 + 3584 + ID * 2, vd.Angel_Weapon_Name[index]);
+    # (Line 98) wwrite(0x6564E0 + 3584 + ID * 2, vd.Angel_Weapon_Name[index]);
     if _t3(2):
         f_wwrite(0x6564E0 + 3584 + ID * 2, vd.Angel_Weapon_Name[index])
-        # (Line 100) break;
+        # (Line 99) break;
         EUDBreak()
-        # (Line 101) }
-    # (Line 102) }
+        # (Line 100) }
+    # (Line 101) }
     EUDEndSwitch()

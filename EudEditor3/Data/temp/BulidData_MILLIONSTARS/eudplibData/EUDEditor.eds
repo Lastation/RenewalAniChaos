@@ -12,7 +12,13 @@ output: ..\..\..\..\..\..\..\Starcraft\Maps\밀리시타 디펜스\밀리시타�
 [EudTurbo]
 [NoAirCollision]
 [unlimiter]
+
+[chatEvent]
+__patternAddr__: 0x58D904
+__encoding__: cp949, UTF-8
+^.*-하드.*$: 2
 [MSQC]
 QCDebug : False
 ` : Terran SCV, 1
+0x58D904, Exactly, 2 : Terran SCV, 2
 

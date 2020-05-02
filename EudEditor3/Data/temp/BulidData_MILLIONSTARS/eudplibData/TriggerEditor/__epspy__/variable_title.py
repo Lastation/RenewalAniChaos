@@ -128,360 +128,105 @@ def _LSH(l, r):
 
 # (Line 1) const title_flag = EUDArray(52);
 title_flag = _CGFW(lambda: [EUDArray(52)], 1)[0]
-# (Line 3) const title_01 =
-# (Line 4) [Db(u2b("\x04[ \x19솔 \x04]")),
-# (Line 5) Db(u2b("\x04[ 1☆ \x19Xs \x04]")),
-# (Line 6) Db(u2b("\x04[ 2☆ \x19밀키웨이 \x04]")),
-# (Line 7) Db(u2b("\x04[ 3☆ \x19최첨단 Cute♡ \x04]")),
-# (Line 8) Db(u2b("\x04[ ★ \x19Love me do♡ \x04]"))];
-title_01 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19솔 \x04]")), Db(u2b("\x04[ 1☆ \x19Xs \x04]")), Db(u2b("\x04[ 2☆ \x19밀키웨이 \x04]")), Db(u2b("\x04[ 3☆ \x19최첨단 Cute♡ \x04]")), Db(u2b("\x04[ ★ \x19Love me do♡ \x04]"))]))], 1)[0]
-# (Line 10) const title_02 =
-# (Line 11) [Db(u2b("\x04[ \x19솔 \x04]")),
-# (Line 12) Db(u2b("\x04[ 1☆ \x19컬러풀 팩토리 \x04]")),
-# (Line 13) Db(u2b("\x04[ 2☆ \x19굿나잇♪ \x04]")),
-# (Line 14) Db(u2b("\x04[ 3☆ \x19스포츠☆스마일 \x04]")),
-# (Line 15) Db(u2b("\x04[ ★ \x19가을빛 하이, 터치♪ \x04]"))];
-title_02 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19솔 \x04]")), Db(u2b("\x04[ 1☆ \x19컬러풀 팩토리 \x04]")), Db(u2b("\x04[ 2☆ \x19굿나잇♪ \x04]")), Db(u2b("\x04[ 3☆ \x19스포츠☆스마일 \x04]")), Db(u2b("\x04[ ★ \x19가을빛 하이, 터치♪ \x04]"))]))], 1)[0]
-# (Line 17) const title_03 =
-# (Line 18) [Db(u2b("\x04[ \x19루나 \x04]")),
-# (Line 19) Db(u2b("\x04[ 1☆ \x19BIRTH \x04]")),
-# (Line 20) Db(u2b("\x04[ 2☆ \x19워터 드림 \x04]")),
-# (Line 21) Db(u2b("\x04[ 3☆ \x19프로즌 크리스털 \x04]")),
-# (Line 22) Db(u2b("\x04[ ★ \x19ARCANA \x04]"))];
-title_03 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19루나 \x04]")), Db(u2b("\x04[ 1☆ \x19BIRTH \x04]")), Db(u2b("\x04[ 2☆ \x19워터 드림 \x04]")), Db(u2b("\x04[ 3☆ \x19프로즌 크리스털 \x04]")), Db(u2b("\x04[ ★ \x19ARCANA \x04]"))]))], 1)[0]
-# (Line 24) const title_04 =
-# (Line 25) [Db(u2b("\x04[ \x19솔 \x04]")),
-# (Line 26) Db(u2b("\x04[ 1☆ \x19믹스 너츠 \x04]")),
-# (Line 27) Db(u2b("\x04[ 2☆ \x19터져라 청춘! \x04]")),
-# (Line 28) Db(u2b("\x04[ 3☆ \x19더 챌린저! \x04]")),
-# (Line 29) Db(u2b("\x04[ ★ \x19레전드 데이즈 \x04]"))];
-title_04 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19솔 \x04]")), Db(u2b("\x04[ 1☆ \x19믹스 너츠 \x04]")), Db(u2b("\x04[ 2☆ \x19터져라 청춘! \x04]")), Db(u2b("\x04[ 3☆ \x19더 챌린저! \x04]")), Db(u2b("\x04[ ★ \x19레전드 데이즈 \x04]"))]))], 1)[0]
-# (Line 31) const title_05 =
-# (Line 32) [Db(u2b("\x04[ \x19리브라 \x04]")),
-# (Line 33) Db(u2b("\x04[ 1☆ \x19ANGEL STARS \x04]")),
-# (Line 34) Db(u2b("\x04[ 2☆ \x19해피 퀸텟♪ \x04]")),
-# (Line 35) Db(u2b("\x04[ 3☆ \x19일격필살! \x04]")),
-# (Line 36) Db(u2b("\x04[ ★ \x19반격의 헌터 \x04]"))];
-title_05 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19리브라 \x04]")), Db(u2b("\x04[ 1☆ \x19ANGEL STARS \x04]")), Db(u2b("\x04[ 2☆ \x19해피 퀸텟♪ \x04]")), Db(u2b("\x04[ 3☆ \x19일격필살! \x04]")), Db(u2b("\x04[ ★ \x19반격의 헌터 \x04]"))]))], 1)[0]
-# (Line 37) const title_06 =
-# (Line 38) [Db(u2b("\x04[ \x19레오 \x04]")),
-# (Line 39) Db(u2b("\x04[ 1☆ \x19사냥감 발견! \x04]")),
-# (Line 40) Db(u2b("\x04[ 2☆ \x19ARRIVE \x04]")),
-# (Line 41) Db(u2b("\x04[ 3☆ \x19Cleasky \x04]")),
-# (Line 42) Db(u2b("\x04[ ★ \x19스마일 에브리데이♡ \x04]"))];
-title_06 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19레오 \x04]")), Db(u2b("\x04[ 1☆ \x19사냥감 발견! \x04]")), Db(u2b("\x04[ 2☆ \x19ARRIVE \x04]")), Db(u2b("\x04[ 3☆ \x19Cleasky \x04]")), Db(u2b("\x04[ ★ \x19스마일 에브리데이♡ \x04]"))]))], 1)[0]
-# (Line 44) const title_07 =
-# (Line 45) [Db(u2b("\x04[ \x19아리에스 \x04]")),
-# (Line 46) Db(u2b("\x04[ 1☆ \x19챠밍 시프 \x04]")),
-# (Line 47) Db(u2b("\x04[ 2☆ \x19Starry Melody! \x04]")),
-# (Line 48) Db(u2b("\x04[ 3☆ \x19축복의 꽃, 보세요! \x04]")),
-# (Line 49) Db(u2b("\x04[ ★ \x19With My Heart \x04]"))];
-title_07 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19아리에스 \x04]")), Db(u2b("\x04[ 1☆ \x19챠밍 시프 \x04]")), Db(u2b("\x04[ 2☆ \x19Starry Melody! \x04]")), Db(u2b("\x04[ 3☆ \x19축복의 꽃, 보세요! \x04]")), Db(u2b("\x04[ ★ \x19With My Heart \x04]"))]))], 1)[0]
-# (Line 51) const title_08 =
-# (Line 52) [Db(u2b("\x04[ \x19아리에스 \x04]")),
-# (Line 53) Db(u2b("\x04[ 1☆ \x19크레센도 블루 \x04]")),
-# (Line 54) Db(u2b("\x04[ 2☆ \x19리틀캔디 \x04]")),
-# (Line 55) Db(u2b("\x04[ 3☆ \x19프루티♡베이비 \x04]")),
-# (Line 56) Db(u2b("\x04[ ★ \x19해피☆파라! \x04]"))];
-title_08 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19아리에스 \x04]")), Db(u2b("\x04[ 1☆ \x19크레센도 블루 \x04]")), Db(u2b("\x04[ 2☆ \x19리틀캔디 \x04]")), Db(u2b("\x04[ 3☆ \x19프루티♡베이비 \x04]")), Db(u2b("\x04[ ★ \x19해피☆파라! \x04]"))]))], 1)[0]
-# (Line 58) const title_09 =
-# (Line 59) [Db(u2b("\x04[ \x19카프리콘 \x04]")),
-# (Line 60) Db(u2b("\x04[ 1☆ \x19전광명신 라이브 \x04]")),
-# (Line 61) Db(u2b("\x04[ 2☆ \x19Love it! \x04]")),
-# (Line 62) Db(u2b("\x04[ 3☆ \x19크리스마스 미션 \x04]")),
-# (Line 63) Db(u2b("\x04[ ★ \x19VIVID 이매지네이션 \x04]"))];
-title_09 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19카프리콘 \x04]")), Db(u2b("\x04[ 1☆ \x19전광명신 라이브 \x04]")), Db(u2b("\x04[ 2☆ \x19Love it! \x04]")), Db(u2b("\x04[ 3☆ \x19크리스마스 미션 \x04]")), Db(u2b("\x04[ ★ \x19VIVID 이매지네이션 \x04]"))]))], 1)[0]
-# (Line 65) const title_10 =
-# (Line 66) [Db(u2b("\x04[ \x19캔서 \x04]")),
-# (Line 67) Db(u2b("\x04[ 1☆ \x19순백 드레스업 \x04]")),
-# (Line 68) Db(u2b("\x04[ 2☆ \x19여름의 일부 \x04]")),
-# (Line 69) Db(u2b("\x04[ 3☆ \x19애니멀 퍼레이드♪ \x04]")),
-# (Line 70) Db(u2b("\x04[ ★ \x19미소로 전해요! \x04]"))];
-title_10 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19캔서 \x04]")), Db(u2b("\x04[ 1☆ \x19순백 드레스업 \x04]")), Db(u2b("\x04[ 2☆ \x19여름의 일부 \x04]")), Db(u2b("\x04[ 3☆ \x19애니멀 퍼레이드♪ \x04]")), Db(u2b("\x04[ ★ \x19미소로 전해요! \x04]"))]))], 1)[0]
-# (Line 72) const title_11 =
-# (Line 73) [Db(u2b("\x04[ \x19제미니 \x04]")),
-# (Line 74) Db(u2b("\x04[ 1☆ \x19프리티 햄스터 \x04]")),
-# (Line 75) Db(u2b("\x04[ 2☆ \x19트윙클 스타 \x04]")),
-# (Line 76) Db(u2b("\x04[ 3☆ \x19흰 학처럼 \x04]")),
-# (Line 77) Db(u2b("\x04[ ★ \x19Sherry 'n Cherry \x04]"))];
-title_11 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19제미니 \x04]")), Db(u2b("\x04[ 1☆ \x19프리티 햄스터 \x04]")), Db(u2b("\x04[ 2☆ \x19트윙클 스타 \x04]")), Db(u2b("\x04[ 3☆ \x19흰 학처럼 \x04]")), Db(u2b("\x04[ ★ \x19Sherry 'n Cherry \x04]"))]))], 1)[0]
-# (Line 79) const title_12 =
-# (Line 80) [Db(u2b("\x04[ \x19아리에스 \x04]")),
-# (Line 81) Db(u2b("\x04[ 1☆ \x19살짝 발돋움 \x04]")),
-# (Line 82) Db(u2b("\x04[ 2☆ \x19부하의 비밀기지! \x04]")),
-# (Line 83) Db(u2b("\x04[ 3☆ \x19리틀 레이스 퀸 \x04]")),
-# (Line 84) Db(u2b("\x04[ ★ \x19장난 대작전 \x04]"))];
-title_12 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19아리에스 \x04]")), Db(u2b("\x04[ 1☆ \x19살짝 발돋움 \x04]")), Db(u2b("\x04[ 2☆ \x19부하의 비밀기지! \x04]")), Db(u2b("\x04[ 3☆ \x19리틀 레이스 퀸 \x04]")), Db(u2b("\x04[ ★ \x19장난 대작전 \x04]"))]))], 1)[0]
-# (Line 86) const title_13 =
-# (Line 87) [Db(u2b("\x04[ \x19제미니 \x04]")),
-# (Line 88) Db(u2b("\x04[ 1☆ \x194 Luxury \x04]")),
-# (Line 89) Db(u2b("\x04[ 2☆ \x19황홀한 향기 \x04]")),
-# (Line 90) Db(u2b("\x04[ 3☆ \x19힐링 낙원 \x04]")),
-# (Line 91) Db(u2b("\x04[ ★ \x19오렌지색 하늘 아래 \x04]"))];
-title_13 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19제미니 \x04]")), Db(u2b("\x04[ 1☆ \x194 Luxury \x04]")), Db(u2b("\x04[ 2☆ \x19황홀한 향기 \x04]")), Db(u2b("\x04[ 3☆ \x19힐링 낙원 \x04]")), Db(u2b("\x04[ ★ \x19오렌지색 하늘 아래 \x04]"))]))], 1)[0]
-# (Line 93) const title_14 =
-# (Line 94) [Db(u2b("\x04[ \x19타우러스 \x04]")),
-# (Line 95) Db(u2b("\x04[ 1☆ \x19두근거림을 싣고 \x04]")),
-# (Line 96) Db(u2b("\x04[ 2☆ \x19스타 내비게이터 \x04]")),
-# (Line 97) Db(u2b("\x04[ 3☆ \x19세 자매 카페 [고양이] \x04]")),
-# (Line 98) Db(u2b("\x04[ ★ \x19성야를 장식하는 눈사람 \x04]"))];
-title_14 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19타우러스 \x04]")), Db(u2b("\x04[ 1☆ \x19두근거림을 싣고 \x04]")), Db(u2b("\x04[ 2☆ \x19스타 내비게이터 \x04]")), Db(u2b("\x04[ 3☆ \x19세 자매 카페 [고양이] \x04]")), Db(u2b("\x04[ ★ \x19성야를 장식하는 눈사람 \x04]"))]))], 1)[0]
-# (Line 100) const title_15 =
-# (Line 101) [Db(u2b("\x04[ \x19피스케스 \x04]")),
-# (Line 102) Db(u2b("\x04[ 1☆ \x19포춘 걸 \x04]")),
-# (Line 103) Db(u2b("\x04[ 2☆ \x19두근거리는 순간 \x04]")),
-# (Line 104) Db(u2b("\x04[ 3☆ \x19매혹의 엘레강트 타임 \x04]")),
-# (Line 105) Db(u2b("\x04[ ★ \x19그 앞의 반짝임으로 \x04]"))];
-title_15 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19피스케스 \x04]")), Db(u2b("\x04[ 1☆ \x19포춘 걸 \x04]")), Db(u2b("\x04[ 2☆ \x19두근거리는 순간 \x04]")), Db(u2b("\x04[ 3☆ \x19매혹의 엘레강트 타임 \x04]")), Db(u2b("\x04[ ★ \x19그 앞의 반짝임으로 \x04]"))]))], 1)[0]
-# (Line 107) const title_16 =
-# (Line 108) [Db(u2b("\x04[ \x19아쿠아리우스 \x04]")),
-# (Line 109) Db(u2b("\x04[ 1☆ \x19스프링 뷰티 \x04]")),
-# (Line 110) Db(u2b("\x04[ 2☆ \x19해피 홀리 나이트 \x04]")),
-# (Line 111) Db(u2b("\x04[ 3☆ \x19BlueMoon Harmony! \x04]")),
-# (Line 112) Db(u2b("\x04[ ★ \x19상쾌한 바람에 이끌려 \x04]"))];
-title_16 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19아쿠아리우스 \x04]")), Db(u2b("\x04[ 1☆ \x19스프링 뷰티 \x04]")), Db(u2b("\x04[ 2☆ \x19해피 홀리 나이트 \x04]")), Db(u2b("\x04[ 3☆ \x19BlueMoon Harmony! \x04]")), Db(u2b("\x04[ ★ \x19상쾌한 바람에 이끌려 \x04]"))]))], 1)[0]
-# (Line 114) const title_17 =
-# (Line 115) [Db(u2b("\x04[ \x19UNI-ONAIR \x04]")),
-# (Line 116) Db(u2b("\x04[ 1☆ \x194 Luxury \x04]")),
-# (Line 117) Db(u2b("\x04[ 2☆ \x19ANGEL STARS \x04]")),
-# (Line 118) Db(u2b("\x04[ 3☆ \x19윈터 스노우 매직 \x04]")),
-# (Line 119) Db(u2b("\x04[ ★ \x19파멸의 연주자 \x04]"))];
-title_17 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19UNI-ONAIR \x04]")), Db(u2b("\x04[ 1☆ \x194 Luxury \x04]")), Db(u2b("\x04[ 2☆ \x19ANGEL STARS \x04]")), Db(u2b("\x04[ 3☆ \x19윈터 스노우 매직 \x04]")), Db(u2b("\x04[ ★ \x19파멸의 연주자 \x04]"))]))], 1)[0]
-# (Line 121) const title_18 =
-# (Line 122) [Db(u2b("\x04[ \x19루나 \x04]")),
-# (Line 123) Db(u2b("\x04[ 1☆ \x19눈부신 별바다 \x04]")),
-# (Line 124) Db(u2b("\x04[ 2☆ \x19있는 그대로, 쭉 \x04]")),
-# (Line 125) Db(u2b("\x04[ 3☆ \x19ARCANA \x04]")),
-# (Line 126) Db(u2b("\x04[ ★ \x19벚꽃에 끌려서 \x04]"))];
-title_18 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19루나 \x04]")), Db(u2b("\x04[ 1☆ \x19눈부신 별바다 \x04]")), Db(u2b("\x04[ 2☆ \x19있는 그대로, 쭉 \x04]")), Db(u2b("\x04[ 3☆ \x19ARCANA \x04]")), Db(u2b("\x04[ ★ \x19벚꽃에 끌려서 \x04]"))]))], 1)[0]
-# (Line 128) const title_19 =
-# (Line 129) [Db(u2b("\x04[ \x19스텔라 \x04]")),
-# (Line 130) Db(u2b("\x04[ 1☆ \x19하룻밤의 마법 \x04]")),
-# (Line 131) Db(u2b("\x04[ 2☆ \x19큐티 트릭♪ \x04]")),
-# (Line 132) Db(u2b("\x04[ 3☆ \x19맑게, 화려하게 \x04]")),
-# (Line 133) Db(u2b("\x04[ ★ \x19월광 판타지아 \x04]"))];
-title_19 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19스텔라 \x04]")), Db(u2b("\x04[ 1☆ \x19하룻밤의 마법 \x04]")), Db(u2b("\x04[ 2☆ \x19큐티 트릭♪ \x04]")), Db(u2b("\x04[ 3☆ \x19맑게, 화려하게 \x04]")), Db(u2b("\x04[ ★ \x19월광 판타지아 \x04]"))]))], 1)[0]
-# (Line 135) const title_20 =
-# (Line 136) [Db(u2b("\x04[ \x19스텔라 \x04]")),
-# (Line 137) Db(u2b("\x04[ 1☆ \x19우아한 한때 \x04]")),
-# (Line 138) Db(u2b("\x04[ 2☆ \x19밤하늘에 반짝이는 \x04]")),
-# (Line 139) Db(u2b("\x04[ 3☆ \x19스노우 판타지 나이트 \x04]")),
-# (Line 140) Db(u2b("\x04[ ★ \x19내가 좋아하는 것 \x04]"))];
-title_20 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19스텔라 \x04]")), Db(u2b("\x04[ 1☆ \x19우아한 한때 \x04]")), Db(u2b("\x04[ 2☆ \x19밤하늘에 반짝이는 \x04]")), Db(u2b("\x04[ 3☆ \x19스노우 판타지 나이트 \x04]")), Db(u2b("\x04[ ★ \x19내가 좋아하는 것 \x04]"))]))], 1)[0]
-# (Line 142) const title_21 =
-# (Line 143) [Db(u2b("\x04[ \x19솔 \x04]")),
-# (Line 144) Db(u2b("\x04[ 1☆ \x19만전의 서포트 \x04]")),
-# (Line 145) Db(u2b("\x04[ 2☆ \x19눈치채줘! 소녀의 마음 \x04]")),
-# (Line 146) Db(u2b("\x04[ 3☆ \x19반짝이는 뮤지엄 \x04]")),
-# (Line 147) Db(u2b("\x04[ ★ \x19스포트라이트 너머로 \x04]"))];
-title_21 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19솔 \x04]")), Db(u2b("\x04[ 1☆ \x19만전의 서포트 \x04]")), Db(u2b("\x04[ 2☆ \x19눈치채줘! 소녀의 마음 \x04]")), Db(u2b("\x04[ 3☆ \x19반짝이는 뮤지엄 \x04]")), Db(u2b("\x04[ ★ \x19스포트라이트 너머로 \x04]"))]))], 1)[0]
-# (Line 149) const title_22 =
-# (Line 150) [Db(u2b("\x04[ \x19비르고 \x04]")),
-# (Line 151) Db(u2b("\x04[ 1☆ \x19FAIRY STARS \x04]")),
-# (Line 152) Db(u2b("\x04[ 2☆ \x19물방울 프리즘 \x04]")),
-# (Line 153) Db(u2b("\x04[ 3☆ \x19닿아라, 이 목소리! \x04]")),
-# (Line 154) Db(u2b("\x04[ ★ \x19생각은 시가에 숨기고 \x04]"))];
-title_22 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19비르고 \x04]")), Db(u2b("\x04[ 1☆ \x19FAIRY STARS \x04]")), Db(u2b("\x04[ 2☆ \x19물방울 프리즘 \x04]")), Db(u2b("\x04[ 3☆ \x19닿아라, 이 목소리! \x04]")), Db(u2b("\x04[ ★ \x19생각은 시가에 숨기고 \x04]"))]))], 1)[0]
-# (Line 156) const title_23 =
-# (Line 157) [Db(u2b("\x04[ \x19사지타리어스 \x04]")),
-# (Line 158) Db(u2b("\x04[ 1☆ \x19별하늘의 양자리 \x04]")),
-# (Line 159) Db(u2b("\x04[ 2☆ \x19베스트 샷 모멘트! \x04]")),
-# (Line 160) Db(u2b("\x04[ 3☆ \x19트렌드를 선점♪ \x04]")),
-# (Line 161) Db(u2b("\x04[ ★ \x19뇌쇄 알라바스터 \x04]"))];
-title_23 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19사지타리어스 \x04]")), Db(u2b("\x04[ 1☆ \x19별하늘의 양자리 \x04]")), Db(u2b("\x04[ 2☆ \x19베스트 샷 모멘트! \x04]")), Db(u2b("\x04[ 3☆ \x19트렌드를 선점♪ \x04]")), Db(u2b("\x04[ ★ \x19뇌쇄 알라바스터 \x04]"))]))], 1)[0]
-# (Line 163) const title_24 =
-# (Line 164) [Db(u2b("\x04[ \x19레오 \x04]")),
-# (Line 165) Db(u2b("\x04[ 1☆ \x19프루티♡베이비 \x04]")),
-# (Line 166) Db(u2b("\x04[ 2☆ \x19Jelly PoP Beans \x04]")),
-# (Line 167) Db(u2b("\x04[ 3☆ \x19특별한 날을 위해 \x04]")),
-# (Line 168) Db(u2b("\x04[ ★ \x19이머전시 이머전스 \x04]"))];
-title_24 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19레오 \x04]")), Db(u2b("\x04[ 1☆ \x19프루티♡베이비 \x04]")), Db(u2b("\x04[ 2☆ \x19Jelly PoP Beans \x04]")), Db(u2b("\x04[ 3☆ \x19특별한 날을 위해 \x04]")), Db(u2b("\x04[ ★ \x19이머전시 이머전스 \x04]"))]))], 1)[0]
-# (Line 170) const title_25 =
-# (Line 171) [Db(u2b("\x04[ \x19피스케스 \x04]")),
-# (Line 172) Db(u2b("\x04[ 1☆ \x19야상영양 \x04]")),
-# (Line 173) Db(u2b("\x04[ 2☆ \x19BlueMoon Harmony! \x04]")),
-# (Line 174) Db(u2b("\x04[ 3☆ \x19꽃보다 화려하게 \x04]")),
-# (Line 175) Db(u2b("\x04[ ★ \x19포춘 걸 \x04]"))];
-title_25 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19피스케스 \x04]")), Db(u2b("\x04[ 1☆ \x19야상영양 \x04]")), Db(u2b("\x04[ 2☆ \x19BlueMoon Harmony! \x04]")), Db(u2b("\x04[ 3☆ \x19꽃보다 화려하게 \x04]")), Db(u2b("\x04[ ★ \x19포춘 걸 \x04]"))]))], 1)[0]
-# (Line 177) const title_26 =
-# (Line 178) [Db(u2b("\x04[ \x19스콜피오 \x04]")),
-# (Line 179) Db(u2b("\x04[ 1☆ \x19EScape \x04]")),
-# (Line 180) Db(u2b("\x04[ 2☆ \x19선상의 테라피스트 \x04]")),
-# (Line 181) Db(u2b("\x04[ 3☆ \x19프레셔스 기프트 \x04]")),
-# (Line 182) Db(u2b("\x04[ ★ \x19리얼 인텐션 \x04]"))];
-title_26 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19스콜피오 \x04]")), Db(u2b("\x04[ 1☆ \x19EScape \x04]")), Db(u2b("\x04[ 2☆ \x19선상의 테라피스트 \x04]")), Db(u2b("\x04[ 3☆ \x19프레셔스 기프트 \x04]")), Db(u2b("\x04[ ★ \x19리얼 인텐션 \x04]"))]))], 1)[0]
-# (Line 184) const title_27 =
-# (Line 185) [Db(u2b("\x04[ \x19사지타리어스 \x04]")),
-# (Line 186) Db(u2b("\x04[ 1☆ \x19BIRTH \x04]")),
-# (Line 187) Db(u2b("\x04[ 2☆ \x19Jelly PoP Beans \x04]")),
-# (Line 188) Db(u2b("\x04[ 3☆ \x19할로윈 위치 \x04]")),
-# (Line 189) Db(u2b("\x04[ ★ \x19미라클 퍼포머 \x04]"))];
-title_27 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19사지타리어스 \x04]")), Db(u2b("\x04[ 1☆ \x19BIRTH \x04]")), Db(u2b("\x04[ 2☆ \x19Jelly PoP Beans \x04]")), Db(u2b("\x04[ 3☆ \x19할로윈 위치 \x04]")), Db(u2b("\x04[ ★ \x19미라클 퍼포머 \x04]"))]))], 1)[0]
-# (Line 191) const title_28 =
-# (Line 192) [Db(u2b("\x04[ \x19피스케스 \x04]")),
-# (Line 193) Db(u2b("\x04[ 1☆ \x19야상영양 \x04]")),
-# (Line 194) Db(u2b("\x04[ 2☆ \x19내츄럴 스마일 \x04]")),
-# (Line 195) Db(u2b("\x04[ 3☆ \x19태양의 스포트라이트 \x04]")),
-# (Line 196) Db(u2b("\x04[ ★ \x19환상의 빛 속에서 \x04]"))];
-title_28 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19피스케스 \x04]")), Db(u2b("\x04[ 1☆ \x19야상영양 \x04]")), Db(u2b("\x04[ 2☆ \x19내츄럴 스마일 \x04]")), Db(u2b("\x04[ 3☆ \x19태양의 스포트라이트 \x04]")), Db(u2b("\x04[ ★ \x19환상의 빛 속에서 \x04]"))]))], 1)[0]
-# (Line 198) const title_29 =
-# (Line 199) [Db(u2b("\x04[ \x19사지타리어스 \x04]")),
-# (Line 200) Db(u2b("\x04[ 1☆ \x19무표정 MC \x04]")),
-# (Line 201) Db(u2b("\x04[ 2☆ \x19모두에게 사랑을 담아 \x04]")),
-# (Line 202) Db(u2b("\x04[ 3☆ \x19쏟아지는 샤인 샤워 \x04]")),
-# (Line 203) Db(u2b("\x04[ ★ \x19…In The Name Of。 …LOVE? \x04]"))];
-title_29 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19사지타리어스 \x04]")), Db(u2b("\x04[ 1☆ \x19무표정 MC \x04]")), Db(u2b("\x04[ 2☆ \x19모두에게 사랑을 담아 \x04]")), Db(u2b("\x04[ 3☆ \x19쏟아지는 샤인 샤워 \x04]")), Db(u2b("\x04[ ★ \x19…In The Name Of。 …LOVE? \x04]"))]))], 1)[0]
-# (Line 205) const title_30 =
-# (Line 206) [Db(u2b("\x04[ \x19카프리콘 \x04]")),
-# (Line 207) Db(u2b("\x04[ 1☆ \x19장난스러운 유혹 \x04]")),
-# (Line 208) Db(u2b("\x04[ 2☆ \x19Sherry 'n Cherry \x04]")),
-# (Line 209) Db(u2b("\x04[ 3☆ \x19아름다운 엘프 전사 \x04]")),
-# (Line 210) Db(u2b("\x04[ ★ \x19Be My Boy \x04]"))];
-title_30 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19카프리콘 \x04]")), Db(u2b("\x04[ 1☆ \x19장난스러운 유혹 \x04]")), Db(u2b("\x04[ 2☆ \x19Sherry 'n Cherry \x04]")), Db(u2b("\x04[ 3☆ \x19아름다운 엘프 전사 \x04]")), Db(u2b("\x04[ ★ \x19Be My Boy \x04]"))]))], 1)[0]
-# (Line 212) const title_31 =
-# (Line 213) [Db(u2b("\x04[ \x19비르고 \x04]")),
-# (Line 214) Db(u2b("\x04[ 1☆ \x19Chrono-Lexica \x04]")),
-# (Line 215) Db(u2b("\x04[ 2☆ \x19야구 소녀 \x04]")),
-# (Line 216) Db(u2b("\x04[ 3☆ \x19스위트 팔레트 랜드 \x04]")),
-# (Line 217) Db(u2b("\x04[ ★ \x19차도의 프로미스 \x04]"))];
-title_31 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19비르고 \x04]")), Db(u2b("\x04[ 1☆ \x19Chrono-Lexica \x04]")), Db(u2b("\x04[ 2☆ \x19야구 소녀 \x04]")), Db(u2b("\x04[ 3☆ \x19스위트 팔레트 랜드 \x04]")), Db(u2b("\x04[ ★ \x19차도의 프로미스 \x04]"))]))], 1)[0]
-# (Line 219) const title_32 =
-# (Line 220) [Db(u2b("\x04[ \x19제미니 \x04]")),
-# (Line 221) Db(u2b("\x04[ 1☆ \x19액티브 치어링 \x04]")),
-# (Line 222) Db(u2b("\x04[ 2☆ \x19맛있게 드세요…♡ \x04]")),
-# (Line 223) Db(u2b("\x04[ 3☆ \x19꿈빛식부 \x04]")),
-# (Line 224) Db(u2b("\x04[ ★ \x19스마일 캣 랜드 \x04]"))];
-title_32 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19제미니 \x04]")), Db(u2b("\x04[ 1☆ \x19액티브 치어링 \x04]")), Db(u2b("\x04[ 2☆ \x19맛있게 드세요…♡ \x04]")), Db(u2b("\x04[ 3☆ \x19꿈빛식부 \x04]")), Db(u2b("\x04[ ★ \x19스마일 캣 랜드 \x04]"))]))], 1)[0]
-# (Line 226) const title_33 =
-# (Line 227) [Db(u2b("\x04[ \x19아쿠아리우스 \x04]")),
-# (Line 228) Db(u2b("\x04[ 1☆ \x19히어로즈 제네시스 \x04]")),
-# (Line 229) Db(u2b("\x04[ 2☆ \x19D/Zeal \x04]")),
-# (Line 230) Db(u2b("\x04[ 3☆ \x19새해맞이 플레이어 \x04]")),
-# (Line 231) Db(u2b("\x04[ ★ \x19자그마한 오케스트라 \x04]"))];
-title_33 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19아쿠아리우스 \x04]")), Db(u2b("\x04[ 1☆ \x19히어로즈 제네시스 \x04]")), Db(u2b("\x04[ 2☆ \x19D/Zeal \x04]")), Db(u2b("\x04[ 3☆ \x19새해맞이 플레이어 \x04]")), Db(u2b("\x04[ ★ \x19자그마한 오케스트라 \x04]"))]))], 1)[0]
-# (Line 233) const title_34 =
-# (Line 234) [Db(u2b("\x04[ \x19UNI-ONAIR \x04]")),
-# (Line 235) Db(u2b("\x04[ 1☆ \x19히어로즈 제네시스 \x04]")),
-# (Line 236) Db(u2b("\x04[ 2☆ \x19하나사쿠야 \x04]")),
-# (Line 237) Db(u2b("\x04[ 3☆ \x19도시의 바람을 맞으며 \x04]")),
-# (Line 238) Db(u2b("\x04[ ★ \x19…콩♪ \x04]"))];
-title_34 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19UNI-ONAIR \x04]")), Db(u2b("\x04[ 1☆ \x19히어로즈 제네시스 \x04]")), Db(u2b("\x04[ 2☆ \x19하나사쿠야 \x04]")), Db(u2b("\x04[ 3☆ \x19도시의 바람을 맞으며 \x04]")), Db(u2b("\x04[ ★ \x19…콩♪ \x04]"))]))], 1)[0]
-# (Line 240) const title_35 =
-# (Line 241) [Db(u2b("\x04[ \x19스텔라 \x04]")),
-# (Line 242) Db(u2b("\x04[ 1☆ \x19쿠킹 스터디! \x04]")),
-# (Line 243) Db(u2b("\x04[ 2☆ \x19푹신푹신 드리밍 \x04]")),
-# (Line 244) Db(u2b("\x04[ 3☆ \x19연결되는 미소 \x04]")),
-# (Line 245) Db(u2b("\x04[ ★ \x19아웃사이더 [파이널 데이] \x04]"))];
-title_35 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19스텔라 \x04]")), Db(u2b("\x04[ 1☆ \x19쿠킹 스터디! \x04]")), Db(u2b("\x04[ 2☆ \x19푹신푹신 드리밍 \x04]")), Db(u2b("\x04[ 3☆ \x19연결되는 미소 \x04]")), Db(u2b("\x04[ ★ \x19아웃사이더 [파이널 데이] \x04]"))]))], 1)[0]
-# (Line 247) const title_36 =
-# (Line 248) [Db(u2b("\x04[ \x19스텔라 \x04]")),
-# (Line 249) Db(u2b("\x04[ 1☆ \x19Xs \x04]")),
-# (Line 250) Db(u2b("\x04[ 2☆ \x19아늑한 차 \x04]")),
-# (Line 251) Db(u2b("\x04[ 3☆ \x19어둠을 지배하는 자 \x04]")),
-# (Line 252) Db(u2b("\x04[ ★ \x19브랜뉴 시너리 \x04]"))];
-title_36 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19스텔라 \x04]")), Db(u2b("\x04[ 1☆ \x19Xs \x04]")), Db(u2b("\x04[ 2☆ \x19아늑한 차 \x04]")), Db(u2b("\x04[ 3☆ \x19어둠을 지배하는 자 \x04]")), Db(u2b("\x04[ ★ \x19브랜뉴 시너리 \x04]"))]))], 1)[0]
-# (Line 254) const title_37 =
-# (Line 255) [Db(u2b("\x04[ \x19루나 \x04]")),
-# (Line 256) Db(u2b("\x04[ 1☆ \x19복숭아빛 스마일♪ \x04]")),
-# (Line 257) Db(u2b("\x04[ 2☆ \x19핸섬 비스트 \x04]")),
-# (Line 258) Db(u2b("\x04[ 3☆ \x19아웃사이더 [벨벳] \x04]")),
-# (Line 259) Db(u2b("\x04[ ★ \x19블랙 스트랭스 \x04]"))];
-title_37 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19루나 \x04]")), Db(u2b("\x04[ 1☆ \x19복숭아빛 스마일♪ \x04]")), Db(u2b("\x04[ 2☆ \x19핸섬 비스트 \x04]")), Db(u2b("\x04[ 3☆ \x19아웃사이더 [벨벳] \x04]")), Db(u2b("\x04[ ★ \x19블랙 스트랭스 \x04]"))]))], 1)[0]
-# (Line 261) const title_38 =
-# (Line 262) [Db(u2b("\x04[ \x19루나 \x04]")),
-# (Line 263) Db(u2b("\x04[ 1☆ \x19HAPPY DREAMER \x04]")),
-# (Line 264) Db(u2b("\x04[ 2☆ \x19선샤인 브라이트 \x04]")),
-# (Line 265) Db(u2b("\x04[ 3☆ \x19핫 서머 메모리즈 \x04]")),
-# (Line 266) Db(u2b("\x04[ ★ \x19동화 나라 이야기 [늑대] \x04]"))];
-title_38 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19루나 \x04]")), Db(u2b("\x04[ 1☆ \x19HAPPY DREAMER \x04]")), Db(u2b("\x04[ 2☆ \x19선샤인 브라이트 \x04]")), Db(u2b("\x04[ 3☆ \x19핫 서머 메모리즈 \x04]")), Db(u2b("\x04[ ★ \x19동화 나라 이야기 [늑대] \x04]"))]))], 1)[0]
-# (Line 268) const title_39 =
-# (Line 269) [Db(u2b("\x04[ \x19타우러스 \x04]")),
-# (Line 270) Db(u2b("\x04[ 1☆ \x19PRINCESS STARS \x04]")),
-# (Line 271) Db(u2b("\x04[ 2☆ \x19Starry Melody! \x04]")),
-# (Line 272) Db(u2b("\x04[ 3☆ \x19풀 스로틀★걸 \x04]")),
-# (Line 273) Db(u2b("\x04[ ★ \x19선라이트 브라이드 \x04]"))];
-title_39 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19타우러스 \x04]")), Db(u2b("\x04[ 1☆ \x19PRINCESS STARS \x04]")), Db(u2b("\x04[ 2☆ \x19Starry Melody! \x04]")), Db(u2b("\x04[ 3☆ \x19풀 스로틀★걸 \x04]")), Db(u2b("\x04[ ★ \x19선라이트 브라이드 \x04]"))]))], 1)[0]
-# (Line 275) const title_40 =
-# (Line 276) [Db(u2b("\x04[ \x19스콜피오 \x04]")),
-# (Line 277) Db(u2b("\x04[ 1☆ \x19큐트하게 공주 포즈♪ \x04]")),
-# (Line 278) Db(u2b("\x04[ 2☆ \x19꽃들의 축복 \x04]")),
-# (Line 279) Db(u2b("\x04[ 3☆ \x19가을 향기에 휩싸여 \x04]")),
-# (Line 280) Db(u2b("\x04[ ★ \x19어제도 오늘도 그 다음에도… \x04]"))];
-title_40 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19스콜피오 \x04]")), Db(u2b("\x04[ 1☆ \x19큐트하게 공주 포즈♪ \x04]")), Db(u2b("\x04[ 2☆ \x19꽃들의 축복 \x04]")), Db(u2b("\x04[ 3☆ \x19가을 향기에 휩싸여 \x04]")), Db(u2b("\x04[ ★ \x19어제도 오늘도 그 다음에도… \x04]"))]))], 1)[0]
-# (Line 282) const title_41 =
-# (Line 283) [Db(u2b("\x04[ \x19리브라 \x04]")),
-# (Line 284) Db(u2b("\x04[ 1☆ \x19스마일 할로윈! \x04]")),
-# (Line 285) Db(u2b("\x04[ 2☆ \x19톡톡 튀는 여름의 맛♪ \x04]")),
-# (Line 286) Db(u2b("\x04[ 3☆ \x19최강의 음양사! \x04]")),
-# (Line 287) Db(u2b("\x04[ ★ \x19스마일 최고 \x04]"))];
-title_41 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19리브라 \x04]")), Db(u2b("\x04[ 1☆ \x19스마일 할로윈! \x04]")), Db(u2b("\x04[ 2☆ \x19톡톡 튀는 여름의 맛♪ \x04]")), Db(u2b("\x04[ 3☆ \x19최강의 음양사! \x04]")), Db(u2b("\x04[ ★ \x19스마일 최고 \x04]"))]))], 1)[0]
-# (Line 289) const title_42 =
-# (Line 290) [Db(u2b("\x04[ \x19타우러스 \x04]")),
-# (Line 291) Db(u2b("\x04[ 1☆ \x19Charlotte・Charlotte \x04]")),
-# (Line 292) Db(u2b("\x04[ 2☆ \x19로맨틱 랜드 \x04]")),
-# (Line 293) Db(u2b("\x04[ 3☆ \x19크리스마스★스위츠 \x04]")),
-# (Line 294) Db(u2b("\x04[ ★ \x19헤븐리 플라워즈 \x04]"))];
-title_42 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19타우러스 \x04]")), Db(u2b("\x04[ 1☆ \x19Charlotte・Charlotte \x04]")), Db(u2b("\x04[ 2☆ \x19로맨틱 랜드 \x04]")), Db(u2b("\x04[ 3☆ \x19크리스마스★스위츠 \x04]")), Db(u2b("\x04[ ★ \x19헤븐리 플라워즈 \x04]"))]))], 1)[0]
-# (Line 296) const title_43 =
-# (Line 297) [Db(u2b("\x04[ \x19비르고 \x04]")),
-# (Line 298) Db(u2b("\x04[ 1☆ \x19Chrono-Lexica \x04]")),
-# (Line 299) Db(u2b("\x04[ 2☆ \x19Love it! \x04]")),
-# (Line 300) Db(u2b("\x04[ 3☆ \x19마음에 드는 이야기 \x04]")),
-# (Line 301) Db(u2b("\x04[ ★ \x19행복은 라지 사이즈로 \x04]"))];
-title_43 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19비르고 \x04]")), Db(u2b("\x04[ 1☆ \x19Chrono-Lexica \x04]")), Db(u2b("\x04[ 2☆ \x19Love it! \x04]")), Db(u2b("\x04[ 3☆ \x19마음에 드는 이야기 \x04]")), Db(u2b("\x04[ ★ \x19행복은 라지 사이즈로 \x04]"))]))], 1)[0]
-# (Line 303) const title_44 =
-# (Line 304) [Db(u2b("\x04[ \x19아쿠아리우스 \x04]")),
-# (Line 305) Db(u2b("\x04[ 1☆ \x19기념 스냅샷 \x04]")),
-# (Line 306) Db(u2b("\x04[ 2☆ \x19초 비치발리볼 [선배] \x04]")),
-# (Line 307) Db(u2b("\x04[ 3☆ \x19치어풀 크리스마스! \x04]")),
-# (Line 308) Db(u2b("\x04[ ★ \x19그레이트 하비스트 \x04]"))];
-title_44 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19아쿠아리우스 \x04]")), Db(u2b("\x04[ 1☆ \x19기념 스냅샷 \x04]")), Db(u2b("\x04[ 2☆ \x19초 비치발리볼 [선배] \x04]")), Db(u2b("\x04[ 3☆ \x19치어풀 크리스마스! \x04]")), Db(u2b("\x04[ ★ \x19그레이트 하비스트 \x04]"))]))], 1)[0]
-# (Line 310) const title_45 =
-# (Line 311) [Db(u2b("\x04[ \x19스콜피오 \x04]")),
-# (Line 312) Db(u2b("\x04[ 1☆ \x19새해 첫 샷♪ \x04]")),
-# (Line 313) Db(u2b("\x04[ 2☆ \x19언제나 전력! \x04]")),
-# (Line 314) Db(u2b("\x04[ 3☆ \x19소악마 리빙 데드 \x04]")),
-# (Line 315) Db(u2b("\x04[ ★ \x19액티비티 볼 \x04]"))];
-title_45 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19스콜피오 \x04]")), Db(u2b("\x04[ 1☆ \x19새해 첫 샷♪ \x04]")), Db(u2b("\x04[ 2☆ \x19언제나 전력! \x04]")), Db(u2b("\x04[ 3☆ \x19소악마 리빙 데드 \x04]")), Db(u2b("\x04[ ★ \x19액티비티 볼 \x04]"))]))], 1)[0]
-# (Line 317) const title_46 =
-# (Line 318) [Db(u2b("\x04[ \x19스콜피오 \x04]")),
-# (Line 319) Db(u2b("\x04[ 1☆ \x19섬광☆HANABI단 \x04]")),
-# (Line 320) Db(u2b("\x04[ 2☆ \x19동경하는 대변신 \x04]")),
-# (Line 321) Db(u2b("\x04[ 3☆ \x19걸즈 페스티벌 \x04]")),
-# (Line 322) Db(u2b("\x04[ ★ \x19신춘 해피니스 걸 \x04]"))];
-title_46 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19스콜피오 \x04]")), Db(u2b("\x04[ 1☆ \x19섬광☆HANABI단 \x04]")), Db(u2b("\x04[ 2☆ \x19동경하는 대변신 \x04]")), Db(u2b("\x04[ 3☆ \x19걸즈 페스티벌 \x04]")), Db(u2b("\x04[ ★ \x19신춘 해피니스 걸 \x04]"))]))], 1)[0]
-# (Line 324) const title_47 =
-# (Line 325) [Db(u2b("\x04[ \x19레오 \x04]")),
-# (Line 326) Db(u2b("\x04[ 1☆ \x19오늘도 활기 만점! \x04]")),
-# (Line 327) Db(u2b("\x04[ 2☆ \x19끄떡없는 프라이드 \x04]")),
-# (Line 328) Db(u2b("\x04[ 3☆ \x19우정의 메타모르포제 \x04]")),
-# (Line 329) Db(u2b("\x04[ ★ \x19쪽! 해버릴 거야♪ \x04]"))];
-title_47 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19레오 \x04]")), Db(u2b("\x04[ 1☆ \x19오늘도 활기 만점! \x04]")), Db(u2b("\x04[ 2☆ \x19끄떡없는 프라이드 \x04]")), Db(u2b("\x04[ 3☆ \x19우정의 메타모르포제 \x04]")), Db(u2b("\x04[ ★ \x19쪽! 해버릴 거야♪ \x04]"))]))], 1)[0]
-# (Line 331) const title_48 =
-# (Line 332) [Db(u2b("\x04[ \x19캔서 \x04]")),
-# (Line 333) Db(u2b("\x04[ 1☆ \x19Charlotte・Charlotte \x04]")),
-# (Line 334) Db(u2b("\x04[ 2☆ \x19청초하고 우아한 아가씨 \x04]")),
-# (Line 335) Db(u2b("\x04[ 3☆ \x19염소씨와 집배원씨♡ \x04]")),
-# (Line 336) Db(u2b("\x04[ ★ \x19쿠노이치 대면! \x04]"))];
-title_48 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19캔서 \x04]")), Db(u2b("\x04[ 1☆ \x19Charlotte・Charlotte \x04]")), Db(u2b("\x04[ 2☆ \x19청초하고 우아한 아가씨 \x04]")), Db(u2b("\x04[ 3☆ \x19염소씨와 집배원씨♡ \x04]")), Db(u2b("\x04[ ★ \x19쿠노이치 대면! \x04]"))]))], 1)[0]
-# (Line 338) const title_49 =
-# (Line 339) [Db(u2b("\x04[ \x19카프리콘 \x04]")),
-# (Line 340) Db(u2b("\x04[ 1☆ \x19Sunshine Rhythm! \x04]")),
-# (Line 341) Db(u2b("\x04[ 2☆ \x19서커스의 스타 \x04]")),
-# (Line 342) Db(u2b("\x04[ 3☆ \x19인조이♡윈터 데이트 \x04]")),
-# (Line 343) Db(u2b("\x04[ ★ \x19주문 \x04]"))];
-title_49 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19카프리콘 \x04]")), Db(u2b("\x04[ 1☆ \x19Sunshine Rhythm! \x04]")), Db(u2b("\x04[ 2☆ \x19서커스의 스타 \x04]")), Db(u2b("\x04[ 3☆ \x19인조이♡윈터 데이트 \x04]")), Db(u2b("\x04[ ★ \x19주문 \x04]"))]))], 1)[0]
-# (Line 345) const title_50 =
-# (Line 346) [Db(u2b("\x04[ \x19캔서 \x04]")),
-# (Line 347) Db(u2b("\x04[ 1☆ \x19Jus-2-Mint \x04]")),
-# (Line 348) Db(u2b("\x04[ 2☆ \x19두근거림을 밟으며 가자♪ \x04]")),
-# (Line 349) Db(u2b("\x04[ 3☆ \x19조이풀 그레텔 \x04]")),
-# (Line 351) Db(u2b("\x04[ ★ \x19붉게 빛나며! \x04]"))];
-title_50 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19캔서 \x04]")), Db(u2b("\x04[ 1☆ \x19Jus-2-Mint \x04]")), Db(u2b("\x04[ 2☆ \x19두근거림을 밟으며 가자♪ \x04]")), Db(u2b("\x04[ 3☆ \x19조이풀 그레텔 \x04]")), Db(u2b("\x04[ ★ \x19붉게 빛나며! \x04]"))]))], 1)[0]
-# (Line 352) const title_51 =
-# (Line 353) [Db(u2b("\x04[ \x19리브라 \x04]")),
-# (Line 354) Db(u2b("\x04[ 1☆ \x19잔잔한 저녁 바람 \x04]")),
-# (Line 355) Db(u2b("\x04[ 2☆ \x19뉴 이어 공 \x04]")),
-# (Line 356) Db(u2b("\x04[ 3☆ \x19컬러풀링 에그! \x04]")),
-# (Line 357) Db(u2b("\x04[ ★ \x19소녀, 바람에 흩날려 \x04]"))];
-title_51 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04[ \x19리브라 \x04]")), Db(u2b("\x04[ 1☆ \x19잔잔한 저녁 바람 \x04]")), Db(u2b("\x04[ 2☆ \x19뉴 이어 공 \x04]")), Db(u2b("\x04[ 3☆ \x19컬러풀링 에그! \x04]")), Db(u2b("\x04[ ★ \x19소녀, 바람에 흩날려 \x04]"))]))], 1)[0]
+# (Line 3) const title_01 = [Db(u2b("\x04 0☆ \x19솔")), Db(u2b("\x04 1☆ \x19Xs")), Db(u2b("\x04 2☆ \x19밀키웨이")),Db(u2b("\x04 3☆ \x19최첨단 Cute")), Db(u2b("\x04 ★ \x19Love me do"))];
+title_01 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19솔")), Db(u2b("\x04 1☆ \x19Xs")), Db(u2b("\x04 2☆ \x19밀키웨이")), Db(u2b("\x04 3☆ \x19최첨단 Cute")), Db(u2b("\x04 ★ \x19Love me do"))]))], 1)[0]
+# (Line 4) const title_02 = [Db(u2b("\x04 0☆ \x19솔")), Db(u2b("\x04 1☆ \x19컬러풀 팩토리")), Db(u2b("\x04 2☆ \x19굿나잇")),Db(u2b("\x04 3☆ \x19스포츠☆스마일")), Db(u2b("\x04 ★ \x19가을빛 하이, 터치"))];
+title_02 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19솔")), Db(u2b("\x04 1☆ \x19컬러풀 팩토리")), Db(u2b("\x04 2☆ \x19굿나잇")), Db(u2b("\x04 3☆ \x19스포츠☆스마일")), Db(u2b("\x04 ★ \x19가을빛 하이, 터치"))]))], 1)[0]
+# (Line 5) const title_03 = [Db(u2b("\x04 0☆ \x19루나")), Db(u2b("\x04 1☆ \x19BIRTH")), Db(u2b("\x04 2☆ \x19워터 드림")),Db(u2b("\x04 3☆ \x19프로즌 크리스털")), Db(u2b("\x04 ★ \x19ARCANA"))];
+title_03 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19루나")), Db(u2b("\x04 1☆ \x19BIRTH")), Db(u2b("\x04 2☆ \x19워터 드림")), Db(u2b("\x04 3☆ \x19프로즌 크리스털")), Db(u2b("\x04 ★ \x19ARCANA"))]))], 1)[0]
+# (Line 6) const title_04 = [Db(u2b("\x04 0☆ \x19솔")), Db(u2b("\x04 1☆ \x19믹스 너츠")), Db(u2b("\x04 2☆ \x19터져라 청춘!")),Db(u2b("\x04 3☆ \x19더 챌린저!")), Db(u2b("\x04 ★ \x19레전드 데이즈"))];
+title_04 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19솔")), Db(u2b("\x04 1☆ \x19믹스 너츠")), Db(u2b("\x04 2☆ \x19터져라 청춘!")), Db(u2b("\x04 3☆ \x19더 챌린저!")), Db(u2b("\x04 ★ \x19레전드 데이즈"))]))], 1)[0]
+# (Line 7) const title_05 = [Db(u2b("\x04 0☆ \x19리브라")), Db(u2b("\x04 1☆ \x19ANGEL STARS")), Db(u2b("\x04 2☆ \x19해피 퀸텟")),Db(u2b("\x04 3☆ \x19일격필살!")), Db(u2b("\x04 ★ \x19반격의 헌터"))];
+title_05 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19리브라")), Db(u2b("\x04 1☆ \x19ANGEL STARS")), Db(u2b("\x04 2☆ \x19해피 퀸텟")), Db(u2b("\x04 3☆ \x19일격필살!")), Db(u2b("\x04 ★ \x19반격의 헌터"))]))], 1)[0]
+# (Line 8) const title_06 = [Db(u2b("\x04 0☆ \x19레오")), Db(u2b("\x04 1☆ \x19사냥감 발견!")), Db(u2b("\x04 2☆ \x19ARRIVE")),Db(u2b("\x04 3☆ \x19Cleasky")), Db(u2b("\x04 ★ \x19스마일 에브리데이"))];
+title_06 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19레오")), Db(u2b("\x04 1☆ \x19사냥감 발견!")), Db(u2b("\x04 2☆ \x19ARRIVE")), Db(u2b("\x04 3☆ \x19Cleasky")), Db(u2b("\x04 ★ \x19스마일 에브리데이"))]))], 1)[0]
+# (Line 9) const title_07 = [Db(u2b("\x04 0☆ \x19아리에스")), Db(u2b("\x04 1☆ \x19챠밍 시프")), Db(u2b("\x04 2☆ \x19Starry Melody!")),Db(u2b("\x04 3☆ \x19축복의 꽃, 보세요!")), Db(u2b("\x04 ★ \x19With My Heart"))];
+title_07 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19아리에스")), Db(u2b("\x04 1☆ \x19챠밍 시프")), Db(u2b("\x04 2☆ \x19Starry Melody!")), Db(u2b("\x04 3☆ \x19축복의 꽃, 보세요!")), Db(u2b("\x04 ★ \x19With My Heart"))]))], 1)[0]
+# (Line 10) const title_08 = [Db(u2b("\x04 0☆ \x19아리에스")), Db(u2b("\x04 1☆ \x19크레센도 블루")), Db(u2b("\x04 2☆ \x19리틀캔디")),Db(u2b("\x04 3☆ \x19프루티베이비")), Db(u2b("\x04 ★ \x19해피☆파라!"))];
+title_08 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19아리에스")), Db(u2b("\x04 1☆ \x19크레센도 블루")), Db(u2b("\x04 2☆ \x19리틀캔디")), Db(u2b("\x04 3☆ \x19프루티베이비")), Db(u2b("\x04 ★ \x19해피☆파라!"))]))], 1)[0]
+# (Line 11) const title_09 = [Db(u2b("\x04 0☆ \x19카프리콘")), Db(u2b("\x04 1☆ \x19전광명신 라이브")), Db(u2b("\x04 2☆ \x19Love it!")),Db(u2b("\x04 3☆ \x19크리스마스 미션")), Db(u2b("\x04 ★ \x19VIVID 이매지네이션"))];
+title_09 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19카프리콘")), Db(u2b("\x04 1☆ \x19전광명신 라이브")), Db(u2b("\x04 2☆ \x19Love it!")), Db(u2b("\x04 3☆ \x19크리스마스 미션")), Db(u2b("\x04 ★ \x19VIVID 이매지네이션"))]))], 1)[0]
+# (Line 12) const title_10 = [Db(u2b("\x04 0☆ \x19캔서")), Db(u2b("\x04 1☆ \x19순백 드레스업")), Db(u2b("\x04 2☆ \x19여름의 일부")),Db(u2b("\x04 3☆ \x19애니멀 퍼레이드")), Db(u2b("\x04 ★ \x19미소로 전해요!"))];
+title_10 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19캔서")), Db(u2b("\x04 1☆ \x19순백 드레스업")), Db(u2b("\x04 2☆ \x19여름의 일부")), Db(u2b("\x04 3☆ \x19애니멀 퍼레이드")), Db(u2b("\x04 ★ \x19미소로 전해요!"))]))], 1)[0]
+# (Line 13) const title_11 = [Db(u2b("\x04 0☆ \x19제미니")), Db(u2b("\x04 1☆ \x19프리티 햄스터")), Db(u2b("\x04 2☆ \x19트윙클 스타")),Db(u2b("\x04 3☆ \x19흰 학처럼")), Db(u2b("\x04 ★ \x19Sherry 'n Cherry"))];
+title_11 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19제미니")), Db(u2b("\x04 1☆ \x19프리티 햄스터")), Db(u2b("\x04 2☆ \x19트윙클 스타")), Db(u2b("\x04 3☆ \x19흰 학처럼")), Db(u2b("\x04 ★ \x19Sherry 'n Cherry"))]))], 1)[0]
+# (Line 14) const title_12 = [Db(u2b("\x04 0☆ \x19아리에스")), Db(u2b("\x04 1☆ \x19살짝 발돋움")), Db(u2b("\x04 2☆ \x19부하의 비밀기지!")),Db(u2b("\x04 3☆ \x19리틀 레이스 퀸")), Db(u2b("\x04 ★ \x19장난 대작전"))];
+title_12 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19아리에스")), Db(u2b("\x04 1☆ \x19살짝 발돋움")), Db(u2b("\x04 2☆ \x19부하의 비밀기지!")), Db(u2b("\x04 3☆ \x19리틀 레이스 퀸")), Db(u2b("\x04 ★ \x19장난 대작전"))]))], 1)[0]
+# (Line 15) const title_13 = [Db(u2b("\x04 0☆ \x19제미니")), Db(u2b("\x04 1☆ \x194 Luxury")), Db(u2b("\x04 2☆ \x19황홀한 향기")),Db(u2b("\x04 3☆ \x19힐링 낙원")), Db(u2b("\x04 ★ \x19오렌지색 하늘 아래"))];
+title_13 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19제미니")), Db(u2b("\x04 1☆ \x194 Luxury")), Db(u2b("\x04 2☆ \x19황홀한 향기")), Db(u2b("\x04 3☆ \x19힐링 낙원")), Db(u2b("\x04 ★ \x19오렌지색 하늘 아래"))]))], 1)[0]
+# (Line 16) const title_14 = [Db(u2b("\x04 0☆ \x19타우러스")), Db(u2b("\x04 1☆ \x19두근거림을 싣고")), Db(u2b("\x04 2☆ \x19스타 내비게이터")),Db(u2b("\x04 3☆ \x19세 자매 카페")), Db(u2b("\x04 ★ \x19성야를 장식하는 눈사람"))];
+title_14 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19타우러스")), Db(u2b("\x04 1☆ \x19두근거림을 싣고")), Db(u2b("\x04 2☆ \x19스타 내비게이터")), Db(u2b("\x04 3☆ \x19세 자매 카페")), Db(u2b("\x04 ★ \x19성야를 장식하는 눈사람"))]))], 1)[0]
+# (Line 17) const title_15 = [Db(u2b("\x04 0☆ \x19피스케스")), Db(u2b("\x04 1☆ \x19포춘 걸")), Db(u2b("\x04 2☆ \x19두근거리는 순간")),Db(u2b("\x04 3☆ \x19엘레강트 타임")), Db(u2b("\x04 ★ \x19그 앞의 반짝임으로"))];
+title_15 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19피스케스")), Db(u2b("\x04 1☆ \x19포춘 걸")), Db(u2b("\x04 2☆ \x19두근거리는 순간")), Db(u2b("\x04 3☆ \x19엘레강트 타임")), Db(u2b("\x04 ★ \x19그 앞의 반짝임으로"))]))], 1)[0]
+# (Line 18) const title_16 = [Db(u2b("\x04 0☆ \x19아쿠아리우스")), Db(u2b("\x04 1☆ \x19스프링 뷰티")), Db(u2b("\x04 2☆ \x19해피 홀리 나이트")),Db(u2b("\x04 3☆ \x19BlueMoon Harmony!")), Db(u2b("\x04 ★ \x19상쾌한 바람에 이끌려"))];
+title_16 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19아쿠아리우스")), Db(u2b("\x04 1☆ \x19스프링 뷰티")), Db(u2b("\x04 2☆ \x19해피 홀리 나이트")), Db(u2b("\x04 3☆ \x19BlueMoon Harmony!")), Db(u2b("\x04 ★ \x19상쾌한 바람에 이끌려"))]))], 1)[0]
+# (Line 19) const title_17 = [Db(u2b("\x04 0☆ \x19UNI-ONAIR")), Db(u2b("\x04 1☆ \x194 Luxury")), Db(u2b("\x04 2☆ \x19ANGEL STARS")),Db(u2b("\x04 3☆ \x19윈터 스노우 매직")), Db(u2b("\x04 ★ \x19파멸의 연주자"))];
+title_17 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19UNI-ONAIR")), Db(u2b("\x04 1☆ \x194 Luxury")), Db(u2b("\x04 2☆ \x19ANGEL STARS")), Db(u2b("\x04 3☆ \x19윈터 스노우 매직")), Db(u2b("\x04 ★ \x19파멸의 연주자"))]))], 1)[0]
+# (Line 20) const title_18 = [Db(u2b("\x04 0☆ \x19루나")), Db(u2b("\x04 1☆ \x19눈부신 별바다")), Db(u2b("\x04 2☆ \x19있는 그대로, 쭉")),Db(u2b("\x04 3☆ \x19ARCANA")), Db(u2b("\x04 ★ \x19벚꽃에 끌려서"))];
+title_18 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19루나")), Db(u2b("\x04 1☆ \x19눈부신 별바다")), Db(u2b("\x04 2☆ \x19있는 그대로, 쭉")), Db(u2b("\x04 3☆ \x19ARCANA")), Db(u2b("\x04 ★ \x19벚꽃에 끌려서"))]))], 1)[0]
+# (Line 21) const title_19 = [Db(u2b("\x04 0☆ \x19스텔라")), Db(u2b("\x04 1☆ \x19하룻밤의 마법")), Db(u2b("\x04 2☆ \x19큐티 트릭")),Db(u2b("\x04 3☆ \x19맑게, 화려하게")), Db(u2b("\x04 ★ \x19월광 판타지아"))];
+title_19 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19스텔라")), Db(u2b("\x04 1☆ \x19하룻밤의 마법")), Db(u2b("\x04 2☆ \x19큐티 트릭")), Db(u2b("\x04 3☆ \x19맑게, 화려하게")), Db(u2b("\x04 ★ \x19월광 판타지아"))]))], 1)[0]
+# (Line 22) const title_20 = [Db(u2b("\x04 0☆ \x19스텔라")), Db(u2b("\x04 1☆ \x19우아한 한때")), Db(u2b("\x04 2☆ \x19밤하늘에 반짝이는")),Db(u2b("\x04 3☆ \x19스노우 판타지 나이트")), Db(u2b("\x04 ★ \x19내가 좋아하는 것"))];
+title_20 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19스텔라")), Db(u2b("\x04 1☆ \x19우아한 한때")), Db(u2b("\x04 2☆ \x19밤하늘에 반짝이는")), Db(u2b("\x04 3☆ \x19스노우 판타지 나이트")), Db(u2b("\x04 ★ \x19내가 좋아하는 것"))]))], 1)[0]
+# (Line 23) const title_21 = [Db(u2b("\x04 0☆ \x19솔")), Db(u2b("\x04 1☆ \x19만전의 서포트")), Db(u2b("\x04 2☆ \x19눈치채줘! 소녀의 마음")),Db(u2b("\x04 3☆ \x19반짝이는 뮤지엄")), Db(u2b("\x04 ★ \x19스포트라이트 너머로"))];
+title_21 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19솔")), Db(u2b("\x04 1☆ \x19만전의 서포트")), Db(u2b("\x04 2☆ \x19눈치채줘! 소녀의 마음")), Db(u2b("\x04 3☆ \x19반짝이는 뮤지엄")), Db(u2b("\x04 ★ \x19스포트라이트 너머로"))]))], 1)[0]
+# (Line 24) const title_22 = [Db(u2b("\x04 0☆ \x19비르고")), Db(u2b("\x04 1☆ \x19FAIRY STARS")), Db(u2b("\x04 2☆ \x19물방울 프리즘")),Db(u2b("\x04 3☆ \x19닿아라, 이 목소리!")), Db(u2b("\x04 ★ \x19생각은 시가에 숨기고"))];
+title_22 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19비르고")), Db(u2b("\x04 1☆ \x19FAIRY STARS")), Db(u2b("\x04 2☆ \x19물방울 프리즘")), Db(u2b("\x04 3☆ \x19닿아라, 이 목소리!")), Db(u2b("\x04 ★ \x19생각은 시가에 숨기고"))]))], 1)[0]
+# (Line 25) const title_23 = [Db(u2b("\x04 0☆ \x19사지타리어스")), Db(u2b("\x04 1☆ \x19별하늘의 양자리")), Db(u2b("\x04 2☆ \x19베스트 샷 모멘트!")),Db(u2b("\x04 3☆ \x19트렌드를 선점")), Db(u2b("\x04 ★ \x19뇌쇄 알라바스터"))];
+title_23 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19사지타리어스")), Db(u2b("\x04 1☆ \x19별하늘의 양자리")), Db(u2b("\x04 2☆ \x19베스트 샷 모멘트!")), Db(u2b("\x04 3☆ \x19트렌드를 선점")), Db(u2b("\x04 ★ \x19뇌쇄 알라바스터"))]))], 1)[0]
+# (Line 26) const title_24 = [Db(u2b("\x04 0☆ \x19레오")), Db(u2b("\x04 1☆ \x19프루티베이비")), Db(u2b("\x04 2☆ \x19Jelly PoP Beans")),Db(u2b("\x04 3☆ \x19특별한 날을 위해")), Db(u2b("\x04 ★ \x19이머전시 이머전스"))];
+title_24 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19레오")), Db(u2b("\x04 1☆ \x19프루티베이비")), Db(u2b("\x04 2☆ \x19Jelly PoP Beans")), Db(u2b("\x04 3☆ \x19특별한 날을 위해")), Db(u2b("\x04 ★ \x19이머전시 이머전스"))]))], 1)[0]
+# (Line 27) const title_25 = [Db(u2b("\x04 0☆ \x19피스케스")), Db(u2b("\x04 1☆ \x19야상영양")), Db(u2b("\x04 2☆ \x19BlueMoon Harmony!")),Db(u2b("\x04 3☆ \x19꽃보다 화려하게")), Db(u2b("\x04 ★ \x19포춘 걸"))];
+title_25 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19피스케스")), Db(u2b("\x04 1☆ \x19야상영양")), Db(u2b("\x04 2☆ \x19BlueMoon Harmony!")), Db(u2b("\x04 3☆ \x19꽃보다 화려하게")), Db(u2b("\x04 ★ \x19포춘 걸"))]))], 1)[0]
+# (Line 28) const title_26 = [Db(u2b("\x04 0☆ \x19스콜피오")), Db(u2b("\x04 1☆ \x19EScape")), Db(u2b("\x04 2☆ \x19선상의 테라피스트")),Db(u2b("\x04 3☆ \x19프레셔스 기프트")), Db(u2b("\x04 ★ \x19리얼 인텐션"))];
+title_26 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19스콜피오")), Db(u2b("\x04 1☆ \x19EScape")), Db(u2b("\x04 2☆ \x19선상의 테라피스트")), Db(u2b("\x04 3☆ \x19프레셔스 기프트")), Db(u2b("\x04 ★ \x19리얼 인텐션"))]))], 1)[0]
+# (Line 29) const title_27 = [Db(u2b("\x04 0☆ \x19사지타리어스")), Db(u2b("\x04 1☆ \x19BIRTH")), Db(u2b("\x04 2☆ \x19Jelly PoP Beans")),Db(u2b("\x04 3☆ \x19할로윈 위치")), Db(u2b("\x04 ★ \x19미라클 퍼포머"))];
+title_27 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19사지타리어스")), Db(u2b("\x04 1☆ \x19BIRTH")), Db(u2b("\x04 2☆ \x19Jelly PoP Beans")), Db(u2b("\x04 3☆ \x19할로윈 위치")), Db(u2b("\x04 ★ \x19미라클 퍼포머"))]))], 1)[0]
+# (Line 30) const title_28 = [Db(u2b("\x04 0☆ \x19피스케스")), Db(u2b("\x04 1☆ \x19야상영양")), Db(u2b("\x04 2☆ \x19내츄럴 스마일")),Db(u2b("\x04 3☆ \x19태양의 스포트라이트")), Db(u2b("\x04 ★ \x19환상의 빛 속에서"))];
+title_28 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19피스케스")), Db(u2b("\x04 1☆ \x19야상영양")), Db(u2b("\x04 2☆ \x19내츄럴 스마일")), Db(u2b("\x04 3☆ \x19태양의 스포트라이트")), Db(u2b("\x04 ★ \x19환상의 빛 속에서"))]))], 1)[0]
+# (Line 31) const title_29 = [Db(u2b("\x04 0☆ \x19사지타리어스")), Db(u2b("\x04 1☆ \x19무표정 MC")), Db(u2b("\x04 2☆ \x19모두에게 사랑을 담아")),Db(u2b("\x04 3☆ \x19쏟아지는 샤인 샤워")), Db(u2b("\x04 ★ \x19...In The Name Of ...LOVE?"))];
+title_29 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19사지타리어스")), Db(u2b("\x04 1☆ \x19무표정 MC")), Db(u2b("\x04 2☆ \x19모두에게 사랑을 담아")), Db(u2b("\x04 3☆ \x19쏟아지는 샤인 샤워")), Db(u2b("\x04 ★ \x19...In The Name Of ...LOVE?"))]))], 1)[0]
+# (Line 32) const title_30 = [Db(u2b("\x04 0☆ \x19카프리콘")), Db(u2b("\x04 1☆ \x19장난스러운 유혹")), Db(u2b("\x04 2☆ \x19Sherry 'n Cherry")),Db(u2b("\x04 3☆ \x19아름다운 엘프 전사")), Db(u2b("\x04 ★ \x19Be My Boy"))];
+title_30 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19카프리콘")), Db(u2b("\x04 1☆ \x19장난스러운 유혹")), Db(u2b("\x04 2☆ \x19Sherry 'n Cherry")), Db(u2b("\x04 3☆ \x19아름다운 엘프 전사")), Db(u2b("\x04 ★ \x19Be My Boy"))]))], 1)[0]
+# (Line 33) const title_31 = [Db(u2b("\x04 0☆ \x19비르고")), Db(u2b("\x04 1☆ \x19Chrono-Lexica")), Db(u2b("\x04 2☆ \x19야구 소녀")),Db(u2b("\x04 3☆ \x19스위트 팔레트 랜드")), Db(u2b("\x04 ★ \x19차도의 프로미스"))];
+title_31 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19비르고")), Db(u2b("\x04 1☆ \x19Chrono-Lexica")), Db(u2b("\x04 2☆ \x19야구 소녀")), Db(u2b("\x04 3☆ \x19스위트 팔레트 랜드")), Db(u2b("\x04 ★ \x19차도의 프로미스"))]))], 1)[0]
+# (Line 34) const title_32 = [Db(u2b("\x04 0☆ \x19제미니")), Db(u2b("\x04 1☆ \x19액티브 치어링")), Db(u2b("\x04 2☆ \x19맛있게 드세요")),Db(u2b("\x04 3☆ \x19꿈빛식부")), Db(u2b("\x04 ★ \x19스마일 캣 랜드"))];
+title_32 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19제미니")), Db(u2b("\x04 1☆ \x19액티브 치어링")), Db(u2b("\x04 2☆ \x19맛있게 드세요")), Db(u2b("\x04 3☆ \x19꿈빛식부")), Db(u2b("\x04 ★ \x19스마일 캣 랜드"))]))], 1)[0]
+# (Line 35) const title_33 = [Db(u2b("\x04 0☆ \x19아쿠아리우스")), Db(u2b("\x04 1☆ \x19히어로즈 제네시스")), Db(u2b("\x04 2☆ \x19D/Zeal")),Db(u2b("\x04 3☆ \x19새해맞이 플레이어")), Db(u2b("\x04 ★ \x19자그마한 오케스트라"))];
+title_33 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19아쿠아리우스")), Db(u2b("\x04 1☆ \x19히어로즈 제네시스")), Db(u2b("\x04 2☆ \x19D/Zeal")), Db(u2b("\x04 3☆ \x19새해맞이 플레이어")), Db(u2b("\x04 ★ \x19자그마한 오케스트라"))]))], 1)[0]
+# (Line 36) const title_34 = [Db(u2b("\x04 0☆ \x19UNI-ONAIR")), Db(u2b("\x04 1☆ \x19히어로즈 제네시스")), Db(u2b("\x04 2☆ \x19하나사쿠야")),Db(u2b("\x04 3☆ \x19도시의 바람을 맞으며")), Db(u2b("\x04 ★ \x19...콩"))];
+title_34 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19UNI-ONAIR")), Db(u2b("\x04 1☆ \x19히어로즈 제네시스")), Db(u2b("\x04 2☆ \x19하나사쿠야")), Db(u2b("\x04 3☆ \x19도시의 바람을 맞으며")), Db(u2b("\x04 ★ \x19...콩"))]))], 1)[0]
+# (Line 37) const title_35 = [Db(u2b("\x04 0☆ \x19스텔라")), Db(u2b("\x04 1☆ \x19쿠킹 스터디!")), Db(u2b("\x04 2☆ \x19푹신푹신 드리밍")),Db(u2b("\x04 3☆ \x19연결되는 미소")), Db(u2b("\x04 ★ \x19아웃사이더"))];
+title_35 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19스텔라")), Db(u2b("\x04 1☆ \x19쿠킹 스터디!")), Db(u2b("\x04 2☆ \x19푹신푹신 드리밍")), Db(u2b("\x04 3☆ \x19연결되는 미소")), Db(u2b("\x04 ★ \x19아웃사이더"))]))], 1)[0]
+# (Line 38) const title_36 = [Db(u2b("\x04 0☆ \x19스텔라")), Db(u2b("\x04 1☆ \x19Xs")), Db(u2b("\x04 2☆ \x19아늑한 차")),Db(u2b("\x04 3☆ \x19어둠을 지배하는 자")), Db(u2b("\x04 ★ \x19브랜뉴 시너리"))];
+title_36 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19스텔라")), Db(u2b("\x04 1☆ \x19Xs")), Db(u2b("\x04 2☆ \x19아늑한 차")), Db(u2b("\x04 3☆ \x19어둠을 지배하는 자")), Db(u2b("\x04 ★ \x19브랜뉴 시너리"))]))], 1)[0]
+# (Line 39) const title_37 = [Db(u2b("\x04 0☆ \x19루나")), Db(u2b("\x04 1☆ \x19복숭아빛 스마일")), Db(u2b("\x04 2☆ \x19핸섬 비스트")),Db(u2b("\x04 3☆ \x19아웃사이더")), Db(u2b("\x04 ★ \x19블랙 스트랭스"))];
+title_37 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19루나")), Db(u2b("\x04 1☆ \x19복숭아빛 스마일")), Db(u2b("\x04 2☆ \x19핸섬 비스트")), Db(u2b("\x04 3☆ \x19아웃사이더")), Db(u2b("\x04 ★ \x19블랙 스트랭스"))]))], 1)[0]
+# (Line 40) const title_38 = [Db(u2b("\x04 0☆ \x19루나")), Db(u2b("\x04 1☆ \x19HAPPY DREAMER")), Db(u2b("\x04 2☆ \x19선샤인 브라이트")),Db(u2b("\x04 3☆ \x19핫 서머 메모리즈")), Db(u2b("\x04 ★ \x19동화 나라 이야기"))];
+title_38 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19루나")), Db(u2b("\x04 1☆ \x19HAPPY DREAMER")), Db(u2b("\x04 2☆ \x19선샤인 브라이트")), Db(u2b("\x04 3☆ \x19핫 서머 메모리즈")), Db(u2b("\x04 ★ \x19동화 나라 이야기"))]))], 1)[0]
+# (Line 41) const title_39 = [Db(u2b("\x04 0☆ \x19타우러스")), Db(u2b("\x04 1☆ \x19PRINCESS STARS")), Db(u2b("\x04 2☆ \x19Starry Melody!")),Db(u2b("\x04 3☆ \x19풀 스로틀★걸")), Db(u2b("\x04 ★ \x19선라이트 브라이드"))];
+title_39 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19타우러스")), Db(u2b("\x04 1☆ \x19PRINCESS STARS")), Db(u2b("\x04 2☆ \x19Starry Melody!")), Db(u2b("\x04 3☆ \x19풀 스로틀★걸")), Db(u2b("\x04 ★ \x19선라이트 브라이드"))]))], 1)[0]
+# (Line 42) const title_40 = [Db(u2b("\x04 0☆ \x19스콜피오")), Db(u2b("\x04 1☆ \x19큐트하게 공주 포즈")), Db(u2b("\x04 2☆ \x19꽃들의 축복")),Db(u2b("\x04 3☆ \x19가을 향기에 휩싸여")), Db(u2b("\x04 ★ \x19어제도 오늘도 그 다음에도"))];
+title_40 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19스콜피오")), Db(u2b("\x04 1☆ \x19큐트하게 공주 포즈")), Db(u2b("\x04 2☆ \x19꽃들의 축복")), Db(u2b("\x04 3☆ \x19가을 향기에 휩싸여")), Db(u2b("\x04 ★ \x19어제도 오늘도 그 다음에도"))]))], 1)[0]
+# (Line 43) const title_41 = [Db(u2b("\x04 0☆ \x19리브라")), Db(u2b("\x04 1☆ \x19스마일 할로윈!")), Db(u2b("\x04 2☆ \x19톡톡 튀는 여름의 맛")),Db(u2b("\x04 3☆ \x19최강의 음양사!")), Db(u2b("\x04 ★ \x19스마일 최고"))];
+title_41 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19리브라")), Db(u2b("\x04 1☆ \x19스마일 할로윈!")), Db(u2b("\x04 2☆ \x19톡톡 튀는 여름의 맛")), Db(u2b("\x04 3☆ \x19최강의 음양사!")), Db(u2b("\x04 ★ \x19스마일 최고"))]))], 1)[0]
+# (Line 44) const title_42 = [Db(u2b("\x04 0☆ \x19타우러스")), Db(u2b("\x04 1☆ \x19CharlotteCharlotte")), Db(u2b("\x04 2☆ \x19로맨틱 랜드")),Db(u2b("\x04 3☆ \x19크리스마스★스위츠")), Db(u2b("\x04 ★ \x19헤븐리 플라워즈"))];
+title_42 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19타우러스")), Db(u2b("\x04 1☆ \x19CharlotteCharlotte")), Db(u2b("\x04 2☆ \x19로맨틱 랜드")), Db(u2b("\x04 3☆ \x19크리스마스★스위츠")), Db(u2b("\x04 ★ \x19헤븐리 플라워즈"))]))], 1)[0]
+# (Line 45) const title_43 = [Db(u2b("\x04 0☆ \x19비르고")), Db(u2b("\x04 1☆ \x19Chrono-Lexica")), Db(u2b("\x04 2☆ \x19Love it!")),Db(u2b("\x04 3☆ \x19마음에 드는 이야기")), Db(u2b("\x04 ★ \x19행복은 라지 사이즈로"))];
+title_43 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19비르고")), Db(u2b("\x04 1☆ \x19Chrono-Lexica")), Db(u2b("\x04 2☆ \x19Love it!")), Db(u2b("\x04 3☆ \x19마음에 드는 이야기")), Db(u2b("\x04 ★ \x19행복은 라지 사이즈로"))]))], 1)[0]
+# (Line 46) const title_44 = [Db(u2b("\x04 0☆ \x19아쿠아리우스")), Db(u2b("\x04 1☆ \x19기념 스냅샷")), Db(u2b("\x04 2☆ \x19초 비치발리볼")),Db(u2b("\x04 3☆ \x19치어풀 크리스마스!")), Db(u2b("\x04 ★ \x19그레이트 하비스트"))];
+title_44 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19아쿠아리우스")), Db(u2b("\x04 1☆ \x19기념 스냅샷")), Db(u2b("\x04 2☆ \x19초 비치발리볼")), Db(u2b("\x04 3☆ \x19치어풀 크리스마스!")), Db(u2b("\x04 ★ \x19그레이트 하비스트"))]))], 1)[0]
+# (Line 47) const title_45 = [Db(u2b("\x04 0☆ \x19스콜피오")), Db(u2b("\x04 1☆ \x19새해 첫 샷")), Db(u2b("\x04 2☆ \x19언제나 전력!")),Db(u2b("\x04 3☆ \x19소악마 리빙 데드")), Db(u2b("\x04 ★ \x19액티비티 볼"))];
+title_45 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19스콜피오")), Db(u2b("\x04 1☆ \x19새해 첫 샷")), Db(u2b("\x04 2☆ \x19언제나 전력!")), Db(u2b("\x04 3☆ \x19소악마 리빙 데드")), Db(u2b("\x04 ★ \x19액티비티 볼"))]))], 1)[0]
+# (Line 48) const title_46 = [Db(u2b("\x04 0☆ \x19스콜피오")), Db(u2b("\x04 1☆ \x19섬광☆HANABI단")), Db(u2b("\x04 2☆ \x19동경하는 대변신")),Db(u2b("\x04 3☆ \x19걸즈 페스티벌")), Db(u2b("\x04 ★ \x19신춘 해피니스 걸"))];
+title_46 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19스콜피오")), Db(u2b("\x04 1☆ \x19섬광☆HANABI단")), Db(u2b("\x04 2☆ \x19동경하는 대변신")), Db(u2b("\x04 3☆ \x19걸즈 페스티벌")), Db(u2b("\x04 ★ \x19신춘 해피니스 걸"))]))], 1)[0]
+# (Line 49) const title_47 = [Db(u2b("\x04 0☆ \x19레오")), Db(u2b("\x04 1☆ \x19오늘도 활기 만점!")), Db(u2b("\x04 2☆ \x19끄떡없는 프라이드")),Db(u2b("\x04 3☆ \x19우정의 메타모르포제")), Db(u2b("\x04 ★ \x19쪽! 해버릴 거야"))];
+title_47 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19레오")), Db(u2b("\x04 1☆ \x19오늘도 활기 만점!")), Db(u2b("\x04 2☆ \x19끄떡없는 프라이드")), Db(u2b("\x04 3☆ \x19우정의 메타모르포제")), Db(u2b("\x04 ★ \x19쪽! 해버릴 거야"))]))], 1)[0]
+# (Line 50) const title_48 = [Db(u2b("\x04 0☆ \x19캔서")), Db(u2b("\x04 1☆ \x19CharlotteCharlotte")), Db(u2b("\x04 2☆ \x19청초한 아가씨")),Db(u2b("\x04 3☆ \x19염소씨와 집배원씨")), Db(u2b("\x04 ★ \x19쿠노이치 대면!"))];
+title_48 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19캔서")), Db(u2b("\x04 1☆ \x19CharlotteCharlotte")), Db(u2b("\x04 2☆ \x19청초한 아가씨")), Db(u2b("\x04 3☆ \x19염소씨와 집배원씨")), Db(u2b("\x04 ★ \x19쿠노이치 대면!"))]))], 1)[0]
+# (Line 51) const title_49 = [Db(u2b("\x04 0☆ \x19카프리콘")), Db(u2b("\x04 1☆ \x19Sunshine Rhythm!")), Db(u2b("\x04 2☆ \x19서커스의 스타")),Db(u2b("\x04 3☆ \x19인조이 윈터 데이트")), Db(u2b("\x04 ★ \x19주문"))];
+title_49 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19카프리콘")), Db(u2b("\x04 1☆ \x19Sunshine Rhythm!")), Db(u2b("\x04 2☆ \x19서커스의 스타")), Db(u2b("\x04 3☆ \x19인조이 윈터 데이트")), Db(u2b("\x04 ★ \x19주문"))]))], 1)[0]
+# (Line 52) const title_50 = [Db(u2b("\x04 0☆ \x19캔서")), Db(u2b("\x04 1☆ \x19Jus2Mint")), Db(u2b("\x04 2☆ \x19두근거림을 밟으며 가자")),Db(u2b("\x04 3☆ \x19조이풀 그레텔")), Db(u2b("\x04 ★ \x19붉게 빛나며!"))];
+title_50 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19캔서")), Db(u2b("\x04 1☆ \x19Jus2Mint")), Db(u2b("\x04 2☆ \x19두근거림을 밟으며 가자")), Db(u2b("\x04 3☆ \x19조이풀 그레텔")), Db(u2b("\x04 ★ \x19붉게 빛나며!"))]))], 1)[0]
+# (Line 53) const title_51 = [Db(u2b("\x04 0☆ \x19리브라")), Db(u2b("\x04 1☆ \x19잔잔한 저녁 바람")), Db(u2b("\x04 2☆ \x19뉴 이어 공")),Db(u2b("\x04 3☆ \x19컬러풀링 에그!")), Db(u2b("\x04 ★ \x19소녀, 바람에 흩날려"))];
+title_51 = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("\x04 0☆ \x19리브라")), Db(u2b("\x04 1☆ \x19잔잔한 저녁 바람")), Db(u2b("\x04 2☆ \x19뉴 이어 공")), Db(u2b("\x04 3☆ \x19컬러풀링 에그!")), Db(u2b("\x04 ★ \x19소녀, 바람에 흩날려"))]))], 1)[0]

@@ -68,7 +68,7 @@ def onPluginStart():
         SetMemoryEPD(WireOffset + 161, SetTo, 1),
         SetMemoryEPD(WireOffset + 162, SetTo, 2037923904),
         SetMemoryEPD(WireOffset + 163, SetTo, 100859905),
-        SetMemoryEPD(WireOffset + 175, SetTo, 33554432),
+        SetMemoryEPD(WireOffset + 175, SetTo, 33554433),
         SetMemoryEPD(WireOffset + 176, SetTo, 1916550464),
         SetMemoryEPD(WireOffset + 177, SetTo, 1),
         SetMemoryEPD(WireOffset + 177, SetTo, 1),
@@ -98,9 +98,21 @@ def onPluginStart():
         SetMemoryEPD(WireOffset + 209, SetTo, 33554434),
         SetMemoryEPD(WireOffset + 210, SetTo, 1916550464),
         SetMemoryEPD(WireOffset + 211, SetTo, 83951617),
+        SetMemoryEPD(WireOffset + 219, SetTo, 118292482),
+        SetMemoryEPD(WireOffset + 220, SetTo, 3417977891),
+        SetMemoryEPD(WireOffset + 221, SetTo, 100663298),
+        SetMemoryEPD(WireOffset + 223, SetTo, 118292482),
+        SetMemoryEPD(WireOffset + 224, SetTo, 3417977891),
+        SetMemoryEPD(WireOffset + 225, SetTo, 2),
+        SetMemoryEPD(WireOffset + 227, SetTo, 118292482),
+        SetMemoryEPD(WireOffset + 228, SetTo, 3417977891),
+        SetMemoryEPD(WireOffset + 229, SetTo, 100728834),
+        SetMemoryEPD(WireOffset + 229, SetTo, 100728834),
+        SetMemoryEPD(WireOffset + 230, SetTo, 54472767),
+        SetMemoryEPD(WireOffset + 231, SetTo, 83951619),
         SetMemoryEPD(WireOffset + 251, SetTo, 67436546),
         SetMemoryEPD(WireOffset + 252, SetTo, 3150067253),
-        SetMemoryEPD(WireOffset + 253, SetTo, 16777217),
+        SetMemoryEPD(WireOffset + 253, SetTo, 117440513),
         SetMemoryEPD(WireOffset + 279, SetTo, 118292483),
         SetMemoryEPD(WireOffset + 280, SetTo, 3417977891),
         SetMemoryEPD(WireOffset + 281, SetTo, 118292482),
@@ -269,9 +281,21 @@ def onPluginStart():
         SetMemoryEPD(GrpOffset + 209, SetTo, 0),
         SetMemoryEPD(GrpOffset + 210, SetTo, 2245533472),
         SetMemoryEPD(GrpOffset + 211, SetTo, 83951616),
+        SetMemoryEPD(GrpOffset + 219, SetTo, 33554432),
+        SetMemoryEPD(GrpOffset + 220, SetTo, 1363287072),
+        SetMemoryEPD(GrpOffset + 221, SetTo, 83951616),
+        SetMemoryEPD(GrpOffset + 223, SetTo, 33554432),
+        SetMemoryEPD(GrpOffset + 224, SetTo, 1363287072),
+        SetMemoryEPD(GrpOffset + 225, SetTo, 83951616),
+        SetMemoryEPD(GrpOffset + 227, SetTo, 33554432),
+        SetMemoryEPD(GrpOffset + 228, SetTo, 1363287072),
+        SetMemoryEPD(GrpOffset + 229, SetTo, 33554432),
+        SetMemoryEPD(GrpOffset + 229, SetTo, 33554432),
+        SetMemoryEPD(GrpOffset + 230, SetTo, 1363287072),
+        SetMemoryEPD(GrpOffset + 231, SetTo, 83951616),
         SetMemoryEPD(GrpOffset + 251, SetTo, 16842752),
         SetMemoryEPD(GrpOffset + 252, SetTo, 2518490396),
-        SetMemoryEPD(GrpOffset + 253, SetTo, 33554432),
+        SetMemoryEPD(GrpOffset + 253, SetTo, 83951616),
     ])
     tranOffset = f_epdread_epd(EPD(0x68C1F4))
     DoActions([
@@ -323,6 +347,14 @@ def onPluginStart():
         SetMemory(0x51969C, SetTo, 4353872),
         SetMemory(0x5196D4, SetTo, 4344192),
         SetMemory(0x5196D8, SetTo, 4353872),
+        SetMemory(0x5198C0, SetTo, 4344192),
+        SetMemory(0x5198C4, SetTo, 4353872),
+        SetMemory(0x5198D8, SetTo, 4344192),
+        SetMemory(0x5198DC, SetTo, 4353872),
+        SetMemory(0x5198F0, SetTo, 4344192),
+        SetMemory(0x5198F4, SetTo, 4353872),
+        SetMemory(0x5198FC, SetTo, 4344192),
+        SetMemory(0x519900, SetTo, 4353872),
         SetMemory(0x519914, SetTo, 4344192),
         SetMemory(0x519918, SetTo, 4353872),
         SetMemory(0x51995C, SetTo, 4344192),
@@ -610,8 +642,24 @@ def onPluginStart():
         SetMemory(0x518CC8, SetTo, 5),
     ])
     DoActions([
+        SetMemory(0x518D08, SetTo, btnptr0),
+        SetMemory(0x518D04, SetTo, 5),
+    ])
+    DoActions([
+        SetMemory(0x518D20, SetTo, btnptr0),
+        SetMemory(0x518D1C, SetTo, 5),
+    ])
+    DoActions([
         SetMemory(0x518D2C, SetTo, btnptr112),
         SetMemory(0x518D28, SetTo, 3),
+    ])
+    DoActions([
+        SetMemory(0x518D38, SetTo, btnptr0),
+        SetMemory(0x518D34, SetTo, 5),
+    ])
+    DoActions([
+        SetMemory(0x518D44, SetTo, btnptr0),
+        SetMemory(0x518D40, SetTo, 5),
     ])
     DoActions([
         SetMemory(0x518D5C, SetTo, btnptr0),

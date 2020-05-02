@@ -130,409 +130,474 @@ def _LSH(l, r):
 import variable_data as vd
 # (Line 2) import variable_round as vr;
 import variable_round as vr
-# (Line 4) const s = StringBuffer();
+# (Line 3) import customText as tct;
+import customText as tct
+# (Line 4) import getunitID as id;
+import getunitID as id
+# (Line 6) const s = StringBuffer();
 s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 6) function Event_Print(cp);
-# (Line 7) function Trainning_Ticket();
-# (Line 8) function Cloth_Ticket();
+# (Line 8) function Event_Print(cp);
 # (Line 9) function Album_Ticket();
-# (Line 10) function Event_Unit(top, down);
-# (Line 12) function event_score(cp)
-# (Line 13) {
+# (Line 10) function Event_Info(cp);
+# (Line 11) function Event_Unit(top, down);
+# (Line 13) function event_score(cp)
+# (Line 14) {
 @EUDFunc
 def f_event_score(cp):
-    # (Line 14) if (Kills(cp, AtLeast, 1, 90))
+    # (Line 15) if (Kills(cp, AtLeast, 1, 90))
     if EUDIf()(Kills(cp, AtLeast, 1, 90)):
-        # (Line 15) {
-        # (Line 16) SetDeaths(P6, Add,150 +  dwrand() % 30, "Event_Score");
+        # (Line 16) {
         # (Line 17) SetKills(cp, Subtract, 1, 90);
-        DoActions(SetDeaths(P6, Add, 150 + f_dwrand() % 30, "Event_Score"))
-        # (Line 18) }
+        # (Line 19) if (Deaths(P7, Exactly, 0, "Event_type"))
         DoActions(SetKills(cp, Subtract, 1, 90))
-        # (Line 20) if (Deaths(P6, AtLeast, 1000, "Event_Score") && Deaths(P7, AtMost, 0, "Event_Score"))
+        if EUDIf()(Deaths(P7, Exactly, 0, "Event_type")):
+            # (Line 20) {
+            # (Line 21) if (Bring(cp, AtLeast, 1, 109, "Anywhere"))
+            if EUDIf()(Bring(cp, AtLeast, 1, 109, "Anywhere")):
+                # (Line 22) {
+                # (Line 23) SetScore(cp, Add, 25 +  dwrand() % 10, Custom);
+                # (Line 24) }
+                DoActions(SetScore(cp, Add, 25 + f_dwrand() % 10, Custom))
+                # (Line 25) else
+                # (Line 26) {
+            if EUDElse()():
+                # (Line 27) SetScore(cp, Add, 20 +  dwrand() % 8, Custom);
+                # (Line 28) }
+                DoActions(SetScore(cp, Add, 20 + f_dwrand() % 8, Custom))
+                # (Line 29) }
+            EUDEndIf()
+            # (Line 30) else if (Deaths(P7, Exactly, 1, "Event_type"))
+        if EUDElseIf()(Deaths(P7, Exactly, 1, "Event_type")):
+            # (Line 31) {
+            # (Line 32) if (Bring(cp, AtLeast, 1, 111, "Anywhere"))
+            if EUDIf()(Bring(cp, AtLeast, 1, 111, "Anywhere")):
+                # (Line 33) {
+                # (Line 34) SetScore(cp, Add, 25 +  dwrand() % 10, Custom);
+                # (Line 35) }
+                DoActions(SetScore(cp, Add, 25 + f_dwrand() % 10, Custom))
+                # (Line 36) else
+                # (Line 37) {
+            if EUDElse()():
+                # (Line 38) SetScore(cp, Add, 20 +  dwrand() % 8, Custom);
+                # (Line 39) }
+                DoActions(SetScore(cp, Add, 20 + f_dwrand() % 8, Custom))
+                # (Line 40) }
+            EUDEndIf()
+            # (Line 41) else if (Deaths(P7, Exactly, 2, "Event_type"))
+        if EUDElseIf()(Deaths(P7, Exactly, 2, "Event_type")):
+            # (Line 42) {
+            # (Line 43) if (Bring(cp, AtLeast, 1, 113, "Anywhere"))
+            if EUDIf()(Bring(cp, AtLeast, 1, 113, "Anywhere")):
+                # (Line 44) {
+                # (Line 45) SetScore(cp, Add, 25 + dwrand() & 10, Custom);
+                # (Line 46) }
+                DoActions(SetScore(cp, Add, 25 + f_dwrand() & 10, Custom))
+                # (Line 47) else
+                # (Line 48) {
+            if EUDElse()():
+                # (Line 49) SetScore(cp, Add, 20 +  dwrand() % 8, Custom);
+                # (Line 50) }
+                DoActions(SetScore(cp, Add, 20 + f_dwrand() % 8, Custom))
+                # (Line 51) }
+            EUDEndIf()
+            # (Line 53) SetScore(P6, Add, 100 + dwrand() % 10, Custom);
+        EUDEndIf()
+        # (Line 54) }
+        DoActions(SetScore(P6, Add, 100 + f_dwrand() % 10, Custom))
+        # (Line 56) if (Score(P6, Custom, AtLeast, 1000) && Deaths(P7, AtMost, 0, "Event_Score"))
     EUDEndIf()
-    if EUDIf()(EUDSCAnd()(Deaths(P6, AtLeast, 1000, "Event_Score"))(Deaths(P7, AtMost, 0, "Event_Score"))()):
-        # (Line 21) {
-        # (Line 22) SetDeaths(Force1, SetTo, 1, "Event_Score");
-        # (Line 23) SetDeaths(P7, Add, 1, "Event_Score");
-        DoActions(SetDeaths(Force1, SetTo, 1, "Event_Score"))
-        # (Line 24) SetResources(Force1, Add, 100, Ore);
-        DoActions(SetDeaths(P7, Add, 1, "Event_Score"))
-        # (Line 25) }
-        DoActions(SetResources(Force1, Add, 100, Ore))
-        # (Line 26) if (Deaths(P6, AtLeast, 3000, "Event_Score") && Deaths(P7, AtMost, 1, "Event_Score"))
-    EUDEndIf()
-    if EUDIf()(EUDSCAnd()(Deaths(P6, AtLeast, 3000, "Event_Score"))(Deaths(P7, AtMost, 1, "Event_Score"))()):
-        # (Line 27) {
-        # (Line 28) SetDeaths(Force1, SetTo, 2, "Event_Score");
-        # (Line 29) SetDeaths(P7, Add, 1, "Event_Score");
-        DoActions(SetDeaths(Force1, SetTo, 2, "Event_Score"))
-        # (Line 30) SetResources(Force1, Add, 1, Gas);
-        DoActions(SetDeaths(P7, Add, 1, "Event_Score"))
-        # (Line 31) }
-        DoActions(SetResources(Force1, Add, 1, Gas))
-        # (Line 32) if (Deaths(P6, AtLeast, 5000, "Event_Score") && Deaths(P7, AtMost, 2, "Event_Score"))
-    EUDEndIf()
-    if EUDIf()(EUDSCAnd()(Deaths(P6, AtLeast, 5000, "Event_Score"))(Deaths(P7, AtMost, 2, "Event_Score"))()):
-        # (Line 33) {
-        # (Line 34) SetDeaths(Force1, SetTo, 3, "Event_Score");
-        # (Line 35) SetDeaths(P7, Add, 1, "Event_Score");
-        DoActions(SetDeaths(Force1, SetTo, 3, "Event_Score"))
-        # (Line 36) CreateUnit(1, 64, "MedalGacha", Force1);
-        DoActions(SetDeaths(P7, Add, 1, "Event_Score"))
-        # (Line 37) }
-        DoActions(CreateUnit(1, 64, "MedalGacha", Force1))
-        # (Line 38) if (Deaths(P6, AtLeast, 7500, "Event_Score") && Deaths(P7, AtMost, 3, "Event_Score"))
-    EUDEndIf()
-    if EUDIf()(EUDSCAnd()(Deaths(P6, AtLeast, 7500, "Event_Score"))(Deaths(P7, AtMost, 3, "Event_Score"))()):
-        # (Line 39) {
-        # (Line 40) SetDeaths(Force1, SetTo, 4, "Event_Score");
-        # (Line 41) SetDeaths(P7, Add, 1, "Event_Score");
-        DoActions(SetDeaths(Force1, SetTo, 4, "Event_Score"))
-        # (Line 42) Album_Ticket();
-        DoActions(SetDeaths(P7, Add, 1, "Event_Score"))
-        Album_Ticket()
-        # (Line 43) }
-        # (Line 44) if (Deaths(P6, AtLeast, 10000, "Event_Score") && Deaths(P7, AtMost, 4, "Event_Score"))
-    EUDEndIf()
-    if EUDIf()(EUDSCAnd()(Deaths(P6, AtLeast, 10000, "Event_Score"))(Deaths(P7, AtMost, 4, "Event_Score"))()):
-        # (Line 45) {
-        # (Line 46) SetDeaths(Force1, SetTo, 5, "Event_Score");
-        # (Line 47) SetDeaths(P7, Add, 1, "Event_Score");
-        DoActions(SetDeaths(Force1, SetTo, 5, "Event_Score"))
-        # (Line 48) CreateUnit(1, 7, "MedalGacha", Force1);
-        DoActions(SetDeaths(P7, Add, 1, "Event_Score"))
-        # (Line 49) }
-        DoActions(CreateUnit(1, 7, "MedalGacha", Force1))
-        # (Line 50) if (Deaths(P6, AtLeast, 11000, "Event_Score") && Deaths(P7, AtMost, 5, "Event_Score"))
-    EUDEndIf()
-    if EUDIf()(EUDSCAnd()(Deaths(P6, AtLeast, 11000, "Event_Score"))(Deaths(P7, AtMost, 5, "Event_Score"))()):
-        # (Line 51) {
-        # (Line 52) SetDeaths(Force1, SetTo, 6, "Event_Score");
-        # (Line 53) SetDeaths(P7, Add, 1, "Event_Score");
-        DoActions(SetDeaths(Force1, SetTo, 6, "Event_Score"))
-        # (Line 54) SetResources(Force1, Add, 200, Ore);
-        DoActions(SetDeaths(P7, Add, 1, "Event_Score"))
-        # (Line 55) }
-        DoActions(SetResources(Force1, Add, 200, Ore))
-        # (Line 56) if (Deaths(P6, AtLeast, 12000, "Event_Score") && Deaths(P7, AtMost, 6, "Event_Score"))
-    EUDEndIf()
-    if EUDIf()(EUDSCAnd()(Deaths(P6, AtLeast, 12000, "Event_Score"))(Deaths(P7, AtMost, 6, "Event_Score"))()):
+    if EUDIf()(EUDSCAnd()(Score(P6, Custom, AtLeast, 1000))(Deaths(P7, AtMost, 0, "Event_Score"))()):
         # (Line 57) {
-        # (Line 58) SetDeaths(Force1, SetTo, 7, "Event_Score");
+        # (Line 58) SetDeaths(Force1, SetTo, 1, "Event_Score");
         # (Line 59) SetDeaths(P7, Add, 1, "Event_Score");
-        DoActions(SetDeaths(Force1, SetTo, 7, "Event_Score"))
-        # (Line 60) SetResources(Force1, Add, 2, Gas);
+        DoActions(SetDeaths(Force1, SetTo, 1, "Event_Score"))
+        # (Line 60) SetResources(Force1, Add, 100, Ore);
         DoActions(SetDeaths(P7, Add, 1, "Event_Score"))
         # (Line 61) }
-        DoActions(SetResources(Force1, Add, 2, Gas))
-        # (Line 62) if (Deaths(P6, AtLeast, 13000, "Event_Score") && Deaths(P7, AtMost, 7, "Event_Score"))
+        DoActions(SetResources(Force1, Add, 100, Ore))
+        # (Line 62) if (Score(P6, Custom, AtLeast, 3000) && Deaths(P7, AtMost, 1, "Event_Score"))
     EUDEndIf()
-    if EUDIf()(EUDSCAnd()(Deaths(P6, AtLeast, 13000, "Event_Score"))(Deaths(P7, AtMost, 7, "Event_Score"))()):
+    if EUDIf()(EUDSCAnd()(Score(P6, Custom, AtLeast, 3000))(Deaths(P7, AtMost, 1, "Event_Score"))()):
         # (Line 63) {
-        # (Line 64) SetDeaths(Force1, SetTo, 8, "Event_Score");
+        # (Line 64) SetDeaths(Force1, SetTo, 2, "Event_Score");
         # (Line 65) SetDeaths(P7, Add, 1, "Event_Score");
-        DoActions(SetDeaths(Force1, SetTo, 8, "Event_Score"))
-        # (Line 66) SetResources(Force1, Add, 300, Ore);
+        DoActions(SetDeaths(Force1, SetTo, 2, "Event_Score"))
+        # (Line 66) SetResources(Force1, Add, 1, Gas);
         DoActions(SetDeaths(P7, Add, 1, "Event_Score"))
         # (Line 67) }
-        DoActions(SetResources(Force1, Add, 300, Ore))
-        # (Line 68) if (Deaths(P6, AtLeast, 14000, "Event_Score") && Deaths(P7, AtMost, 8, "Event_Score"))
+        DoActions(SetResources(Force1, Add, 1, Gas))
+        # (Line 68) if (Score(P6, Custom, AtLeast, 5000) && Deaths(P7, AtMost, 2, "Event_Score"))
     EUDEndIf()
-    if EUDIf()(EUDSCAnd()(Deaths(P6, AtLeast, 14000, "Event_Score"))(Deaths(P7, AtMost, 8, "Event_Score"))()):
+    if EUDIf()(EUDSCAnd()(Score(P6, Custom, AtLeast, 5000))(Deaths(P7, AtMost, 2, "Event_Score"))()):
         # (Line 69) {
-        # (Line 70) SetDeaths(Force1, SetTo, 9, "Event_Score");
+        # (Line 70) SetDeaths(Force1, SetTo, 3, "Event_Score");
         # (Line 71) SetDeaths(P7, Add, 1, "Event_Score");
-        DoActions(SetDeaths(Force1, SetTo, 9, "Event_Score"))
-        # (Line 72) SetResources(Force1, Add, 3, Gas);
+        DoActions(SetDeaths(Force1, SetTo, 3, "Event_Score"))
+        # (Line 72) CreateUnit(1, 64, "MedalGacha", Force1);
         DoActions(SetDeaths(P7, Add, 1, "Event_Score"))
         # (Line 73) }
-        DoActions(SetResources(Force1, Add, 3, Gas))
-        # (Line 74) if (Deaths(P6, AtLeast, 15000, "Event_Score") && Deaths(P7, AtMost, 9, "Event_Score"))
+        DoActions(CreateUnit(1, 64, "MedalGacha", Force1))
+        # (Line 74) if (Score(P6, Custom, AtLeast, 7500) && Deaths(P7, AtMost, 3, "Event_Score"))
     EUDEndIf()
-    if EUDIf()(EUDSCAnd()(Deaths(P6, AtLeast, 15000, "Event_Score"))(Deaths(P7, AtMost, 9, "Event_Score"))()):
+    if EUDIf()(EUDSCAnd()(Score(P6, Custom, AtLeast, 7500))(Deaths(P7, AtMost, 3, "Event_Score"))()):
         # (Line 75) {
-        # (Line 76) SetDeaths(Force1, SetTo, 10, "Event_Score");
+        # (Line 76) SetDeaths(Force1, SetTo, 4, "Event_Score");
         # (Line 77) SetDeaths(P7, Add, 1, "Event_Score");
-        DoActions(SetDeaths(Force1, SetTo, 10, "Event_Score"))
-        # (Line 78) CreateUnit(1, 7, "MedalGacha", Force1);
+        DoActions(SetDeaths(Force1, SetTo, 4, "Event_Score"))
+        # (Line 78) Album_Ticket();
         DoActions(SetDeaths(P7, Add, 1, "Event_Score"))
+        Album_Ticket()
         # (Line 79) }
+        # (Line 80) if (Score(P6, Custom, AtLeast, 10000) && Deaths(P7, AtMost, 4, "Event_Score"))
+    EUDEndIf()
+    if EUDIf()(EUDSCAnd()(Score(P6, Custom, AtLeast, 10000))(Deaths(P7, AtMost, 4, "Event_Score"))()):
+        # (Line 81) {
+        # (Line 82) SetDeaths(Force1, SetTo, 5, "Event_Score");
+        # (Line 83) SetDeaths(P7, Add, 1, "Event_Score");
+        DoActions(SetDeaths(Force1, SetTo, 5, "Event_Score"))
+        # (Line 84) CreateUnit(1, 7, "MedalGacha", Force1);
+        DoActions(SetDeaths(P7, Add, 1, "Event_Score"))
+        # (Line 85) }
         DoActions(CreateUnit(1, 7, "MedalGacha", Force1))
-        # (Line 81) if (Deaths(P6, Exactly, 2, "Round"))
+        # (Line 86) if (Score(P6, Custom, AtLeast, 11000) && Deaths(P7, AtMost, 5, "Event_Score"))
+    EUDEndIf()
+    if EUDIf()(EUDSCAnd()(Score(P6, Custom, AtLeast, 11000))(Deaths(P7, AtMost, 5, "Event_Score"))()):
+        # (Line 87) {
+        # (Line 88) SetDeaths(Force1, SetTo, 6, "Event_Score");
+        # (Line 89) SetDeaths(P7, Add, 1, "Event_Score");
+        DoActions(SetDeaths(Force1, SetTo, 6, "Event_Score"))
+        # (Line 90) SetResources(Force1, Add, 200, Ore);
+        DoActions(SetDeaths(P7, Add, 1, "Event_Score"))
+        # (Line 91) }
+        DoActions(SetResources(Force1, Add, 200, Ore))
+        # (Line 92) if (Score(P6, Custom, AtLeast, 12000) && Deaths(P7, AtMost, 6, "Event_Score"))
+    EUDEndIf()
+    if EUDIf()(EUDSCAnd()(Score(P6, Custom, AtLeast, 12000))(Deaths(P7, AtMost, 6, "Event_Score"))()):
+        # (Line 93) {
+        # (Line 94) SetDeaths(Force1, SetTo, 7, "Event_Score");
+        # (Line 95) SetDeaths(P7, Add, 1, "Event_Score");
+        DoActions(SetDeaths(Force1, SetTo, 7, "Event_Score"))
+        # (Line 96) SetResources(Force1, Add, 2, Gas);
+        DoActions(SetDeaths(P7, Add, 1, "Event_Score"))
+        # (Line 97) }
+        DoActions(SetResources(Force1, Add, 2, Gas))
+        # (Line 98) if (Score(P6, Custom, AtLeast, 13000) && Deaths(P7, AtMost, 7, "Event_Score"))
+    EUDEndIf()
+    if EUDIf()(EUDSCAnd()(Score(P6, Custom, AtLeast, 13000))(Deaths(P7, AtMost, 7, "Event_Score"))()):
+        # (Line 99) {
+        # (Line 100) SetDeaths(Force1, SetTo, 8, "Event_Score");
+        # (Line 101) SetDeaths(P7, Add, 1, "Event_Score");
+        DoActions(SetDeaths(Force1, SetTo, 8, "Event_Score"))
+        # (Line 102) SetResources(Force1, Add, 300, Ore);
+        DoActions(SetDeaths(P7, Add, 1, "Event_Score"))
+        # (Line 103) }
+        DoActions(SetResources(Force1, Add, 300, Ore))
+        # (Line 104) if (Score(P6, Custom, AtLeast, 14000) && Deaths(P7, AtMost, 8, "Event_Score"))
+    EUDEndIf()
+    if EUDIf()(EUDSCAnd()(Score(P6, Custom, AtLeast, 14000))(Deaths(P7, AtMost, 8, "Event_Score"))()):
+        # (Line 105) {
+        # (Line 106) SetDeaths(Force1, SetTo, 9, "Event_Score");
+        # (Line 107) SetDeaths(P7, Add, 1, "Event_Score");
+        DoActions(SetDeaths(Force1, SetTo, 9, "Event_Score"))
+        # (Line 108) SetResources(Force1, Add, 3, Gas);
+        DoActions(SetDeaths(P7, Add, 1, "Event_Score"))
+        # (Line 109) }
+        DoActions(SetResources(Force1, Add, 3, Gas))
+        # (Line 110) if (Score(P6, Custom, AtLeast, 15000) && Deaths(P7, AtMost, 9, "Event_Score"))
+    EUDEndIf()
+    if EUDIf()(EUDSCAnd()(Score(P6, Custom, AtLeast, 15000))(Deaths(P7, AtMost, 9, "Event_Score"))()):
+        # (Line 111) {
+        # (Line 112) SetDeaths(Force1, SetTo, 10, "Event_Score");
+        # (Line 113) SetDeaths(P7, Add, 1, "Event_Score");
+        DoActions(SetDeaths(Force1, SetTo, 10, "Event_Score"))
+        # (Line 114) CreateUnit(1, 7, "MedalGacha", Force1);
+        DoActions(SetDeaths(P7, Add, 1, "Event_Score"))
+        # (Line 115) }
+        DoActions(CreateUnit(1, 7, "MedalGacha", Force1))
+        # (Line 117) if (Deaths(P6, Exactly, 2, "Round"))
     EUDEndIf()
     if EUDIf()(Deaths(P6, Exactly, 2, "Round")):
-        # (Line 82) {
-        # (Line 83) const event = dwread_epd(182 * 12 + 5);
-        event = f_dwread_epd(182 * 12 + 5)
-        # (Line 84) Event_Unit(vr.event_Top[event], vr.event_Down[event]);
-        Event_Unit(vr.event_Top[event], vr.event_Down[event])
-        # (Line 85) }
-        # (Line 87) Event_Print(cp);
+        # (Line 118) {
+        # (Line 119) SetDeaths(P6, SetTo, 3, "Round");
+        # (Line 120) SetDeaths(Force1, SetTo, 999, "Event_Score");
+        DoActions(SetDeaths(P6, SetTo, 3, "Round"))
+        # (Line 121) }
+        DoActions(SetDeaths(Force1, SetTo, 999, "Event_Score"))
+        # (Line 122) if (Deaths(P6, Exactly, 3, "Round") && Deaths(Force1, Exactly, 0, "Event_Score"))
+    EUDEndIf()
+    if EUDIf()(EUDSCAnd()(Deaths(P6, Exactly, 3, "Round"))(Deaths(Force1, Exactly, 0, "Event_Score"))()):
+        # (Line 123) {
+        # (Line 124) SetScore(P6, SetTo, 0, Custom);
+        # (Line 125) SetScore(Force1, SetTo, 0, Custom);
+        DoActions(SetScore(P6, SetTo, 0, Custom))
+        # (Line 126) SetDeaths(P6, SetTo, 0, "Round");
+        DoActions(SetScore(Force1, SetTo, 0, Custom))
+        # (Line 127) SetDeaths(P7, SetTo, 0, "Event_Score");
+        DoActions(SetDeaths(P6, SetTo, 0, "Round"))
+        # (Line 128) SetDeaths(P7, SetTo, 0, "event_index");
+        DoActions(SetDeaths(P7, SetTo, 0, "Event_Score"))
+        # (Line 129) }
+        DoActions(SetDeaths(P7, SetTo, 0, "event_index"))
+        # (Line 131) Event_Print(cp);
     EUDEndIf()
     Event_Print(cp)
-    # (Line 88) }
-    # (Line 90) function Event_Print(cp)
+    # (Line 132) Event_Info(cp);
+    Event_Info(cp)
+    # (Line 133) }
+    # (Line 135) function Album_Ticket()
 
-# (Line 91) {
+# (Line 136) {
+@EUDFunc
+def Album_Ticket():
+    # (Line 137) CreateUnit(1, 114, "JewelGacha", Force1);
+    # (Line 138) }
+    DoActions(CreateUnit(1, 114, "JewelGacha", Force1))
+    # (Line 140) function Event_Info(cp)
+
+# (Line 141) {
+@EUDFunc
+def Event_Info(cp):
+    # (Line 142) switch(id.Unit_ID[cp])
+    EUDSwitch(id.Unit_ID[cp])
+    # (Line 143) {
+    # (Line 144) case 110:
+    _t1 = EUDSwitchCase()
+    # (Line 145) if (Deaths(P7, AtLeast, 1, "event_index"))
+    if _t1(110):
+        if EUDIf()(Deaths(P7, AtLeast, 1, "event_index")):
+            # (Line 146) {
+            # (Line 147) s.printAt(0, "\x13\x04이벤트 번호 \x1F# \x04", dwread_epd(182 * 12 + 6));
+            s.printAt(0, "\x13\x04이벤트 번호 \x1F# \x04", f_dwread_epd(182 * 12 + 6))
+            # (Line 148) s.printAt(1, "\x13", ptr2s(GetTBLAddr(91)));
+            s.printAt(1, "\x13", ptr2s(GetTBLAddr(91)))
+            # (Line 150) if (Bring(P1, AtLeast, 1, 112, "Anywhere"))
+            if EUDIf()(Bring(P1, AtLeast, 1, 112, "Anywhere")):
+                # (Line 151) { s.printAt(2, "\x13\x08", tct.str(0x57EEEB + 36 * 0), "\x04 - ",  dwread_epd(EPD(0x5822F4 + 4 * 0)), " \x04Score"); }
+                s.printAt(2, "\x13\x08", tct.f_str(0x57EEEB + 36 * 0), "\x04 - ", f_dwread_epd(EPD(0x5822F4 + 4 * 0)), " \x04Score")
+                # (Line 152) else { s.printAt(2, "\n");}
+            if EUDElse()():
+                s.printAt(2, "\n")
+                # (Line 153) if (Bring(P2, AtLeast, 1, 112, "Anywhere"))
+            EUDEndIf()
+            if EUDIf()(Bring(P2, AtLeast, 1, 112, "Anywhere")):
+                # (Line 154) { s.printAt(3, "\x13\x0E", tct.str(0x57EEEB + 36 * 1), "\x04 - ",  dwread_epd(EPD(0x5822F4 + 4 * 1)), " \x04Score"); }
+                s.printAt(3, "\x13\x0E", tct.f_str(0x57EEEB + 36 * 1), "\x04 - ", f_dwread_epd(EPD(0x5822F4 + 4 * 1)), " \x04Score")
+                # (Line 155) else { s.printAt(3, "\n");}
+            if EUDElse()():
+                s.printAt(3, "\n")
+                # (Line 156) if (Bring(P3, AtLeast, 1, 112, "Anywhere"))
+            EUDEndIf()
+            if EUDIf()(Bring(P3, AtLeast, 1, 112, "Anywhere")):
+                # (Line 157) { s.printAt(4, "\x13\x0F", tct.str(0x57EEEB + 36 * 2), "\x04 - ",  dwread_epd(EPD(0x5822F4 + 4 * 2)), " \x04Score"); }
+                s.printAt(4, "\x13\x0F", tct.f_str(0x57EEEB + 36 * 2), "\x04 - ", f_dwread_epd(EPD(0x5822F4 + 4 * 2)), " \x04Score")
+                # (Line 158) else { s.printAt(4, "\n");}
+            if EUDElse()():
+                s.printAt(4, "\n")
+                # (Line 159) if (Bring(P4, AtLeast, 1, 112, "Anywhere"))
+            EUDEndIf()
+            if EUDIf()(Bring(P4, AtLeast, 1, 112, "Anywhere")):
+                # (Line 160) { s.printAt(5, "\x13\x10", tct.str(0x57EEEB + 36 * 3), "\x04 - ",  dwread_epd(EPD(0x5822F4 + 4 * 3)), " \x04Score"); }
+                s.printAt(5, "\x13\x10", tct.f_str(0x57EEEB + 36 * 3), "\x04 - ", f_dwread_epd(EPD(0x5822F4 + 4 * 3)), " \x04Score")
+                # (Line 161) else { s.printAt(5, "\n");}
+            if EUDElse()():
+                s.printAt(5, "\n")
+                # (Line 162) if (Bring(P5, AtLeast, 1, 112, "Anywhere"))
+            EUDEndIf()
+            if EUDIf()(Bring(P5, AtLeast, 1, 112, "Anywhere")):
+                # (Line 163) { s.printAt(6, "\x13\x15", tct.str(0x57EEEB + 36 * 4), "\x04 - ",  dwread_epd(EPD(0x5822F4 + 4 * 4)), " \x04Score"); }
+                s.printAt(6, "\x13\x15", tct.f_str(0x57EEEB + 36 * 4), "\x04 - ", f_dwread_epd(EPD(0x5822F4 + 4 * 4)), " \x04Score")
+                # (Line 164) else { s.printAt(6, "\n");}
+            if EUDElse()():
+                s.printAt(6, "\n")
+                # (Line 166) s.printAt(7, "\x13\x04이벤트 상위 보상");
+            EUDEndIf()
+            s.printAt(7, "\x13\x04이벤트 상위 보상")
+            # (Line 167) s.printAt(8, "\x13", ptr2s(GetTBLAddr(vr.event_Top[dwread_epd(182 * 12 + 6)] + 1)));
+            s.printAt(8, "\x13", ptr2s(GetTBLAddr(vr.event_Top[f_dwread_epd(182 * 12 + 6)] + 1)))
+            # (Line 168) s.printAt(9, "\x13\x04이벤트 하위 보상");
+            s.printAt(9, "\x13\x04이벤트 하위 보상")
+            # (Line 169) s.printAt(10, "\x13", ptr2s(GetTBLAddr(vr.event_Down[dwread_epd(182 * 12 + 6)] + 1)));
+            s.printAt(10, "\x13", ptr2s(GetTBLAddr(vr.event_Down[f_dwread_epd(182 * 12 + 6)] + 1)))
+            # (Line 170) }
+            # (Line 171) else
+            # (Line 172) {
+        if EUDElse()():
+            # (Line 173) s.printAt(3, "\n");
+            s.printAt(3, "\n")
+            # (Line 174) s.printAt(4, "\x13\x04이벤트가 진행중이지 않습니다.");
+            s.printAt(4, "\x13\x04이벤트가 진행중이지 않습니다.")
+            # (Line 175) s.printAt(5, "\n");
+            s.printAt(5, "\n")
+            # (Line 176) }
+            # (Line 177) id.Unit_ID[cp] = 1000;
+        EUDEndIf()
+        _ARRW(id.Unit_ID, cp) << (1000)
+        # (Line 178) break;
+        EUDBreak()
+        # (Line 179) }
+    # (Line 180) }
+    EUDEndSwitch()
+    # (Line 182) function Event_Print(cp)
+
+# (Line 183) {
 @EUDFunc
 def Event_Print(cp):
-    # (Line 92) if (cp < 5)
+    # (Line 184) if (cp < 5)
     if EUDIf()(cp >= 5, neg=True):
-        # (Line 93) {
-        # (Line 94) if (Deaths(cp, Exactly, 1, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F1000\x04점 달성 보상 - 100 \x0F골드\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
+        # (Line 185) {
+        # (Line 186) if (Deaths(cp, Exactly, 1, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F1000\x04점 달성 보상 - 100 \x0F골드\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
         if EUDIf()(Deaths(cp, Exactly, 1, "Event_Score")):
             s.print("\n\x13\x04이벤트 점수 \x0F1000\x04점 달성 보상 - 100 \x0F골드\n")
             DoActions(SetDeaths(cp, SetTo, 0, "Event_Score"))
-            # (Line 95) if (Deaths(cp, Exactly, 2, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F3000\x04점 달성 보상 - 1 \x0FGas\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
+            # (Line 187) if (Deaths(cp, Exactly, 2, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F3000\x04점 달성 보상 - 1 \x0FGas\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
         EUDEndIf()
         if EUDIf()(Deaths(cp, Exactly, 2, "Event_Score")):
             s.print("\n\x13\x04이벤트 점수 \x0F3000\x04점 달성 보상 - 1 \x0FGas\n")
             DoActions(SetDeaths(cp, SetTo, 0, "Event_Score"))
-            # (Line 96) if (Deaths(cp, Exactly, 3, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F5000\x04점 달성 보상 - 1 \x0F메달 티켓\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
+            # (Line 188) if (Deaths(cp, Exactly, 3, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F5000\x04점 달성 보상 - 1 \x0F메달 티켓\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
         EUDEndIf()
         if EUDIf()(Deaths(cp, Exactly, 3, "Event_Score")):
             s.print("\n\x13\x04이벤트 점수 \x0F5000\x04점 달성 보상 - 1 \x0F메달 티켓\n")
             DoActions(SetDeaths(cp, SetTo, 0, "Event_Score"))
-            # (Line 97) if (Deaths(cp, Exactly, 4, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F7500\x04점 달성 보상 - 1 \x0F앨범 티켓\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
+            # (Line 189) if (Deaths(cp, Exactly, 4, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F7500\x04점 달성 보상 - 1 \x0F앨범 티켓\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
         EUDEndIf()
         if EUDIf()(Deaths(cp, Exactly, 4, "Event_Score")):
             s.print("\n\x13\x04이벤트 점수 \x0F7500\x04점 달성 보상 - 1 \x0F앨범 티켓\n")
             DoActions(SetDeaths(cp, SetTo, 0, "Event_Score"))
-            # (Line 98) if (Deaths(cp, Exactly, 5, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F10000\x04점 달성 보상 - 1 \x0F플레티넘 티켓\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
+            # (Line 190) if (Deaths(cp, Exactly, 5, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F10000\x04점 달성 보상 - 1 \x0F플레티넘 티켓\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
         EUDEndIf()
         if EUDIf()(Deaths(cp, Exactly, 5, "Event_Score")):
             s.print("\n\x13\x04이벤트 점수 \x0F10000\x04점 달성 보상 - 1 \x0F플레티넘 티켓\n")
             DoActions(SetDeaths(cp, SetTo, 0, "Event_Score"))
-            # (Line 99) if (Deaths(cp, Exactly, 6, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F11000\x04점 달성 보상 - 200 \x0F골드\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
+            # (Line 191) if (Deaths(cp, Exactly, 6, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F11000\x04점 달성 보상 - 200 \x0F골드\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
         EUDEndIf()
         if EUDIf()(Deaths(cp, Exactly, 6, "Event_Score")):
             s.print("\n\x13\x04이벤트 점수 \x0F11000\x04점 달성 보상 - 200 \x0F골드\n")
             DoActions(SetDeaths(cp, SetTo, 0, "Event_Score"))
-            # (Line 100) if (Deaths(cp, Exactly, 7, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F12000\x04점 달성 보상 - 2 \x0FGas\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
+            # (Line 192) if (Deaths(cp, Exactly, 7, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F12000\x04점 달성 보상 - 2 \x0FGas\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
         EUDEndIf()
         if EUDIf()(Deaths(cp, Exactly, 7, "Event_Score")):
             s.print("\n\x13\x04이벤트 점수 \x0F12000\x04점 달성 보상 - 2 \x0FGas\n")
             DoActions(SetDeaths(cp, SetTo, 0, "Event_Score"))
-            # (Line 101) if (Deaths(cp, Exactly, 8, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F13000\x04점 달성 보상 - 300 \x0F골드\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
+            # (Line 193) if (Deaths(cp, Exactly, 8, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F13000\x04점 달성 보상 - 300 \x0F골드\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
         EUDEndIf()
         if EUDIf()(Deaths(cp, Exactly, 8, "Event_Score")):
             s.print("\n\x13\x04이벤트 점수 \x0F13000\x04점 달성 보상 - 300 \x0F골드\n")
             DoActions(SetDeaths(cp, SetTo, 0, "Event_Score"))
-            # (Line 102) if (Deaths(cp, Exactly, 9, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F14000\x04점 달성 보상 - 3 \x0FGas\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
+            # (Line 194) if (Deaths(cp, Exactly, 9, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F14000\x04점 달성 보상 - 3 \x0FGas\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
         EUDEndIf()
         if EUDIf()(Deaths(cp, Exactly, 9, "Event_Score")):
             s.print("\n\x13\x04이벤트 점수 \x0F14000\x04점 달성 보상 - 3 \x0FGas\n")
             DoActions(SetDeaths(cp, SetTo, 0, "Event_Score"))
-            # (Line 103) if (Deaths(cp, Exactly, 10, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F15000\x04점 달성 보상 - 1 \x0F플레티넘 티켓\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
+            # (Line 195) if (Deaths(cp, Exactly, 10, "Event_Score"))	{ s.print("\n\x13\x04이벤트 점수 \x0F15000\x04점 달성 보상 - 1 \x0F플레티넘 티켓\n"); SetDeaths(cp, SetTo, 0, "Event_Score"); }
         EUDEndIf()
         if EUDIf()(Deaths(cp, Exactly, 10, "Event_Score")):
             s.print("\n\x13\x04이벤트 점수 \x0F15000\x04점 달성 보상 - 1 \x0F플레티넘 티켓\n")
             DoActions(SetDeaths(cp, SetTo, 0, "Event_Score"))
-            # (Line 104) }
+            # (Line 197) if (Deaths(cp, Exactly, 999, "Event_Score") && Score(P6, Custom, AtLeast, 1))
         EUDEndIf()
-        # (Line 105) }
-    EUDEndIf()
-    # (Line 107) function Trainning_Ticket()
-
-# (Line 108) {
-@EUDFunc
-def Trainning_Ticket():
-    # (Line 109) var random = dwrand() % 3;
-    random = EUDVariable()
-    random << (f_dwrand() % 3)
-    # (Line 111) switch(random)
-    EUDSwitch(random)
-    # (Line 112) {
-    # (Line 113) case 0:
-    _t1 = EUDSwitchCase()
-    # (Line 114) CreateUnit(1, 126, "JewelGacha", Force1);
-    if _t1(0):
-        # (Line 115) break;
-        DoActions(CreateUnit(1, 126, "JewelGacha", Force1))
-        EUDBreak()
-        # (Line 116) case 1:
-    _t2 = EUDSwitchCase()
-    # (Line 117) CreateUnit(1, 127, "JewelGacha", Force1);
-    if _t2(1):
-        # (Line 118) break;
-        DoActions(CreateUnit(1, 127, "JewelGacha", Force1))
-        EUDBreak()
-        # (Line 119) case 2:
-    _t3 = EUDSwitchCase()
-    # (Line 120) CreateUnit(1, 135, "JewelGacha", Force1);
-    if _t3(2):
-        # (Line 121) break;
-        DoActions(CreateUnit(1, 135, "JewelGacha", Force1))
-        EUDBreak()
-        # (Line 122) }
-    # (Line 123) }
-    EUDEndSwitch()
-    # (Line 125) function Cloth_Ticket()
-
-# (Line 126) {
-@EUDFunc
-def Cloth_Ticket():
-    # (Line 127) var random = dwrand() % 3;
-    random = EUDVariable()
-    random << (f_dwrand() % 3)
-    # (Line 129) switch(random)
-    EUDSwitch(random)
-    # (Line 130) {
-    # (Line 131) case 0:
-    _t1 = EUDSwitchCase()
-    # (Line 132) CreateUnit(1, 116, "JewelGacha", Force1);
-    if _t1(0):
-        # (Line 133) break;
-        DoActions(CreateUnit(1, 116, "JewelGacha", Force1))
-        EUDBreak()
-        # (Line 134) case 1:
-    _t2 = EUDSwitchCase()
-    # (Line 135) CreateUnit(1, 122, "JewelGacha", Force1);
-    if _t2(1):
-        # (Line 136) break;
-        DoActions(CreateUnit(1, 122, "JewelGacha", Force1))
-        EUDBreak()
-        # (Line 137) case 2:
-    _t3 = EUDSwitchCase()
-    # (Line 138) CreateUnit(1, 123, "JewelGacha", Force1);
-    if _t3(2):
-        # (Line 139) break;
-        DoActions(CreateUnit(1, 123, "JewelGacha", Force1))
-        EUDBreak()
-        # (Line 140) }
-    # (Line 141) }
-    EUDEndSwitch()
-    # (Line 143) function Album_Ticket()
-
-# (Line 144) {
-@EUDFunc
-def Album_Ticket():
-    # (Line 145) CreateUnit(1, 136 + dwrand() % 3, "JewelGacha", Force1);
-    # (Line 146) }
-    DoActions(CreateUnit(1, 136 + f_dwrand() % 3, "JewelGacha", Force1))
-    # (Line 148) function Event_Unit(top, down)
-
-# (Line 149) {
-@EUDFunc
-def Event_Unit(top, down):
-    # (Line 150) if (Deaths(P6, AtLeast, 0, "Event_Score") && Deaths(P6, AtMost, 4999, "Event_Score"))
-    if EUDIf()(EUDSCAnd()(Deaths(P6, AtLeast, 0, "Event_Score"))(Deaths(P6, AtMost, 4999, "Event_Score"))()):
-        # (Line 151) {
-        # (Line 152) SetDeaths(P6, SetTo, 0, "Round");
-        # (Line 153) SetDeaths(P6, SetTo, 0, "Event_Score");
-        DoActions(SetDeaths(P6, SetTo, 0, "Round"))
-        # (Line 154) SetDeaths(P7, SetTo, 0, "Event_Score");
-        DoActions(SetDeaths(P6, SetTo, 0, "Event_Score"))
-        # (Line 155) SetDeaths(AllPlayers, SetTo, 0, "event_index");
-        DoActions(SetDeaths(P7, SetTo, 0, "Event_Score"))
-        # (Line 156) }
-        DoActions(SetDeaths(AllPlayers, SetTo, 0, "event_index"))
-        # (Line 157) else if (Deaths(P6, AtLeast, 5000, "Event_Score") && Deaths(P6, AtMost, 11999, "Event_Score"))
-    if EUDElseIf()(EUDSCAnd()(Deaths(P6, AtLeast, 5000, "Event_Score"))(Deaths(P6, AtMost, 11999, "Event_Score"))()):
-        # (Line 158) {
-        # (Line 159) if (down  == 999)
-        if EUDIf()(down == 999):
-            # (Line 160) {
-            # (Line 161) var random = dwrand()%12 + 4;
-            random = EUDVariable()
-            random << (f_dwrand() % 12 + 4)
-            # (Line 162) var type = dwrand()%3;
-            type = EUDVariable()
-            type << (f_dwrand() % 3)
-            # (Line 164) switch(type)
-            EUDSwitch(type)
-            # (Line 165) {
-            # (Line 166) case 0:
-            _t4 = EUDSwitchCase()
-            # (Line 167) CreateUnit(1, vd.Princess_Unit_Index[random], "MedalGacha Create", Force1);
-            if _t4(0):
-                # (Line 168) break;
-                DoActions(CreateUnit(1, vd.Princess_Unit_Index[random], "MedalGacha Create", Force1))
-                EUDBreak()
-                # (Line 169) case 1:
-            _t5 = EUDSwitchCase()
-            # (Line 170) CreateUnit(1, vd.Fairy_Unit_Index[random], "MedalGacha Create", Force1);
-            if _t5(1):
-                # (Line 171) break;
-                DoActions(CreateUnit(1, vd.Fairy_Unit_Index[random], "MedalGacha Create", Force1))
-                EUDBreak()
-                # (Line 172) case 2:
-            _t6 = EUDSwitchCase()
-            # (Line 173) CreateUnit(1, vd.Angel_Unit_Index[random], "MedalGacha Create", Force1);
-            if _t6(2):
-                # (Line 174) break;
-                DoActions(CreateUnit(1, vd.Angel_Unit_Index[random], "MedalGacha Create", Force1))
-                EUDBreak()
-                # (Line 175) }
-            # (Line 176) }
-            EUDEndSwitch()
-            # (Line 177) else
-            # (Line 178) { CreateUnit(1, down, "MedalGacha Create", Force1); }
-        if EUDElse()():
-            DoActions(CreateUnit(1, down, "MedalGacha Create", Force1))
-            # (Line 180) SetDeaths(P6, SetTo, 0, "Round");
-        EUDEndIf()
-        # (Line 181) SetDeaths(P6, SetTo, 0, "Event_Score");
-        DoActions(SetDeaths(P6, SetTo, 0, "Round"))
-        # (Line 182) SetDeaths(P7, SetTo, 0, "Event_Score");
-        DoActions(SetDeaths(P6, SetTo, 0, "Event_Score"))
-        # (Line 183) SetDeaths(AllPlayers, SetTo, 0, "event_index");
-        DoActions(SetDeaths(P7, SetTo, 0, "Event_Score"))
-        # (Line 184) }
-        DoActions(SetDeaths(AllPlayers, SetTo, 0, "event_index"))
-        # (Line 185) else if (Deaths(P6, AtLeast, 12000, "Event_Score"))
-    if EUDElseIf()(Deaths(P6, AtLeast, 12000, "Event_Score")):
-        # (Line 186) {
-        # (Line 187) if (top  == 1000)
-        if EUDIf()(top == 1000):
-            # (Line 188) {
-            # (Line 189) var random = dwrand()%4;
-            random = EUDVariable()
-            random << (f_dwrand() % 4)
-            # (Line 190) var type = dwrand()%3;
-            type = EUDVariable()
-            type << (f_dwrand() % 3)
-            # (Line 192) switch(type)
-            EUDSwitch(type)
-            # (Line 193) {
-            # (Line 194) case 0:
-            _t9 = EUDSwitchCase()
-            # (Line 195) CreateUnit(1, vd.Princess_Unit_Index[random], "MedalGacha Create", Force1);
-            if _t9(0):
-                # (Line 196) break;
-                DoActions(CreateUnit(1, vd.Princess_Unit_Index[random], "MedalGacha Create", Force1))
-                EUDBreak()
-                # (Line 197) case 1:
-            _t10 = EUDSwitchCase()
-            # (Line 198) CreateUnit(1, vd.Fairy_Unit_Index[random], "MedalGacha Create", Force1);
-            if _t10(1):
-                # (Line 199) break;
-                DoActions(CreateUnit(1, vd.Fairy_Unit_Index[random], "MedalGacha Create", Force1))
-                EUDBreak()
-                # (Line 200) case 2:
-            _t11 = EUDSwitchCase()
-            # (Line 201) CreateUnit(1, vd.Angel_Unit_Index[random], "MedalGacha Create", Force1);
-            if _t11(2):
-                # (Line 202) break;
-                DoActions(CreateUnit(1, vd.Angel_Unit_Index[random], "MedalGacha Create", Force1))
-                EUDBreak()
+        if EUDIf()(EUDSCAnd()(Deaths(cp, Exactly, 999, "Event_Score"))(Score(P6, Custom, AtLeast, 1))()):
+            # (Line 198) {
+            # (Line 199) if (Score(P6, Custom, AtLeast, 20))
+            if EUDIf()(Score(P6, Custom, AtLeast, 20)):
+                # (Line 200) {
+                # (Line 201) SetScore(P6, Subtract, 20, Custom);
+                # (Line 202) SetScore(Force1, Add, 20, Custom);
+                DoActions(SetScore(P6, Subtract, 20, Custom))
                 # (Line 203) }
-            # (Line 204) }
-            EUDEndSwitch()
-            # (Line 205) else
-            # (Line 206) { CreateUnit(1, top, "MedalGacha Create", Force1); }
-        if EUDElse()():
-            DoActions(CreateUnit(1, top, "MedalGacha Create", Force1))
-            # (Line 208) SetDeaths(P6, SetTo, 0, "Round");
+                DoActions(SetScore(Force1, Add, 20, Custom))
+                # (Line 204) else if (Score(P6, Custom, AtMost, 19) && Score(P6, Custom, AtLeast, 10))
+            if EUDElseIf()(EUDSCAnd()(Score(P6, Custom, AtMost, 19))(Score(P6, Custom, AtLeast, 10))()):
+                # (Line 205) {
+                # (Line 206) SetScore(P6, Subtract, 10, Custom);
+                # (Line 207) SetScore(Force1, Add, 10, Custom);
+                DoActions(SetScore(P6, Subtract, 10, Custom))
+                # (Line 208) }
+                DoActions(SetScore(Force1, Add, 10, Custom))
+                # (Line 209) else
+                # (Line 210) {
+            if EUDElse()():
+                # (Line 211) SetScore(P6, Subtract, 1, Custom);
+                # (Line 212) SetScore(Force1, Add, 1, Custom);
+                DoActions(SetScore(P6, Subtract, 1, Custom))
+                # (Line 213) }
+                DoActions(SetScore(Force1, Add, 1, Custom))
+                # (Line 215) s.printAt(0, "\n");
+            EUDEndIf()
+            s.printAt(0, "\n")
+            # (Line 216) s.printAt(1, "\x13\x04이벤트 번호 \x1F# \x04", dwread_epd(182 * 12 + 6));
+            s.printAt(1, "\x13\x04이벤트 번호 \x1F# \x04", f_dwread_epd(182 * 12 + 6))
+            # (Line 217) s.printAt(2, "\x13", ptr2s(GetTBLAddr(91)));
+            s.printAt(2, "\x13", ptr2s(GetTBLAddr(91)))
+            # (Line 218) if (Bring(P1, AtLeast, 1, 112, "Anywhere"))
+            if EUDIf()(Bring(P1, AtLeast, 1, 112, "Anywhere")):
+                # (Line 219) { s.printAt(3, "\x13\x08", tct.str(0x57EEEB + 36 * 0), "\x04 - ",  dwread_epd(EPD(0x5822F4 + 4 * 0)), " \x04Score"); }
+                s.printAt(3, "\x13\x08", tct.f_str(0x57EEEB + 36 * 0), "\x04 - ", f_dwread_epd(EPD(0x5822F4 + 4 * 0)), " \x04Score")
+                # (Line 220) else { s.printAt(3, "\n");}
+            if EUDElse()():
+                s.printAt(3, "\n")
+                # (Line 221) if (Bring(P2, AtLeast, 1, 112, "Anywhere"))
+            EUDEndIf()
+            if EUDIf()(Bring(P2, AtLeast, 1, 112, "Anywhere")):
+                # (Line 222) { s.printAt(4, "\x13\x0E", tct.str(0x57EEEB + 36 * 1), "\x04 - ",  dwread_epd(EPD(0x5822F4 + 4 * 1)), " \x04Score"); }
+                s.printAt(4, "\x13\x0E", tct.f_str(0x57EEEB + 36 * 1), "\x04 - ", f_dwread_epd(EPD(0x5822F4 + 4 * 1)), " \x04Score")
+                # (Line 223) else { s.printAt(4, "\n");}
+            if EUDElse()():
+                s.printAt(4, "\n")
+                # (Line 224) if (Bring(P3, AtLeast, 1, 112, "Anywhere"))
+            EUDEndIf()
+            if EUDIf()(Bring(P3, AtLeast, 1, 112, "Anywhere")):
+                # (Line 225) { s.printAt(5, "\x13\x0F", tct.str(0x57EEEB + 36 * 2), "\x04 - ",  dwread_epd(EPD(0x5822F4 + 4 * 2)), " \x04Score"); }
+                s.printAt(5, "\x13\x0F", tct.f_str(0x57EEEB + 36 * 2), "\x04 - ", f_dwread_epd(EPD(0x5822F4 + 4 * 2)), " \x04Score")
+                # (Line 226) else { s.printAt(5, "\n");}
+            if EUDElse()():
+                s.printAt(5, "\n")
+                # (Line 227) if (Bring(P4, AtLeast, 1, 112, "Anywhere"))
+            EUDEndIf()
+            if EUDIf()(Bring(P4, AtLeast, 1, 112, "Anywhere")):
+                # (Line 228) { s.printAt(6, "\x13\x10", tct.str(0x57EEEB + 36 * 3), "\x04 - ",  dwread_epd(EPD(0x5822F4 + 4 * 3)), " \x04Score"); }
+                s.printAt(6, "\x13\x10", tct.f_str(0x57EEEB + 36 * 3), "\x04 - ", f_dwread_epd(EPD(0x5822F4 + 4 * 3)), " \x04Score")
+                # (Line 229) else { s.printAt(6, "\n");}
+            if EUDElse()():
+                s.printAt(6, "\n")
+                # (Line 230) if (Bring(P5, AtLeast, 1, 112, "Anywhere"))
+            EUDEndIf()
+            if EUDIf()(Bring(P5, AtLeast, 1, 112, "Anywhere")):
+                # (Line 231) { s.printAt(7, "\x13\x15", tct.str(0x57EEEB + 36 * 4), "\x04 - ",  dwread_epd(EPD(0x5822F4 + 4 * 4)), " \x04Score"); }
+                s.printAt(7, "\x13\x15", tct.f_str(0x57EEEB + 36 * 4), "\x04 - ", f_dwread_epd(EPD(0x5822F4 + 4 * 4)), " \x04Score")
+                # (Line 232) else { s.printAt(7, "\n");}
+            if EUDElse()():
+                s.printAt(7, "\n")
+                # (Line 233) }
+            EUDEndIf()
+            # (Line 234) else if (Deaths(cp, Exactly, 999, "Event_Score") && Score(P6, Custom, Exactly, 0))
+        if EUDElseIf()(EUDSCAnd()(Deaths(cp, Exactly, 999, "Event_Score"))(Score(P6, Custom, Exactly, 0))()):
+            # (Line 235) {
+            # (Line 236) if (HighestScore(Custom) && Score(cp, Custom, AtLeast, 8000))
+            if EUDIf()(EUDSCAnd()(HighestScore(Custom))(Score(cp, Custom, AtLeast, 8000))()):
+                # (Line 237) {
+                # (Line 238) s.printAt(9, "\x13\x04이벤트 \x08상위\x04보상");
+                s.printAt(9, "\x13\x04이벤트 \x08상위\x04보상")
+                # (Line 239) s.printAt(10, "\x13",ptr2s(GetTBLAddr(vr.event_Top[dwread_epd(182 * 12 + 6)] + 1)));
+                s.printAt(10, "\x13", ptr2s(GetTBLAddr(vr.event_Top[f_dwread_epd(182 * 12 + 6)] + 1)))
+                # (Line 240) CreateUnit(1, vr.event_Top[dwread_epd(182 * 12 + 6)], "MedalGacha Create", CurrentPlayer);
+                # (Line 241) }
+                DoActions(CreateUnit(1, vr.event_Top[f_dwread_epd(182 * 12 + 6)], "MedalGacha Create", CurrentPlayer))
+                # (Line 242) else if (Score(cp, Custom, AtLeast, 4000))
+            if EUDElseIf()(Score(cp, Custom, AtLeast, 4000)):
+                # (Line 243) {
+                # (Line 244) s.printAt(9, "\x13\x04이벤트 \x08하위\x04보상");
+                s.printAt(9, "\x13\x04이벤트 \x08하위\x04보상")
+                # (Line 245) s.printAt(10, "\x13",ptr2s(GetTBLAddr(vr.event_Down[dwread_epd(182 * 12 + 6)] + 1)));
+                s.printAt(10, "\x13", ptr2s(GetTBLAddr(vr.event_Down[f_dwread_epd(182 * 12 + 6)] + 1)))
+                # (Line 246) CreateUnit(1, vr.event_Down[dwread_epd(182 * 12 + 6)], "MedalGacha Create", CurrentPlayer);
+                # (Line 247) }
+                DoActions(CreateUnit(1, vr.event_Down[f_dwread_epd(182 * 12 + 6)], "MedalGacha Create", CurrentPlayer))
+                # (Line 249) SetDeaths(cp, SetTo, 0, "Event_Score");
+            EUDEndIf()
+            # (Line 250) }
+            DoActions(SetDeaths(cp, SetTo, 0, "Event_Score"))
+            # (Line 251) }
         EUDEndIf()
-        # (Line 209) SetDeaths(P6, SetTo, 0, "Event_Score");
-        DoActions(SetDeaths(P6, SetTo, 0, "Round"))
-        # (Line 210) SetDeaths(P7, SetTo, 0, "Event_Score");
-        DoActions(SetDeaths(P6, SetTo, 0, "Event_Score"))
-        # (Line 211) SetDeaths(AllPlayers, SetTo, 0, "event_index");
-        DoActions(SetDeaths(P7, SetTo, 0, "Event_Score"))
-        # (Line 212) }
-        DoActions(SetDeaths(AllPlayers, SetTo, 0, "event_index"))
-        # (Line 213) }
+        # (Line 252) }
     EUDEndIf()

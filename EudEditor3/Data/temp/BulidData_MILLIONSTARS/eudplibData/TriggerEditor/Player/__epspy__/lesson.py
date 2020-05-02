@@ -136,640 +136,895 @@ Lesson_Level = _CGFW(lambda: [_ARR(FlattenList([0, 0, 0]))], 1)[0]
 s = _CGFW(lambda: [StringBuffer()], 1)[0]
 # (Line 8) function Lesson_Unit(cp);
 # (Line 9) function Lesson_Check(cp);
-# (Line 10) function Album_Unit(cp);
-# (Line 12) function Add_Weapon_Damage(ID, index);
-# (Line 13) function Add_Weapon_Increase(ID, index);
-# (Line 15) function Weapon_Text_Princess();
-# (Line 16) function Weapon_Text_Fairy();
-# (Line 17) function Weapon_Text_Angel();
-# (Line 19) function Marge(cp)
-# (Line 20) {
+# (Line 10) function Random_Album_Ticket(cp);
+# (Line 11) function Type_Album_Ticket(cp);
+# (Line 12) function Album_Ticket_Effect(ID, type, isRandom, cp);
+# (Line 14) function Add_Weapon_Damage(ID, index);
+# (Line 15) function Add_Weapon_Increase(ID, index);
+# (Line 17) function Weapon_Text_Princess();
+# (Line 18) function Weapon_Text_Fairy();
+# (Line 19) function Weapon_Text_Angel();
+# (Line 21) function Marge(cp)
+# (Line 22) {
 @EUDFunc
 def Marge(cp):
-    # (Line 21) if (MemoryEPD(EPD(0x6284E8) + 12 * cp, AtLeast, 1))
-    if EUDIf()(MemoryEPD(EPD(0x6284E8) + 12 * cp, AtLeast, 1)):
-        # (Line 22) { Lesson_Check(cp); }
+    # (Line 23) if (MemoryEPD(EPD(0x6284E8) + 12 * cp, AtLeast, 1) && Deaths(cp, Exactly, 0, "Event_Score"))
+    if EUDIf()(EUDSCAnd()(MemoryEPD(EPD(0x6284E8) + 12 * cp, AtLeast, 1))(Deaths(cp, Exactly, 0, "Event_Score"))()):
+        # (Line 24) { Lesson_Check(cp); }
         Lesson_Check(cp)
-        # (Line 24) Album_Unit(cp);
+        # (Line 26) Random_Album_Ticket(cp);
     EUDEndIf()
-    Album_Unit(cp)
-    # (Line 25) Lesson_Unit(cp);
+    Random_Album_Ticket(cp)
+    # (Line 27) Type_Album_Ticket(cp);
+    Type_Album_Ticket(cp)
+    # (Line 28) Lesson_Unit(cp);
     Lesson_Unit(cp)
-    # (Line 26) }
-    # (Line 28) function Lesson_Unit(cp)
+    # (Line 29) }
+    # (Line 31) function Lesson_Unit(cp)
 
-# (Line 29) {
+# (Line 32) {
 @EUDFunc
 def Lesson_Unit(cp):
-    # (Line 30) if (Bring(cp, AtLeast, 1, 126, "JewelGacha Step 1") && Lesson_Level[0] < 30)
+    # (Line 33) if (Bring(cp, AtLeast, 1, 126, "JewelGacha Step 1") && Lesson_Level[0] < 30)
     if EUDIf()(EUDSCAnd()(Bring(cp, AtLeast, 1, 126, "JewelGacha Step 1"))(Lesson_Level[0] >= 30, neg=True)()):
-        # (Line 31) {
-        # (Line 32) KillUnitAt(1,  126, "JewelGacha Step 1", cp);
-        # (Line 34) Lesson_Level[0] += 1;
+        # (Line 34) {
+        # (Line 35) KillUnitAt(1,  126, "JewelGacha Step 1", cp);
+        # (Line 37) Lesson_Level[0] += 1;
         DoActions(KillUnitAt(1, 126, "JewelGacha Step 1", cp))
         _ARRW(Lesson_Level, 0).__iadd__(1)
-        # (Line 36) for (var i = 0; i < 17; i++)
+        # (Line 39) for (var i = 0; i < 17; i++)
         i = EUDVariable()
         i << (0)
         if EUDWhile()(i >= 17, neg=True):
             def _t3():
                 i.__iadd__(1)
-            # (Line 37) {
-            # (Line 38) Add_Weapon_Damage(vd.Princess_Weapon_Index[i], Lesson_Level[0]);
+            # (Line 40) {
+            # (Line 41) Add_Weapon_Damage(vd.Princess_Weapon_Index[i], Lesson_Level[0]);
             Add_Weapon_Damage(vd.Princess_Weapon_Index[i], Lesson_Level[0])
-            # (Line 39) }
-            # (Line 40) s.print("\x13\x1BPrincess \x04타입 특훈 티켓을 사용하였습니다.");
+            # (Line 42) }
+            # (Line 43) s.print("\x13\x1BPrincess \x04타입 특훈 티켓을 사용하였습니다.");
             EUDSetContinuePoint()
             _t3()
         EUDEndWhile()
         s.print("\x13\x1BPrincess \x04타입 특훈 티켓을 사용하였습니다.")
-        # (Line 41) Weapon_Text_Princess();
+        # (Line 44) Weapon_Text_Princess();
         Weapon_Text_Princess()
-        # (Line 42) }
-        # (Line 44) if (Bring(cp, AtLeast, 1, 127, "JewelGacha Step 1") && Lesson_Level[1] < 30)
+        # (Line 45) }
+        # (Line 47) if (Bring(cp, AtLeast, 1, 127, "JewelGacha Step 1") && Lesson_Level[1] < 30)
     EUDEndIf()
     if EUDIf()(EUDSCAnd()(Bring(cp, AtLeast, 1, 127, "JewelGacha Step 1"))(Lesson_Level[1] >= 30, neg=True)()):
-        # (Line 45) {
-        # (Line 46) KillUnitAt(1,  127, "JewelGacha Step 1", cp);
-        # (Line 48) Lesson_Level[1] += 1;
+        # (Line 48) {
+        # (Line 49) KillUnitAt(1,  127, "JewelGacha Step 1", cp);
+        # (Line 51) Lesson_Level[1] += 1;
         DoActions(KillUnitAt(1, 127, "JewelGacha Step 1", cp))
         _ARRW(Lesson_Level, 1).__iadd__(1)
-        # (Line 50) for (var i = 0; i < 17; i++)
+        # (Line 53) for (var i = 0; i < 17; i++)
         i = EUDVariable()
         i << (0)
         if EUDWhile()(i >= 17, neg=True):
             def _t6():
                 i.__iadd__(1)
-            # (Line 51) {
-            # (Line 52) Add_Weapon_Damage(vd.Fairy_Weapon_Index[i], Lesson_Level[1]);
+            # (Line 54) {
+            # (Line 55) Add_Weapon_Damage(vd.Fairy_Weapon_Index[i], Lesson_Level[1]);
             Add_Weapon_Damage(vd.Fairy_Weapon_Index[i], Lesson_Level[1])
-            # (Line 53) }
-            # (Line 54) s.print("\x13\x1CFairy \x04타입 특훈 티켓을 사용하였습니다.");
+            # (Line 56) }
+            # (Line 57) s.print("\x13\x1CFairy \x04타입 특훈 티켓을 사용하였습니다.");
             EUDSetContinuePoint()
             _t6()
         EUDEndWhile()
         s.print("\x13\x1CFairy \x04타입 특훈 티켓을 사용하였습니다.")
-        # (Line 55) Weapon_Text_Fairy();
+        # (Line 58) Weapon_Text_Fairy();
         Weapon_Text_Fairy()
-        # (Line 56) }
-        # (Line 58) if (Bring(cp, AtLeast, 1, 135, "JewelGacha Step 1") && Lesson_Level[2] < 30)
+        # (Line 59) }
+        # (Line 61) if (Bring(cp, AtLeast, 1, 135, "JewelGacha Step 1") && Lesson_Level[2] < 30)
     EUDEndIf()
     if EUDIf()(EUDSCAnd()(Bring(cp, AtLeast, 1, 135, "JewelGacha Step 1"))(Lesson_Level[2] >= 30, neg=True)()):
-        # (Line 59) {
-        # (Line 60) KillUnitAt(1,  135, "JewelGacha Step 1", cp);
-        # (Line 62) Lesson_Level[2] += 1;
+        # (Line 62) {
+        # (Line 63) KillUnitAt(1,  135, "JewelGacha Step 1", cp);
+        # (Line 65) Lesson_Level[2] += 1;
         DoActions(KillUnitAt(1, 135, "JewelGacha Step 1", cp))
         _ARRW(Lesson_Level, 2).__iadd__(1)
-        # (Line 64) for (var i = 0; i < 17; i++)
+        # (Line 67) for (var i = 0; i < 17; i++)
         i = EUDVariable()
         i << (0)
         if EUDWhile()(i >= 17, neg=True):
             def _t9():
                 i.__iadd__(1)
-            # (Line 65) {
-            # (Line 66) Add_Weapon_Damage(vd.Angel_Weapon_Index[i], Lesson_Level[2]);
+            # (Line 68) {
+            # (Line 69) Add_Weapon_Damage(vd.Angel_Weapon_Index[i], Lesson_Level[2]);
             Add_Weapon_Damage(vd.Angel_Weapon_Index[i], Lesson_Level[2])
-            # (Line 67) }
-            # (Line 68) s.print("\x13\x19Angel \x04타입 특훈 티켓을 사용하였습니다.");
+            # (Line 70) }
+            # (Line 71) s.print("\x13\x19Angel \x04타입 특훈 티켓을 사용하였습니다.");
             EUDSetContinuePoint()
             _t9()
         EUDEndWhile()
         s.print("\x13\x19Angel \x04타입 특훈 티켓을 사용하였습니다.")
-        # (Line 69) Weapon_Text_Angel();
+        # (Line 72) Weapon_Text_Angel();
         Weapon_Text_Angel()
-        # (Line 70) }
-        # (Line 71) }
+        # (Line 73) }
+        # (Line 74) }
     EUDEndIf()
-    # (Line 73) function Album_Unit(cp)
+    # (Line 76) function Random_Album_Ticket(cp)
 
-# (Line 74) {
+# (Line 77) {
 @EUDFunc
-def Album_Unit(cp):
-    # (Line 75) if (Bring(cp, AtLeast, 1, 136, "JewelGacha Step 1"))
-    if EUDIf()(Bring(cp, AtLeast, 1, 136, "JewelGacha Step 1")):
-        # (Line 76) {
-        # (Line 77) var random = dwrand() % 17;
+def Random_Album_Ticket(cp):
+    # (Line 78) if (Bring(cp, AtLeast, 1, 114, "JewelGacha Step 1"))
+    if EUDIf()(Bring(cp, AtLeast, 1, 114, "JewelGacha Step 1")):
+        # (Line 79) {
+        # (Line 80) KillUnitAt(1, 114, "JewelGacha Step 1", cp);
+        # (Line 82) var type = dwrand()% 3;
+        DoActions(KillUnitAt(1, 114, "JewelGacha Step 1", cp))
+        type = EUDVariable()
+        type << (f_dwrand() % 3)
+        # (Line 83) var random = dwrand() % 17;
         random = EUDVariable()
         random << (f_dwrand() % 17)
-        # (Line 79) SetDeaths(P6, Add, vd.Album_Weapon_Damage[random], vd.Princess_Unit_Index[random]);
-        # (Line 80) SetDeaths(P7, Add, 1, vd.Princess_Unit_Index[random]);
-        DoActions(SetDeaths(P6, Add, vd.Album_Weapon_Damage[random], vd.Princess_Unit_Index[random]))
-        # (Line 81) KillUnitAt(1,  136, "JewelGacha Step 1", cp);
-        DoActions(SetDeaths(P7, Add, 1, vd.Princess_Unit_Index[random]))
-        # (Line 83) if (Deaths(cp, Exactly, 0, "unit_music_length"))
-        DoActions(KillUnitAt(1, 136, "JewelGacha Step 1", cp))
-        if EUDIf()(Deaths(cp, Exactly, 0, "unit_music_length")):
-            # (Line 84) { SetDeaths(Force1, SetTo, 1 +  random, "unit_music_index"); }
-            DoActions(SetDeaths(Force1, SetTo, 1 + random, "unit_music_index"))
-            # (Line 86) if (Deaths(P6, AtLeast, 400, vd.Princess_Unit_Index[random]))
+        # (Line 85) Album_Ticket_Effect(random, type, 0, cp);
+        Album_Ticket_Effect(random, type, 0, cp)
+        # (Line 86) }
+        # (Line 87) }
+    EUDEndIf()
+    # (Line 89) function Type_Album_Ticket(cp)
+
+# (Line 90) {
+@EUDFunc
+def Type_Album_Ticket(cp):
+    # (Line 91) if (Bring(cp, AtLeast, 1, 138, "JewelGacha Step 1"))
+    if EUDIf()(Bring(cp, AtLeast, 1, 138, "JewelGacha Step 1")):
+        # (Line 92) {
+        # (Line 93) if(Bring(cp, AtLeast, 1, 28, "lounge_Cloth")) 	{ Album_Ticket_Effect(0, 2, 1, cp); 		}
+        if EUDIf()(Bring(cp, AtLeast, 1, 28, "lounge_Cloth")):
+            Album_Ticket_Effect(0, 2, 1, cp)
+            # (Line 94) if(Bring(cp, AtLeast, 1, 32, "lounge_Cloth")) 	{ Album_Ticket_Effect(1, 2, 1, cp); 		}
         EUDEndIf()
-        if EUDIf()(Deaths(P6, AtLeast, 400, vd.Princess_Unit_Index[random])):
-            # (Line 87) {
-            # (Line 88) Add_Weapon_Increase(vd.Princess_Weapon_Index[random], 4);
-            Add_Weapon_Increase(vd.Princess_Weapon_Index[random], 4)
-            # (Line 89) SetDeaths(P6, Subtract, 400, vd.Princess_Unit_Index[random]);
-            # (Line 90) }
-            DoActions(SetDeaths(P6, Subtract, 400, vd.Princess_Unit_Index[random]))
-            # (Line 91) if (Deaths(P6, AtLeast, 300, vd.Princess_Unit_Index[random]))
+        if EUDIf()(Bring(cp, AtLeast, 1, 32, "lounge_Cloth")):
+            Album_Ticket_Effect(1, 2, 1, cp)
+            # (Line 95) if(Bring(cp, AtLeast, 1, 102, "lounge_Cloth")) 	{ Album_Ticket_Effect(2, 2, 1, cp); 		}
         EUDEndIf()
-        if EUDIf()(Deaths(P6, AtLeast, 300, vd.Princess_Unit_Index[random])):
-            # (Line 92) {
-            # (Line 93) Add_Weapon_Increase(vd.Princess_Weapon_Index[random], 3);
-            Add_Weapon_Increase(vd.Princess_Weapon_Index[random], 3)
-            # (Line 94) SetDeaths(P6, Subtract, 300, vd.Princess_Unit_Index[random]);
-            # (Line 95) }
-            DoActions(SetDeaths(P6, Subtract, 300, vd.Princess_Unit_Index[random]))
-            # (Line 96) if (Deaths(P6, AtLeast, 200, vd.Princess_Unit_Index[random]))
+        if EUDIf()(Bring(cp, AtLeast, 1, 102, "lounge_Cloth")):
+            Album_Ticket_Effect(2, 2, 1, cp)
+            # (Line 96) if(Bring(cp, AtLeast, 1, 104, "lounge_Cloth")) 	{ Album_Ticket_Effect(3, 2, 1, cp); 		}
         EUDEndIf()
-        if EUDIf()(Deaths(P6, AtLeast, 200, vd.Princess_Unit_Index[random])):
-            # (Line 97) {
-            # (Line 98) Add_Weapon_Increase(vd.Princess_Weapon_Index[random], 2);
-            Add_Weapon_Increase(vd.Princess_Weapon_Index[random], 2)
-            # (Line 99) SetDeaths(P6, Subtract, 200, vd.Princess_Unit_Index[random]);
-            # (Line 100) }
-            DoActions(SetDeaths(P6, Subtract, 200, vd.Princess_Unit_Index[random]))
-            # (Line 101) if (Deaths(P6, AtLeast, 100, vd.Princess_Unit_Index[random]))
+        if EUDIf()(Bring(cp, AtLeast, 1, 104, "lounge_Cloth")):
+            Album_Ticket_Effect(3, 2, 1, cp)
+            # (Line 97) if(Bring(cp, AtLeast, 1, 0, "lounge_Cloth")) 		{ Album_Ticket_Effect(4, 2, 1, cp); 		}
         EUDEndIf()
-        if EUDIf()(Deaths(P6, AtLeast, 100, vd.Princess_Unit_Index[random])):
-            # (Line 102) {
-            # (Line 103) Add_Weapon_Increase(vd.Princess_Weapon_Index[random], 1);
-            Add_Weapon_Increase(vd.Princess_Weapon_Index[random], 1)
-            # (Line 104) SetDeaths(P6, Subtract, 100, vd.Princess_Unit_Index[random]);
-            # (Line 105) }
-            DoActions(SetDeaths(P6, Subtract, 100, vd.Princess_Unit_Index[random]))
-            # (Line 106) }
+        if EUDIf()(Bring(cp, AtLeast, 1, 0, "lounge_Cloth")):
+            Album_Ticket_Effect(4, 2, 1, cp)
+            # (Line 98) if(Bring(cp, AtLeast, 1, 1, "lounge_Cloth")) 		{ Album_Ticket_Effect(5, 2, 1, cp);		}
         EUDEndIf()
-        # (Line 108) if (Bring(cp, AtLeast, 1, 137, "JewelGacha Step 1"))
+        if EUDIf()(Bring(cp, AtLeast, 1, 1, "lounge_Cloth")):
+            Album_Ticket_Effect(5, 2, 1, cp)
+            # (Line 99) if(Bring(cp, AtLeast, 1, 2, "lounge_Cloth")) 		{ Album_Ticket_Effect(6, 2, 1, cp); 		}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 2, "lounge_Cloth")):
+            Album_Ticket_Effect(6, 2, 1, cp)
+            # (Line 100) if(Bring(cp, AtLeast, 1, 8, "lounge_Cloth")) 		{ Album_Ticket_Effect(7, 2, 1, cp); 		}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 8, "lounge_Cloth")):
+            Album_Ticket_Effect(7, 2, 1, cp)
+            # (Line 101) if(Bring(cp, AtLeast, 1, 9, "lounge_Cloth")) 		{ Album_Ticket_Effect(8, 2, 1, cp); 		}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 9, "lounge_Cloth")):
+            Album_Ticket_Effect(8, 2, 1, cp)
+            # (Line 102) if(Bring(cp, AtLeast, 1, 10, "lounge_Cloth")) 	{ Album_Ticket_Effect(9,  2, 1, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 10, "lounge_Cloth")):
+            Album_Ticket_Effect(9, 2, 1, cp)
+            # (Line 103) if(Bring(cp, AtLeast, 1, 12, "lounge_Cloth")) 	{ Album_Ticket_Effect(10, 2, 1, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 12, "lounge_Cloth")):
+            Album_Ticket_Effect(10, 2, 1, cp)
+            # (Line 104) if(Bring(cp, AtLeast, 1, 16, "lounge_Cloth")) 	{ Album_Ticket_Effect(11, 2, 1, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 16, "lounge_Cloth")):
+            Album_Ticket_Effect(11, 2, 1, cp)
+            # (Line 105) if(Bring(cp, AtLeast, 1, 19, "lounge_Cloth")) 	{ Album_Ticket_Effect(12, 2, 1, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 19, "lounge_Cloth")):
+            Album_Ticket_Effect(12, 2, 1, cp)
+            # (Line 106) if(Bring(cp, AtLeast, 1, 20, "lounge_Cloth")) 	{ Album_Ticket_Effect(13, 2, 1, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 20, "lounge_Cloth")):
+            Album_Ticket_Effect(13, 2, 1, cp)
+            # (Line 107) if(Bring(cp, AtLeast, 1, 21, "lounge_Cloth")) 	{ Album_Ticket_Effect(14, 2, 1, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 21, "lounge_Cloth")):
+            Album_Ticket_Effect(14, 2, 1, cp)
+            # (Line 108) if(Bring(cp, AtLeast, 1, 37, "lounge_Cloth")) 	{ Album_Ticket_Effect(15, 2, 1, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 37, "lounge_Cloth")):
+            Album_Ticket_Effect(15, 2, 1, cp)
+            # (Line 109) if(Bring(cp, AtLeast, 1, 38, "lounge_Cloth")) 	{ Album_Ticket_Effect(16, 2, 1, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 38, "lounge_Cloth")):
+            Album_Ticket_Effect(16, 2, 1, cp)
+            # (Line 110) }
+        EUDEndIf()
+        # (Line 112) if (Bring(cp, AtLeast, 1, 137, "JewelGacha Step 1"))
     EUDEndIf()
     if EUDIf()(Bring(cp, AtLeast, 1, 137, "JewelGacha Step 1")):
-        # (Line 109) {
-        # (Line 110) var random = dwrand() % 17;
-        random = EUDVariable()
-        random << (f_dwrand() % 17)
-        # (Line 112) SetDeaths(P6, Add, vd.Album_Weapon_Damage[random], vd.Fairy_Unit_Index[random]);
-        # (Line 113) SetDeaths(P7, Add, 1, vd.Fairy_Unit_Index[random]);
-        DoActions(SetDeaths(P6, Add, vd.Album_Weapon_Damage[random], vd.Fairy_Unit_Index[random]))
-        # (Line 114) KillUnitAt(1,  137, "JewelGacha Step 1", cp);
-        DoActions(SetDeaths(P7, Add, 1, vd.Fairy_Unit_Index[random]))
-        # (Line 116) if (Deaths(cp, Exactly, 0, "unit_music_length"))
-        DoActions(KillUnitAt(1, 137, "JewelGacha Step 1", cp))
-        if EUDIf()(Deaths(cp, Exactly, 0, "unit_music_length")):
-            # (Line 117) { SetDeaths(Force1, SetTo, 18 +  random, "unit_music_index"); }
-            DoActions(SetDeaths(Force1, SetTo, 18 + random, "unit_music_index"))
-            # (Line 119) if (Deaths(P6, AtLeast, 400, vd.Fairy_Unit_Index[random]))
+        # (Line 113) {
+        # (Line 114) if(Bring(cp, AtLeast, 1, 29, "lounge_Cloth")) 	{ Album_Ticket_Effect(0, 1, 2, cp); 		}
+        if EUDIf()(Bring(cp, AtLeast, 1, 29, "lounge_Cloth")):
+            Album_Ticket_Effect(0, 1, 2, cp)
+            # (Line 115) if(Bring(cp, AtLeast, 1, 80, "lounge_Cloth")) 	{ Album_Ticket_Effect(1, 1, 2, cp); 		}
         EUDEndIf()
-        if EUDIf()(Deaths(P6, AtLeast, 400, vd.Fairy_Unit_Index[random])):
-            # (Line 120) {
-            # (Line 121) Add_Weapon_Increase(vd.Fairy_Weapon_Index[random], 4);
-            Add_Weapon_Increase(vd.Fairy_Weapon_Index[random], 4)
-            # (Line 122) SetDeaths(P6, Subtract, 400, vd.Fairy_Unit_Index[random]);
-            # (Line 123) }
-            DoActions(SetDeaths(P6, Subtract, 400, vd.Fairy_Unit_Index[random]))
-            # (Line 124) if (Deaths(P6, AtLeast, 300, vd.Fairy_Unit_Index[random]))
+        if EUDIf()(Bring(cp, AtLeast, 1, 80, "lounge_Cloth")):
+            Album_Ticket_Effect(1, 1, 2, cp)
+            # (Line 116) if(Bring(cp, AtLeast, 1, 63, "lounge_Cloth")) 	{ Album_Ticket_Effect(2, 1, 2, cp); 		}
         EUDEndIf()
-        if EUDIf()(Deaths(P6, AtLeast, 300, vd.Fairy_Unit_Index[random])):
-            # (Line 125) {
-            # (Line 126) Add_Weapon_Increase(vd.Fairy_Weapon_Index[random], 3);
-            Add_Weapon_Increase(vd.Fairy_Weapon_Index[random], 3)
-            # (Line 127) SetDeaths(P6, Subtract, 300, vd.Fairy_Unit_Index[random]);
-            # (Line 128) }
-            DoActions(SetDeaths(P6, Subtract, 300, vd.Fairy_Unit_Index[random]))
-            # (Line 129) if (Deaths(P6, AtLeast, 200, vd.Fairy_Unit_Index[random]))
+        if EUDIf()(Bring(cp, AtLeast, 1, 63, "lounge_Cloth")):
+            Album_Ticket_Effect(2, 1, 2, cp)
+            # (Line 117) if(Bring(cp, AtLeast, 1, 87, "lounge_Cloth")) 	{ Album_Ticket_Effect(3, 1, 2, cp); 		}
         EUDEndIf()
-        if EUDIf()(Deaths(P6, AtLeast, 200, vd.Fairy_Unit_Index[random])):
-            # (Line 130) {
-            # (Line 131) Add_Weapon_Increase(vd.Fairy_Weapon_Index[random], 2);
-            Add_Weapon_Increase(vd.Fairy_Weapon_Index[random], 2)
-            # (Line 132) SetDeaths(P6, Subtract, 200, vd.Fairy_Unit_Index[random]);
-            # (Line 133) }
-            DoActions(SetDeaths(P6, Subtract, 200, vd.Fairy_Unit_Index[random]))
-            # (Line 134) if (Deaths(P6, AtLeast, 100, vd.Fairy_Unit_Index[random]))
+        if EUDIf()(Bring(cp, AtLeast, 1, 87, "lounge_Cloth")):
+            Album_Ticket_Effect(3, 1, 2, cp)
+            # (Line 118) if(Bring(cp, AtLeast, 1, 39, "lounge_Cloth")) 	{ Album_Ticket_Effect(4, 1, 2, cp); 		}
         EUDEndIf()
-        if EUDIf()(Deaths(P6, AtLeast, 100, vd.Fairy_Unit_Index[random])):
-            # (Line 135) {
-            # (Line 136) Add_Weapon_Increase(vd.Fairy_Weapon_Index[random], 1);
-            Add_Weapon_Increase(vd.Fairy_Weapon_Index[random], 1)
-            # (Line 137) SetDeaths(P6, Subtract, 100, vd.Fairy_Unit_Index[random]);
-            # (Line 138) }
-            DoActions(SetDeaths(P6, Subtract, 100, vd.Fairy_Unit_Index[random]))
-            # (Line 139) }
+        if EUDIf()(Bring(cp, AtLeast, 1, 39, "lounge_Cloth")):
+            Album_Ticket_Effect(4, 1, 2, cp)
+            # (Line 119) if(Bring(cp, AtLeast, 1, 40, "lounge_Cloth")) 	{ Album_Ticket_Effect(5, 1, 2, cp); 		}
         EUDEndIf()
-        # (Line 141) if (Bring(cp, AtLeast, 1, 138, "JewelGacha Step 1"))
+        if EUDIf()(Bring(cp, AtLeast, 1, 40, "lounge_Cloth")):
+            Album_Ticket_Effect(5, 1, 2, cp)
+            # (Line 120) if(Bring(cp, AtLeast, 1, 43, "lounge_Cloth")) 	{ Album_Ticket_Effect(6, 1, 2, cp); 		}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 43, "lounge_Cloth")):
+            Album_Ticket_Effect(6, 1, 2, cp)
+            # (Line 121) if(Bring(cp, AtLeast, 1, 44, "lounge_Cloth")) 	{ Album_Ticket_Effect(7, 1, 2, cp); 		}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 44, "lounge_Cloth")):
+            Album_Ticket_Effect(7, 1, 2, cp)
+            # (Line 122) if(Bring(cp, AtLeast, 1, 46, "lounge_Cloth")) 	{ Album_Ticket_Effect(8, 1, 2, cp); 		}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 46, "lounge_Cloth")):
+            Album_Ticket_Effect(8, 1, 2, cp)
+            # (Line 123) if(Bring(cp, AtLeast, 1, 48, "lounge_Cloth")) 	{ Album_Ticket_Effect(9,  1, 2, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 48, "lounge_Cloth")):
+            Album_Ticket_Effect(9, 1, 2, cp)
+            # (Line 124) if(Bring(cp, AtLeast, 1, 51, "lounge_Cloth")) 	{ Album_Ticket_Effect(10, 1, 2, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 51, "lounge_Cloth")):
+            Album_Ticket_Effect(10, 1, 2, cp)
+            # (Line 125) if(Bring(cp, AtLeast, 1, 52, "lounge_Cloth")) 	{ Album_Ticket_Effect(11, 1, 2, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 52, "lounge_Cloth")):
+            Album_Ticket_Effect(11, 1, 2, cp)
+            # (Line 126) if(Bring(cp, AtLeast, 1, 53, "lounge_Cloth")) 	{ Album_Ticket_Effect(12, 1, 2, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 53, "lounge_Cloth")):
+            Album_Ticket_Effect(12, 1, 2, cp)
+            # (Line 127) if(Bring(cp, AtLeast, 1, 54, "lounge_Cloth")) 	{ Album_Ticket_Effect(13, 1, 2, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 54, "lounge_Cloth")):
+            Album_Ticket_Effect(13, 1, 2, cp)
+            # (Line 128) if(Bring(cp, AtLeast, 1, 55, "lounge_Cloth")) 	{ Album_Ticket_Effect(14, 1, 2, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 55, "lounge_Cloth")):
+            Album_Ticket_Effect(14, 1, 2, cp)
+            # (Line 129) if(Bring(cp, AtLeast, 1, 56, "lounge_Cloth")) 	{ Album_Ticket_Effect(15, 1, 2, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 56, "lounge_Cloth")):
+            Album_Ticket_Effect(15, 1, 2, cp)
+            # (Line 130) if(Bring(cp, AtLeast, 1, 60, "lounge_Cloth")) 	{ Album_Ticket_Effect(16, 1, 2, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 60, "lounge_Cloth")):
+            Album_Ticket_Effect(16, 1, 2, cp)
+            # (Line 131) }
+        EUDEndIf()
+        # (Line 132) if (Bring(cp, AtLeast, 1, 136, "JewelGacha Step 1"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 138, "JewelGacha Step 1")):
-        # (Line 142) {
-        # (Line 143) var random = dwrand() % 17;
-        random = EUDVariable()
-        random << (f_dwrand() % 17)
-        # (Line 145) SetDeaths(P6, Add, vd.Album_Weapon_Damage[random], vd.Angel_Unit_Index[random]);
-        # (Line 146) SetDeaths(P7, Add, 1, vd.Angel_Unit_Index[random]);
-        DoActions(SetDeaths(P6, Add, vd.Album_Weapon_Damage[random], vd.Angel_Unit_Index[random]))
-        # (Line 147) KillUnitAt(1,  138, "JewelGacha Step 1", cp);
-        DoActions(SetDeaths(P7, Add, 1, vd.Angel_Unit_Index[random]))
-        # (Line 149) if (Deaths(cp, Exactly, 0, "unit_music_length"))
-        DoActions(KillUnitAt(1, 138, "JewelGacha Step 1", cp))
-        if EUDIf()(Deaths(cp, Exactly, 0, "unit_music_length")):
-            # (Line 150) { SetDeaths(Force1, SetTo, 35 +  random, "unit_music_index"); }
-            DoActions(SetDeaths(Force1, SetTo, 35 + random, "unit_music_index"))
-            # (Line 152) if (Deaths(P6, AtLeast, 400, vd.Angel_Unit_Index[random]))
+    if EUDIf()(Bring(cp, AtLeast, 1, 136, "JewelGacha Step 1")):
+        # (Line 133) {
+        # (Line 134) if(Bring(cp, AtLeast, 1, 27, "lounge_Cloth")) 	{ Album_Ticket_Effect(0, 0, 3, cp); 		}
+        if EUDIf()(Bring(cp, AtLeast, 1, 27, "lounge_Cloth")):
+            Album_Ticket_Effect(0, 0, 3, cp)
+            # (Line 135) if(Bring(cp, AtLeast, 1, 88, "lounge_Cloth")) 	{ Album_Ticket_Effect(1, 0, 3, cp); 		}
         EUDEndIf()
-        if EUDIf()(Deaths(P6, AtLeast, 400, vd.Angel_Unit_Index[random])):
-            # (Line 153) {
-            # (Line 154) Add_Weapon_Increase(vd.Angel_Weapon_Index[random], 4);
-            Add_Weapon_Increase(vd.Angel_Weapon_Index[random], 4)
-            # (Line 155) SetDeaths(P6, Subtract, 400, vd.Angel_Unit_Index[random]);
-            # (Line 156) }
-            DoActions(SetDeaths(P6, Subtract, 400, vd.Angel_Unit_Index[random]))
-            # (Line 157) if (Deaths(P6, AtLeast, 300, vd.Angel_Unit_Index[random]))
+        if EUDIf()(Bring(cp, AtLeast, 1, 88, "lounge_Cloth")):
+            Album_Ticket_Effect(1, 0, 3, cp)
+            # (Line 136) if(Bring(cp, AtLeast, 1, 99, "lounge_Cloth")) 	{ Album_Ticket_Effect(2, 0, 3, cp); 		}
         EUDEndIf()
-        if EUDIf()(Deaths(P6, AtLeast, 300, vd.Angel_Unit_Index[random])):
-            # (Line 158) {
-            # (Line 159) Add_Weapon_Increase(vd.Angel_Weapon_Index[random], 3);
-            Add_Weapon_Increase(vd.Angel_Weapon_Index[random], 3)
-            # (Line 160) SetDeaths(P6, Subtract, 300, vd.Angel_Unit_Index[random]);
-            # (Line 161) }
-            DoActions(SetDeaths(P6, Subtract, 300, vd.Angel_Unit_Index[random]))
-            # (Line 162) if (Deaths(P6, AtLeast, 200, vd.Angel_Unit_Index[random]))
+        if EUDIf()(Bring(cp, AtLeast, 1, 99, "lounge_Cloth")):
+            Album_Ticket_Effect(2, 0, 3, cp)
+            # (Line 137) if(Bring(cp, AtLeast, 1, 100, "lounge_Cloth")) 	{ Album_Ticket_Effect(3, 0, 3, cp); 		}
         EUDEndIf()
-        if EUDIf()(Deaths(P6, AtLeast, 200, vd.Angel_Unit_Index[random])):
-            # (Line 163) {
-            # (Line 164) Add_Weapon_Increase(vd.Angel_Weapon_Index[random], 2);
-            Add_Weapon_Increase(vd.Angel_Weapon_Index[random], 2)
-            # (Line 165) SetDeaths(P6, Subtract, 200, vd.Angel_Unit_Index[random]);
-            # (Line 166) }
-            DoActions(SetDeaths(P6, Subtract, 200, vd.Angel_Unit_Index[random]))
-            # (Line 167) if (Deaths(P6, AtLeast, 100, vd.Angel_Unit_Index[random]))
+        if EUDIf()(Bring(cp, AtLeast, 1, 100, "lounge_Cloth")):
+            Album_Ticket_Effect(3, 0, 3, cp)
+            # (Line 138) if(Bring(cp, AtLeast, 1, 61, "lounge_Cloth")) 	{ Album_Ticket_Effect(4, 0, 3, cp); 		}
         EUDEndIf()
-        if EUDIf()(Deaths(P6, AtLeast, 100, vd.Angel_Unit_Index[random])):
-            # (Line 168) {
-            # (Line 169) Add_Weapon_Increase(vd.Angel_Weapon_Index[random], 1);
-            Add_Weapon_Increase(vd.Angel_Weapon_Index[random], 1)
-            # (Line 170) SetDeaths(P6, Subtract, 100, vd.Angel_Unit_Index[random]);
-            # (Line 171) }
-            DoActions(SetDeaths(P6, Subtract, 100, vd.Angel_Unit_Index[random]))
-            # (Line 172) }
+        if EUDIf()(Bring(cp, AtLeast, 1, 61, "lounge_Cloth")):
+            Album_Ticket_Effect(4, 0, 3, cp)
+            # (Line 139) if(Bring(cp, AtLeast, 1, 65, "lounge_Cloth")) 	{ Album_Ticket_Effect(5, 0, 3, cp); 		}
         EUDEndIf()
-        # (Line 173) }
+        if EUDIf()(Bring(cp, AtLeast, 1, 65, "lounge_Cloth")):
+            Album_Ticket_Effect(5, 0, 3, cp)
+            # (Line 140) if(Bring(cp, AtLeast, 1, 66, "lounge_Cloth")) 	{ Album_Ticket_Effect(6, 0, 3, cp); 		}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 66, "lounge_Cloth")):
+            Album_Ticket_Effect(6, 0, 3, cp)
+            # (Line 141) if(Bring(cp, AtLeast, 1, 67, "lounge_Cloth")) 	{ Album_Ticket_Effect(7, 0, 3, cp); 		}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 67, "lounge_Cloth")):
+            Album_Ticket_Effect(7, 0, 3, cp)
+            # (Line 142) if(Bring(cp, AtLeast, 1, 68, "lounge_Cloth")) 	{ Album_Ticket_Effect(8, 0, 3, cp); 		}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 68, "lounge_Cloth")):
+            Album_Ticket_Effect(8, 0, 3, cp)
+            # (Line 143) if(Bring(cp, AtLeast, 1, 70, "lounge_Cloth")) 	{ Album_Ticket_Effect(9, 0, 3, cp); 		}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 70, "lounge_Cloth")):
+            Album_Ticket_Effect(9, 0, 3, cp)
+            # (Line 144) if(Bring(cp, AtLeast, 1, 71, "lounge_Cloth")) 	{ Album_Ticket_Effect(10, 0, 3, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 71, "lounge_Cloth")):
+            Album_Ticket_Effect(10, 0, 3, cp)
+            # (Line 145) if(Bring(cp, AtLeast, 1, 74, "lounge_Cloth")) 	{ Album_Ticket_Effect(11, 0, 3, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 74, "lounge_Cloth")):
+            Album_Ticket_Effect(11, 0, 3, cp)
+            # (Line 146) if(Bring(cp, AtLeast, 1, 75, "lounge_Cloth")) 	{ Album_Ticket_Effect(12, 0, 3, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 75, "lounge_Cloth")):
+            Album_Ticket_Effect(12, 0, 3, cp)
+            # (Line 147) if(Bring(cp, AtLeast, 1, 76, "lounge_Cloth")) 	{ Album_Ticket_Effect(13, 0, 3, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 76, "lounge_Cloth")):
+            Album_Ticket_Effect(13, 0, 3, cp)
+            # (Line 148) if(Bring(cp, AtLeast, 1, 77, "lounge_Cloth")) 	{ Album_Ticket_Effect(14, 0, 3, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 77, "lounge_Cloth")):
+            Album_Ticket_Effect(14, 0, 3, cp)
+            # (Line 149) if(Bring(cp, AtLeast, 1, 78, "lounge_Cloth")) 	{ Album_Ticket_Effect(15, 0, 3, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 78, "lounge_Cloth")):
+            Album_Ticket_Effect(15, 0, 3, cp)
+            # (Line 150) if(Bring(cp, AtLeast, 1, 79, "lounge_Cloth")) 	{ Album_Ticket_Effect(16, 0, 3, cp); 	}
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 79, "lounge_Cloth")):
+            Album_Ticket_Effect(16, 0, 3, cp)
+            # (Line 151) }
+        EUDEndIf()
+        # (Line 152) }
     EUDEndIf()
-    # (Line 175) function Lesson_Check(cp)
+    # (Line 154) function Album_Ticket_Effect(ID, type, isRandom, cp)
 
-# (Line 176) {
+# (Line 155) {
+@EUDFunc
+def Album_Ticket_Effect(ID, type, isRandom, cp):
+    # (Line 156) switch (isRandom)
+    EUDSwitch(isRandom)
+    # (Line 157) {
+    # (Line 158) case 1:
+    _t1 = EUDSwitchCase()
+    # (Line 159) KillUnitAt(1, 138, "JewelGacha Step 1", cp);
+    if _t1(1):
+        # (Line 160) break;
+        DoActions(KillUnitAt(1, 138, "JewelGacha Step 1", cp))
+        EUDBreak()
+        # (Line 161) case 2:
+    _t2 = EUDSwitchCase()
+    # (Line 162) KillUnitAt(1, 137, "JewelGacha Step 1", cp);
+    if _t2(2):
+        # (Line 163) break;
+        DoActions(KillUnitAt(1, 137, "JewelGacha Step 1", cp))
+        EUDBreak()
+        # (Line 164) case 3:
+    _t3 = EUDSwitchCase()
+    # (Line 165) KillUnitAt(1, 136, "JewelGacha Step 1", cp);
+    if _t3(3):
+        # (Line 166) break;
+        DoActions(KillUnitAt(1, 136, "JewelGacha Step 1", cp))
+        EUDBreak()
+        # (Line 167) }
+    # (Line 169) switch (type)
+    EUDEndSwitch()
+    EUDSwitch(type)
+    # (Line 170) {
+    # (Line 171) case 0:
+    _t4 = EUDSwitchCase()
+    # (Line 172) SetDeaths(P6, Add, vd.Album_Weapon_Damage[ID], vd.Princess_Unit_Index[ID]);
+    if _t4(0):
+        # (Line 173) SetDeaths(P7, Add, 1, vd.Princess_Unit_Index[ID]);
+        DoActions(SetDeaths(P6, Add, vd.Album_Weapon_Damage[ID], vd.Princess_Unit_Index[ID]))
+        # (Line 175) SetDeaths(Force1, SetTo, 1 +  ID, "unit_music_index");
+        DoActions(SetDeaths(P7, Add, 1, vd.Princess_Unit_Index[ID]))
+        # (Line 177) if (Deaths(P6, AtLeast, 400, vd.Princess_Unit_Index[ID]))
+        DoActions(SetDeaths(Force1, SetTo, 1 + ID, "unit_music_index"))
+        if EUDIf()(Deaths(P6, AtLeast, 400, vd.Princess_Unit_Index[ID])):
+            # (Line 178) {
+            # (Line 179) Add_Weapon_Increase(vd.Princess_Weapon_Index[ID], 4);
+            Add_Weapon_Increase(vd.Princess_Weapon_Index[ID], 4)
+            # (Line 180) SetDeaths(P6, Subtract, 400, vd.Princess_Unit_Index[ID]);
+            # (Line 181) }
+            DoActions(SetDeaths(P6, Subtract, 400, vd.Princess_Unit_Index[ID]))
+            # (Line 182) if (Deaths(P6, AtLeast, 300, vd.Princess_Unit_Index[ID]))
+        EUDEndIf()
+        if EUDIf()(Deaths(P6, AtLeast, 300, vd.Princess_Unit_Index[ID])):
+            # (Line 183) {
+            # (Line 184) Add_Weapon_Increase(vd.Princess_Weapon_Index[ID], 3);
+            Add_Weapon_Increase(vd.Princess_Weapon_Index[ID], 3)
+            # (Line 185) SetDeaths(P6, Subtract, 300, vd.Princess_Unit_Index[ID]);
+            # (Line 186) }
+            DoActions(SetDeaths(P6, Subtract, 300, vd.Princess_Unit_Index[ID]))
+            # (Line 187) if (Deaths(P6, AtLeast, 200, vd.Princess_Unit_Index[ID]))
+        EUDEndIf()
+        if EUDIf()(Deaths(P6, AtLeast, 200, vd.Princess_Unit_Index[ID])):
+            # (Line 188) {
+            # (Line 189) Add_Weapon_Increase(vd.Princess_Weapon_Index[ID], 2);
+            Add_Weapon_Increase(vd.Princess_Weapon_Index[ID], 2)
+            # (Line 190) SetDeaths(P6, Subtract, 200, vd.Princess_Unit_Index[ID]);
+            # (Line 191) }
+            DoActions(SetDeaths(P6, Subtract, 200, vd.Princess_Unit_Index[ID]))
+            # (Line 192) if (Deaths(P6, AtLeast, 100, vd.Princess_Unit_Index[ID]))
+        EUDEndIf()
+        if EUDIf()(Deaths(P6, AtLeast, 100, vd.Princess_Unit_Index[ID])):
+            # (Line 193) {
+            # (Line 194) Add_Weapon_Increase(vd.Princess_Weapon_Index[ID], 1);
+            Add_Weapon_Increase(vd.Princess_Weapon_Index[ID], 1)
+            # (Line 195) SetDeaths(P6, Subtract, 100, vd.Princess_Unit_Index[ID]);
+            # (Line 196) }
+            DoActions(SetDeaths(P6, Subtract, 100, vd.Princess_Unit_Index[ID]))
+            # (Line 197) break;
+        EUDEndIf()
+        EUDBreak()
+        # (Line 198) case 1:
+    _t9 = EUDSwitchCase()
+    # (Line 199) SetDeaths(P6, Add, vd.Album_Weapon_Damage[ID], vd.Fairy_Unit_Index[ID]);
+    if _t9(1):
+        # (Line 200) SetDeaths(P7, Add, 1, vd.Fairy_Unit_Index[ID]);
+        DoActions(SetDeaths(P6, Add, vd.Album_Weapon_Damage[ID], vd.Fairy_Unit_Index[ID]))
+        # (Line 202) SetDeaths(Force1, SetTo, 18 +  ID, "unit_music_index");
+        DoActions(SetDeaths(P7, Add, 1, vd.Fairy_Unit_Index[ID]))
+        # (Line 204) if (Deaths(P6, AtLeast, 400, vd.Fairy_Unit_Index[ID]))
+        DoActions(SetDeaths(Force1, SetTo, 18 + ID, "unit_music_index"))
+        if EUDIf()(Deaths(P6, AtLeast, 400, vd.Fairy_Unit_Index[ID])):
+            # (Line 205) {
+            # (Line 206) Add_Weapon_Increase(vd.Fairy_Weapon_Index[ID], 4);
+            Add_Weapon_Increase(vd.Fairy_Weapon_Index[ID], 4)
+            # (Line 207) SetDeaths(P6, Subtract, 400, vd.Fairy_Unit_Index[ID]);
+            # (Line 208) }
+            DoActions(SetDeaths(P6, Subtract, 400, vd.Fairy_Unit_Index[ID]))
+            # (Line 209) if (Deaths(P6, AtLeast, 300, vd.Fairy_Unit_Index[ID]))
+        EUDEndIf()
+        if EUDIf()(Deaths(P6, AtLeast, 300, vd.Fairy_Unit_Index[ID])):
+            # (Line 210) {
+            # (Line 211) Add_Weapon_Increase(vd.Fairy_Weapon_Index[ID], 3);
+            Add_Weapon_Increase(vd.Fairy_Weapon_Index[ID], 3)
+            # (Line 212) SetDeaths(P6, Subtract, 300, vd.Fairy_Unit_Index[ID]);
+            # (Line 213) }
+            DoActions(SetDeaths(P6, Subtract, 300, vd.Fairy_Unit_Index[ID]))
+            # (Line 214) if (Deaths(P6, AtLeast, 200, vd.Fairy_Unit_Index[ID]))
+        EUDEndIf()
+        if EUDIf()(Deaths(P6, AtLeast, 200, vd.Fairy_Unit_Index[ID])):
+            # (Line 215) {
+            # (Line 216) Add_Weapon_Increase(vd.Fairy_Weapon_Index[ID], 2);
+            Add_Weapon_Increase(vd.Fairy_Weapon_Index[ID], 2)
+            # (Line 217) SetDeaths(P6, Subtract, 200, vd.Fairy_Unit_Index[ID]);
+            # (Line 218) }
+            DoActions(SetDeaths(P6, Subtract, 200, vd.Fairy_Unit_Index[ID]))
+            # (Line 219) if (Deaths(P6, AtLeast, 100, vd.Fairy_Unit_Index[ID]))
+        EUDEndIf()
+        if EUDIf()(Deaths(P6, AtLeast, 100, vd.Fairy_Unit_Index[ID])):
+            # (Line 220) {
+            # (Line 221) Add_Weapon_Increase(vd.Fairy_Weapon_Index[ID], 1);
+            Add_Weapon_Increase(vd.Fairy_Weapon_Index[ID], 1)
+            # (Line 222) SetDeaths(P6, Subtract, 100, vd.Fairy_Unit_Index[ID]);
+            # (Line 223) }
+            DoActions(SetDeaths(P6, Subtract, 100, vd.Fairy_Unit_Index[ID]))
+            # (Line 224) break;
+        EUDEndIf()
+        EUDBreak()
+        # (Line 225) case 2:
+    _t14 = EUDSwitchCase()
+    # (Line 226) SetDeaths(P6, Add, vd.Album_Weapon_Damage[ID], vd.Angel_Unit_Index[ID]);
+    if _t14(2):
+        # (Line 227) SetDeaths(P7, Add, 1, vd.Angel_Unit_Index[ID]);
+        DoActions(SetDeaths(P6, Add, vd.Album_Weapon_Damage[ID], vd.Angel_Unit_Index[ID]))
+        # (Line 229) SetDeaths(Force1, SetTo, 35 +  ID, "unit_music_index");
+        DoActions(SetDeaths(P7, Add, 1, vd.Angel_Unit_Index[ID]))
+        # (Line 231) if (Deaths(P6, AtLeast, 400, vd.Angel_Unit_Index[ID]))
+        DoActions(SetDeaths(Force1, SetTo, 35 + ID, "unit_music_index"))
+        if EUDIf()(Deaths(P6, AtLeast, 400, vd.Angel_Unit_Index[ID])):
+            # (Line 232) {
+            # (Line 233) Add_Weapon_Increase(vd.Angel_Weapon_Index[ID], 4);
+            Add_Weapon_Increase(vd.Angel_Weapon_Index[ID], 4)
+            # (Line 234) SetDeaths(P6, Subtract, 400, vd.Angel_Unit_Index[ID]);
+            # (Line 235) }
+            DoActions(SetDeaths(P6, Subtract, 400, vd.Angel_Unit_Index[ID]))
+            # (Line 236) if (Deaths(P6, AtLeast, 300, vd.Angel_Unit_Index[ID]))
+        EUDEndIf()
+        if EUDIf()(Deaths(P6, AtLeast, 300, vd.Angel_Unit_Index[ID])):
+            # (Line 237) {
+            # (Line 238) Add_Weapon_Increase(vd.Angel_Weapon_Index[ID], 3);
+            Add_Weapon_Increase(vd.Angel_Weapon_Index[ID], 3)
+            # (Line 239) SetDeaths(P6, Subtract, 300, vd.Angel_Unit_Index[ID]);
+            # (Line 240) }
+            DoActions(SetDeaths(P6, Subtract, 300, vd.Angel_Unit_Index[ID]))
+            # (Line 241) if (Deaths(P6, AtLeast, 200, vd.Angel_Unit_Index[ID]))
+        EUDEndIf()
+        if EUDIf()(Deaths(P6, AtLeast, 200, vd.Angel_Unit_Index[ID])):
+            # (Line 242) {
+            # (Line 243) Add_Weapon_Increase(vd.Angel_Weapon_Index[ID], 2);
+            Add_Weapon_Increase(vd.Angel_Weapon_Index[ID], 2)
+            # (Line 244) SetDeaths(P6, Subtract, 200, vd.Angel_Unit_Index[ID]);
+            # (Line 245) }
+            DoActions(SetDeaths(P6, Subtract, 200, vd.Angel_Unit_Index[ID]))
+            # (Line 246) if (Deaths(P6, AtLeast, 100, vd.Angel_Unit_Index[ID]))
+        EUDEndIf()
+        if EUDIf()(Deaths(P6, AtLeast, 100, vd.Angel_Unit_Index[ID])):
+            # (Line 247) {
+            # (Line 248) Add_Weapon_Increase(vd.Angel_Weapon_Index[ID], 1);
+            Add_Weapon_Increase(vd.Angel_Weapon_Index[ID], 1)
+            # (Line 249) SetDeaths(P6, Subtract, 100, vd.Angel_Unit_Index[ID]);
+            # (Line 250) }
+            DoActions(SetDeaths(P6, Subtract, 100, vd.Angel_Unit_Index[ID]))
+            # (Line 251) break;
+        EUDEndIf()
+        EUDBreak()
+        # (Line 252) }
+    # (Line 253) }
+    EUDEndSwitch()
+    # (Line 255) function Lesson_Check(cp)
+
+# (Line 256) {
 @EUDFunc
 def Lesson_Check(cp):
-    # (Line 177) switch(id.Unit_ID[cp])
+    # (Line 257) switch(id.Unit_ID[cp])
     EUDSwitch(id.Unit_ID[cp])
-    # (Line 178) {
-    # (Line 180) case 27:
+    # (Line 258) {
+    # (Line 260) case 27:
     _t1 = EUDSwitchCase()
-    # (Line 181) case 88:
+    # (Line 261) case 88:
     if _t1(27):
         pass
     _t2 = EUDSwitchCase()
-    # (Line 182) case 99:
+    # (Line 262) case 99:
     if _t2(88):
         pass
     _t3 = EUDSwitchCase()
-    # (Line 183) case 100:
+    # (Line 263) case 100:
     if _t3(99):
         pass
     _t4 = EUDSwitchCase()
-    # (Line 184) case 61:
+    # (Line 264) case 61:
     if _t4(100):
         pass
     _t5 = EUDSwitchCase()
-    # (Line 185) case 65:
+    # (Line 265) case 65:
     if _t5(61):
         pass
     _t6 = EUDSwitchCase()
-    # (Line 186) case 66:
+    # (Line 266) case 66:
     if _t6(65):
         pass
     _t7 = EUDSwitchCase()
-    # (Line 187) case 67:
+    # (Line 267) case 67:
     if _t7(66):
         pass
     _t8 = EUDSwitchCase()
-    # (Line 188) case 68:
+    # (Line 268) case 68:
     if _t8(67):
         pass
     _t9 = EUDSwitchCase()
-    # (Line 189) case 70:
+    # (Line 269) case 70:
     if _t9(68):
         pass
     _t10 = EUDSwitchCase()
-    # (Line 190) case 71:
+    # (Line 270) case 71:
     if _t10(70):
         pass
     _t11 = EUDSwitchCase()
-    # (Line 191) case 74:
+    # (Line 271) case 74:
     if _t11(71):
         pass
     _t12 = EUDSwitchCase()
-    # (Line 192) case 75:
+    # (Line 272) case 75:
     if _t12(74):
         pass
     _t13 = EUDSwitchCase()
-    # (Line 193) case 76:
+    # (Line 273) case 76:
     if _t13(75):
         pass
     _t14 = EUDSwitchCase()
-    # (Line 194) case 77:
+    # (Line 274) case 77:
     if _t14(76):
         pass
     _t15 = EUDSwitchCase()
-    # (Line 195) case 78:
+    # (Line 275) case 78:
     if _t15(77):
         pass
     _t16 = EUDSwitchCase()
-    # (Line 196) case 79:
+    # (Line 276) case 79:
     if _t16(78):
         pass
     _t17 = EUDSwitchCase()
-    # (Line 197) s.printAt(0, "\x12",ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)));
+    # (Line 277) s.printAt(0, "\x12",ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)));
     if _t17(79):
         s.printAt(0, "\x12", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)))
-        # (Line 198) s.printAt(1, "\x12\x04앨범 ", "\x0F", dwread_epd(id.Unit_ID[cp] * 12 + 6), " \x04장");
+        # (Line 278) s.printAt(1, "\x12\x04앨범 ", "\x0F", dwread_epd(id.Unit_ID[cp] * 12 + 6), " \x04장");
         s.printAt(1, "\x12\x04앨범 ", "\x0F", f_dwread_epd(id.Unit_ID[cp] * 12 + 6), " \x04장")
-        # (Line 199) s.printAt(2, "\x12\x04팬 ", "\x0F", dwread_epd(id.Unit_ID[cp] * 12 + 7), " \x04명");
+        # (Line 279) s.printAt(2, "\x12\x04팬 ", "\x0F", dwread_epd(id.Unit_ID[cp] * 12 + 7), " \x04명");
         s.printAt(2, "\x12\x04팬 ", "\x0F", f_dwread_epd(id.Unit_ID[cp] * 12 + 7), " \x04명")
-        # (Line 200) s.printAt(3, "\n");
+        # (Line 280) s.printAt(3, "\n");
         s.printAt(3, "\n")
-        # (Line 201) break;
+        # (Line 281) break;
         EUDBreak()
-        # (Line 203) case 29:
+        # (Line 283) case 29:
     _t18 = EUDSwitchCase()
-    # (Line 204) case 80:
+    # (Line 284) case 80:
     if _t18(29):
         pass
     _t19 = EUDSwitchCase()
-    # (Line 205) case 63:
+    # (Line 285) case 63:
     if _t19(80):
         pass
     _t20 = EUDSwitchCase()
-    # (Line 206) case 87:
+    # (Line 286) case 87:
     if _t20(63):
         pass
     _t21 = EUDSwitchCase()
-    # (Line 207) case 39:
+    # (Line 287) case 39:
     if _t21(87):
         pass
     _t22 = EUDSwitchCase()
-    # (Line 208) case 40:
+    # (Line 288) case 40:
     if _t22(39):
         pass
     _t23 = EUDSwitchCase()
-    # (Line 209) case 43:
+    # (Line 289) case 43:
     if _t23(40):
         pass
     _t24 = EUDSwitchCase()
-    # (Line 210) case 44:
+    # (Line 290) case 44:
     if _t24(43):
         pass
     _t25 = EUDSwitchCase()
-    # (Line 211) case 46:
+    # (Line 291) case 46:
     if _t25(44):
         pass
     _t26 = EUDSwitchCase()
-    # (Line 212) case 48:
+    # (Line 292) case 48:
     if _t26(46):
         pass
     _t27 = EUDSwitchCase()
-    # (Line 213) case 51:
+    # (Line 293) case 51:
     if _t27(48):
         pass
     _t28 = EUDSwitchCase()
-    # (Line 214) case 52:
+    # (Line 294) case 52:
     if _t28(51):
         pass
     _t29 = EUDSwitchCase()
-    # (Line 215) case 53:
+    # (Line 295) case 53:
     if _t29(52):
         pass
     _t30 = EUDSwitchCase()
-    # (Line 216) case 54:
+    # (Line 296) case 54:
     if _t30(53):
         pass
     _t31 = EUDSwitchCase()
-    # (Line 217) case 55:
+    # (Line 297) case 55:
     if _t31(54):
         pass
     _t32 = EUDSwitchCase()
-    # (Line 218) case 56:
+    # (Line 298) case 56:
     if _t32(55):
         pass
     _t33 = EUDSwitchCase()
-    # (Line 219) case 60:
+    # (Line 299) case 60:
     if _t33(56):
         pass
     _t34 = EUDSwitchCase()
-    # (Line 220) s.printAt(0, "\x12",ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)));
+    # (Line 300) s.printAt(0, "\x12",ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)));
     if _t34(60):
         s.printAt(0, "\x12", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)))
-        # (Line 221) s.printAt(1, "\x12\x04앨범 ", "\x0F", dwread_epd(id.Unit_ID[cp] * 12 + 6), " \x04장");
+        # (Line 301) s.printAt(1, "\x12\x04앨범 ", "\x0F", dwread_epd(id.Unit_ID[cp] * 12 + 6), " \x04장");
         s.printAt(1, "\x12\x04앨범 ", "\x0F", f_dwread_epd(id.Unit_ID[cp] * 12 + 6), " \x04장")
-        # (Line 222) s.printAt(2, "\x12\x04팬 ", "\x0F", dwread_epd(id.Unit_ID[cp] * 12 + 7), " \x04명");
+        # (Line 302) s.printAt(2, "\x12\x04팬 ", "\x0F", dwread_epd(id.Unit_ID[cp] * 12 + 7), " \x04명");
         s.printAt(2, "\x12\x04팬 ", "\x0F", f_dwread_epd(id.Unit_ID[cp] * 12 + 7), " \x04명")
-        # (Line 223) s.printAt(3, "\n");
+        # (Line 303) s.printAt(3, "\n");
         s.printAt(3, "\n")
-        # (Line 224) break;
+        # (Line 304) break;
         EUDBreak()
-        # (Line 226) case 28:
+        # (Line 306) case 28:
     _t35 = EUDSwitchCase()
-    # (Line 227) case 32:
+    # (Line 307) case 32:
     if _t35(28):
         pass
     _t36 = EUDSwitchCase()
-    # (Line 228) case 102:
+    # (Line 308) case 102:
     if _t36(32):
         pass
     _t37 = EUDSwitchCase()
-    # (Line 229) case 104:
+    # (Line 309) case 104:
     if _t37(102):
         pass
     _t38 = EUDSwitchCase()
-    # (Line 230) case 0:
+    # (Line 310) case 0:
     if _t38(104):
         pass
     _t39 = EUDSwitchCase()
-    # (Line 231) case 1:
+    # (Line 311) case 1:
     if _t39(0):
         pass
     _t40 = EUDSwitchCase()
-    # (Line 232) case 2:
+    # (Line 312) case 2:
     if _t40(1):
         pass
     _t41 = EUDSwitchCase()
-    # (Line 233) case 8:
+    # (Line 313) case 8:
     if _t41(2):
         pass
     _t42 = EUDSwitchCase()
-    # (Line 234) case 9:
+    # (Line 314) case 9:
     if _t42(8):
         pass
     _t43 = EUDSwitchCase()
-    # (Line 235) case 10:
+    # (Line 315) case 10:
     if _t43(9):
         pass
     _t44 = EUDSwitchCase()
-    # (Line 236) case 12:
+    # (Line 316) case 12:
     if _t44(10):
         pass
     _t45 = EUDSwitchCase()
-    # (Line 237) case 16:
+    # (Line 317) case 16:
     if _t45(12):
         pass
     _t46 = EUDSwitchCase()
-    # (Line 238) case 19:
+    # (Line 318) case 19:
     if _t46(16):
         pass
     _t47 = EUDSwitchCase()
-    # (Line 239) case 20:
+    # (Line 319) case 20:
     if _t47(19):
         pass
     _t48 = EUDSwitchCase()
-    # (Line 240) case 21:
+    # (Line 320) case 21:
     if _t48(20):
         pass
     _t49 = EUDSwitchCase()
-    # (Line 241) case 37:
+    # (Line 321) case 37:
     if _t49(21):
         pass
     _t50 = EUDSwitchCase()
-    # (Line 242) case 38:
+    # (Line 322) case 38:
     if _t50(37):
         pass
     _t51 = EUDSwitchCase()
-    # (Line 243) s.printAt(0, "\x12",ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)));
+    # (Line 323) s.printAt(0, "\x12",ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)));
     if _t51(38):
         s.printAt(0, "\x12", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)))
-        # (Line 244) s.printAt(1, "\x12\x04앨범 ", "\x0F", dwread_epd(id.Unit_ID[cp] * 12 + 6), " \x04장");
+        # (Line 324) s.printAt(1, "\x12\x04앨범 ", "\x0F", dwread_epd(id.Unit_ID[cp] * 12 + 6), " \x04장");
         s.printAt(1, "\x12\x04앨범 ", "\x0F", f_dwread_epd(id.Unit_ID[cp] * 12 + 6), " \x04장")
-        # (Line 245) s.printAt(2, "\x12\x04팬 ", "\x0F", dwread_epd(id.Unit_ID[cp] * 12 + 7), " \x04명");
+        # (Line 325) s.printAt(2, "\x12\x04팬 ", "\x0F", dwread_epd(id.Unit_ID[cp] * 12 + 7), " \x04명");
         s.printAt(2, "\x12\x04팬 ", "\x0F", f_dwread_epd(id.Unit_ID[cp] * 12 + 7), " \x04명")
-        # (Line 246) s.printAt(3, "\n");
+        # (Line 326) s.printAt(3, "\n");
         s.printAt(3, "\n")
-        # (Line 247) break;
+        # (Line 327) break;
         EUDBreak()
-        # (Line 248) }
-    # (Line 249) }
+        # (Line 328) }
+    # (Line 329) }
     EUDEndSwitch()
-    # (Line 251) function Add_Weapon_Damage(ID, index)
+    # (Line 331) function Add_Weapon_Damage(ID, index)
 
-# (Line 252) {
+# (Line 332) {
 @EUDFunc
 def Add_Weapon_Damage(ID, index):
-    # (Line 253) wwrite(0x6564E0 + 2512 + ID * 2, wread(0x6564E0 + 2512 + ID * 2) + vd.Lesson_Weapon_Damage[index]);		// 기본 데미지
+    # (Line 333) wwrite(0x6564E0 + 2512 + ID * 2, wread(0x6564E0 + 2512 + ID * 2) + vd.Lesson_Weapon_Damage[index]);		// 기본 데미지
     f_wwrite(0x6564E0 + 2512 + ID * 2, f_wread(0x6564E0 + 2512 + ID * 2) + vd.Lesson_Weapon_Damage[index])
-    # (Line 254) }
-    # (Line 256) function Add_Weapon_Increase(ID, value)
+    # (Line 334) }
+    # (Line 336) function Add_Weapon_Increase(ID, value)
 
-# (Line 257) {
+# (Line 337) {
 @EUDFunc
 def Add_Weapon_Increase(ID, value):
-    # (Line 258) wwrite(0x6564E0 + 4504 + ID * 2, wread(0x6564E0 + 4504 + ID * 2) + value);		// 업글 증가량
+    # (Line 338) wwrite(0x6564E0 + 4504 + ID * 2, wread(0x6564E0 + 4504 + ID * 2) + value);		// 업글 증가량
     f_wwrite(0x6564E0 + 4504 + ID * 2, f_wread(0x6564E0 + 4504 + ID * 2) + value)
-    # (Line 259) KillUnitAt(1, 123, "JewelGacha", CurrentPlayer);
-    # (Line 260) }
-    DoActions(KillUnitAt(1, 123, "JewelGacha", CurrentPlayer))
-    # (Line 262) function Weapon_Text_Princess()
+    # (Line 339) }
+    # (Line 341) function Weapon_Text_Princess()
 
-# (Line 263) {
+# (Line 342) {
 @EUDFunc
 def Weapon_Text_Princess():
-    # (Line 264) settbl(240, 0,"\x1B< 프린세스 >\n",
-    # (Line 265) "\x04성장이 \x0F매우느린 \x04맴버입니다.\n",
-    # (Line 266) "\x04특훈레벨 : \x19", Lesson_Level[0]);
+    # (Line 343) settbl(240, 0,"\x1B< 프린세스 >\n",
+    # (Line 344) "\x04성장이 \x0F매우느린 \x04맴버입니다.\n",
+    # (Line 345) "\x04특훈레벨 : \x19", Lesson_Level[0]);
     f_settbl(240, 0, "\x1B< 프린세스 >\n", "\x04성장이 \x0F매우느린 \x04맴버입니다.\n", "\x04특훈레벨 : \x19", Lesson_Level[0])
-    # (Line 268) settbl(241, 0,"\x1B< 프린세스 >\n",
-    # (Line 269) "\x04성장이 \x0F느린 \x04맴버입니다.\n",
-    # (Line 270) "\x04특훈레벨 : \x19", Lesson_Level[0]);
+    # (Line 347) settbl(241, 0,"\x1B< 프린세스 >\n",
+    # (Line 348) "\x04성장이 \x0F느린 \x04맴버입니다.\n",
+    # (Line 349) "\x04특훈레벨 : \x19", Lesson_Level[0]);
     f_settbl(241, 0, "\x1B< 프린세스 >\n", "\x04성장이 \x0F느린 \x04맴버입니다.\n", "\x04특훈레벨 : \x19", Lesson_Level[0])
-    # (Line 272) settbl(242, 0,"\x1B< 프린세스 >\n",
-    # (Line 273) "\x04성장이 \x0F보통\x04인 맴버입니다.\n",
-    # (Line 274) "\x04특훈레벨 : \x19", Lesson_Level[0]);
+    # (Line 351) settbl(242, 0,"\x1B< 프린세스 >\n",
+    # (Line 352) "\x04성장이 \x0F보통\x04인 맴버입니다.\n",
+    # (Line 353) "\x04특훈레벨 : \x19", Lesson_Level[0]);
     f_settbl(242, 0, "\x1B< 프린세스 >\n", "\x04성장이 \x0F보통\x04인 맴버입니다.\n", "\x04특훈레벨 : \x19", Lesson_Level[0])
-    # (Line 276) settbl(243, 0,"\x1B< 프린세스 >\n",
-    # (Line 277) "\x04성장이 \x0F빠른 \x04맴버입니다.\n",
-    # (Line 278) "\x04특훈레벨 : \x19", Lesson_Level[0]);
+    # (Line 355) settbl(243, 0,"\x1B< 프린세스 >\n",
+    # (Line 356) "\x04성장이 \x0F빠른 \x04맴버입니다.\n",
+    # (Line 357) "\x04특훈레벨 : \x19", Lesson_Level[0]);
     f_settbl(243, 0, "\x1B< 프린세스 >\n", "\x04성장이 \x0F빠른 \x04맴버입니다.\n", "\x04특훈레벨 : \x19", Lesson_Level[0])
-    # (Line 280) settbl(244, 0,"\x1B< 프린세스 >\n",
-    # (Line 281) "\x04성장이 \x0F매우 빠른 \x04맴버입니다.\n",
-    # (Line 282) "\x04특훈레벨 : \x19", Lesson_Level[0]);
+    # (Line 359) settbl(244, 0,"\x1B< 프린세스 >\n",
+    # (Line 360) "\x04성장이 \x0F매우 빠른 \x04맴버입니다.\n",
+    # (Line 361) "\x04특훈레벨 : \x19", Lesson_Level[0]);
     f_settbl(244, 0, "\x1B< 프린세스 >\n", "\x04성장이 \x0F매우 빠른 \x04맴버입니다.\n", "\x04특훈레벨 : \x19", Lesson_Level[0])
-    # (Line 284) settbl(245, 0,"\x1B< 프린세스 >\n",
-    # (Line 285) "\x04성장이 \x0F뛰어난 \x04맴버입니다.\n",
-    # (Line 286) "\x04특훈레벨 : \x19", Lesson_Level[0]);
+    # (Line 363) settbl(245, 0,"\x1B< 프린세스 >\n",
+    # (Line 364) "\x04성장이 \x0F뛰어난 \x04맴버입니다.\n",
+    # (Line 365) "\x04특훈레벨 : \x19", Lesson_Level[0]);
     f_settbl(245, 0, "\x1B< 프린세스 >\n", "\x04성장이 \x0F뛰어난 \x04맴버입니다.\n", "\x04특훈레벨 : \x19", Lesson_Level[0])
-    # (Line 288) settbl(249, 0,"\x1B< 프린세스 >\n",
-    # (Line 289) "\x04성장이 \x0F월등한 \x04맴버입니다.\n",
-    # (Line 290) "\x04특훈레벨 : \x19", Lesson_Level[0]);
+    # (Line 367) settbl(249, 0,"\x1B< 프린세스 >\n",
+    # (Line 368) "\x04성장이 \x0F월등한 \x04맴버입니다.\n",
+    # (Line 369) "\x04특훈레벨 : \x19", Lesson_Level[0]);
     f_settbl(249, 0, "\x1B< 프린세스 >\n", "\x04성장이 \x0F월등한 \x04맴버입니다.\n", "\x04특훈레벨 : \x19", Lesson_Level[0])
-    # (Line 291) }
-    # (Line 293) function Weapon_Text_Fairy()
+    # (Line 370) }
+    # (Line 372) function Weapon_Text_Fairy()
 
-# (Line 294) {
+# (Line 373) {
 @EUDFunc
 def Weapon_Text_Fairy():
-    # (Line 295) settbl(235, 0,"\x1C< 페어리 >\n",
-    # (Line 296) "\x04성장이 \x0F매우느린 \x04맴버입니다.\n",
-    # (Line 297) "\x04특훈레벨 : \x19", Lesson_Level[1]);
+    # (Line 374) settbl(235, 0,"\x1C< 페어리 >\n",
+    # (Line 375) "\x04성장이 \x0F매우느린 \x04맴버입니다.\n",
+    # (Line 376) "\x04특훈레벨 : \x19", Lesson_Level[1]);
     f_settbl(235, 0, "\x1C< 페어리 >\n", "\x04성장이 \x0F매우느린 \x04맴버입니다.\n", "\x04특훈레벨 : \x19", Lesson_Level[1])
-    # (Line 299) settbl(236, 0,"\x1C< 페어리 >\n",
-    # (Line 300) "\x04성장이 \x0F느린 \x04맴버입니다.\n",
-    # (Line 301) "\x04특훈레벨 : \x19", Lesson_Level[1]);
+    # (Line 378) settbl(236, 0,"\x1C< 페어리 >\n",
+    # (Line 379) "\x04성장이 \x0F느린 \x04맴버입니다.\n",
+    # (Line 380) "\x04특훈레벨 : \x19", Lesson_Level[1]);
     f_settbl(236, 0, "\x1C< 페어리 >\n", "\x04성장이 \x0F느린 \x04맴버입니다.\n", "\x04특훈레벨 : \x19", Lesson_Level[1])
-    # (Line 303) settbl(237, 0,"\x1C< 페어리 >\n",
-    # (Line 304) "\x04성장이 \x0F보통\x04인 맴버입니다.\n",
-    # (Line 305) "\x04특훈레벨 : \x19", Lesson_Level[1]);
+    # (Line 382) settbl(237, 0,"\x1C< 페어리 >\n",
+    # (Line 383) "\x04성장이 \x0F보통\x04인 맴버입니다.\n",
+    # (Line 384) "\x04특훈레벨 : \x19", Lesson_Level[1]);
     f_settbl(237, 0, "\x1C< 페어리 >\n", "\x04성장이 \x0F보통\x04인 맴버입니다.\n", "\x04특훈레벨 : \x19", Lesson_Level[1])
-    # (Line 307) settbl(238, 0,"\x1C< 페어리 >\n",
-    # (Line 308) "\x04성장이 \x0F빠른 \x04맴버입니다.\n",
-    # (Line 309) "\x04특훈레벨 : \x19", Lesson_Level[1]);
+    # (Line 386) settbl(238, 0,"\x1C< 페어리 >\n",
+    # (Line 387) "\x04성장이 \x0F빠른 \x04맴버입니다.\n",
+    # (Line 388) "\x04특훈레벨 : \x19", Lesson_Level[1]);
     f_settbl(238, 0, "\x1C< 페어리 >\n", "\x04성장이 \x0F빠른 \x04맴버입니다.\n", "\x04특훈레벨 : \x19", Lesson_Level[1])
-    # (Line 311) settbl(239, 0,"\x1C< 페어리 >\n",
-    # (Line 312) "\x04성장이 \x0F매우 빠른 \x04맴버입니다.\n",
-    # (Line 313) "\x04특훈레벨 : \x19", Lesson_Level[1]);
+    # (Line 390) settbl(239, 0,"\x1C< 페어리 >\n",
+    # (Line 391) "\x04성장이 \x0F매우 빠른 \x04맴버입니다.\n",
+    # (Line 392) "\x04특훈레벨 : \x19", Lesson_Level[1]);
     f_settbl(239, 0, "\x1C< 페어리 >\n", "\x04성장이 \x0F매우 빠른 \x04맴버입니다.\n", "\x04특훈레벨 : \x19", Lesson_Level[1])
-    # (Line 315) settbl(246, 0,"\x1C< 페어리 >\n",
-    # (Line 316) "\x04성장이 \x0F뛰어난 \x04맴버입니다.\n",
-    # (Line 317) "\x04특훈레벨 : \x19", Lesson_Level[1]);
+    # (Line 394) settbl(246, 0,"\x1C< 페어리 >\n",
+    # (Line 395) "\x04성장이 \x0F뛰어난 \x04맴버입니다.\n",
+    # (Line 396) "\x04특훈레벨 : \x19", Lesson_Level[1]);
     f_settbl(246, 0, "\x1C< 페어리 >\n", "\x04성장이 \x0F뛰어난 \x04맴버입니다.\n", "\x04특훈레벨 : \x19", Lesson_Level[1])
-    # (Line 319) settbl(248, 0,"\x1C< 페어리 >\n",
-    # (Line 320) "\x04성장이 \x0F월등한 \x04맴버입니다.\n",
-    # (Line 321) "\x04특훈레벨 : \x19", Lesson_Level[1]);
+    # (Line 398) settbl(248, 0,"\x1C< 페어리 >\n",
+    # (Line 399) "\x04성장이 \x0F월등한 \x04맴버입니다.\n",
+    # (Line 400) "\x04특훈레벨 : \x19", Lesson_Level[1]);
     f_settbl(248, 0, "\x1C< 페어리 >\n", "\x04성장이 \x0F월등한 \x04맴버입니다.\n", "\x04특훈레벨 : \x19", Lesson_Level[1])
-    # (Line 322) }
-    # (Line 324) function Weapon_Text_Angel()
+    # (Line 401) }
+    # (Line 403) function Weapon_Text_Angel()
 
-# (Line 325) {
+# (Line 404) {
 @EUDFunc
 def Weapon_Text_Angel():
-    # (Line 326) settbl(229, 0,"\x19< 엔젤 >\n",
-    # (Line 327) "\x04성장이 \x0F매우느린 \x04맴버입니다.\n",
-    # (Line 328) "\x04특훈레벨 : \x19", Lesson_Level[2]);
+    # (Line 405) settbl(229, 0,"\x19< 엔젤 >\n",
+    # (Line 406) "\x04성장이 \x0F매우느린 \x04맴버입니다.\n",
+    # (Line 407) "\x04특훈레벨 : \x19", Lesson_Level[2]);
     f_settbl(229, 0, "\x19< 엔젤 >\n", "\x04성장이 \x0F매우느린 \x04맴버입니다.\n", "\x04특훈레벨 : \x19", Lesson_Level[2])
-    # (Line 330) settbl(230, 0,"\x19< 엔젤 >\n",
-    # (Line 331) "\x04성장이 \x0F느린 \x04맴버입니다.\n",
-    # (Line 332) "\x04특훈레벨 : \x19", Lesson_Level[2]);
+    # (Line 409) settbl(230, 0,"\x19< 엔젤 >\n",
+    # (Line 410) "\x04성장이 \x0F느린 \x04맴버입니다.\n",
+    # (Line 411) "\x04특훈레벨 : \x19", Lesson_Level[2]);
     f_settbl(230, 0, "\x19< 엔젤 >\n", "\x04성장이 \x0F느린 \x04맴버입니다.\n", "\x04특훈레벨 : \x19", Lesson_Level[2])
-    # (Line 334) settbl(231, 0,"\x19< 엔젤 >\n",
-    # (Line 335) "\x04성장이 \x0F보통\x04인 맴버입니다.\n",
-    # (Line 336) "\x04특훈레벨 : \x19", Lesson_Level[2]);
+    # (Line 413) settbl(231, 0,"\x19< 엔젤 >\n",
+    # (Line 414) "\x04성장이 \x0F보통\x04인 맴버입니다.\n",
+    # (Line 415) "\x04특훈레벨 : \x19", Lesson_Level[2]);
     f_settbl(231, 0, "\x19< 엔젤 >\n", "\x04성장이 \x0F보통\x04인 맴버입니다.\n", "\x04특훈레벨 : \x19", Lesson_Level[2])
-    # (Line 338) settbl(232, 0,"\x19< 엔젤 >\n",
-    # (Line 339) "\x04성장이 \x0F빠른 \x04맴버입니다.\n",
-    # (Line 340) "\x04특훈레벨 : \x19", Lesson_Level[2]);
+    # (Line 417) settbl(232, 0,"\x19< 엔젤 >\n",
+    # (Line 418) "\x04성장이 \x0F빠른 \x04맴버입니다.\n",
+    # (Line 419) "\x04특훈레벨 : \x19", Lesson_Level[2]);
     f_settbl(232, 0, "\x19< 엔젤 >\n", "\x04성장이 \x0F빠른 \x04맴버입니다.\n", "\x04특훈레벨 : \x19", Lesson_Level[2])
-    # (Line 342) settbl(233, 0,"\x19< 엔젤 >\n",
-    # (Line 343) "\x04성장이 \x0F매우 빠른 \x04맴버입니다.\n",
-    # (Line 344) "\x04특훈레벨 : \x19", Lesson_Level[2]);
+    # (Line 421) settbl(233, 0,"\x19< 엔젤 >\n",
+    # (Line 422) "\x04성장이 \x0F매우 빠른 \x04맴버입니다.\n",
+    # (Line 423) "\x04특훈레벨 : \x19", Lesson_Level[2]);
     f_settbl(233, 0, "\x19< 엔젤 >\n", "\x04성장이 \x0F매우 빠른 \x04맴버입니다.\n", "\x04특훈레벨 : \x19", Lesson_Level[2])
-    # (Line 346) settbl(234, 0,"\x19< 엔젤 >\n",
-    # (Line 347) "\x04성장이 \x0F뛰어난 \x04맴버입니다.\n",
-    # (Line 348) "\x04특훈레벨 : \x19", Lesson_Level[2]);
+    # (Line 425) settbl(234, 0,"\x19< 엔젤 >\n",
+    # (Line 426) "\x04성장이 \x0F뛰어난 \x04맴버입니다.\n",
+    # (Line 427) "\x04특훈레벨 : \x19", Lesson_Level[2]);
     f_settbl(234, 0, "\x19< 엔젤 >\n", "\x04성장이 \x0F뛰어난 \x04맴버입니다.\n", "\x04특훈레벨 : \x19", Lesson_Level[2])
-    # (Line 350) settbl(247, 0,"\x19< 엔젤 >\n",
-    # (Line 351) "\x04성장이 \x0F월등한 \x04맴버입니다.\n",
-    # (Line 352) "\x04특훈레벨 : \x19", Lesson_Level[2]);
+    # (Line 429) settbl(247, 0,"\x19< 엔젤 >\n",
+    # (Line 430) "\x04성장이 \x0F월등한 \x04맴버입니다.\n",
+    # (Line 431) "\x04특훈레벨 : \x19", Lesson_Level[2]);
     f_settbl(247, 0, "\x19< 엔젤 >\n", "\x04성장이 \x0F월등한 \x04맴버입니다.\n", "\x04특훈레벨 : \x19", Lesson_Level[2])
-    # (Line 353) }
+    # (Line 432) }

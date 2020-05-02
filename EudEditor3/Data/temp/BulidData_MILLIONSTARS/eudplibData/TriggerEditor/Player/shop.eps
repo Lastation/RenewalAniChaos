@@ -1,4 +1,5 @@
 import getunitID as id;
+import variable_data as vd;
 
 var shop_level = 0;
 var shop_exp = 0;
@@ -7,6 +8,7 @@ const shop_need = [2, 4, 7, 11, 15, 19, 25, 31, 38, 45];
 const s = StringBuffer();
 
 function Marge(cp);
+function Member_Unit(cp);
 function Click_Text(cp);
 function Shop_Level(cp);
 function Kick_Unit(cp);
@@ -18,6 +20,7 @@ function Shop_Trainner(cp);
 
 function Marge(cp)
 {
+	Member_Unit(cp);
 	Click_Text(cp);
 	Shop_Level(cp);
 	Kick_Unit(cp);
@@ -26,6 +29,45 @@ function Marge(cp)
 	Special_Trainning_Ticket(cp);
 	Solo_Album(cp);
 	Shop_Trainner(cp);
+}
+
+function Member_Unit(cp)
+{
+	if (Bring(P12, AtLeast, 1, "(men)", "Shop_UnitScout") && Bring(cp, AtLeast, 1, "(men)", "Shop_UnitScout") && Accumulate(cp, AtLeast, 5, Gas))
+	{
+		MoveUnit(1, "(men)", cp, "Shop_UnitScout", "Center_Shop");
+		GiveUnits(1, "(men)", P12, "Shop_UnitScout", cp); 
+		MoveUnit(1, "(men)", cp, "Shop_UnitScout", "MedalGacha Create");
+	}
+	
+	if (shop_level >= 4)
+	{
+		SetDeaths(cp, Add, 1, "Member");
+		
+		if (Deaths(cp, AtLeast, 4320 , "Member"))
+		{
+			var type = dwrand()% 3;
+	    		var random = dwrand() % 17;
+	    		
+			RemoveUnitAt(All, "(men)", "Shop_UnitScout", P12);
+			switch(type)
+			{
+			case 0:
+				CreateUnit(1, vd.Princess_Unit_Index[random], "Shop_UnitScout", P8);
+				GiveUnits(1, "(men)", P8, "Shop_UnitScout", P12);
+				break;
+			case 1:
+				CreateUnit(1, vd.Fairy_Unit_Index[random], "Shop_UnitScout", P8);
+				GiveUnits(1, "(men)", P8, "Shop_UnitScout", P12);
+				break;
+			case 2:
+				CreateUnit(1, vd.Angel_Unit_Index[random], "Shop_UnitScout", P8);
+				GiveUnits(1, "(men)", P8, "Shop_UnitScout", P12);
+				break;
+			}
+			SetDeaths(AllPlayers, SetTo, 0, "Member");
+		}
+	}
 }
 
 function Click_Text(cp)
@@ -50,13 +92,13 @@ function Click_Text(cp)
 		break;
 		
 	case 143:
-		s.print("\n　　　\x07#Tip : \x04원하는 맴버에게 \x1F의상\x04을 선물 할 수 있습니다.");
+		s.print("\n　　　\x07#Tip : \x04원하는 맴버에게 \x1F의상과 앨범\x04을 선물 할 수 있습니다.");
 		id.Unit_ID[cp] = 1000;
 		break;
 		
 		// Shop Text
 	case 108:
-		s.print("\n　　　\x07#Tip : \x04랜덤한 타입의 \x19의상 티켓\x04을 구입 할 수 있습니다.");
+		s.print("\n　　　\x07#Tip : \x04프로듀서 타입의 \x19의상 티켓\x04을 구입 할 수 있습니다.");
 		id.Unit_ID[cp] = 1000;
 		break;
 	case 118:
@@ -69,19 +111,19 @@ function Click_Text(cp)
 		id.Unit_ID[cp] = 1000;
 		break;
 	case 134:
-		s.print("\n　　　\x07#Tip : \x04랜덤한 타입의 \x19앨범 티켓\x04을 구입 할 수 있습니다.");
+		s.print("\n　　　\x07#Tip : \x04프로듀서 타입의 \x19앨범 티켓\x04을 구입 할 수 있습니다.");
 		id.Unit_ID[cp] = 1000;
 		break;
 	case 150:
-		s.print("\n　　　\x07#Tip : \x04일정시간마다 등장하는 \x1F맴버\x04를 고용할 수 있습니다.");
+		s.print("\n　　　\x07#Tip : \x04일정시간마다 등장하는 \x1F맴버\x04를 고용할 수 있습니다. 상점 \x194 \x04단계 에서 활성화됩니다.");
 		id.Unit_ID[cp] = 1000;
 		break;
 	case 156:
-		s.print("\n　　　\x07#Tip : \x04레슨 최대치를 높여주는 트레이너를 고용할 수 있습니다.");
+		s.print("\n　　　\x07#Tip : \x04레슨 최대치를 높여주는 트레이너를 고용할 수 있습니다. 상점 \x196 \x04단계 에서 활성화됩니다.");
 		id.Unit_ID[cp] = 1000;
 		break;
 	case 162:
-		s.print("\n　　　\x07#Tip : \x04랜덤한 타입의 \x19특훈 티켓\x04을 구입 할 수 있습니다.");
+		s.print("\n　　　\x07#Tip : \x04프로듀서 타입의 \x19특훈 티켓\x04을 구입 할 수 있습니다. 상점 \x194 \x04단계 에서 활성화됩니다.");
 		id.Unit_ID[cp] = 1000;
 		break;
 	}
@@ -113,7 +155,7 @@ function Shop_Level(cp)
 
 function Kick_Unit(cp)
 {
-	if (Bring(cp, AtLeast, 3, "(men)", "lounge_kick"))
+	if (Bring(cp, AtLeast, 3, "(men)", "lounge_kick") && Bring(cp, Exactly, 0, 109, "lounge_kick") && Bring(cp, Exactly, 0, 111, "lounge_kick") && Bring(cp, Exactly, 0, 113, "lounge_kick"))
 	{
 		CreateUnit(1, 136 + dwrand() % 3, "JewelGacha", cp);
 		RemoveUnitAt(3, "(men)", "lounge_kick", cp);
@@ -136,20 +178,10 @@ function Cloth_Ticket(cp)
 	
 	if (Accumulate(cp, AtLeast, 3, Gas) && Bring(cp, AtLeast, 1, "(men)", "Shop_Cloth"))
 	{
-		var random = dwrand() % 3;
+		if (Bring(cp, AtLeast, 1, 109, "Anywhere")) { CreateUnit(1, 116, "JewelGacha", cp); }
+		if (Bring(cp, AtLeast, 1, 111, "Anywhere")) { CreateUnit(1, 122, "JewelGacha", cp); }
+		if (Bring(cp, AtLeast, 1, 113, "Anywhere")) { CreateUnit(1, 123, "JewelGacha", cp); }
 		
-		switch(random)
-		{
-		case 0:
-			CreateUnit(1, 116, "JewelGacha", cp);
-			break;
-		case 1:
-			CreateUnit(1, 122, "JewelGacha", cp);
-			break;
-		case 2:
-			CreateUnit(1, 123, "JewelGacha", cp);
-			break;
-		}
 		MoveUnit(1, "(men)", cp, "Shop_Cloth", "Center_Shop");
 		SetResources(cp, Subtract, 3, Gas);
 	}
@@ -157,22 +189,12 @@ function Cloth_Ticket(cp)
 
 function Special_Trainning_Ticket(cp)
 {
-	if (Accumulate(cp, AtLeast, 5, Gas) && Bring(cp, AtLeast, 1, "(men)", "Shop_STTicket"))
+	if (Accumulate(cp, AtLeast, 5, Gas) && Bring(cp, AtLeast, 1, "(men)", "Shop_STTicket") && shop_level >= 4)
 	{
-		var random = dwrand() % 3;
+		if (Bring(cp, AtLeast, 1, 109, "Anywhere")) { CreateUnit(1, 126, "JewelGacha", cp); }
+		if (Bring(cp, AtLeast, 1, 111, "Anywhere")) { CreateUnit(1, 127, "JewelGacha", cp); }
+		if (Bring(cp, AtLeast, 1, 113, "Anywhere")) { CreateUnit(1, 135, "JewelGacha", cp); }
 		
-		switch(random)
-		{
-		case 0:
-			CreateUnit(1, 126, "JewelGacha", cp);
-			break;
-		case 1:
-			CreateUnit(1, 127, "JewelGacha", cp);
-			break;
-		case 2:
-			CreateUnit(1, 135, "JewelGacha", cp);
-			break;
-		}
 		MoveUnit(1, "(men)", cp, "Shop_STTicket", "Center_Shop");
 		SetResources(cp, Subtract, 5, Gas);
 	}
@@ -180,24 +202,40 @@ function Special_Trainning_Ticket(cp)
 
 function Solo_Album(cp)
 {
-	if (Accumulate(cp, AtLeast, 3, Gas) && Bring(cp, AtLeast, 1, "(men)", "Shop_SoloAlbum"))
+	if (Accumulate(cp, AtLeast, 5, Gas) && Bring(cp, AtLeast, 1, "(men)", "Shop_SoloAlbum"))
 	{
-		CreateUnit(1, 136 + dwrand() % 3, "JewelGacha", cp);
+		if (Bring(cp, AtLeast, 1, 109, "Anywhere")) { CreateUnit(1, 136, "JewelGacha", cp); }
+		if (Bring(cp, AtLeast, 1, 111, "Anywhere")) { CreateUnit(1, 137, "JewelGacha", cp); }
+		if (Bring(cp, AtLeast, 1, 113, "Anywhere")) { CreateUnit(1, 138, "JewelGacha", cp); }
+		
 		MoveUnit(1, "(men)", cp, "Shop_SoloAlbum", "Center_Shop");
-		SetResources(cp, Subtract, 3, Gas);
+		SetResources(cp, Subtract, 5, Gas);
 	}
 }
 
 function Shop_Trainner(cp)
 {
-	if (Accumulate(cp, AtLeast, 20, Gas) && Bring(cp, AtLeast, 1, "(men)", "Shop_Trainner") && Bring(Force1, Exactly, 0, 125, "Title"))
+	if (Accumulate(cp, AtLeast, 20, Gas) && Bring(cp, AtLeast, 1, "(men)", "Shop_Trainner") && Bring(Force1, Exactly, 0, 125, "Title")  && shop_level >= 6)
 	{
 		CreateUnit(1, 125, "Title", cp);
 		MoveUnit(1, "(men)", cp, "Shop_Trainner", "Center_Shop");
 		SetResources(cp, Subtract, 20, Gas);
+		bwrite(0x58D088 + 0x21F0 * (3 / 46) + 0 * (46 - 31 * (3 / 46)) + (3 % 46), 90);
+		bwrite(0x58D088 + 0x21F0 * (3 / 46) + 1 * (46 - 31 * (3 / 46)) + (3 % 46), 90);
+		bwrite(0x58D088 + 0x21F0 * (3 / 46) + 2 * (46 - 31 * (3 / 46)) + (3 % 46), 90);
+		bwrite(0x58D088 + 0x21F0 * (3 / 46) + 3 * (46 - 31 * (3 / 46)) + (3 % 46), 90);
+		bwrite(0x58D088 + 0x21F0 * (3 / 46) + 4 * (46 - 31 * (3 / 46)) + (3 % 46), 90);
 		
-		bwrite(0x58D088 + 0x21F0 * ((3) / 46) + (18) * (46 - 31 * ((3) / 46)) + ((3) % 46), 90);
-		bwrite(0x58D088 + 0x21F0 * ((4) / 46) + (18) * (46 - 31 * ((4) / 46)) + ((4) % 46), 90);
-		bwrite(0x58D088 + 0x21F0 * ((5) / 46) + (18) * (46 - 31 * ((5) / 46)) + ((5) % 46), 90);
+		bwrite(0x58D088 + 0x21F0 * (4 / 46) + 0 * (46 - 31 * (4 / 46)) + (4 % 46), 90);
+		bwrite(0x58D088 + 0x21F0 * (4 / 46) + 1 * (46 - 31 * (4 / 46)) + (4 % 46), 90);
+		bwrite(0x58D088 + 0x21F0 * (4 / 46) + 2 * (46 - 31 * (4 / 46)) + (4 % 46), 90);
+		bwrite(0x58D088 + 0x21F0 * (4 / 46) + 3 * (46 - 31 * (4 / 46)) + (4 % 46), 90);
+		bwrite(0x58D088 + 0x21F0 * (4 / 46) + 4 * (46 - 31 * (4 / 46)) + (4 % 46), 90);
+		
+		bwrite(0x58D088 + 0x21F0 * (5 / 46) + 0 * (46 - 31 * (5 / 46)) + (5 % 46), 90);
+		bwrite(0x58D088 + 0x21F0 * (5 / 46) + 1 * (46 - 31 * (5 / 46)) + (5 % 46), 90);
+		bwrite(0x58D088 + 0x21F0 * (5 / 46) + 2 * (46 - 31 * (5 / 46)) + (5 % 46), 90);
+		bwrite(0x58D088 + 0x21F0 * (5 / 46) + 3 * (46 - 31 * (5 / 46)) + (5 % 46), 90);
+		bwrite(0x58D088 + 0x21F0 * (5 / 46) + 4 * (46 - 31 * (5 / 46)) + (5 % 46), 90);
 	}
 }

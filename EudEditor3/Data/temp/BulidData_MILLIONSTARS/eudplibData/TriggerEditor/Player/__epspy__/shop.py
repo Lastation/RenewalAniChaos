@@ -128,364 +128,440 @@ def _LSH(l, r):
 
 # (Line 1) import getunitID as id;
 import getunitID as id
-# (Line 3) var shop_level = 0;
+# (Line 2) import variable_data as vd;
+import variable_data as vd
+# (Line 4) var shop_level = 0;
 shop_level = EUDCreateVariables(1)
 _IGVA([shop_level], lambda: [0])
-# (Line 4) var shop_exp = 0;
+# (Line 5) var shop_exp = 0;
 shop_exp = EUDCreateVariables(1)
 _IGVA([shop_exp], lambda: [0])
-# (Line 5) const shop_need = [2, 4, 7, 11, 15, 19, 25, 31, 38, 45];
+# (Line 6) const shop_need = [2, 4, 7, 11, 15, 19, 25, 31, 38, 45];
 shop_need = _CGFW(lambda: [_ARR(FlattenList([2, 4, 7, 11, 15, 19, 25, 31, 38, 45]))], 1)[0]
-# (Line 7) const s = StringBuffer();
+# (Line 8) const s = StringBuffer();
 s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 9) function Marge(cp);
-# (Line 10) function Click_Text(cp);
-# (Line 11) function Shop_Level(cp);
-# (Line 12) function Kick_Unit(cp);
-# (Line 13) function Jewel_Ticket(cp);
-# (Line 14) function Cloth_Ticket(cp);
-# (Line 15) function Special_Trainning_Ticket(cp);
-# (Line 16) function Solo_Album(cp);
-# (Line 17) function Shop_Trainner(cp);
-# (Line 19) function Marge(cp)
-# (Line 20) {
+# (Line 10) function Marge(cp);
+# (Line 11) function Member_Unit(cp);
+# (Line 12) function Click_Text(cp);
+# (Line 13) function Shop_Level(cp);
+# (Line 14) function Kick_Unit(cp);
+# (Line 15) function Jewel_Ticket(cp);
+# (Line 16) function Cloth_Ticket(cp);
+# (Line 17) function Special_Trainning_Ticket(cp);
+# (Line 18) function Solo_Album(cp);
+# (Line 19) function Shop_Trainner(cp);
+# (Line 21) function Marge(cp)
+# (Line 22) {
 @EUDFunc
 def Marge(cp):
-    # (Line 21) Click_Text(cp);
+    # (Line 23) Member_Unit(cp);
+    Member_Unit(cp)
+    # (Line 24) Click_Text(cp);
     Click_Text(cp)
-    # (Line 22) Shop_Level(cp);
+    # (Line 25) Shop_Level(cp);
     Shop_Level(cp)
-    # (Line 23) Kick_Unit(cp);
+    # (Line 26) Kick_Unit(cp);
     Kick_Unit(cp)
-    # (Line 24) Jewel_Ticket(cp);
+    # (Line 27) Jewel_Ticket(cp);
     Jewel_Ticket(cp)
-    # (Line 25) Cloth_Ticket(cp);
+    # (Line 28) Cloth_Ticket(cp);
     Cloth_Ticket(cp)
-    # (Line 26) Special_Trainning_Ticket(cp);
+    # (Line 29) Special_Trainning_Ticket(cp);
     Special_Trainning_Ticket(cp)
-    # (Line 27) Solo_Album(cp);
+    # (Line 30) Solo_Album(cp);
     Solo_Album(cp)
-    # (Line 28) Shop_Trainner(cp);
+    # (Line 31) Shop_Trainner(cp);
     Shop_Trainner(cp)
-    # (Line 29) }
-    # (Line 31) function Click_Text(cp)
+    # (Line 32) }
+    # (Line 34) function Member_Unit(cp)
 
-# (Line 32) {
+# (Line 35) {
+@EUDFunc
+def Member_Unit(cp):
+    # (Line 36) if (Bring(P12, AtLeast, 1, "(men)", "Shop_UnitScout") && Bring(cp, AtLeast, 1, "(men)", "Shop_UnitScout") && Accumulate(cp, AtLeast, 5, Gas))
+    if EUDIf()(EUDSCAnd()(Bring(P12, AtLeast, 1, "(men)", "Shop_UnitScout"))(Bring(cp, AtLeast, 1, "(men)", "Shop_UnitScout"))(Accumulate(cp, AtLeast, 5, Gas))()):
+        # (Line 37) {
+        # (Line 38) MoveUnit(1, "(men)", cp, "Shop_UnitScout", "Center_Shop");
+        # (Line 39) GiveUnits(1, "(men)", P12, "Shop_UnitScout", cp);
+        DoActions(MoveUnit(1, "(men)", cp, "Shop_UnitScout", "Center_Shop"))
+        # (Line 40) MoveUnit(1, "(men)", cp, "Shop_UnitScout", "MedalGacha Create");
+        DoActions(GiveUnits(1, "(men)", P12, "Shop_UnitScout", cp))
+        # (Line 41) }
+        DoActions(MoveUnit(1, "(men)", cp, "Shop_UnitScout", "MedalGacha Create"))
+        # (Line 43) if (shop_level >= 4)
+    EUDEndIf()
+    if EUDIf()(shop_level >= 4):
+        # (Line 44) {
+        # (Line 45) SetDeaths(cp, Add, 1, "Member");
+        # (Line 47) if (Deaths(cp, AtLeast, 4320 , "Member"))
+        DoActions(SetDeaths(cp, Add, 1, "Member"))
+        if EUDIf()(Deaths(cp, AtLeast, 4320, "Member")):
+            # (Line 48) {
+            # (Line 49) var type = dwrand()% 3;
+            type = EUDVariable()
+            type << (f_dwrand() % 3)
+            # (Line 50) var random = dwrand() % 17;
+            random = EUDVariable()
+            random << (f_dwrand() % 17)
+            # (Line 52) RemoveUnitAt(All, "(men)", "Shop_UnitScout", P12);
+            # (Line 53) switch(type)
+            DoActions(RemoveUnitAt(All, "(men)", "Shop_UnitScout", P12))
+            EUDSwitch(type)
+            # (Line 54) {
+            # (Line 55) case 0:
+            _t4 = EUDSwitchCase()
+            # (Line 56) CreateUnit(1, vd.Princess_Unit_Index[random], "Shop_UnitScout", P8);
+            if _t4(0):
+                # (Line 57) GiveUnits(1, "(men)", P8, "Shop_UnitScout", P12);
+                DoActions(CreateUnit(1, vd.Princess_Unit_Index[random], "Shop_UnitScout", P8))
+                # (Line 58) break;
+                DoActions(GiveUnits(1, "(men)", P8, "Shop_UnitScout", P12))
+                EUDBreak()
+                # (Line 59) case 1:
+            _t5 = EUDSwitchCase()
+            # (Line 60) CreateUnit(1, vd.Fairy_Unit_Index[random], "Shop_UnitScout", P8);
+            if _t5(1):
+                # (Line 61) GiveUnits(1, "(men)", P8, "Shop_UnitScout", P12);
+                DoActions(CreateUnit(1, vd.Fairy_Unit_Index[random], "Shop_UnitScout", P8))
+                # (Line 62) break;
+                DoActions(GiveUnits(1, "(men)", P8, "Shop_UnitScout", P12))
+                EUDBreak()
+                # (Line 63) case 2:
+            _t6 = EUDSwitchCase()
+            # (Line 64) CreateUnit(1, vd.Angel_Unit_Index[random], "Shop_UnitScout", P8);
+            if _t6(2):
+                # (Line 65) GiveUnits(1, "(men)", P8, "Shop_UnitScout", P12);
+                DoActions(CreateUnit(1, vd.Angel_Unit_Index[random], "Shop_UnitScout", P8))
+                # (Line 66) break;
+                DoActions(GiveUnits(1, "(men)", P8, "Shop_UnitScout", P12))
+                EUDBreak()
+                # (Line 67) }
+            # (Line 68) SetDeaths(AllPlayers, SetTo, 0, "Member");
+            EUDEndSwitch()
+            # (Line 69) }
+            DoActions(SetDeaths(AllPlayers, SetTo, 0, "Member"))
+            # (Line 70) }
+        EUDEndIf()
+        # (Line 71) }
+    EUDEndIf()
+    # (Line 73) function Click_Text(cp)
+
+# (Line 74) {
 @EUDFunc
 def Click_Text(cp):
-    # (Line 33) switch(id.Unit_ID[cp])
+    # (Line 75) switch(id.Unit_ID[cp])
     EUDSwitch(id.Unit_ID[cp])
-    # (Line 34) {
-    # (Line 35) case 107:
+    # (Line 76) {
+    # (Line 77) case 107:
     _t1 = EUDSwitchCase()
-    # (Line 36) s.print("\n　　　\x07#Tip : \x04매 \x1910\x04라운드마다 \x19라이브 이벤트\x04에 참가하여 여러가지 재화를 얻을 수 있습니다.");
+    # (Line 78) s.print("\n　　　\x07#Tip : \x04매 \x1910\x04라운드마다 \x19라이브 이벤트\x04에 참가하여 여러가지 재화를 얻을 수 있습니다.");
     if _t1(107):
         s.print("\n　　　\x07#Tip : \x04매 \x1910\x04라운드마다 \x19라이브 이벤트\x04에 참가하여 여러가지 재화를 얻을 수 있습니다.")
-        # (Line 37) id.Unit_ID[cp] = 1000;
+        # (Line 79) id.Unit_ID[cp] = 1000;
         _ARRW(id.Unit_ID, cp) << (1000)
-        # (Line 38) break;
+        # (Line 80) break;
         EUDBreak()
-        # (Line 39) case 115:
+        # (Line 81) case 115:
     _t2 = EUDSwitchCase()
-    # (Line 40) s.print("\n　　　\x07#Tip : \x19상점\x04입니다. 들어가면 이것저것 살 수 있습니다.");
+    # (Line 82) s.print("\n　　　\x07#Tip : \x19상점\x04입니다. 들어가면 이것저것 살 수 있습니다.");
     if _t2(115):
         s.print("\n　　　\x07#Tip : \x19상점\x04입니다. 들어가면 이것저것 살 수 있습니다.")
-        # (Line 41) id.Unit_ID[cp] = 1000;
+        # (Line 83) id.Unit_ID[cp] = 1000;
         _ARRW(id.Unit_ID, cp) << (1000)
-        # (Line 42) break;
+        # (Line 84) break;
         EUDBreak()
-        # (Line 43) case 117:
+        # (Line 85) case 117:
     _t3 = EUDSwitchCase()
-    # (Line 44) s.print("\n　　　\x07#Tip : \x04필요없는 맴버를 3명 \x08해고\x04하여 \x19앨범 티켓\x04을 얻습니다.");
+    # (Line 86) s.print("\n　　　\x07#Tip : \x04필요없는 맴버를 3명 \x08해고\x04하여 \x19앨범 티켓\x04을 얻습니다.");
     if _t3(117):
         s.print("\n　　　\x07#Tip : \x04필요없는 맴버를 3명 \x08해고\x04하여 \x19앨범 티켓\x04을 얻습니다.")
-        # (Line 45) id.Unit_ID[cp] = 1000;
+        # (Line 87) id.Unit_ID[cp] = 1000;
         _ARRW(id.Unit_ID, cp) << (1000)
-        # (Line 46) break;
+        # (Line 88) break;
         EUDBreak()
-        # (Line 47) case 120:
+        # (Line 89) case 120:
     _t4 = EUDSwitchCase()
-    # (Line 48) s.print("\n　　　\x07#Tip : \x04비콘으로 들어가면 \x1F스케줄\x04로 복귀합니다.");
+    # (Line 90) s.print("\n　　　\x07#Tip : \x04비콘으로 들어가면 \x1F스케줄\x04로 복귀합니다.");
     if _t4(120):
         s.print("\n　　　\x07#Tip : \x04비콘으로 들어가면 \x1F스케줄\x04로 복귀합니다.")
-        # (Line 49) id.Unit_ID[cp] = 1000;
+        # (Line 91) id.Unit_ID[cp] = 1000;
         _ARRW(id.Unit_ID, cp) << (1000)
-        # (Line 50) break;
+        # (Line 92) break;
         EUDBreak()
-        # (Line 52) case 143:
+        # (Line 94) case 143:
     _t5 = EUDSwitchCase()
-    # (Line 53) s.print("\n　　　\x07#Tip : \x04원하는 맴버에게 \x1F의상\x04을 선물 할 수 있습니다.");
+    # (Line 95) s.print("\n　　　\x07#Tip : \x04원하는 맴버에게 \x1F의상과 앨범\x04을 선물 할 수 있습니다.");
     if _t5(143):
-        s.print("\n　　　\x07#Tip : \x04원하는 맴버에게 \x1F의상\x04을 선물 할 수 있습니다.")
-        # (Line 54) id.Unit_ID[cp] = 1000;
+        s.print("\n　　　\x07#Tip : \x04원하는 맴버에게 \x1F의상과 앨범\x04을 선물 할 수 있습니다.")
+        # (Line 96) id.Unit_ID[cp] = 1000;
         _ARRW(id.Unit_ID, cp) << (1000)
-        # (Line 55) break;
+        # (Line 97) break;
         EUDBreak()
-        # (Line 58) case 108:
+        # (Line 100) case 108:
     _t6 = EUDSwitchCase()
-    # (Line 59) s.print("\n　　　\x07#Tip : \x04랜덤한 타입의 \x19의상 티켓\x04을 구입 할 수 있습니다.");
+    # (Line 101) s.print("\n　　　\x07#Tip : \x04프로듀서 타입의 \x19의상 티켓\x04을 구입 할 수 있습니다.");
     if _t6(108):
-        s.print("\n　　　\x07#Tip : \x04랜덤한 타입의 \x19의상 티켓\x04을 구입 할 수 있습니다.")
-        # (Line 60) id.Unit_ID[cp] = 1000;
+        s.print("\n　　　\x07#Tip : \x04프로듀서 타입의 \x19의상 티켓\x04을 구입 할 수 있습니다.")
+        # (Line 102) id.Unit_ID[cp] = 1000;
         _ARRW(id.Unit_ID, cp) << (1000)
-        # (Line 61) break;
+        # (Line 103) break;
         EUDBreak()
-        # (Line 62) case 118:
+        # (Line 104) case 118:
     _t7 = EUDSwitchCase()
-    # (Line 63) s.print("\n　　　\x07#Tip : \x1F플레티넘 촬영\x04을 위한 \x19티켓\x04을 구입합니다.");
+    # (Line 105) s.print("\n　　　\x07#Tip : \x1F플레티넘 촬영\x04을 위한 \x19티켓\x04을 구입합니다.");
     if _t7(118):
         s.print("\n　　　\x07#Tip : \x1F플레티넘 촬영\x04을 위한 \x19티켓\x04을 구입합니다.")
-        # (Line 64) id.Unit_ID[cp] = 1000;
+        # (Line 106) id.Unit_ID[cp] = 1000;
         _ARRW(id.Unit_ID, cp) << (1000)
-        # (Line 65) break;
+        # (Line 107) break;
         EUDBreak()
-        # (Line 66) case 124:
+        # (Line 108) case 124:
     _t8 = EUDSwitchCase()
-    # (Line 67) s.print( "\n　　　\x07#Tip : \x04후원 등급에 따라 얻는 골드가 증가합니다. ",
+    # (Line 109) s.print( "\n　　　\x07#Tip : \x04후원 등급에 따라 얻는 골드가 증가합니다. ",
     if _t8(124):
-        # (Line 68) "\n　　　　　　　\x04상점 ", shop_level, " 단계", " [ ", shop_exp, "/",shop_need[shop_level], " ] \x19 + ", shop_need[shop_level] * 10, " \x04골드");
+        # (Line 110) "\n　　　　　　　\x04상점 ", shop_level, " 단계", " [ ", shop_exp, "/",shop_need[shop_level], " ] \x19 + ", shop_need[shop_level] * 10, " \x04골드");
         s.print("\n　　　\x07#Tip : \x04후원 등급에 따라 얻는 골드가 증가합니다. ", "\n　　　　　　　\x04상점 ", shop_level, " 단계", " [ ", shop_exp, "/", shop_need[shop_level], " ] \x19 + ", shop_need[shop_level] * 10, " \x04골드")
-        # (Line 69) id.Unit_ID[cp] = 1000;
+        # (Line 111) id.Unit_ID[cp] = 1000;
         _ARRW(id.Unit_ID, cp) << (1000)
-        # (Line 70) break;
+        # (Line 112) break;
         EUDBreak()
-        # (Line 71) case 134:
+        # (Line 113) case 134:
     _t9 = EUDSwitchCase()
-    # (Line 72) s.print("\n　　　\x07#Tip : \x04랜덤한 타입의 \x19앨범 티켓\x04을 구입 할 수 있습니다.");
+    # (Line 114) s.print("\n　　　\x07#Tip : \x04프로듀서 타입의 \x19앨범 티켓\x04을 구입 할 수 있습니다.");
     if _t9(134):
-        s.print("\n　　　\x07#Tip : \x04랜덤한 타입의 \x19앨범 티켓\x04을 구입 할 수 있습니다.")
-        # (Line 73) id.Unit_ID[cp] = 1000;
+        s.print("\n　　　\x07#Tip : \x04프로듀서 타입의 \x19앨범 티켓\x04을 구입 할 수 있습니다.")
+        # (Line 115) id.Unit_ID[cp] = 1000;
         _ARRW(id.Unit_ID, cp) << (1000)
-        # (Line 74) break;
+        # (Line 116) break;
         EUDBreak()
-        # (Line 75) case 150:
+        # (Line 117) case 150:
     _t10 = EUDSwitchCase()
-    # (Line 76) s.print("\n　　　\x07#Tip : \x04일정시간마다 등장하는 \x1F맴버\x04를 고용할 수 있습니다.");
+    # (Line 118) s.print("\n　　　\x07#Tip : \x04일정시간마다 등장하는 \x1F맴버\x04를 고용할 수 있습니다. 상점 \x194 \x04단계 에서 활성화됩니다.");
     if _t10(150):
-        s.print("\n　　　\x07#Tip : \x04일정시간마다 등장하는 \x1F맴버\x04를 고용할 수 있습니다.")
-        # (Line 77) id.Unit_ID[cp] = 1000;
+        s.print("\n　　　\x07#Tip : \x04일정시간마다 등장하는 \x1F맴버\x04를 고용할 수 있습니다. 상점 \x194 \x04단계 에서 활성화됩니다.")
+        # (Line 119) id.Unit_ID[cp] = 1000;
         _ARRW(id.Unit_ID, cp) << (1000)
-        # (Line 78) break;
+        # (Line 120) break;
         EUDBreak()
-        # (Line 79) case 156:
+        # (Line 121) case 156:
     _t11 = EUDSwitchCase()
-    # (Line 80) s.print("\n　　　\x07#Tip : \x04레슨 최대치를 높여주는 트레이너를 고용할 수 있습니다.");
+    # (Line 122) s.print("\n　　　\x07#Tip : \x04레슨 최대치를 높여주는 트레이너를 고용할 수 있습니다. 상점 \x196 \x04단계 에서 활성화됩니다.");
     if _t11(156):
-        s.print("\n　　　\x07#Tip : \x04레슨 최대치를 높여주는 트레이너를 고용할 수 있습니다.")
-        # (Line 81) id.Unit_ID[cp] = 1000;
+        s.print("\n　　　\x07#Tip : \x04레슨 최대치를 높여주는 트레이너를 고용할 수 있습니다. 상점 \x196 \x04단계 에서 활성화됩니다.")
+        # (Line 123) id.Unit_ID[cp] = 1000;
         _ARRW(id.Unit_ID, cp) << (1000)
-        # (Line 82) break;
+        # (Line 124) break;
         EUDBreak()
-        # (Line 83) case 162:
+        # (Line 125) case 162:
     _t12 = EUDSwitchCase()
-    # (Line 84) s.print("\n　　　\x07#Tip : \x04랜덤한 타입의 \x19특훈 티켓\x04을 구입 할 수 있습니다.");
+    # (Line 126) s.print("\n　　　\x07#Tip : \x04프로듀서 타입의 \x19특훈 티켓\x04을 구입 할 수 있습니다. 상점 \x194 \x04단계 에서 활성화됩니다.");
     if _t12(162):
-        s.print("\n　　　\x07#Tip : \x04랜덤한 타입의 \x19특훈 티켓\x04을 구입 할 수 있습니다.")
-        # (Line 85) id.Unit_ID[cp] = 1000;
+        s.print("\n　　　\x07#Tip : \x04프로듀서 타입의 \x19특훈 티켓\x04을 구입 할 수 있습니다. 상점 \x194 \x04단계 에서 활성화됩니다.")
+        # (Line 127) id.Unit_ID[cp] = 1000;
         _ARRW(id.Unit_ID, cp) << (1000)
-        # (Line 86) break;
+        # (Line 128) break;
         EUDBreak()
-        # (Line 87) }
-    # (Line 88) }
+        # (Line 129) }
+    # (Line 130) }
     EUDEndSwitch()
-    # (Line 90) function Shop_Level(cp)
+    # (Line 132) function Shop_Level(cp)
 
-# (Line 91) {
+# (Line 133) {
 @EUDFunc
 def Shop_Level(cp):
-    # (Line 92) if (shop_exp >= shop_need[shop_level] && shop_level < 9)
+    # (Line 134) if (shop_exp >= shop_need[shop_level] && shop_level < 9)
     if EUDIf()(EUDSCAnd()(shop_exp >= shop_need[shop_level])(shop_level >= 9, neg=True)()):
-        # (Line 93) {
-        # (Line 94) shop_level += 1;
+        # (Line 135) {
+        # (Line 136) shop_level += 1;
         shop_level.__iadd__(1)
-        # (Line 95) }
-        # (Line 97) if (Deaths(cp,AtLeast, 2880, "Delay"))
+        # (Line 137) }
+        # (Line 139) if (Deaths(cp,AtLeast, 2880, "Delay"))
     EUDEndIf()
     if EUDIf()(Deaths(cp, AtLeast, 2880, "Delay")):
-        # (Line 98) {
-        # (Line 99) SetResources(cp, Add, shop_need[shop_level] * 10, Ore);
-        # (Line 100) SetDeaths(cp, Subtract, 2880, "Delay");
+        # (Line 140) {
+        # (Line 141) SetResources(cp, Add, shop_need[shop_level] * 10, Ore);
+        # (Line 142) SetDeaths(cp, Subtract, 2880, "Delay");
         DoActions(SetResources(cp, Add, shop_need[shop_level] * 10, Ore))
-        # (Line 101) }
+        # (Line 143) }
         DoActions(SetDeaths(cp, Subtract, 2880, "Delay"))
-        # (Line 102) else
-        # (Line 103) { SetDeaths(cp, Add, 1, "Delay"); }
+        # (Line 144) else
+        # (Line 145) { SetDeaths(cp, Add, 1, "Delay"); }
     if EUDElse()():
         DoActions(SetDeaths(cp, Add, 1, "Delay"))
-        # (Line 105) if (Bring(cp, AtLeast, 1, "(men)", "Shop_Donate") && Accumulate(cp, AtLeast, 3, Gas))
+        # (Line 147) if (Bring(cp, AtLeast, 1, "(men)", "Shop_Donate") && Accumulate(cp, AtLeast, 3, Gas))
     EUDEndIf()
     if EUDIf()(EUDSCAnd()(Bring(cp, AtLeast, 1, "(men)", "Shop_Donate"))(Accumulate(cp, AtLeast, 3, Gas))()):
-        # (Line 106) {
-        # (Line 107) shop_exp += 1;
+        # (Line 148) {
+        # (Line 149) shop_exp += 1;
         shop_exp.__iadd__(1)
-        # (Line 108) SetResources(cp, Subtract, 3, Gas);
-        # (Line 109) MoveUnit(1, "(men)", cp, "Shop_Donate", "Center_Shop");
+        # (Line 150) SetResources(cp, Subtract, 3, Gas);
+        # (Line 151) MoveUnit(1, "(men)", cp, "Shop_Donate", "Center_Shop");
         DoActions(SetResources(cp, Subtract, 3, Gas))
-        # (Line 110) s.print("\n\x13\x04상점을 후원합니다. - 3 \x0FGas\n");
+        # (Line 152) s.print("\n\x13\x04상점을 후원합니다. - 3 \x0FGas\n");
         DoActions(MoveUnit(1, "(men)", cp, "Shop_Donate", "Center_Shop"))
         s.print("\n\x13\x04상점을 후원합니다. - 3 \x0FGas\n")
-        # (Line 111) }
-        # (Line 112) }
+        # (Line 153) }
+        # (Line 154) }
     EUDEndIf()
-    # (Line 114) function Kick_Unit(cp)
+    # (Line 156) function Kick_Unit(cp)
 
-# (Line 115) {
+# (Line 157) {
 @EUDFunc
 def Kick_Unit(cp):
-    # (Line 116) if (Bring(cp, AtLeast, 3, "(men)", "lounge_kick"))
-    if EUDIf()(Bring(cp, AtLeast, 3, "(men)", "lounge_kick")):
-        # (Line 117) {
-        # (Line 118) CreateUnit(1, 136 + dwrand() % 3, "JewelGacha", cp);
-        # (Line 119) RemoveUnitAt(3, "(men)", "lounge_kick", cp);
+    # (Line 158) if (Bring(cp, AtLeast, 3, "(men)", "lounge_kick") && Bring(cp, Exactly, 0, 109, "lounge_kick") && Bring(cp, Exactly, 0, 111, "lounge_kick") && Bring(cp, Exactly, 0, 113, "lounge_kick"))
+    if EUDIf()(EUDSCAnd()(Bring(cp, AtLeast, 3, "(men)", "lounge_kick"))(Bring(cp, Exactly, 0, 109, "lounge_kick"))(Bring(cp, Exactly, 0, 111, "lounge_kick"))(Bring(cp, Exactly, 0, 113, "lounge_kick"))()):
+        # (Line 159) {
+        # (Line 160) CreateUnit(1, 136 + dwrand() % 3, "JewelGacha", cp);
+        # (Line 161) RemoveUnitAt(3, "(men)", "lounge_kick", cp);
         DoActions(CreateUnit(1, 136 + f_dwrand() % 3, "JewelGacha", cp))
-        # (Line 120) s.print("\n\x13맴버 3명 해고 효과 \x19+1 \x04엘범 티켓\n");
+        # (Line 162) s.print("\n\x13맴버 3명 해고 효과 \x19+1 \x04엘범 티켓\n");
         DoActions(RemoveUnitAt(3, "(men)", "lounge_kick", cp))
         s.print("\n\x13맴버 3명 해고 효과 \x19+1 \x04엘범 티켓\n")
-        # (Line 121) }
-        # (Line 122) }
+        # (Line 163) }
+        # (Line 164) }
     EUDEndIf()
-    # (Line 124) function Jewel_Ticket(cp)
+    # (Line 166) function Jewel_Ticket(cp)
 
-# (Line 125) {
+# (Line 167) {
 @EUDFunc
 def Jewel_Ticket(cp):
-    # (Line 126) if (Accumulate(cp, AtLeast, 3, Gas) && Bring(cp, AtLeast, 1, "(men)", "Shop_JewelGacha"))
+    # (Line 168) if (Accumulate(cp, AtLeast, 3, Gas) && Bring(cp, AtLeast, 1, "(men)", "Shop_JewelGacha"))
     if EUDIf()(EUDSCAnd()(Accumulate(cp, AtLeast, 3, Gas))(Bring(cp, AtLeast, 1, "(men)", "Shop_JewelGacha"))()):
-        # (Line 127) {
-        # (Line 128) CreateUnit(1, "Terran SCV", "MedalGacha", cp);
-        # (Line 129) MoveUnit(1, "(men)", cp, "Shop_JewelGacha", "Center_Shop");
+        # (Line 169) {
+        # (Line 170) CreateUnit(1, "Terran SCV", "MedalGacha", cp);
+        # (Line 171) MoveUnit(1, "(men)", cp, "Shop_JewelGacha", "Center_Shop");
         DoActions(CreateUnit(1, "Terran SCV", "MedalGacha", cp))
-        # (Line 130) SetResources(cp, Subtract, 3, Gas);
+        # (Line 172) SetResources(cp, Subtract, 3, Gas);
         DoActions(MoveUnit(1, "(men)", cp, "Shop_JewelGacha", "Center_Shop"))
-        # (Line 131) }
+        # (Line 173) }
         DoActions(SetResources(cp, Subtract, 3, Gas))
-        # (Line 132) }
+        # (Line 174) }
     EUDEndIf()
-    # (Line 134) function Cloth_Ticket(cp)
+    # (Line 176) function Cloth_Ticket(cp)
 
-# (Line 135) {
+# (Line 177) {
 @EUDFunc
 def Cloth_Ticket(cp):
-    # (Line 137) if (Accumulate(cp, AtLeast, 3, Gas) && Bring(cp, AtLeast, 1, "(men)", "Shop_Cloth"))
+    # (Line 179) if (Accumulate(cp, AtLeast, 3, Gas) && Bring(cp, AtLeast, 1, "(men)", "Shop_Cloth"))
     if EUDIf()(EUDSCAnd()(Accumulate(cp, AtLeast, 3, Gas))(Bring(cp, AtLeast, 1, "(men)", "Shop_Cloth"))()):
-        # (Line 138) {
-        # (Line 139) var random = dwrand() % 3;
-        random = EUDVariable()
-        random << (f_dwrand() % 3)
-        # (Line 141) switch(random)
-        EUDSwitch(random)
-        # (Line 142) {
-        # (Line 143) case 0:
-        _t2 = EUDSwitchCase()
-        # (Line 144) CreateUnit(1, 116, "JewelGacha", cp);
-        if _t2(0):
-            # (Line 145) break;
+        # (Line 180) {
+        # (Line 181) if (Bring(cp, AtLeast, 1, 109, "Anywhere")) { CreateUnit(1, 116, "JewelGacha", cp); }
+        if EUDIf()(Bring(cp, AtLeast, 1, 109, "Anywhere")):
             DoActions(CreateUnit(1, 116, "JewelGacha", cp))
-            EUDBreak()
-            # (Line 146) case 1:
-        _t3 = EUDSwitchCase()
-        # (Line 147) CreateUnit(1, 122, "JewelGacha", cp);
-        if _t3(1):
-            # (Line 148) break;
+            # (Line 182) if (Bring(cp, AtLeast, 1, 111, "Anywhere")) { CreateUnit(1, 122, "JewelGacha", cp); }
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 111, "Anywhere")):
             DoActions(CreateUnit(1, 122, "JewelGacha", cp))
-            EUDBreak()
-            # (Line 149) case 2:
-        _t4 = EUDSwitchCase()
-        # (Line 150) CreateUnit(1, 123, "JewelGacha", cp);
-        if _t4(2):
-            # (Line 151) break;
+            # (Line 183) if (Bring(cp, AtLeast, 1, 113, "Anywhere")) { CreateUnit(1, 123, "JewelGacha", cp); }
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 113, "Anywhere")):
             DoActions(CreateUnit(1, 123, "JewelGacha", cp))
-            EUDBreak()
-            # (Line 152) }
-        # (Line 153) MoveUnit(1, "(men)", cp, "Shop_Cloth", "Center_Shop");
-        EUDEndSwitch()
-        # (Line 154) SetResources(cp, Subtract, 3, Gas);
+            # (Line 185) MoveUnit(1, "(men)", cp, "Shop_Cloth", "Center_Shop");
+        EUDEndIf()
+        # (Line 186) SetResources(cp, Subtract, 3, Gas);
         DoActions(MoveUnit(1, "(men)", cp, "Shop_Cloth", "Center_Shop"))
-        # (Line 155) }
+        # (Line 187) }
         DoActions(SetResources(cp, Subtract, 3, Gas))
-        # (Line 156) }
+        # (Line 188) }
     EUDEndIf()
-    # (Line 158) function Special_Trainning_Ticket(cp)
+    # (Line 190) function Special_Trainning_Ticket(cp)
 
-# (Line 159) {
+# (Line 191) {
 @EUDFunc
 def Special_Trainning_Ticket(cp):
-    # (Line 160) if (Accumulate(cp, AtLeast, 5, Gas) && Bring(cp, AtLeast, 1, "(men)", "Shop_STTicket"))
-    if EUDIf()(EUDSCAnd()(Accumulate(cp, AtLeast, 5, Gas))(Bring(cp, AtLeast, 1, "(men)", "Shop_STTicket"))()):
-        # (Line 161) {
-        # (Line 162) var random = dwrand() % 3;
-        random = EUDVariable()
-        random << (f_dwrand() % 3)
-        # (Line 164) switch(random)
-        EUDSwitch(random)
-        # (Line 165) {
-        # (Line 166) case 0:
-        _t2 = EUDSwitchCase()
-        # (Line 167) CreateUnit(1, 126, "JewelGacha", cp);
-        if _t2(0):
-            # (Line 168) break;
+    # (Line 192) if (Accumulate(cp, AtLeast, 5, Gas) && Bring(cp, AtLeast, 1, "(men)", "Shop_STTicket") && shop_level >= 4)
+    if EUDIf()(EUDSCAnd()(Accumulate(cp, AtLeast, 5, Gas))(Bring(cp, AtLeast, 1, "(men)", "Shop_STTicket"))(shop_level >= 4)()):
+        # (Line 193) {
+        # (Line 194) if (Bring(cp, AtLeast, 1, 109, "Anywhere")) { CreateUnit(1, 126, "JewelGacha", cp); }
+        if EUDIf()(Bring(cp, AtLeast, 1, 109, "Anywhere")):
             DoActions(CreateUnit(1, 126, "JewelGacha", cp))
-            EUDBreak()
-            # (Line 169) case 1:
-        _t3 = EUDSwitchCase()
-        # (Line 170) CreateUnit(1, 127, "JewelGacha", cp);
-        if _t3(1):
-            # (Line 171) break;
+            # (Line 195) if (Bring(cp, AtLeast, 1, 111, "Anywhere")) { CreateUnit(1, 127, "JewelGacha", cp); }
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 111, "Anywhere")):
             DoActions(CreateUnit(1, 127, "JewelGacha", cp))
-            EUDBreak()
-            # (Line 172) case 2:
-        _t4 = EUDSwitchCase()
-        # (Line 173) CreateUnit(1, 135, "JewelGacha", cp);
-        if _t4(2):
-            # (Line 174) break;
+            # (Line 196) if (Bring(cp, AtLeast, 1, 113, "Anywhere")) { CreateUnit(1, 135, "JewelGacha", cp); }
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 113, "Anywhere")):
             DoActions(CreateUnit(1, 135, "JewelGacha", cp))
-            EUDBreak()
-            # (Line 175) }
-        # (Line 176) MoveUnit(1, "(men)", cp, "Shop_STTicket", "Center_Shop");
-        EUDEndSwitch()
-        # (Line 177) SetResources(cp, Subtract, 5, Gas);
+            # (Line 198) MoveUnit(1, "(men)", cp, "Shop_STTicket", "Center_Shop");
+        EUDEndIf()
+        # (Line 199) SetResources(cp, Subtract, 5, Gas);
         DoActions(MoveUnit(1, "(men)", cp, "Shop_STTicket", "Center_Shop"))
-        # (Line 178) }
+        # (Line 200) }
         DoActions(SetResources(cp, Subtract, 5, Gas))
-        # (Line 179) }
+        # (Line 201) }
     EUDEndIf()
-    # (Line 181) function Solo_Album(cp)
+    # (Line 203) function Solo_Album(cp)
 
-# (Line 182) {
+# (Line 204) {
 @EUDFunc
 def Solo_Album(cp):
-    # (Line 183) if (Accumulate(cp, AtLeast, 3, Gas) && Bring(cp, AtLeast, 1, "(men)", "Shop_SoloAlbum"))
-    if EUDIf()(EUDSCAnd()(Accumulate(cp, AtLeast, 3, Gas))(Bring(cp, AtLeast, 1, "(men)", "Shop_SoloAlbum"))()):
-        # (Line 184) {
-        # (Line 185) CreateUnit(1, 136 + dwrand() % 3, "JewelGacha", cp);
-        # (Line 186) MoveUnit(1, "(men)", cp, "Shop_SoloAlbum", "Center_Shop");
-        DoActions(CreateUnit(1, 136 + f_dwrand() % 3, "JewelGacha", cp))
-        # (Line 187) SetResources(cp, Subtract, 3, Gas);
+    # (Line 205) if (Accumulate(cp, AtLeast, 5, Gas) && Bring(cp, AtLeast, 1, "(men)", "Shop_SoloAlbum"))
+    if EUDIf()(EUDSCAnd()(Accumulate(cp, AtLeast, 5, Gas))(Bring(cp, AtLeast, 1, "(men)", "Shop_SoloAlbum"))()):
+        # (Line 206) {
+        # (Line 207) if (Bring(cp, AtLeast, 1, 109, "Anywhere")) { CreateUnit(1, 136, "JewelGacha", cp); }
+        if EUDIf()(Bring(cp, AtLeast, 1, 109, "Anywhere")):
+            DoActions(CreateUnit(1, 136, "JewelGacha", cp))
+            # (Line 208) if (Bring(cp, AtLeast, 1, 111, "Anywhere")) { CreateUnit(1, 137, "JewelGacha", cp); }
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 111, "Anywhere")):
+            DoActions(CreateUnit(1, 137, "JewelGacha", cp))
+            # (Line 209) if (Bring(cp, AtLeast, 1, 113, "Anywhere")) { CreateUnit(1, 138, "JewelGacha", cp); }
+        EUDEndIf()
+        if EUDIf()(Bring(cp, AtLeast, 1, 113, "Anywhere")):
+            DoActions(CreateUnit(1, 138, "JewelGacha", cp))
+            # (Line 211) MoveUnit(1, "(men)", cp, "Shop_SoloAlbum", "Center_Shop");
+        EUDEndIf()
+        # (Line 212) SetResources(cp, Subtract, 5, Gas);
         DoActions(MoveUnit(1, "(men)", cp, "Shop_SoloAlbum", "Center_Shop"))
-        # (Line 188) }
-        DoActions(SetResources(cp, Subtract, 3, Gas))
-        # (Line 189) }
+        # (Line 213) }
+        DoActions(SetResources(cp, Subtract, 5, Gas))
+        # (Line 214) }
     EUDEndIf()
-    # (Line 191) function Shop_Trainner(cp)
+    # (Line 216) function Shop_Trainner(cp)
 
-# (Line 192) {
+# (Line 217) {
 @EUDFunc
 def Shop_Trainner(cp):
-    # (Line 193) if (Accumulate(cp, AtLeast, 20, Gas) && Bring(cp, AtLeast, 1, "(men)", "Shop_Trainner") && Bring(Force1, Exactly, 0, 125, "Title"))
-    if EUDIf()(EUDSCAnd()(Accumulate(cp, AtLeast, 20, Gas))(Bring(cp, AtLeast, 1, "(men)", "Shop_Trainner"))(Bring(Force1, Exactly, 0, 125, "Title"))()):
-        # (Line 194) {
-        # (Line 195) CreateUnit(1, 125, "Title", cp);
-        # (Line 196) MoveUnit(1, "(men)", cp, "Shop_Trainner", "Center_Shop");
+    # (Line 218) if (Accumulate(cp, AtLeast, 20, Gas) && Bring(cp, AtLeast, 1, "(men)", "Shop_Trainner") && Bring(Force1, Exactly, 0, 125, "Title")  && shop_level >= 6)
+    if EUDIf()(EUDSCAnd()(Accumulate(cp, AtLeast, 20, Gas))(Bring(cp, AtLeast, 1, "(men)", "Shop_Trainner"))(Bring(Force1, Exactly, 0, 125, "Title"))(shop_level >= 6)()):
+        # (Line 219) {
+        # (Line 220) CreateUnit(1, 125, "Title", cp);
+        # (Line 221) MoveUnit(1, "(men)", cp, "Shop_Trainner", "Center_Shop");
         DoActions(CreateUnit(1, 125, "Title", cp))
-        # (Line 197) SetResources(cp, Subtract, 20, Gas);
+        # (Line 222) SetResources(cp, Subtract, 20, Gas);
         DoActions(MoveUnit(1, "(men)", cp, "Shop_Trainner", "Center_Shop"))
-        # (Line 199) bwrite(0x58D088 + 0x21F0 * ((3) / 46) + (18) * (46 - 31 * ((3) / 46)) + ((3) % 46), 90);
+        # (Line 223) bwrite(0x58D088 + 0x21F0 * (3 / 46) + 0 * (46 - 31 * (3 / 46)) + (3 % 46), 90);
         DoActions(SetResources(cp, Subtract, 20, Gas))
-        f_bwrite(0x58D088 + 0x21F0 * ((3) // 46) + (18) * (46 - 31 * ((3) // 46)) + ((3) % 46), 90)
-        # (Line 200) bwrite(0x58D088 + 0x21F0 * ((4) / 46) + (18) * (46 - 31 * ((4) / 46)) + ((4) % 46), 90);
-        f_bwrite(0x58D088 + 0x21F0 * ((4) // 46) + (18) * (46 - 31 * ((4) // 46)) + ((4) % 46), 90)
-        # (Line 201) bwrite(0x58D088 + 0x21F0 * ((5) / 46) + (18) * (46 - 31 * ((5) / 46)) + ((5) % 46), 90);
-        f_bwrite(0x58D088 + 0x21F0 * ((5) // 46) + (18) * (46 - 31 * ((5) // 46)) + ((5) % 46), 90)
-        # (Line 202) }
-        # (Line 203) }
+        f_bwrite(0x58D088 + 0x21F0 * (3 // 46) + 0 * (46 - 31 * (3 // 46)) + (3 % 46), 90)
+        # (Line 224) bwrite(0x58D088 + 0x21F0 * (3 / 46) + 1 * (46 - 31 * (3 / 46)) + (3 % 46), 90);
+        f_bwrite(0x58D088 + 0x21F0 * (3 // 46) + 1 * (46 - 31 * (3 // 46)) + (3 % 46), 90)
+        # (Line 225) bwrite(0x58D088 + 0x21F0 * (3 / 46) + 2 * (46 - 31 * (3 / 46)) + (3 % 46), 90);
+        f_bwrite(0x58D088 + 0x21F0 * (3 // 46) + 2 * (46 - 31 * (3 // 46)) + (3 % 46), 90)
+        # (Line 226) bwrite(0x58D088 + 0x21F0 * (3 / 46) + 3 * (46 - 31 * (3 / 46)) + (3 % 46), 90);
+        f_bwrite(0x58D088 + 0x21F0 * (3 // 46) + 3 * (46 - 31 * (3 // 46)) + (3 % 46), 90)
+        # (Line 227) bwrite(0x58D088 + 0x21F0 * (3 / 46) + 4 * (46 - 31 * (3 / 46)) + (3 % 46), 90);
+        f_bwrite(0x58D088 + 0x21F0 * (3 // 46) + 4 * (46 - 31 * (3 // 46)) + (3 % 46), 90)
+        # (Line 229) bwrite(0x58D088 + 0x21F0 * (4 / 46) + 0 * (46 - 31 * (4 / 46)) + (4 % 46), 90);
+        f_bwrite(0x58D088 + 0x21F0 * (4 // 46) + 0 * (46 - 31 * (4 // 46)) + (4 % 46), 90)
+        # (Line 230) bwrite(0x58D088 + 0x21F0 * (4 / 46) + 1 * (46 - 31 * (4 / 46)) + (4 % 46), 90);
+        f_bwrite(0x58D088 + 0x21F0 * (4 // 46) + 1 * (46 - 31 * (4 // 46)) + (4 % 46), 90)
+        # (Line 231) bwrite(0x58D088 + 0x21F0 * (4 / 46) + 2 * (46 - 31 * (4 / 46)) + (4 % 46), 90);
+        f_bwrite(0x58D088 + 0x21F0 * (4 // 46) + 2 * (46 - 31 * (4 // 46)) + (4 % 46), 90)
+        # (Line 232) bwrite(0x58D088 + 0x21F0 * (4 / 46) + 3 * (46 - 31 * (4 / 46)) + (4 % 46), 90);
+        f_bwrite(0x58D088 + 0x21F0 * (4 // 46) + 3 * (46 - 31 * (4 // 46)) + (4 % 46), 90)
+        # (Line 233) bwrite(0x58D088 + 0x21F0 * (4 / 46) + 4 * (46 - 31 * (4 / 46)) + (4 % 46), 90);
+        f_bwrite(0x58D088 + 0x21F0 * (4 // 46) + 4 * (46 - 31 * (4 // 46)) + (4 % 46), 90)
+        # (Line 235) bwrite(0x58D088 + 0x21F0 * (5 / 46) + 0 * (46 - 31 * (5 / 46)) + (5 % 46), 90);
+        f_bwrite(0x58D088 + 0x21F0 * (5 // 46) + 0 * (46 - 31 * (5 // 46)) + (5 % 46), 90)
+        # (Line 236) bwrite(0x58D088 + 0x21F0 * (5 / 46) + 1 * (46 - 31 * (5 / 46)) + (5 % 46), 90);
+        f_bwrite(0x58D088 + 0x21F0 * (5 // 46) + 1 * (46 - 31 * (5 // 46)) + (5 % 46), 90)
+        # (Line 237) bwrite(0x58D088 + 0x21F0 * (5 / 46) + 2 * (46 - 31 * (5 / 46)) + (5 % 46), 90);
+        f_bwrite(0x58D088 + 0x21F0 * (5 // 46) + 2 * (46 - 31 * (5 // 46)) + (5 % 46), 90)
+        # (Line 238) bwrite(0x58D088 + 0x21F0 * (5 / 46) + 3 * (46 - 31 * (5 / 46)) + (5 % 46), 90);
+        f_bwrite(0x58D088 + 0x21F0 * (5 // 46) + 3 * (46 - 31 * (5 // 46)) + (5 % 46), 90)
+        # (Line 239) bwrite(0x58D088 + 0x21F0 * (5 / 46) + 4 * (46 - 31 * (5 / 46)) + (5 % 46), 90);
+        f_bwrite(0x58D088 + 0x21F0 * (5 // 46) + 4 * (46 - 31 * (5 // 46)) + (5 % 46), 90)
+        # (Line 240) }
+        # (Line 241) }
     EUDEndIf()
