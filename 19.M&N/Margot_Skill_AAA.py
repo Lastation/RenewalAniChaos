@@ -1,3 +1,58 @@
+Trigger { -- Skill : Ultimate
+   players = {Force1},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 330, " `SkillStep");
+      Deaths(CurrentPlayer, AtLeast, 2, " `SkillCount");
+      Deaths(CurrentPlayer, AtLeast, 1, " `DeadCount");
+      Deaths(CurrentPlayer, Exactly, 0, " `SkillWait");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      KillUnit("Target", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Mojo", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Wraith", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "80 + 1n Tank", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "50 + 1n Tank", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Firebat", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "Target", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "Zerg Defiler", "Anywhere", CurrentPlayer);
+      SetAllianceStatus(P8, Enemy);
+      SetDeaths(CurrentPlayer, SetTo, 12, " `SkillWait");
+   },
+}
+
+Trigger { -- Skill : Ultimate
+   players = {Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 330, " `SkillStep");
+      Deaths(CurrentPlayer, AtLeast, 2, " `SkillCount");
+      Deaths(CurrentPlayer, AtLeast, 1, " `DeadCount");
+      Deaths(CurrentPlayer, Exactly, 0, " `SkillWait");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      KillUnit("Target", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Mojo", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Wraith", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "80 + 1n Tank", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "50 + 1n Tank", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Firebat", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "Target", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "Zerg Defiler", "Anywhere", CurrentPlayer);
+      SetAllianceStatus(P7, Enemy);
+      SetDeaths(CurrentPlayer, SetTo, 12, " `SkillWait");
+   },
+}
+
+
 Trigger { -- Skill : S
    players = {Force1, Force2},
    conditions = {
@@ -65,6 +120,20 @@ Trigger { -- Skill : S
       Comment("Skill : Ultimate");
       PreserveTrigger();
       SetDeaths(CurrentPlayer, SetTo, 12, " `NarugeTarget");
+   },
+}
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, AtLeast, 1, " `NarugeTarget");
+      Switch("Ult - M&N", Set);
+      Switch("Ult2 - M&N", Set);
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      KillUnit("Protoss Observer", CurrentPlayer);
    },
 }
 
@@ -562,6 +631,7 @@ Trigger { -- Skill : S
       SetDeaths(CurrentPlayer, SetTo, 1, " `SkillLoop2");
       SetDeaths(AllPlayers, SetTo, 19008, " `SkillText_Uiltimate");
       Wait(1000);
+      SetSwitch("Ult2 - M&N", Set);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
       SetDeaths(CurrentPlayer, SetTo, 1, " `SkillLoop2");
@@ -1396,9 +1466,8 @@ Trigger { -- Skill : S
 }
 
 
-
-Trigger { -- Skill : S
-   players = {Force1, Force2},
+Trigger { -- Skill : Ultimate
+   players = {Force1},
    conditions = {
       Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
       Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
@@ -1411,7 +1480,39 @@ Trigger { -- Skill : S
       PreserveTrigger();
       KillUnitAt(All, "Target", "Anywhere", CurrentPlayer);
       KillUnitAt(All, "80 + 1n Marine", "Anywhere", CurrentPlayer);
+      RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", CurrentPlayer);
+      RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", CurrentPlayer);
       SetSwitch("Ult - M&N", Clear);
+      SetAllianceStatus(P8, Enemy);
+      SetSwitch("Ult2 - M&N", Clear);
+      Wait(500);
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillCount");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop2");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop3");
+      SetDeaths(CurrentPlayer, Add, 12, " `SkillWait");
+   },
+}
+
+Trigger { -- Skill : Ultimate
+   players = {Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 330, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 11, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      KillUnitAt(All, "Target", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "80 + 1n Marine", "Anywhere", CurrentPlayer);
+      RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", CurrentPlayer);
+      RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", CurrentPlayer);
+      SetSwitch("Ult - M&N", Clear);
+      SetAllianceStatus(P7, Enemy);
+      SetSwitch("Ult2 - M&N", Clear);
       Wait(500);
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillCount");
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");

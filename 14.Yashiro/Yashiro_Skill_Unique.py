@@ -42,6 +42,7 @@ Trigger { -- Skill : S
       Comment("Skill : Unique");
       PreserveTrigger();
       SetDeaths(CurrentPlayer, SetTo, 900, " `SkillLoop4");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillStep");
    },
 }
 
@@ -58,6 +59,7 @@ Trigger { -- Skill : S
       Comment("Skill : Unique");
       PreserveTrigger();
       SetDeaths(CurrentPlayer, SetTo, 800, " `SkillLoop4");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillStep");
    },
 }
 
@@ -74,6 +76,7 @@ Trigger { -- Skill : S
       Comment("Skill : Unique");
       PreserveTrigger();
       SetDeaths(CurrentPlayer, SetTo, 700, " `SkillLoop4");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillStep");
    },
 }
 
@@ -90,6 +93,7 @@ Trigger { -- Skill : S
       Comment("Skill : Unique");
       PreserveTrigger();
       SetDeaths(CurrentPlayer, SetTo, 600, " `SkillLoop4");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillStep");
    },
 }
 
@@ -106,6 +110,7 @@ Trigger { -- Skill : S
       Comment("Skill : Unique");
       PreserveTrigger();
       SetDeaths(CurrentPlayer, SetTo, 500, " `SkillLoop4");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillStep");
    },
 }
 
@@ -122,6 +127,7 @@ Trigger { -- Skill : S
       Comment("Skill : Unique");
       PreserveTrigger();
       SetDeaths(CurrentPlayer, SetTo, 400, " `SkillLoop4");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillStep");
    },
 }
 
@@ -138,20 +144,7 @@ Trigger { -- Skill : S
       Comment("Skill : Unique");
       PreserveTrigger();
       SetDeaths(CurrentPlayer, SetTo, 300, " `SkillLoop4");
-   },
-}
-
-Trigger { -- Skill : S
-   players = {Force1, Force2},
-   conditions = {
-      Deaths(CurrentPlayer, Exactly, 1000, " * Samir Duran");
-      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
-      Deaths(CurrentPlayer, Exactly, 2, " `SkillStep");
-   },
-   actions = {
-      Comment("Skill : Unique");
-      PreserveTrigger();
-      ModifyUnitShields(All, " * Samir Duran", CurrentPlayer, "Anywhere", 1);
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillStep");
    },
 }
 
@@ -168,6 +161,21 @@ Trigger { -- Skill : S
       Comment("Skill : Unique");
       PreserveTrigger();
       SetDeaths(CurrentPlayer, SetTo, 200, " `SkillLoop4");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillStep");
+   },
+}
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 1000, " * Samir Duran");
+      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 2, " `SkillStep");
+   },
+   actions = {
+      Comment("Skill : Unique");
+      PreserveTrigger();
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillStep");
    },
 }
 
@@ -228,7 +236,6 @@ Trigger { -- Skill : S
 		Comment("Skill : Unique");
 		PreserveTrigger();
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop4");
-      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillStep");
 	},
 }
 
@@ -268,7 +275,7 @@ Trigger { -- Skill : S
 		Deaths(CurrentPlayer, Exactly, 1000, " * Samir Duran");
 		Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
 		Deaths(CurrentPlayer, AtLeast, 3, " `UniqueSkill");
-		Deaths(CurrentPlayer, Exactly, 704, " `SkillLoop4");
+		Deaths(CurrentPlayer, Exactly, 722, " `SkillLoop4");
 	},
 	actions = {
 		Comment("Skill : Unique");
@@ -283,13 +290,12 @@ Trigger { -- Skill : S
 		Deaths(CurrentPlayer, Exactly, 1000, " * Samir Duran");
 		Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
 		Deaths(CurrentPlayer, AtMost, 2, " `UniqueSkill");
-		Deaths(CurrentPlayer, Exactly, 704, " `SkillLoop4");
+		Deaths(CurrentPlayer, Exactly, 722, " `SkillLoop4");
 	},
 	actions = {
 		Comment("Skill : Unique");
 		PreserveTrigger();
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop4");
-      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillStep");
 	},
 }
 
@@ -314,7 +320,7 @@ Trigger { -- Skill : S
 		Deaths(CurrentPlayer, Exactly, 1000, " * Samir Duran");
 		Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
 		Deaths(CurrentPlayer, AtLeast, 4, " `UniqueSkill");
-		Deaths(CurrentPlayer, Exactly, 604, " `SkillLoop4");
+		Deaths(CurrentPlayer, Exactly, 661, " `SkillLoop4");
 	},
 	actions = {
 		Comment("Skill : Unique");
@@ -329,13 +335,12 @@ Trigger { -- Skill : S
 		Deaths(CurrentPlayer, Exactly, 1000, " * Samir Duran");
 		Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
 		Deaths(CurrentPlayer, AtMost, 3, " `UniqueSkill");
-		Deaths(CurrentPlayer, Exactly, 604, " `SkillLoop4");
+		Deaths(CurrentPlayer, Exactly, 661, " `SkillLoop4");
 	},
 	actions = {
 		Comment("Skill : Unique");
 		PreserveTrigger();
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop4");
-      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillStep");
 	},
 }
 
@@ -360,7 +365,7 @@ Trigger { -- Skill : S
 		Deaths(CurrentPlayer, Exactly, 1000, " * Samir Duran");
 		Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
 		Deaths(CurrentPlayer, AtLeast, 5, " `UniqueSkill");
-		Deaths(CurrentPlayer, Exactly, 504, " `SkillLoop4");
+		Deaths(CurrentPlayer, Exactly, 534, " `SkillLoop4");
 	},
 	actions = {
 		Comment("Skill : Unique");
@@ -375,13 +380,12 @@ Trigger { -- Skill : S
 		Deaths(CurrentPlayer, Exactly, 1000, " * Samir Duran");
 		Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
 		Deaths(CurrentPlayer, AtMost, 4, " `UniqueSkill");
-		Deaths(CurrentPlayer, Exactly, 504, " `SkillLoop4");
+		Deaths(CurrentPlayer, Exactly, 534, " `SkillLoop4");
 	},
 	actions = {
 		Comment("Skill : Unique");
 		PreserveTrigger();
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop4");
-      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillStep");
 	},
 }
 
@@ -406,7 +410,7 @@ Trigger { -- Skill : S
 		Deaths(CurrentPlayer, Exactly, 1000, " * Samir Duran");
 		Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
 		Deaths(CurrentPlayer, AtLeast, 6, " `UniqueSkill");
-		Deaths(CurrentPlayer, Exactly, 404, " `SkillLoop4");
+		Deaths(CurrentPlayer, Exactly, 442, " `SkillLoop4");
 	},
 	actions = {
 		Comment("Skill : Unique");
@@ -421,13 +425,12 @@ Trigger { -- Skill : S
 		Deaths(CurrentPlayer, Exactly, 1000, " * Samir Duran");
 		Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
 		Deaths(CurrentPlayer, AtMost, 5, " `UniqueSkill");
-		Deaths(CurrentPlayer, Exactly, 404, " `SkillLoop4");
+		Deaths(CurrentPlayer, Exactly, 442, " `SkillLoop4");
 	},
 	actions = {
 		Comment("Skill : Unique");
 		PreserveTrigger();
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop4");
-      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillStep");
 	},
 }
 
@@ -452,7 +455,7 @@ Trigger { -- Skill : S
 		Deaths(CurrentPlayer, Exactly, 1000, " * Samir Duran");
 		Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
 		Deaths(CurrentPlayer, AtLeast, 7, " `UniqueSkill");
-		Deaths(CurrentPlayer, Exactly, 304, " `SkillLoop4");
+		Deaths(CurrentPlayer, Exactly, 345, " `SkillLoop4");
 	},
 	actions = {
 		Comment("Skill : Unique");
@@ -467,13 +470,12 @@ Trigger { -- Skill : S
 		Deaths(CurrentPlayer, Exactly, 1000, " * Samir Duran");
 		Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
 		Deaths(CurrentPlayer, AtMost, 6, " `UniqueSkill");
-		Deaths(CurrentPlayer, Exactly, 304, " `SkillLoop4");
+		Deaths(CurrentPlayer, Exactly, 345, " `SkillLoop4");
 	},
 	actions = {
 		Comment("Skill : Unique");
 		PreserveTrigger();
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop4");
-      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillStep");
 	},
 }
 
@@ -498,7 +500,7 @@ Trigger { -- Skill : S
 		Deaths(CurrentPlayer, Exactly, 1000, " * Samir Duran");
 		Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
 		Deaths(CurrentPlayer, AtLeast, 8, " `UniqueSkill");
-		Deaths(CurrentPlayer, Exactly, 204, " `SkillLoop4");
+		Deaths(CurrentPlayer, Exactly, 246, " `SkillLoop4");
 	},
 	actions = {
 		Comment("Skill : Unique");
@@ -513,13 +515,12 @@ Trigger { -- Skill : S
 		Deaths(CurrentPlayer, Exactly, 1000, " * Samir Duran");
 		Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
 		Deaths(CurrentPlayer, AtMost, 7, " `UniqueSkill");
-		Deaths(CurrentPlayer, Exactly, 204, " `SkillLoop4");
+		Deaths(CurrentPlayer, Exactly, 246, " `SkillLoop4");
 	},
 	actions = {
 		Comment("Skill : Unique");
 		PreserveTrigger();
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop4");
-      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillStep");
 	},
 }
 
@@ -546,13 +547,12 @@ Trigger { -- Skill : S
 		Deaths(CurrentPlayer, Exactly, 1000, " * Samir Duran");
 		Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
 		Deaths(CurrentPlayer, AtLeast, 8, " `UniqueSkill");
-		Deaths(CurrentPlayer, Exactly, 104, " `SkillLoop4");
+		Deaths(CurrentPlayer, Exactly, 179, " `SkillLoop4");
 	},
 	actions = {
 		Comment("Skill : Unique");
 		PreserveTrigger();
 		SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop4");
-      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillStep");
 	},
 }
 
