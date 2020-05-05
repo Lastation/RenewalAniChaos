@@ -35,9 +35,20 @@ function Member_Unit(cp)
 {
 	if (Bring(P12, AtLeast, 1, "(men)", "Shop_UnitScout") && Bring(cp, AtLeast, 1, "(men)", "Shop_UnitScout") && Accumulate(cp, AtLeast, 5, Gas))
 	{
-		MoveUnit(1, "(men)", cp, "Shop_UnitScout", "Center_Shop");
-		GiveUnits(1, "(men)", P12, "Shop_UnitScout", cp); 
-		MoveUnit(1, "(men)", cp, "Shop_UnitScout", "MedalGacha Create");
+		if (Switch("Hard", Cleared) && Deaths(CurrentPlayer, AtMost, 39, 112))
+		{
+			MoveUnit(1, "(men)", cp, "Shop_UnitScout", "Center_Shop");
+			GiveUnits(1, "(men)", P12, "Shop_UnitScout", cp); 
+			MoveUnit(1, "(men)", cp, "Shop_UnitScout", "MedalGacha Create");
+			SetResources(cp, Subtract, 5, Gas);
+		}
+		else if (Switch("Hard", Set) && Deaths(CurrentPlayer, AtMost, 24, 112))
+		{
+			MoveUnit(1, "(men)", cp, "Shop_UnitScout", "Center_Shop");
+			GiveUnits(1, "(men)", P12, "Shop_UnitScout", cp); 
+			MoveUnit(1, "(men)", cp, "Shop_UnitScout", "MedalGacha Create");
+			SetResources(cp, Subtract, 5, Gas);
+		}
 	}
 	
 	if (shop_level >= 4)
@@ -65,6 +76,7 @@ function Member_Unit(cp)
 				GiveUnits(1, "(men)", P8, "Shop_UnitScout", P12);
 				break;
 			}
+			SetInvincibility(Enable, "(men)", P12, "Shop_UnitScout");
 			SetDeaths(AllPlayers, SetTo, 0, "Member");
 		}
 	}
@@ -79,7 +91,7 @@ function Click_Text(cp)
 		id.Unit_ID[cp] = 1000;
 		break;
 	case 115:
-		s.print("\n　　　\x07#Tip : \x19상점\x04입니다. 들어가면 이것저것 살 수 있습니다.");
+		s.print("\n　　　\x07#Tip : \x19사무실\x04입니다. 들어가면 이것저것 살 수 있습니다.");
 		id.Unit_ID[cp] = 1000;
 		break;
 	case 117:
@@ -106,24 +118,24 @@ function Click_Text(cp)
 		id.Unit_ID[cp] = 1000;
 		break;
 	case 124:
-		s.print( "\n　　　\x07#Tip : \x04후원 등급에 따라 얻는 골드가 증가합니다. ",
-		"\n　　　　　　　\x04상점 ", shop_level, " 단계", " [ ", shop_exp, "/",shop_need[shop_level], " ] \x19 + ", shop_need[shop_level] * 10, " \x04골드");
+		s.print( "\n　　　\x07#Tip : \x04프로덕션 발전 등급에 따라 얻는 골드가 증가합니다. ",
+		"\n　　　　　　　\x04프로덕션 발전 ", shop_level, " 단계", " [ ", shop_exp, "/",shop_need[shop_level], " ] \x19 + ", shop_need[shop_level] * 10, " \x04골드");
 		id.Unit_ID[cp] = 1000;
 		break;
 	case 134:
-		s.print("\n　　　\x07#Tip : \x04프로듀서 타입의 \x19앨범 티켓\x04을 구입 할 수 있습니다.");
+		s.print("\n　　　\x07#Tip : \x04프로듀서 타입의 \x19앨범 티켓\x04을 구입 할 수 있습니다. 프로덕션 발전 \x196 \x04단계 에서 활성화됩니다.");
 		id.Unit_ID[cp] = 1000;
 		break;
 	case 150:
-		s.print("\n　　　\x07#Tip : \x04일정시간마다 등장하는 \x1F맴버\x04를 고용할 수 있습니다. 상점 \x194 \x04단계 에서 활성화됩니다.");
+		s.print("\n　　　\x07#Tip : \x04일정시간마다 등장하는 \x1F맴버\x04를 고용할 수 있습니다. 프로덕션 발전 \x194 \x04단계 에서 활성화됩니다.");
 		id.Unit_ID[cp] = 1000;
 		break;
 	case 156:
-		s.print("\n　　　\x07#Tip : \x04레슨 최대치를 높여주는 트레이너를 고용할 수 있습니다. 상점 \x196 \x04단계 에서 활성화됩니다.");
+		s.print("\n　　　\x07#Tip : \x04레슨 최대치를 높여주는 트레이너를 고용할 수 있습니다. 프로덕션 발전 \x196 \x04단계 에서 활성화됩니다.");
 		id.Unit_ID[cp] = 1000;
 		break;
 	case 162:
-		s.print("\n　　　\x07#Tip : \x04프로듀서 타입의 \x19특훈 티켓\x04을 구입 할 수 있습니다. 상점 \x194 \x04단계 에서 활성화됩니다.");
+		s.print("\n　　　\x07#Tip : \x04프로듀서 타입의 \x19특훈 티켓\x04을 구입 할 수 있습니다. 프로덕션 발전 \x194 \x04단계 에서 활성화됩니다.");
 		id.Unit_ID[cp] = 1000;
 		break;
 	}
@@ -189,20 +201,20 @@ function Cloth_Ticket(cp)
 
 function Special_Trainning_Ticket(cp)
 {
-	if (Accumulate(cp, AtLeast, 5, Gas) && Bring(cp, AtLeast, 1, "(men)", "Shop_STTicket") && shop_level >= 4)
+	if (Accumulate(cp, AtLeast, 3, Gas) && Bring(cp, AtLeast, 1, "(men)", "Shop_STTicket") && shop_level >= 4)
 	{
 		if (Bring(cp, AtLeast, 1, 109, "Anywhere")) { CreateUnit(1, 126, "JewelGacha", cp); }
 		if (Bring(cp, AtLeast, 1, 111, "Anywhere")) { CreateUnit(1, 127, "JewelGacha", cp); }
 		if (Bring(cp, AtLeast, 1, 113, "Anywhere")) { CreateUnit(1, 135, "JewelGacha", cp); }
 		
 		MoveUnit(1, "(men)", cp, "Shop_STTicket", "Center_Shop");
-		SetResources(cp, Subtract, 5, Gas);
+		SetResources(cp, Subtract, 3, Gas);
 	}
 }
 
 function Solo_Album(cp)
 {
-	if (Accumulate(cp, AtLeast, 5, Gas) && Bring(cp, AtLeast, 1, "(men)", "Shop_SoloAlbum"))
+	if (Accumulate(cp, AtLeast, 5, Gas) && Bring(cp, AtLeast, 1, "(men)", "Shop_SoloAlbum") && shop_level >= 6)
 	{
 		if (Bring(cp, AtLeast, 1, 109, "Anywhere")) { CreateUnit(1, 136, "JewelGacha", cp); }
 		if (Bring(cp, AtLeast, 1, 111, "Anywhere")) { CreateUnit(1, 137, "JewelGacha", cp); }

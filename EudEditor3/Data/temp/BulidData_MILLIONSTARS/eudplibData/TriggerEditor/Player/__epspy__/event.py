@@ -155,15 +155,15 @@ def f_event_score(cp):
             # (Line 21) if (Bring(cp, AtLeast, 1, 109, "Anywhere"))
             if EUDIf()(Bring(cp, AtLeast, 1, 109, "Anywhere")):
                 # (Line 22) {
-                # (Line 23) SetScore(cp, Add, 25 +  dwrand() % 10, Custom);
+                # (Line 23) SetScore(cp, Add, 30 +  dwrand() % 10, Custom);
                 # (Line 24) }
-                DoActions(SetScore(cp, Add, 25 + f_dwrand() % 10, Custom))
+                DoActions(SetScore(cp, Add, 30 + f_dwrand() % 10, Custom))
                 # (Line 25) else
                 # (Line 26) {
             if EUDElse()():
-                # (Line 27) SetScore(cp, Add, 20 +  dwrand() % 8, Custom);
+                # (Line 27) SetScore(cp, Add, 20 +  dwrand() % 5, Custom);
                 # (Line 28) }
-                DoActions(SetScore(cp, Add, 20 + f_dwrand() % 8, Custom))
+                DoActions(SetScore(cp, Add, 20 + f_dwrand() % 5, Custom))
                 # (Line 29) }
             EUDEndIf()
             # (Line 30) else if (Deaths(P7, Exactly, 1, "Event_type"))
@@ -172,15 +172,15 @@ def f_event_score(cp):
             # (Line 32) if (Bring(cp, AtLeast, 1, 111, "Anywhere"))
             if EUDIf()(Bring(cp, AtLeast, 1, 111, "Anywhere")):
                 # (Line 33) {
-                # (Line 34) SetScore(cp, Add, 25 +  dwrand() % 10, Custom);
+                # (Line 34) SetScore(cp, Add, 30 +  dwrand() % 10, Custom);
                 # (Line 35) }
-                DoActions(SetScore(cp, Add, 25 + f_dwrand() % 10, Custom))
+                DoActions(SetScore(cp, Add, 30 + f_dwrand() % 10, Custom))
                 # (Line 36) else
                 # (Line 37) {
             if EUDElse()():
-                # (Line 38) SetScore(cp, Add, 20 +  dwrand() % 8, Custom);
+                # (Line 38) SetScore(cp, Add, 20 +  dwrand() % 5, Custom);
                 # (Line 39) }
-                DoActions(SetScore(cp, Add, 20 + f_dwrand() % 8, Custom))
+                DoActions(SetScore(cp, Add, 20 + f_dwrand() % 5, Custom))
                 # (Line 40) }
             EUDEndIf()
             # (Line 41) else if (Deaths(P7, Exactly, 2, "Event_type"))
@@ -189,15 +189,15 @@ def f_event_score(cp):
             # (Line 43) if (Bring(cp, AtLeast, 1, 113, "Anywhere"))
             if EUDIf()(Bring(cp, AtLeast, 1, 113, "Anywhere")):
                 # (Line 44) {
-                # (Line 45) SetScore(cp, Add, 25 + dwrand() & 10, Custom);
+                # (Line 45) SetScore(cp, Add, 30 + dwrand() & 10, Custom);
                 # (Line 46) }
-                DoActions(SetScore(cp, Add, 25 + f_dwrand() & 10, Custom))
+                DoActions(SetScore(cp, Add, 30 + f_dwrand() & 10, Custom))
                 # (Line 47) else
                 # (Line 48) {
             if EUDElse()():
-                # (Line 49) SetScore(cp, Add, 20 +  dwrand() % 8, Custom);
+                # (Line 49) SetScore(cp, Add, 20 +  dwrand() % 5, Custom);
                 # (Line 50) }
-                DoActions(SetScore(cp, Add, 20 + f_dwrand() % 8, Custom))
+                DoActions(SetScore(cp, Add, 20 + f_dwrand() % 5, Custom))
                 # (Line 51) }
             EUDEndIf()
             # (Line 53) SetScore(P6, Add, 100 + dwrand() % 10, Custom);

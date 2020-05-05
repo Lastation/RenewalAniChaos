@@ -1,18 +1,13 @@
 [main]
-input: ..\..\..\..\..\..\..\Starcraft\Maps\밀리시타 디펜스\MILLIONSTARS.scx
+input: ..\..\..\..\..\..\MILLIONSTARS\MILLIONSTARS.scx
 output: ..\..\..\..\..\..\..\Starcraft\Maps\밀리시타 디펜스\밀리시타디펜스.scx
 [DataEditor.py]
 [ExtraDataEditor.py]
 [dataDumper]
 ..\temp\custom_txt.tbl : 0x6D5A30, copy
 
-[TriggerEditor\main.eps]
+[TriggerEditor\Main.eps]
 
 
-[EudTurbo]
-[NoAirCollision]
-[unlimiter]
-[MSQC]
-QCDebug : False
-` : Terran SCV, 1
+[EUDTurbo]
 

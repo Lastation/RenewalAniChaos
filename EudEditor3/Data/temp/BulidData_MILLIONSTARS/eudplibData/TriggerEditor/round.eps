@@ -6,7 +6,7 @@ var isevent = 0;
 
 function Set_Round_HP()
 {
-	if (round != dwread_epd(EPD(0x58A364 + 48 * 185 + 4 * 6)) && round < 70)
+	if (round != dwread_epd(EPD(0x58A364 + 48 * 185 + 4 * 6)))
 	{
 		round = dwread_epd(EPD(0x58A364 + 48 * 185 + 4 * 6));
 		var round_check = round%10;
@@ -40,14 +40,13 @@ function Set_Round_HP()
 			{ SetDeaths(Force1, SetTo, 100, "event_index"); }
 			break;
 		case 0:
-			dwwrite(0x65FD00 + 9808 + 96 * 4, vr.round_hp[round] * 256);
+			if (Bring(P8, AtLeast, 1, 144, "Title"))
+			{ dwwrite(0x65FD00 + 9808 + 96 * 4, vr.round_hp[round] * 128); }
+			else
+			{ dwwrite(0x65FD00 + 9808 + 96 * 4, vr.round_hp[round] * 256); }
 			SetDeaths(P7, SetTo, 3, "Line_type");
 			break;
 		}
-	}
-	else if (dwread_epd(EPD(0x58A364 + 48 * 185 + 4 * 6)) >= 70)
-	{
-		Victory();
 	}
 	
 	if (round == 9 && Deaths(P7, Exactly, 0, "event_index"))
@@ -111,7 +110,7 @@ function Set_Round_HP()
 		settbl(91, 0,  ptr2s(vr.event_name[vr.event]));
 	}
 	
-	if (round % 10 == 0 && Deaths(P6, Exactly, 0, "Round") && round != 0 && round < 70)
+	if (round % 10 == 0 && Deaths(P6, Exactly, 0, "Round") && round != 0 && round < 80)
 	{
 		// Event
 		vr.event = dwread_epd(182 * 12 + 6);

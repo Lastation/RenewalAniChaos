@@ -1,6 +1,7 @@
 import Player.shop as sp;
 import Player.sound as sd;
 import Player.title as te;
+import Player.titleInfo as teinfo;
 import Player.lesson as ln;
 import Player.event as et;
 import Player.cloth as cl;
@@ -12,6 +13,7 @@ function main(cp)
 	
 	sd.PlaySound(cp);
 	te.Title_Effect(cp);
+	teinfo.Title_Info(cp);
 	et.event_score(cp);
 	cl.Cloth_Ticket(cp);
 	cl.Producer_Buff(cp);

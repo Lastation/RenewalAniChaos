@@ -173,123 +173,129 @@ def Event_Announcement(cp):
             # (Line 29) Check_Line(cp);
             Check_Line(cp)
             # (Line 30) }
-            # (Line 31) if (Switch("Hard", Cleared))
+            # (Line 31) else if (Bring(cp, Exactly, 0, 112, "Anywhere") && vr.round_Now[cp] != 70)
+        if EUDElseIf()(EUDSCAnd()(Bring(cp, Exactly, 0, 112, "Anywhere"))(vr.round_Now[cp] == 70, neg=True)()):
+            # (Line 32) {
+            # (Line 33) vr.round_Now[cp] = 70;
+            _ARRW(vr.round_Now, cp) << (70)
+            # (Line 34) }
+            # (Line 35) if (Switch("Hard", Cleared))
         EUDEndIf()
         if EUDIf()(Switch("Hard", Cleared)):
-            # (Line 32) {
-            # (Line 33) f_eprintln("\x04", dwread_epd(185 * 12 + 6), " \x0F주차 ", ptr2s(vr.unit_Type[dwread_epd(207 * 12 + 6)]),
-            # (Line 34) " \x17진행도 \x04", dwread_epd(204 * 12 + 6), "/60 ",
-            # (Line 35) "\x08 라인 \x04", vr.round_Now[cp], "/", 70, " \x1F맴버제한 \x04", vr.Unit_Count[cp] ,"/40");
+            # (Line 36) {
+            # (Line 37) f_eprintln("\x04", dwread_epd(185 * 12 + 6), " \x0F주차 ", ptr2s(vr.unit_Type[dwread_epd(207 * 12 + 6)]),
+            # (Line 38) " \x17진행도 \x04", dwread_epd(204 * 12 + 6), "/60 ",
+            # (Line 39) "\x08 라인 \x04", vr.round_Now[cp], "/", 70, " \x1F맴버제한 \x04", vr.Unit_Count[cp] ,"/40");
             f_eprintln("\x04", f_dwread_epd(185 * 12 + 6), " \x0F주차 ", ptr2s(vr.unit_Type[f_dwread_epd(207 * 12 + 6)]), " \x17진행도 \x04", f_dwread_epd(204 * 12 + 6), "/60 ", "\x08 라인 \x04", vr.round_Now[cp], "/", 70, " \x1F맴버제한 \x04", vr.Unit_Count[cp], "/40")
-            # (Line 36) }
-            # (Line 37) else if (Switch("Hard", Set))
+            # (Line 40) }
+            # (Line 41) else if (Switch("Hard", Set))
         if EUDElseIf()(Switch("Hard", Set)):
-            # (Line 38) {
-            # (Line 39) f_eprintln("\x04", dwread_epd(185 * 12 + 6), " \x0F주차 ", ptr2s(vr.unit_Type[dwread_epd(207 * 12 + 6)]),
-            # (Line 40) " \x17진행도 \x04", dwread_epd(204 * 12 + 6), "/60 ",
-            # (Line 41) "\x08 라인 \x04", vr.round_Now[cp], "/", 70, " \x1F맴버제한 \x04", vr.Unit_Count[cp] ,"/25");
+            # (Line 42) {
+            # (Line 43) f_eprintln("\x04", dwread_epd(185 * 12 + 6), " \x0F주차 ", ptr2s(vr.unit_Type[dwread_epd(207 * 12 + 6)]),
+            # (Line 44) " \x17진행도 \x04", dwread_epd(204 * 12 + 6), "/60 ",
+            # (Line 45) "\x08 라인 \x04", vr.round_Now[cp], "/", 70, " \x1F맴버제한 \x04", vr.Unit_Count[cp] ,"/25");
             f_eprintln("\x04", f_dwread_epd(185 * 12 + 6), " \x0F주차 ", ptr2s(vr.unit_Type[f_dwread_epd(207 * 12 + 6)]), " \x17진행도 \x04", f_dwread_epd(204 * 12 + 6), "/60 ", "\x08 라인 \x04", vr.round_Now[cp], "/", 70, " \x1F맴버제한 \x04", vr.Unit_Count[cp], "/25")
-            # (Line 42) }
-            # (Line 43) break;
+            # (Line 46) }
+            # (Line 47) break;
         EUDEndIf()
         EUDBreak()
-        # (Line 44) case 1:
-    _t5 = EUDSwitchCase()
-    # (Line 45) if (Deaths(P6, Exactly, 0, "Round") && Deaths(P7, Exactly, 0, "event_index"))
-    if _t5(1):
+        # (Line 48) case 1:
+    _t6 = EUDSwitchCase()
+    # (Line 49) if (Deaths(P6, Exactly, 0, "Round") && Deaths(P7, Exactly, 0, "event_index"))
+    if _t6(1):
         if EUDIf()(EUDSCAnd()(Deaths(P6, Exactly, 0, "Round"))(Deaths(P7, Exactly, 0, "event_index"))()):
-            # (Line 46) {
-            # (Line 47) f_eprintln("\x04이벤트 준비중입니다.");
-            f_eprintln("\x04이벤트 준비중입니다.")
-            # (Line 48) }
-            # (Line 49) else if (Deaths(P6, Exactly, 0, "Round") && Deaths(P7, AtLeast, 1, "event_index"))
-        if EUDElseIf()(EUDSCAnd()(Deaths(P6, Exactly, 0, "Round"))(Deaths(P7, AtLeast, 1, "event_index"))()):
             # (Line 50) {
-            # (Line 51) f_eprintln("\x1F예정 이벤트 타입 ", ptr2s(vr.unit_Type[dwread_epd(205 * 12 + 6)]));
-            f_eprintln("\x1F예정 이벤트 타입 ", ptr2s(vr.unit_Type[f_dwread_epd(205 * 12 + 6)]))
+            # (Line 51) f_eprintln("\x04이벤트 준비중입니다.");
+            f_eprintln("\x04이벤트 준비중입니다.")
             # (Line 52) }
-            # (Line 53) else if (Deaths(P6, Exactly, 1, "Round"))
-        if EUDElseIf()(Deaths(P6, Exactly, 1, "Round")):
+            # (Line 53) else if (Deaths(P6, Exactly, 0, "Round") && Deaths(P7, AtLeast, 1, "event_index"))
+        if EUDElseIf()(EUDSCAnd()(Deaths(P6, Exactly, 0, "Round"))(Deaths(P7, AtLeast, 1, "event_index"))()):
             # (Line 54) {
-            # (Line 55) f_eprintln("\x1F이벤트 타입 ", ptr2s(vr.unit_Type[dwread_epd(205 * 12 + 6)]),
-            # (Line 56) " \x19 점수 : \x04", dwread_epd(EPD(0x5822F4 + 4 * 5))+ dwread_epd(EPD(0x5822F4 + 4 * cp)));
+            # (Line 55) f_eprintln("\x1F예정 이벤트 타입 ", ptr2s(vr.unit_Type[dwread_epd(205 * 12 + 6)]));
+            f_eprintln("\x1F예정 이벤트 타입 ", ptr2s(vr.unit_Type[f_dwread_epd(205 * 12 + 6)]))
+            # (Line 56) }
+            # (Line 57) else if (Deaths(P6, Exactly, 1, "Round"))
+        if EUDElseIf()(Deaths(P6, Exactly, 1, "Round")):
+            # (Line 58) {
+            # (Line 59) f_eprintln("\x1F이벤트 타입 ", ptr2s(vr.unit_Type[dwread_epd(205 * 12 + 6)]),
+            # (Line 60) " \x19 점수 : \x04", dwread_epd(EPD(0x5822F4 + 4 * 5))+ dwread_epd(EPD(0x5822F4 + 4 * cp)));
             f_eprintln("\x1F이벤트 타입 ", ptr2s(vr.unit_Type[f_dwread_epd(205 * 12 + 6)]), " \x19 점수 : \x04", f_dwread_epd(EPD(0x5822F4 + 4 * 5)) + f_dwread_epd(EPD(0x5822F4 + 4 * cp)))
-            # (Line 57) }
-            # (Line 58) else
-            # (Line 59) {
+            # (Line 61) }
+            # (Line 62) else
+            # (Line 63) {
         if EUDElse()():
-            # (Line 60) f_eprintln("\x04이벤트 정산중입니다.",
-            # (Line 61) " \x19 최종 점수 : \x04", dwread_epd(EPD(0x5822F4 + 4 * cp)));
+            # (Line 64) f_eprintln("\x04이벤트 정산중입니다.",
+            # (Line 65) " \x19 최종 점수 : \x04", dwread_epd(EPD(0x5822F4 + 4 * cp)));
             f_eprintln("\x04이벤트 정산중입니다.", " \x19 최종 점수 : \x04", f_dwread_epd(EPD(0x5822F4 + 4 * cp)))
-            # (Line 62) }
-            # (Line 63) break;
+            # (Line 66) }
+            # (Line 67) break;
         EUDEndIf()
         EUDBreak()
-        # (Line 64) case 2:
-    _t9 = EUDSwitchCase()
-    # (Line 65) f_eprintln("\x1F# N\x04ow Playing - ", ptr2s(vm.music_name[dwread_epd(35 * 12 + 7)]));
-    if _t9(2):
+        # (Line 68) case 2:
+    _t10 = EUDSwitchCase()
+    # (Line 69) f_eprintln("\x1F# N\x04ow Playing - ", ptr2s(vm.music_name[dwread_epd(35 * 12 + 7)]));
+    if _t10(2):
         f_eprintln("\x1F# N\x04ow Playing - ", ptr2s(vm.music_name[f_dwread_epd(35 * 12 + 7)]))
-        # (Line 66) break;
+        # (Line 70) break;
         EUDBreak()
-        # (Line 67) }
-    # (Line 68) }
+        # (Line 71) }
+    # (Line 72) }
     EUDEndSwitch()
-    # (Line 70) function Check_Line(cp)
+    # (Line 74) function Check_Line(cp)
 
-# (Line 71) {
+# (Line 75) {
 @EUDFunc
 def Check_Line(cp):
-    # (Line 72) switch (cp)
+    # (Line 76) switch (cp)
     EUDSwitch(cp)
-    # (Line 73) {
-    # (Line 74) case 0:
+    # (Line 77) {
+    # (Line 78) case 0:
     _t1 = EUDSwitchCase()
-    # (Line 75) vr.round_Now[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player1")'));
+    # (Line 79) vr.round_Now[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player1")'));
     if _t1(0):
         _ARRW(vr.round_Now, cp) << (EUDBinaryMax(eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player1")')))
-        # (Line 76) vr.Unit_Count[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P1, AtLeast, x, "(any unit)", "Map1")')) + EUDBinaryMax(py_eval('lambda x: Bring(P1, AtLeast, x, "(any unit)", "Map2")')) - 2;
+        # (Line 80) vr.Unit_Count[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P1, AtLeast, x, "(any unit)", "Map1")')) + EUDBinaryMax(py_eval('lambda x: Bring(P1, AtLeast, x, "(any unit)", "Map2")')) - 2;
         _ARRW(vr.Unit_Count, cp) << (EUDBinaryMax(eval('lambda x: Bring(P1, AtLeast, x, "(any unit)", "Map1")')) + EUDBinaryMax(eval('lambda x: Bring(P1, AtLeast, x, "(any unit)", "Map2")')) - 2)
-        # (Line 77) break;
-        EUDBreak()
-        # (Line 78) case 1:
-    _t2 = EUDSwitchCase()
-    # (Line 79) vr.round_Now[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player2")'));
-    if _t2(1):
-        _ARRW(vr.round_Now, cp) << (EUDBinaryMax(eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player2")')))
-        # (Line 80) vr.Unit_Count[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P2, AtLeast, x, "(any unit)", "Map1")')) + EUDBinaryMax(py_eval('lambda x: Bring(P2, AtLeast, x, "(any unit)", "Map2")')) - 2;
-        _ARRW(vr.Unit_Count, cp) << (EUDBinaryMax(eval('lambda x: Bring(P2, AtLeast, x, "(any unit)", "Map1")')) + EUDBinaryMax(eval('lambda x: Bring(P2, AtLeast, x, "(any unit)", "Map2")')) - 2)
         # (Line 81) break;
         EUDBreak()
-        # (Line 82) case 2:
-    _t3 = EUDSwitchCase()
-    # (Line 83) vr.round_Now[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player3")'));
-    if _t3(2):
-        _ARRW(vr.round_Now, cp) << (EUDBinaryMax(eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player3")')))
-        # (Line 84) vr.Unit_Count[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P3, AtLeast, x, "(any unit)", "Map1")')) + EUDBinaryMax(py_eval('lambda x: Bring(P3, AtLeast, x, "(any unit)", "Map2")')) - 2;
-        _ARRW(vr.Unit_Count, cp) << (EUDBinaryMax(eval('lambda x: Bring(P3, AtLeast, x, "(any unit)", "Map1")')) + EUDBinaryMax(eval('lambda x: Bring(P3, AtLeast, x, "(any unit)", "Map2")')) - 2)
+        # (Line 82) case 1:
+    _t2 = EUDSwitchCase()
+    # (Line 83) vr.round_Now[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player2")'));
+    if _t2(1):
+        _ARRW(vr.round_Now, cp) << (EUDBinaryMax(eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player2")')))
+        # (Line 84) vr.Unit_Count[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P2, AtLeast, x, "(any unit)", "Map1")')) + EUDBinaryMax(py_eval('lambda x: Bring(P2, AtLeast, x, "(any unit)", "Map2")')) - 2;
+        _ARRW(vr.Unit_Count, cp) << (EUDBinaryMax(eval('lambda x: Bring(P2, AtLeast, x, "(any unit)", "Map1")')) + EUDBinaryMax(eval('lambda x: Bring(P2, AtLeast, x, "(any unit)", "Map2")')) - 2)
         # (Line 85) break;
         EUDBreak()
-        # (Line 86) case 3:
-    _t4 = EUDSwitchCase()
-    # (Line 87) vr.round_Now[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player4")'));
-    if _t4(3):
-        _ARRW(vr.round_Now, cp) << (EUDBinaryMax(eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player4")')))
-        # (Line 88) vr.Unit_Count[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P4, AtLeast, x, "(any unit)", "Map1")')) + EUDBinaryMax(py_eval('lambda x: Bring(P4, AtLeast, x, "(any unit)", "Map2")')) - 2;
-        _ARRW(vr.Unit_Count, cp) << (EUDBinaryMax(eval('lambda x: Bring(P4, AtLeast, x, "(any unit)", "Map1")')) + EUDBinaryMax(eval('lambda x: Bring(P4, AtLeast, x, "(any unit)", "Map2")')) - 2)
+        # (Line 86) case 2:
+    _t3 = EUDSwitchCase()
+    # (Line 87) vr.round_Now[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player3")'));
+    if _t3(2):
+        _ARRW(vr.round_Now, cp) << (EUDBinaryMax(eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player3")')))
+        # (Line 88) vr.Unit_Count[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P3, AtLeast, x, "(any unit)", "Map1")')) + EUDBinaryMax(py_eval('lambda x: Bring(P3, AtLeast, x, "(any unit)", "Map2")')) - 2;
+        _ARRW(vr.Unit_Count, cp) << (EUDBinaryMax(eval('lambda x: Bring(P3, AtLeast, x, "(any unit)", "Map1")')) + EUDBinaryMax(eval('lambda x: Bring(P3, AtLeast, x, "(any unit)", "Map2")')) - 2)
         # (Line 89) break;
         EUDBreak()
-        # (Line 90) case 4:
-    _t5 = EUDSwitchCase()
-    # (Line 91) vr.round_Now[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player5")'));
-    if _t5(4):
-        _ARRW(vr.round_Now, cp) << (EUDBinaryMax(eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player5")')))
-        # (Line 92) vr.Unit_Count[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P5, AtLeast, x, "(any unit)", "Map1")')) + EUDBinaryMax(py_eval('lambda x: Bring(P5, AtLeast, x, "(any unit)", "Map2")')) - 2;
-        _ARRW(vr.Unit_Count, cp) << (EUDBinaryMax(eval('lambda x: Bring(P5, AtLeast, x, "(any unit)", "Map1")')) + EUDBinaryMax(eval('lambda x: Bring(P5, AtLeast, x, "(any unit)", "Map2")')) - 2)
+        # (Line 90) case 3:
+    _t4 = EUDSwitchCase()
+    # (Line 91) vr.round_Now[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player4")'));
+    if _t4(3):
+        _ARRW(vr.round_Now, cp) << (EUDBinaryMax(eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player4")')))
+        # (Line 92) vr.Unit_Count[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P4, AtLeast, x, "(any unit)", "Map1")')) + EUDBinaryMax(py_eval('lambda x: Bring(P4, AtLeast, x, "(any unit)", "Map2")')) - 2;
+        _ARRW(vr.Unit_Count, cp) << (EUDBinaryMax(eval('lambda x: Bring(P4, AtLeast, x, "(any unit)", "Map1")')) + EUDBinaryMax(eval('lambda x: Bring(P4, AtLeast, x, "(any unit)", "Map2")')) - 2)
         # (Line 93) break;
         EUDBreak()
-        # (Line 94) }
-    # (Line 96) SetDeaths(cp, SetTo, vr.Unit_Count[cp], 112);
+        # (Line 94) case 4:
+    _t5 = EUDSwitchCase()
+    # (Line 95) vr.round_Now[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player5")'));
+    if _t5(4):
+        _ARRW(vr.round_Now, cp) << (EUDBinaryMax(eval('lambda x: Bring(P7, AtLeast, x, "(any unit)", "Player5")')))
+        # (Line 96) vr.Unit_Count[cp] = EUDBinaryMax(py_eval('lambda x: Bring(P5, AtLeast, x, "(any unit)", "Map1")')) + EUDBinaryMax(py_eval('lambda x: Bring(P5, AtLeast, x, "(any unit)", "Map2")')) - 2;
+        _ARRW(vr.Unit_Count, cp) << (EUDBinaryMax(eval('lambda x: Bring(P5, AtLeast, x, "(any unit)", "Map1")')) + EUDBinaryMax(eval('lambda x: Bring(P5, AtLeast, x, "(any unit)", "Map2")')) - 2)
+        # (Line 97) break;
+        EUDBreak()
+        # (Line 98) }
+    # (Line 100) SetDeaths(cp, SetTo, vr.Unit_Count[cp], 112);
     EUDEndSwitch()
-    # (Line 97) }
+    # (Line 101) }
     DoActions(SetDeaths(cp, SetTo, vr.Unit_Count[cp], 112))

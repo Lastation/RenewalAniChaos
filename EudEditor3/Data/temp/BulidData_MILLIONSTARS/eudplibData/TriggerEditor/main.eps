@@ -1,133 +1,23 @@
-import unit as ut;
-import getunitID as id;
-import round as rd;
-import text_Announce as ta;
-import variable_data as vd;
-import Player.playermain as pm;
+import Angel.ButtonText as abt;
 
-const s = StringBuffer();
-
-function Start_Setting(cp);
+var cp;
 
 function onPluginStart()
 {
-	randomize();
-
-	// 일반형 - 프린세스
-	SetMemory(0x515BC8, SetTo, 256);	// 소형 - 프린세스 	100%
-	SetMemory(0x515BCC, SetTo, 128);	// 중형 - 페어리 		50%
-	SetMemory(0x515BD0, SetTo, 192);	// 대형 - 엔젤 		75%
-	
-	// 폭발형 - 페어리
-	SetMemory(0x515BA0, SetTo, 192);	// 소형 - 프린세스 	75%
-	SetMemory(0x515BA4, SetTo, 256);	// 중형 - 페어리 		100%
-	SetMemory(0x515BA8, SetTo, 128);	// 대형 - 엔젤 		50%
-	
-	// 진동형 - 엔젤
-	SetMemory(0x515BB4, SetTo, 128);	// 소형 - 프린세스 	50%
-	SetMemory(0x515BB8, SetTo, 192);	// 중형 - 페어리 		75%
-	SetMemory(0x515BBC, SetTo, 256);	// 대형 - 엔젤		100%
-	
-	ut.Set_Info();
-	
-	if (Bring(P1, AtLeast, 1, 112, "Anywhere")){ CreateUnit(1, 64, "Center_Event", P1); }
-	if (Bring(P2, AtLeast, 1, 112, "Anywhere")){ CreateUnit(1, 64, "Center_Event", P2); }
-	if (Bring(P3, AtLeast, 1, 112, "Anywhere")){ CreateUnit(1, 64, "Center_Event", P3); }
-	if (Bring(P4, AtLeast, 1, 112, "Anywhere")){ CreateUnit(1, 64, "Center_Event", P4); }
-	if (Bring(P5, AtLeast, 1, 112, "Anywhere")){ CreateUnit(1, 64, "Center_Event", P5); }
-	
-	CreateUnit(1, 109, "PrincessP", P8);
-	CreateUnit(1, 111, "FairyP", P8);
-	CreateUnit(1, 113, "AngelP", P8);
-	
-	CenterView("Center_Event");
+	abt.Init_ButtonText();
 }
 
 function beforeTriggerExec()
 {
+	cp = getcurpl();
+	
 	EUDPlayerLoop()();
 	
-	const cp = getcurpl();
-	
-	id.Get_UnitID(cp);
-	
-	if(Switch("Start", Set))
-	{
-		pm.main(cp);
-		ta.Event_Announcement(cp);
-	}
-	else
-	{
-		Start_Setting(cp);
-	}
+	abt.Update_ButtomText(cp);
 	
 	EUDEndPlayerLoop();
-
-	rd.Set_Round_HP();
-	
-	if (Bring(P12, AtLeast, 1, 112, "Anywhere")) 
-	{ RemoveUnitAt(All, "(any unit)", "Anywhere", P12); }
 }
 
 function afterTriggerExec()
 {
-	
-}
-
-function Start_Setting(cp)
-{
-	if(Deaths(cp, Exactly, 2, 7) && Switch("Hard", Cleared))
-	{
-		SetSwitch("Hard", Set);
-	}
-	
-	switch (id.Unit_ID[cp])
-	{
-	case 109:
-		s.printAt(2, "\n");
-		s.printAt(3, "\x13\x1BPrincess \x04프로듀서효과");
-		s.printAt(4, "\n");
-		s.printAt(5, "\x13\x1BPrincess \x04맴버 일정시간마다 팬수 증가");
-		s.printAt(6, "\x13\x1BPrincess \x04이벤트 점수 10% 추가 획득");
-		break;
-	case 111:
-		s.printAt(2, "\n");
-		s.printAt(3, "\x13\x1CFairy \x04프로듀서효과");
-		s.printAt(4, "\n");
-		s.printAt(5, "\x13\x1CFairy \x04맴버 일정시간마다 팬수 증가");
-		s.printAt(6, "\x13\x1CFairy \x04이벤트 점수 10% 추가 획득");
-		break;
-	case 113:
-		s.printAt(2, "\n");
-		s.printAt(3, "\x13\x19Angel \x04프로듀서효과");
-		s.printAt(4, "\n");
-		s.printAt(5, "\x13\x19Angel \x04맴버 일정시간마다 팬수 증가");
-		s.printAt(6, "\x13\x19Angel \x04이벤트 점수 10% 추가 획득");
-		break;
-	}
-	
-	if (Bring(cp, AtLeast, 1, 64, "PrincessP"))
-	{
-		KillUnitAt(1, 64, "PrincessP", cp);
-		CreateUnit(1, 109, "Center_Event", cp);
-	}
-	if (Bring(cp, AtLeast, 1, 64, "FairyP"))
-	{
-		KillUnitAt(1, 64, "FairyP", cp);
-		CreateUnit(1, 111, "Center_Event", cp);
-	}
-	if (Bring(cp, AtLeast, 1, 64, "AngelP"))
-	{
-		KillUnitAt(1, 64, "AngelP", cp);
-		CreateUnit(1, 113, "Center_Event", cp);
-	}
-	
-	if (Bring(Force1, Exactly, 0, 64, "Anywhere"))
-	{
-		RemoveUnitAt(All, "Terran Beacon", "Anywhere", P8);
-		RemoveUnitAt(All, 109, "Anywhere", P8);
-		RemoveUnitAt(All, 111, "Anywhere", P8);
-		RemoveUnitAt(All, 113, "Anywhere", P8);
-		SetSwitch("Start", Set);
-	}
 }

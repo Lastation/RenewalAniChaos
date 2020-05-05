@@ -28,6 +28,10 @@ function Event_Announcement(cp)
 		{ 
 			Check_Line(cp);
 		}
+		else if (Bring(cp, Exactly, 0, 112, "Anywhere") && vr.round_Now[cp] != 70)
+		{
+			 vr.round_Now[cp] = 70;
+		}
 		if (Switch("Hard", Cleared))
 		{
 			f_eprintln("\x04", dwread_epd(185 * 12 + 6), " \x0F주차 ", ptr2s(vr.unit_Type[dwread_epd(207 * 12 + 6)]), 

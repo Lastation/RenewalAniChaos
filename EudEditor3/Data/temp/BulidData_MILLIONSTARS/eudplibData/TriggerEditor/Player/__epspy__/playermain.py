@@ -132,28 +132,32 @@ from Player import shop as sp
 from Player import sound as sd
 # (Line 3) import Player.title as te;
 from Player import title as te
-# (Line 4) import Player.lesson as ln;
+# (Line 4) import Player.titleInfo as teinfo;
+from Player import titleInfo as teinfo
+# (Line 5) import Player.lesson as ln;
 from Player import lesson as ln
-# (Line 5) import Player.event as et;
+# (Line 6) import Player.event as et;
 from Player import event as et
-# (Line 6) import Player.cloth as cl;
+# (Line 7) import Player.cloth as cl;
 from Player import cloth as cl
-# (Line 8) function main(cp)
-# (Line 9) {
+# (Line 9) function main(cp)
+# (Line 10) {
 @EUDFunc
 def f_main(cp):
-    # (Line 10) sp.Marge(cp);
+    # (Line 11) sp.Marge(cp);
     sp.Marge(cp)
-    # (Line 11) ln.Marge(cp);
+    # (Line 12) ln.Marge(cp);
     ln.Marge(cp)
-    # (Line 13) sd.PlaySound(cp);
+    # (Line 14) sd.PlaySound(cp);
     sd.PlaySound(cp)
-    # (Line 14) te.Title_Effect(cp);
+    # (Line 15) te.Title_Effect(cp);
     te.Title_Effect(cp)
-    # (Line 15) et.event_score(cp);
+    # (Line 16) teinfo.Title_Info(cp);
+    teinfo.Title_Info(cp)
+    # (Line 17) et.event_score(cp);
     et.f_event_score(cp)
-    # (Line 16) cl.Cloth_Ticket(cp);
+    # (Line 18) cl.Cloth_Ticket(cp);
     cl.Cloth_Ticket(cp)
-    # (Line 17) cl.Producer_Buff(cp);
+    # (Line 19) cl.Producer_Buff(cp);
     cl.Producer_Buff(cp)
-    # (Line 18) }
+    # (Line 20) }

@@ -1,5 +1,5 @@
 import variable_data as vd;
-
+import getunitID as id;
 
 const s = StringBuffer();
 
@@ -36,7 +36,7 @@ function Title_Effect(cp)
 		}
 	}
 	
-	if (Bring(cp, AtLeast, 1, 174, "Title"))
+	if (Bring(P8, AtLeast, 1, 174, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 174);
 		if (Deaths(cp, AtLeast, 4320, 174))
@@ -64,7 +64,7 @@ function Title_Effect(cp)
 		}
 	}
 	
-	if (Bring(cp, AtLeast, 1, 173, "Title"))
+	if (Bring(P8, AtLeast, 1, 173, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 173);
 		if (Deaths(cp, AtLeast, 2880, 173))
@@ -75,7 +75,7 @@ function Title_Effect(cp)
 		}
 	}
 	
-	if (Bring(cp, AtLeast, 1, 172, "Title"))
+	if (Bring(P8, AtLeast, 1, 172, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 172);
 		if (Deaths(cp, AtLeast, 7200, 172))
@@ -86,7 +86,7 @@ function Title_Effect(cp)
 		}
 	}
 	
-	if (Bring(cp, AtLeast, 1, 171, "Title"))
+	if (Bring(P8, AtLeast, 1, 171, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 171);
 		if (Deaths(cp, AtLeast, 21600, 171))
@@ -97,7 +97,7 @@ function Title_Effect(cp)
 		}
 	}
 	
-	if (Bring(cp, AtLeast, 1, 170, "Title"))
+	if (Bring(P8, AtLeast, 1, 170, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 170);
 		if (Deaths(cp, AtLeast, 14400, 170))
@@ -108,7 +108,7 @@ function Title_Effect(cp)
 		}
 	}
 	
-	if (Bring(cp, AtLeast, 1, 169, "Title"))
+	if (Bring(P8, AtLeast, 1, 169, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 169);
 		if (Deaths(cp, AtLeast, 21600, 169))
@@ -135,7 +135,7 @@ function Title_Effect(cp)
 		}
 	}
 		
-	if (Bring(cp, AtLeast, 1, 168, "Title"))
+	if (Bring(P8, AtLeast, 1, 168, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 168);
 		if (Deaths(cp, AtLeast, 4320, 168))
@@ -145,7 +145,7 @@ function Title_Effect(cp)
 		}
 	}
 		
-	if (Bring(cp, AtLeast, 1, 167, "Title"))
+	if (Bring(P8, AtLeast, 1, 167, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 167);
 		if (Deaths(cp, AtLeast, 7200, 167))
@@ -159,7 +159,7 @@ function Title_Effect(cp)
 		}
 	}
 		
-	if (Bring(cp, AtLeast, 1, 166, "Title"))
+	if (Bring(P8, AtLeast, 1, 166, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 166);
 		if (Deaths(cp, AtLeast, 10080, 166))
@@ -170,7 +170,7 @@ function Title_Effect(cp)
 		}
 	}
 		
-	if (Bring(cp, AtLeast, 1, 165, "Title"))
+	if (Bring(P8, AtLeast, 1, 165, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 165);
 		if (Deaths(cp, AtLeast, 240, 165))
@@ -181,7 +181,7 @@ function Title_Effect(cp)
 		}
 	}	
 	
-	if (Bring(cp, AtLeast, 1, 164, "Title"))
+	if (Bring(P8, AtLeast, 1, 164, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 164);
 		if (Deaths(cp, AtLeast, 8640, 164))
@@ -193,7 +193,7 @@ function Title_Effect(cp)
 	}
 
 	// 프린세스
-	if (Bring(cp, AtLeast, 1, 163, "Title"))
+	if (Bring(P8, AtLeast, 1, 163, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 163);
 		if (Deaths(cp, AtLeast, 8640, 163))
@@ -204,7 +204,7 @@ function Title_Effect(cp)
 		}
 	}
 	
-	if (Bring(cp, AtLeast, 1, 160, "Title"))
+	if (Bring(P8, AtLeast, 1, 160, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 160);
 		if (Deaths(cp, AtLeast, 8640, 160))
@@ -215,7 +215,7 @@ function Title_Effect(cp)
 		}
 	}
 	
-	if (Bring(cp, AtLeast, 1, 159, "Title"))
+	if (Bring(P8, AtLeast, 1, 159, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 159);
 		if (Deaths(cp, AtLeast, 8640, 159))
@@ -226,41 +226,57 @@ function Title_Effect(cp)
 		}
 	}
 	
-	if (Bring(cp, AtLeast, 1, 155, "Title"))
+	if (Bring(P8, AtLeast, 1, 155, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 155);
-		if (Deaths(cp, AtLeast, 8640, 155))
+		if (Deaths(cp, AtLeast, 480, 155))
 		{
-			s.print("\n\x13\x1B섬광☆HANABI단 \x04효과 +1 가스\n");
-			SetResources(cp, Add, 1, Gas);
+			switch(cp)
+			{
+			case 0:
+				ModifyUnitHitPoints(1, 93, P7, "Player1", 1);
+				break;
+			case 1:
+				ModifyUnitHitPoints(1, 93, P7, "Player2", 1);
+				break;
+			case 2:
+				ModifyUnitHitPoints(1, 93, P7, "Player3", 1);
+				break;
+			case 3:
+				ModifyUnitHitPoints(1, 93, P7, "Player4", 1);
+				break;
+			case 4:
+				ModifyUnitHitPoints(1, 93, P7, "Player5", 1);
+				break;
+			}
 			SetDeaths(cp, SetTo, 0, 155);
 		}
 	}
 	
 	// 페어리
-	if (Bring(cp, AtLeast, 1, 154, "Title"))
+	if (Bring(P8, AtLeast, 1, 154, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 154);
-		if (Deaths(cp, AtLeast, 8640, 154))
+		if (Deaths(cp, AtLeast, 480, 154))
 		{
-			s.print("\n\x13\x1CD/Zeal \x04효과 +1 가스\n");
+			s.print("\n\x13\x1CEscape \x04효과 +1 가스\n");
 			SetResources(cp, Add, 1, Gas);
 			SetDeaths(cp, SetTo, 0, 154);
 		}
 	}
 	
-	if (Bring(cp, AtLeast, 1, 152, "Title"))
+	if (Bring(P8, AtLeast, 1, 152, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 152);
 		if (Deaths(cp, AtLeast, 8640, 152))
 		{
-			s.print("\n\x13\x1CEscape \x04효과 +1 가스\n");
+			s.print("\n\x13\x1CD/Zeal \x04효과 +1 가스\n");
 			SetResources(cp, Add, 1, Gas);
 			SetDeaths(cp, SetTo, 0, 152);
 		}
 	}
 	
-	if (Bring(cp, AtLeast, 1, 151, "Title"))
+	if (Bring(P8, AtLeast, 1, 151, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 151);
 		if (Deaths(cp, AtLeast, 8640, 151))
@@ -271,30 +287,46 @@ function Title_Effect(cp)
 		}
 	}
 	
-	if (Bring(cp, AtLeast, 1, 148, "Title"))
+	if (Bring(P8, AtLeast, 1, 148, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 148);
-		if (Deaths(cp, AtLeast, 8640, 148))
+		if (Deaths(cp, AtLeast, 480, 148))
 		{
-			s.print("\n\x13\x1C야상영양 -그레이스 녹턴- \x04효과 +1 가스\n");
-			SetResources(cp, Add, 1, Gas);
+			switch(cp)
+			{
+			case 0:
+				ModifyUnitHitPoints(1, 94, P7, "Player1", 1);
+				break;
+			case 1:
+				ModifyUnitHitPoints(1, 94, P7, "Player2", 1);
+				break;
+			case 2:
+				ModifyUnitHitPoints(1, 94, P7, "Player3", 1);
+				break;
+			case 3:
+				ModifyUnitHitPoints(1, 94, P7, "Player4", 1);
+				break;
+			case 4:
+				ModifyUnitHitPoints(1, 94, P7, "Player5", 1);
+				break;
+			}
 			SetDeaths(cp, SetTo, 0, 148);
 		}
 	}
 	
 	// 엔젤
-	if (Bring(cp, AtLeast, 1, 147, "Title"))
+	if (Bring(P8, AtLeast, 1, 147, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 147);
 		if (Deaths(cp, AtLeast, 8640, 147))
 		{
-			s.print("\n\x13\x19클리어스카이 \x04효과 +1 가스\n");
+			s.print("\n\x13\x19 클리어스카이 \x04효과 +1 가스\n");
 			SetResources(cp, Add, 1, Gas);
 			SetDeaths(cp, SetTo, 0, 147);
 		}
 	}
 	
-	if (Bring(cp, AtLeast, 1, 142, "Title"))
+	if (Bring(P8, AtLeast, 1, 142, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 142);
 		if (Deaths(cp, AtLeast, 8640, 142))
@@ -305,7 +337,7 @@ function Title_Effect(cp)
 		}
 	}
 	
-	if (Bring(cp, AtLeast, 1, 140, "Title"))
+	if (Bring(P8, AtLeast, 1, 140, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 140);
 		if (Deaths(cp, AtLeast, 8640, 140))
@@ -316,14 +348,57 @@ function Title_Effect(cp)
 		}
 	}
 	
-	if (Bring(cp, AtLeast, 1, 139, "Title"))
+	if (Bring(P8, AtLeast, 1, 139, "Title"))
 	{
 		SetDeaths(cp, Add, 1, 139);
-		if (Deaths(cp, AtLeast, 8640, 139))
+		if (Deaths(cp, AtLeast, 480, 139))
 		{
-			s.print("\n\x13\x19피코피코 플래닛츠 \x04효과 +1 가스\n");
-			SetResources(cp, Add, 1, Gas);
+			switch(cp)
+			{
+			case 0:
+				ModifyUnitHitPoints(1, 95, P7, "Player1", 1);
+				break;
+			case 1:
+				ModifyUnitHitPoints(1, 95, P7, "Player2", 1);
+				break;
+			case 2:
+				ModifyUnitHitPoints(1, 95, P7, "Player3", 1);
+				break;
+			case 3:
+				ModifyUnitHitPoints(1, 95, P7, "Player4", 1);
+				break;
+			case 4:
+				ModifyUnitHitPoints(1, 95, P7, "Player5", 1);
+				break;
+			}
 			SetDeaths(cp, SetTo, 0, 139);
+		}
+	}
+	
+	if (Bring(P8, AtLeast, 1, 146, "Title"))
+	{
+		SetDeaths(cp, Add, 1, 146);
+		if (Deaths(cp, AtLeast, 480, 146))
+		{
+			switch(cp)
+			{
+			case 0:
+				ModifyUnitHitPoints(1, 96, P7, "Player1", 1);
+				break;
+			case 1:
+				ModifyUnitHitPoints(1, 96, P7, "Player2", 1);
+				break;
+			case 2:
+				ModifyUnitHitPoints(1, 96, P7, "Player3", 1);
+				break;
+			case 3:
+				ModifyUnitHitPoints(1, 96, P7, "Player4", 1);
+				break;
+			case 4:
+				ModifyUnitHitPoints(1, 96, P7, "Player5", 1);
+				break;
+			}
+			SetDeaths(cp, SetTo, 0, 146);
 		}
 	}
 }

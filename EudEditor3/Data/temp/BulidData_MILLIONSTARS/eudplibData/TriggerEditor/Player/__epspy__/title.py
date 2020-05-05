@@ -128,6 +128,8 @@ def _LSH(l, r):
 
 # (Line 1) import variable_data as vd;
 import variable_data as vd
+# (Line 2) import getunitID as id;
+import getunitID as id
 # (Line 4) const s = StringBuffer();
 s = _CGFW(lambda: [StringBuffer()], 1)[0]
 # (Line 6) function Trainning_Ticket(cp);
@@ -189,9 +191,9 @@ def Title_Effect(cp):
             DoActions(SetDeaths(cp, SetTo, 0, 175))
             # (Line 37) }
         EUDEndIf()
-        # (Line 39) if (Bring(cp, AtLeast, 1, 174, "Title"))
+        # (Line 39) if (Bring(P8, AtLeast, 1, 174, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 174, "Title")):
+    if EUDIf()(Bring(P8, AtLeast, 1, 174, "Title")):
         # (Line 40) {
         # (Line 41) SetDeaths(cp, Add, 1, 174);
         # (Line 42) if (Deaths(cp, AtLeast, 4320, 174))
@@ -238,9 +240,9 @@ def Title_Effect(cp):
             DoActions(SetDeaths(cp, SetTo, 0, 174))
             # (Line 65) }
         EUDEndIf()
-        # (Line 67) if (Bring(cp, AtLeast, 1, 173, "Title"))
+        # (Line 67) if (Bring(P8, AtLeast, 1, 173, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 173, "Title")):
+    if EUDIf()(Bring(P8, AtLeast, 1, 173, "Title")):
         # (Line 68) {
         # (Line 69) SetDeaths(cp, Add, 1, 173);
         # (Line 70) if (Deaths(cp, AtLeast, 2880, 173))
@@ -256,9 +258,9 @@ def Title_Effect(cp):
             DoActions(SetDeaths(cp, SetTo, 0, 173))
             # (Line 76) }
         EUDEndIf()
-        # (Line 78) if (Bring(cp, AtLeast, 1, 172, "Title"))
+        # (Line 78) if (Bring(P8, AtLeast, 1, 172, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 172, "Title")):
+    if EUDIf()(Bring(P8, AtLeast, 1, 172, "Title")):
         # (Line 79) {
         # (Line 80) SetDeaths(cp, Add, 1, 172);
         # (Line 81) if (Deaths(cp, AtLeast, 7200, 172))
@@ -274,9 +276,9 @@ def Title_Effect(cp):
             DoActions(SetDeaths(cp, SetTo, 0, 172))
             # (Line 87) }
         EUDEndIf()
-        # (Line 89) if (Bring(cp, AtLeast, 1, 171, "Title"))
+        # (Line 89) if (Bring(P8, AtLeast, 1, 171, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 171, "Title")):
+    if EUDIf()(Bring(P8, AtLeast, 1, 171, "Title")):
         # (Line 90) {
         # (Line 91) SetDeaths(cp, Add, 1, 171);
         # (Line 92) if (Deaths(cp, AtLeast, 21600, 171))
@@ -292,9 +294,9 @@ def Title_Effect(cp):
             DoActions(SetDeaths(cp, SetTo, 0, 171))
             # (Line 98) }
         EUDEndIf()
-        # (Line 100) if (Bring(cp, AtLeast, 1, 170, "Title"))
+        # (Line 100) if (Bring(P8, AtLeast, 1, 170, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 170, "Title")):
+    if EUDIf()(Bring(P8, AtLeast, 1, 170, "Title")):
         # (Line 101) {
         # (Line 102) SetDeaths(cp, Add, 1, 170);
         # (Line 103) if (Deaths(cp, AtLeast, 14400, 170))
@@ -310,9 +312,9 @@ def Title_Effect(cp):
             DoActions(SetDeaths(cp, SetTo, 0, 170))
             # (Line 109) }
         EUDEndIf()
-        # (Line 111) if (Bring(cp, AtLeast, 1, 169, "Title"))
+        # (Line 111) if (Bring(P8, AtLeast, 1, 169, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 169, "Title")):
+    if EUDIf()(Bring(P8, AtLeast, 1, 169, "Title")):
         # (Line 112) {
         # (Line 113) SetDeaths(cp, Add, 1, 169);
         # (Line 114) if (Deaths(cp, AtLeast, 21600, 169))
@@ -364,9 +366,9 @@ def Title_Effect(cp):
             DoActions(SetDeaths(cp, SetTo, 0, 169))
             # (Line 136) }
         EUDEndIf()
-        # (Line 138) if (Bring(cp, AtLeast, 1, 168, "Title"))
+        # (Line 138) if (Bring(P8, AtLeast, 1, 168, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 168, "Title")):
+    if EUDIf()(Bring(P8, AtLeast, 1, 168, "Title")):
         # (Line 139) {
         # (Line 140) SetDeaths(cp, Add, 1, 168);
         # (Line 141) if (Deaths(cp, AtLeast, 4320, 168))
@@ -380,9 +382,9 @@ def Title_Effect(cp):
             DoActions(SetDeaths(cp, SetTo, 0, 168))
             # (Line 146) }
         EUDEndIf()
-        # (Line 148) if (Bring(cp, AtLeast, 1, 167, "Title"))
+        # (Line 148) if (Bring(P8, AtLeast, 1, 167, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 167, "Title")):
+    if EUDIf()(Bring(P8, AtLeast, 1, 167, "Title")):
         # (Line 149) {
         # (Line 150) SetDeaths(cp, Add, 1, 167);
         # (Line 151) if (Deaths(cp, AtLeast, 7200, 167))
@@ -403,9 +405,9 @@ def Title_Effect(cp):
             DoActions(SetDeaths(cp, SetTo, 0, 167))
             # (Line 160) }
         EUDEndIf()
-        # (Line 162) if (Bring(cp, AtLeast, 1, 166, "Title"))
+        # (Line 162) if (Bring(P8, AtLeast, 1, 166, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 166, "Title")):
+    if EUDIf()(Bring(P8, AtLeast, 1, 166, "Title")):
         # (Line 163) {
         # (Line 164) SetDeaths(cp, Add, 1, 166);
         # (Line 165) if (Deaths(cp, AtLeast, 10080, 166))
@@ -421,9 +423,9 @@ def Title_Effect(cp):
             DoActions(SetDeaths(cp, SetTo, 0, 166))
             # (Line 171) }
         EUDEndIf()
-        # (Line 173) if (Bring(cp, AtLeast, 1, 165, "Title"))
+        # (Line 173) if (Bring(P8, AtLeast, 1, 165, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 165, "Title")):
+    if EUDIf()(Bring(P8, AtLeast, 1, 165, "Title")):
         # (Line 174) {
         # (Line 175) SetDeaths(cp, Add, 1, 165);
         # (Line 176) if (Deaths(cp, AtLeast, 240, 165))
@@ -437,9 +439,9 @@ def Title_Effect(cp):
             DoActions(SetDeaths(cp, SetTo, 0, 165))
             # (Line 182) }
         EUDEndIf()
-        # (Line 184) if (Bring(cp, AtLeast, 1, 164, "Title"))
+        # (Line 184) if (Bring(P8, AtLeast, 1, 164, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 164, "Title")):
+    if EUDIf()(Bring(P8, AtLeast, 1, 164, "Title")):
         # (Line 185) {
         # (Line 186) SetDeaths(cp, Add, 1, 164);
         # (Line 187) if (Deaths(cp, AtLeast, 8640, 164))
@@ -455,9 +457,9 @@ def Title_Effect(cp):
             DoActions(SetDeaths(cp, SetTo, 0, 164))
             # (Line 193) }
         EUDEndIf()
-        # (Line 196) if (Bring(cp, AtLeast, 1, 163, "Title"))
+        # (Line 196) if (Bring(P8, AtLeast, 1, 163, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 163, "Title")):
+    if EUDIf()(Bring(P8, AtLeast, 1, 163, "Title")):
         # (Line 197) {
         # (Line 198) SetDeaths(cp, Add, 1, 163);
         # (Line 199) if (Deaths(cp, AtLeast, 8640, 163))
@@ -473,9 +475,9 @@ def Title_Effect(cp):
             DoActions(SetDeaths(cp, SetTo, 0, 163))
             # (Line 205) }
         EUDEndIf()
-        # (Line 207) if (Bring(cp, AtLeast, 1, 160, "Title"))
+        # (Line 207) if (Bring(P8, AtLeast, 1, 160, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 160, "Title")):
+    if EUDIf()(Bring(P8, AtLeast, 1, 160, "Title")):
         # (Line 208) {
         # (Line 209) SetDeaths(cp, Add, 1, 160);
         # (Line 210) if (Deaths(cp, AtLeast, 8640, 160))
@@ -491,9 +493,9 @@ def Title_Effect(cp):
             DoActions(SetDeaths(cp, SetTo, 0, 160))
             # (Line 216) }
         EUDEndIf()
-        # (Line 218) if (Bring(cp, AtLeast, 1, 159, "Title"))
+        # (Line 218) if (Bring(P8, AtLeast, 1, 159, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 159, "Title")):
+    if EUDIf()(Bring(P8, AtLeast, 1, 159, "Title")):
         # (Line 219) {
         # (Line 220) SetDeaths(cp, Add, 1, 159);
         # (Line 221) if (Deaths(cp, AtLeast, 8640, 159))
@@ -509,237 +511,399 @@ def Title_Effect(cp):
             DoActions(SetDeaths(cp, SetTo, 0, 159))
             # (Line 227) }
         EUDEndIf()
-        # (Line 229) if (Bring(cp, AtLeast, 1, 155, "Title"))
+        # (Line 229) if (Bring(P8, AtLeast, 1, 155, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 155, "Title")):
+    if EUDIf()(Bring(P8, AtLeast, 1, 155, "Title")):
         # (Line 230) {
         # (Line 231) SetDeaths(cp, Add, 1, 155);
-        # (Line 232) if (Deaths(cp, AtLeast, 8640, 155))
+        # (Line 232) if (Deaths(cp, AtLeast, 480, 155))
         DoActions(SetDeaths(cp, Add, 1, 155))
-        if EUDIf()(Deaths(cp, AtLeast, 8640, 155)):
+        if EUDIf()(Deaths(cp, AtLeast, 480, 155)):
             # (Line 233) {
-            # (Line 234) s.print("\n\x13\x1B섬광☆HANABI단 \x04효과 +1 가스\n");
-            s.print("\n\x13\x1B섬광☆HANABI단 \x04효과 +1 가스\n")
-            # (Line 235) SetResources(cp, Add, 1, Gas);
-            # (Line 236) SetDeaths(cp, SetTo, 0, 155);
-            DoActions(SetResources(cp, Add, 1, Gas))
-            # (Line 237) }
+            # (Line 234) switch(cp)
+            EUDSwitch(cp)
+            # (Line 235) {
+            # (Line 236) case 0:
+            _t47 = EUDSwitchCase()
+            # (Line 237) ModifyUnitHitPoints(1, 93, P7, "Player1", 1);
+            if _t47(0):
+                # (Line 238) break;
+                DoActions(ModifyUnitHitPoints(1, 93, P7, "Player1", 1))
+                EUDBreak()
+                # (Line 239) case 1:
+            _t48 = EUDSwitchCase()
+            # (Line 240) ModifyUnitHitPoints(1, 93, P7, "Player2", 1);
+            if _t48(1):
+                # (Line 241) break;
+                DoActions(ModifyUnitHitPoints(1, 93, P7, "Player2", 1))
+                EUDBreak()
+                # (Line 242) case 2:
+            _t49 = EUDSwitchCase()
+            # (Line 243) ModifyUnitHitPoints(1, 93, P7, "Player3", 1);
+            if _t49(2):
+                # (Line 244) break;
+                DoActions(ModifyUnitHitPoints(1, 93, P7, "Player3", 1))
+                EUDBreak()
+                # (Line 245) case 3:
+            _t50 = EUDSwitchCase()
+            # (Line 246) ModifyUnitHitPoints(1, 93, P7, "Player4", 1);
+            if _t50(3):
+                # (Line 247) break;
+                DoActions(ModifyUnitHitPoints(1, 93, P7, "Player4", 1))
+                EUDBreak()
+                # (Line 248) case 4:
+            _t51 = EUDSwitchCase()
+            # (Line 249) ModifyUnitHitPoints(1, 93, P7, "Player5", 1);
+            if _t51(4):
+                # (Line 250) break;
+                DoActions(ModifyUnitHitPoints(1, 93, P7, "Player5", 1))
+                EUDBreak()
+                # (Line 251) }
+            # (Line 252) SetDeaths(cp, SetTo, 0, 155);
+            EUDEndSwitch()
+            # (Line 253) }
             DoActions(SetDeaths(cp, SetTo, 0, 155))
-            # (Line 238) }
+            # (Line 254) }
         EUDEndIf()
-        # (Line 241) if (Bring(cp, AtLeast, 1, 154, "Title"))
+        # (Line 257) if (Bring(P8, AtLeast, 1, 154, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 154, "Title")):
-        # (Line 242) {
-        # (Line 243) SetDeaths(cp, Add, 1, 154);
-        # (Line 244) if (Deaths(cp, AtLeast, 8640, 154))
+    if EUDIf()(Bring(P8, AtLeast, 1, 154, "Title")):
+        # (Line 258) {
+        # (Line 259) SetDeaths(cp, Add, 1, 154);
+        # (Line 260) if (Deaths(cp, AtLeast, 480, 154))
         DoActions(SetDeaths(cp, Add, 1, 154))
-        if EUDIf()(Deaths(cp, AtLeast, 8640, 154)):
-            # (Line 245) {
-            # (Line 246) s.print("\n\x13\x1CD/Zeal \x04효과 +1 가스\n");
-            s.print("\n\x13\x1CD/Zeal \x04효과 +1 가스\n")
-            # (Line 247) SetResources(cp, Add, 1, Gas);
-            # (Line 248) SetDeaths(cp, SetTo, 0, 154);
+        if EUDIf()(Deaths(cp, AtLeast, 480, 154)):
+            # (Line 261) {
+            # (Line 262) s.print("\n\x13\x1CEscape \x04효과 +1 가스\n");
+            s.print("\n\x13\x1CEscape \x04효과 +1 가스\n")
+            # (Line 263) SetResources(cp, Add, 1, Gas);
+            # (Line 264) SetDeaths(cp, SetTo, 0, 154);
             DoActions(SetResources(cp, Add, 1, Gas))
-            # (Line 249) }
+            # (Line 265) }
             DoActions(SetDeaths(cp, SetTo, 0, 154))
-            # (Line 250) }
+            # (Line 266) }
         EUDEndIf()
-        # (Line 252) if (Bring(cp, AtLeast, 1, 152, "Title"))
+        # (Line 268) if (Bring(P8, AtLeast, 1, 152, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 152, "Title")):
-        # (Line 253) {
-        # (Line 254) SetDeaths(cp, Add, 1, 152);
-        # (Line 255) if (Deaths(cp, AtLeast, 8640, 152))
+    if EUDIf()(Bring(P8, AtLeast, 1, 152, "Title")):
+        # (Line 269) {
+        # (Line 270) SetDeaths(cp, Add, 1, 152);
+        # (Line 271) if (Deaths(cp, AtLeast, 8640, 152))
         DoActions(SetDeaths(cp, Add, 1, 152))
         if EUDIf()(Deaths(cp, AtLeast, 8640, 152)):
-            # (Line 256) {
-            # (Line 257) s.print("\n\x13\x1CEscape \x04효과 +1 가스\n");
-            s.print("\n\x13\x1CEscape \x04효과 +1 가스\n")
-            # (Line 258) SetResources(cp, Add, 1, Gas);
-            # (Line 259) SetDeaths(cp, SetTo, 0, 152);
+            # (Line 272) {
+            # (Line 273) s.print("\n\x13\x1CD/Zeal \x04효과 +1 가스\n");
+            s.print("\n\x13\x1CD/Zeal \x04효과 +1 가스\n")
+            # (Line 274) SetResources(cp, Add, 1, Gas);
+            # (Line 275) SetDeaths(cp, SetTo, 0, 152);
             DoActions(SetResources(cp, Add, 1, Gas))
-            # (Line 260) }
+            # (Line 276) }
             DoActions(SetDeaths(cp, SetTo, 0, 152))
-            # (Line 261) }
+            # (Line 277) }
         EUDEndIf()
-        # (Line 263) if (Bring(cp, AtLeast, 1, 151, "Title"))
+        # (Line 279) if (Bring(P8, AtLeast, 1, 151, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 151, "Title")):
-        # (Line 264) {
-        # (Line 265) SetDeaths(cp, Add, 1, 151);
-        # (Line 266) if (Deaths(cp, AtLeast, 8640, 151))
+    if EUDIf()(Bring(P8, AtLeast, 1, 151, "Title")):
+        # (Line 280) {
+        # (Line 281) SetDeaths(cp, Add, 1, 151);
+        # (Line 282) if (Deaths(cp, AtLeast, 8640, 151))
         DoActions(SetDeaths(cp, Add, 1, 151))
         if EUDIf()(Deaths(cp, AtLeast, 8640, 151)):
-            # (Line 267) {
-            # (Line 268) s.print("\n\x13\x1CJelly PoP Beans \x04효과 +1 가스\n");
+            # (Line 283) {
+            # (Line 284) s.print("\n\x13\x1CJelly PoP Beans \x04효과 +1 가스\n");
             s.print("\n\x13\x1CJelly PoP Beans \x04효과 +1 가스\n")
-            # (Line 269) SetResources(cp, Add, 1, Gas);
-            # (Line 270) SetDeaths(cp, SetTo, 0, 151);
+            # (Line 285) SetResources(cp, Add, 1, Gas);
+            # (Line 286) SetDeaths(cp, SetTo, 0, 151);
             DoActions(SetResources(cp, Add, 1, Gas))
-            # (Line 271) }
+            # (Line 287) }
             DoActions(SetDeaths(cp, SetTo, 0, 151))
-            # (Line 272) }
+            # (Line 288) }
         EUDEndIf()
-        # (Line 274) if (Bring(cp, AtLeast, 1, 148, "Title"))
+        # (Line 290) if (Bring(P8, AtLeast, 1, 148, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 148, "Title")):
-        # (Line 275) {
-        # (Line 276) SetDeaths(cp, Add, 1, 148);
-        # (Line 277) if (Deaths(cp, AtLeast, 8640, 148))
+    if EUDIf()(Bring(P8, AtLeast, 1, 148, "Title")):
+        # (Line 291) {
+        # (Line 292) SetDeaths(cp, Add, 1, 148);
+        # (Line 293) if (Deaths(cp, AtLeast, 480, 148))
         DoActions(SetDeaths(cp, Add, 1, 148))
-        if EUDIf()(Deaths(cp, AtLeast, 8640, 148)):
-            # (Line 278) {
-            # (Line 279) s.print("\n\x13\x1C야상영양 -그레이스 녹턴- \x04효과 +1 가스\n");
-            s.print("\n\x13\x1C야상영양 -그레이스 녹턴- \x04효과 +1 가스\n")
-            # (Line 280) SetResources(cp, Add, 1, Gas);
-            # (Line 281) SetDeaths(cp, SetTo, 0, 148);
-            DoActions(SetResources(cp, Add, 1, Gas))
-            # (Line 282) }
+        if EUDIf()(Deaths(cp, AtLeast, 480, 148)):
+            # (Line 294) {
+            # (Line 295) switch(cp)
+            EUDSwitch(cp)
+            # (Line 296) {
+            # (Line 297) case 0:
+            _t60 = EUDSwitchCase()
+            # (Line 298) ModifyUnitHitPoints(1, 94, P7, "Player1", 1);
+            if _t60(0):
+                # (Line 299) break;
+                DoActions(ModifyUnitHitPoints(1, 94, P7, "Player1", 1))
+                EUDBreak()
+                # (Line 300) case 1:
+            _t61 = EUDSwitchCase()
+            # (Line 301) ModifyUnitHitPoints(1, 94, P7, "Player2", 1);
+            if _t61(1):
+                # (Line 302) break;
+                DoActions(ModifyUnitHitPoints(1, 94, P7, "Player2", 1))
+                EUDBreak()
+                # (Line 303) case 2:
+            _t62 = EUDSwitchCase()
+            # (Line 304) ModifyUnitHitPoints(1, 94, P7, "Player3", 1);
+            if _t62(2):
+                # (Line 305) break;
+                DoActions(ModifyUnitHitPoints(1, 94, P7, "Player3", 1))
+                EUDBreak()
+                # (Line 306) case 3:
+            _t63 = EUDSwitchCase()
+            # (Line 307) ModifyUnitHitPoints(1, 94, P7, "Player4", 1);
+            if _t63(3):
+                # (Line 308) break;
+                DoActions(ModifyUnitHitPoints(1, 94, P7, "Player4", 1))
+                EUDBreak()
+                # (Line 309) case 4:
+            _t64 = EUDSwitchCase()
+            # (Line 310) ModifyUnitHitPoints(1, 94, P7, "Player5", 1);
+            if _t64(4):
+                # (Line 311) break;
+                DoActions(ModifyUnitHitPoints(1, 94, P7, "Player5", 1))
+                EUDBreak()
+                # (Line 312) }
+            # (Line 313) SetDeaths(cp, SetTo, 0, 148);
+            EUDEndSwitch()
+            # (Line 314) }
             DoActions(SetDeaths(cp, SetTo, 0, 148))
-            # (Line 283) }
+            # (Line 315) }
         EUDEndIf()
-        # (Line 286) if (Bring(cp, AtLeast, 1, 147, "Title"))
+        # (Line 318) if (Bring(P8, AtLeast, 1, 147, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 147, "Title")):
-        # (Line 287) {
-        # (Line 288) SetDeaths(cp, Add, 1, 147);
-        # (Line 289) if (Deaths(cp, AtLeast, 8640, 147))
+    if EUDIf()(Bring(P8, AtLeast, 1, 147, "Title")):
+        # (Line 319) {
+        # (Line 320) SetDeaths(cp, Add, 1, 147);
+        # (Line 321) if (Deaths(cp, AtLeast, 8640, 147))
         DoActions(SetDeaths(cp, Add, 1, 147))
         if EUDIf()(Deaths(cp, AtLeast, 8640, 147)):
-            # (Line 290) {
-            # (Line 291) s.print("\n\x13\x19클리어스카이 \x04효과 +1 가스\n");
-            s.print("\n\x13\x19클리어스카이 \x04효과 +1 가스\n")
-            # (Line 292) SetResources(cp, Add, 1, Gas);
-            # (Line 293) SetDeaths(cp, SetTo, 0, 147);
+            # (Line 322) {
+            # (Line 323) s.print("\n\x13\x19 클리어스카이 \x04효과 +1 가스\n");
+            s.print("\n\x13\x19 클리어스카이 \x04효과 +1 가스\n")
+            # (Line 324) SetResources(cp, Add, 1, Gas);
+            # (Line 325) SetDeaths(cp, SetTo, 0, 147);
             DoActions(SetResources(cp, Add, 1, Gas))
-            # (Line 294) }
+            # (Line 326) }
             DoActions(SetDeaths(cp, SetTo, 0, 147))
-            # (Line 295) }
+            # (Line 327) }
         EUDEndIf()
-        # (Line 297) if (Bring(cp, AtLeast, 1, 142, "Title"))
+        # (Line 329) if (Bring(P8, AtLeast, 1, 142, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 142, "Title")):
-        # (Line 298) {
-        # (Line 299) SetDeaths(cp, Add, 1, 142);
-        # (Line 300) if (Deaths(cp, AtLeast, 8640, 142))
+    if EUDIf()(Bring(P8, AtLeast, 1, 142, "Title")):
+        # (Line 330) {
+        # (Line 331) SetDeaths(cp, Add, 1, 142);
+        # (Line 332) if (Deaths(cp, AtLeast, 8640, 142))
         DoActions(SetDeaths(cp, Add, 1, 142))
         if EUDIf()(Deaths(cp, AtLeast, 8640, 142)):
-            # (Line 301) {
-            # (Line 302) s.print("\n\x13\x19 4 Luxury \x04효과 +1 가스\n");
+            # (Line 333) {
+            # (Line 334) s.print("\n\x13\x19 4 Luxury \x04효과 +1 가스\n");
             s.print("\n\x13\x19 4 Luxury \x04효과 +1 가스\n")
-            # (Line 303) SetResources(cp, Add, 1, Gas);
-            # (Line 304) SetDeaths(cp, SetTo, 0, 142);
+            # (Line 335) SetResources(cp, Add, 1, Gas);
+            # (Line 336) SetDeaths(cp, SetTo, 0, 142);
             DoActions(SetResources(cp, Add, 1, Gas))
-            # (Line 305) }
+            # (Line 337) }
             DoActions(SetDeaths(cp, SetTo, 0, 142))
-            # (Line 306) }
+            # (Line 338) }
         EUDEndIf()
-        # (Line 308) if (Bring(cp, AtLeast, 1, 140, "Title"))
+        # (Line 340) if (Bring(P8, AtLeast, 1, 140, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 140, "Title")):
-        # (Line 309) {
-        # (Line 310) SetDeaths(cp, Add, 1, 140);
-        # (Line 311) if (Deaths(cp, AtLeast, 8640, 140))
+    if EUDIf()(Bring(P8, AtLeast, 1, 140, "Title")):
+        # (Line 341) {
+        # (Line 342) SetDeaths(cp, Add, 1, 140);
+        # (Line 343) if (Deaths(cp, AtLeast, 8640, 140))
         DoActions(SetDeaths(cp, Add, 1, 140))
         if EUDIf()(Deaths(cp, AtLeast, 8640, 140)):
-            # (Line 312) {
-            # (Line 313) s.print("\n\x13\x19리루캔 ~3 little candy~ \x04효과 +1 가스\n");
+            # (Line 344) {
+            # (Line 345) s.print("\n\x13\x19리루캔 ~3 little candy~ \x04효과 +1 가스\n");
             s.print("\n\x13\x19리루캔 ~3 little candy~ \x04효과 +1 가스\n")
-            # (Line 314) SetResources(cp, Add, 1, Gas);
-            # (Line 315) SetDeaths(cp, SetTo, 0, 140);
+            # (Line 346) SetResources(cp, Add, 1, Gas);
+            # (Line 347) SetDeaths(cp, SetTo, 0, 140);
             DoActions(SetResources(cp, Add, 1, Gas))
-            # (Line 316) }
+            # (Line 348) }
             DoActions(SetDeaths(cp, SetTo, 0, 140))
-            # (Line 317) }
+            # (Line 349) }
         EUDEndIf()
-        # (Line 319) if (Bring(cp, AtLeast, 1, 139, "Title"))
+        # (Line 351) if (Bring(P8, AtLeast, 1, 139, "Title"))
     EUDEndIf()
-    if EUDIf()(Bring(cp, AtLeast, 1, 139, "Title")):
-        # (Line 320) {
-        # (Line 321) SetDeaths(cp, Add, 1, 139);
-        # (Line 322) if (Deaths(cp, AtLeast, 8640, 139))
+    if EUDIf()(Bring(P8, AtLeast, 1, 139, "Title")):
+        # (Line 352) {
+        # (Line 353) SetDeaths(cp, Add, 1, 139);
+        # (Line 354) if (Deaths(cp, AtLeast, 480, 139))
         DoActions(SetDeaths(cp, Add, 1, 139))
-        if EUDIf()(Deaths(cp, AtLeast, 8640, 139)):
-            # (Line 323) {
-            # (Line 324) s.print("\n\x13\x19피코피코 플래닛츠 \x04효과 +1 가스\n");
-            s.print("\n\x13\x19피코피코 플래닛츠 \x04효과 +1 가스\n")
-            # (Line 325) SetResources(cp, Add, 1, Gas);
-            # (Line 326) SetDeaths(cp, SetTo, 0, 139);
-            DoActions(SetResources(cp, Add, 1, Gas))
-            # (Line 327) }
+        if EUDIf()(Deaths(cp, AtLeast, 480, 139)):
+            # (Line 355) {
+            # (Line 356) switch(cp)
+            EUDSwitch(cp)
+            # (Line 357) {
+            # (Line 358) case 0:
+            _t73 = EUDSwitchCase()
+            # (Line 359) ModifyUnitHitPoints(1, 95, P7, "Player1", 1);
+            if _t73(0):
+                # (Line 360) break;
+                DoActions(ModifyUnitHitPoints(1, 95, P7, "Player1", 1))
+                EUDBreak()
+                # (Line 361) case 1:
+            _t74 = EUDSwitchCase()
+            # (Line 362) ModifyUnitHitPoints(1, 95, P7, "Player2", 1);
+            if _t74(1):
+                # (Line 363) break;
+                DoActions(ModifyUnitHitPoints(1, 95, P7, "Player2", 1))
+                EUDBreak()
+                # (Line 364) case 2:
+            _t75 = EUDSwitchCase()
+            # (Line 365) ModifyUnitHitPoints(1, 95, P7, "Player3", 1);
+            if _t75(2):
+                # (Line 366) break;
+                DoActions(ModifyUnitHitPoints(1, 95, P7, "Player3", 1))
+                EUDBreak()
+                # (Line 367) case 3:
+            _t76 = EUDSwitchCase()
+            # (Line 368) ModifyUnitHitPoints(1, 95, P7, "Player4", 1);
+            if _t76(3):
+                # (Line 369) break;
+                DoActions(ModifyUnitHitPoints(1, 95, P7, "Player4", 1))
+                EUDBreak()
+                # (Line 370) case 4:
+            _t77 = EUDSwitchCase()
+            # (Line 371) ModifyUnitHitPoints(1, 95, P7, "Player5", 1);
+            if _t77(4):
+                # (Line 372) break;
+                DoActions(ModifyUnitHitPoints(1, 95, P7, "Player5", 1))
+                EUDBreak()
+                # (Line 373) }
+            # (Line 374) SetDeaths(cp, SetTo, 0, 139);
+            EUDEndSwitch()
+            # (Line 375) }
             DoActions(SetDeaths(cp, SetTo, 0, 139))
-            # (Line 328) }
+            # (Line 376) }
         EUDEndIf()
-        # (Line 329) }
+        # (Line 378) if (Bring(P8, AtLeast, 1, 146, "Title"))
     EUDEndIf()
-    # (Line 331) function Trainning_Ticket(cp)
+    if EUDIf()(Bring(P8, AtLeast, 1, 146, "Title")):
+        # (Line 379) {
+        # (Line 380) SetDeaths(cp, Add, 1, 146);
+        # (Line 381) if (Deaths(cp, AtLeast, 480, 146))
+        DoActions(SetDeaths(cp, Add, 1, 146))
+        if EUDIf()(Deaths(cp, AtLeast, 480, 146)):
+            # (Line 382) {
+            # (Line 383) switch(cp)
+            EUDSwitch(cp)
+            # (Line 384) {
+            # (Line 385) case 0:
+            _t80 = EUDSwitchCase()
+            # (Line 386) ModifyUnitHitPoints(1, 96, P7, "Player1", 1);
+            if _t80(0):
+                # (Line 387) break;
+                DoActions(ModifyUnitHitPoints(1, 96, P7, "Player1", 1))
+                EUDBreak()
+                # (Line 388) case 1:
+            _t81 = EUDSwitchCase()
+            # (Line 389) ModifyUnitHitPoints(1, 96, P7, "Player2", 1);
+            if _t81(1):
+                # (Line 390) break;
+                DoActions(ModifyUnitHitPoints(1, 96, P7, "Player2", 1))
+                EUDBreak()
+                # (Line 391) case 2:
+            _t82 = EUDSwitchCase()
+            # (Line 392) ModifyUnitHitPoints(1, 96, P7, "Player3", 1);
+            if _t82(2):
+                # (Line 393) break;
+                DoActions(ModifyUnitHitPoints(1, 96, P7, "Player3", 1))
+                EUDBreak()
+                # (Line 394) case 3:
+            _t83 = EUDSwitchCase()
+            # (Line 395) ModifyUnitHitPoints(1, 96, P7, "Player4", 1);
+            if _t83(3):
+                # (Line 396) break;
+                DoActions(ModifyUnitHitPoints(1, 96, P7, "Player4", 1))
+                EUDBreak()
+                # (Line 397) case 4:
+            _t84 = EUDSwitchCase()
+            # (Line 398) ModifyUnitHitPoints(1, 96, P7, "Player5", 1);
+            if _t84(4):
+                # (Line 399) break;
+                DoActions(ModifyUnitHitPoints(1, 96, P7, "Player5", 1))
+                EUDBreak()
+                # (Line 400) }
+            # (Line 401) SetDeaths(cp, SetTo, 0, 146);
+            EUDEndSwitch()
+            # (Line 402) }
+            DoActions(SetDeaths(cp, SetTo, 0, 146))
+            # (Line 403) }
+        EUDEndIf()
+        # (Line 404) }
+    EUDEndIf()
+    # (Line 406) function Trainning_Ticket(cp)
 
-# (Line 332) {
+# (Line 407) {
 @EUDFunc
 def Trainning_Ticket(cp):
-    # (Line 333) var random = dwrand() % 3;
+    # (Line 408) var random = dwrand() % 3;
     random = EUDVariable()
     random << (f_dwrand() % 3)
-    # (Line 335) switch(random)
+    # (Line 410) switch(random)
     EUDSwitch(random)
-    # (Line 336) {
-    # (Line 337) case 0:
+    # (Line 411) {
+    # (Line 412) case 0:
     _t1 = EUDSwitchCase()
-    # (Line 338) CreateUnit(1, 126, "JewelGacha", cp);
+    # (Line 413) CreateUnit(1, 126, "JewelGacha", cp);
     if _t1(0):
-        # (Line 339) break;
+        # (Line 414) break;
         DoActions(CreateUnit(1, 126, "JewelGacha", cp))
         EUDBreak()
-        # (Line 340) case 1:
+        # (Line 415) case 1:
     _t2 = EUDSwitchCase()
-    # (Line 341) CreateUnit(1, 127, "JewelGacha", cp);
+    # (Line 416) CreateUnit(1, 127, "JewelGacha", cp);
     if _t2(1):
-        # (Line 342) break;
+        # (Line 417) break;
         DoActions(CreateUnit(1, 127, "JewelGacha", cp))
         EUDBreak()
-        # (Line 343) case 2:
+        # (Line 418) case 2:
     _t3 = EUDSwitchCase()
-    # (Line 344) CreateUnit(1, 135, "JewelGacha", cp);
+    # (Line 419) CreateUnit(1, 135, "JewelGacha", cp);
     if _t3(2):
-        # (Line 345) break;
+        # (Line 420) break;
         DoActions(CreateUnit(1, 135, "JewelGacha", cp))
         EUDBreak()
-        # (Line 346) }
-    # (Line 347) }
+        # (Line 421) }
+    # (Line 422) }
     EUDEndSwitch()
-    # (Line 349) function Cloth_Ticket(cp)
+    # (Line 424) function Cloth_Ticket(cp)
 
-# (Line 350) {
+# (Line 425) {
 @EUDFunc
 def Cloth_Ticket(cp):
-    # (Line 351) var random = dwrand() % 3;
+    # (Line 426) var random = dwrand() % 3;
     random = EUDVariable()
     random << (f_dwrand() % 3)
-    # (Line 353) switch(random)
+    # (Line 428) switch(random)
     EUDSwitch(random)
-    # (Line 354) {
-    # (Line 355) case 0:
+    # (Line 429) {
+    # (Line 430) case 0:
     _t1 = EUDSwitchCase()
-    # (Line 356) CreateUnit(1, 116, "JewelGacha", cp);
+    # (Line 431) CreateUnit(1, 116, "JewelGacha", cp);
     if _t1(0):
-        # (Line 357) break;
+        # (Line 432) break;
         DoActions(CreateUnit(1, 116, "JewelGacha", cp))
         EUDBreak()
-        # (Line 358) case 1:
+        # (Line 433) case 1:
     _t2 = EUDSwitchCase()
-    # (Line 359) CreateUnit(1, 122, "JewelGacha", cp);
+    # (Line 434) CreateUnit(1, 122, "JewelGacha", cp);
     if _t2(1):
-        # (Line 360) break;
+        # (Line 435) break;
         DoActions(CreateUnit(1, 122, "JewelGacha", cp))
         EUDBreak()
-        # (Line 361) case 2:
+        # (Line 436) case 2:
     _t3 = EUDSwitchCase()
-    # (Line 362) CreateUnit(1, 123, "JewelGacha", cp);
+    # (Line 437) CreateUnit(1, 123, "JewelGacha", cp);
     if _t3(2):
-        # (Line 363) break;
+        # (Line 438) break;
         DoActions(CreateUnit(1, 123, "JewelGacha", cp))
         EUDBreak()
-        # (Line 364) }
-    # (Line 365) }
+        # (Line 439) }
+    # (Line 440) }
     EUDEndSwitch()
