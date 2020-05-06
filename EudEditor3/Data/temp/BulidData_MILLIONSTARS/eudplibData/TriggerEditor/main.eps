@@ -1,0 +1,23 @@
+import Angel.ButtonText as abt;
+
+var cp;
+
+function onPluginStart()
+{
+	abt.Init_ButtonText();
+}
+
+function beforeTriggerExec()
+{
+	cp = getcurpl();
+	
+	EUDPlayerLoop()();
+	
+	abt.Update_ButtomText(cp);
+	
+	EUDEndPlayerLoop();
+}
+
+function afterTriggerExec()
+{
+}

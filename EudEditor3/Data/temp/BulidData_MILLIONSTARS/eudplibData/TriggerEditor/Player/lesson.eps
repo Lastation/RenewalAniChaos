@@ -1,0 +1,432 @@
+import variable_data as vd;
+import getunitID as id;
+
+const Lesson_Level = [0, 0, 0];
+
+const s = StringBuffer();
+
+function Lesson_Unit(cp);
+function Lesson_Check(cp);
+function Random_Album_Ticket(cp);
+function Type_Album_Ticket(cp);
+function Album_Ticket_Effect(ID, type, isRandom, cp);
+
+function Add_Weapon_Damage(ID, index);
+function Add_Weapon_Increase(ID, index);
+
+function Weapon_Text_Princess();
+function Weapon_Text_Fairy();
+function Weapon_Text_Angel();
+
+function Marge(cp)
+{
+	if (MemoryEPD(EPD(0x6284E8) + 12 * cp, AtLeast, 1) && Deaths(cp, Exactly, 0, "Event_Score")) 
+	{ Lesson_Check(cp); }
+    	
+	Random_Album_Ticket(cp);
+	Type_Album_Ticket(cp);
+	Lesson_Unit(cp);
+}
+
+function Lesson_Unit(cp)
+{
+	if (Bring(cp, AtLeast, 1, 126, "JewelGacha Step 1") && Lesson_Level[0] < 30)
+	{
+		KillUnitAt(1,  126, "JewelGacha Step 1", cp);
+		// Weapon.dat
+		Lesson_Level[0] += 1;
+		
+		for (var i = 0; i < 17; i++)
+		{
+			Add_Weapon_Damage(vd.Princess_Weapon_Index[i], Lesson_Level[0]);
+		}
+		s.print("\x13\x1BPrincess \x04타입 특훈 티켓을 사용하였습니다.");
+		Weapon_Text_Princess();
+	}	
+	
+	if (Bring(cp, AtLeast, 1, 127, "JewelGacha Step 1") && Lesson_Level[1] < 30)
+	{
+		KillUnitAt(1,  127, "JewelGacha Step 1", cp);
+		// Weapon.dat
+		Lesson_Level[1] += 1;
+		
+		for (var i = 0; i < 17; i++)
+		{
+			Add_Weapon_Damage(vd.Fairy_Weapon_Index[i], Lesson_Level[1]);
+		}
+		s.print("\x13\x1CFairy \x04타입 특훈 티켓을 사용하였습니다.");
+		Weapon_Text_Fairy();
+	}
+	
+	if (Bring(cp, AtLeast, 1, 135, "JewelGacha Step 1") && Lesson_Level[2] < 30)
+	{
+		KillUnitAt(1,  135, "JewelGacha Step 1", cp);
+		// Weapon.dat
+		Lesson_Level[2] += 1;
+		
+		for (var i = 0; i < 17; i++)
+		{
+			Add_Weapon_Damage(vd.Angel_Weapon_Index[i], Lesson_Level[2]);
+		}
+		s.print("\x13\x19Angel \x04타입 특훈 티켓을 사용하였습니다.");
+		Weapon_Text_Angel();
+	}
+}
+
+function Random_Album_Ticket(cp)
+{
+	if (Bring(cp, AtLeast, 1, 114, "JewelGacha Step 1"))
+	{
+		KillUnitAt(1, 114, "JewelGacha Step 1", cp);
+		
+		var type = dwrand()% 3;
+    		var random = dwrand() % 17;
+    		
+    		Album_Ticket_Effect(random, type, 0, cp);
+	}
+}
+
+function Type_Album_Ticket(cp)
+{
+	if (Bring(cp, AtLeast, 1, 138, "JewelGacha Step 1"))
+	{
+		if(Bring(cp, AtLeast, 1, 28, "lounge_Cloth")) 	{ Album_Ticket_Effect(0, 2, 1, cp); 		}
+		if(Bring(cp, AtLeast, 1, 32, "lounge_Cloth")) 	{ Album_Ticket_Effect(1, 2, 1, cp); 		}
+		if(Bring(cp, AtLeast, 1, 102, "lounge_Cloth")) 	{ Album_Ticket_Effect(2, 2, 1, cp); 		}
+		if(Bring(cp, AtLeast, 1, 104, "lounge_Cloth")) 	{ Album_Ticket_Effect(3, 2, 1, cp); 		}
+		if(Bring(cp, AtLeast, 1, 0, "lounge_Cloth")) 		{ Album_Ticket_Effect(4, 2, 1, cp); 		}
+		if(Bring(cp, AtLeast, 1, 1, "lounge_Cloth")) 		{ Album_Ticket_Effect(5, 2, 1, cp);		}
+		if(Bring(cp, AtLeast, 1, 2, "lounge_Cloth")) 		{ Album_Ticket_Effect(6, 2, 1, cp); 		}
+		if(Bring(cp, AtLeast, 1, 8, "lounge_Cloth")) 		{ Album_Ticket_Effect(7, 2, 1, cp); 		}
+		if(Bring(cp, AtLeast, 1, 9, "lounge_Cloth")) 		{ Album_Ticket_Effect(8, 2, 1, cp); 		}
+		if(Bring(cp, AtLeast, 1, 10, "lounge_Cloth")) 	{ Album_Ticket_Effect(9,  2, 1, cp); 	}
+		if(Bring(cp, AtLeast, 1, 12, "lounge_Cloth")) 	{ Album_Ticket_Effect(10, 2, 1, cp); 	}
+		if(Bring(cp, AtLeast, 1, 16, "lounge_Cloth")) 	{ Album_Ticket_Effect(11, 2, 1, cp); 	}
+		if(Bring(cp, AtLeast, 1, 19, "lounge_Cloth")) 	{ Album_Ticket_Effect(12, 2, 1, cp); 	}
+		if(Bring(cp, AtLeast, 1, 20, "lounge_Cloth")) 	{ Album_Ticket_Effect(13, 2, 1, cp); 	}
+		if(Bring(cp, AtLeast, 1, 21, "lounge_Cloth")) 	{ Album_Ticket_Effect(14, 2, 1, cp); 	}
+		if(Bring(cp, AtLeast, 1, 37, "lounge_Cloth")) 	{ Album_Ticket_Effect(15, 2, 1, cp); 	}
+		if(Bring(cp, AtLeast, 1, 38, "lounge_Cloth")) 	{ Album_Ticket_Effect(16, 2, 1, cp); 	}
+	}
+	
+	if (Bring(cp, AtLeast, 1, 137, "JewelGacha Step 1"))
+	{
+		if(Bring(cp, AtLeast, 1, 29, "lounge_Cloth")) 	{ Album_Ticket_Effect(0, 1, 2, cp); 		}
+		if(Bring(cp, AtLeast, 1, 80, "lounge_Cloth")) 	{ Album_Ticket_Effect(1, 1, 2, cp); 		}
+		if(Bring(cp, AtLeast, 1, 63, "lounge_Cloth")) 	{ Album_Ticket_Effect(2, 1, 2, cp); 		}
+		if(Bring(cp, AtLeast, 1, 87, "lounge_Cloth")) 	{ Album_Ticket_Effect(3, 1, 2, cp); 		}
+		if(Bring(cp, AtLeast, 1, 39, "lounge_Cloth")) 	{ Album_Ticket_Effect(4, 1, 2, cp); 		}
+		if(Bring(cp, AtLeast, 1, 40, "lounge_Cloth")) 	{ Album_Ticket_Effect(5, 1, 2, cp); 		}
+		if(Bring(cp, AtLeast, 1, 43, "lounge_Cloth")) 	{ Album_Ticket_Effect(6, 1, 2, cp); 		}
+		if(Bring(cp, AtLeast, 1, 44, "lounge_Cloth")) 	{ Album_Ticket_Effect(7, 1, 2, cp); 		}
+		if(Bring(cp, AtLeast, 1, 46, "lounge_Cloth")) 	{ Album_Ticket_Effect(8, 1, 2, cp); 		}
+		if(Bring(cp, AtLeast, 1, 48, "lounge_Cloth")) 	{ Album_Ticket_Effect(9,  1, 2, cp); 	}
+		if(Bring(cp, AtLeast, 1, 51, "lounge_Cloth")) 	{ Album_Ticket_Effect(10, 1, 2, cp); 	}
+		if(Bring(cp, AtLeast, 1, 52, "lounge_Cloth")) 	{ Album_Ticket_Effect(11, 1, 2, cp); 	}
+		if(Bring(cp, AtLeast, 1, 53, "lounge_Cloth")) 	{ Album_Ticket_Effect(12, 1, 2, cp); 	}
+		if(Bring(cp, AtLeast, 1, 54, "lounge_Cloth")) 	{ Album_Ticket_Effect(13, 1, 2, cp); 	}
+		if(Bring(cp, AtLeast, 1, 55, "lounge_Cloth")) 	{ Album_Ticket_Effect(14, 1, 2, cp); 	}
+		if(Bring(cp, AtLeast, 1, 56, "lounge_Cloth")) 	{ Album_Ticket_Effect(15, 1, 2, cp); 	}
+		if(Bring(cp, AtLeast, 1, 60, "lounge_Cloth")) 	{ Album_Ticket_Effect(16, 1, 2, cp); 	}
+	}
+	if (Bring(cp, AtLeast, 1, 136, "JewelGacha Step 1"))
+	{
+		if(Bring(cp, AtLeast, 1, 27, "lounge_Cloth")) 	{ Album_Ticket_Effect(0, 0, 3, cp); 		}
+		if(Bring(cp, AtLeast, 1, 88, "lounge_Cloth")) 	{ Album_Ticket_Effect(1, 0, 3, cp); 		}
+		if(Bring(cp, AtLeast, 1, 99, "lounge_Cloth")) 	{ Album_Ticket_Effect(2, 0, 3, cp); 		}
+		if(Bring(cp, AtLeast, 1, 100, "lounge_Cloth")) 	{ Album_Ticket_Effect(3, 0, 3, cp); 		}
+		if(Bring(cp, AtLeast, 1, 61, "lounge_Cloth")) 	{ Album_Ticket_Effect(4, 0, 3, cp); 		}
+		if(Bring(cp, AtLeast, 1, 65, "lounge_Cloth")) 	{ Album_Ticket_Effect(5, 0, 3, cp); 		}
+		if(Bring(cp, AtLeast, 1, 66, "lounge_Cloth")) 	{ Album_Ticket_Effect(6, 0, 3, cp); 		}
+		if(Bring(cp, AtLeast, 1, 67, "lounge_Cloth")) 	{ Album_Ticket_Effect(7, 0, 3, cp); 		}
+		if(Bring(cp, AtLeast, 1, 68, "lounge_Cloth")) 	{ Album_Ticket_Effect(8, 0, 3, cp); 		}
+		if(Bring(cp, AtLeast, 1, 70, "lounge_Cloth")) 	{ Album_Ticket_Effect(9, 0, 3, cp); 		}
+		if(Bring(cp, AtLeast, 1, 71, "lounge_Cloth")) 	{ Album_Ticket_Effect(10, 0, 3, cp); 	}
+		if(Bring(cp, AtLeast, 1, 74, "lounge_Cloth")) 	{ Album_Ticket_Effect(11, 0, 3, cp); 	}
+		if(Bring(cp, AtLeast, 1, 75, "lounge_Cloth")) 	{ Album_Ticket_Effect(12, 0, 3, cp); 	}
+		if(Bring(cp, AtLeast, 1, 76, "lounge_Cloth")) 	{ Album_Ticket_Effect(13, 0, 3, cp); 	}
+		if(Bring(cp, AtLeast, 1, 77, "lounge_Cloth")) 	{ Album_Ticket_Effect(14, 0, 3, cp); 	}
+		if(Bring(cp, AtLeast, 1, 78, "lounge_Cloth")) 	{ Album_Ticket_Effect(15, 0, 3, cp); 	}
+		if(Bring(cp, AtLeast, 1, 79, "lounge_Cloth")) 	{ Album_Ticket_Effect(16, 0, 3, cp); 	}
+	}
+}
+
+function Album_Ticket_Effect(ID, type, isRandom, cp)
+{
+    	switch (isRandom)
+    	{
+    	case 1:
+    		KillUnitAt(1, 138, "JewelGacha Step 1", cp);
+    		break;
+    	case 2:
+    		KillUnitAt(1, 137, "JewelGacha Step 1", cp);
+    		break;
+    	case 3:
+    		KillUnitAt(1, 136, "JewelGacha Step 1", cp);
+    		break;
+    	}
+
+    	switch (type)
+    	{
+    	case 0:
+		SetDeaths(P6, Add, vd.Album_Weapon_Damage[ID], vd.Princess_Unit_Index[ID]);
+		SetDeaths(P7, Add, 1, vd.Princess_Unit_Index[ID]);
+		
+		SetDeaths(Force1, SetTo, 1 +  ID, "unit_music_index");
+		
+		if (Deaths(P6, AtLeast, 400, vd.Princess_Unit_Index[ID]))
+		{
+			Add_Weapon_Increase(vd.Princess_Weapon_Index[ID], 4);
+			SetDeaths(P6, Subtract, 400, vd.Princess_Unit_Index[ID]);
+		}
+		if (Deaths(P6, AtLeast, 300, vd.Princess_Unit_Index[ID]))
+		{
+			Add_Weapon_Increase(vd.Princess_Weapon_Index[ID], 3);
+			SetDeaths(P6, Subtract, 300, vd.Princess_Unit_Index[ID]);
+		}
+		if (Deaths(P6, AtLeast, 200, vd.Princess_Unit_Index[ID]))
+		{
+			Add_Weapon_Increase(vd.Princess_Weapon_Index[ID], 2);
+			SetDeaths(P6, Subtract, 200, vd.Princess_Unit_Index[ID]);
+		}
+		if (Deaths(P6, AtLeast, 100, vd.Princess_Unit_Index[ID]))
+		{
+			Add_Weapon_Increase(vd.Princess_Weapon_Index[ID], 1);
+			SetDeaths(P6, Subtract, 100, vd.Princess_Unit_Index[ID]);
+		}
+		break;
+    	case 1:
+		SetDeaths(P6, Add, vd.Album_Weapon_Damage[ID], vd.Fairy_Unit_Index[ID]);
+		SetDeaths(P7, Add, 1, vd.Fairy_Unit_Index[ID]);
+		
+		SetDeaths(Force1, SetTo, 18 +  ID, "unit_music_index");
+		
+		if (Deaths(P6, AtLeast, 400, vd.Fairy_Unit_Index[ID]))
+		{
+			Add_Weapon_Increase(vd.Fairy_Weapon_Index[ID], 4);
+			SetDeaths(P6, Subtract, 400, vd.Fairy_Unit_Index[ID]);
+		}
+		if (Deaths(P6, AtLeast, 300, vd.Fairy_Unit_Index[ID]))
+		{
+			Add_Weapon_Increase(vd.Fairy_Weapon_Index[ID], 3);
+			SetDeaths(P6, Subtract, 300, vd.Fairy_Unit_Index[ID]);
+		}
+		if (Deaths(P6, AtLeast, 200, vd.Fairy_Unit_Index[ID]))
+		{
+			Add_Weapon_Increase(vd.Fairy_Weapon_Index[ID], 2);
+			SetDeaths(P6, Subtract, 200, vd.Fairy_Unit_Index[ID]);
+		}
+		if (Deaths(P6, AtLeast, 100, vd.Fairy_Unit_Index[ID]))
+		{
+			Add_Weapon_Increase(vd.Fairy_Weapon_Index[ID], 1);
+			SetDeaths(P6, Subtract, 100, vd.Fairy_Unit_Index[ID]);
+		}
+		break;
+	case 2:
+		SetDeaths(P6, Add, vd.Album_Weapon_Damage[ID], vd.Angel_Unit_Index[ID]);
+		SetDeaths(P7, Add, 1, vd.Angel_Unit_Index[ID]);
+		
+		SetDeaths(Force1, SetTo, 35 +  ID, "unit_music_index");
+		
+		if (Deaths(P6, AtLeast, 400, vd.Angel_Unit_Index[ID]))
+		{
+			Add_Weapon_Increase(vd.Angel_Weapon_Index[ID], 4);
+			SetDeaths(P6, Subtract, 400, vd.Angel_Unit_Index[ID]);
+		}
+		if (Deaths(P6, AtLeast, 300, vd.Angel_Unit_Index[ID]))
+		{
+			Add_Weapon_Increase(vd.Angel_Weapon_Index[ID], 3);
+			SetDeaths(P6, Subtract, 300, vd.Angel_Unit_Index[ID]);
+		}
+		if (Deaths(P6, AtLeast, 200, vd.Angel_Unit_Index[ID]))
+		{
+			Add_Weapon_Increase(vd.Angel_Weapon_Index[ID], 2);
+			SetDeaths(P6, Subtract, 200, vd.Angel_Unit_Index[ID]);
+		}
+		if (Deaths(P6, AtLeast, 100, vd.Angel_Unit_Index[ID]))
+		{
+			Add_Weapon_Increase(vd.Angel_Weapon_Index[ID], 1);
+			SetDeaths(P6, Subtract, 100, vd.Angel_Unit_Index[ID]);
+		}
+		break;
+	}
+}
+
+function Lesson_Check(cp)
+{
+	switch(id.Unit_ID[cp])
+	{
+	// Princess
+	case 27:
+	case 88:
+	case 99:
+	case 100:
+	case 61:
+	case 65:
+	case 66:
+	case 67:
+	case 68:
+	case 70:
+	case 71:
+	case 74:
+	case 75:
+	case 76:
+	case 77:
+	case 78:
+	case 79:
+		s.printAt(0, "\x12",ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)));
+		s.printAt(1, "\x12\x04앨범 ", "\x0F", dwread_epd(id.Unit_ID[cp] * 12 + 6), " \x04장");
+		s.printAt(2, "\x12\x04팬 ", "\x0F", dwread_epd(id.Unit_ID[cp] * 12 + 7), " \x04명");
+		s.printAt(3, "\n");
+		break;
+	// Fairy
+	case 29:
+	case 80:
+	case 63:
+	case 87:
+	case 39:
+	case 40:
+	case 43:
+	case 44:
+	case 46:
+	case 48:
+	case 51:
+	case 52:
+	case 53:
+	case 54:
+	case 55:
+	case 56:
+	case 60:
+		s.printAt(0, "\x12",ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)));
+		s.printAt(1, "\x12\x04앨범 ", "\x0F", dwread_epd(id.Unit_ID[cp] * 12 + 6), " \x04장");
+		s.printAt(2, "\x12\x04팬 ", "\x0F", dwread_epd(id.Unit_ID[cp] * 12 + 7), " \x04명");
+		s.printAt(3, "\n");
+		break;
+	// Angel
+	case 28:
+	case 32:
+	case 102:
+	case 104:
+	case 0:
+	case 1:
+	case 2:
+	case 8:
+	case 9:
+	case 10:
+	case 12:
+	case 16:
+	case 19:
+	case 20:
+	case 21:
+	case 37:
+	case 38:
+		s.printAt(0, "\x12",ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)));
+		s.printAt(1, "\x12\x04앨범 ", "\x0F", dwread_epd(id.Unit_ID[cp] * 12 + 6), " \x04장");
+		s.printAt(2, "\x12\x04팬 ", "\x0F", dwread_epd(id.Unit_ID[cp] * 12 + 7), " \x04명");
+		s.printAt(3, "\n");
+		break;
+	}
+}
+
+function Add_Weapon_Damage(ID, index)
+{
+	wwrite(0x6564E0 + 2512 + ID * 2, wread(0x6564E0 + 2512 + ID * 2) + vd.Lesson_Weapon_Damage[index]);		// 기본 데미지
+}
+
+function Add_Weapon_Increase(ID, value)
+{
+	wwrite(0x6564E0 + 4504 + ID * 2, wread(0x6564E0 + 4504 + ID * 2) + value);		// 업글 증가량
+}
+
+function Weapon_Text_Princess()
+{
+	settbl(240, 0,"\x1B< 프린세스 >\n", 
+	"\x04성장이 \x0F매우느린 \x04맴버입니다.\n", 
+	"\x04특훈레벨 : \x19", Lesson_Level[0]);
+	
+	settbl(241, 0,"\x1B< 프린세스 >\n", 
+	"\x04성장이 \x0F느린 \x04맴버입니다.\n", 
+	"\x04특훈레벨 : \x19", Lesson_Level[0]);
+	
+	settbl(242, 0,"\x1B< 프린세스 >\n", 
+	"\x04성장이 \x0F보통\x04인 맴버입니다.\n", 
+	"\x04특훈레벨 : \x19", Lesson_Level[0]);
+	
+	settbl(243, 0,"\x1B< 프린세스 >\n", 
+	"\x04성장이 \x0F빠른 \x04맴버입니다.\n", 
+	"\x04특훈레벨 : \x19", Lesson_Level[0]);
+	
+	settbl(244, 0,"\x1B< 프린세스 >\n", 
+	"\x04성장이 \x0F매우 빠른 \x04맴버입니다.\n", 
+	"\x04특훈레벨 : \x19", Lesson_Level[0]);
+	
+	settbl(245, 0,"\x1B< 프린세스 >\n", 
+	"\x04성장이 \x0F뛰어난 \x04맴버입니다.\n", 
+	"\x04특훈레벨 : \x19", Lesson_Level[0]);
+	
+	settbl(249, 0,"\x1B< 프린세스 >\n", 
+	"\x04성장이 \x0F월등한 \x04맴버입니다.\n", 
+	"\x04특훈레벨 : \x19", Lesson_Level[0]);
+}
+
+function Weapon_Text_Fairy()
+{
+	settbl(235, 0,"\x1C< 페어리 >\n", 
+	"\x04성장이 \x0F매우느린 \x04맴버입니다.\n", 
+	"\x04특훈레벨 : \x19", Lesson_Level[1]);
+	
+	settbl(236, 0,"\x1C< 페어리 >\n", 
+	"\x04성장이 \x0F느린 \x04맴버입니다.\n", 
+	"\x04특훈레벨 : \x19", Lesson_Level[1]);
+	
+	settbl(237, 0,"\x1C< 페어리 >\n", 
+	"\x04성장이 \x0F보통\x04인 맴버입니다.\n", 
+	"\x04특훈레벨 : \x19", Lesson_Level[1]);
+	
+	settbl(238, 0,"\x1C< 페어리 >\n", 
+	"\x04성장이 \x0F빠른 \x04맴버입니다.\n", 
+	"\x04특훈레벨 : \x19", Lesson_Level[1]);
+	
+	settbl(239, 0,"\x1C< 페어리 >\n", 
+	"\x04성장이 \x0F매우 빠른 \x04맴버입니다.\n", 
+	"\x04특훈레벨 : \x19", Lesson_Level[1]);
+	
+	settbl(246, 0,"\x1C< 페어리 >\n", 
+	"\x04성장이 \x0F뛰어난 \x04맴버입니다.\n", 
+	"\x04특훈레벨 : \x19", Lesson_Level[1]);
+	
+	settbl(248, 0,"\x1C< 페어리 >\n", 
+	"\x04성장이 \x0F월등한 \x04맴버입니다.\n", 
+	"\x04특훈레벨 : \x19", Lesson_Level[1]);
+}
+
+function Weapon_Text_Angel()
+{
+	settbl(229, 0,"\x19< 엔젤 >\n", 
+	"\x04성장이 \x0F매우느린 \x04맴버입니다.\n", 
+	"\x04특훈레벨 : \x19", Lesson_Level[2]);
+	
+	settbl(230, 0,"\x19< 엔젤 >\n", 
+	"\x04성장이 \x0F느린 \x04맴버입니다.\n", 
+	"\x04특훈레벨 : \x19", Lesson_Level[2]);
+	
+	settbl(231, 0,"\x19< 엔젤 >\n", 
+	"\x04성장이 \x0F보통\x04인 맴버입니다.\n", 
+	"\x04특훈레벨 : \x19", Lesson_Level[2]);
+	
+	settbl(232, 0,"\x19< 엔젤 >\n", 
+	"\x04성장이 \x0F빠른 \x04맴버입니다.\n", 
+	"\x04특훈레벨 : \x19", Lesson_Level[2]);
+	
+	settbl(233, 0,"\x19< 엔젤 >\n", 
+	"\x04성장이 \x0F매우 빠른 \x04맴버입니다.\n", 
+	"\x04특훈레벨 : \x19", Lesson_Level[2]);
+	
+	settbl(234, 0,"\x19< 엔젤 >\n", 
+	"\x04성장이 \x0F뛰어난 \x04맴버입니다.\n", 
+	"\x04특훈레벨 : \x19", Lesson_Level[2]);
+	
+	settbl(247, 0,"\x19< 엔젤 >\n", 
+	"\x04성장이 \x0F월등한 \x04맴버입니다.\n", 
+	"\x04특훈레벨 : \x19", Lesson_Level[2]);
+}
