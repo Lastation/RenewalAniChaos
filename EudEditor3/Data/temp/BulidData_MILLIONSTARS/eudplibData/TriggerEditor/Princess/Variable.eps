@@ -1,7 +1,7 @@
-const Unit_ID				= [54, 5, 100, 16, 76, 55, 44, 53, 86, 56, 48, 52, 37];		// 유닛 ID
+const Unit_ID				= [63, 68, 87, 78, 66, 71, 39, 40, 19, 61, 38, 46, 17];		// 유닛 ID
 
 // 공격 설정
-const Unit_AtkID			= [36, 11, 116, 3, 71, 49, 46, 39, 78, 47, 41, 50, 35];		// 무기 ID
+const Unit_AtkID			= [80, 70, 53, 67, 66, 77, 40, 42, 5, 111, 38, 51, 10];		// 무기 ID
 const Unit_Atk				= [40, 40, 40, 40, 36, 36, 36, 36, 32, 32, 32, 32, 32];		// 공격력
 const Unit_Atkbouns			= [4, 4, 4, 4, 3, 3, 3, 3, 2, 2, 2, 2, 2];						// 공격력 증가량
 const Unit_Atkspeed			= [24, 24, 24, 24, 28, 28, 28, 28, 32, 32, 32, 32, 32];		// 공격 속도
@@ -9,34 +9,34 @@ const Unit_Atktype			= [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3];						// 공격 �
 const Unit_AtkExplosion		= [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];						// 공격 스플 o,x
 const Unit_Atksplash			= [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];						// 공격 스플 범위
 
-const Unit_AtkPercent		= [128, 192, 256];									// 공격 %
+const Unit_AtkPercent		= [256, 128, 192];									// 공격 %
 const Unit_AtkPercentFlag	= [0, 0, 0, 0];											// 공격 % Flag
 
 // 건드리지 말것
 const Base_Atk				= [40, 40, 40, 40, 36, 36, 36, 36, 32, 32, 32, 32, 32];	 	// 공격력
 const Base_Atkspeed		= [24, 24, 24, 24, 28, 28, 28, 28, 32, 32, 32, 32, 32];		// 공격 속도
-const Base_AtkPercent		= [128, 192, 256];									// 공격 %
+const Base_AtkPercent		= [256, 128, 192];									// 공격 %
 
 const Dear_Level			= EUDArray(13);
 const Dear_Now				= EUDArray(13);
 const Dear_Need			= [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
-const Dear_Ablity			= [0, 1, 2, 0, 0, 0, 0, 2, 1, 0, 2, 0, 2];
-const Dear_Multiply			= [90, 4, 20, 90, 75, 75, 75, 15, 2, 50, 10, 50, 10];
+const Dear_Ablity			= [0, 1, 1, 2, 2, 1, 0, 0, 1, 2, 2, 0, 1];
+const Dear_Multiply			= [90, 4, 4, 20, 15, 3, 75, 75, 2, 10, 10, 50, 2];
 
 const Dear_Text 			=
-[Db(u2b("Wake up_rabbit!")),
-Db(u2b("숙녀의 소양")),
-Db(u2b("반짝반짝 쇼타임")),
-Db(u2b("어른의 매력")),
-Db(u2b("정성을 담아서")),
-Db(u2b("리버시 헌팅")),
-Db(u2b("짠 하고 등장!")),
-Db(u2b("트리플 코디")),
-Db(u2b("뇌쇄적인 멘트")),
-Db(u2b("로맨틱 플뢰르")),
-Db(u2b("프레쉬 러브!")),
-Db(u2b("스마일 충전")),
-Db(u2b("두근두근 리딩"))];
+[Db(u2b("착실한 학급 위원")),
+Db(u2b("바람의 전사")),
+Db(u2b("마츠리 공주")),
+Db(u2b("여자력!")),
+Db(u2b("관서 여고생")),
+Db(u2b("미래 귀여운")),
+Db(u2b("패션 파이어!")),
+Db(u2b("야마토 나데시코로의 길")),
+Db(u2b("애정 듬뿍 간판 메뉴!")),
+Db(u2b("입술에는 노래를")),
+Db(u2b("바래지 않는 한 장")),
+Db(u2b("지켜주고 싶은 미소")),
+Db(u2b("코브라 트위스트"))];
 
 const Dear_SubText			=
 [Db(u2b("기본 공격력이")),
@@ -54,37 +54,37 @@ const Album_Delay		= EUDArray(13);
 const Album_EffectTime	= EUDArray(13);
 const Album_Need 		= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const Album_Ablity		= [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-const Album_Multiply	= [20, 50, 60, 5, 2, 1, 20, 2, 2, 20, 10, 5, 1];
+const Album_Multiply	= [20, 5, 60, 50, 1, 2, 20, 2, 10, 2, 1, 20, 5];
 
 const Album_Text		= 
-[Db(u2b("비빗또 이쿠요!")),
-Db(u2b("정의여, 전율하라")),
-Db(u2b("해피니스 클로버")),
-Db(u2b("엔젤 코디")),
-Db(u2b("엔젤 하모니")),
-Db(u2b("엔젤 샤인")),
-Db(u2b("강한, 소망")),
-Db(u2b("세일링 데이")),
-Db(u2b("플로럴 아쿠아")),
-Db(u2b("꿈빛의 시간")),
-Db(u2b("팝de냐냐냥!")),
-Db(u2b("스위티 스마일")),
-Db(u2b("엔젤 차지"))];
+[Db(u2b("진정한 나")),
+Db(u2b("마음에 드는 이야기")),
+Db(u2b("프린세스 아라모드")),
+Db(u2b("복근! 배근! 흉근!")),
+Db(u2b("Home is coming a now!")),
+Db(u2b("고 투 퓨처!")),
+Db(u2b("Only One Second")),
+Db(u2b("아름다운 일본의 문화")),
+Db(u2b("스마일 최고")),
+Db(u2b("비에다 노래하자")),
+Db(u2b("Up!10sion Pleeeeeeeeease!")),
+Db(u2b("가끔은 시소")),
+Db(u2b("WE ARE ONE!!"))];
 
 const Album_SubText			=
 [Db(u2b("60초마다 10초간 공격속도가")),
-Db(u2b("60초마다 5초간 공격력이")),
+Db(u2b("프린세스 타입의 댄스 어필이")),
 Db(u2b("60초마다")),
-Db(u2b("엔젤 타입의 비주얼 어필이")),
-Db(u2b("엔젤 타입의 보컬 어필이")),
-Db(u2b("엔젤 타입의 모든 어필이")),
-Db(u2b("")),
-Db(u2b("비주얼 스케줄의 체력이")),
-Db(u2b("엔젤 타입의 댄스 어필이")),
 Db(u2b("60초마다 5초간 공격력이")),
+Db(u2b("프린세스 타입의 모든 어필이")),
+Db(u2b("프린세스 타입의 보컬 어필이")),
+Db(u2b("")),
+Db(u2b("댄스 스케줄의 체력이")),
 Db(u2b("60초마다 10초간 공격속도가")),
-Db(u2b("엔젤 타입의 이벤트 점수가")),
-Db(u2b("엔젤 타입의 높은 유닛이 뜰 확률이"))];
+Db(u2b("프린세스 타입의 비주얼 어필이")),
+Db(u2b("프린세스 타입의 높은 유닛이 뜰 확률이")),
+Db(u2b("60초마다 5초간 공격력이")),
+Db(u2b("프린세스 타입의 이벤트 점수가"))];
 
 const Album_EndText 			=
 [Db(u2b("% \x04증가합니다.")),

@@ -1,0 +1,70 @@
+function Set_Label(id, value)
+{
+	wwrite(0x6564E0 + 3584 	+ id * 2, value);
+}
+
+function Set_Atk(id, value)
+{
+	wwrite(0x6564E0 + 2512 	+ id * 2, value);
+}
+
+function Set_AtkBouns(id, value)
+{
+	wwrite(0x6564E0 + 4504 	+ id * 2, value);
+}
+
+function Set_AtkSpeed(id, value)
+{
+	bwrite(0x6564E0 + 2776 		+ id * 1, value);
+}
+
+function Set_AtkType(id, value)
+{
+	bwrite(0x6564E0 + 3448 		+ id * 1, value);
+	bwrite(0x6564E0 + 3312 		+ id * 1, 2 +value);
+}
+
+function Set_AtkExplosion(id, value)
+{
+	bwrite(0x6564E0 + 536 		+ id * 1, value);
+}
+
+function Set_AtkSplash(id, value)
+{
+	wwrite(0x6564E0 + 936 		+ id * 2, value);
+	wwrite(0x6564E0 + 3048 	+ id * 2, value);
+	wwrite(0x6564E0 + 4768 	+ id * 2, value);
+}
+
+//////////////////////////////////////////////////////////////////////////
+function Get_Atk(id)
+{
+	id = wread(0x6564E0 + 2512 + id * 2);
+}
+
+function Get_AtkBouns(id)
+{
+	id = wread(0x6564E0 + 4504 + id * 2);
+}
+
+function Get_AtkSpeed(id)
+{
+	id = bread(0x6564E0 + 2776 + id * 1);
+}
+
+function Get_AtkType(id)
+{
+	id = bread(0x6564E0 + 3448 + id * 1);
+}
+
+function Get_AtkExplosion(id, value)
+{
+	id = bread(0x6564E0 + 536 	+ id * 1);
+}
+
+function Get_AtkSplash(id)
+{
+	id = wread(0x6564E0 + 936 	+ id * 2);
+	id = wread(0x6564E0 + 3048 + id * 2);
+	id = wread(0x6564E0 + 4768 + id * 2);
+}

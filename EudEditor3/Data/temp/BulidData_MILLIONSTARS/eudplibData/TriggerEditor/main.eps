@@ -1,11 +1,29 @@
-import Angel.ButtonText as abt;
+import Angel.Main as am;
+import Fairy.Main as fm;
+import Princess.Main as pm;
 
 var cp;
+var vTime;
+
+function onPluginStart();
+function beforeTriggerExec();
+function afterTriggerExec();
+
+function FixedUpdate();
 
 function onPluginStart()
 {
-	abt.Init_ButtonText();
+	am.Init();
+	fm.Init();
+	pm.Init();
+	
+	//pm.Test_Mode();
+	fm.Test_Mode();
+	//am.Test_Mode();
+	
+	SetResources(P1, SetTo, 10000, Ore);
 }
+
 
 function beforeTriggerExec()
 {
@@ -13,11 +31,32 @@ function beforeTriggerExec()
 	
 	EUDPlayerLoop()();
 	
-	abt.Update_ButtomText(cp);
-	
 	EUDEndPlayerLoop();
+
+	vTime += 1;
+	if (vTime >= 24)
+	{
+		FixedUpdate();
+		vTime = 0;
+	}
 }
 
 function afterTriggerExec()
 {
+
+}
+
+function FixedUpdate()
+{
+	if (Kills(P1, AtLeast, 1, "Terran Bunker"))
+	{
+		SetKills(P1, Subtract, 1, "Terran Bunker");
+		//pm.Test();
+		fm.Test();
+		//am.Test();
+	}
+	
+	am.FixedUpdate();
+	fm.FixedUpdate();
+	pm.FixedUpdate();
 }

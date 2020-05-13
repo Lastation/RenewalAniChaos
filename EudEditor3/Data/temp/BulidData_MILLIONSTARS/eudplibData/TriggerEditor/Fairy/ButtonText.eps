@@ -1,6 +1,6 @@
-import Angel.Variable as v;
-import Angel.Effect as e;
-import Angel.Main as m;
+import Fairy.Variable as v;
+import Fairy.Effect as e;
+import Fairy.Main as m;
 
 function Init_ButtonText();
 function Update_ButtomText();
@@ -36,14 +36,14 @@ function Set_Dear_ButtonText(id)
 {
 	if (v.Dear_Level[id] < 10)
 	{
-		settbl(1048 + id * 2, 10, v.Dear_Now[id], "/", v.Dear_Need[v.Dear_Level[id]],
-		"\n\x19", ptr2s(v.Dear_Text[id])," Lv.", v.Dear_Level[id],
+		settbl(1074 + id * 2, 10, v.Dear_Now[id], "/", v.Dear_Need[v.Dear_Level[id]],
+		"\n\x1C", ptr2s(v.Dear_Text[id])," Lv.", v.Dear_Level[id],
 		"\n\x04", ptr2s(v.Dear_SubText[v.Dear_Ablity[id]]), " \x08", v.Dear_Level[id] * v.Dear_Multiply[id], ptr2s(v.Dear_EndText[v.Dear_Ablity[id]]));
 	}
 	else
 	{
-		settbl(1048 + id * 2, 10, v.Dear_Now[id],
-		"\n\x19", ptr2s(v.Dear_Text[id])," Lv. Max",
+		settbl(1074 + id * 2, 10, v.Dear_Now[id],
+		"\n\x1C", ptr2s(v.Dear_Text[id])," Lv. Max",
 		"\n\x04", ptr2s(v.Dear_SubText[v.Dear_Ablity[id]]), " \x08", v.Dear_Level[id] * v.Dear_Multiply[id], ptr2s(v.Dear_EndText[v.Dear_Ablity[id]]));
 	}
 }
@@ -52,31 +52,31 @@ function Set_Album_ButtonText(id)
 {
 	if (v.Album_Level[id] < 10)
 	{
-		if (id != 6)
+		if (id != 7)
 		{
-			settbl(1049 + id * 2, 8, v.Album_Now[id], "/", v.Album_Need[v.Album_Level[id]],
-			"\n\x19", ptr2s(v.Album_Text[id])," Lv.", v.Album_Level[id],
+			settbl(1075 + id * 2, 8, v.Album_Now[id], "/", v.Album_Need[v.Album_Level[id]],
+			"\n\x1C", ptr2s(v.Album_Text[id])," Lv.", v.Album_Level[id],
 			"\n\x04", ptr2s(v.Album_SubText[id]), " \x08", v.Album_Level[id] * v.Album_Multiply[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]));
 		}
 		else
 		{
-			settbl(1049 + id * 2, 8, v.Album_Now[id], "/", v.Album_Need[v.Album_Level[id]],
-			"\n\x19", ptr2s(v.Album_Text[id])," Lv.", v.Album_Level[id],
+			settbl(1075 + id * 2, 8, v.Album_Now[id], "/", v.Album_Need[v.Album_Level[id]],
+			"\n\x1C", ptr2s(v.Album_Text[id])," Lv.", v.Album_Level[id],
 			"\n\x08", v.Album_Multiply[id] -  v.Album_Level[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]));
 		}
 	}
 	else
 	{
-		if (id != 6)
+		if (id != 7)
 		{
-			settbl(1049 + id * 2, 8, v.Album_Now[id],
-			"\n\x19", ptr2s(v.Album_Text[id])," Lv. Max",
+			settbl(1075 + id * 2, 8, v.Album_Now[id],
+			"\n\x1C", ptr2s(v.Album_Text[id])," Lv. Max",
 			"\n\x04", ptr2s(v.Album_SubText[id]), " \x08", v.Album_Level[id] * v.Album_Multiply[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]));
 		}
 		else
 		{
-			settbl(1049 + id * 2, 8, v.Album_Now[id],
-			"\n\x19", ptr2s(v.Album_Text[id])," Lv. Max",
+			settbl(1075 + id * 2, 8, v.Album_Now[id],
+			"\n\x1C", ptr2s(v.Album_Text[id])," Lv. Max",
 			"\n\x08", v.Album_Multiply[id] -  v.Album_Level[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]));
 		}
 	}
@@ -116,27 +116,27 @@ function Set_AlbumLevel(id)
 		Set_Album_ButtonText(id);
 		switch(v.Album_Ablity[id])
 		{
-		case 8:
-			value = ((v.Album_Multiply[8] * v.Album_Level[8] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[0];
+		case 12:
+			value = ((v.Album_Multiply[12] * v.Album_Level[12] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[0];
 			m.Set_AtkPercent(0, value);
 			m.Update_PercentText();
 			break;
-		case 4:
-			value = ((v.Album_Multiply[4] * v.Album_Level[4] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[1];
+		case 0:
+			value = ((v.Album_Multiply[0] * v.Album_Level[0] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[1];
 			m.Set_AtkPercent(1, value);
 			m.Update_PercentText();
 			break;
-		case 3:
-			value = ((v.Album_Multiply[3] * v.Album_Level[3] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[2];
+		case 4:
+			value = ((v.Album_Multiply[4] * v.Album_Level[4] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[2];
 			m.Set_AtkPercent(2, value);
 			m.Update_PercentText();
 			break;
 		case 5:
-			value = ((v.Album_Multiply[8] * v.Album_Level[8] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[0];
+			value = ((v.Album_Multiply[12] * v.Album_Level[12] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[0];
 			m.Set_AtkPercent(0, value);
-			value = ((v.Album_Multiply[4] * v.Album_Level[4] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[1];
+			value = ((v.Album_Multiply[0] * v.Album_Level[0] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[1];
 			m.Set_AtkPercent(1, value);
-			value = ((v.Album_Multiply[3] * v.Album_Level[3] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[2];
+			value = ((v.Album_Multiply[4] * v.Album_Level[4] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[2];
 			m.Set_AtkPercent(2, value);
 			m.Update_PercentText();
 			break;
