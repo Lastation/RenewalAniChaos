@@ -209,12 +209,19 @@ def SetVariable(cp):
             # (Line 51) break;
         EUDEndIf()
         EUDBreak()
-        # (Line 52) default:
-    # (Line 53) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
-    if EUDSwitchDefault()():
-        f_bwrite(0x58D2B0 + 0x207C * ((9) // 46) + (cp) * (46 - 31 * ((9) // 46)) + ((9) % 46), f_bread(0x58D2B0 + 7 + 46 * cp))
+        # (Line 52) case 14:
+    _t6 = EUDSwitchCase()
+    # (Line 53) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp) + 2 * dwread_epd(204 * 12 + cp));
+    if _t6(14):
+        f_bwrite(0x58D2B0 + 0x207C * ((9) // 46) + (cp) * (46 - 31 * ((9) // 46)) + ((9) % 46), f_bread(0x58D2B0 + 7 + 46 * cp) + 2 * f_dwread_epd(204 * 12 + cp))
         # (Line 54) break;
         EUDBreak()
-        # (Line 55) }
-    # (Line 58) }
+        # (Line 55) default:
+    # (Line 56) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
+    if EUDSwitchDefault()():
+        f_bwrite(0x58D2B0 + 0x207C * ((9) // 46) + (cp) * (46 - 31 * ((9) // 46)) + ((9) % 46), f_bread(0x58D2B0 + 7 + 46 * cp))
+        # (Line 57) break;
+        EUDBreak()
+        # (Line 58) }
+    # (Line 61) }
     EUDEndSwitch()

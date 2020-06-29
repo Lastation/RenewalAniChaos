@@ -48,6 +48,7 @@ function CharacterTextNum(cp)
 	case 99:
 		if 		(v.PlayerID[cp] == 8 		|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 14; }	// Yashiro
 		else if 	(v.PlayerID[cp] == 9 		|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 18; }	// Tenkai
+		else if 	(v.PlayerID[cp] == 10 	|| v.Unit_Death[cp] == 3000) { v.Hero_Text[cp] = 20; }	// EmetSelch
 		 v.Unit_ID[cp] = 0;
 		break;
 	}
@@ -188,10 +189,10 @@ function CharacterText(cp)
 		case 14:
 			s.printAt(1, "\x13\x04- \x17나만이 없는 거리\x04-");
 			s.printAt(2, "\n");
-			s.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
+			s.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
 			s.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
 			s.printAt(5, "\n");
-			s.printAt(6, "\x13\x1F#\x04공성특화 \x1F#\x04순간딜 \x1F#\x04스택 \x1F#\x04조작매우어려움");
+			s.printAt(6, "\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04스택 \x1F#\x04조작매우어려움");
 			s.printAt(7, "\n");
 			break;
 		case 15:
@@ -239,6 +240,15 @@ function CharacterText(cp)
 			s.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
 			s.printAt(5, "\n");
 			s.printAt(6, "\x13\x1F#\x04만능 \x1F#\x04저격 \x1F#\x04보조 \x1F#\x04조작보통");
+			s.printAt(7, "\n");
+			break;
+		case 20:
+			s.printAt(1, "\x13\x04- \x17Final Fantasy XIV \x04-");
+			s.printAt(2, "\n");
+			s.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
+			s.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
+			s.printAt(5, "\n");
+			s.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04지속딜 \x1F#\x04미완성 \x1F#\x04조작보통");
 			s.printAt(7, "\n");
 			break;
 			

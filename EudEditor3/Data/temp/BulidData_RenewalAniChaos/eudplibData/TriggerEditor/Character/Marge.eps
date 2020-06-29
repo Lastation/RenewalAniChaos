@@ -23,6 +23,7 @@ import Character.TextC.Kiana 		as kiana;
 import Character.TextC.Tenkei 		as tenkei;
 
 import Character.TextD.MN 			as mn;
+import Character.TextD.EmetSelch 	as emet;
 
 function MargeSound(cp)
 {
@@ -81,6 +82,7 @@ function MargeSound(cp)
 		const Condition = v.Sound_Text4[cp];
 		
 		mn.NormalText(cp);
+		emet.NormalText(cp);
 	}
 	
 	if (Deaths((13), (0), 1, (222)))
@@ -114,6 +116,7 @@ function MargeSound(cp)
 		tenkei.UiltimateText(cp);
 		
 		mn.UiltimateText(cp);
+		emet.UiltimateText(cp);
 	}
 	if (Deaths((13), (0), 1, (188)))
 	{
@@ -146,5 +149,6 @@ function MargeSound(cp)
 		tenkei.UniqueText(cp);
 		
 		mn.UniqueText(cp);
+		emet.UniqueText(cp);
 	}
 }

@@ -315,9 +315,9 @@ def Set_Round_HP():
         DoActions(SetDeaths(P7, SetTo, vr.event_Type[vr.event], "Event_type"))
         f_settbl(91, 0, ptr2s(vr.event_name[vr.event]))
         # (Line 111) }
-        # (Line 113) if (round % 10 == 0 && Deaths(P6, Exactly, 0, "Round") && round != 0 && round < 80)
+        # (Line 113) if (round % 10 == 0 && Deaths(P6, Exactly, 0, "Round") && round != 0 && round <= 70)
     EUDEndIf()
-    if EUDIf()(EUDSCAnd()(round % 10 == 0)(Deaths(P6, Exactly, 0, "Round"))(round == 0, neg=True)(round >= 80, neg=True)()):
+    if EUDIf()(EUDSCAnd()(round % 10 == 0)(Deaths(P6, Exactly, 0, "Round"))(round == 0, neg=True)(round <= 70)()):
         # (Line 114) {
         # (Line 116) vr.event = dwread_epd(182 * 12 + 6);
         _ATTW(vr, 'event') << (f_dwread_epd(182 * 12 + 6))

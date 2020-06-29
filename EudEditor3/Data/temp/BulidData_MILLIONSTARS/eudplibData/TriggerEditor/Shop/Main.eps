@@ -1,0 +1,143 @@
+import getunitID as id;
+import Shop.Text as st;
+import Shop.Variable as v;
+import Title.Variable as tv;
+import Shop.SpecialLesson as spl;
+
+function Init();
+function FixedUpdate();
+function PlayerUpdate(cp);
+
+function Shop_Ablity();
+function Shop_Donate(cp);
+function Shop_MasterLesson(cp);
+function Click_Text(cp);
+
+const s = StringBuffer();
+
+function Init()
+{
+
+}
+
+function FixedUpdate()
+{
+	Shop_Ablity();
+}
+
+function PlayerUpdate(cp)
+{
+	Click_Text(cp);
+	Shop_Donate(cp);
+	Shop_MasterLesson(cp);
+	spl.Lesson_Unit(cp);
+}
+
+function Shop_Ablity()
+{
+	v.shop_Info[2] += 1;
+	if (Bring(P8, AtLeast, 1, 165, "Title") && v.shop_Info[2] >= 60)
+	{
+		SetResources(Force1, Add, v.shop_need[v.shop_Info[0]] * 2, Ore);
+		v.shop_Info[2] = 0;
+	}
+	else if (Bring(P6, AtLeast, 1, 165, "Title") && v.shop_Info[2] >= 50)
+	{
+		SetResources(Force1, Add, v.shop_need[v.shop_Info[0]] * 10, Ore);
+		v.shop_Info[2] = 0;
+	}
+}
+
+function Shop_Donate(cp)
+{
+	if(v.shop_Info[1] < v.shop_need[9])
+	{
+		if(Bring(cp, AtLeast, 1, "(men)", "Shop_Donate") && Accumulate(cp, AtLeast, 1, Gas))
+		{
+			v.shop_Info[1] += 1;
+			SetResources(cp, Subtract, 1, Gas);
+			s.print("\n\x13\x04프로덕션이 발전합니다. - 1 \x0FGas\n");
+			MoveUnit(1, "(men)", cp, "Shop_Donate", "Center_Shop");
+			if (v.shop_Info[1] >= v.shop_need[v.shop_Info[0]]) { v.shop_Info[0] += 1; }
+		}
+	}
+}
+
+function Shop_MasterLesson(cp)
+{
+	if(Bring(cp, AtLeast, 1, "(men)", "Shop_MasterLesson") && Accumulate(cp, AtLeast, 200, Ore))
+	{
+		SetResources(cp, Subtract, 200, Ore);
+		s.print("\n\x13\x0F마스터 레슨 티켓\x04을 구매 합니다. - 500 \x0F골드\n");
+		MoveUnit(1, "(men)", cp, "Shop_MasterLesson", "Center_Shop");
+		CreateUnit(1, 111, "MedalGacha", cp);
+	}
+}
+
+function Click_Text(cp)
+{
+	switch(id.Unit_ID[cp])
+	{
+	// 건물 텍스트
+	case 107:
+		s.print(ptr2s(st.System_Text[0]), ptr2s(st.Interaction_Text[0]));
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 115:
+		s.print(ptr2s(st.System_Text[0]), ptr2s(st.Interaction_Text[1]));
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 117:
+		s.print(ptr2s(st.System_Text[0]), ptr2s(st.Interaction_Text[2]));
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 120:
+		s.print(ptr2s(st.System_Text[0]), ptr2s(st.Interaction_Text[3]));
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 143:
+		s.print(ptr2s(st.System_Text[0]), ptr2s(st.Interaction_Text[4]));
+		id.Unit_ID[cp] = 1000;
+		break;
+	
+	// 상점 텍스트
+	case 108:
+		s.print(ptr2s(st.System_Text[0]), ptr2s(st.Shop_Text[0]));
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 118:
+		s.print(ptr2s(st.System_Text[0]), ptr2s(st.Shop_Text[1]));
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 124:
+		s.print(ptr2s(st.System_Text[0]), ptr2s(st.Shop_Text[2]));
+		s.print("　　　　　　　\x04프로덕션 발전 ", v.shop_Info[0], " 단계", " [ ", v.shop_Info[1], "/",v.shop_need[v.shop_Info[0]], " ] \x19 + ", v.shop_need[v.shop_Info[0]] * 2, " \x04골드");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 150:
+		s.print(ptr2s(st.System_Text[0]), ptr2s(st.Shop_Text[3]));
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 144:
+		s.print(ptr2s(st.System_Text[0]), ptr2s(st.Shop_Text[4]));
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 134:
+		s.print(ptr2s(st.System_Text[0]), ptr2s(st.Shop_Text[5]));
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 162:
+		s.print(ptr2s(st.System_Text[0]), ptr2s(st.Shop_Text[6]));
+		id.Unit_ID[cp] = 1000;
+		break;
+		
+	// 미사키 텍스트
+	case 34:
+		if (id.PlayerID[cp] == 6)
+		{
+			s.print("\x13", ptr2s(GetTBLAddr(35)), "\x04 : ", ptr2s(st.Shop_Misaki_Text[dwrand() % 5]));
+			id.Unit_ID[cp] = 1000;
+		}
+		break;
+	}
+}

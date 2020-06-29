@@ -168,182 +168,190 @@ from Character.TextC import Kiana as kiana
 from Character.TextC import Tenkei as tenkei
 # (Line 25) import Character.TextD.MN 			as mn;
 from Character.TextD import MN as mn
-# (Line 27) function MargeSound(cp)
-# (Line 28) {
+# (Line 26) import Character.TextD.EmetSelch 	as emet;
+from Character.TextD import EmetSelch as emet
+# (Line 28) function MargeSound(cp)
+# (Line 29) {
 @EUDFunc
 def MargeSound(cp):
-    # (Line 30) if (Deaths((13), (0), 1, (186)))
+    # (Line 31) if (Deaths((13), (0), 1, (186)))
     if EUDIf()(Deaths((13), (0), 1, (186))):
-        # (Line 31) {
-        # (Line 32) v.Sound_Text1[cp] = dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * cp));
+        # (Line 32) {
+        # (Line 33) v.Sound_Text1[cp] = dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * cp));
         _ARRW(v.Sound_Text1, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * cp)))
-        # (Line 33) SetDeaths((13), (7), 0, (186));
-        # (Line 35) const Condition = v.Sound_Text1[cp];
+        # (Line 34) SetDeaths((13), (7), 0, (186));
+        # (Line 36) const Condition = v.Sound_Text1[cp];
         DoActions(SetDeaths((13), (7), 0, (186)))
         Condition = v.Sound_Text1[cp]
-        # (Line 36) rusaruka.NormalText(cp);
+        # (Line 37) rusaruka.NormalText(cp);
         rusaruka.NormalText(cp)
-        # (Line 37) chtholly.NormalText(cp);
+        # (Line 38) chtholly.NormalText(cp);
         chtholly.NormalText(cp)
-        # (Line 38) maihime.NormalText(cp);
+        # (Line 39) maihime.NormalText(cp);
         maihime.NormalText(cp)
-        # (Line 39) tenshi.NormalText(cp);
+        # (Line 40) tenshi.NormalText(cp);
         tenshi.NormalText(cp)
-        # (Line 40) miyuki.NormalText(cp);
+        # (Line 41) miyuki.NormalText(cp);
         miyuki.NormalText(cp)
-        # (Line 41) negev.NormalText(cp);
+        # (Line 42) negev.NormalText(cp);
         negev.NormalText(cp)
-        # (Line 42) }
-        # (Line 45) if (Deaths((13), (0), 1, (174)))
+        # (Line 43) }
+        # (Line 46) if (Deaths((13), (0), 1, (174)))
     EUDEndIf()
     if EUDIf()(Deaths((13), (0), 1, (174))):
-        # (Line 46) {
-        # (Line 47) v.Sound_Text2[cp] = dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * cp));
+        # (Line 47) {
+        # (Line 48) v.Sound_Text2[cp] = dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * cp));
         _ARRW(v.Sound_Text2, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * cp)))
-        # (Line 48) SetDeaths((13), (7), 0, (174));
-        # (Line 50) const Condition = v.Sound_Text2[cp];
+        # (Line 49) SetDeaths((13), (7), 0, (174));
+        # (Line 51) const Condition = v.Sound_Text2[cp];
         DoActions(SetDeaths((13), (7), 0, (174)))
         Condition = v.Sound_Text2[cp]
-        # (Line 51) cecillia.NormalText(cp);
+        # (Line 52) cecillia.NormalText(cp);
         cecillia.NormalText(cp)
-        # (Line 52) anzu.NormalText(cp);
+        # (Line 53) anzu.NormalText(cp);
         anzu.NormalText(cp)
-        # (Line 53) hotomoka.NormalText(cp);
+        # (Line 54) hotomoka.NormalText(cp);
         hotomoka.NormalText(cp)
-        # (Line 54) alterego.NormalText(cp);
+        # (Line 55) alterego.NormalText(cp);
         alterego.NormalText(cp)
-        # (Line 56) ryuzu.NormalText(cp);
+        # (Line 57) ryuzu.NormalText(cp);
         ryuzu.NormalText(cp)
-        # (Line 57) }
-        # (Line 60) if (Deaths((13), (0), 1, (117)))
+        # (Line 58) }
+        # (Line 61) if (Deaths((13), (0), 1, (117)))
     EUDEndIf()
     if EUDIf()(Deaths((13), (0), 1, (117))):
-        # (Line 61) {
-        # (Line 62) v.Sound_Text3[cp] = dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * cp));
+        # (Line 62) {
+        # (Line 63) v.Sound_Text3[cp] = dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * cp));
         _ARRW(v.Sound_Text3, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * cp)))
-        # (Line 63) SetDeaths((13), (7), 0, (117));
-        # (Line 65) const Condition = v.Sound_Text3[cp];
+        # (Line 64) SetDeaths((13), (7), 0, (117));
+        # (Line 66) const Condition = v.Sound_Text3[cp];
         DoActions(SetDeaths((13), (7), 0, (117)))
         Condition = v.Sound_Text3[cp]
-        # (Line 67) sakura.NormalText(cp);
+        # (Line 68) sakura.NormalText(cp);
         sakura.NormalText(cp)
-        # (Line 68) yashiro.NormalText(cp);
+        # (Line 69) yashiro.NormalText(cp);
         yashiro.NormalText(cp)
-        # (Line 69) rin.NormalText(cp);
+        # (Line 70) rin.NormalText(cp);
         rin.NormalText(cp)
-        # (Line 70) seraphim.NormalText(cp);
+        # (Line 71) seraphim.NormalText(cp);
         seraphim.NormalText(cp)
-        # (Line 71) kiana.NormalText(cp);
+        # (Line 72) kiana.NormalText(cp);
         kiana.NormalText(cp)
-        # (Line 72) tenkei.NormalText(cp);
+        # (Line 73) tenkei.NormalText(cp);
         tenkei.NormalText(cp)
-        # (Line 73) }
-        # (Line 76) if (Deaths((13), (0), 1, (157)))
+        # (Line 74) }
+        # (Line 77) if (Deaths((13), (0), 1, (157)))
     EUDEndIf()
     if EUDIf()(Deaths((13), (0), 1, (157))):
-        # (Line 77) {
-        # (Line 78) v.Sound_Text4[cp] = dwread_epd(EPD(0x58A364 + 48 * 157 + 4 * cp));
+        # (Line 78) {
+        # (Line 79) v.Sound_Text4[cp] = dwread_epd(EPD(0x58A364 + 48 * 157 + 4 * cp));
         _ARRW(v.Sound_Text4, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 157 + 4 * cp)))
-        # (Line 79) SetDeaths((13), (7), 0, (157));
-        # (Line 81) const Condition = v.Sound_Text4[cp];
+        # (Line 80) SetDeaths((13), (7), 0, (157));
+        # (Line 82) const Condition = v.Sound_Text4[cp];
         DoActions(SetDeaths((13), (7), 0, (157)))
         Condition = v.Sound_Text4[cp]
-        # (Line 83) mn.NormalText(cp);
+        # (Line 84) mn.NormalText(cp);
         mn.NormalText(cp)
-        # (Line 84) }
-        # (Line 86) if (Deaths((13), (0), 1, (222)))
+        # (Line 85) emet.NormalText(cp);
+        emet.NormalText(cp)
+        # (Line 86) }
+        # (Line 88) if (Deaths((13), (0), 1, (222)))
     EUDEndIf()
     if EUDIf()(Deaths((13), (0), 1, (222))):
-        # (Line 87) {
-        # (Line 88) v.Sound_Text_Uilti[cp] = dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * cp));
+        # (Line 89) {
+        # (Line 90) v.Sound_Text_Uilti[cp] = dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * cp));
         _ARRW(v.Sound_Text_Uilti, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * cp)))
-        # (Line 89) SetDeaths((13), (7), 0, (222));
-        # (Line 91) const Condition = v.Sound_Text_Uilti[cp];
+        # (Line 91) SetDeaths((13), (7), 0, (222));
+        # (Line 93) const Condition = v.Sound_Text_Uilti[cp];
         DoActions(SetDeaths((13), (7), 0, (222)))
         Condition = v.Sound_Text_Uilti[cp]
-        # (Line 93) rusaruka.UiltimateText(cp);
+        # (Line 95) rusaruka.UiltimateText(cp);
         rusaruka.UiltimateText(cp)
-        # (Line 94) chtholly.UiltimateText(cp);
+        # (Line 96) chtholly.UiltimateText(cp);
         chtholly.UiltimateText(cp)
-        # (Line 95) maihime.UiltimateText(cp);
+        # (Line 97) maihime.UiltimateText(cp);
         maihime.UiltimateText(cp)
-        # (Line 96) tenshi.UiltimateText(cp);
+        # (Line 98) tenshi.UiltimateText(cp);
         tenshi.UiltimateText(cp)
-        # (Line 97) miyuki.UiltimateText(cp);
+        # (Line 99) miyuki.UiltimateText(cp);
         miyuki.UiltimateText(cp)
-        # (Line 98) negev.UiltimateText(cp);
+        # (Line 100) negev.UiltimateText(cp);
         negev.UiltimateText(cp)
-        # (Line 101) cecillia.UiltimateText(cp);
+        # (Line 103) cecillia.UiltimateText(cp);
         cecillia.UiltimateText(cp)
-        # (Line 102) anzu.UiltimateText(cp);
+        # (Line 104) anzu.UiltimateText(cp);
         anzu.UiltimateText(cp)
-        # (Line 103) hotomoka.UiltimateText(cp);
+        # (Line 105) hotomoka.UiltimateText(cp);
         hotomoka.UiltimateText(cp)
-        # (Line 104) alterego.UiltimateText(cp);
+        # (Line 106) alterego.UiltimateText(cp);
         alterego.UiltimateText(cp)
-        # (Line 106) ryuzu.UiltimateText(cp);
+        # (Line 108) ryuzu.UiltimateText(cp);
         ryuzu.UiltimateText(cp)
-        # (Line 109) sakura.UiltimateText(cp);
+        # (Line 111) sakura.UiltimateText(cp);
         sakura.UiltimateText(cp)
-        # (Line 110) yashiro.UiltimateText(cp);
+        # (Line 112) yashiro.UiltimateText(cp);
         yashiro.UiltimateText(cp)
-        # (Line 111) rin.UiltimateText(cp);
+        # (Line 113) rin.UiltimateText(cp);
         rin.UiltimateText(cp)
-        # (Line 112) seraphim.UiltimateText(cp);
+        # (Line 114) seraphim.UiltimateText(cp);
         seraphim.UiltimateText(cp)
-        # (Line 113) kiana.UiltimateText(cp);
+        # (Line 115) kiana.UiltimateText(cp);
         kiana.UiltimateText(cp)
-        # (Line 114) tenkei.UiltimateText(cp);
+        # (Line 116) tenkei.UiltimateText(cp);
         tenkei.UiltimateText(cp)
-        # (Line 116) mn.UiltimateText(cp);
+        # (Line 118) mn.UiltimateText(cp);
         mn.UiltimateText(cp)
-        # (Line 117) }
-        # (Line 118) if (Deaths((13), (0), 1, (188)))
+        # (Line 119) emet.UiltimateText(cp);
+        emet.UiltimateText(cp)
+        # (Line 120) }
+        # (Line 121) if (Deaths((13), (0), 1, (188)))
     EUDEndIf()
     if EUDIf()(Deaths((13), (0), 1, (188))):
-        # (Line 119) {
-        # (Line 120) v.Sound_Text_Uniq[cp] = dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * cp));
+        # (Line 122) {
+        # (Line 123) v.Sound_Text_Uniq[cp] = dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * cp));
         _ARRW(v.Sound_Text_Uniq, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * cp)))
-        # (Line 121) SetDeaths((13), (7), 0, (188));
-        # (Line 123) const Condition = v.Sound_Text_Uniq[cp];
+        # (Line 124) SetDeaths((13), (7), 0, (188));
+        # (Line 126) const Condition = v.Sound_Text_Uniq[cp];
         DoActions(SetDeaths((13), (7), 0, (188)))
         Condition = v.Sound_Text_Uniq[cp]
-        # (Line 125) rusaruka.UniqueText(cp);
+        # (Line 128) rusaruka.UniqueText(cp);
         rusaruka.UniqueText(cp)
-        # (Line 126) chtholly.UniqueText(cp);
+        # (Line 129) chtholly.UniqueText(cp);
         chtholly.UniqueText(cp)
-        # (Line 127) maihime.UniqueText(cp);
+        # (Line 130) maihime.UniqueText(cp);
         maihime.UniqueText(cp)
-        # (Line 128) tenshi.UniqueText(cp);
+        # (Line 131) tenshi.UniqueText(cp);
         tenshi.UniqueText(cp)
-        # (Line 129) miyuki.UniqueText(cp);
+        # (Line 132) miyuki.UniqueText(cp);
         miyuki.UniqueText(cp)
-        # (Line 130) negev.UniqueText(cp);
+        # (Line 133) negev.UniqueText(cp);
         negev.UniqueText(cp)
-        # (Line 133) cecillia.UniqueText(cp);
+        # (Line 136) cecillia.UniqueText(cp);
         cecillia.UniqueText(cp)
-        # (Line 134) anzu.UniqueText(cp);
+        # (Line 137) anzu.UniqueText(cp);
         anzu.UniqueText(cp)
-        # (Line 135) hotomoka.UniqueText(cp);
+        # (Line 138) hotomoka.UniqueText(cp);
         hotomoka.UniqueText(cp)
-        # (Line 136) alterego.UniqueText(cp);
+        # (Line 139) alterego.UniqueText(cp);
         alterego.UniqueText(cp)
-        # (Line 138) ryuzu.UniqueText(cp);
+        # (Line 141) ryuzu.UniqueText(cp);
         ryuzu.UniqueText(cp)
-        # (Line 141) sakura.UniqueText(cp);
+        # (Line 144) sakura.UniqueText(cp);
         sakura.UniqueText(cp)
-        # (Line 142) yashiro.UniqueText(cp);
+        # (Line 145) yashiro.UniqueText(cp);
         yashiro.UniqueText(cp)
-        # (Line 143) rin.UniqueText(cp);
+        # (Line 146) rin.UniqueText(cp);
         rin.UniqueText(cp)
-        # (Line 144) seraphim.UniqueText(cp);
+        # (Line 147) seraphim.UniqueText(cp);
         seraphim.UniqueText(cp)
-        # (Line 145) kiana.UniqueText(cp);
+        # (Line 148) kiana.UniqueText(cp);
         kiana.UniqueText(cp)
-        # (Line 146) tenkei.UniqueText(cp);
+        # (Line 149) tenkei.UniqueText(cp);
         tenkei.UniqueText(cp)
-        # (Line 148) mn.UniqueText(cp);
+        # (Line 151) mn.UniqueText(cp);
         mn.UniqueText(cp)
-        # (Line 149) }
-        # (Line 150) }
+        # (Line 152) emet.UniqueText(cp);
+        emet.UniqueText(cp)
+        # (Line 153) }
+        # (Line 154) }
     EUDEndIf()

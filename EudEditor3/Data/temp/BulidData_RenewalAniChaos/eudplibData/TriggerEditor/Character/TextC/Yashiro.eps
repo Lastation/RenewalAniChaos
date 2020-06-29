@@ -11,23 +11,18 @@ function NormalText(cp)
 		v.Sound_Text3[cp] = 0;
 		s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그것은 분에 넘치는 소망이다\n\n");
 		break;
-	case 2004:
-		s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04네가 손에 넣는 것은 이 마을의 평화다\n\x13\x04네가 원한 것은 바로 그거잖아?\n\n");
-		PlayWAV("yashiro_AA.ogg");
-		v.Sound_Text3[cp] = 0;
-		break;
-	case 2005:
-		s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04내가 손에 넣는 것은\n\x13\x04나 손에 의한, 나만을 위해 존재하는 죽음이다\n\n");
-		PlayWAV("yashiro_AACC.ogg");
-		v.Sound_Text3[cp] = 0;
-		break;
 	case 2002:
+		s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04네가 손에 넣는 것은 이 마을의 평화다\n\x13\x04네가 원한 것은 바로 그거잖아?\n\n");
 		PlayWAV("yashiro_ccaa.ogg");
-		s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04선행도 악행도 본질은 똑같다\n\n");
 		v.Sound_Text3[cp] = 0;
 		break;
 	case 2003:
-		s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04사람이 자기 결함을 보완하기 위한 행위에 지나지 않아\n\n");
+		s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04내가 손에 넣는 것은\n\x13\x04나 손에 의한, 나만을 위해 존재하는 죽음이다\n\n");
+		v.Sound_Text3[cp] = 0;
+		break;
+	case 2001:
+		PlayWAV("yashiro_aac.ogg");
+		s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04게임 오버다, 너도 나도\n\n");
 		v.Sound_Text3[cp] = 0;
 		break;
 	}

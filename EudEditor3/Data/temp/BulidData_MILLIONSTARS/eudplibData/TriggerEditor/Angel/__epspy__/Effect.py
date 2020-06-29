@@ -299,9 +299,9 @@ def Effect_Unit(id, type):
             EUDBreak()
             # (Line 110) case 3:
         _t12 = EUDSwitchCase()
-        # (Line 111) if (v.Album_Delay[id] >= v.Album_Multiply[id] - v.Album_Level[id])
+        # (Line 111) if (v.Album_Delay[id] >= v.Album_Multiply[id] - v.Album_Level[id] && v.Album_Level[id] >= 1)
         if _t12(3):
-            if EUDIf()(v.Album_Delay[id] >= v.Album_Multiply[id] - v.Album_Level[id]):
+            if EUDIf()(EUDSCAnd()(v.Album_Delay[id] >= v.Album_Multiply[id] - v.Album_Level[id])(v.Album_Level[id] >= 1)()):
                 # (Line 112) {
                 # (Line 113) v.Album_Delay[id] = 0;
                 _ARRW(v.Album_Delay, id) << (0)

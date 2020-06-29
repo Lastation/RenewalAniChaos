@@ -180,62 +180,96 @@ def Set_AtkExplosion(id, value):
 # (Line 33) {
 @EUDFunc
 def Set_AtkSplash(id, value):
-    # (Line 34) wwrite(0x6564E0 + 936 		+ id * 2, value);
-    f_wwrite(0x6564E0 + 936 + id * 2, value)
-    # (Line 35) wwrite(0x6564E0 + 3048 	+ id * 2, value);
-    f_wwrite(0x6564E0 + 3048 + id * 2, value)
+    # (Line 34) wwrite(0x6564E0 + 936 		+ id * 2, value / 4);
+    f_wwrite(0x6564E0 + 936 + id * 2, value // 4)
+    # (Line 35) wwrite(0x6564E0 + 3048 	+ id * 2, value / 2);
+    f_wwrite(0x6564E0 + 3048 + id * 2, value // 2)
     # (Line 36) wwrite(0x6564E0 + 4768 	+ id * 2, value);
     f_wwrite(0x6564E0 + 4768 + id * 2, value)
     # (Line 37) }
-    # (Line 40) function Get_Atk(id)
+    # (Line 39) function Set_AtkRange(id, value)
 
-# (Line 41) {
+# (Line 40) {
 @EUDFunc
-def Get_Atk(id):
-    # (Line 42) id = wread(0x6564E0 + 2512 + id * 2);
-    id << (f_wread(0x6564E0 + 2512 + id * 2))
+def Set_AtkRange(id, value):
+    # (Line 41) dwwrite(0x6564E0 + 1336 + id * 4, 0);
+    f_dwwrite(0x6564E0 + 1336 + id * 4, 0)
+    # (Line 42) dwwrite(0x6564E0 + 3984 + id * 4, value * 32);
+    f_dwwrite(0x6564E0 + 3984 + id * 4, value * 32)
     # (Line 43) }
-    # (Line 45) function Get_AtkBouns(id)
+    # (Line 45) function Set_UnitRange(id, value)
 
 # (Line 46) {
 @EUDFunc
-def Get_AtkBouns(id):
-    # (Line 47) id = wread(0x6564E0 + 4504 + id * 2);
-    id << (f_wread(0x6564E0 + 4504 + id * 2))
+def Set_UnitRange(id, value):
+    # (Line 47) bwrite(0x65FD00 + 12472 + id * 1, value);
+    f_bwrite(0x65FD00 + 12472 + id * 1, value)
     # (Line 48) }
-    # (Line 50) function Get_AtkSpeed(id)
+    # (Line 50) function Set_Rank(id, value)
 
 # (Line 51) {
 @EUDFunc
-def Get_AtkSpeed(id):
-    # (Line 52) id = bread(0x6564E0 + 2776 + id * 1);
-    id << (f_bread(0x6564E0 + 2776 + id * 1))
+def Set_Rank(id, value):
+    # (Line 52) bwrite(0x65FD00 + 16592 + id * 1, value);
+    f_bwrite(0x65FD00 + 16592 + id * 1, value)
     # (Line 53) }
-    # (Line 55) function Get_AtkType(id)
+    # (Line 57) function Get_Atk(id)
 
-# (Line 56) {
+# (Line 58) {
+@EUDFunc
+def Get_Atk(id):
+    # (Line 59) id = wread(0x6564E0 + 2512 + id * 2);
+    id << (f_wread(0x6564E0 + 2512 + id * 2))
+    # (Line 60) }
+    # (Line 62) function Get_AtkBouns(id)
+
+# (Line 63) {
+@EUDFunc
+def Get_AtkBouns(id):
+    # (Line 64) id = wread(0x6564E0 + 4504 + id * 2);
+    id << (f_wread(0x6564E0 + 4504 + id * 2))
+    # (Line 65) }
+    # (Line 67) function Get_AtkSpeed(id)
+
+# (Line 68) {
+@EUDFunc
+def Get_AtkSpeed(id):
+    # (Line 69) id = bread(0x6564E0 + 2776 + id * 1);
+    id << (f_bread(0x6564E0 + 2776 + id * 1))
+    # (Line 70) }
+    # (Line 72) function Get_AtkType(id)
+
+# (Line 73) {
 @EUDFunc
 def Get_AtkType(id):
-    # (Line 57) id = bread(0x6564E0 + 3448 + id * 1);
+    # (Line 74) id = bread(0x6564E0 + 3448 + id * 1);
     id << (f_bread(0x6564E0 + 3448 + id * 1))
-    # (Line 58) }
-    # (Line 60) function Get_AtkExplosion(id, value)
+    # (Line 75) }
+    # (Line 77) function Get_AtkExplosion(id, value)
 
-# (Line 61) {
+# (Line 78) {
 @EUDFunc
 def Get_AtkExplosion(id, value):
-    # (Line 62) id = bread(0x6564E0 + 536 	+ id * 1);
+    # (Line 79) id = bread(0x6564E0 + 536 	+ id * 1);
     id << (f_bread(0x6564E0 + 536 + id * 1))
-    # (Line 63) }
-    # (Line 65) function Get_AtkSplash(id)
+    # (Line 80) }
+    # (Line 82) function Get_AtkSplash(id)
 
-# (Line 66) {
+# (Line 83) {
 @EUDFunc
 def Get_AtkSplash(id):
-    # (Line 67) id = wread(0x6564E0 + 936 	+ id * 2);
+    # (Line 84) id = wread(0x6564E0 + 936 	+ id * 2);
     id << (f_wread(0x6564E0 + 936 + id * 2))
-    # (Line 68) id = wread(0x6564E0 + 3048 + id * 2);
+    # (Line 85) id = wread(0x6564E0 + 3048 + id * 2);
     id << (f_wread(0x6564E0 + 3048 + id * 2))
-    # (Line 69) id = wread(0x6564E0 + 4768 + id * 2);
+    # (Line 86) id = wread(0x6564E0 + 4768 + id * 2);
     id << (f_wread(0x6564E0 + 4768 + id * 2))
-    # (Line 70) }
+    # (Line 87) }
+    # (Line 89) function Get_Rank(id)
+
+# (Line 90) {
+@EUDFunc
+def Get_Rank(id):
+    # (Line 91) id = bread(0x65FD00 + 16592 + id * 1);
+    id << (f_bread(0x65FD00 + 16592 + id * 1))
+    # (Line 92) }

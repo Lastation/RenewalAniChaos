@@ -37,7 +37,7 @@ def onPluginStart():
         SetMemory(0x662428, Add, 151040),# units:Hit Points  index:54    from 476160 To 627200
         SetMemory(0x662478, Add, 151040),# units:Hit Points  index:74    from 476160 To 627200
         SetMemory(0x662484, Add, 151040),# units:Hit Points  index:77    from 476160 To 627200
-        SetMemory(0x66248C, Add, 0),# units:Hit Points  index:79    from 28160000 To 28160000
+        SetMemory(0x66248C, Add, 10240000),# units:Hit Points  index:79    from 17920000 To 28160000
         SetMemory(0x6624DC, Add, 166400),# units:Hit Points  index:99    from 460800 To 627200
         SetMemory(0x662504, Add, 25472000),# units:Hit Points  index:109    from 51200 To 25523200
         SetMemory(0x66251C, Add, -25600),# units:Hit Points  index:115    from 128000 To 102400

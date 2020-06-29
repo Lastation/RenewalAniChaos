@@ -128,121 +128,141 @@ def _LSH(l, r):
 
 # (Line 1) const Unit_ID				= [63, 68, 87, 78, 66, 71, 39, 40, 19, 61, 38, 46, 17];		// 유닛 ID
 Unit_ID = _CGFW(lambda: [_ARR(FlattenList([63, 68, 87, 78, 66, 71, 39, 40, 19, 61, 38, 46, 17]))], 1)[0]
-# (Line 4) const Unit_AtkID			= [80, 70, 53, 67, 66, 77, 40, 42, 5, 111, 38, 51, 10];		// 무기 ID
+# (Line 4) const Unit_Rank				= [5, 5, 4, 4, 3, 2, 2, 2, 1, 1, 0, 0, 0];							// 레어도
+Unit_Rank = _CGFW(lambda: [_ARR(FlattenList([5, 5, 4, 4, 3, 2, 2, 2, 1, 1, 0, 0, 0]))], 1)[0]
+# (Line 5) const Unit_AtkID			= [80, 70, 53, 67, 66, 77, 40, 42, 5, 111, 38, 51, 10];			// 무기 ID
 Unit_AtkID = _CGFW(lambda: [_ARR(FlattenList([80, 70, 53, 67, 66, 77, 40, 42, 5, 111, 38, 51, 10]))], 1)[0]
-# (Line 5) const Unit_Atk				= [40, 40, 40, 40, 36, 36, 36, 36, 32, 32, 32, 32, 32];		// 공격력
-Unit_Atk = _CGFW(lambda: [_ARR(FlattenList([40, 40, 40, 40, 36, 36, 36, 36, 32, 32, 32, 32, 32]))], 1)[0]
-# (Line 6) const Unit_Atkbouns			= [4, 4, 4, 4, 3, 3, 3, 3, 2, 2, 2, 2, 2];						// 공격력 증가량
-Unit_Atkbouns = _CGFW(lambda: [_ARR(FlattenList([4, 4, 4, 4, 3, 3, 3, 3, 2, 2, 2, 2, 2]))], 1)[0]
-# (Line 7) const Unit_Atkspeed			= [24, 24, 24, 24, 28, 28, 28, 28, 32, 32, 32, 32, 32];		// 공격 속도
-Unit_Atkspeed = _CGFW(lambda: [_ARR(FlattenList([24, 24, 24, 24, 28, 28, 28, 28, 32, 32, 32, 32, 32]))], 1)[0]
-# (Line 8) const Unit_Atktype			= [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3];						// 공격 타입
-Unit_Atktype = _CGFW(lambda: [_ARR(FlattenList([3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]))], 1)[0]
-# (Line 9) const Unit_AtkExplosion		= [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];						// 공격 스플 o,x
-Unit_AtkExplosion = _CGFW(lambda: [_ARR(FlattenList([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]))], 1)[0]
-# (Line 10) const Unit_Atksplash			= [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];						// 공격 스플 범위
-Unit_Atksplash = _CGFW(lambda: [_ARR(FlattenList([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]))], 1)[0]
-# (Line 12) const Unit_AtkPercent		= [256, 128, 192];									// 공격 %
+# (Line 6) const Unit_Atk				= [314, 308, 163, 155, 84, 78, 82, 76, 54, 54, 54, 52, 30];		// 공격력
+Unit_Atk = _CGFW(lambda: [_ARR(FlattenList([314, 308, 163, 155, 84, 78, 82, 76, 54, 54, 54, 52, 30]))], 1)[0]
+# (Line 7) const Unit_Atkbouns			= [51, 108, 51, 30, 16, 26, 15, 14, 17, 10, 9, 10, 8];			// 공격력 증가량
+Unit_Atkbouns = _CGFW(lambda: [_ARR(FlattenList([51, 108, 51, 30, 16, 26, 15, 14, 17, 10, 9, 10, 8]))], 1)[0]
+# (Line 8) const Unit_Atkspeed			= [16, 30, 32, 15, 16, 24, 17, 18, 20, 17, 18, 16, 26];			// 공격 속도
+Unit_Atkspeed = _CGFW(lambda: [_ARR(FlattenList([16, 30, 32, 15, 16, 24, 17, 18, 20, 17, 18, 16, 26]))], 1)[0]
+# (Line 9) const Unit_Atktype			= [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1];							// 공격 타입
+Unit_Atktype = _CGFW(lambda: [_ARR(FlattenList([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]))], 1)[0]
+# (Line 10) const Unit_AtkExplosion		= [1, 3, 3, 1, 1, 3, 1, 1, 3, 1, 1, 1, 3];							// 공격 스플 o,x
+Unit_AtkExplosion = _CGFW(lambda: [_ARR(FlattenList([1, 3, 3, 1, 1, 3, 1, 1, 3, 1, 1, 1, 3]))], 1)[0]
+# (Line 11) const Unit_Atksplash			= [0, 32, 24, 0, 0, 16, 0, 0, 16, 0, 0, 0, 8];					// 공격 스플 범위
+Unit_Atksplash = _CGFW(lambda: [_ARR(FlattenList([0, 32, 24, 0, 0, 16, 0, 0, 16, 0, 0, 0, 8]))], 1)[0]
+# (Line 12) const Unit_AtkRange			= [6, 6, 6, 5, 6, 6, 5, 6, 5, 5, 6, 6, 6];							// 공격 범위
+Unit_AtkRange = _CGFW(lambda: [_ARR(FlattenList([6, 6, 6, 5, 6, 6, 5, 6, 5, 5, 6, 6, 6]))], 1)[0]
+# (Line 14) const Unit_AtkPercent		= [256, 128, 192];										// 공격 %
 Unit_AtkPercent = _CGFW(lambda: [_ARR(FlattenList([256, 128, 192]))], 1)[0]
-# (Line 13) const Unit_AtkPercentFlag	= [0, 0, 0, 0];											// 공격 % Flag
+# (Line 15) const Unit_AtkPercentFlag	= [0, 0, 0, 0];												// 공격 % Flag
 Unit_AtkPercentFlag = _CGFW(lambda: [_ARR(FlattenList([0, 0, 0, 0]))], 1)[0]
-# (Line 16) const Base_Atk				= [40, 40, 40, 40, 36, 36, 36, 36, 32, 32, 32, 32, 32];	 	// 공격력
-Base_Atk = _CGFW(lambda: [_ARR(FlattenList([40, 40, 40, 40, 36, 36, 36, 36, 32, 32, 32, 32, 32]))], 1)[0]
-# (Line 17) const Base_Atkspeed		= [24, 24, 24, 24, 28, 28, 28, 28, 32, 32, 32, 32, 32];		// 공격 속도
-Base_Atkspeed = _CGFW(lambda: [_ARR(FlattenList([24, 24, 24, 24, 28, 28, 28, 28, 32, 32, 32, 32, 32]))], 1)[0]
-# (Line 18) const Base_AtkPercent		= [256, 128, 192];									// 공격 %
+# (Line 18) const Base_Atk				= [314, 308, 163, 155, 84, 78, 82, 76, 54, 54, 54, 52, 30];	 	// 공격력
+Base_Atk = _CGFW(lambda: [_ARR(FlattenList([314, 308, 163, 155, 84, 78, 82, 76, 54, 54, 54, 52, 30]))], 1)[0]
+# (Line 19) const Base_Atkspeed		= [16, 30, 32, 15, 16, 24, 17, 18, 20, 17, 18, 16, 19];			// 공격 속도
+Base_Atkspeed = _CGFW(lambda: [_ARR(FlattenList([16, 30, 32, 15, 16, 24, 17, 18, 20, 17, 18, 16, 19]))], 1)[0]
+# (Line 20) const Base_AtkPercent		= [256, 128, 192];										// 공격 %
 Base_AtkPercent = _CGFW(lambda: [_ARR(FlattenList([256, 128, 192]))], 1)[0]
-# (Line 20) const Dear_Level			= EUDArray(13);
+# (Line 22) const Dear_Level			= EUDArray(13);
 Dear_Level = _CGFW(lambda: [EUDArray(13)], 1)[0]
-# (Line 21) const Dear_Now				= EUDArray(13);
+# (Line 23) const Dear_Now				= EUDArray(13);
 Dear_Now = _CGFW(lambda: [EUDArray(13)], 1)[0]
-# (Line 22) const Dear_Need			= [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+# (Line 24) const Dear_Need			= [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
 Dear_Need = _CGFW(lambda: [_ARR(FlattenList([100, 200, 300, 400, 500, 600, 700, 800, 900, 1000]))], 1)[0]
-# (Line 23) const Dear_Ablity			= [0, 1, 1, 2, 2, 1, 0, 0, 1, 2, 2, 0, 1];
+# (Line 25) const Dear_Ablity			= [0, 1, 1, 2, 2, 1, 0, 0, 1, 2, 2, 0, 1];
 Dear_Ablity = _CGFW(lambda: [_ARR(FlattenList([0, 1, 1, 2, 2, 1, 0, 0, 1, 2, 2, 0, 1]))], 1)[0]
-# (Line 24) const Dear_Multiply			= [90, 4, 4, 20, 15, 3, 75, 75, 2, 10, 10, 50, 2];
-Dear_Multiply = _CGFW(lambda: [_ARR(FlattenList([90, 4, 4, 20, 15, 3, 75, 75, 2, 10, 10, 50, 2]))], 1)[0]
-# (Line 26) const Dear_Text 			=
-# (Line 27) [Db(u2b("착실한 학급 위원")),
-# (Line 28) Db(u2b("바람의 전사")),
-# (Line 29) Db(u2b("마츠리 공주")),
-# (Line 30) Db(u2b("여자력!")),
-# (Line 31) Db(u2b("관서 여고생")),
-# (Line 32) Db(u2b("미래 귀여운")),
-# (Line 33) Db(u2b("패션 파이어!")),
-# (Line 34) Db(u2b("야마토 나데시코로의 길")),
-# (Line 35) Db(u2b("애정 듬뿍 간판 메뉴!")),
-# (Line 36) Db(u2b("입술에는 노래를")),
-# (Line 37) Db(u2b("바래지 않는 한 장")),
-# (Line 38) Db(u2b("지켜주고 싶은 미소")),
-# (Line 39) Db(u2b("코브라 트위스트"))];
-Dear_Text = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("착실한 학급 위원")), Db(u2b("바람의 전사")), Db(u2b("마츠리 공주")), Db(u2b("여자력!")), Db(u2b("관서 여고생")), Db(u2b("미래 귀여운")), Db(u2b("패션 파이어!")), Db(u2b("야마토 나데시코로의 길")), Db(u2b("애정 듬뿍 간판 메뉴!")), Db(u2b("입술에는 노래를")), Db(u2b("바래지 않는 한 장")), Db(u2b("지켜주고 싶은 미소")), Db(u2b("코브라 트위스트"))]))], 1)[0]
-# (Line 41) const Dear_SubText			=
-# (Line 42) [Db(u2b("기본 공격력이")),
-# (Line 43) Db(u2b("범위공격 범위가")),
-# (Line 44) Db(u2b("공격속도가"))];
+# (Line 26) const Dear_Multiply			= [90, 6, 6, 20, 15, 5, 75, 75, 4, 10, 10, 50, 4];
+Dear_Multiply = _CGFW(lambda: [_ARR(FlattenList([90, 6, 6, 20, 15, 5, 75, 75, 4, 10, 10, 50, 4]))], 1)[0]
+# (Line 28) const Dear_Text 			=
+# (Line 29) [Db(u2b("착실한 학급 위원")),
+# (Line 30) Db(u2b("바람의 전사")),
+# (Line 31) Db(u2b("마츠리 공주")),
+# (Line 32) Db(u2b("여자력!")),
+# (Line 33) Db(u2b("관서 여고생")),
+# (Line 34) Db(u2b("미래 귀여운")),
+# (Line 35) Db(u2b("패션 파이어!")),
+# (Line 36) Db(u2b("야마토 나데시코로의 길")),
+# (Line 37) Db(u2b("애정 듬뿍 간판 메뉴!")),
+# (Line 38) Db(u2b("입술에는 노래를")),
+# (Line 39) Db(u2b("Up!10sion Pleeeeeeeeease!")),
+# (Line 40) Db(u2b("지켜주고 싶은 미소")),
+# (Line 41) Db(u2b("코브라 트위스트"))];
+Dear_Text = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("착실한 학급 위원")), Db(u2b("바람의 전사")), Db(u2b("마츠리 공주")), Db(u2b("여자력!")), Db(u2b("관서 여고생")), Db(u2b("미래 귀여운")), Db(u2b("패션 파이어!")), Db(u2b("야마토 나데시코로의 길")), Db(u2b("애정 듬뿍 간판 메뉴!")), Db(u2b("입술에는 노래를")), Db(u2b("Up!10sion Pleeeeeeeeease!")), Db(u2b("지켜주고 싶은 미소")), Db(u2b("코브라 트위스트"))]))], 1)[0]
+# (Line 43) const Dear_SubText			=
+# (Line 44) [Db(u2b("기본 공격력이")),
+# (Line 45) Db(u2b("범위공격 범위가")),
+# (Line 46) Db(u2b("공격속도가"))];
 Dear_SubText = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("기본 공격력이")), Db(u2b("범위공격 범위가")), Db(u2b("공격속도가"))]))], 1)[0]
-# (Line 46) const Dear_EndText 			=
-# (Line 47) [Db(u2b("% \x04증가합니다.")),
-# (Line 48) Db(u2b(" \x04증가합니다.")),
-# (Line 49) Db(u2b("% \x04증가합니다."))];
+# (Line 48) const Dear_EndText 			=
+# (Line 49) [Db(u2b("% \x04증가합니다.")),
+# (Line 50) Db(u2b(" \x04증가합니다.")),
+# (Line 51) Db(u2b("% \x04증가합니다."))];
 Dear_EndText = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("% \x04증가합니다.")), Db(u2b(" \x04증가합니다.")), Db(u2b("% \x04증가합니다."))]))], 1)[0]
-# (Line 51) const Album_Level 		= EUDArray(13);
+# (Line 53) const Album_Level 		= EUDArray(13);
 Album_Level = _CGFW(lambda: [EUDArray(13)], 1)[0]
-# (Line 52) const Album_Now 		= EUDArray(13);
+# (Line 54) const Album_Now 		= EUDArray(13);
 Album_Now = _CGFW(lambda: [EUDArray(13)], 1)[0]
-# (Line 53) const Album_Delay		= EUDArray(13);
+# (Line 55) const Album_Delay		= EUDArray(13);
 Album_Delay = _CGFW(lambda: [EUDArray(13)], 1)[0]
-# (Line 54) const Album_EffectTime	= EUDArray(13);
+# (Line 56) const Album_EffectTime	= EUDArray(13);
 Album_EffectTime = _CGFW(lambda: [EUDArray(13)], 1)[0]
-# (Line 55) const Album_Need 		= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+# (Line 57) const Album_Need 		= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 Album_Need = _CGFW(lambda: [_ARR(FlattenList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))], 1)[0]
-# (Line 56) const Album_Ablity		= [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+# (Line 58) const Album_Ablity		= [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 Album_Ablity = _CGFW(lambda: [_ARR(FlattenList([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]))], 1)[0]
-# (Line 57) const Album_Multiply	= [20, 5, 60, 50, 1, 2, 20, 2, 10, 2, 1, 20, 5];
+# (Line 59) const Album_Multiply	= [20, 5, 60, 50, 1, 2, 20, 2, 10, 2, 1, 20, 5];
 Album_Multiply = _CGFW(lambda: [_ARR(FlattenList([20, 5, 60, 50, 1, 2, 20, 2, 10, 2, 1, 20, 5]))], 1)[0]
-# (Line 59) const Album_Text		=
-# (Line 60) [Db(u2b("진정한 나")),
-# (Line 61) Db(u2b("마음에 드는 이야기")),
-# (Line 62) Db(u2b("프린세스 아라모드")),
-# (Line 63) Db(u2b("복근! 배근! 흉근!")),
-# (Line 64) Db(u2b("Home is coming a now!")),
-# (Line 65) Db(u2b("고 투 퓨처!")),
-# (Line 66) Db(u2b("Only One Second")),
-# (Line 67) Db(u2b("아름다운 일본의 문화")),
-# (Line 68) Db(u2b("스마일 최고")),
-# (Line 69) Db(u2b("비에다 노래하자")),
-# (Line 70) Db(u2b("Up!10sion Pleeeeeeeeease!")),
-# (Line 71) Db(u2b("가끔은 시소")),
-# (Line 72) Db(u2b("WE ARE ONE!!"))];
-Album_Text = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("진정한 나")), Db(u2b("마음에 드는 이야기")), Db(u2b("프린세스 아라모드")), Db(u2b("복근! 배근! 흉근!")), Db(u2b("Home is coming a now!")), Db(u2b("고 투 퓨처!")), Db(u2b("Only One Second")), Db(u2b("아름다운 일본의 문화")), Db(u2b("스마일 최고")), Db(u2b("비에다 노래하자")), Db(u2b("Up!10sion Pleeeeeeeeease!")), Db(u2b("가끔은 시소")), Db(u2b("WE ARE ONE!!"))]))], 1)[0]
-# (Line 74) const Album_SubText			=
-# (Line 75) [Db(u2b("60초마다 10초간 공격속도가")),
-# (Line 76) Db(u2b("프린세스 타입의 댄스 어필이")),
-# (Line 77) Db(u2b("60초마다")),
-# (Line 78) Db(u2b("60초마다 5초간 공격력이")),
-# (Line 79) Db(u2b("프린세스 타입의 모든 어필이")),
-# (Line 80) Db(u2b("프린세스 타입의 보컬 어필이")),
-# (Line 81) Db(u2b("")),
-# (Line 82) Db(u2b("댄스 스케줄의 체력이")),
-# (Line 83) Db(u2b("60초마다 10초간 공격속도가")),
-# (Line 84) Db(u2b("프린세스 타입의 비주얼 어필이")),
-# (Line 85) Db(u2b("프린세스 타입의 높은 유닛이 뜰 확률이")),
-# (Line 86) Db(u2b("60초마다 5초간 공격력이")),
-# (Line 87) Db(u2b("프린세스 타입의 이벤트 점수가"))];
+# (Line 61) const Album_Text		=
+# (Line 62) [Db(u2b("진정한 나")),
+# (Line 63) Db(u2b("마음에 드는 이야기")),
+# (Line 64) Db(u2b("프린세스 아라모드")),
+# (Line 65) Db(u2b("복근! 배근! 흉근!")),
+# (Line 66) Db(u2b("Home is coming a now!")),
+# (Line 67) Db(u2b("고 투 퓨처!")),
+# (Line 68) Db(u2b("Only One Second")),
+# (Line 69) Db(u2b("아름다운 일본의 문화")),
+# (Line 70) Db(u2b("스마일 최고")),
+# (Line 71) Db(u2b("비에다 노래하자")),
+# (Line 72) Db(u2b("바래지 않는 한 장")),
+# (Line 73) Db(u2b("가끔은 시소")),
+# (Line 74) Db(u2b("WE ARE ONE!!")),
+# (Line 75) Db(u2b(" 단계"))];
+Album_Text = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("진정한 나")), Db(u2b("마음에 드는 이야기")), Db(u2b("프린세스 아라모드")), Db(u2b("복근! 배근! 흉근!")), Db(u2b("Home is coming a now!")), Db(u2b("고 투 퓨처!")), Db(u2b("Only One Second")), Db(u2b("아름다운 일본의 문화")), Db(u2b("스마일 최고")), Db(u2b("비에다 노래하자")), Db(u2b("바래지 않는 한 장")), Db(u2b("가끔은 시소")), Db(u2b("WE ARE ONE!!")), Db(u2b(" 단계"))]))], 1)[0]
+# (Line 77) const Album_SubText			=
+# (Line 78) [Db(u2b("60초마다 10초간 공격속도가")),
+# (Line 79) Db(u2b("프린세스 타입의 댄스 어필이")),
+# (Line 80) Db(u2b("60초마다")),
+# (Line 81) Db(u2b("60초마다 5초간 공격력이")),
+# (Line 82) Db(u2b("프린세스 타입의 모든 어필이")),
+# (Line 83) Db(u2b("프린세스 타입의 보컬 어필이")),
+# (Line 84) Db(u2b("")),
+# (Line 85) Db(u2b("댄스 스케줄의 체력이")),
+# (Line 86) Db(u2b("60초마다 10초간 공격속도가")),
+# (Line 87) Db(u2b("프린세스 타입의 비주얼 어필이")),
+# (Line 88) Db(u2b("프린세스 타입의 높은 유닛이 뜰 확률이")),
+# (Line 89) Db(u2b("60초마다 5초간 공격력이")),
+# (Line 90) Db(u2b("프린세스 타입의 이벤트 점수가"))];
 Album_SubText = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("60초마다 10초간 공격속도가")), Db(u2b("프린세스 타입의 댄스 어필이")), Db(u2b("60초마다")), Db(u2b("60초마다 5초간 공격력이")), Db(u2b("프린세스 타입의 모든 어필이")), Db(u2b("프린세스 타입의 보컬 어필이")), Db(u2b("")), Db(u2b("댄스 스케줄의 체력이")), Db(u2b("60초마다 10초간 공격속도가")), Db(u2b("프린세스 타입의 비주얼 어필이")), Db(u2b("프린세스 타입의 높은 유닛이 뜰 확률이")), Db(u2b("60초마다 5초간 공격력이")), Db(u2b("프린세스 타입의 이벤트 점수가"))]))], 1)[0]
-# (Line 89) const Album_EndText 			=
-# (Line 90) [Db(u2b("% \x04증가합니다.")),
-# (Line 91) Db(u2b("% \x04증가합니다.")),
-# (Line 92) Db(u2b("골드\x04를 얻습니다.")),
-# (Line 93) Db(u2b("% \x04증가합니다.")),
+# (Line 92) const Album_EndText 			=
+# (Line 93) [Db(u2b("% \x04증가합니다.")),
 # (Line 94) Db(u2b("% \x04증가합니다.")),
-# (Line 95) Db(u2b("% \x04증가합니다.")),
-# (Line 96) Db(u2b("\x04초마다 비쥬얼 스케줄의 체력을 1%로 만듭니다.")),
-# (Line 97) Db(u2b("% \x04감소합니다.")),
+# (Line 95) Db(u2b("골드\x04를 얻습니다.")),
+# (Line 96) Db(u2b("% \x04증가합니다.")),
+# (Line 97) Db(u2b("% \x04증가합니다.")),
 # (Line 98) Db(u2b("% \x04증가합니다.")),
-# (Line 99) Db(u2b("% \x04증가합니다.")),
-# (Line 100) Db(u2b("% \x04증가합니다.")),
+# (Line 99) Db(u2b("\x04초마다 비쥬얼 스케줄의 체력을 1%로 만듭니다.")),
+# (Line 100) Db(u2b("% \x04감소합니다.")),
 # (Line 101) Db(u2b("% \x04증가합니다.")),
-# (Line 102) Db(u2b("% \x04증가합니다."))];
+# (Line 102) Db(u2b("% \x04증가합니다.")),
+# (Line 103) Db(u2b("% \x04증가합니다.")),
+# (Line 104) Db(u2b("% \x04증가합니다.")),
+# (Line 105) Db(u2b("% \x04증가합니다."))];
 Album_EndText = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("% \x04증가합니다.")), Db(u2b("% \x04증가합니다.")), Db(u2b("골드\x04를 얻습니다.")), Db(u2b("% \x04증가합니다.")), Db(u2b("% \x04증가합니다.")), Db(u2b("% \x04증가합니다.")), Db(u2b("\x04초마다 비쥬얼 스케줄의 체력을 1%로 만듭니다.")), Db(u2b("% \x04감소합니다.")), Db(u2b("% \x04증가합니다.")), Db(u2b("% \x04증가합니다.")), Db(u2b("% \x04증가합니다.")), Db(u2b("% \x04증가합니다.")), Db(u2b("% \x04증가합니다."))]))], 1)[0]
+# (Line 107) const Create_Text =
+# (Line 108) [Db(u2b("저는 재능이 없을지도 몰라요. 그래도 노력을 아끼지 않고, 자신을 갈고닦으면, 분명...!")),
+# (Line 109) Db(u2b("저는, 책 속의 지식 밖에 없어요. 그래서, 현실세계를 더 공부해야..")),
+# (Line 110) Db(u2b("이렇게 대단한 프로듀서씨가 있다면, 마츠리의 미래는 원더호-! 인거예요!")),
+# (Line 111) Db(u2b("으우~ 몸 움직이고 싶다~! 어서 프로듀스 해달라구, 프로듀서!")),
+# (Line 112) Db(u2b("아이돌이라 카는 거, 쫌 재밌어 보이니까, 단디 해볼 끼데이~")),
+# (Line 113) Db(u2b("저, 아이돌이 되고 싶다는 마음만큼은 제일일 거라 생각해요! 부탁드립니다!")),
+# (Line 114) Db(u2b("저, 약한 모습 보이기 싫어요..! 한번 정한 이상, 해볼테니까!!")),
+# (Line 115) Db(u2b("처음 뵙겠어요, 관리자님. 에밀리라고 해요.")),
+# (Line 116) Db(u2b("절 프로듀스하시면 어디든지 도시락 챙겨줄테니까 건강 쪽은 안심하세요!")),
+# (Line 117) Db(u2b("발성연습~ 랄~라~ ..프로듀서님, 어째서 도망치시는 거예요?")),
+# (Line 118) Db(u2b("므흐흐. 아이돌쨩들을 너무 좋아하니까, 연구는 완벽하다구요!")),
+# (Line 119) Db(u2b("이쿠, 굉장한 아이돌이 돼 보일 테니까, 열심히 도와줘야 한다구?")),
+# (Line 120) Db(u2b("자, 박력있게 가자! ..어? 너무 세게 때렸다고?! 미안, 미안!"))];
+Create_Text = _CGFW(lambda: [_ARR(FlattenList([Db(u2b("저는 재능이 없을지도 몰라요. 그래도 노력을 아끼지 않고, 자신을 갈고닦으면, 분명...!")), Db(u2b("저는, 책 속의 지식 밖에 없어요. 그래서, 현실세계를 더 공부해야..")), Db(u2b("이렇게 대단한 프로듀서씨가 있다면, 마츠리의 미래는 원더호-! 인거예요!")), Db(u2b("으우~ 몸 움직이고 싶다~! 어서 프로듀스 해달라구, 프로듀서!")), Db(u2b("아이돌이라 카는 거, 쫌 재밌어 보이니까, 단디 해볼 끼데이~")), Db(u2b("저, 아이돌이 되고 싶다는 마음만큼은 제일일 거라 생각해요! 부탁드립니다!")), Db(u2b("저, 약한 모습 보이기 싫어요..! 한번 정한 이상, 해볼테니까!!")), Db(u2b("처음 뵙겠어요, 관리자님. 에밀리라고 해요.")), Db(u2b("절 프로듀스하시면 어디든지 도시락 챙겨줄테니까 건강 쪽은 안심하세요!")), Db(u2b("발성연습~ 랄~라~ ..프로듀서님, 어째서 도망치시는 거예요?")), Db(u2b("므흐흐. 아이돌쨩들을 너무 좋아하니까, 연구는 완벽하다구요!")), Db(u2b("이쿠, 굉장한 아이돌이 돼 보일 테니까, 열심히 도와줘야 한다구?")), Db(u2b("자, 박력있게 가자! ..어? 너무 세게 때렸다고?! 미안, 미안!"))]))], 1)[0]

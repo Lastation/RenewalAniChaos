@@ -110,7 +110,7 @@ function Set_Round_HP()
 		settbl(91, 0,  ptr2s(vr.event_name[vr.event]));
 	}
 	
-	if (round % 10 == 0 && Deaths(P6, Exactly, 0, "Round") && round != 0 && round < 80)
+	if (round % 10 == 0 && Deaths(P6, Exactly, 0, "Round") && round != 0 && round <= 70)
 	{
 		// Event
 		vr.event = dwread_epd(182 * 12 + 6);

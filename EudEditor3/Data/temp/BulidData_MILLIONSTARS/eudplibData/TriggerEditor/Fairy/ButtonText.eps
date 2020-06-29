@@ -23,15 +23,6 @@ function Init_ButtonText()
 	}
 }
 
-function Update_ButtomText()
-{
-	for (var i = 0; i < 13; i++)
-	{
-		Add_DearNow(i, 100);
-		Add_AlbumNow(i, 1);
-	}
-}
-
 function Set_Dear_ButtonText(id)
 {
 	if (v.Dear_Level[id] < 10)
@@ -54,13 +45,13 @@ function Set_Album_ButtonText(id)
 	{
 		if (id != 7)
 		{
-			settbl(1075 + id * 2, 8, v.Album_Now[id], "/", v.Album_Need[v.Album_Level[id]],
+			settbl(1075 + id * 2, 15, v.Album_Now[id], ptr2s(v.Album_Text[13]),
 			"\n\x1C", ptr2s(v.Album_Text[id])," Lv.", v.Album_Level[id],
 			"\n\x04", ptr2s(v.Album_SubText[id]), " \x08", v.Album_Level[id] * v.Album_Multiply[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]));
 		}
 		else
 		{
-			settbl(1075 + id * 2, 8, v.Album_Now[id], "/", v.Album_Need[v.Album_Level[id]],
+			settbl(1075 + id * 2, 15, v.Album_Now[id], ptr2s(v.Album_Text[13]),
 			"\n\x1C", ptr2s(v.Album_Text[id])," Lv.", v.Album_Level[id],
 			"\n\x08", v.Album_Multiply[id] -  v.Album_Level[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]));
 		}
@@ -69,13 +60,13 @@ function Set_Album_ButtonText(id)
 	{
 		if (id != 7)
 		{
-			settbl(1075 + id * 2, 8, v.Album_Now[id],
+			settbl(1075 + id * 2, 15, v.Album_Now[id], ptr2s(v.Album_Text[13]),
 			"\n\x1C", ptr2s(v.Album_Text[id])," Lv. Max",
 			"\n\x04", ptr2s(v.Album_SubText[id]), " \x08", v.Album_Level[id] * v.Album_Multiply[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]));
 		}
 		else
 		{
-			settbl(1075 + id * 2, 8, v.Album_Now[id],
+			settbl(1075 + id * 2, 15, v.Album_Now[id], ptr2s(v.Album_Text[13]),
 			"\n\x1C", ptr2s(v.Album_Text[id])," Lv. Max",
 			"\n\x08", v.Album_Multiply[id] -  v.Album_Level[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]));
 		}

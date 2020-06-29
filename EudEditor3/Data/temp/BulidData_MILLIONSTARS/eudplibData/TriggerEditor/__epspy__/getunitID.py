@@ -134,28 +134,29 @@ Unit_PrevIndex = _CGFW(lambda: [PVariable()], 1)[0]
 PlayerID = _CGFW(lambda: [PVariable()], 1)[0]
 # (Line 4) const Unit_ID 			= PVariable();
 Unit_ID = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 6) function Get_UnitID(cp)
-# (Line 7) {
+# (Line 6) function Get_UnitID(cp);
+# (Line 8) function Get_UnitID(cp)
+# (Line 9) {
 @EUDFunc
 def Get_UnitID(cp):
-    # (Line 8) if (MemoryEPD(EPD(0x6284E8) + 12 * cp, AtLeast, 1))
+    # (Line 10) if (MemoryEPD(EPD(0x6284E8) + 12 * cp, AtLeast, 1))
     if EUDIf()(MemoryEPD(EPD(0x6284E8) + 12 * cp, AtLeast, 1)):
-        # (Line 9) {
-        # (Line 10) const selectedUnit = EPD(0x6284E8) + 12 * cp;
+        # (Line 11) {
+        # (Line 12) const selectedUnit = EPD(0x6284E8) + 12 * cp;
         selectedUnit = EPD(0x6284E8) + 12 * cp
-        # (Line 12) Unit_NowIndex[cp] = epdread_epd(selectedUnit);
+        # (Line 14) Unit_NowIndex[cp] = epdread_epd(selectedUnit);
         _ARRW(Unit_NowIndex, cp) << (f_epdread_epd(selectedUnit))
-        # (Line 13) PlayerID[cp] = bread_epd(Unit_NowIndex[cp] + 0x4C/4, 0);
+        # (Line 15) PlayerID[cp] = bread_epd(Unit_NowIndex[cp] + 0x4C/4, 0);
         _ARRW(PlayerID, cp) << (f_bread_epd(Unit_NowIndex[cp] + 0x4C // 4, 0))
-        # (Line 15) if(Unit_NowIndex[cp] != Unit_PrevIndex[cp] )
+        # (Line 17) if(Unit_NowIndex[cp] != Unit_PrevIndex[cp] )
         if EUDIf()(Unit_NowIndex[cp] == Unit_PrevIndex[cp], neg=True):
-            # (Line 16) {
-            # (Line 17) Unit_PrevIndex[cp] = Unit_NowIndex[cp];
+            # (Line 18) {
+            # (Line 19) Unit_PrevIndex[cp] = Unit_NowIndex[cp];
             _ARRW(Unit_PrevIndex, cp) << (Unit_NowIndex[cp])
-            # (Line 18) Unit_ID[cp] = bread_epd(Unit_NowIndex[cp] + 0x64/4, 0);
+            # (Line 20) Unit_ID[cp] = bread_epd(Unit_NowIndex[cp] + 0x64/4, 0);
             _ARRW(Unit_ID, cp) << (f_bread_epd(Unit_NowIndex[cp] + 0x64 // 4, 0))
-            # (Line 19) }
-            # (Line 20) }
+            # (Line 21) }
+            # (Line 22) }
         EUDEndIf()
-        # (Line 21) }
+        # (Line 23) }
     EUDEndIf()

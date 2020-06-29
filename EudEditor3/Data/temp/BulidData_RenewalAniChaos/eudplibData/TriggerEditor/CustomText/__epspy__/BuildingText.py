@@ -158,8 +158,8 @@ def BuildingText(cp):
     # (Line 19) v.Unit_HP[cp] = dwread_epd(v.Unit_NowIndex[cp] + 0x008 / 4) / 256;
     if _t3(79):
         _ARRW(v.Unit_HP, cp) << (f_dwread_epd(v.Unit_NowIndex[cp] + 0x008 // 4) // 256)
-        # (Line 20) s.printAt(0, "\x13\x19[ \x1BS\x04chnee \x19]\n\x13\x04제거시 \x1B신전 \x04의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 110000");
-        s.printAt(0, "\x13\x19[ \x1BS\x04chnee \x19]\n\x13\x04제거시 \x1B신전 \x04의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 110000")
+        # (Line 20) s.printAt(0, "\x13\x19[ \x1BS\x04chnee \x19]\n\x13\x04제거시 \x1B신전 \x04의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 70000");
+        s.printAt(0, "\x13\x19[ \x1BS\x04chnee \x19]\n\x13\x04제거시 \x1B신전 \x04의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 70000")
         # (Line 21) break;
         EUDBreak()
         # (Line 22) case 168:

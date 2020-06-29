@@ -12,7 +12,10 @@ function main(cp)
 	ln.Marge(cp);
 	
 	sd.PlaySound(cp);
-	te.Title_Effect(cp);
+	if (cp < 5)
+	{
+		te.Title_Effect(cp);
+	}
 	teinfo.Title_Info(cp);
 	et.event_score(cp);
 	cl.Cloth_Ticket(cp);

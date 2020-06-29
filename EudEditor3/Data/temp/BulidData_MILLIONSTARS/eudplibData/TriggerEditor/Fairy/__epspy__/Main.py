@@ -134,449 +134,451 @@ from Fairy import ButtonText as bt
 from Fairy import Effect as et
 # (Line 4) import Weapon as w;
 import Weapon as w
-# (Line 6) function Init();
-# (Line 7) function Update();
-# (Line 9) function Init_Weapon();
-# (Line 11) function Update_AtkPercent();
-# (Line 12) function Set_AtkPercent(type, value);
-# (Line 14) function Update_PercentText();
-# (Line 15) function Update_AtkText(id);
-# (Line 17) function Test_Mode();
-# (Line 19) function Init()
-# (Line 20) {
+# (Line 6) import Title.Effect as te;
+from Title import Effect as te
+# (Line 8) function Init();
+# (Line 9) function FixedUpdate();
+# (Line 11) function Init_Weapon();
+# (Line 13) function Update_AtkPercent();
+# (Line 14) function Set_AtkPercent(type, value);
+# (Line 16) function Update_PercentText();
+# (Line 17) function Update_AtkText(id);
+# (Line 19) function Test_Mode();
+# (Line 21) function Init()
+# (Line 22) {
 @EUDFunc
 def Init():
-    # (Line 21) bt.Init_ButtonText();
+    # (Line 23) bt.Init_ButtonText();
     bt.Init_ButtonText()
-    # (Line 22) et.Init_Effect();
+    # (Line 24) et.Init_Effect();
     et.Init_Effect()
-    # (Line 24) Init_Weapon();
+    # (Line 26) Init_Weapon();
     Init_Weapon()
-    # (Line 26) Set_AtkPercent(0, v.Base_AtkPercent[0]);
+    # (Line 28) Set_AtkPercent(0, v.Base_AtkPercent[0]);
     Set_AtkPercent(0, v.Base_AtkPercent[0])
-    # (Line 27) Set_AtkPercent(1, v.Base_AtkPercent[1]);
+    # (Line 29) Set_AtkPercent(1, v.Base_AtkPercent[1]);
     Set_AtkPercent(1, v.Base_AtkPercent[1])
-    # (Line 28) Set_AtkPercent(2, v.Base_AtkPercent[2]);
+    # (Line 30) Set_AtkPercent(2, v.Base_AtkPercent[2]);
     Set_AtkPercent(2, v.Base_AtkPercent[2])
-    # (Line 29) Update_PercentText();
+    # (Line 31) Update_PercentText();
     Update_PercentText()
-    # (Line 31) for (var i = 0; i < 13; i++)
+    # (Line 33) for (var i = 0; i < 13; i++)
     i = EUDVariable()
     i << (0)
     if EUDWhile()(i >= 13, neg=True):
         def _t2():
             i.__iadd__(1)
-        # (Line 32) {
-        # (Line 33) Update_AtkText(i);
+        # (Line 34) {
+        # (Line 35) Update_AtkText(i);
         Update_AtkText(i)
-        # (Line 34) }
-        # (Line 35) }
+        # (Line 36) }
+        # (Line 37) }
         EUDSetContinuePoint()
         _t2()
     EUDEndWhile()
-    # (Line 37) function FixedUpdate()
+    # (Line 39) function FixedUpdate()
 
-# (Line 38) {
+# (Line 40) {
 @EUDFunc
 def FixedUpdate():
-    # (Line 39) et.Update_Effect();
+    # (Line 41) et.Update_Effect();
     et.Update_Effect()
-    # (Line 40) Update_AtkPercent();
+    # (Line 42) Update_AtkPercent();
     Update_AtkPercent()
-    # (Line 41) }
-    # (Line 43) function Test()
+    # (Line 43) }
+    # (Line 45) function Test()
 
-# (Line 44) {
+# (Line 46) {
 @EUDFunc
 def Test():
-    # (Line 45) bt.Update_ButtomText();
+    # (Line 47) bt.Update_ButtomText();
     bt.Update_ButtomText()
-    # (Line 46) }
-    # (Line 48) function Init_Weapon()
+    # (Line 48) }
+    # (Line 50) function Init_Weapon()
 
-# (Line 49) {
+# (Line 51) {
 @EUDFunc
 def Init_Weapon():
-    # (Line 50) for (var i = 0; i < 13; i++)
+    # (Line 52) for (var i = 0; i < 13; i++)
     i = EUDVariable()
     i << (0)
     if EUDWhile()(i >= 13, neg=True):
         def _t2():
             i.__iadd__(1)
-        # (Line 51) {
-        # (Line 52) w.Set_Label(v.Unit_AtkID[i], 242 + i);
+        # (Line 53) {
+        # (Line 54) w.Set_Rank(v.Unit_ID[i], v.Unit_Rank[i]);
+        w.Set_Rank(v.Unit_ID[i], v.Unit_Rank[i])
+        # (Line 56) w.Set_Label(v.Unit_AtkID[i], 242 + i);
         w.Set_Label(v.Unit_AtkID[i], 242 + i)
-        # (Line 53) w.Set_Atk(v.Unit_AtkID[i], v.Unit_Atk[i]);
+        # (Line 57) w.Set_Atk(v.Unit_AtkID[i], v.Unit_Atk[i]);
         w.Set_Atk(v.Unit_AtkID[i], v.Unit_Atk[i])
-        # (Line 54) w.Set_AtkBouns(v.Unit_AtkID[i], v.Unit_Atkbouns[i]);
+        # (Line 58) w.Set_AtkBouns(v.Unit_AtkID[i], v.Unit_Atkbouns[i]);
         w.Set_AtkBouns(v.Unit_AtkID[i], v.Unit_Atkbouns[i])
-        # (Line 55) w.Set_AtkSpeed(v.Unit_AtkID[i], v.Unit_Atkspeed[i]);
+        # (Line 59) w.Set_AtkSpeed(v.Unit_AtkID[i], v.Unit_Atkspeed[i]);
         w.Set_AtkSpeed(v.Unit_AtkID[i], v.Unit_Atkspeed[i])
-        # (Line 56) w.Set_AtkType(v.Unit_AtkID[i], v.Unit_Atktype[i]);
+        # (Line 60) w.Set_AtkType(v.Unit_AtkID[i], v.Unit_Atktype[i]);
         w.Set_AtkType(v.Unit_AtkID[i], v.Unit_Atktype[i])
-        # (Line 57) w.Set_AtkExplosion(v.Unit_AtkID[i], v.Unit_AtkExplosion[i]);
+        # (Line 61) w.Set_AtkExplosion(v.Unit_AtkID[i], v.Unit_AtkExplosion[i]);
         w.Set_AtkExplosion(v.Unit_AtkID[i], v.Unit_AtkExplosion[i])
-        # (Line 59) if (v.Unit_AtkExplosion[i] != 1)
-        if EUDIf()(v.Unit_AtkExplosion[i] == 1, neg=True):
-            # (Line 60) { w.Set_AtkSplash(v.Unit_AtkID[i], v.Unit_Atksplash[i]); }
-            w.Set_AtkSplash(v.Unit_AtkID[i], v.Unit_Atksplash[i])
-            # (Line 61) }
-        EUDEndIf()
-        # (Line 62) }
+        # (Line 62) w.Set_AtkSplash(v.Unit_AtkID[i], v.Unit_Atksplash[i]);
+        w.Set_AtkSplash(v.Unit_AtkID[i], v.Unit_Atksplash[i])
+        # (Line 64) w.Set_AtkRange(v.Unit_AtkID[i], v.Unit_AtkRange[i]);
+        w.Set_AtkRange(v.Unit_AtkID[i], v.Unit_AtkRange[i])
+        # (Line 65) w.Set_UnitRange(v.Unit_ID[i], v.Unit_AtkRange[i]);
+        w.Set_UnitRange(v.Unit_ID[i], v.Unit_AtkRange[i])
+        # (Line 66) }
+        # (Line 67) }
         EUDSetContinuePoint()
         _t2()
     EUDEndWhile()
-    # (Line 64) function Update_AtkPercent()
+    # (Line 69) function Update_AtkPercent()
 
-# (Line 65) {
+# (Line 70) {
 @EUDFunc
 def Update_AtkPercent():
-    # (Line 66) var value;
+    # (Line 71) var value;
     value = EUDVariable()
-    # (Line 68) var Da = 12;
+    # (Line 73) var Da = 12;
     Da = EUDVariable()
     Da << (12)
-    # (Line 69) var Vo = 0;
+    # (Line 74) var Vo = 0;
     Vo = EUDVariable()
     Vo << (0)
-    # (Line 70) var Vi = 4;
+    # (Line 75) var Vi = 4;
     Vi = EUDVariable()
     Vi << (4)
-    # (Line 71) var All = 5;
+    # (Line 76) var All = 5;
     All = EUDVariable()
     All << (5)
-    # (Line 73) switch(v.Unit_AtkPercentFlag[0])
+    # (Line 78) switch(v.Unit_AtkPercentFlag[0])
     EUDSwitch(v.Unit_AtkPercentFlag[0])
-    # (Line 74) {
-    # (Line 75) case 0:
+    # (Line 79) {
+    # (Line 80) case 0:
     _t1 = EUDSwitchCase()
-    # (Line 76) if (Bring(Force1, AtLeast, 1, v.Unit_ID[Da], "Anywhere"))
+    # (Line 81) if (Bring(Force1, AtLeast, 1, v.Unit_ID[Da], "Anywhere"))
     if _t1(0):
         if EUDIf()(Bring(Force1, AtLeast, 1, v.Unit_ID[Da], "Anywhere")):
-            # (Line 77) {
-            # (Line 78) if (Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere"))
+            # (Line 82) {
+            # (Line 83) if (Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere"))
             if EUDIf()(Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere")):
-                # (Line 79) { value = ((v.Album_Multiply[Da] * v.Album_Level[Da]) * 256 + 256) / 100 + v.Base_AtkPercent[0]; }
+                # (Line 84) { value = ((v.Album_Multiply[Da] * v.Album_Level[Da]) * 256 + 256) / 100 + v.Base_AtkPercent[0]; }
                 value << (((v.Album_Multiply[Da] * v.Album_Level[Da]) * 256 + 256) // 100 + v.Base_AtkPercent[0])
-                # (Line 80) else
-                # (Line 81) { value = ((v.Album_Multiply[Da] * v.Album_Level[Da] + v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) / 100 + v.Base_AtkPercent[0]; }
+                # (Line 85) else
+                # (Line 86) { value = ((v.Album_Multiply[Da] * v.Album_Level[Da] + v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) / 100 + v.Base_AtkPercent[0]; }
             if EUDElse()():
                 value << (((v.Album_Multiply[Da] * v.Album_Level[Da] + v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) // 100 + v.Base_AtkPercent[0])
-                # (Line 82) Set_AtkPercent(0, value);
+                # (Line 87) Set_AtkPercent(0, value);
             EUDEndIf()
             Set_AtkPercent(0, value)
-            # (Line 83) Update_PercentText();
+            # (Line 88) Update_PercentText();
             Update_PercentText()
-            # (Line 84) v.Unit_AtkPercentFlag[0] = 1;
+            # (Line 89) v.Unit_AtkPercentFlag[0] = 1;
             _ARRW(v.Unit_AtkPercentFlag, 0) << (1)
-            # (Line 85) }
-            # (Line 86) break;
+            # (Line 90) }
+            # (Line 91) break;
         EUDEndIf()
         EUDBreak()
-        # (Line 87) case 1:
+        # (Line 92) case 1:
     _t4 = EUDSwitchCase()
-    # (Line 88) if (Bring(Force1, Exactly, 0, v.Unit_ID[Da], "Anywhere"))
+    # (Line 93) if (Bring(Force1, Exactly, 0, v.Unit_ID[Da], "Anywhere"))
     if _t4(1):
         if EUDIf()(Bring(Force1, Exactly, 0, v.Unit_ID[Da], "Anywhere")):
-            # (Line 89) {
-            # (Line 90) if (Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere"))
+            # (Line 94) {
+            # (Line 95) if (Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere"))
             if EUDIf()(Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere")):
-                # (Line 91) { value = v.Base_AtkPercent[0]; }
+                # (Line 96) { value = v.Base_AtkPercent[0]; }
                 value << (v.Base_AtkPercent[0])
-                # (Line 92) else
-                # (Line 93) { value = ((v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) / 100 + v.Base_AtkPercent[0]; }
+                # (Line 97) else
+                # (Line 98) { value = ((v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) / 100 + v.Base_AtkPercent[0]; }
             if EUDElse()():
                 value << (((v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) // 100 + v.Base_AtkPercent[0])
-                # (Line 94) Set_AtkPercent(0, value);
+                # (Line 99) Set_AtkPercent(0, value);
             EUDEndIf()
             Set_AtkPercent(0, value)
-            # (Line 95) Update_PercentText();
+            # (Line 100) Update_PercentText();
             Update_PercentText()
-            # (Line 96) v.Unit_AtkPercentFlag[0] = 0;
+            # (Line 101) v.Unit_AtkPercentFlag[0] = 0;
             _ARRW(v.Unit_AtkPercentFlag, 0) << (0)
-            # (Line 97) }
-            # (Line 98) }
+            # (Line 102) }
+            # (Line 103) }
         EUDEndIf()
-    # (Line 99) switch(v.Unit_AtkPercentFlag[1])
+    # (Line 104) switch(v.Unit_AtkPercentFlag[1])
     EUDEndSwitch()
     EUDSwitch(v.Unit_AtkPercentFlag[1])
-    # (Line 100) {
-    # (Line 101) case 0:
+    # (Line 105) {
+    # (Line 106) case 0:
     _t7 = EUDSwitchCase()
-    # (Line 102) if (Bring(Force1, AtLeast, 1, v.Unit_ID[Vo], "Anywhere"))
+    # (Line 107) if (Bring(Force1, AtLeast, 1, v.Unit_ID[Vo], "Anywhere"))
     if _t7(0):
         if EUDIf()(Bring(Force1, AtLeast, 1, v.Unit_ID[Vo], "Anywhere")):
-            # (Line 103) {
-            # (Line 104) if (Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere"))
+            # (Line 108) {
+            # (Line 109) if (Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere"))
             if EUDIf()(Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere")):
-                # (Line 105) { value = ((v.Album_Multiply[Vo] * v.Album_Level[Vo]) * 256 + 256) / 100 + v.Base_AtkPercent[1]; }
+                # (Line 110) { value = ((v.Album_Multiply[Vo] * v.Album_Level[Vo]) * 256 + 256) / 100 + v.Base_AtkPercent[1]; }
                 value << (((v.Album_Multiply[Vo] * v.Album_Level[Vo]) * 256 + 256) // 100 + v.Base_AtkPercent[1])
-                # (Line 106) else
-                # (Line 107) { value = ((v.Album_Multiply[Vo] * v.Album_Level[Vo] + v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) / 100 + v.Base_AtkPercent[1]; }
+                # (Line 111) else
+                # (Line 112) { value = ((v.Album_Multiply[Vo] * v.Album_Level[Vo] + v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) / 100 + v.Base_AtkPercent[1]; }
             if EUDElse()():
                 value << (((v.Album_Multiply[Vo] * v.Album_Level[Vo] + v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) // 100 + v.Base_AtkPercent[1])
-                # (Line 108) Set_AtkPercent(1, value);
+                # (Line 113) Set_AtkPercent(1, value);
             EUDEndIf()
             Set_AtkPercent(1, value)
-            # (Line 109) Update_PercentText();
+            # (Line 114) Update_PercentText();
             Update_PercentText()
-            # (Line 110) v.Unit_AtkPercentFlag[1] = 1;
+            # (Line 115) v.Unit_AtkPercentFlag[1] = 1;
             _ARRW(v.Unit_AtkPercentFlag, 1) << (1)
-            # (Line 111) }
-            # (Line 112) break;
+            # (Line 116) }
+            # (Line 117) break;
         EUDEndIf()
         EUDBreak()
-        # (Line 113) case 1:
+        # (Line 118) case 1:
     _t10 = EUDSwitchCase()
-    # (Line 114) if (Bring(Force1, Exactly, 0, v.Unit_ID[Vo], "Anywhere"))
+    # (Line 119) if (Bring(Force1, Exactly, 0, v.Unit_ID[Vo], "Anywhere"))
     if _t10(1):
         if EUDIf()(Bring(Force1, Exactly, 0, v.Unit_ID[Vo], "Anywhere")):
-            # (Line 115) {
-            # (Line 116) if (Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere"))
+            # (Line 120) {
+            # (Line 121) if (Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere"))
             if EUDIf()(Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere")):
-                # (Line 117) { value = v.Base_AtkPercent[1]; }
+                # (Line 122) { value = v.Base_AtkPercent[1]; }
                 value << (v.Base_AtkPercent[1])
-                # (Line 118) else
-                # (Line 119) { value = ((v.Album_Multiply[Vo] * v.Album_Level[Vo]) * 256 + 256) / 100 + v.Base_AtkPercent[1]; }
+                # (Line 123) else
+                # (Line 124) { value = ((v.Album_Multiply[Vo] * v.Album_Level[Vo]) * 256 + 256) / 100 + v.Base_AtkPercent[1]; }
             if EUDElse()():
                 value << (((v.Album_Multiply[Vo] * v.Album_Level[Vo]) * 256 + 256) // 100 + v.Base_AtkPercent[1])
-                # (Line 120) Set_AtkPercent(1, value);
+                # (Line 125) Set_AtkPercent(1, value);
             EUDEndIf()
             Set_AtkPercent(1, value)
-            # (Line 121) Update_PercentText();
+            # (Line 126) Update_PercentText();
             Update_PercentText()
-            # (Line 122) v.Unit_AtkPercentFlag[1] = 0;
+            # (Line 127) v.Unit_AtkPercentFlag[1] = 0;
             _ARRW(v.Unit_AtkPercentFlag, 1) << (0)
-            # (Line 123) }
-            # (Line 124) }
+            # (Line 128) }
+            # (Line 129) }
         EUDEndIf()
-    # (Line 125) switch(v.Unit_AtkPercentFlag[2])
+    # (Line 130) switch(v.Unit_AtkPercentFlag[2])
     EUDEndSwitch()
     EUDSwitch(v.Unit_AtkPercentFlag[2])
-    # (Line 126) {
-    # (Line 127) case 0:
+    # (Line 131) {
+    # (Line 132) case 0:
     _t13 = EUDSwitchCase()
-    # (Line 128) if (Bring(Force1, AtLeast, 1, v.Unit_ID[Vi], "Anywhere"))
+    # (Line 133) if (Bring(Force1, AtLeast, 1, v.Unit_ID[Vi], "Anywhere"))
     if _t13(0):
         if EUDIf()(Bring(Force1, AtLeast, 1, v.Unit_ID[Vi], "Anywhere")):
-            # (Line 129) {
-            # (Line 130) if (Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere"))
+            # (Line 134) {
+            # (Line 135) if (Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere"))
             if EUDIf()(Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere")):
-                # (Line 131) { value = ((v.Album_Multiply[Vi] * v.Album_Level[Vi]) * 256 + 256) / 100 + v.Base_AtkPercent[2]; }
+                # (Line 136) { value = ((v.Album_Multiply[Vi] * v.Album_Level[Vi]) * 256 + 256) / 100 + v.Base_AtkPercent[2]; }
                 value << (((v.Album_Multiply[Vi] * v.Album_Level[Vi]) * 256 + 256) // 100 + v.Base_AtkPercent[2])
-                # (Line 132) else
-                # (Line 133) { value = ((v.Album_Multiply[Vi] * v.Album_Level[Vi] + v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) / 100 + v.Base_AtkPercent[2]; }
+                # (Line 137) else
+                # (Line 138) { value = ((v.Album_Multiply[Vi] * v.Album_Level[Vi] + v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) / 100 + v.Base_AtkPercent[2]; }
             if EUDElse()():
                 value << (((v.Album_Multiply[Vi] * v.Album_Level[Vi] + v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) // 100 + v.Base_AtkPercent[2])
-                # (Line 134) Set_AtkPercent(2, value);
+                # (Line 139) Set_AtkPercent(2, value);
             EUDEndIf()
             Set_AtkPercent(2, value)
-            # (Line 135) Update_PercentText();
+            # (Line 140) Update_PercentText();
             Update_PercentText()
-            # (Line 136) v.Unit_AtkPercentFlag[2] = 1;
+            # (Line 141) v.Unit_AtkPercentFlag[2] = 1;
             _ARRW(v.Unit_AtkPercentFlag, 2) << (1)
-            # (Line 137) }
-            # (Line 138) break;
+            # (Line 142) }
+            # (Line 143) break;
         EUDEndIf()
         EUDBreak()
-        # (Line 139) case 1:
+        # (Line 144) case 1:
     _t16 = EUDSwitchCase()
-    # (Line 140) if (Bring(Force1, Exactly, 0, v.Unit_ID[Vi], "Anywhere") && Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere"))
+    # (Line 145) if (Bring(Force1, Exactly, 0, v.Unit_ID[Vi], "Anywhere") && Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere"))
     if _t16(1):
         if EUDIf()(EUDSCAnd()(Bring(Force1, Exactly, 0, v.Unit_ID[Vi], "Anywhere"))(Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere"))()):
-            # (Line 141) {
-            # (Line 142) if (Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere"))
+            # (Line 146) {
+            # (Line 147) if (Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere"))
             if EUDIf()(Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere")):
-                # (Line 143) { value = v.Base_AtkPercent[2]; }
+                # (Line 148) { value = v.Base_AtkPercent[2]; }
                 value << (v.Base_AtkPercent[2])
-                # (Line 144) else
-                # (Line 145) { value = ((v.Album_Multiply[Vi] * v.Album_Level[Vi]) * 256 + 256) / 100 + v.Base_AtkPercent[2]; }
+                # (Line 149) else
+                # (Line 150) { value = ((v.Album_Multiply[Vi] * v.Album_Level[Vi]) * 256 + 256) / 100 + v.Base_AtkPercent[2]; }
             if EUDElse()():
                 value << (((v.Album_Multiply[Vi] * v.Album_Level[Vi]) * 256 + 256) // 100 + v.Base_AtkPercent[2])
-                # (Line 146) Set_AtkPercent(2, value);
+                # (Line 151) Set_AtkPercent(2, value);
             EUDEndIf()
             Set_AtkPercent(2, value)
-            # (Line 147) Update_PercentText();
+            # (Line 152) Update_PercentText();
             Update_PercentText()
-            # (Line 148) v.Unit_AtkPercentFlag[2] = 0;
+            # (Line 153) v.Unit_AtkPercentFlag[2] = 0;
             _ARRW(v.Unit_AtkPercentFlag, 2) << (0)
-            # (Line 149) }
-            # (Line 150) }
+            # (Line 154) }
+            # (Line 155) }
         EUDEndIf()
-    # (Line 151) switch(v.Unit_AtkPercentFlag[3])
+    # (Line 156) switch(v.Unit_AtkPercentFlag[3])
     EUDEndSwitch()
     EUDSwitch(v.Unit_AtkPercentFlag[3])
-    # (Line 152) {
-    # (Line 153) case 0:
+    # (Line 157) {
+    # (Line 158) case 0:
     _t19 = EUDSwitchCase()
-    # (Line 154) if (Bring(Force1, AtLeast, 1, v.Unit_ID[All], "Anywhere"))
+    # (Line 159) if (Bring(Force1, AtLeast, 1, v.Unit_ID[All], "Anywhere"))
     if _t19(0):
         if EUDIf()(Bring(Force1, AtLeast, 1, v.Unit_ID[All], "Anywhere")):
-            # (Line 155) {
-            # (Line 156) if (Bring(Force1, Exactly, 0, v.Unit_ID[Da], "Anywhere"))
+            # (Line 160) {
+            # (Line 161) if (Bring(Force1, Exactly, 0, v.Unit_ID[Da], "Anywhere"))
             if EUDIf()(Bring(Force1, Exactly, 0, v.Unit_ID[Da], "Anywhere")):
-                # (Line 157) { value = ((v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) / 100 + v.Base_AtkPercent[0]; }
+                # (Line 162) { value = ((v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) / 100 + v.Base_AtkPercent[0]; }
                 value << (((v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) // 100 + v.Base_AtkPercent[0])
-                # (Line 158) else
-                # (Line 159) { value = ((v.Album_Multiply[Da] * v.Album_Level[Da] + v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) / 100 + v.Base_AtkPercent[0]; }
+                # (Line 163) else
+                # (Line 164) { value = ((v.Album_Multiply[Da] * v.Album_Level[Da] + v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) / 100 + v.Base_AtkPercent[0]; }
             if EUDElse()():
                 value << (((v.Album_Multiply[Da] * v.Album_Level[Da] + v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) // 100 + v.Base_AtkPercent[0])
-                # (Line 160) Set_AtkPercent(0, value);
+                # (Line 165) Set_AtkPercent(0, value);
             EUDEndIf()
             Set_AtkPercent(0, value)
-            # (Line 162) if (Bring(Force1, Exactly, 0, v.Unit_ID[Vo], "Anywhere"))
+            # (Line 167) if (Bring(Force1, Exactly, 0, v.Unit_ID[Vo], "Anywhere"))
             if EUDIf()(Bring(Force1, Exactly, 0, v.Unit_ID[Vo], "Anywhere")):
-                # (Line 163) { value = ((v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) / 100 + v.Base_AtkPercent[1]; }
+                # (Line 168) { value = ((v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) / 100 + v.Base_AtkPercent[1]; }
                 value << (((v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) // 100 + v.Base_AtkPercent[1])
-                # (Line 164) else
-                # (Line 165) { value = ((v.Album_Multiply[Vo] * v.Album_Level[Vo] + v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) / 100 + v.Base_AtkPercent[1]; }
+                # (Line 169) else
+                # (Line 170) { value = ((v.Album_Multiply[Vo] * v.Album_Level[Vo] + v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) / 100 + v.Base_AtkPercent[1]; }
             if EUDElse()():
                 value << (((v.Album_Multiply[Vo] * v.Album_Level[Vo] + v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) // 100 + v.Base_AtkPercent[1])
-                # (Line 166) Set_AtkPercent(1, value);
+                # (Line 171) Set_AtkPercent(1, value);
             EUDEndIf()
             Set_AtkPercent(1, value)
-            # (Line 168) if (Bring(Force1, Exactly, 0, v.Unit_ID[Vi], "Anywhere"))
+            # (Line 173) if (Bring(Force1, Exactly, 0, v.Unit_ID[Vi], "Anywhere"))
             if EUDIf()(Bring(Force1, Exactly, 0, v.Unit_ID[Vi], "Anywhere")):
-                # (Line 169) { value = ((v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) / 100 + v.Base_AtkPercent[2]; }
+                # (Line 174) { value = ((v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) / 100 + v.Base_AtkPercent[2]; }
                 value << (((v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) // 100 + v.Base_AtkPercent[2])
-                # (Line 170) else
-                # (Line 171) { value = ((v.Album_Multiply[Vi] * v.Album_Level[Vi] + v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) / 100 + v.Base_AtkPercent[2]; }
+                # (Line 175) else
+                # (Line 176) { value = ((v.Album_Multiply[Vi] * v.Album_Level[Vi] + v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) / 100 + v.Base_AtkPercent[2]; }
             if EUDElse()():
                 value << (((v.Album_Multiply[Vi] * v.Album_Level[Vi] + v.Album_Multiply[All] * v.Album_Level[All]) * 256 + 256) // 100 + v.Base_AtkPercent[2])
-                # (Line 172) Set_AtkPercent(2, value);
+                # (Line 177) Set_AtkPercent(2, value);
             EUDEndIf()
             Set_AtkPercent(2, value)
-            # (Line 174) Update_PercentText();
+            # (Line 179) Update_PercentText();
             Update_PercentText()
-            # (Line 175) v.Unit_AtkPercentFlag[3] = 1;
+            # (Line 180) v.Unit_AtkPercentFlag[3] = 1;
             _ARRW(v.Unit_AtkPercentFlag, 3) << (1)
-            # (Line 176) }
-            # (Line 177) break;
+            # (Line 181) }
+            # (Line 182) break;
         EUDEndIf()
         EUDBreak()
-        # (Line 178) case 1:
+        # (Line 183) case 1:
     _t24 = EUDSwitchCase()
-    # (Line 179) if (Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere"))
+    # (Line 184) if (Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere"))
     if _t24(1):
         if EUDIf()(Bring(Force1, Exactly, 0, v.Unit_ID[All], "Anywhere")):
-            # (Line 180) {
-            # (Line 181) if (Bring(Force1, Exactly, 0, v.Unit_ID[Da], "Anywhere"))
+            # (Line 185) {
+            # (Line 186) if (Bring(Force1, Exactly, 0, v.Unit_ID[Da], "Anywhere"))
             if EUDIf()(Bring(Force1, Exactly, 0, v.Unit_ID[Da], "Anywhere")):
-                # (Line 182) { value = v.Base_AtkPercent[0]; }
+                # (Line 187) { value = v.Base_AtkPercent[0]; }
                 value << (v.Base_AtkPercent[0])
-                # (Line 183) else
-                # (Line 184) { value = ((v.Album_Multiply[Da] * v.Album_Level[Da]) * 256 + 256) / 100 + v.Base_AtkPercent[0]; }
+                # (Line 188) else
+                # (Line 189) { value = ((v.Album_Multiply[Da] * v.Album_Level[Da]) * 256 + 256) / 100 + v.Base_AtkPercent[0]; }
             if EUDElse()():
                 value << (((v.Album_Multiply[Da] * v.Album_Level[Da]) * 256 + 256) // 100 + v.Base_AtkPercent[0])
-                # (Line 185) Set_AtkPercent(0, value);
+                # (Line 190) Set_AtkPercent(0, value);
             EUDEndIf()
             Set_AtkPercent(0, value)
-            # (Line 187) if (Bring(Force1, Exactly, 0, v.Unit_ID[Vo], "Anywhere"))
+            # (Line 192) if (Bring(Force1, Exactly, 0, v.Unit_ID[Vo], "Anywhere"))
             if EUDIf()(Bring(Force1, Exactly, 0, v.Unit_ID[Vo], "Anywhere")):
-                # (Line 188) { value = v.Base_AtkPercent[1]; }
+                # (Line 193) { value = v.Base_AtkPercent[1]; }
                 value << (v.Base_AtkPercent[1])
-                # (Line 189) else
-                # (Line 190) { value = ((v.Album_Multiply[Vo] * v.Album_Level[Vo]) * 256 + 256) / 100 + v.Base_AtkPercent[1]; }
+                # (Line 194) else
+                # (Line 195) { value = ((v.Album_Multiply[Vo] * v.Album_Level[Vo]) * 256 + 256) / 100 + v.Base_AtkPercent[1]; }
             if EUDElse()():
                 value << (((v.Album_Multiply[Vo] * v.Album_Level[Vo]) * 256 + 256) // 100 + v.Base_AtkPercent[1])
-                # (Line 191) Set_AtkPercent(1, value);
+                # (Line 196) Set_AtkPercent(1, value);
             EUDEndIf()
             Set_AtkPercent(1, value)
-            # (Line 193) if (Bring(Force1, Exactly, 0, v.Unit_ID[Vi], "Anywhere"))
+            # (Line 198) if (Bring(Force1, Exactly, 0, v.Unit_ID[Vi], "Anywhere"))
             if EUDIf()(Bring(Force1, Exactly, 0, v.Unit_ID[Vi], "Anywhere")):
-                # (Line 194) { value = v.Base_AtkPercent[2]; }
+                # (Line 199) { value = v.Base_AtkPercent[2]; }
                 value << (v.Base_AtkPercent[2])
-                # (Line 195) else
-                # (Line 196) { value = ((v.Album_Multiply[Vi] * v.Album_Level[Vi]) * 256 + 256) / 100 + v.Base_AtkPercent[2]; }
+                # (Line 200) else
+                # (Line 201) { value = ((v.Album_Multiply[Vi] * v.Album_Level[Vi]) * 256 + 256) / 100 + v.Base_AtkPercent[2]; }
             if EUDElse()():
                 value << (((v.Album_Multiply[Vi] * v.Album_Level[Vi]) * 256 + 256) // 100 + v.Base_AtkPercent[2])
-                # (Line 197) Set_AtkPercent(2, value);
+                # (Line 202) Set_AtkPercent(2, value);
             EUDEndIf()
             Set_AtkPercent(2, value)
-            # (Line 199) Update_PercentText();
+            # (Line 204) Update_PercentText();
             Update_PercentText()
-            # (Line 200) v.Unit_AtkPercentFlag[3] = 0;
+            # (Line 205) v.Unit_AtkPercentFlag[3] = 0;
             _ARRW(v.Unit_AtkPercentFlag, 3) << (0)
-            # (Line 201) }
-            # (Line 202) }
+            # (Line 206) }
+            # (Line 207) }
         EUDEndIf()
-    # (Line 203) }
+    # (Line 208) }
     EUDEndSwitch()
-    # (Line 205) function Set_AtkPercent(type, value)
+    # (Line 210) function Set_AtkPercent(type, value)
 
-# (Line 206) {
+# (Line 211) {
 @EUDFunc
 def Set_AtkPercent(type, value):
-    # (Line 208) switch(type)
+    # (Line 213) switch(type)
     EUDSwitch(type)
-    # (Line 209) {
-    # (Line 210) case 0:
+    # (Line 214) {
+    # (Line 215) case 0:
     _t1 = EUDSwitchCase()
-    # (Line 211) SetMemory(0x515BB4, SetTo, value);	// 소형 - 프린세스 	75%
+    # (Line 216) SetMemory(0x515BB4, SetTo, value);	// 소형 - 프린세스 	75%
     if _t1(0):
-        # (Line 212) v.Unit_AtkPercent[0] = (value * 100)/256;
+        # (Line 217) v.Unit_AtkPercent[0] = (value * 100)/256;
         DoActions(SetMemory(0x515BB4, SetTo, value))
         _ARRW(v.Unit_AtkPercent, 0) << ((value * 100) // 256)
-        # (Line 213) break;
+        # (Line 218) break;
         EUDBreak()
-        # (Line 214) case 1:
+        # (Line 219) case 1:
     _t2 = EUDSwitchCase()
-    # (Line 215) SetMemory(0x515BB8, SetTo, value);	// 중형 - 페어리 		100%
+    # (Line 220) SetMemory(0x515BB8, SetTo, value);	// 중형 - 페어리 		100%
     if _t2(1):
-        # (Line 216) v.Unit_AtkPercent[1] = (value * 100)/256;
+        # (Line 221) v.Unit_AtkPercent[1] = (value * 100)/256;
         DoActions(SetMemory(0x515BB8, SetTo, value))
         _ARRW(v.Unit_AtkPercent, 1) << ((value * 100) // 256)
-        # (Line 217) break;
+        # (Line 222) break;
         EUDBreak()
-        # (Line 218) case 2:
+        # (Line 223) case 2:
     _t3 = EUDSwitchCase()
-    # (Line 219) SetMemory(0x515BBC, SetTo, value);	// 대형 - 엔젤 		50%
+    # (Line 224) SetMemory(0x515BBC, SetTo, value);	// 대형 - 엔젤 		50%
     if _t3(2):
-        # (Line 220) v.Unit_AtkPercent[2] = (value * 100)/256;
+        # (Line 225) v.Unit_AtkPercent[2] = (value * 100)/256;
         DoActions(SetMemory(0x515BBC, SetTo, value))
         _ARRW(v.Unit_AtkPercent, 2) << ((value * 100) // 256)
-        # (Line 221) break;
+        # (Line 226) break;
         EUDBreak()
-        # (Line 222) }
-    # (Line 223) }
+        # (Line 227) }
+    # (Line 228) }
     EUDEndSwitch()
-    # (Line 225) function Update_PercentText()
+    # (Line 230) function Update_PercentText()
 
-# (Line 226) {
+# (Line 231) {
 @EUDFunc
 def Update_PercentText():
-    # (Line 227) settbl(412, 11, "\n",
-    # (Line 228) "\x1B댄스 \x04스케줄에 \x1B", v.Unit_AtkPercent[0], "%\n",
-    # (Line 229) "\x1C보컬 \x04스케줄에 \x1C", v.Unit_AtkPercent[1], "%\n",
-    # (Line 230) "\x19비주얼 \x04스케줄에 \x19", v.Unit_AtkPercent[2], "%\n\x14");
-    f_settbl(412, 11, "\n", "\x1B댄스 \x04스케줄에 \x1B", v.Unit_AtkPercent[0], "%\n", "\x1C보컬 \x04스케줄에 \x1C", v.Unit_AtkPercent[1], "%\n", "\x19비주얼 \x04스케줄에 \x19", v.Unit_AtkPercent[2], "%\n\x14")
-    # (Line 231) }
-    # (Line 233) function Update_AtkText(id)
+    # (Line 232) te.Update_PercentText();
+    te.Update_PercentText()
+    # (Line 233) }
+    # (Line 235) function Update_AtkText(id)
 
-# (Line 234) {
+# (Line 236) {
 @EUDFunc
 def Update_AtkText(id):
-    # (Line 235) settbl(242 + id, 11, "\n",
-    # (Line 236) "\x04공격속도 : \x19",  bread(0x6564E0 + 2776 + v.Unit_AtkID[id] * 1), "\n",
-    # (Line 237) "\x04범위공격 : \x19", wread(0x6564E0 + 936 + v.Unit_AtkID[id] * 2));
-    f_settbl(242 + id, 11, "\n", "\x04공격속도 : \x19", f_bread(0x6564E0 + 2776 + v.Unit_AtkID[id] * 1), "\n", "\x04범위공격 : \x19", f_wread(0x6564E0 + 936 + v.Unit_AtkID[id] * 2))
-    # (Line 238) }
-    # (Line 240) function Test_Mode()
+    # (Line 237) settbl(242 + id, 11, "\n",
+    # (Line 238) "\x04공격속도 : \x19",  bread(0x6564E0 + 2776 + v.Unit_AtkID[id] * 1), "\n",
+    # (Line 239) "\x04범위공격 : \x19", wread(0x6564E0 + 4768 + v.Unit_AtkID[id] * 2));
+    f_settbl(242 + id, 11, "\n", "\x04공격속도 : \x19", f_bread(0x6564E0 + 2776 + v.Unit_AtkID[id] * 1), "\n", "\x04범위공격 : \x19", f_wread(0x6564E0 + 4768 + v.Unit_AtkID[id] * 2))
+    # (Line 240) }
+    # (Line 242) function Test_Mode()
 
-# (Line 241) {
+# (Line 243) {
 @EUDFunc
 def Test_Mode():
-    # (Line 242) for (var i = 0; i < 13; i++)
+    # (Line 244) for (var i = 0; i < 13; i++)
     i = EUDVariable()
     i << (0)
     if EUDWhile()(i >= 13, neg=True):
         def _t2():
             i.__iadd__(1)
-        # (Line 243) {
-        # (Line 244) CreateUnit(1, v.Unit_ID[i], "Player1", P1);
-        # (Line 245) }
+        # (Line 245) {
+        # (Line 246) CreateUnit(1, v.Unit_ID[i], "Player1", P1);
+        # (Line 247) }
         DoActions(CreateUnit(1, v.Unit_ID[i], "Player1", P1))
-        # (Line 246) }
+        # (Line 248) }
         EUDSetContinuePoint()
         _t2()
     EUDEndWhile()

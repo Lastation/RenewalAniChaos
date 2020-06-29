@@ -150,14 +150,19 @@ def f_main(cp):
     ln.Marge(cp)
     # (Line 14) sd.PlaySound(cp);
     sd.PlaySound(cp)
-    # (Line 15) te.Title_Effect(cp);
-    te.Title_Effect(cp)
-    # (Line 16) teinfo.Title_Info(cp);
+    # (Line 15) if (cp < 5)
+    if EUDIf()(cp >= 5, neg=True):
+        # (Line 16) {
+        # (Line 17) te.Title_Effect(cp);
+        te.Title_Effect(cp)
+        # (Line 18) }
+        # (Line 19) teinfo.Title_Info(cp);
+    EUDEndIf()
     teinfo.Title_Info(cp)
-    # (Line 17) et.event_score(cp);
+    # (Line 20) et.event_score(cp);
     et.f_event_score(cp)
-    # (Line 18) cl.Cloth_Ticket(cp);
+    # (Line 21) cl.Cloth_Ticket(cp);
     cl.Cloth_Ticket(cp)
-    # (Line 19) cl.Producer_Buff(cp);
+    # (Line 22) cl.Producer_Buff(cp);
     cl.Producer_Buff(cp)
-    # (Line 20) }
+    # (Line 23) }
