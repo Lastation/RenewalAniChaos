@@ -377,6 +377,7 @@ Trigger { -- Skill : Use Combo
       Deaths(CurrentPlayer, Exactly, 5, " `SkillCount");
       Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop");
       Bring(CurrentPlayer, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill");
+      Bring(CurrentPlayer, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill");
    },
    actions = {
       Comment("Skill : Use Combo");
@@ -388,6 +389,7 @@ Trigger { -- Skill : Use Combo
       SetDeaths(CurrentPlayer, SetTo, 1, " `SkillCount");
       SetDeaths(CurrentPlayer, SetTo, 120, " `SkillStep");
       KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", CurrentPlayer);
+      KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", CurrentPlayer);
       PreserveTrigger();
    },
 }
@@ -404,6 +406,7 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Combo");
       PreserveTrigger();
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
       KillUnitAt(All, "50 + 1n Tank", "Anywhere", CurrentPlayer);
       Wait(500);
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillCount");

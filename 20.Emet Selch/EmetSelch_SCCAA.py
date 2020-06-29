@@ -544,6 +544,7 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Combo");
       PreserveTrigger();
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
       KillUnitAt(All, "60 + 1n Siege", "Anywhere", CurrentPlayer);
       KillUnitAt(All, "40 + 1n Drone", "Anywhere", CurrentPlayer);
       Wait(500);

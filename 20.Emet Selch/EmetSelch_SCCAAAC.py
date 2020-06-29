@@ -907,6 +907,7 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Combo");
       PreserveTrigger();
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
       Wait(500);
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillCount");
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
