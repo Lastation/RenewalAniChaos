@@ -39,22 +39,6 @@ Trigger { -- Skill : Ultimate
    },
 }
 
-Trigger { -- Skill : Combo
-   players = {Force1, Force2},
-   conditions = {
-      Deaths(CurrentPlayer, Exactly, 3000, " * Samir Duran");
-      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
-      Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
-      Deaths(CurrentPlayer, AtMost, 7, " `SkillCount");
-   },
-   actions = {
-      Comment("Skill : Combo");
-      PreserveTrigger();
-      MoveUnit(All, "60 + 1n Hydralisk", CurrentPlayer, "Anywhere", "[Skill]HoldPosition");
-      MoveUnit(All, " Unit. Hoffnung 25000", CurrentPlayer, "Anywhere", "[Skill]HoldPosition");    
-      MoveUnit(All, " Creep. Licht", CurrentPlayer, "Anywhere", "[Skill]HoldPosition");    
-   },
-}
 
 t = 9;
 
@@ -406,6 +390,18 @@ Trigger { -- Skill : S
          energy = 100,
          resource = 0,
          hanger = 0,
+      }); 
+      CreateUnitWithProperties(1, "Unclean One (Defiler)", "[Skill]Unit_Wait_8", CurrentPlayer, {
+         clocked = false,
+         burrowed = true,
+         intransit = false,
+         hallucinated = false,
+         invincible = false,
+         hitpoint = 100,
+         shield = 100,
+         energy = 100,
+         resource = 0,
+         hanger = 0,
       });  
       CreateUnit(4, "80 + 1n Tank", "[Skill]Unit_Wait_8", CurrentPlayer);  
       CreateUnit(1, "40 + 1n Guardian", "[Skill]Unit_Wait_8", CurrentPlayer);  
@@ -415,8 +411,11 @@ Trigger { -- Skill : S
       MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "20.EmetSelch");
       MoveUnit(4, "80 + 1n Tank", CurrentPlayer, "[Skill]Unit_Wait_ALL", "20.EmetSelch");
       MoveUnit(1, "Zerg Defiler", CurrentPlayer, "[Skill]Unit_Wait_ALL", "20.EmetSelch");
+      MoveUnit(1, "Unclean One (Defiler)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "20.EmetSelch");
       KillUnitAt(All, "40 + 1n Guardian", "Anywhere", CurrentPlayer);
       KillUnitAt(All, "80 + 1n Tank", "Anywhere", CurrentPlayer);
+      MoveLocation("20.EmetSelch", " * Samir Duran", CurrentPlayer, "Anywhere");
+      MoveUnit(All, "Unclean One (Defiler)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "20.EmetSelch");
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop2");
    },
 }
@@ -435,19 +434,7 @@ Trigger { -- Skill : S
    },
    actions = {
       Comment("Skill : Ultimate");
-      PreserveTrigger();
-      CreateUnitWithProperties(1, "Zerg Defiler", "[Skill]Unit_Wait_8", CurrentPlayer, {
-         clocked = false,
-         burrowed = true,
-         intransit = false,
-         hallucinated = false,
-         invincible = false,
-         hitpoint = 100,
-         shield = 100,
-         energy = 100,
-         resource = 0,
-         hanger = 0,
-      });  
+      PreserveTrigger();  
       CreateUnit(4, "Protoss Dark Archon", "[Skill]Unit_Wait_8", CurrentPlayer);  
       CreateUnit(1, "40 + 1n Guardian", "[Skill]Unit_Wait_8", CurrentPlayer);  
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
@@ -736,7 +723,7 @@ Trigger { -- Skill : S
 }
 
 
-for i = 0, 3, 1 do
+for i = 0, 4, 1 do
 
 Trigger { -- Skill : S
    players = {Force1, Force2},
@@ -899,11 +886,138 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop4");
       Wait(1000);
       SetDeaths(AllPlayers, SetTo, 20001, " `SkillText_Uiltimate");
       Wait(11000);
       SetDeaths(AllPlayers, SetTo, 20002, " `SkillText_Uiltimate");
       Wait(6000);
+      SetSwitch("UiltimateSwitch", Clear);
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop4");
+   },
+}
+
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 3000, " * Samir Duran");
+      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 7, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop4");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      MoveLocation("20.EmetSelch", " * Samir Duran", CurrentPlayer, "Anywhere");
+      Order(" Creep. Licht", CurrentPlayer, "Anywhere", Attack, "20.EmetSelch");
+      Order(" Unit. Hoffnung 25000", CurrentPlayer, "Anywhere", Attack, "20.EmetSelch");
+      Order("60 + 1n Hydralisk", CurrentPlayer, "Anywhere", Attack, "20.EmetSelch");
+      SetDeaths(CurrentPlayer, SetTo, 84, " `SkillLoop4");
+   },
+}
+
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 3000, " * Samir Duran");
+      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 7, " `SkillCount");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      SetDeaths(CurrentPlayer, Subtract, 1, " `SkillLoop4");
+   },
+}
+
+
+
+t = 9;
+
+for i = 0, t - 1, 1 do
+
+interval = 75;
+
+x = -interval * (math.floor(t / 2));
+y = interval * (math.floor(t / 2)) - interval * i;
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 3000, " * Samir Duran");
+      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 8, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, i, " `SkillLoop");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      CreateUnit(9, "50 + 1n Battlecruiser", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
+      MoveLocation("20.EmetSelch", " * Samir Duran", CurrentPlayer, "Anywhere");
+      LMove(175, x, y);
+      MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "20.EmetSelch");
+      LMove(175, interval, 0);
+      MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "20.EmetSelch");
+      LMove(175, interval, 0);
+      MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "20.EmetSelch");
+      LMove(175, interval, 0);
+      MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "20.EmetSelch");
+      LMove(175, interval, 0);
+      MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "20.EmetSelch");
+      LMove(175, interval, 0);
+      MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "20.EmetSelch");
+      LMove(175, interval, 0);
+      MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "20.EmetSelch");
+      LMove(175, interval, 0);
+      MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "20.EmetSelch");
+      LMove(175, interval, 0);
+      MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "20.EmetSelch");
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+   },
+}
+end
+
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 3000, " * Samir Duran");
+      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 8, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, t, " `SkillLoop");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", CurrentPlayer);
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+   },
+}
+
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 3000, " * Samir Duran");
+      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 8, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, t + 1, " `SkillLoop");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      Wait(300);
+      RemoveUnitAt(All, "Unclean One (Defiler)", "Anywhere", CurrentPlayer);
       CreateUnit(1, "40 + 1n Mojo", "[Skill]Unit_Wait_7", CurrentPlayer);  
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("20.EmetSelch", " * Samir Duran", CurrentPlayer, "Anywhere");
@@ -915,6 +1029,8 @@ Trigger { -- Skill : S
    },
 }
 
+for i = 0, 23, 1 do
+
 Trigger { -- Skill : S
    players = {Force1, Force2},
    conditions = {
@@ -922,6 +1038,99 @@ Trigger { -- Skill : S
       Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
       Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
       Deaths(CurrentPlayer, Exactly, 8, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, i, " `SkillLoop2");
+      Bring(CurrentPlayer, AtLeast, 1, "Unclean One (Defiler)", "Anywhere");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      CreateUnitWithProperties(1, "60 + 1n Hydralisk", "[Skill]Unit_Wait_8", CurrentPlayer, {
+         clocked = false,
+         burrowed = true,
+         intransit = false,
+         hallucinated = false,
+         invincible = false,
+         hitpoint = 100,
+         shield = 100,
+         energy = 100,
+         resource = 0,
+         hanger = 0,
+      }); 
+      SetInvincibility(Disable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
+      MoveLocation("20.EmetSelch", "Unclean One (Defiler)", CurrentPlayer, "Anywhere");
+      RemoveUnitAt(3, "Unclean One (Defiler)", "Anywhere", CurrentPlayer);
+      MoveUnit(1, "60 + 1n Hydralisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "20.EmetSelch");
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop2");
+   },
+}
+
+end
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 3000, " * Samir Duran");
+      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 8, " `SkillCount");
+      Deaths(CurrentPlayer, AtLeast, 1, " `SkillLoop2");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop2");
+   },
+}
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 3000, " * Samir Duran");
+      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 8, " `SkillCount");
+      Bring(CurrentPlayer, Exactly, 0, "Unclean One (Defiler)", "Anywhere");
+      Bring(CurrentPlayer, AtLeast, 1, "Any unit", "[Skill]Unit_Wait_ALL");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      MoveLocation("20.EmetSelch", " * Samir Duran", CurrentPlayer, "Anywhere");
+      MoveUnit(All, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL", "20.EmetSelch");
+      RemoveUnitAt(All, "Any unit", "[Skill]Unit_Wait_ALL", CurrentPlayer);
+   },
+}
+
+
+
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 3000, " * Samir Duran");
+      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 9, " `SkillCount");
+      Deaths(CurrentPlayer, AtLeast, 1, " `SkillLoop3");
+      Bring(CurrentPlayer, Exactly, 0, " Creep. Licht", "Anywhere");
+      Bring(CurrentPlayer, Exactly, 0, " Unit. Hoffnung 25000", "Anywhere");
+      Bring(CurrentPlayer, Exactly, 0, "60 + 1n Hydralisk", "Anywhere");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      SetDeaths(CurrentPlayer, SetTo, 1, " `SkillLoop3");
+   },
+}
+
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 3000, " * Samir Duran");
+      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 9, " `SkillCount");
       Deaths(CurrentPlayer, Exactly, 1, " `SkillLoop3");
    },
    actions = {
@@ -945,27 +1154,7 @@ Trigger { -- Skill : S
       Deaths(CurrentPlayer, Exactly, 3000, " * Samir Duran");
       Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
       Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
-      Deaths(CurrentPlayer, Exactly, 8, " `SkillCount");
-      Deaths(CurrentPlayer, AtLeast, 1, " `SkillLoop3");
-      Bring(CurrentPlayer, Exactly, 0, " Creep. Licht", "Anywhere");
-      Bring(CurrentPlayer, Exactly, 0, " Unit. Hoffnung 25000", "Anywhere");
-      Bring(CurrentPlayer, Exactly, 0, "60 + 1n Hydralisk", "Anywhere");
-   },
-   actions = {
-      Comment("Skill : Ultimate");
-      PreserveTrigger();
-      SetDeaths(CurrentPlayer, SetTo, 1, " `SkillLoop3");
-   },
-}
-
-
-Trigger { -- Skill : S
-   players = {Force1, Force2},
-   conditions = {
-      Deaths(CurrentPlayer, Exactly, 3000, " * Samir Duran");
-      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
-      Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
-      Deaths(CurrentPlayer, Exactly, 8, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 9, " `SkillCount");
       Deaths(CurrentPlayer, AtLeast, 1, " `SkillLoop3");
       Bring(CurrentPlayer, Exactly, 0, "40 + 1n Mojo", "Anywhere");
    },
@@ -986,7 +1175,7 @@ Trigger { -- Skill : S
       Deaths(CurrentPlayer, Exactly, 3000, " * Samir Duran");
       Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
       Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
-      Deaths(CurrentPlayer, Exactly, 8, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 9, " `SkillCount");
       Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop2");
    },
    actions = {
@@ -996,7 +1185,7 @@ Trigger { -- Skill : S
       Order(" Creep. Licht", CurrentPlayer, "Anywhere", Attack, "20.EmetSelch");
       Order(" Unit. Hoffnung 25000", CurrentPlayer, "Anywhere", Attack, "20.EmetSelch");
       Order("60 + 1n Hydralisk", CurrentPlayer, "Anywhere", Attack, "20.EmetSelch");
-      SetDeaths(CurrentPlayer, SetTo, 48, " `SkillLoop2");
+      SetDeaths(CurrentPlayer, SetTo, 84, " `SkillLoop2");
    },
 }
 
@@ -1007,7 +1196,7 @@ Trigger { -- Skill : S
       Deaths(CurrentPlayer, Exactly, 3000, " * Samir Duran");
       Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
       Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
-      Deaths(CurrentPlayer, Exactly, 8, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 9, " `SkillCount");
    },
    actions = {
       Comment("Skill : Ultimate");
@@ -1024,16 +1213,18 @@ Trigger { -- Skill : S
       Deaths(CurrentPlayer, Exactly, 3000, " * Samir Duran");
       Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
       Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
-      Deaths(CurrentPlayer, Exactly, 9, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 10, " `SkillCount");
       Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop");
    },
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
-      SetSwitch("UiltimateSwitch", Clear);
       Wait(500);
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillCount");
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop2");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop3");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop4");
       SetDeaths(CurrentPlayer, Add, 12, " `SkillWait");
    },
 }
