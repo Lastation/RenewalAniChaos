@@ -440,6 +440,7 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : A");
       PreserveTrigger();
+      SetDeaths(CurrentPlayer, SetTo, 1, " `SkillLoop");
       KillUnitAt(All, "60 + 1n High Templar", "Anywhere", CurrentPlayer);
       KillUnitAt(All, "80 + 1n Artanis", "Anywhere", CurrentPlayer);
       Wait(500);
