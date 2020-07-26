@@ -1,0 +1,29 @@
+import Character.Rusaruka.Skill_O as o;
+import Character.Rusaruka.Skill_S as S;
+//import Character.Rusaruka.Skill_C as c;
+//import Character.Rusaruka.Skill_A as A;
+
+var location = 32;
+var heroID = 51;
+var SkillStep;
+
+function main(cp)
+{
+	if (Deaths(cp, Exactly, 1000, heroID))
+	{
+		SkillStep = dwread_epd(179 * 12 + cp);
+		
+		if (Deaths(CurrentPlayer, Exactly, 0, " `SkillWait"))
+		{
+			switch(SkillStep)
+			{
+			case 1:
+				//o.main(cp, location, heroID)
+				break;
+			case 100:
+				S.main(cp, location, heroID);
+				break;
+			}
+		}
+	}
+}

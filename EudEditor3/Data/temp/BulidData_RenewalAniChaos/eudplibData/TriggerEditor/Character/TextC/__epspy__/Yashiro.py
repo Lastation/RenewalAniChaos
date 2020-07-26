@@ -161,9 +161,9 @@ def NormalText(cp):
         EUDBreak()
         # (Line 19) case 2003:
     _t3 = EUDSwitchCase()
-    # (Line 20) s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04내가 손에 넣는 것은\n\x13\x04나 손에 의한, 나만을 위해 존재하는 죽음이다\n\n");
+    # (Line 20) s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04내가 손에 넣는 것은\n\x13\x04내 손에 의한, 나만을 위해 존재하는 죽음이다\n\n");
     if _t3(2003):
-        s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04내가 손에 넣는 것은\n\x13\x04나 손에 의한, 나만을 위해 존재하는 죽음이다\n\n")
+        s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04내가 손에 넣는 것은\n\x13\x04내 손에 의한, 나만을 위해 존재하는 죽음이다\n\n")
         # (Line 21) v.Sound_Text3[cp] = 0;
         _ARRW(v.Sound_Text3, cp) << (0)
         # (Line 22) break;

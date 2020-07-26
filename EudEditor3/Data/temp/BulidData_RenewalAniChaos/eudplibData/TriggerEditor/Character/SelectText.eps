@@ -51,6 +51,11 @@ function CharacterTextNum(cp)
 		else if 	(v.PlayerID[cp] == 10 	|| v.Unit_Death[cp] == 3000) { v.Hero_Text[cp] = 20; }	// EmetSelch
 		 v.Unit_ID[cp] = 0;
 		break;
+	case 64:
+		if 		(v.PlayerID[cp] == 8 		|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 21; }	// Magellan
+		 v.Unit_ID[cp] = 0;
+		break;
+		
 	}
 	
 	if (v.Hero_Text[cp] >= 1 && Deaths((13), (1), 9999, (223)) && Deaths(CurrentPlayer, Exactly, 0, " Struct. Mond"))
@@ -246,11 +251,21 @@ function CharacterText(cp)
 			s.printAt(1, "\x13\x04- \x17Final Fantasy XIV \x04-");
 			s.printAt(2, "\n");
 			s.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
-			s.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
+			s.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
 			s.printAt(5, "\n");
-			s.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04지속딜 \x1F#\x04미완성 \x1F#\x04조작보통");
+			s.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04지속딜 \x1F#\x04조작보통");
 			s.printAt(7, "\n");
 			break;
+		case 21:
+			s.printAt(1, "\x13\x04- \x17Arknights \x04-");
+			s.printAt(2, "\n");
+			s.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
+			s.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
+			s.printAt(5, "\n");
+			s.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04순간딜 \x1F#\x04드론 \x1F#\x04조작보통");
+			s.printAt(7, "\n");
+			break;
+			
 			
 	}
 	

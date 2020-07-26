@@ -212,9 +212,9 @@ def UniqueText(cp):
     # (Line 46) {
     # (Line 47) case 19000:
     _t1 = EUDSwitchCase()
-    # (Line 48) s.print("\n\n\x13\x02Malga Naruge\n\x13\x04오세요, 바이스 플로젠!\n\n");
+    # (Line 48) s.print("\n\n\x13\x02Malga Naruge\n\x13\x04오세요, 바이스 플로렌!\n\n");
     if _t1(19000):
-        s.print("\n\n\x13\x02Malga Naruge\n\x13\x04오세요, 바이스 플로젠!\n\n")
+        s.print("\n\n\x13\x02Malga Naruge\n\x13\x04오세요, 바이스 플로렌!\n\n")
         # (Line 49) PlayWAV("narge_o.ogg");
         # (Line 50) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("narge_o.ogg"))
@@ -223,9 +223,9 @@ def UniqueText(cp):
         EUDBreak()
         # (Line 52) case 19001:
     _t2 = EUDSwitchCase()
-    # (Line 53) s.print("\n\n\x13\x19Margot Naito\n\x13\x04와줘, 슈바르츠 플로젠!\n\n");
+    # (Line 53) s.print("\n\n\x13\x19Margot Naito\n\x13\x04와줘, 슈바르츠 플로렌!\n\n");
     if _t2(19001):
-        s.print("\n\n\x13\x19Margot Naito\n\x13\x04와줘, 슈바르츠 플로젠!\n\n")
+        s.print("\n\n\x13\x19Margot Naito\n\x13\x04와줘, 슈바르츠 플로렌!\n\n")
         # (Line 54) PlayWAV("margot_o.ogg");
         # (Line 55) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("margot_o.ogg"))

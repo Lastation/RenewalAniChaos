@@ -1,6 +1,8 @@
 import customText as ct;
 import Variable as v;
 
+import Character.Rusaruka.Main as rusarukaMain;
+
 import Character.TextA.Rusaruka		as rusaruka;
 import Character.TextA.Chtholly 		as chtholly;
 import Character.TextA.Maihime 		as maihime;
@@ -24,9 +26,12 @@ import Character.TextC.Tenkei 		as tenkei;
 
 import Character.TextD.MN 			as mn;
 import Character.TextD.EmetSelch 	as emet;
+import Character.TextD.Magellan 	as magellan;
 
 function MargeSound(cp)
 {
+	rusarukaMain.main(cp);
+
 	// 1 ~ 6
 	if (Deaths((13), (0), 1, (186)))
 	{
@@ -83,6 +88,7 @@ function MargeSound(cp)
 		
 		mn.NormalText(cp);
 		emet.NormalText(cp);
+		magellan.NormalText(cp);
 	}
 	
 	if (Deaths((13), (0), 1, (222)))
@@ -115,8 +121,10 @@ function MargeSound(cp)
 		kiana.UiltimateText(cp);
 		tenkei.UiltimateText(cp);
 		
+		// 19 ~ 24
 		mn.UiltimateText(cp);
 		emet.UiltimateText(cp);
+		magellan.UiltimateText(cp);
 	}
 	if (Deaths((13), (0), 1, (188)))
 	{
@@ -148,7 +156,9 @@ function MargeSound(cp)
 		kiana.UniqueText(cp);
 		tenkei.UniqueText(cp);
 		
+		// 19 ~ 24// 13 ~ 18
 		mn.UniqueText(cp);
 		emet.UniqueText(cp);
+		magellan.UniqueText(cp);
 	}
 }

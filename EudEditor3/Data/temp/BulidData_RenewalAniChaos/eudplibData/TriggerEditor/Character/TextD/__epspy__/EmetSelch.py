@@ -208,66 +208,99 @@ def NormalText(cp):
         s.print("\n\n\x13\x19Emet Selch\n\x13\x04너희들은 어리석고 나약해서 이 별을 지키며 살아가기엔 한참 부족하다고!\n\n")
         # (Line 41) break;
         EUDBreak()
-        # (Line 42) }
-    # (Line 44) }
+        # (Line 42) case 2007:
+    _t8 = EUDSwitchCase()
+    # (Line 43) v.Sound_Text4[cp] = 0;
+    if _t8(2007):
+        _ARRW(v.Sound_Text4, cp) << (0)
+        # (Line 44) PlayWAV("EmetSelch_CCA.ogg");
+        # (Line 45) s.print("\n\n\x13\x19Emet Selch\n\x13\x04되다 만 것들이 우리들의 소망을 말하지 마라!\n\n");
+        DoActions(PlayWAV("EmetSelch_CCA.ogg"))
+        s.print("\n\n\x13\x19Emet Selch\n\x13\x04되다 만 것들이 우리들의 소망을 말하지 마라!\n\n")
+        # (Line 46) break;
+        EUDBreak()
+        # (Line 47) case 2008:
+    _t9 = EUDSwitchCase()
+    # (Line 48) v.Sound_Text4[cp] = 0;
+    if _t9(2008):
+        _ARRW(v.Sound_Text4, cp) << (0)
+        # (Line 49) PlayWAV("EmetSelch_CCAA.ogg");
+        # (Line 50) s.print("\n\n\x13\x19Emet Selch\n\x13\x04세계는 우리들이 되찾는다\n\n");
+        DoActions(PlayWAV("EmetSelch_CCAA.ogg"))
+        s.print("\n\n\x13\x19Emet Selch\n\x13\x04세계는 우리들이 되찾는다\n\n")
+        # (Line 51) break;
+        EUDBreak()
+        # (Line 52) case 2009:
+    _t10 = EUDSwitchCase()
+    # (Line 53) v.Sound_Text4[cp] = 0;
+    if _t10(2009):
+        _ARRW(v.Sound_Text4, cp) << (0)
+        # (Line 54) PlayWAV("EmetSelch_CCAAA.ogg");
+        # (Line 55) s.print("\n\n\x13\x19Emet Selch\n\x13\x04영웅따윈 없었던 거야\n\n");
+        DoActions(PlayWAV("EmetSelch_CCAAA.ogg"))
+        s.print("\n\n\x13\x19Emet Selch\n\x13\x04영웅따윈 없었던 거야\n\n")
+        # (Line 56) break;
+        EUDBreak()
+        # (Line 58) }
+    # (Line 60) }
     EUDEndSwitch()
-    # (Line 47) function UniqueText(cp)
+    # (Line 63) function UniqueText(cp)
 
-# (Line 48) {
+# (Line 64) {
 @EUDFunc
 def UniqueText(cp):
-    # (Line 49) switch (v.Sound_Text_Uniq[cp])
+    # (Line 65) switch (v.Sound_Text_Uniq[cp])
     EUDSwitch(v.Sound_Text_Uniq[cp])
-    # (Line 50) {
-    # (Line 51) case 20000:
+    # (Line 66) {
+    # (Line 67) case 20000:
     _t1 = EUDSwitchCase()
-    # (Line 52) s.print("\n\n\x13\x19Emet Selch\n\x13\x04그럼 제군, 다시 보도록 하지\n\n");
+    # (Line 68) s.print("\n\n\x13\x19Emet Selch\n\x13\x04그럼 제군, 다시 보도록 하지\n\n");
     if _t1(20000):
         s.print("\n\n\x13\x19Emet Selch\n\x13\x04그럼 제군, 다시 보도록 하지\n\n")
-        # (Line 53) PlayWAV("EmetSelch_O.ogg");
-        # (Line 54) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 69) PlayWAV("EmetSelch_O.ogg");
+        # (Line 70) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("EmetSelch_O.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 55) break;
-        EUDBreak()
-        # (Line 56) }
-    # (Line 57) }
-    EUDEndSwitch()
-    # (Line 60) function UiltimateText(cp)
-
-# (Line 61) {
-@EUDFunc
-def UiltimateText(cp):
-    # (Line 62) switch (v.Sound_Text_Uilti[cp])
-    EUDSwitch(v.Sound_Text_Uilti[cp])
-    # (Line 63) {
-    # (Line 64) case 20000:
-    _t1 = EUDSwitchCase()
-    # (Line 65) PlayWAV("EmetSelch_AACC.ogg");
-    if _t1(20000):
-        # (Line 66) v.Sound_Text_Uilti[cp] = 0;
-        DoActions(PlayWAV("EmetSelch_AACC.ogg"))
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 67) break;
-        EUDBreak()
-        # (Line 68) case 20001:
-    _t2 = EUDSwitchCase()
-    # (Line 69) s.print("\n\n\x13\x19Emet Selch\n\x13\x04종말의 재앙... 우리 시대의 끝이자, 내 집념의 시작...\n\n");
-    if _t2(20001):
-        s.print("\n\n\x13\x19Emet Selch\n\x13\x04종말의 재앙... 우리 시대의 끝이자, 내 집념의 시작...\n\n")
-        # (Line 70) v.Sound_Text_Uilti[cp] = 0;
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 71) break;
         EUDBreak()
-        # (Line 72) case 20002:
+        # (Line 72) }
+    # (Line 73) }
+    EUDEndSwitch()
+    # (Line 76) function UiltimateText(cp)
+
+# (Line 77) {
+@EUDFunc
+def UiltimateText(cp):
+    # (Line 78) switch (v.Sound_Text_Uilti[cp])
+    EUDSwitch(v.Sound_Text_Uilti[cp])
+    # (Line 79) {
+    # (Line 80) case 20000:
+    _t1 = EUDSwitchCase()
+    # (Line 81) PlayWAV("EmetSelch_AACC.ogg");
+    if _t1(20000):
+        # (Line 82) v.Sound_Text_Uilti[cp] = 0;
+        DoActions(PlayWAV("EmetSelch_AACC.ogg"))
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
+        # (Line 83) break;
+        EUDBreak()
+        # (Line 84) case 20001:
+    _t2 = EUDSwitchCase()
+    # (Line 85) s.print("\n\n\x13\x19Emet Selch\n\x13\x04종말의 재앙... 우리 시대의 끝이자, 내 집념의 시작...\n\n");
+    if _t2(20001):
+        s.print("\n\n\x13\x19Emet Selch\n\x13\x04종말의 재앙... 우리 시대의 끝이자, 내 집념의 시작...\n\n")
+        # (Line 86) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
+        # (Line 87) break;
+        EUDBreak()
+        # (Line 88) case 20002:
     _t3 = EUDSwitchCase()
-    # (Line 73) s.print("\n\n\x13\x19Emet Selch\n\x13\x04너희를 판정하기 위해, 또 한 차례 재연해 보이겠다.\n\n");
+    # (Line 89) s.print("\n\n\x13\x19Emet Selch\n\x13\x04너희를 판정하기 위해, 또 한 차례 재연해 보이겠다.\n\n");
     if _t3(20002):
         s.print("\n\n\x13\x19Emet Selch\n\x13\x04너희를 판정하기 위해, 또 한 차례 재연해 보이겠다.\n\n")
-        # (Line 74) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 90) v.Sound_Text_Uilti[cp] = 0;
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 75) break;
+        # (Line 91) break;
         EUDBreak()
-        # (Line 76) }
-    # (Line 78) }
+        # (Line 92) }
+    # (Line 94) }
     EUDEndSwitch()

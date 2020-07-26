@@ -32,9 +32,11 @@ def onPluginStart():
         SetMemory(0x660EE4, Add, 19660800),# units:Shield Amount  index:115    from 100 To 400
         SetMemory(0x662354, Add, 615680),# units:Hit Points  index:1    from 11520 To 627200
         SetMemory(0x662390, Add, 151040),# units:Hit Points  index:16    from 476160 To 627200
+        SetMemory(0x6623A4, Add, 499200),# units:Hit Points  index:21    from 128000 To 627200
         SetMemory(0x66241C, Add, 151040),# units:Hit Points  index:51    from 476160 To 627200
         SetMemory(0x662424, Add, 151040),# units:Hit Points  index:53    from 476160 To 627200
         SetMemory(0x662428, Add, 151040),# units:Hit Points  index:54    from 476160 To 627200
+        SetMemory(0x662450, Add, 151040),# units:Hit Points  index:64    from 476160 To 627200
         SetMemory(0x662478, Add, 151040),# units:Hit Points  index:74    from 476160 To 627200
         SetMemory(0x662484, Add, 151040),# units:Hit Points  index:77    from 476160 To 627200
         SetMemory(0x66248C, Add, 10240000),# units:Hit Points  index:79    from 17920000 To 28160000
@@ -172,6 +174,7 @@ def onPluginStart():
         SetMemory(0x6640F8, Add, 4),# units:Special Ability Flags  index:30    from 1107296256 To 1107296260
         SetMemory(0x664124, Add, -8),# units:Special Ability Flags  index:41    from 403767432 To 403767424
         SetMemory(0x664138, Add, 4),# units:Special Ability Flags  index:46    from 439419008 To 439419012
+        SetMemory(0x664150, Add, 4),# units:Special Ability Flags  index:52    from 439419072 To 439419076
         SetMemory(0x66417C, Add, 4),# units:Special Ability Flags  index:63    from 471859456 To 471859460
         SetMemory(0x664188, Add, 4),# units:Special Ability Flags  index:66    from 1509949440 To 1509949444
         SetMemory(0x6641A4, Add, 536870912),# units:Special Ability Flags  index:73    from 1476395012 To 2013265924
@@ -212,6 +215,7 @@ def onPluginStart():
         SetMemory(0x663600, Add, -16777216),# units:Armor Upgrade  index:51    from 3 To 2
         SetMemory(0x663604, Add, -256),# units:Armor Upgrade  index:53    from 3 To 2
         SetMemory(0x663604, Add, -65536),# units:Armor Upgrade  index:54    from 3 To 2
+        SetMemory(0x663610, Add, -3),# units:Armor Upgrade  index:64    from 5 To 2
         SetMemory(0x663618, Add, -196608),# units:Armor Upgrade  index:74    from 5 To 2
         SetMemory(0x66361C, Add, -768),# units:Armor Upgrade  index:77    from 5 To 2
         SetMemory(0x663630, Add, 33554432),# units:Armor Upgrade  index:99    from 0 To 2
@@ -220,6 +224,7 @@ def onPluginStart():
         SetMemory(0x6621CC, Add, 16777216),# units:Unit Size  index:79    from 1 To 2
         SetMemory(0x6621E0, Add, 65536),# units:Unit Size  index:98    from 2 To 3
         SetMemory(0x6621EC, Add, -768),# units:Unit Size  index:109    from 3 To 0
+        SetMemory(0x65FEDC, Add, 4096),# units:Armor  index:21    from 4 To 20
         SetMemory(0x65FF34, Add, -256),# units:Armor  index:109    from 1 To 0
         SetMemory(0x65FF38, Add, 33554432),# units:Armor  index:115    from 1 To 3
         SetMemory(0x6620C0, Add, -768),# units:Right-click Action  index:41    from 4 To 1

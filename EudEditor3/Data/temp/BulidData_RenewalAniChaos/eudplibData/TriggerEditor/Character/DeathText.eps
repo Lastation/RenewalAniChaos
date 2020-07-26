@@ -27,9 +27,7 @@ function SetDeathValue(cp)
 			if (Deaths((0), (10), 15, (172)) || Deaths((1), (10), 15, (172)) || Deaths((2), (10), 15, (172))) { SetSwitch((20), (4)); }
 			if (Switch((22), (2)))
 			{
-				if (Deaths((0), (10), 16, (172)) || Deaths((1), (10), 16, (172)) || Deaths((2), (10), 16, (172))) 
-				{ SetDeaths((13), (7), 12, (210)); SetSwitch((23), (4)); }
-				else { SetDeaths(CurrentPlayer, SetTo, 120 + v.Level[cp] * 12, (210)); }
+				SetDeaths((13), (7), 12, (210)); SetSwitch((23), (4));
 			}
 			else { SetDeaths(CurrentPlayer, SetTo, 120 + v.Level[cp] * 12, (210)); }
 			
@@ -53,9 +51,7 @@ function SetDeathValue(cp)
 			if (Deaths((3), (10), 15, (172)) || Deaths((4), (10), 15, (172)) || Deaths((5), (10), 15, (172))) { SetSwitch((20), (4)); }
 			if (Switch((22), (2)))
 			{
-				if (Deaths((3), (10), 16, (172)) || Deaths((4), (10), 16, (172)) || Deaths((5), (10), 16, (172))) 
-				{ SetDeaths((13), (7), 12, (210)); SetSwitch((23), (4)); }
-				else { SetDeaths(CurrentPlayer, SetTo, 120 + v.Level[cp] * 12, (210)); }
+				SetDeaths((13), (7), 12, (210)); SetSwitch((23), (4));
 			}
 			else { SetDeaths(CurrentPlayer, SetTo, 120 + v.Level[cp] * 12, (210)); }
 			
