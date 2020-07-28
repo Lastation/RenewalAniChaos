@@ -3,8 +3,10 @@ import Angel.ButtonText as bt;
 import Angel.Effect as et;
 import Weapon as w;
 
+import Title.Effect as te;
+
 function Init();
-function Update();
+function FixedUpdate();
 
 function Init_Weapon();
 
@@ -49,15 +51,18 @@ function Init_Weapon()
 {
 	for (var i = 0; i < 13; i++)
 	{
+		w.Set_Rank(v.Unit_ID[i], v.Unit_Rank[i]);
+	
 		w.Set_Label(v.Unit_AtkID[i], 229 + i);
 		w.Set_Atk(v.Unit_AtkID[i], v.Unit_Atk[i]);
 		w.Set_AtkBouns(v.Unit_AtkID[i], v.Unit_Atkbouns[i]);
 		w.Set_AtkSpeed(v.Unit_AtkID[i], v.Unit_Atkspeed[i]);
 		w.Set_AtkType(v.Unit_AtkID[i], v.Unit_Atktype[i]);
 		w.Set_AtkExplosion(v.Unit_AtkID[i], v.Unit_AtkExplosion[i]);
+		w.Set_AtkSplash(v.Unit_AtkID[i], v.Unit_Atksplash[i]);
 		
-		if (v.Unit_AtkExplosion[i] != 1)
-		{ w.Set_AtkSplash(v.Unit_AtkID[i], v.Unit_Atksplash[i]); }
+		w.Set_AtkRange(v.Unit_AtkID[i], v.Unit_AtkRange[i]);
+		w.Set_UnitRange(v.Unit_ID[i], v.Unit_AtkRange[i]);
 	}
 }
 
@@ -224,17 +229,14 @@ function Set_AtkPercent(type, value)
 
 function Update_PercentText()
 {
-	settbl(413, 10, "\n",
-	"\x1B댄스 \x04스케줄에 \x1B", v.Unit_AtkPercent[0], "%\n",
-	"\x1C보컬 \x04스케줄에 \x1C", v.Unit_AtkPercent[1], "%\n",
-	"\x19비주얼 \x04스케줄에 \x19", v.Unit_AtkPercent[2], "%\n\x14");
+	te.Update_PercentText();
 }
 
 function Update_AtkText(id)
 {
 	settbl(229 + id, 10, "\n",
 	"\x04공격속도 : \x19",  bread(0x6564E0 + 2776 + v.Unit_AtkID[id] * 1), "\n",
-	"\x04범위공격 : \x19", wread(0x6564E0 + 936 + v.Unit_AtkID[id] * 2));
+	"\x04범위공격 : \x19", wread(0x6564E0 + 4768 + v.Unit_AtkID[id] * 2));
 }
 
 function Test_Mode()

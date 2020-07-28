@@ -85,7 +85,7 @@ function Effect_Unit(id, type)		// 0 - Atk, 1 - Gold, 2 - Spd, 3 - Unit hp
 			}
 			break;
 		case 3:
-			if (v.Album_Delay[id] >= v.Album_Multiply[id] - v.Album_Level[id])
+			if (v.Album_Delay[id] >= v.Album_Multiply[id] - v.Album_Level[id] && v.Album_Level[id] >= 1)
 			{
 				v.Album_Delay[id] = 0;
 				ModifyUnitHitPoints(1, 93, P7, "Player1", 1);
