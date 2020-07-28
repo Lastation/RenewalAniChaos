@@ -11,10 +11,14 @@ function SkillUnit(count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer
 	MoveUnit(count, Unit, cp, "[Skill]Unit_Wait_ALL", location);
 }
 
-
 function SkillWait(cp, count)
 {
-	SetDeaths(cp, SetTo, count/83 + 2, " `OrderTime");
+	SetDeaths(cp, SetTo, count/83 + 2, " `WaitTime");
+}
+
+function SkillEnd(cp)
+{
+	SetDeaths(cp, SetTo, 12, " `SkillWait");
 }
 
 function SqaureShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, x, y)

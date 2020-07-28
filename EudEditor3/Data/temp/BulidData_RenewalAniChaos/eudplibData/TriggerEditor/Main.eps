@@ -1,8 +1,5 @@
 import Variable as v;
 
-import SCArchive as sca;
-import IO.Setting as scaSetting;					// SCA 텍스트
-
 import CustomText.ShopText as shopText;			// 상점 텍스트
 import CustomText.BuildingText as buildText;		// 건물 텍스트
 
@@ -16,12 +13,8 @@ import Character.DeathText as deathText;			// 사망 텍스트
 import Character.Marge as marge;				// 유닛 스킬 텍스트
 import Character.Announce as announce;			// 상태창 텍스트
 
-import Title.Marge as title;						// 타이틀 관련
-
 function onPluginStart() 	// 초기화 함수
 {
-	sca.Init();
-	
     	EUDPlayerLoop()();
     	EUDEndPlayerLoop();
 }
@@ -33,8 +26,6 @@ function MainLoop()
 	unitID.Get_UnitID(cp);
 	
 	announce.Announce_Marge(cp);	// 상태창 텍스트
-	//scaSetting.SCAMain(cp);			// SCA Setting
-	title.Title_Marge(cp);
 	
 	if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
 	{
@@ -68,14 +59,11 @@ function MainLoop()
 	// 점수 설정
 	if (Deaths(CurrentPlayer, Exactly, 1000, 175)) 	// 점수창
 	{
-		scaSetting.SCASave(cp);
 		SetSwitch(255, Clear);
 	}
 	
 	if (v.Hero_Num[cp] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)))
       	 { v.Hero_Num[cp] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)); }
-	scaSetting.GetExp(cp);
-	scaSetting.GetCS(cp);
 }
 
 function beforeTriggerExec() 
@@ -92,6 +80,5 @@ function beforeTriggerExec()
 
 function afterTriggerExec()
 {
-	if (ElapsedTime(AtLeast, 15))
-	{ sca.Exec(); }
+
 }

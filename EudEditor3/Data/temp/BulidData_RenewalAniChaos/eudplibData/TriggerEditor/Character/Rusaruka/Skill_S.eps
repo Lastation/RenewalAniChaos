@@ -8,31 +8,33 @@ function main(cp, location, heroID)
 {
 	loop = dwread_epd(212 * 12 + cp);
 	
-	if (Deaths(cp, Exactly, 0, " `OrderTime"))
+	if (Deaths(cp, Exactly, 0, " `WaitTime"))
 	{
-		KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-		KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
-		KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
 		switch(loop)
 		{
 		case 0:
 		case 4:
+			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
 			Shape(cp, location, heroID, "40 + 1n Mojo", 0, 48);
 			break;
 		case 1:
 		case 5:
+			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
 			Shape(cp, location, heroID, "40 + 1n Wraith", 42, 24);
 			break;
 		case 2:
 		case 6:
+			KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
 			Shape(cp, location, heroID, "40 + 1n Mutalisk", 24, 42);
 			break;
 		case 3:
 		case 7:
+			KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
 			Shape(cp, location, heroID, "40 + 1n Mojo", 48, 0);
 			break;
 		case 8:
-			SetDeaths(cp, SetTo, 12, " `SkillWait");
+			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+			f.SkillEnd(cp);
 			break;
 		}
 	}

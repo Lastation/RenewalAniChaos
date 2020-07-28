@@ -1,0 +1,112 @@
+import Function as f;
+
+var count;
+var loop;
+
+function main(cp, location, heroID)
+{
+	count  = dwread_epd(181 * 12 + cp);
+	loop = dwread_epd(212 * 12 + cp);
+	
+	if (Deaths(cp, Exactly, 0, " `WaitTime"))
+	{
+		switch(count)
+		{
+		case 0:
+		case 11:
+			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+			
+			f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 32, 0);
+			f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 24, 24);
+			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
+			KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+			f.SkillWait(cp, 0);
+			SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+			break;
+		case 1:
+			f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 64, 0);
+			f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 48, 48);
+			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
+			KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+			f.SkillWait(cp, 0);
+			SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+			break;
+		case 2:
+			f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 96, 0);
+			f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 72, 72);
+			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
+			KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+			f.SkillWait(cp, 0);
+			SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+			break;
+		case 3:
+			f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 128, 0);
+			f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 96, 96);
+			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
+			KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+			f.SkillWait(cp, 0);
+			SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+			break;
+		case 4:
+		case 7:
+			f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 160, 0);
+			f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 120, 120);
+			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
+			KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+			f.SkillWait(cp, 0);
+			SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+			break;
+		case 5:
+		case 6:
+			f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 192, 0);
+			f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 144, 144);
+			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
+			KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+			f.SkillWait(cp, 0);
+			SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+			break;
+		case 8:
+			f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 0);
+			f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 96, 96);
+			f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 128, 0);
+			f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 96, 96);
+			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
+			KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+			MoveLocation(location, heroID, CurrentPlayer, "Anywhere");
+			Order("50 + 1n Battlecruiser", CurrentPlayer, "Anywhere", Attack, location);
+			f.SkillWait(cp, 180);
+			SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+			break;
+		case 9:
+			KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+		
+			f.SqaureShape(heroID, 1, "40 + 1n Guardian", location, cp, 96, 0);
+			f.SqaureShape(heroID, 1, "40 + 1n Guardian", location, cp, 72, 72);
+			f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 96, 0);
+			f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 72, 72);
+			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
+			KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+			MoveLocation(location, heroID, CurrentPlayer, "Anywhere");
+			Order("40 + 1n Guardian", CurrentPlayer, "Anywhere", Attack, location);
+			f.SkillWait(cp, 180);
+			SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+			break;
+		case 10:
+			KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+		
+			f.SqaureShape(heroID, 1, "40 + 1n Guardian", location, cp, 64, 0);
+			f.SqaureShape(heroID, 1, "40 + 1n Guardian", location, cp, 48, 48);
+			f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 64, 0);
+			f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 48, 48);
+			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
+			KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+			MoveLocation(location, heroID, CurrentPlayer, "Anywhere");
+			Order("40 + 1n Mojo", CurrentPlayer, "Anywhere", Attack, location);
+			f.SkillWait(cp, 180);
+			SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+			break;
+		case 12:
+			f.SkillEnd(cp);
+		}
+	}
+}
