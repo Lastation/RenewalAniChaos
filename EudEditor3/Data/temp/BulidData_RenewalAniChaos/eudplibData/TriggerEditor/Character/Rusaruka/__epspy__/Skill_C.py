@@ -165,9 +165,9 @@ def f_main(cp, location, heroID):
             # (Line 23) f.SkillWait(cp, 0);
             DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
             f.SkillWait(cp, 0)
-            # (Line 24) SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+            # (Line 24) SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
             # (Line 25) break;
-            DoActions(SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop"))
+            DoActions(SetDeaths(CurrentPlayer, Add, 1, " `SkillCount"))
             EUDBreak()
             # (Line 26) case 1:
         _t4 = EUDSwitchCase()
@@ -182,9 +182,9 @@ def f_main(cp, location, heroID):
             # (Line 31) f.SkillWait(cp, 0);
             DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
             f.SkillWait(cp, 0)
-            # (Line 32) SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+            # (Line 32) SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
             # (Line 33) break;
-            DoActions(SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop"))
+            DoActions(SetDeaths(CurrentPlayer, Add, 1, " `SkillCount"))
             EUDBreak()
             # (Line 34) case 2:
         _t5 = EUDSwitchCase()
@@ -199,9 +199,9 @@ def f_main(cp, location, heroID):
             # (Line 39) f.SkillWait(cp, 0);
             DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
             f.SkillWait(cp, 0)
-            # (Line 40) SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+            # (Line 40) SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
             # (Line 41) break;
-            DoActions(SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop"))
+            DoActions(SetDeaths(CurrentPlayer, Add, 1, " `SkillCount"))
             EUDBreak()
             # (Line 42) case 3:
         _t6 = EUDSwitchCase()
@@ -216,9 +216,9 @@ def f_main(cp, location, heroID):
             # (Line 47) f.SkillWait(cp, 0);
             DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
             f.SkillWait(cp, 0)
-            # (Line 48) SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+            # (Line 48) SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
             # (Line 49) break;
-            DoActions(SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop"))
+            DoActions(SetDeaths(CurrentPlayer, Add, 1, " `SkillCount"))
             EUDBreak()
             # (Line 50) case 4:
         _t7 = EUDSwitchCase()
@@ -237,9 +237,9 @@ def f_main(cp, location, heroID):
             # (Line 56) f.SkillWait(cp, 0);
             DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
             f.SkillWait(cp, 0)
-            # (Line 57) SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+            # (Line 57) SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
             # (Line 58) break;
-            DoActions(SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop"))
+            DoActions(SetDeaths(CurrentPlayer, Add, 1, " `SkillCount"))
             EUDBreak()
             # (Line 59) case 5:
         _t9 = EUDSwitchCase()
@@ -258,9 +258,9 @@ def f_main(cp, location, heroID):
             # (Line 65) f.SkillWait(cp, 0);
             DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
             f.SkillWait(cp, 0)
-            # (Line 66) SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+            # (Line 66) SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
             # (Line 67) break;
-            DoActions(SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop"))
+            DoActions(SetDeaths(CurrentPlayer, Add, 1, " `SkillCount"))
             EUDBreak()
             # (Line 68) case 8:
         _t11 = EUDSwitchCase()
@@ -283,9 +283,9 @@ def f_main(cp, location, heroID):
             # (Line 77) f.SkillWait(cp, 180);
             DoActions(Order("50 + 1n Battlecruiser", CurrentPlayer, "Anywhere", Attack, location))
             f.SkillWait(cp, 180)
-            # (Line 78) SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+            # (Line 78) SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
             # (Line 79) break;
-            DoActions(SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop"))
+            DoActions(SetDeaths(CurrentPlayer, Add, 1, " `SkillCount"))
             EUDBreak()
             # (Line 80) case 9:
         _t12 = EUDSwitchCase()
@@ -310,9 +310,9 @@ def f_main(cp, location, heroID):
             # (Line 91) f.SkillWait(cp, 180);
             DoActions(Order("40 + 1n Guardian", CurrentPlayer, "Anywhere", Attack, location))
             f.SkillWait(cp, 180)
-            # (Line 92) SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+            # (Line 92) SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
             # (Line 93) break;
-            DoActions(SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop"))
+            DoActions(SetDeaths(CurrentPlayer, Add, 1, " `SkillCount"))
             EUDBreak()
             # (Line 94) case 10:
         _t13 = EUDSwitchCase()
@@ -337,9 +337,9 @@ def f_main(cp, location, heroID):
             # (Line 105) f.SkillWait(cp, 180);
             DoActions(Order("40 + 1n Mojo", CurrentPlayer, "Anywhere", Attack, location))
             f.SkillWait(cp, 180)
-            # (Line 106) SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+            # (Line 106) SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
             # (Line 107) break;
-            DoActions(SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop"))
+            DoActions(SetDeaths(CurrentPlayer, Add, 1, " `SkillCount"))
             EUDBreak()
             # (Line 108) case 12:
         _t14 = EUDSwitchCase()
