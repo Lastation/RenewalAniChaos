@@ -203,8 +203,8 @@ def MainLoop():
         init.SetVariable(cp)
         # (Line 54) ppty.Property(cp);					// S,C,A 특성
         ppty.Property(cp)
-        # (Line 56) marge.MargeSound(cp);				// 캐릭터 스킬 사운드 & 스킬 텍스트
-        marge.MargeSound(cp)
+        # (Line 56) marge.main(cp);						// 캐릭터 스킬 사운드 & 스킬 텍스트
+        marge.f_main(cp)
         # (Line 57) }
         # (Line 60) if (Deaths(CurrentPlayer, Exactly, 1000, 175)) 	// 점수창
     EUDEndIf()

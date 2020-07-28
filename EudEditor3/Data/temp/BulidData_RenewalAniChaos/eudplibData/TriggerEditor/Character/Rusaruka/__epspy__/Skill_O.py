@@ -163,10 +163,10 @@ def f_main(cp, location, heroID):
             # (Line 22) {
             # (Line 23) case 0:
             _t4 = EUDSwitchCase()
-            # (Line 24) SetDeaths(AllPlayers, SetTo, 1400, " `SkillText_Unique");
+            # (Line 24) SetDeaths(cp, SetTo, 7, " `SkillText");
             if _t4(0):
                 # (Line 25) f.SkillWait(cp, 5800);
-                DoActions(SetDeaths(AllPlayers, SetTo, 1400, " `SkillText_Unique"))
+                DoActions(SetDeaths(cp, SetTo, 7, " `SkillText"))
                 f.SkillWait(cp, 5800)
                 # (Line 26) SetDeaths(cp, Add, 1, " `SkillLoop");
                 # (Line 27) break;
@@ -174,10 +174,10 @@ def f_main(cp, location, heroID):
                 EUDBreak()
                 # (Line 28) case 1:
             _t5 = EUDSwitchCase()
-            # (Line 29) SetDeaths(AllPlayers, SetTo, 1401, " `SkillText_Unique");
+            # (Line 29) SetDeaths(cp, SetTo, 8, " `SkillText");
             if _t5(1):
                 # (Line 30) f.SkillWait(cp, 5600);
-                DoActions(SetDeaths(AllPlayers, SetTo, 1401, " `SkillText_Unique"))
+                DoActions(SetDeaths(cp, SetTo, 8, " `SkillText"))
                 f.SkillWait(cp, 5600)
                 # (Line 31) SetDeaths(cp, Add, 1, " `SkillLoop");
                 # (Line 32) break;
@@ -185,10 +185,10 @@ def f_main(cp, location, heroID):
                 EUDBreak()
                 # (Line 33) case 2:
             _t6 = EUDSwitchCase()
-            # (Line 34) SetDeaths(AllPlayers, SetTo, 1402, " `SkillText_Unique");
+            # (Line 34) SetDeaths(cp, SetTo, 9, " `SkillText");
             if _t6(2):
                 # (Line 35) f.SkillWait(cp, 6100);
-                DoActions(SetDeaths(AllPlayers, SetTo, 1402, " `SkillText_Unique"))
+                DoActions(SetDeaths(cp, SetTo, 9, " `SkillText"))
                 f.SkillWait(cp, 6100)
                 # (Line 36) SetDeaths(cp, Add, 1, " `SkillLoop");
                 # (Line 37) break;
@@ -196,10 +196,10 @@ def f_main(cp, location, heroID):
                 EUDBreak()
                 # (Line 38) case 3:
             _t7 = EUDSwitchCase()
-            # (Line 39) SetDeaths(AllPlayers, SetTo, 1403, " `SkillText_Unique");
+            # (Line 39) SetDeaths(cp, SetTo, 10, " `SkillText");
             if _t7(3):
                 # (Line 40) f.SkillWait(cp, 6200);
-                DoActions(SetDeaths(AllPlayers, SetTo, 1403, " `SkillText_Unique"))
+                DoActions(SetDeaths(cp, SetTo, 10, " `SkillText"))
                 f.SkillWait(cp, 6200)
                 # (Line 41) SetDeaths(cp, Add, 1, " `SkillLoop");
                 # (Line 42) break;
@@ -207,10 +207,10 @@ def f_main(cp, location, heroID):
                 EUDBreak()
                 # (Line 43) case 4:
             _t8 = EUDSwitchCase()
-            # (Line 44) SetDeaths(AllPlayers, SetTo, 1404, " `SkillText_Unique");
+            # (Line 44) SetDeaths(cp, SetTo, 11, " `SkillText");
             if _t8(4):
                 # (Line 45) f.SkillWait(cp, 0);
-                DoActions(SetDeaths(AllPlayers, SetTo, 1404, " `SkillText_Unique"))
+                DoActions(SetDeaths(cp, SetTo, 11, " `SkillText"))
                 f.SkillWait(cp, 0)
                 # (Line 46) SetDeaths(cp, Add, 1, " `SkillLoop");
                 # (Line 47) break;
@@ -250,11 +250,11 @@ def f_main(cp, location, heroID):
                 EUDBreak()
                 # (Line 63) case 1:
             _t12 = EUDSwitchCase()
-            # (Line 64) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 0);
+            # (Line 64) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 0);
             if _t12(1):
-                f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 0)
-                # (Line 65) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 64);
-                f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 64)
+                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 0)
+                # (Line 65) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 64);
+                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 64)
                 # (Line 66) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
                 # (Line 67) f.SkillWait(cp, 0);
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
@@ -265,15 +265,15 @@ def f_main(cp, location, heroID):
                 EUDBreak()
                 # (Line 70) case 2:
             _t13 = EUDSwitchCase()
-            # (Line 71) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 0);
+            # (Line 71) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 0);
             if _t13(2):
-                f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 0)
-                # (Line 72) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 64);
-                f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 64)
-                # (Line 73) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 128);
-                f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 128)
-                # (Line 74) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 128);
-                f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 128)
+                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 0)
+                # (Line 72) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 64);
+                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 64)
+                # (Line 73) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 128);
+                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 128)
+                # (Line 74) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 128);
+                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 128)
                 # (Line 75) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
                 # (Line 76) f.SkillWait(cp, 0);
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
@@ -284,19 +284,19 @@ def f_main(cp, location, heroID):
                 EUDBreak()
                 # (Line 79) case 3:
             _t14 = EUDSwitchCase()
-            # (Line 80) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 0);
+            # (Line 80) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 0);
             if _t14(3):
-                f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 0)
-                # (Line 81) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 64);
-                f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 64)
-                # (Line 82) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 128);
-                f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 128)
-                # (Line 83) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 192);
-                f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 192)
-                # (Line 84) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 192);
-                f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 192)
-                # (Line 85) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 192);
-                f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 192)
+                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 0)
+                # (Line 81) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 64);
+                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 64)
+                # (Line 82) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 128);
+                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 128)
+                # (Line 83) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 192);
+                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 192)
+                # (Line 84) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 192);
+                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 192)
+                # (Line 85) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 192);
+                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 192)
                 # (Line 86) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
                 # (Line 87) f.SkillWait(cp, 0);
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
@@ -307,23 +307,23 @@ def f_main(cp, location, heroID):
                 EUDBreak()
                 # (Line 90) case 4:
             _t15 = EUDSwitchCase()
-            # (Line 91) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 0);
+            # (Line 91) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 0);
             if _t15(4):
-                f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 0)
-                # (Line 92) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 64);
-                f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 64)
-                # (Line 93) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 128);
-                f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 128)
-                # (Line 94) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 192);
-                f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 192)
-                # (Line 95) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 256);
-                f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 256)
-                # (Line 96) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 256);
-                f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 256)
-                # (Line 97) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 256);
-                f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 256)
-                # (Line 98) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 256);
-                f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 256)
+                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 0)
+                # (Line 92) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 64);
+                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 64)
+                # (Line 93) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 128);
+                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 128)
+                # (Line 94) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 192);
+                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 192)
+                # (Line 95) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 256);
+                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 256)
+                # (Line 96) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 256);
+                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 256)
+                # (Line 97) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 256);
+                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 256)
+                # (Line 98) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 256);
+                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 256)
                 # (Line 99) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
                 # (Line 100) f.SkillWait(cp, 0);
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))

@@ -21,27 +21,27 @@ function main(cp, location, heroID)
 			switch(loop)
 			{
 			case 0:
-				SetDeaths(AllPlayers, SetTo, 1400, " `SkillText_Unique");
+				SetDeaths(cp, SetTo, 7, " `SkillText");
 				f.SkillWait(cp, 5800);
 				SetDeaths(cp, Add, 1, " `SkillLoop");
 				break;
 			case 1:
-				SetDeaths(AllPlayers, SetTo, 1401, " `SkillText_Unique");
+				SetDeaths(cp, SetTo, 8, " `SkillText");
 				f.SkillWait(cp, 5600);
 				SetDeaths(cp, Add, 1, " `SkillLoop");
 				break;
 			case 2:
-				SetDeaths(AllPlayers, SetTo, 1402, " `SkillText_Unique");
+				SetDeaths(cp, SetTo, 9, " `SkillText");
 				f.SkillWait(cp, 6100);
 				SetDeaths(cp, Add, 1, " `SkillLoop");
 				break;
 			case 3:
-				SetDeaths(AllPlayers, SetTo, 1403, " `SkillText_Unique");
+				SetDeaths(cp, SetTo, 10, " `SkillText");
 				f.SkillWait(cp, 6200);
 				SetDeaths(cp, Add, 1, " `SkillLoop");
 				break;
 			case 4:
-				SetDeaths(AllPlayers, SetTo, 1404, " `SkillText_Unique");
+				SetDeaths(cp, SetTo, 11, " `SkillText");
 				f.SkillWait(cp, 0);
 				SetDeaths(cp, Add, 1, " `SkillLoop");
 				break;
@@ -61,41 +61,41 @@ function main(cp, location, heroID)
 				SetDeaths(cp, Add, 1, " `SkillLoop");
 				break;
 			case 1:
-				f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 0);
-				f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 64);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 0);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 64);
 				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
 				f.SkillWait(cp, 0);
 				SetDeaths(cp, Add, 1, " `SkillLoop");
 				break;
 			case 2:
-				f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 0);
-				f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 64);
-				f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 128);
-				f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 128);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 0);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 64);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 128);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 128);
 				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
 				f.SkillWait(cp, 0);
 				SetDeaths(cp, Add, 1, " `SkillLoop");
 				break;
 			case 3:
-				f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 0);
-				f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 64);
-				f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 128);
-				f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 192);
-				f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 192);
-				f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 192);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 0);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 64);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 128);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 192);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 192);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 192);
 				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
 				f.SkillWait(cp, 0);
 				SetDeaths(cp, Add, 1, " `SkillLoop");
 				break;
 			case 4:
-				f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 0);
-				f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 64);
-				f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 128);
-				f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 192);
-				f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 256);
-				f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 256);
-				f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 256);
-				f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 256);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 0);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 64);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 128);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 192);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 256);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 256);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 256);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 256);
 				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
 				f.SkillWait(cp, 0);
 				SetDeaths(cp, Add, 1, " `SkillLoop");

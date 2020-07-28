@@ -152,9 +152,9 @@ def SkillUnit(count, Unit, location, cp):
 # (Line 15) {
 @EUDFunc
 def SkillWait(cp, count):
-    # (Line 16) SetDeaths(cp, SetTo, count/83 + 2, " `WaitTime");
+    # (Line 16) SetDeaths(cp, SetTo, count/83 + 1, " `WaitTime");
     # (Line 17) }
-    DoActions(SetDeaths(cp, SetTo, count // 83 + 2, " `WaitTime"))
+    DoActions(SetDeaths(cp, SetTo, count // 83 + 1, " `WaitTime"))
     # (Line 19) function SkillEnd(cp)
 
 # (Line 20) {
@@ -163,11 +163,11 @@ def SkillEnd(cp):
     # (Line 21) SetDeaths(cp, SetTo, 12, " `SkillWait");
     # (Line 22) }
     DoActions(SetDeaths(cp, SetTo, 12, " `SkillWait"))
-    # (Line 24) function SqaureShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, x, y)
+    # (Line 24) function SquareShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, x, y)
 
 # (Line 25) {
 @EUDTypedFunc([TrgUnit, None, TrgUnit, TrgLocation, TrgPlayer, None, None])
-def SqaureShape(heroID, count, Unit, location, cp, x, y):
+def SquareShape(heroID, count, Unit, location, cp, x, y):
     # (Line 26) MoveLoc(heroID, location, cp, x, y);
     MoveLoc(heroID, location, cp, x, y)
     # (Line 27) SkillUnit(count, Unit, location, cp);
@@ -185,3 +185,25 @@ def SqaureShape(heroID, count, Unit, location, cp, x, y):
     # (Line 33) SkillUnit(count, Unit, location, cp);
     SkillUnit(count, Unit, location, cp)
     # (Line 34) }
+    # (Line 36) function RectangleShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, x, y)
+
+# (Line 37) {
+@EUDTypedFunc([TrgUnit, None, TrgUnit, TrgLocation, TrgPlayer, None, None])
+def RectangleShape(heroID, count, Unit, location, cp, x, y):
+    # (Line 38) MoveLoc(heroID, location, cp, x, y);
+    MoveLoc(heroID, location, cp, x, y)
+    # (Line 39) SkillUnit(count, Unit, location, cp);
+    SkillUnit(count, Unit, location, cp)
+    # (Line 40) MoveLoc(heroID, location, cp, -y, x);
+    MoveLoc(heroID, location, cp, -y, x)
+    # (Line 41) SkillUnit(count, Unit, location, cp);
+    SkillUnit(count, Unit, location, cp)
+    # (Line 42) MoveLoc(heroID, location, cp, -x, -y);
+    MoveLoc(heroID, location, cp, -x, -y)
+    # (Line 43) SkillUnit(count, Unit, location, cp);
+    SkillUnit(count, Unit, location, cp)
+    # (Line 44) MoveLoc(heroID, location, cp, y, -x);
+    MoveLoc(heroID, location, cp, y, -x)
+    # (Line 45) SkillUnit(count, Unit, location, cp);
+    SkillUnit(count, Unit, location, cp)
+    # (Line 46) }

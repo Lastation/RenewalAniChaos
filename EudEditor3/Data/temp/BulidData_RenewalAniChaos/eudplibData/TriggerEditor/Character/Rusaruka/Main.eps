@@ -3,6 +3,9 @@ import Character.Rusaruka.Skill_S as S;
 import Character.Rusaruka.Skill_C as C;
 //import Character.Rusaruka.Skill_A as A;
 
+import Character.Variable_Text as voice;
+import Character.Rusaruka.Text as text;
+
 var location = 32;
 var heroID = 51;
 var SkillStep;
@@ -19,7 +22,7 @@ function main(cp)
 		
 		SkillList(cp);
 		
-		if (Deaths(CurrentPlayer, Exactly, 0, " `SkillWait"))
+		if (Deaths(cp, Exactly, 0, " `SkillWait"))
 		{
 			switch(SkillStep)
 			{
@@ -39,7 +42,21 @@ function main(cp)
 				*/
 			}
 		}
+		
+		if (Deaths(cp, AtLeast, 1, 186))	// Skill Text
+		{
+			voice.Rusaruka_Voice[0] = dwread_epd(186 * 12 + cp);
+			voice.Rusaruka_Voice[1] = dwread_epd(186 * 12 + cp);
+			voice.Rusaruka_Voice[2] = dwread_epd(186 * 12 + cp);
+			voice.Rusaruka_Voice[3] = dwread_epd(186 * 12 + cp);
+			voice.Rusaruka_Voice[4] = dwread_epd(186 * 12 + cp);
+			voice.Rusaruka_Voice[5] = dwread_epd(186 * 12 + cp);
+			SetDeaths(cp, SetTo, 0, 186);
+		}
 	}
+	
+	// Character Voice 건드리지 말것
+	text.main(cp);
 }
 
 function SkillList(cp)

@@ -154,11 +154,11 @@ def f_main(cp, location, heroID):
         _t3 = EUDSwitchCase()
         # (Line 17) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
         if _t3(11):
-            # (Line 19) f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 32, 0);
+            # (Line 19) f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 32, 0);
             DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
-            f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 32, 0)
-            # (Line 20) f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 24, 24);
-            f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 24, 24)
+            f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 32, 0)
+            # (Line 20) f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 24, 24);
+            f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 24, 24)
             # (Line 21) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
             # (Line 22) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
@@ -171,11 +171,11 @@ def f_main(cp, location, heroID):
             EUDBreak()
             # (Line 26) case 1:
         _t4 = EUDSwitchCase()
-        # (Line 27) f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 64, 0);
+        # (Line 27) f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 64, 0);
         if _t4(1):
-            f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 64, 0)
-            # (Line 28) f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 48, 48);
-            f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 48, 48)
+            f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 64, 0)
+            # (Line 28) f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 48, 48);
+            f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 48, 48)
             # (Line 29) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
             # (Line 30) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
@@ -188,11 +188,11 @@ def f_main(cp, location, heroID):
             EUDBreak()
             # (Line 34) case 2:
         _t5 = EUDSwitchCase()
-        # (Line 35) f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 96, 0);
+        # (Line 35) f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 96, 0);
         if _t5(2):
-            f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 96, 0)
-            # (Line 36) f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 72, 72);
-            f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 72, 72)
+            f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 96, 0)
+            # (Line 36) f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 72, 72);
+            f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 72, 72)
             # (Line 37) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
             # (Line 38) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
@@ -205,11 +205,11 @@ def f_main(cp, location, heroID):
             EUDBreak()
             # (Line 42) case 3:
         _t6 = EUDSwitchCase()
-        # (Line 43) f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 128, 0);
+        # (Line 43) f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 128, 0);
         if _t6(3):
-            f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 128, 0)
-            # (Line 44) f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 96, 96);
-            f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 96, 96)
+            f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 128, 0)
+            # (Line 44) f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 96, 96);
+            f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 96, 96)
             # (Line 45) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
             # (Line 46) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
@@ -226,11 +226,11 @@ def f_main(cp, location, heroID):
         if _t7(4):
             pass
         _t8 = EUDSwitchCase()
-        # (Line 52) f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 160, 0);
+        # (Line 52) f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 160, 0);
         if _t8(7):
-            f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 160, 0)
-            # (Line 53) f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 120, 120);
-            f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 120, 120)
+            f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 160, 0)
+            # (Line 53) f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 120, 120);
+            f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 120, 120)
             # (Line 54) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
             # (Line 55) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
@@ -247,11 +247,11 @@ def f_main(cp, location, heroID):
         if _t9(5):
             pass
         _t10 = EUDSwitchCase()
-        # (Line 61) f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 192, 0);
+        # (Line 61) f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 192, 0);
         if _t10(6):
-            f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 192, 0)
-            # (Line 62) f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 144, 144);
-            f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 144, 144)
+            f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 192, 0)
+            # (Line 62) f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 144, 144);
+            f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 144, 144)
             # (Line 63) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
             # (Line 64) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
@@ -264,15 +264,15 @@ def f_main(cp, location, heroID):
             EUDBreak()
             # (Line 68) case 8:
         _t11 = EUDSwitchCase()
-        # (Line 69) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 0);
+        # (Line 69) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 0);
         if _t11(8):
-            f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 0)
-            # (Line 70) f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 96, 96);
-            f.SqaureShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 96, 96)
-            # (Line 71) f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 128, 0);
-            f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 128, 0)
-            # (Line 72) f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 96, 96);
-            f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 96, 96)
+            f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 0)
+            # (Line 70) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 96, 96);
+            f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 96, 96)
+            # (Line 71) f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 128, 0);
+            f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 128, 0)
+            # (Line 72) f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 96, 96);
+            f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 96, 96)
             # (Line 73) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
             # (Line 74) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
@@ -291,15 +291,15 @@ def f_main(cp, location, heroID):
         _t12 = EUDSwitchCase()
         # (Line 81) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
         if _t12(9):
-            # (Line 83) f.SqaureShape(heroID, 1, "40 + 1n Guardian", location, cp, 96, 0);
+            # (Line 83) f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, 96, 0);
             DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
-            f.SqaureShape(heroID, 1, "40 + 1n Guardian", location, cp, 96, 0)
-            # (Line 84) f.SqaureShape(heroID, 1, "40 + 1n Guardian", location, cp, 72, 72);
-            f.SqaureShape(heroID, 1, "40 + 1n Guardian", location, cp, 72, 72)
-            # (Line 85) f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 96, 0);
-            f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 96, 0)
-            # (Line 86) f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 72, 72);
-            f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 72, 72)
+            f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, 96, 0)
+            # (Line 84) f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, 72, 72);
+            f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, 72, 72)
+            # (Line 85) f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 96, 0);
+            f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 96, 0)
+            # (Line 86) f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 72, 72);
+            f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 72, 72)
             # (Line 87) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
             # (Line 88) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
@@ -318,15 +318,15 @@ def f_main(cp, location, heroID):
         _t13 = EUDSwitchCase()
         # (Line 95) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
         if _t13(10):
-            # (Line 97) f.SqaureShape(heroID, 1, "40 + 1n Guardian", location, cp, 64, 0);
+            # (Line 97) f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, 64, 0);
             DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp))
-            f.SqaureShape(heroID, 1, "40 + 1n Guardian", location, cp, 64, 0)
-            # (Line 98) f.SqaureShape(heroID, 1, "40 + 1n Guardian", location, cp, 48, 48);
-            f.SqaureShape(heroID, 1, "40 + 1n Guardian", location, cp, 48, 48)
-            # (Line 99) f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 64, 0);
-            f.SqaureShape(heroID, 1, "40 + 1n Lurker", location, cp, 64, 0)
-            # (Line 100) f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 48, 48);
-            f.SqaureShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 48, 48)
+            f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, 64, 0)
+            # (Line 98) f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, 48, 48);
+            f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, 48, 48)
+            # (Line 99) f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 64, 0);
+            f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 64, 0)
+            # (Line 100) f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 48, 48);
+            f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 48, 48)
             # (Line 101) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
             # (Line 102) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))

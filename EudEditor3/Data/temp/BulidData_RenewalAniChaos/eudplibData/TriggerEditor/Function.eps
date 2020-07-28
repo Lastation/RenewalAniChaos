@@ -13,7 +13,7 @@ function SkillUnit(count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer
 
 function SkillWait(cp, count)
 {
-	SetDeaths(cp, SetTo, count/83 + 2, " `WaitTime");
+	SetDeaths(cp, SetTo, count/83 + 1, " `WaitTime");
 }
 
 function SkillEnd(cp)
@@ -21,7 +21,19 @@ function SkillEnd(cp)
 	SetDeaths(cp, SetTo, 12, " `SkillWait");
 }
 
-function SqaureShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, x, y)
+function SquareShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, x, y)
+{
+	MoveLoc(heroID, location, cp, x, y);
+	SkillUnit(count, Unit, location, cp);
+	MoveLoc(heroID, location, cp, -y, x);
+	SkillUnit(count, Unit, location, cp);
+	MoveLoc(heroID, location, cp, -x, -y);
+	SkillUnit(count, Unit, location, cp);
+	MoveLoc(heroID, location, cp, y, -x);
+	SkillUnit(count, Unit, location, cp);
+}
+
+function RectangleShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, x, y)
 {
 	MoveLoc(heroID, location, cp, x, y);
 	SkillUnit(count, Unit, location, cp);
