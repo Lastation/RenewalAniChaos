@@ -1,0 +1,94 @@
+
+import Variable as v;
+
+const s = StringBuffer();
+
+function NormalText(cp)
+{
+	switch (v.Sound_Text4[cp])
+	{
+	case 2000:
+		PlayWAV("EmetSelch_SSS.ogg");
+		v.Sound_Text4[cp] = 0;
+		s.print("\n\n\x13\x19Emet Selch\n\x13\x04자신들이 짓밟히는 건 불합리하다고 생각하나?\n\n");
+		break;
+	case 2001:
+		v.Sound_Text4[cp] = 0;
+		s.print("\n\n\x13\x19Emet Selch\n\x13\x04고대인을 위해 희생되는게 부당하다고?\n\n");
+		break;
+	case 2002:
+		PlayWAV("EmetSelch_SSSCC.ogg");
+		v.Sound_Text4[cp] = 0;
+		s.print("\n\n\x13\x19Emet Selch\n\x13\x04나를 봐라...! 그 누구보다도 오랫동안 너희 사이에 섞여 살아왔다!\n\n");
+		break;
+	case 2003:
+		PlayWAV("EmetSelch_SSSCCAA.ogg");
+		v.Sound_Text4[cp] = 0;
+		s.print("\n\n\x13\x19Emet Selch\n\x13\x04함께 밥을 먹고, 싸우고, 아프고, 늙기도 했다!\n\n");
+		break;
+	case 2004:
+		v.Sound_Text4[cp] = 0;
+		s.print("\n\n\x13\x19Emet Selch\n\x13\x04곁에서 죽음을 지켜보고 때로는 아이를 가진 적도 있다!\n\n");
+		break;
+	case 2005:
+		PlayWAV("EmetSelch_SSSCCAACCA.ogg");
+		v.Sound_Text4[cp] = 0;
+		s.print("\n\n\x13\x19Emet Selch\n\x13\x04그렇게 수없이 재어 보고, 그때마다 수업이 판단한 거다!\n\n");
+		break;
+	case 2006:
+		v.Sound_Text4[cp] = 0;
+		s.print("\n\n\x13\x19Emet Selch\n\x13\x04너희들은 어리석고 나약해서 이 별을 지키며 살아가기엔 한참 부족하다고!\n\n");
+		break;
+	case 2007:
+		v.Sound_Text4[cp] = 0;
+		PlayWAV("EmetSelch_CCA.ogg");
+		s.print("\n\n\x13\x19Emet Selch\n\x13\x04되다 만 것들이 우리들의 소망을 말하지 마라!\n\n");
+		break;
+	case 2008:
+		v.Sound_Text4[cp] = 0;
+		PlayWAV("EmetSelch_CCAA.ogg");
+		s.print("\n\n\x13\x19Emet Selch\n\x13\x04세계는 우리들이 되찾는다\n\n");
+		break;
+	case 2009:
+		v.Sound_Text4[cp] = 0;
+		PlayWAV("EmetSelch_CCAAA.ogg");
+		s.print("\n\n\x13\x19Emet Selch\n\x13\x04영웅따윈 없었던 거야\n\n");
+		break;
+		
+	}
+	
+}
+
+
+function UniqueText(cp)
+{
+	switch (v.Sound_Text_Uniq[cp])
+	{
+	case 20000:
+		s.print("\n\n\x13\x19Emet Selch\n\x13\x04그럼 제군, 다시 보도록 하지\n\n");
+		PlayWAV("EmetSelch_O.ogg");
+		v.Sound_Text_Uniq[cp] = 0;
+		break;
+	}
+}
+
+
+function UiltimateText(cp)
+{
+	switch (v.Sound_Text_Uilti[cp])
+	{
+	case 20000:
+		PlayWAV("EmetSelch_AACC.ogg");
+		v.Sound_Text_Uilti[cp] = 0;
+		break;
+	case 20001:
+		s.print("\n\n\x13\x19Emet Selch\n\x13\x04종말의 재앙... 우리 시대의 끝이자, 내 집념의 시작...\n\n");
+		v.Sound_Text_Uilti[cp] = 0;
+		break;
+	case 20002:
+		s.print("\n\n\x13\x19Emet Selch\n\x13\x04너희를 판정하기 위해, 또 한 차례 재연해 보이겠다.\n\n");
+		v.Sound_Text_Uilti[cp] = 0;
+		break;
+	}
+
+}

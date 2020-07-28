@@ -3439,6 +3439,7 @@ object StringBuffer {
    function Display() {}
    function DisplayAt(line) {}
    function print(*args) {}
+   function printAt(line, *args) {}
    function Play() {}
    function fadeIn(*args, color=None, wait=1, reset=True, tag=None) {}
    function fadeOut(*args, color=None, wait=1, reset=True, tag=None) {}

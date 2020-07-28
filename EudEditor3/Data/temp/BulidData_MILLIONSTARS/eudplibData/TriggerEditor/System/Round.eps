@@ -1,0 +1,132 @@
+import System.Variable as v;
+import System.Announce as a;
+import System.Text as t;
+import Princess.Variable as pv;
+import Fairy.Variable as fv;
+import Angel.Variable as av;
+
+import Title.Variable as tv;
+import Title.Effect as te;
+
+function Init();
+function FixedUpdate();
+function Set_Round();
+function Set_RoundHP();
+function Start_Round_Text(cp);
+function End_Round_Text(cp);
+
+// 라운드
+var NR;
+const EDSound = PVariable();
+const STSound = PVariable();
+
+const s = StringBuffer();
+
+function Init()
+{
+
+}
+
+function FixedUpdate()
+{
+	Set_RoundHP();
+}
+
+function PlayerUpdate(cp)
+{
+	Start_Round_Text(cp);
+	End_Round_Text(cp);
+}
+
+function Set_RoundHP()
+{
+	if(NR != dwread_epd(185 * 12 + 6))
+	{
+		NR = dwread_epd(185 * 12 + 6);
+		te.Add_Dear();
+		
+		if (v.Music_Number[NR] != 999 && NR < 56)
+		{ 
+			SetDeaths(AllPlayers, SetTo, v.Music_Number[NR], 35);
+			SetDeaths(AllPlayers, SetTo, NR, 213);
+		}
+		
+		var roundCheck = NR % 10;
+		var roundHp;
+		
+		var mission = dwrand()%3 + 1;
+		bwrite(0x65FD00 + 9344 + 135 * 1, mission);
+		bwrite(0x65FD00 + 14544 + 135 * 1, 29 + mission);
+		
+		switch (roundCheck)
+		{
+		case 1:
+		case 4:
+		case 7:
+			roundHp = v.Round_Hp[NR] * (100 - pv.Album_Level[7] * pv.Album_Multiply[7]);
+			if (Bring(P8, AtLeast, 1, tv.isTitle_Complete[13], "Title")) { dwwrite(0x65FD00 + 9808 + 93 * 4, (roundHp * 256) / 100); }
+			else { dwwrite(0x65FD00 + 9808 + 93 * 4, (roundHp * 9 * 256) / 1000); }
+			
+			dwwrite(0x65FD00 + 9808 + 135 * 4, (roundHp * 30 * 256) / 100);
+			SetDeaths(P8, SetTo, 0, 207);
+			break;
+		case 2:
+		case 5:
+		case 8:
+			roundHp = v.Round_Hp[NR] * (100 - fv.Album_Level[6] * fv.Album_Multiply[6]);
+			if (Bring(P8, AtLeast, 1, tv.isTitle_Complete[17], "Title")) { dwwrite(0x65FD00 + 9808 + 94 * 4, (roundHp * 256) / 100); }
+			else { dwwrite(0x65FD00 + 9808 + 94 * 4, (roundHp * 9 * 256) / 1000); }
+			
+			dwwrite(0x65FD00 + 9808 + 135 * 4, (roundHp * 30 * 256) / 100);
+			SetDeaths(P8, SetTo, 1, 207);
+			break;
+		case 3:
+		case 6:
+		case 9:
+			roundHp = v.Round_Hp[NR] * (100 - av.Album_Level[7] * av.Album_Multiply[7]);
+			if (Bring(P8, AtLeast, 1, tv.isTitle_Complete[21], "Title")) { dwwrite(0x65FD00 + 9808 + 95 * 4, (roundHp * 256) / 100); }
+			else { dwwrite(0x65FD00 + 9808 + 95 * 4, (roundHp * 9 * 256) / 1000); }
+			
+			dwwrite(0x65FD00 + 9808 + 135 * 4, (roundHp * 30 * 256) / 100);
+			SetDeaths(P8, SetTo, 2, 207);
+			break;
+		case 0:
+			dwwrite(0x65FD00 + 9808 + 96 * 4, v.Round_Hp[NR] * 256);
+			SetDeaths(P8, SetTo, 3, 207);
+			
+			if (NR == 10)
+			{
+				var boss = dwrand()%3 + 1;
+				bwrite(0x65FD00 + 9344 + 133 * 1, boss);
+				bwrite(0x65FD00 + 14544 + 133 * 1, 29 + boss);
+				dwwrite(0x65FD00 + 9808 + 133 * 4, v.Boss_Hp[0] * 256);
+				CreateUnit(1, 133, "Line_Event", P6);
+			}
+			
+			break;
+		}
+	}
+}
+
+function Start_Round_Text(cp)
+{
+	if(STSound[cp] != dwread_epd(213 * 12 + cp))
+	{
+		STSound[cp] = dwread_epd(213 * 12 + cp);
+		
+		s.print("\n\n\n\x13\x19", dwread_epd(185 * 12 + 6), "주차 \x04스케줄 시작\n\n");
+		s.print("\x13", ptr2s(t.Round_Unit_Name[STSound[cp]]), "\n\n\n");
+	}
+}
+
+function End_Round_Text(cp)
+{
+	if(EDSound[cp] != dwread_epd(212 * 12 + cp))
+	{
+		EDSound[cp] = dwread_epd(212 * 12 + cp);
+		
+		s.print("\n\n\n\x13\x19", dwread_epd(185 * 12 + 6), "주차 \x04스케줄 완료\n\n");
+		s.print("\x13", ptr2s(t.Round_Unit_Name[EDSound[cp]]));
+		s.print("\x13\x04", ptr2s(t.End_Sound_Text[EDSound[cp]]), "\n\n\n");
+	}
+}

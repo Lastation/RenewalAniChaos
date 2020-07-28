@@ -1,0 +1,622 @@
+import getunitID as id;
+import Title.Variable as v;
+import Title.Effect as e;
+
+function Init();
+function FixedUpdate();
+function PlayerUpdate(cp);
+
+function Title_Text(cp);
+function Text_Auto(cp, value, index);
+
+function Title_Check(cp);
+function Check_Auto(cp, index);
+
+const s = StringBuffer();
+var label;
+var value;
+var index;
+var isHave;
+
+function Init()
+{
+	
+}
+
+function FixedUpdate()
+{
+	e.FixedUpdate();
+}
+
+function PlayerUpdate(cp)
+{
+	Title_Text(cp);
+	Title_Check(cp);
+}
+
+function Title_Text(cp)
+{
+	index = 0;
+	
+	switch(id.Unit_ID[cp])
+	{
+	case 175:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Star_1[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_1[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_1[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 174:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Star_2[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_2[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_2[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 173:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Star_3[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_3[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_3[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 172:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Star_4[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_4[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_4[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 171:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Star_5[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_5[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_5[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 170:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Star_6[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_6[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_6[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 169:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Star_7[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_7[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_7[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 168:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Star_8[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_8[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_8[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 167:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Star_9[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_9[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_9[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 166:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Star_10[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_10[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_10[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 165:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Star_11[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_11[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_11[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 164:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Star_12[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_12[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_12[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Star_12[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+		
+	// 프린세스
+	case 163:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Prin_1[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Prin_1[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 160:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Prin_2[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Prin_2[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Prin_2[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 159:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Prin_3[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Prin_3[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Prin_3[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 136:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Prin_4[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Prin_4[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Prin_4[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Prin_4[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Prin_4[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+		
+	// 페어리
+	case 154:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Fair_1[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Fair_1[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 152:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Fair_2[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Fair_2[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Fair_2[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 151:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Fair_3[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Fair_3[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Fair_3[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Fair_3[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 148:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Fair_4[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Fair_4[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Fair_4[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Fair_4[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+		
+	//  엔젤
+	case 147:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Angel_1[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Angel_1[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 142:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Angel_2[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Angel_2[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Angel_2[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Angel_2[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 140:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Angel_3[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Angel_3[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Angel_3[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 139:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Angel_4[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Angel_4[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Angel_4[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Angel_4[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+		
+	// ETC
+	case 137:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Leader_1[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Leader_1[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Leader_1[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	case 138:
+		s.printAt(0, "\n\x13\x1F -- ", ptr2s(GetTBLAddr(id.Unit_ID[cp] + 1)), " \x1F-- \n");
+		
+		value = v.Title_Flag[v.Title_Leader_2[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Leader_2[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		value = v.Title_Flag[v.Title_Leader_2[index]];
+		Text_Auto(cp, value, index);
+		index += 1;
+		
+		s.printAt(index + 3,"\n\n");
+		id.Unit_ID[cp] = 1000;
+		break;
+	}
+}
+
+function Text_Auto(cp, value, index)
+{
+	if (Bring(cp, AtLeast, 1, value, "Anywhere"))
+	{ isHave = 1; }
+	else
+	{ isHave = 0; }
+	
+	label = bread(0x65FD00 + 16592 + value * 1) + 1302;
+	if(value > 1000) { s.printAt(index + 3, "\x13\x05", ptr2s(GetTBLAddr(value - 999))); }
+	else { s.printAt(index + 3, "\x13", ptr2s(GetTBLAddr(label)), " ", ptr2s(GetTBLAddr(value+1)), " ", ptr2s(v.Title_Db[isHave])); }
+}
+
+function Title_Check(cp)
+{
+	if (Bring(cp, AtLeast, 1, "(men)", "lounge_Puzzle"))
+	{
+		Check_Auto(cp, 0);
+		Check_Auto(cp, 1);
+		Check_Auto(cp, 2);
+		Check_Auto(cp, 3);
+		Check_Auto(cp, 4);
+		Check_Auto(cp, 5);
+		Check_Auto(cp, 6);
+		Check_Auto(cp, 7);
+		Check_Auto(cp, 8);
+		Check_Auto(cp, 9);
+		Check_Auto(cp, 10);
+		Check_Auto(cp, 11);
+		Check_Auto(cp, 12);
+		Check_Auto(cp, 13);
+		Check_Auto(cp, 14);
+		Check_Auto(cp, 15);
+		Check_Auto(cp, 16);
+		Check_Auto(cp, 17);
+		Check_Auto(cp, 18);
+		Check_Auto(cp, 19);
+		Check_Auto(cp, 20);
+		Check_Auto(cp, 21);
+		Check_Auto(cp, 22);
+		Check_Auto(cp, 23);
+		Check_Auto(cp, 24);
+		Check_Auto(cp, 25);
+		Check_Auto(cp, 26);
+		Check_Auto(cp, 27);
+		Check_Auto(cp, 28);
+		Check_Auto(cp, 29);
+		Check_Auto(cp, 30);
+		Check_Auto(cp, 31);
+		Check_Auto(cp, 32);
+		Check_Auto(cp, 33);
+		Check_Auto(cp, 34);
+		Check_Auto(cp, 35);
+		Check_Auto(cp, 36);
+		Check_Auto(cp, 37);
+		Check_Auto(cp, 38);
+		Check_Auto(cp, 39);
+		Check_Auto(cp, 40);
+		Check_Auto(cp, 41);
+		Check_Auto(cp, 42);
+		Check_Auto(cp, 43);
+		Check_Auto(cp, 44);
+		Check_Auto(cp, 45);
+		Check_Auto(cp, 46);
+		Check_Auto(cp, 47);
+		Check_Auto(cp, 48);
+		Check_Auto(cp, 49);
+		Check_Auto(cp, 50);
+		Check_Auto(cp, 51);
+		Check_Auto(cp, 52);
+		Check_Auto(cp, 53);
+		Check_Auto(cp, 54);
+		Check_Auto(cp, 55);
+	}
+}
+
+function Check_Auto(cp, index)
+{
+	if (Bring(cp, AtLeast, 1, v.Title_Flag[index], "lounge_Puzzle"))
+	{
+		s.print("\n\x13", ptr2s(GetTBLAddr(v.Title_Flag[index] + 1)), ptr2s(v.Title_Db[2]), "\n");
+		RemoveUnitAt(1, v.Title_Flag[index], "lounge_Puzzle", cp);
+		v.Title_Flag[index] += 1000;
+		e.Title_Complete_Check();
+	}
+}

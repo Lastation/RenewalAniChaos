@@ -1,0 +1,96 @@
+import Princess.Variable as pv;
+import Fairy.Variable as fv;
+import Angel.Variable as av;
+
+import Princess.ButtonText as pt;
+import Fairy.ButtonText as ft;
+import Angel.ButtonText as at;
+
+const s = StringBuffer();
+
+function Lesson_Unit(cp);
+function Lesson_Apply(type, id, cp);
+
+function Lesson_Unit(cp)
+{
+	if (Bring(cp, AtLeast, 1, 111, "MedalGacha Step 1") && Bring(cp, Exactly, 1, "(men)", "lounge_Cloth"))
+	{
+		// Princess
+		if (Bring(cp, AtLeast, 1, pv.Unit_ID[0], "lounge_Cloth")) { Lesson_Apply(0, 0, cp); }
+		if (Bring(cp, AtLeast, 1, pv.Unit_ID[1], "lounge_Cloth")) { Lesson_Apply(0, 1, cp); }
+		if (Bring(cp, AtLeast, 1, pv.Unit_ID[2], "lounge_Cloth")) { Lesson_Apply(0, 2, cp); }
+		if (Bring(cp, AtLeast, 1, pv.Unit_ID[3], "lounge_Cloth")) { Lesson_Apply(0, 3, cp); }
+		if (Bring(cp, AtLeast, 1, pv.Unit_ID[4], "lounge_Cloth")) { Lesson_Apply(0, 4, cp); }
+		if (Bring(cp, AtLeast, 1, pv.Unit_ID[5], "lounge_Cloth")) { Lesson_Apply(0, 5, cp); }
+		if (Bring(cp, AtLeast, 1, pv.Unit_ID[6], "lounge_Cloth")) { Lesson_Apply(0, 6, cp); }
+		if (Bring(cp, AtLeast, 1, pv.Unit_ID[7], "lounge_Cloth")) { Lesson_Apply(0, 7, cp); }
+		if (Bring(cp, AtLeast, 1, pv.Unit_ID[8], "lounge_Cloth")) { Lesson_Apply(0, 8, cp); }
+		if (Bring(cp, AtLeast, 1, pv.Unit_ID[9], "lounge_Cloth")) { Lesson_Apply(0, 9, cp); }
+		if (Bring(cp, AtLeast, 1, pv.Unit_ID[10], "lounge_Cloth")) { Lesson_Apply(0, 10, cp); }
+		if (Bring(cp, AtLeast, 1, pv.Unit_ID[11], "lounge_Cloth")) { Lesson_Apply(0, 11, cp); }
+		if (Bring(cp, AtLeast, 1, pv.Unit_ID[12], "lounge_Cloth")) { Lesson_Apply(0, 12, cp); }
+		
+		// Fairy
+		if (Bring(cp, AtLeast, 1, fv.Unit_ID[0], "lounge_Cloth")) { Lesson_Apply(1, 0, cp); }
+		if (Bring(cp, AtLeast, 1, fv.Unit_ID[1], "lounge_Cloth")) { Lesson_Apply(1, 1, cp); }
+		if (Bring(cp, AtLeast, 1, fv.Unit_ID[2], "lounge_Cloth")) { Lesson_Apply(1, 2, cp); }
+		if (Bring(cp, AtLeast, 1, fv.Unit_ID[3], "lounge_Cloth")) { Lesson_Apply(1, 3, cp); }
+		if (Bring(cp, AtLeast, 1, fv.Unit_ID[4], "lounge_Cloth")) { Lesson_Apply(1, 4, cp); }
+		if (Bring(cp, AtLeast, 1, fv.Unit_ID[5], "lounge_Cloth")) { Lesson_Apply(1, 5, cp); }
+		if (Bring(cp, AtLeast, 1, fv.Unit_ID[6], "lounge_Cloth")) { Lesson_Apply(1, 6, cp); }
+		if (Bring(cp, AtLeast, 1, fv.Unit_ID[7], "lounge_Cloth")) { Lesson_Apply(1, 7, cp); }
+		if (Bring(cp, AtLeast, 1, fv.Unit_ID[8], "lounge_Cloth")) { Lesson_Apply(1, 8, cp); }
+		if (Bring(cp, AtLeast, 1, fv.Unit_ID[9], "lounge_Cloth")) { Lesson_Apply(1, 9, cp); }
+		if (Bring(cp, AtLeast, 1, fv.Unit_ID[10], "lounge_Cloth")) { Lesson_Apply(1, 10, cp); }
+		if (Bring(cp, AtLeast, 1, fv.Unit_ID[11], "lounge_Cloth")) { Lesson_Apply(1, 11, cp); }
+		if (Bring(cp, AtLeast, 1, fv.Unit_ID[12], "lounge_Cloth")) { Lesson_Apply(1, 12, cp); }
+		
+		// Angel
+		if (Bring(cp, AtLeast, 1, av.Unit_ID[0], "lounge_Cloth")) { Lesson_Apply(2, 0, cp); }
+		if (Bring(cp, AtLeast, 1, av.Unit_ID[1], "lounge_Cloth")) { Lesson_Apply(2, 1, cp); }
+		if (Bring(cp, AtLeast, 1, av.Unit_ID[2], "lounge_Cloth")) { Lesson_Apply(2, 2, cp); }
+		if (Bring(cp, AtLeast, 1, av.Unit_ID[3], "lounge_Cloth")) { Lesson_Apply(2, 3, cp); }
+		if (Bring(cp, AtLeast, 1, av.Unit_ID[4], "lounge_Cloth")) { Lesson_Apply(2, 4, cp); }
+		if (Bring(cp, AtLeast, 1, av.Unit_ID[5], "lounge_Cloth")) { Lesson_Apply(2, 5, cp); }
+		if (Bring(cp, AtLeast, 1, av.Unit_ID[6], "lounge_Cloth")) { Lesson_Apply(2, 6, cp); }
+		if (Bring(cp, AtLeast, 1, av.Unit_ID[7], "lounge_Cloth")) { Lesson_Apply(2, 7, cp); }
+		if (Bring(cp, AtLeast, 1, av.Unit_ID[8], "lounge_Cloth")) { Lesson_Apply(2, 8, cp); }
+		if (Bring(cp, AtLeast, 1, av.Unit_ID[9], "lounge_Cloth")) { Lesson_Apply(2, 9, cp); }
+		if (Bring(cp, AtLeast, 1, av.Unit_ID[10], "lounge_Cloth")) { Lesson_Apply(2, 10, cp); }
+		if (Bring(cp, AtLeast, 1, av.Unit_ID[11], "lounge_Cloth")) { Lesson_Apply(2, 11, cp); }
+		if (Bring(cp, AtLeast, 1, av.Unit_ID[12], "lounge_Cloth")) { Lesson_Apply(2, 12, cp); }
+	}
+	else if (Bring(cp, AtLeast, 2, "(men)", "lounge_Cloth"))
+	{
+		s.print("\x13\x04한명의 아이돌 에게만 사용 가능합니다.");
+		MoveUnit(All, "(men)", cp, "lounge_Cloth", "Center_lounge");
+	}
+}
+
+function Lesson_Apply(type, id, cp)
+{
+	switch(type)
+	{
+	case 0:
+		if (pv.Album_Level[id] < 10) 
+		{ 
+			pt.Add_AlbumNow(id , 1);
+			RemoveUnitAt(1, 111, "MedalGacha Step 1", cp);
+		}
+		break;
+	case 1:
+		if (fv.Album_Level[id] < 10) 
+		{ 
+			ft.Add_AlbumNow(id , 1);
+			RemoveUnitAt(1, 111, "MedalGacha Step 1", cp);
+		}
+		break;
+	case 2:
+		if (av.Album_Level[id] < 10) 
+		{ 
+			at.Add_AlbumNow(id , 1); 
+			RemoveUnitAt(1, 111, "MedalGacha Step 1", cp);
+		}
+		break;
+	}
+}

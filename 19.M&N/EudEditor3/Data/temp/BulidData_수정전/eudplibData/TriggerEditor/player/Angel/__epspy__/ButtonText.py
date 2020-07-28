@@ -160,183 +160,181 @@ def Init_ButtonText():
         EUDSetContinuePoint()
         _t2()
     EUDEndWhile()
-    # (Line 26) function Update_ButtomText()
+    # (Line 26) function Set_Dear_ButtonText(id)
 
 # (Line 27) {
 @EUDFunc
-def Update_ButtomText():
-    # (Line 28) for (var i = 0; i < 13; i++)
-    i = EUDVariable()
-    i << (0)
-    if EUDWhile()(i >= 13, neg=True):
-        def _t2():
-            i.__iadd__(1)
-        # (Line 29) {
-        # (Line 30) Add_DearNow(i, 100);
-        Add_DearNow(i, 100)
-        # (Line 31) Add_AlbumNow(i, 1);
-        Add_AlbumNow(i, 1)
-        # (Line 32) }
-        # (Line 33) }
-        EUDSetContinuePoint()
-        _t2()
-    EUDEndWhile()
-    # (Line 35) function Set_Dear_ButtonText(id)
-
-# (Line 36) {
-@EUDFunc
 def Set_Dear_ButtonText(id):
-    # (Line 37) if (v.Dear_Level[id] < 10)
+    # (Line 28) if (v.Dear_Level[id] < 10)
     if EUDIf()(v.Dear_Level[id] >= 10, neg=True):
-        # (Line 38) {
-        # (Line 39) settbl(1048 + id * 2, 10, v.Dear_Now[id], "/", v.Dear_Need[v.Dear_Level[id]],
-        # (Line 40) "\n\x19", ptr2s(v.Dear_Text[id])," Lv.", v.Dear_Level[id],
-        # (Line 41) "\n\x04", ptr2s(v.Dear_SubText[v.Dear_Ablity[id]]), " \x08", v.Dear_Level[id] * v.Dear_Multiply[id], ptr2s(v.Dear_EndText[v.Dear_Ablity[id]]));
+        # (Line 29) {
+        # (Line 30) settbl(1048 + id * 2, 10, v.Dear_Now[id], "/", v.Dear_Need[v.Dear_Level[id]],
+        # (Line 31) "\n\x19", ptr2s(v.Dear_Text[id])," Lv.", v.Dear_Level[id],
+        # (Line 32) "\n\x04", ptr2s(v.Dear_SubText[v.Dear_Ablity[id]]), " \x08", v.Dear_Level[id] * v.Dear_Multiply[id], ptr2s(v.Dear_EndText[v.Dear_Ablity[id]]));
         f_settbl(1048 + id * 2, 10, v.Dear_Now[id], "/", v.Dear_Need[v.Dear_Level[id]], "\n\x19", ptr2s(v.Dear_Text[id]), " Lv.", v.Dear_Level[id], "\n\x04", ptr2s(v.Dear_SubText[v.Dear_Ablity[id]]), " \x08", v.Dear_Level[id] * v.Dear_Multiply[id], ptr2s(v.Dear_EndText[v.Dear_Ablity[id]]))
-        # (Line 42) }
-        # (Line 43) else
-        # (Line 44) {
+        # (Line 33) }
+        # (Line 34) else
+        # (Line 35) {
     if EUDElse()():
-        # (Line 45) settbl(1048 + id * 2, 10, v.Dear_Now[id],
-        # (Line 46) "\n\x19", ptr2s(v.Dear_Text[id])," Lv. Max",
-        # (Line 47) "\n\x04", ptr2s(v.Dear_SubText[v.Dear_Ablity[id]]), " \x08", v.Dear_Level[id] * v.Dear_Multiply[id], ptr2s(v.Dear_EndText[v.Dear_Ablity[id]]));
+        # (Line 36) settbl(1048 + id * 2, 10, v.Dear_Now[id],
+        # (Line 37) "\n\x19", ptr2s(v.Dear_Text[id])," Lv. Max",
+        # (Line 38) "\n\x04", ptr2s(v.Dear_SubText[v.Dear_Ablity[id]]), " \x08", v.Dear_Level[id] * v.Dear_Multiply[id], ptr2s(v.Dear_EndText[v.Dear_Ablity[id]]));
         f_settbl(1048 + id * 2, 10, v.Dear_Now[id], "\n\x19", ptr2s(v.Dear_Text[id]), " Lv. Max", "\n\x04", ptr2s(v.Dear_SubText[v.Dear_Ablity[id]]), " \x08", v.Dear_Level[id] * v.Dear_Multiply[id], ptr2s(v.Dear_EndText[v.Dear_Ablity[id]]))
-        # (Line 48) }
-        # (Line 49) }
+        # (Line 39) }
+        # (Line 40) }
     EUDEndIf()
-    # (Line 51) function Set_Album_ButtonText(id)
+    # (Line 42) function Set_Album_ButtonText(id)
 
-# (Line 52) {
+# (Line 43) {
 @EUDFunc
 def Set_Album_ButtonText(id):
-    # (Line 53) if (v.Album_Level[id] < 10)
+    # (Line 44) if (v.Album_Level[id] < 10)
     if EUDIf()(v.Album_Level[id] >= 10, neg=True):
-        # (Line 54) {
-        # (Line 55) if (id != 6)
+        # (Line 45) {
+        # (Line 46) if (id != 6)
         if EUDIf()(id == 6, neg=True):
-            # (Line 56) {
-            # (Line 57) settbl(1049 + id * 2, 8, v.Album_Now[id], "/", v.Album_Need[v.Album_Level[id]],
-            # (Line 58) "\n\x19", ptr2s(v.Album_Text[id])," Lv.", v.Album_Level[id],
-            # (Line 59) "\n\x04", ptr2s(v.Album_SubText[id]), " \x08", v.Album_Level[id] * v.Album_Multiply[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]));
-            f_settbl(1049 + id * 2, 8, v.Album_Now[id], "/", v.Album_Need[v.Album_Level[id]], "\n\x19", ptr2s(v.Album_Text[id]), " Lv.", v.Album_Level[id], "\n\x04", ptr2s(v.Album_SubText[id]), " \x08", v.Album_Level[id] * v.Album_Multiply[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]))
-            # (Line 60) }
-            # (Line 61) else
-            # (Line 62) {
+            # (Line 47) {
+            # (Line 48) settbl(1049 + id * 2, 15, v.Album_Now[id], ptr2s(v.Album_Text[13]),
+            # (Line 49) "\n\x19", ptr2s(v.Album_Text[id])," Lv.", v.Album_Level[id],
+            # (Line 50) "\n\x04", ptr2s(v.Album_SubText[id]), " \x08", v.Album_Level[id] * v.Album_Multiply[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]));
+            f_settbl(1049 + id * 2, 15, v.Album_Now[id], ptr2s(v.Album_Text[13]), "\n\x19", ptr2s(v.Album_Text[id]), " Lv.", v.Album_Level[id], "\n\x04", ptr2s(v.Album_SubText[id]), " \x08", v.Album_Level[id] * v.Album_Multiply[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]))
+            # (Line 51) }
+            # (Line 52) else
+            # (Line 53) {
         if EUDElse()():
-            # (Line 63) settbl(1049 + id * 2, 8, v.Album_Now[id], "/", v.Album_Need[v.Album_Level[id]],
-            # (Line 64) "\n\x19", ptr2s(v.Album_Text[id])," Lv.", v.Album_Level[id],
-            # (Line 65) "\n\x08", v.Album_Multiply[id] -  v.Album_Level[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]));
-            f_settbl(1049 + id * 2, 8, v.Album_Now[id], "/", v.Album_Need[v.Album_Level[id]], "\n\x19", ptr2s(v.Album_Text[id]), " Lv.", v.Album_Level[id], "\n\x08", v.Album_Multiply[id] - v.Album_Level[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]))
-            # (Line 66) }
-            # (Line 67) }
+            # (Line 54) settbl(1049 + id * 2, 15, v.Album_Now[id], ptr2s(v.Album_Text[13]),
+            # (Line 55) "\n\x19", ptr2s(v.Album_Text[id])," Lv.", v.Album_Level[id],
+            # (Line 56) "\n\x08", v.Album_Multiply[id] -  v.Album_Level[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]));
+            f_settbl(1049 + id * 2, 15, v.Album_Now[id], ptr2s(v.Album_Text[13]), "\n\x19", ptr2s(v.Album_Text[id]), " Lv.", v.Album_Level[id], "\n\x08", v.Album_Multiply[id] - v.Album_Level[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]))
+            # (Line 57) }
+            # (Line 58) }
         EUDEndIf()
-        # (Line 68) else
-        # (Line 69) {
+        # (Line 59) else
+        # (Line 60) {
     if EUDElse()():
-        # (Line 70) if (id != 6)
+        # (Line 61) if (id != 6)
         if EUDIf()(id == 6, neg=True):
-            # (Line 71) {
-            # (Line 72) settbl(1049 + id * 2, 8, v.Album_Now[id],
-            # (Line 73) "\n\x19", ptr2s(v.Album_Text[id])," Lv. Max",
-            # (Line 74) "\n\x04", ptr2s(v.Album_SubText[id]), " \x08", v.Album_Level[id] * v.Album_Multiply[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]));
-            f_settbl(1049 + id * 2, 8, v.Album_Now[id], "\n\x19", ptr2s(v.Album_Text[id]), " Lv. Max", "\n\x04", ptr2s(v.Album_SubText[id]), " \x08", v.Album_Level[id] * v.Album_Multiply[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]))
-            # (Line 75) }
-            # (Line 76) else
-            # (Line 77) {
+            # (Line 62) {
+            # (Line 63) settbl(1049 + id * 2, 15, v.Album_Now[id], ptr2s(v.Album_Text[13]),
+            # (Line 64) "\n\x19", ptr2s(v.Album_Text[id])," Lv. Max",
+            # (Line 65) "\n\x04", ptr2s(v.Album_SubText[id]), " \x08", v.Album_Level[id] * v.Album_Multiply[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]));
+            f_settbl(1049 + id * 2, 15, v.Album_Now[id], ptr2s(v.Album_Text[13]), "\n\x19", ptr2s(v.Album_Text[id]), " Lv. Max", "\n\x04", ptr2s(v.Album_SubText[id]), " \x08", v.Album_Level[id] * v.Album_Multiply[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]))
+            # (Line 66) }
+            # (Line 67) else
+            # (Line 68) {
         if EUDElse()():
-            # (Line 78) settbl(1049 + id * 2, 8, v.Album_Now[id],
-            # (Line 79) "\n\x19", ptr2s(v.Album_Text[id])," Lv. Max",
-            # (Line 80) "\n\x08", v.Album_Multiply[id] -  v.Album_Level[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]));
-            f_settbl(1049 + id * 2, 8, v.Album_Now[id], "\n\x19", ptr2s(v.Album_Text[id]), " Lv. Max", "\n\x08", v.Album_Multiply[id] - v.Album_Level[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]))
-            # (Line 81) }
-            # (Line 82) }
+            # (Line 69) settbl(1049 + id * 2, 15, v.Album_Now[id], ptr2s(v.Album_Text[13]),
+            # (Line 70) "\n\x19", ptr2s(v.Album_Text[id])," Lv. Max",
+            # (Line 71) "\n\x08", v.Album_Multiply[id] -  v.Album_Level[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]));
+            f_settbl(1049 + id * 2, 15, v.Album_Now[id], ptr2s(v.Album_Text[13]), "\n\x19", ptr2s(v.Album_Text[id]), " Lv. Max", "\n\x08", v.Album_Multiply[id] - v.Album_Level[id], ptr2s(v.Album_EndText[v.Album_Ablity[id]]))
+            # (Line 72) }
+            # (Line 73) }
         EUDEndIf()
-        # (Line 83) }
+        # (Line 74) }
     EUDEndIf()
-    # (Line 85) function Add_DearNow(id, value)
+    # (Line 76) function Add_DearNow(id, value)
 
-# (Line 86) {
+# (Line 77) {
 @EUDFunc
 def Add_DearNow(id, value):
-    # (Line 87) v.Dear_Now[id] += value;
+    # (Line 78) v.Dear_Now[id] += value;
     _ARRW(v.Dear_Now, id).__iadd__(value)
-    # (Line 88) Set_DearLevel(id);
+    # (Line 79) Set_DearLevel(id);
     Set_DearLevel(id)
-    # (Line 89) }
-    # (Line 91) function Add_AlbumNow(id, value)
+    # (Line 80) }
+    # (Line 82) function Add_AlbumNow(id, value)
 
-# (Line 92) {
+# (Line 83) {
 @EUDFunc
 def Add_AlbumNow(id, value):
-    # (Line 93) v.Album_Now[id] += value;
+    # (Line 84) v.Album_Now[id] += value;
     _ARRW(v.Album_Now, id).__iadd__(value)
-    # (Line 94) Set_AlbumLevel(id);
+    # (Line 85) Set_AlbumLevel(id);
     Set_AlbumLevel(id)
-    # (Line 95) }
-    # (Line 97) function Set_DearLevel(id)
+    # (Line 86) }
+    # (Line 88) function Set_DearLevel(id)
 
-# (Line 98) {
+# (Line 89) {
 @EUDFunc
 def Set_DearLevel(id):
-    # (Line 99) if (v.Dear_Now[id] >= v.Dear_Need[v.Dear_Level[id]] && v.Dear_Level[id] < 10)
+    # (Line 90) if (v.Dear_Now[id] >= v.Dear_Need[v.Dear_Level[id]] && v.Dear_Level[id] < 10)
     if EUDIf()(EUDSCAnd()(v.Dear_Now[id] >= v.Dear_Need[v.Dear_Level[id]])(v.Dear_Level[id] >= 10, neg=True)()):
-        # (Line 100) {
-        # (Line 101) v.Dear_Level[id] += 1;
+        # (Line 91) {
+        # (Line 92) v.Dear_Level[id] += 1;
         _ARRW(v.Dear_Level, id).__iadd__(1)
-        # (Line 102) Set_Dear_ButtonText(id);
+        # (Line 93) Set_Dear_ButtonText(id);
         Set_Dear_ButtonText(id)
-        # (Line 103) e.Effect_Dear(id);
+        # (Line 94) e.Effect_Dear(id);
         e.Effect_Dear(id)
-        # (Line 104) }
-        # (Line 105) else
-        # (Line 106) { Set_Dear_ButtonText(id); }
+        # (Line 95) }
+        # (Line 96) else
+        # (Line 97) { Set_Dear_ButtonText(id); }
     if EUDElse()():
         Set_Dear_ButtonText(id)
-        # (Line 107) }
+        # (Line 98) }
     EUDEndIf()
-    # (Line 109) function Set_AlbumLevel(id)
+    # (Line 100) function Set_AlbumLevel(id)
 
-# (Line 110) {
+# (Line 101) {
 @EUDFunc
 def Set_AlbumLevel(id):
-    # (Line 111) var value;
+    # (Line 102) var value;
     value = EUDVariable()
-    # (Line 113) if (v.Album_Now[id] >= v.Album_Need[v.Album_Level[id]] && v.Album_Level[id] < 10)
+    # (Line 104) if (v.Album_Now[id] >= v.Album_Need[v.Album_Level[id]] && v.Album_Level[id] < 10)
     if EUDIf()(EUDSCAnd()(v.Album_Now[id] >= v.Album_Need[v.Album_Level[id]])(v.Album_Level[id] >= 10, neg=True)()):
-        # (Line 114) {
-        # (Line 115) v.Album_Level[id] += 1;
+        # (Line 105) {
+        # (Line 106) v.Album_Level[id] += 1;
         _ARRW(v.Album_Level, id).__iadd__(1)
-        # (Line 116) Set_Album_ButtonText(id);
+        # (Line 107) Set_Album_ButtonText(id);
         Set_Album_ButtonText(id)
-        # (Line 117) switch(v.Album_Ablity[id])
+        # (Line 108) switch(v.Album_Ablity[id])
         EUDSwitch(v.Album_Ablity[id])
-        # (Line 118) {
-        # (Line 119) case 8:
+        # (Line 109) {
+        # (Line 110) case 8:
         _t2 = EUDSwitchCase()
-        # (Line 120) value = ((v.Album_Multiply[8] * v.Album_Level[8] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[0];
+        # (Line 111) value = ((v.Album_Multiply[8] * v.Album_Level[8] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[0];
         if _t2(8):
             value << (((v.Album_Multiply[8] * v.Album_Level[8] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) // 100 + v.Base_AtkPercent[0])
-            # (Line 121) m.Set_AtkPercent(0, value);
+            # (Line 112) m.Set_AtkPercent(0, value);
             m.Set_AtkPercent(0, value)
-            # (Line 122) m.Update_PercentText();
+            # (Line 113) m.Update_PercentText();
             m.Update_PercentText()
-            # (Line 123) break;
+            # (Line 114) break;
             EUDBreak()
-            # (Line 124) case 4:
+            # (Line 115) case 4:
         _t3 = EUDSwitchCase()
-        # (Line 125) value = ((v.Album_Multiply[4] * v.Album_Level[4] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[1];
+        # (Line 116) value = ((v.Album_Multiply[4] * v.Album_Level[4] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[1];
         if _t3(4):
             value << (((v.Album_Multiply[4] * v.Album_Level[4] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) // 100 + v.Base_AtkPercent[1])
-            # (Line 126) m.Set_AtkPercent(1, value);
+            # (Line 117) m.Set_AtkPercent(1, value);
             m.Set_AtkPercent(1, value)
-            # (Line 127) m.Update_PercentText();
+            # (Line 118) m.Update_PercentText();
             m.Update_PercentText()
-            # (Line 128) break;
+            # (Line 119) break;
             EUDBreak()
-            # (Line 129) case 3:
+            # (Line 120) case 3:
         _t4 = EUDSwitchCase()
-        # (Line 130) value = ((v.Album_Multiply[3] * v.Album_Level[3] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[2];
+        # (Line 121) value = ((v.Album_Multiply[3] * v.Album_Level[3] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[2];
         if _t4(3):
+            value << (((v.Album_Multiply[3] * v.Album_Level[3] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) // 100 + v.Base_AtkPercent[2])
+            # (Line 122) m.Set_AtkPercent(2, value);
+            m.Set_AtkPercent(2, value)
+            # (Line 123) m.Update_PercentText();
+            m.Update_PercentText()
+            # (Line 124) break;
+            EUDBreak()
+            # (Line 125) case 5:
+        _t5 = EUDSwitchCase()
+        # (Line 126) value = ((v.Album_Multiply[8] * v.Album_Level[8] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[0];
+        if _t5(5):
+            value << (((v.Album_Multiply[8] * v.Album_Level[8] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) // 100 + v.Base_AtkPercent[0])
+            # (Line 127) m.Set_AtkPercent(0, value);
+            m.Set_AtkPercent(0, value)
+            # (Line 128) value = ((v.Album_Multiply[4] * v.Album_Level[4] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[1];
+            value << (((v.Album_Multiply[4] * v.Album_Level[4] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) // 100 + v.Base_AtkPercent[1])
+            # (Line 129) m.Set_AtkPercent(1, value);
+            m.Set_AtkPercent(1, value)
+            # (Line 130) value = ((v.Album_Multiply[3] * v.Album_Level[3] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[2];
             value << (((v.Album_Multiply[3] * v.Album_Level[3] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) // 100 + v.Base_AtkPercent[2])
             # (Line 131) m.Set_AtkPercent(2, value);
             m.Set_AtkPercent(2, value)
@@ -344,31 +342,12 @@ def Set_AlbumLevel(id):
             m.Update_PercentText()
             # (Line 133) break;
             EUDBreak()
-            # (Line 134) case 5:
-        _t5 = EUDSwitchCase()
-        # (Line 135) value = ((v.Album_Multiply[8] * v.Album_Level[8] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[0];
-        if _t5(5):
-            value << (((v.Album_Multiply[8] * v.Album_Level[8] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) // 100 + v.Base_AtkPercent[0])
-            # (Line 136) m.Set_AtkPercent(0, value);
-            m.Set_AtkPercent(0, value)
-            # (Line 137) value = ((v.Album_Multiply[4] * v.Album_Level[4] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[1];
-            value << (((v.Album_Multiply[4] * v.Album_Level[4] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) // 100 + v.Base_AtkPercent[1])
-            # (Line 138) m.Set_AtkPercent(1, value);
-            m.Set_AtkPercent(1, value)
-            # (Line 139) value = ((v.Album_Multiply[3] * v.Album_Level[3] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) / 100 + v.Base_AtkPercent[2];
-            value << (((v.Album_Multiply[3] * v.Album_Level[3] + v.Album_Multiply[5] * v.Album_Level[5]) * 256 + 256) // 100 + v.Base_AtkPercent[2])
-            # (Line 140) m.Set_AtkPercent(2, value);
-            m.Set_AtkPercent(2, value)
-            # (Line 141) m.Update_PercentText();
-            m.Update_PercentText()
-            # (Line 142) break;
-            EUDBreak()
-            # (Line 143) }
-        # (Line 144) }
+            # (Line 134) }
+        # (Line 135) }
         EUDEndSwitch()
-        # (Line 145) else
-        # (Line 146) { Set_Album_ButtonText(id); }
+        # (Line 136) else
+        # (Line 137) { Set_Album_ButtonText(id); }
     if EUDElse()():
         Set_Album_ButtonText(id)
-        # (Line 147) }
+        # (Line 138) }
     EUDEndIf()

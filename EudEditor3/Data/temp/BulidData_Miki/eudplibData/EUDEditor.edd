@@ -1,0 +1,67 @@
+[main]
+input: ..\..\..\..\..\..\..\Starcraft\Maps\Download\1.000112.scm
+output: ..\..\..\..\..\..\..\Starcraft\Maps\밀리시타 디펜스\Miki_Nano.scx
+[DataEditor.py]
+[ExtraDataEditor.py]
+[dataDumper]
+
+
+
+[MSQC]
+__patternAddr__: 0x58D904
+QCDebug: false
+0x58D904, Exactly, 2 : Zerg Egg, 1
+0x58D904, Exactly, 3 : Zerg Egg, 2
+0x58D904, Exactly, 4 : Zerg Egg, 3
+0x58D904, Exactly, 5 : Zerg Egg, 4
+0x58D904, Exactly, 6 : Zerg Egg, 5
+0x58D904, Exactly, 7 : Zerg Egg, 6
+0x58D904, Exactly, 8 : Zerg Egg, 7
+0x58D904, Exactly, 9 : Zerg Egg, 8
+0x58D904, Exactly, 10 : Zerg Egg, 9
+0x58D904, Exactly, 11 : Zerg Egg, 10
+0x58D904, Exactly, 12 : Zerg Egg, 11
+0x58D904, Exactly, 13 : Zerg Egg, 12
+0x58D904, Exactly, 14 : Zerg Egg, 13
+0x58D904, Exactly, 15 : Zerg Egg, 14
+0x58D904, Exactly, 16 : Zerg Egg, 15
+0x58D904, Exactly, 17 : Zerg Egg, 16
+0x58D904, Exactly, 18 : Zerg Egg, 17
+0x58D904, Exactly, 19 : Zerg Egg, 18
+0x58D904, Exactly, 20 : Zerg Egg, 19
+0x58D904, Exactly, 21 : Zerg Egg, 20
+[chatEvent]
+^.*쇼바이락op.*$: 2
+^.*쇼바이락ed.*$: 3
+^.*아이돌마스터.*$: 4
+^.*아이마스.*$: 4
+^.*신데마스.*$: 5
+^.*러브라이브.*$: 6
+^.*러브라이브션샤인.*$: 7
+^.*트리니티세븐.*$: 8
+^.*아노하나.*$: 9
+^.*그날본꽂이름을우리는아직모른다.*$: 9
+^.*기교소녀.*$: 10
+^.*능균.*$: 11
+^.*평균치절반.*$: 11
+^.*저능력치는평균이라고했잖아요.*$: 11
+^.*바케모노.*$: 12
+^.*바케모노가타리.*$: 12
+^.*니세모노.*$: 13
+^.*니세모노가타리.*$: 13
+^.*데어라.*$: 14
+^.*데이트어라이브.*$: 14
+^.*변마금.*$: 15
+^.*변변찮은마술강사와금기교전.*$: 15
+^.*방어력올인.*$: 16
+^.*보후리.*$: 16
+^.*아픈건싫으니까방어력에올인하려고합니다.*$: 16
+^.*쏘아올린불꽃.*$: 17
+^.*카구야.*$: 18
+^.*카구야님은고백받고싶어.*$: 18
+^.*프리코네.*$: 19
+^.*프린세스커넥트리다이브.*$: 19
+^.*귀여우면변태라도좋아해주실수있나요.*$: 20
+^.*헨스키.*$: 20
+^.*너의이름은.*$: 21
+

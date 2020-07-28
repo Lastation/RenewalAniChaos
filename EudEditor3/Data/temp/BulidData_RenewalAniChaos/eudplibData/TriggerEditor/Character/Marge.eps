@@ -1,7 +1,8 @@
 import customText as ct;
 import Variable as v;
 
-import Character.TextA.Rusaruka		as rusaruka;
+import Character.Rusaruka.Main as rusarukaMain;
+
 import Character.TextA.Chtholly 		as chtholly;
 import Character.TextA.Maihime 		as maihime;
 import Character.TextA.Tenshi 		as tenshi;
@@ -22,11 +23,19 @@ import Character.TextC.Seraphim 	as seraphim;
 import Character.TextC.Kiana 		as kiana;
 import Character.TextC.Tenkei 		as tenkei;
 
-<<<<<<< HEAD
-import Character.TextD.MN 		as mn;
-=======
 import Character.TextD.MN 			as mn;
->>>>>>> origin/master
+import Character.TextD.EmetSelch 	as emet;
+import Character.TextD.Magellan 	as magellan;
+
+function MargeSound(cp);
+
+function main(cp)
+{
+	if (v.Hero_Num[0] == 1 || v.Hero_Num[1] == 1 || v.Hero_Num[2] == 1 || v.Hero_Num[3] == 1 || v.Hero_Num[4] == 1 || v.Hero_Num[5] == 1)
+	{ rusarukaMain.main(cp); }
+	
+	MargeSound(cp);
+}
 
 function MargeSound(cp)
 {
@@ -37,7 +46,6 @@ function MargeSound(cp)
 		SetDeaths((13), (7), 0, (186));
 		
 		const Condition = v.Sound_Text1[cp];
-		rusaruka.NormalText(cp);
 		chtholly.NormalText(cp);
 		maihime.NormalText(cp);
 		tenshi.NormalText(cp);
@@ -85,6 +93,8 @@ function MargeSound(cp)
 		const Condition = v.Sound_Text4[cp];
 		
 		mn.NormalText(cp);
+		emet.NormalText(cp);
+		magellan.NormalText(cp);
 	}
 	
 	if (Deaths((13), (0), 1, (222)))
@@ -94,7 +104,6 @@ function MargeSound(cp)
 		
 		const Condition = v.Sound_Text_Uilti[cp];
 		// 1 ~ 6
-		rusaruka.UiltimateText(cp);
 		chtholly.UiltimateText(cp);
 		maihime.UiltimateText(cp);
 		tenshi.UiltimateText(cp);
@@ -117,7 +126,10 @@ function MargeSound(cp)
 		kiana.UiltimateText(cp);
 		tenkei.UiltimateText(cp);
 		
+		// 19 ~ 24
 		mn.UiltimateText(cp);
+		emet.UiltimateText(cp);
+		magellan.UiltimateText(cp);
 	}
 	if (Deaths((13), (0), 1, (188)))
 	{
@@ -126,7 +138,6 @@ function MargeSound(cp)
 		
 		const Condition = v.Sound_Text_Uniq[cp];
 		// 1 ~ 6
-		rusaruka.UniqueText(cp);
 		chtholly.UniqueText(cp);
 		maihime.UniqueText(cp);
 		tenshi.UniqueText(cp);
@@ -149,6 +160,9 @@ function MargeSound(cp)
 		kiana.UniqueText(cp);
 		tenkei.UniqueText(cp);
 		
+		// 19 ~ 24// 13 ~ 18
 		mn.UniqueText(cp);
+		emet.UniqueText(cp);
+		magellan.UniqueText(cp);
 	}
 }

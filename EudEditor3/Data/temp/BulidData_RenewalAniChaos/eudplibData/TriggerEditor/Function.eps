@@ -1,0 +1,46 @@
+function MoveLoc(Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, x, y)
+{
+	MoveLocation(location, Unit, cp, "Anywhere");
+	addloc(location - 1, x, y);
+}
+
+function SkillUnit(count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer)
+{
+	CreateUnit(count, Unit, "[Skill]Unit_Wait_1", cp);
+	SetInvincibility(Enable, Unit, cp, "[Skill]Unit_Wait_ALL");
+	MoveUnit(count, Unit, cp, "[Skill]Unit_Wait_ALL", location);
+}
+
+function SkillWait(cp, count)
+{
+	SetDeaths(cp, SetTo, count/83 + 1, " `WaitTime");
+}
+
+function SkillEnd(cp)
+{
+	SetDeaths(cp, SetTo, 12, " `SkillWait");
+}
+
+function SquareShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, x, y)
+{
+	MoveLoc(heroID, location, cp, x, y);
+	SkillUnit(count, Unit, location, cp);
+	MoveLoc(heroID, location, cp, -y, x);
+	SkillUnit(count, Unit, location, cp);
+	MoveLoc(heroID, location, cp, -x, -y);
+	SkillUnit(count, Unit, location, cp);
+	MoveLoc(heroID, location, cp, y, -x);
+	SkillUnit(count, Unit, location, cp);
+}
+
+function RectangleShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, x, y)
+{
+	MoveLoc(heroID, location, cp, x, y);
+	SkillUnit(count, Unit, location, cp);
+	MoveLoc(heroID, location, cp, -y, x);
+	SkillUnit(count, Unit, location, cp);
+	MoveLoc(heroID, location, cp, -x, -y);
+	SkillUnit(count, Unit, location, cp);
+	MoveLoc(heroID, location, cp, y, -x);
+	SkillUnit(count, Unit, location, cp);
+}

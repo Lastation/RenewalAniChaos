@@ -1,0 +1,115 @@
+import System.Variable as v;
+
+const s = StringBuffer();
+
+function Mission_start(cp);
+function Mission_reward(cp);
+function Mission_reward_player(cp, type);
+
+function FixedUpdate()
+{
+	if (v.Mission_Time[0] > 0) { v.Mission_Time[0] -= 1; }
+	if (v.Mission_Time[1] > 0) { v.Mission_Time[1] -= 1; }
+	if (v.Mission_Time[2] > 0) { v.Mission_Time[2] -= 1; }
+	if (v.Mission_Time[3] > 0) { v.Mission_Time[3] -= 1; }
+	if (v.Mission_Time[4] > 0) { v.Mission_Time[4] -= 1; }
+	
+	if (v.Mission_Delay[0] > 1) { v.Mission_Delay[0] -= 1; }
+	if (v.Mission_Delay[1] > 1) { v.Mission_Delay[1] -= 1; }
+	if (v.Mission_Delay[2] > 1) { v.Mission_Delay[2] -= 1; }
+	if (v.Mission_Delay[3] > 1) { v.Mission_Delay[3] -= 1; }
+	if (v.Mission_Delay[4] > 1) { v.Mission_Delay[4] -= 1; }
+	
+	if(v.Mission_Check[0] == 0) { v.Mission_Effect[0] = 0; } 
+	if(v.Mission_Check[1] == 0) { v.Mission_Effect[1] = 0; } 
+	if(v.Mission_Check[2] == 0) { v.Mission_Effect[2] = 0; } 
+	if(v.Mission_Check[3] == 0) { v.Mission_Effect[3] = 0; } 
+	if(v.Mission_Check[4] == 0) { v.Mission_Effect[4] = 0; } 
+	
+	if(v.Mission_Check[0] == 1) { v.Mission_Effect[0] += 1; } 
+	if(v.Mission_Check[1] == 1) { v.Mission_Effect[1] += 1; } 
+	if(v.Mission_Check[2] == 1) { v.Mission_Effect[2] += 1; } 
+	if(v.Mission_Check[3] == 1) { v.Mission_Effect[3] += 1; } 
+	if(v.Mission_Check[4] == 1) { v.Mission_Effect[4] += 1; } 
+	
+	
+	if(v.Mission_Effect[0] == 10) { SetInvincibility(Enable, "(men)", P7, "Player1"); }
+	if(v.Mission_Effect[1] == 10) { SetInvincibility(Enable, "(men)", P7, "Player2"); }
+	if(v.Mission_Effect[2] == 10) { SetInvincibility(Enable, "(men)", P7, "Player3"); }
+	if(v.Mission_Effect[3] == 10) { SetInvincibility(Enable, "(men)", P7, "Player4"); }
+	if(v.Mission_Effect[4] == 10) { SetInvincibility(Enable, "(men)", P7, "Player5"); }
+	
+	if(v.Mission_Effect[0] >= 11) { SetInvincibility(Disable, "(men)", P7, "Player1"); v.Mission_Effect[0] = 0; }
+	if(v.Mission_Effect[1] >= 11) { SetInvincibility(Disable, "(men)", P7, "Player2"); v.Mission_Effect[1] = 0; }
+	if(v.Mission_Effect[2] >= 11) { SetInvincibility(Disable, "(men)", P7, "Player3"); v.Mission_Effect[2] = 0; }
+	if(v.Mission_Effect[3] >= 11) { SetInvincibility(Disable, "(men)", P7, "Player4"); v.Mission_Effect[3] = 0; }
+	if(v.Mission_Effect[4] >= 11) { SetInvincibility(Disable, "(men)", P7, "Player5"); v.Mission_Effect[4] = 0; }
+}
+
+function PlayerUpdate(cp)
+{
+	Mission_start(cp);
+	Mission_reward(cp);
+}
+
+function Mission_start(cp)
+{
+	if (v.Mission1_Delay[cp] == 1)
+	{
+		s.print("\x13", ptr2s(GetTBLAddr(136)), ptr2s(v.Mission_Text[0]));
+		v.Mission1_Delay[cp] = 0;
+	}
+
+	if (Bring(cp, AtLeast, 1, 60, "Anywhere") && v.Mission1_Delay[cp] == 0 && v.Mission_Check[cp] == 0) 
+	{
+		RemoveUnitAt(All, 60, "Anywhere", cp);
+		v.Mission_Check[cp] = 1;
+		v.Mission1_Delay[cp] = 300;
+		v.Mission_Time[cp] = 180;
+		
+		if (cp == 0) { CreateUnit(1, 135, "Line_Player1", P6); }
+		if (cp == 1) { CreateUnit(1, 135, "Line_Player2", P6); }
+		if (cp == 2) { CreateUnit(1, 135, "Line_Player3", P6); }
+		if (cp == 3) { CreateUnit(1, 135, "Line_Player4", P6); }
+		if (cp == 4) { CreateUnit(1, 135, "Line_Player5", P6); }
+	}
+	else if (Bring(cp, AtLeast, 1, 60, "Anywhere") && v.Mission1_Delay[cp] > 1)
+	{
+		s.print("\x13", ptr2s(GetTBLAddr(136)), ptr2s(v.Mission_Text[1]), v.Mission_Delay[cp], ptr2s(v.Mission_Text[2]));
+		RemoveUnitAt(All, 60, "Anywhere", cp);
+	}
+}
+
+function Mission_reward(cp)
+{
+	if (v.Mission_Check[cp] == 1)
+	{
+		if (v.Mission_Time[cp] == 0) { Mission_reward_player(cp, 0); }
+	
+		if (Bring(P6, Exactly, 0, 135, "Player1") && cp == 0) { Mission_reward_player(cp , 1); }
+		if (Bring(P6, Exactly, 0, 135, "Player2") && cp == 0) { Mission_reward_player(cp , 1); }
+		if (Bring(P6, Exactly, 0, 135, "Player3") && cp == 0) { Mission_reward_player(cp , 1); }
+		if (Bring(P6, Exactly, 0, 135, "Player4") && cp == 0) { Mission_reward_player(cp , 1); }
+		if (Bring(P6, Exactly, 0, 135, "Player5") && cp == 0) { Mission_reward_player(cp , 1); }
+	}
+}
+
+function Mission_reward_player(cp, type)
+{
+	v.Mission_Check[cp] = 0;
+	switch(type)
+	{
+	case 0:
+		if (cp == 0) { RemoveUnitAt(1, 135, "Player1", P6); }
+		if (cp == 1) { RemoveUnitAt(1, 135, "Player2", P6); }
+		if (cp == 2) { RemoveUnitAt(1, 135, "Player3", P6); }
+		if (cp == 3) { RemoveUnitAt(1, 135, "Player4", P6); }
+		if (cp == 4) { RemoveUnitAt(1, 135, "Player5", P6); }
+		break;
+	case 1:
+		SetResources(cp, Add, 40, Ore);
+		CreateUnit(1, 64, "MedalGacha", cp);
+		s.print("\n\n\x13", ptr2s(GetTBLAddr(136)), ptr2s(v.Mission_Text[3]), "\n\n");
+		break;
+	}
+}

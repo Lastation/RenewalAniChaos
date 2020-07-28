@@ -1,0 +1,24 @@
+[main]
+input: ..\..\..\..\..\..\MILLIONSTARS\MILLIONSTARS.scx
+output: ..\..\..\..\..\..\..\Starcraft\Maps\밀리시타 디펜스\밀리시타디펜스.scx
+[DataEditor.py]
+[ExtraDataEditor.py]
+[dataDumper]
+..\temp\custom_txt.tbl : 0x6D5A30, copy
+
+[TriggerEditor\Main.eps]
+
+
+[EudTurbo]
+[NoAirCollision]
+[unlimiter]
+
+[chatEvent]
+__patternAddr__: 0x58D904
+__encoding__: cp949, UTF-8
+^.*-하드.*$: 2
+[MSQC]
+QCDebug : False
+` : Flag, 1
+0x58D904, Exactly, 2 : Flag, 2
+

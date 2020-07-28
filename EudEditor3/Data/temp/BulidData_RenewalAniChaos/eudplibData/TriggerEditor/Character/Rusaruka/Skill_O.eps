@@ -1,0 +1,128 @@
+import Function as f;
+
+var count;
+var loop;
+
+function main(cp, location, heroID)
+{
+	count  = dwread_epd(181 * 12 + cp);
+	loop = dwread_epd(212 * 12 + cp);
+	
+	if (Deaths(cp, Exactly, 0, " `WaitTime"))
+	{
+		if (cp < 3)
+		{ MoveUnit(All, heroID, cp, "Anywhere", "[Unique]Position_Team1"); }
+		else
+		{ MoveUnit(All, heroID, cp, "Anywhere", "[Unique]Position_Team2"); }
+	
+		switch(count)
+		{
+		case 0:
+			switch(loop)
+			{
+			case 0:
+				SetDeaths(cp, SetTo, 7, " `SkillText");
+				f.SkillWait(cp, 5800);
+				SetDeaths(cp, Add, 1, " `SkillLoop");
+				break;
+			case 1:
+				SetDeaths(cp, SetTo, 8, " `SkillText");
+				f.SkillWait(cp, 5600);
+				SetDeaths(cp, Add, 1, " `SkillLoop");
+				break;
+			case 2:
+				SetDeaths(cp, SetTo, 9, " `SkillText");
+				f.SkillWait(cp, 6100);
+				SetDeaths(cp, Add, 1, " `SkillLoop");
+				break;
+			case 3:
+				SetDeaths(cp, SetTo, 10, " `SkillText");
+				f.SkillWait(cp, 6200);
+				SetDeaths(cp, Add, 1, " `SkillLoop");
+				break;
+			case 4:
+				SetDeaths(cp, SetTo, 11, " `SkillText");
+				f.SkillWait(cp, 0);
+				SetDeaths(cp, Add, 1, " `SkillLoop");
+				break;
+			case 5:
+				SetDeaths(cp, SetTo, 0, " `SkillLoop");
+				SetDeaths(cp, Add, 1, " `SkillCount");
+				break;
+			}
+			break;
+		case 1:
+			switch(loop)
+			{
+			case 0:
+				f.SkillUnit(1, "50 + 1n Battlecruiser", location, cp);
+				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+				f.SkillWait(cp, 0);
+				SetDeaths(cp, Add, 1, " `SkillLoop");
+				break;
+			case 1:
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 0);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 64);
+				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+				f.SkillWait(cp, 0);
+				SetDeaths(cp, Add, 1, " `SkillLoop");
+				break;
+			case 2:
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 0);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 64);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 128);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 128);
+				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+				f.SkillWait(cp, 0);
+				SetDeaths(cp, Add, 1, " `SkillLoop");
+				break;
+			case 3:
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 0);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 64);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 128);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 192);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 192);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 192);
+				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+				f.SkillWait(cp, 0);
+				SetDeaths(cp, Add, 1, " `SkillLoop");
+				break;
+			case 4:
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 0);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 64);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 128);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 192);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 256);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 256);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 256);
+				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 256);
+				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+				f.SkillWait(cp, 0);
+				SetDeaths(cp, Add, 1, " `SkillLoop");
+				break;
+			case 5:
+				if (cp < 3)
+				{ 
+					CreateUnit(1, "Csejte Ungarn Nachtzehrer", "[Skill]Unit_Wait_8", P7);
+					MoveUnit(1, heroID, cp, "Anywhere", "[Potal]Base7");
+					MoveUnit(1, "Csejte Ungarn Nachtzehrer", P7, "[Skill]Unit_Wait_ALL", "[Unique]Position_Team1");
+					MoveUnit(1, heroID, cp, "Anywhere", "[Unique]Position_Team1");
+				}
+				else
+				{
+					CreateUnit(1, "Csejte Ungarn Nachtzehrer", "[Skill]Unit_Wait_8", P8);
+					MoveUnit(1, heroID, cp, "Anywhere", "[Potal]Base8");
+					MoveUnit(1, "Csejte Ungarn Nachtzehrer", P8, "[Skill]Unit_Wait_ALL", "[Unique]Position_Team2");
+					MoveUnit(1, heroID, cp, "Anywhere", "[Unique]Position_Team2");
+				}
+				f.SkillWait(cp, 0);
+				SetDeaths(cp, Add, 1, " `SkillLoop");
+				break;
+			case 6:
+				f.SkillEnd(cp);
+				break;
+			}
+			break;
+		}
+	}
+}

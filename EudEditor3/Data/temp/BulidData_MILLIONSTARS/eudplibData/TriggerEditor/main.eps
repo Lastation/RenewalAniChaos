@@ -1,3 +1,9 @@
+import getunitID as id;
+
+import System.Main as sym;
+import Shop.Main as shm;
+import Title.Main as tm;
+
 import Angel.Main as am;
 import Fairy.Main as fm;
 import Princess.Main as pm;
@@ -10,26 +16,24 @@ function beforeTriggerExec();
 function afterTriggerExec();
 
 function FixedUpdate();
+function PlayerUpdate(cp);
 
 function onPluginStart()
 {
+	randomize();
+	
 	am.Init();
 	fm.Init();
 	pm.Init();
-	
-	//pm.Test_Mode();
-	fm.Test_Mode();
-	//am.Test_Mode();
-	
-	SetResources(P1, SetTo, 10000, Ore);
 }
 
 
 function beforeTriggerExec()
 {
-	cp = getcurpl();
-	
 	EUDPlayerLoop()();
+	
+	cp = getcurpl();
+	PlayerUpdate(cp);
 	
 	EUDEndPlayerLoop();
 
@@ -41,22 +45,22 @@ function beforeTriggerExec()
 	}
 }
 
-function afterTriggerExec()
-{
-
-}
-
 function FixedUpdate()
 {
-	if (Kills(P1, AtLeast, 1, "Terran Bunker"))
-	{
-		SetKills(P1, Subtract, 1, "Terran Bunker");
-		//pm.Test();
-		fm.Test();
-		//am.Test();
-	}
+	sym.FixedUpdate();
+	shm.FixedUpdate();
+	tm.FixedUpdate();
 	
 	am.FixedUpdate();
 	fm.FixedUpdate();
 	pm.FixedUpdate();
+}
+
+function PlayerUpdate(cp)
+{
+	id.Get_UnitID(cp);
+	
+	sym.PlayerUpdate(cp);
+	shm.PlayerUpdate(cp);
+	tm.PlayerUpdate(cp);
 }

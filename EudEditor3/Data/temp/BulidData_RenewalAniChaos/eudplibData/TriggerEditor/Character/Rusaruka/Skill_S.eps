@@ -1,0 +1,60 @@
+import Function as f;
+
+var loop;
+
+function Shape(cp, location, heroID, Unit : TrgUnit, x, y);
+
+function main(cp, location, heroID)
+{
+	loop = dwread_epd(212 * 12 + cp);
+	
+	if (Deaths(cp, Exactly, 0, " `WaitTime"))
+	{
+		switch(loop)
+		{
+		case 0:
+		case 4:
+			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+			Shape(cp, location, heroID, "40 + 1n Mojo", 0, 48);
+			break;
+		case 1:
+		case 5:
+			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+			Shape(cp, location, heroID, "40 + 1n Wraith", 42, 24);
+			break;
+		case 2:
+		case 6:
+			KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+			Shape(cp, location, heroID, "40 + 1n Mutalisk", 24, 42);
+			break;
+		case 3:
+		case 7:
+			KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
+			Shape(cp, location, heroID, "40 + 1n Mojo", 48, 0);
+			break;
+		case 8:
+			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+			f.SkillEnd(cp);
+			break;
+		}
+	}
+}
+
+function Shape(cp, location, heroID, Unit : TrgUnit, x, y)
+{
+	f.MoveLoc(heroID, location, cp, x, y);
+	f.SkillUnit(1, Unit, location, cp);
+	f.SkillUnit(1, "Protoss Dark Templar", location, cp);
+	f.MoveLoc(heroID, location, cp, -y, x);
+	f.SkillUnit(1, "Protoss Dark Templar", location, cp);
+	f.MoveLoc(heroID, location, cp, -x, -y);
+	f.SkillUnit(1, Unit, location, cp);
+	f.SkillUnit(1, "Protoss Dark Templar", location, cp);
+	f.MoveLoc(heroID, location, cp, y, -x);
+	f.SkillUnit(1, "Protoss Dark Templar", location, cp);
+	KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp);
+	MoveLocation(location, heroID, cp, "Anywhere");
+	Order(Unit, cp, "Anywhere", Attack, location);
+	f.SkillWait(cp, 50);
+	SetDeaths(cp, Add, 1, " `SkillLoop");
+}

@@ -1,0 +1,521 @@
+import Princess.ButtonText as pbt;
+import Fairy.ButtonText as fbt;
+import Angel.ButtonText as abt;
+
+import Princess.Variable as pv;
+import Fairy.Variable as fv;
+import Angel.Variable as av;
+
+import Title.Variable as v;
+
+function FixedUpdate();
+function Title_Effect();
+function Title_Complete_Check();
+
+var index;
+
+function FixedUpdate()
+{
+	Title_Effect();
+}
+
+function Update_PercentText()
+{
+	// Princess
+	settbl(411, 13, "\n",
+	"\x1B댄스 \x04스케줄에 \x1B", pv.Unit_AtkPercent[0], "%\n",
+	"\x1C보컬 \x04스케줄에 \x1C", pv.Unit_AtkPercent[1], "%\n",
+	"\x19비주얼 \x04스케줄에 \x19", pv.Unit_AtkPercent[2], "%\n\x14");
+	
+	// Fairy
+	settbl(412, 11, "\n",
+	"\x1B댄스 \x04스케줄에 \x1B", fv.Unit_AtkPercent[0], "%\n",
+	"\x1C보컬 \x04스케줄에 \x1C", fv.Unit_AtkPercent[1], "%\n",
+	"\x19비주얼 \x04스케줄에 \x19", fv.Unit_AtkPercent[2], "%\n\x14");
+	
+	// Angel
+	settbl(413, 10, "\n",
+	"\x1B댄스 \x04스케줄에 \x1B", av.Unit_AtkPercent[0], "%\n",
+	"\x1C보컬 \x04스케줄에 \x1C", av.Unit_AtkPercent[1], "%\n",
+	"\x19비주얼 \x04스케줄에 \x19", av.Unit_AtkPercent[2], "%\n\x14");
+	
+	// Dance
+	settbl(441, 10, "\n",
+	"\x1B프린세스 \x04타입에 \x1B", pv.Unit_AtkPercent[0], "%\n",
+	"\x1C페어리 \x04타입에 \x1C", fv.Unit_AtkPercent[0], "%\n",
+	"\x19엔젤 \x04타입에 \x19", av.Unit_AtkPercent[0], "%\n\x14");
+	
+	// Vocal
+	settbl(442, 10, "\n",
+	"\x1B프린세스 \x04타입에 \x1B", pv.Unit_AtkPercent[1], "%\n",
+	"\x1C페어리 \x04타입에 \x1C", fv.Unit_AtkPercent[1], "%\n",
+	"\x19엔젤 \x04타입에 \x19", av.Unit_AtkPercent[1], "%\n\x14");
+	
+	// Visual
+	settbl(443, 11, "\n",
+	"\x1B프린세스 \x04타입에 \x1B", pv.Unit_AtkPercent[2], "%\n",
+	"\x1C페어리 \x04타입에 \x1C", fv.Unit_AtkPercent[2], "%\n",
+	"\x19엔젤 \x04타입에 \x19", av.Unit_AtkPercent[2], "%\n\x14");
+}
+
+function Title_Effect()
+{
+	index = 0;
+	if (Bring(P6, AtLeast, 1, v.isTitle_Complete[index], "Title"))
+	{
+		v.Title_Effect_Delay[index] += 1;
+		if (v.Title_Effect_Delay[index] > 20)
+		{
+			v.Title_Effect_Delay[index] = 0;
+			ModifyUnitHitPoints(1, "(men)", P7, "Player1", 1);
+			ModifyUnitHitPoints(1, "(men)", P7, "Player2", 1);
+			ModifyUnitHitPoints(1, "(men)", P7, "Player3", 1);
+			ModifyUnitHitPoints(1, "(men)", P7, "Player4", 1);
+			ModifyUnitHitPoints(1, "(men)", P7, "Player5", 1);
+		}
+	}
+	
+	index = 1;
+	if (Bring(P6, AtLeast, 1, v.isTitle_Complete[index], "Title"))
+	{
+		v.Title_Effect_Delay[index] += 1;
+		if (v.Title_Effect_Delay[index] > 25)
+		{
+			v.Title_Effect_Delay[index] = 0;
+			RemoveUnitAt(1, "(men)", "Player1", P7);
+			RemoveUnitAt(1, "(men)", "Player2", P7);
+			RemoveUnitAt(1, "(men)", "Player3", P7);
+			RemoveUnitAt(1, "(men)", "Player4", P7);
+			RemoveUnitAt(1, "(men)", "Player5", P7);
+		}
+	}
+	
+	index = 2;
+	if (Bring(P6, AtLeast, 1, v.isTitle_Complete[index], "Title"))
+	{
+		v.Title_Effect_Delay[index] += 1;
+		if (v.Title_Effect_Delay[index] > 60)
+		{
+			v.Title_Effect_Delay[index] = 0;
+			SetResources(Force1, Add, 60, Ore);
+		}
+	}
+	
+	index = 3;
+	if (Bring(P6, AtLeast, 1, v.isTitle_Complete[index], "Title"))
+	{
+		v.Title_Effect_Delay[index] += 1;
+		if (v.Title_Effect_Delay[index] > 120)
+		{
+			v.Title_Effect_Delay[index] = 0;
+			CreateUnit(1, 64, "MedalGacha", Force1);
+		}
+	}
+	
+	index = 4;
+	if (Bring(P6, AtLeast, 1, v.isTitle_Complete[index], "Title"))
+	{
+		v.Title_Effect_Delay[index] += 1;
+		if (v.Title_Effect_Delay[index] > 360)
+		{
+			v.Title_Effect_Delay[index] = 0;
+			SetResources(Force1, Add, 1, Gas);
+		}
+	}
+	
+	index = 5;
+	if (Bring(P6, AtLeast, 1, v.isTitle_Complete[index], "Title"))
+	{
+		v.Title_Effect_Delay[index] += 1;
+		if (v.Title_Effect_Delay[index] > 120)
+		{
+			v.Title_Effect_Delay[index] = 0;
+			SetResources(P1, Add, 10 * dwread_epd(EPD(0x57F0F0 + 48 * 1 + 4 * 0)), Gas);
+			SetResources(P2, Add, 10 * dwread_epd(EPD(0x57F0F0 + 48 * 1 + 4 * 1)), Gas);
+			SetResources(P3, Add, 10 * dwread_epd(EPD(0x57F0F0 + 48 * 1 + 4 * 2)), Gas);
+			SetResources(P4, Add, 10 * dwread_epd(EPD(0x57F0F0 + 48 * 1 + 4 * 3)), Gas);
+			SetResources(P5, Add, 10 * dwread_epd(EPD(0x57F0F0 + 48 * 1 + 4 * 4)), Gas);
+		}
+	}
+	
+	index = 6;
+	if (Bring(P6, AtLeast, 1, v.isTitle_Complete[index], "Title"))
+	{
+		v.Title_Effect_Delay[index] += 1;
+		if (v.Title_Effect_Delay[index] > 300)
+		{
+			v.Title_Effect_Delay[index] = 0;
+			if (Accumulate(P1, AtLeast, 300, Ore)) { SetResources(P1, Add, 1, Gas); }
+			if (Accumulate(P2, AtLeast, 300, Ore)) { SetResources(P2, Add, 1, Gas); }
+			if (Accumulate(P3, AtLeast, 300, Ore)) { SetResources(P3, Add, 1, Gas); }
+			if (Accumulate(P4, AtLeast, 300, Ore)) { SetResources(P4, Add, 1, Gas); }
+			if (Accumulate(P5, AtLeast, 300, Ore)) { SetResources(P5, Add, 1, Gas); }
+		}
+	}
+	
+	index = 8;
+	if (Bring(P6, AtLeast, 1, v.isTitle_Complete[index], "Title"))
+	{
+		v.Title_Effect_Delay[index] += 1;
+		if (v.Title_Effect_Delay[index] > 300)
+		{
+			v.Title_Effect_Delay[index] = 0;
+			CreateUnit(1, 111, "MedalGacha", Force1);
+		}
+	}
+	
+	index = 9;
+	if (Bring(P6, AtLeast, 1, v.isTitle_Complete[index], "Title"))
+	{
+		v.Title_Effect_Delay[index] += 1;
+		if (v.Title_Effect_Delay[index] > 300)
+		{
+			v.Title_Effect_Delay[index] = 0;
+			var Type = dwrand() % 3;
+			var Unit = dwrand() % 13;
+			
+			switch (Type)
+			{
+			case 0:
+				pbt.Add_DearNow(Unit,100);
+				break;
+			case 1:
+				fbt.Add_DearNow(Unit,100);
+				break;
+			case 2:
+				abt.Add_DearNow(Unit,100);
+				break;
+			}
+		}
+	}
+	
+	index = 11;
+	if (Bring(P6, AtLeast, 1, v.isTitle_Complete[index], "Title"))
+	{
+		v.Title_Effect_Delay[index] += 1;
+		if (v.Title_Effect_Delay[index] > 240)
+		{
+			v.Title_Effect_Delay[index] = 0;
+			CreateUnit(1, 7, "MedalGacha", Force1);
+		}
+	}
+	
+	// Princess
+	index = 12;
+	if (Bring(P6, AtLeast, 1, v.isTitle_Complete[index], "Title"))
+	{
+		v.Title_Effect_Delay[index] += 1;
+		if (v.Title_Effect_Delay[index] > 120)
+		{
+			v.Title_Effect_Delay[index] = 0;
+			if (Bring(Force1, AtLeast, 1, pv.Unit_ID[0], "Anywhere")) { pbt.Add_DearNow(0, 10); }
+			if (Bring(Force1, AtLeast, 1, pv.Unit_ID[1], "Anywhere")) { pbt.Add_DearNow(1, 10); }
+			if (Bring(Force1, AtLeast, 1, pv.Unit_ID[2], "Anywhere")) { pbt.Add_DearNow(2, 10); }
+			if (Bring(Force1, AtLeast, 1, pv.Unit_ID[3], "Anywhere")) { pbt.Add_DearNow(3, 10); }
+			if (Bring(Force1, AtLeast, 1, pv.Unit_ID[4], "Anywhere")) { pbt.Add_DearNow(4, 10); }
+			if (Bring(Force1, AtLeast, 1, pv.Unit_ID[5], "Anywhere")) { pbt.Add_DearNow(5, 10); }
+			if (Bring(Force1, AtLeast, 1, pv.Unit_ID[6], "Anywhere")) { pbt.Add_DearNow(6, 10); }
+			if (Bring(Force1, AtLeast, 1, pv.Unit_ID[7], "Anywhere")) { pbt.Add_DearNow(7, 10); }
+			if (Bring(Force1, AtLeast, 1, pv.Unit_ID[8], "Anywhere")) { pbt.Add_DearNow(8, 10); }
+			if (Bring(Force1, AtLeast, 1, pv.Unit_ID[9], "Anywhere")) { pbt.Add_DearNow(9, 10); }
+			if (Bring(Force1, AtLeast, 1, pv.Unit_ID[10], "Anywhere")) { pbt.Add_DearNow(10, 10); }
+			if (Bring(Force1, AtLeast, 1, pv.Unit_ID[11], "Anywhere")) { pbt.Add_DearNow(11, 10); }
+			if (Bring(Force1, AtLeast, 1, pv.Unit_ID[12], "Anywhere")) { pbt.Add_DearNow(12, 10); }
+		}
+	}
+	
+	index = 14;
+	if (Bring(P6, AtLeast, 1, v.isTitle_Complete[index], "Title"))
+	{
+		v.Title_Effect_Delay[index] += 1;
+		if (v.Title_Effect_Delay[index] > 20)
+		{
+			v.Title_Effect_Delay[index] = 0;
+			ModifyUnitHitPoints(1, 93, P7, "Player1", 1);
+			ModifyUnitHitPoints(1, 93, P7, "Player2", 1);
+			ModifyUnitHitPoints(1, 93, P7, "Player3", 1);
+			ModifyUnitHitPoints(1, 93, P7, "Player4", 1);
+			ModifyUnitHitPoints(1, 93, P7, "Player5", 1);
+		}
+	}
+	
+	// Fairy
+	index = 16;
+	if (Bring(P6, AtLeast, 1, v.isTitle_Complete[index], "Title"))
+	{
+		v.Title_Effect_Delay[index] += 1;
+		if (v.Title_Effect_Delay[index] > 120)
+		{
+			v.Title_Effect_Delay[index] = 0;
+			if (Bring(Force1, AtLeast, 1, fv.Unit_ID[0], "Anywhere")) { fbt.Add_DearNow(0, 10); }
+			if (Bring(Force1, AtLeast, 1, fv.Unit_ID[1], "Anywhere")) { fbt.Add_DearNow(1, 10); }
+			if (Bring(Force1, AtLeast, 1, fv.Unit_ID[2], "Anywhere")) { fbt.Add_DearNow(2, 10); }
+			if (Bring(Force1, AtLeast, 1, fv.Unit_ID[3], "Anywhere")) { fbt.Add_DearNow(3, 10); }
+			if (Bring(Force1, AtLeast, 1, fv.Unit_ID[4], "Anywhere")) { fbt.Add_DearNow(4, 10); }
+			if (Bring(Force1, AtLeast, 1, fv.Unit_ID[5], "Anywhere")) { fbt.Add_DearNow(5, 10); }
+			if (Bring(Force1, AtLeast, 1, fv.Unit_ID[6], "Anywhere")) { fbt.Add_DearNow(6, 10); }
+			if (Bring(Force1, AtLeast, 1, fv.Unit_ID[7], "Anywhere")) { fbt.Add_DearNow(7, 10); }
+			if (Bring(Force1, AtLeast, 1, fv.Unit_ID[8], "Anywhere")) { fbt.Add_DearNow(8, 10); }
+			if (Bring(Force1, AtLeast, 1, fv.Unit_ID[9], "Anywhere")) { fbt.Add_DearNow(9, 10); }
+			if (Bring(Force1, AtLeast, 1, fv.Unit_ID[10], "Anywhere")) { fbt.Add_DearNow(10, 10); }
+			if (Bring(Force1, AtLeast, 1, fv.Unit_ID[11], "Anywhere")) { fbt.Add_DearNow(11, 10); }
+			if (Bring(Force1, AtLeast, 1, fv.Unit_ID[12], "Anywhere")) { fbt.Add_DearNow(12, 10); }
+		}
+	}
+	
+	index = 18;
+	if (Bring(P6, AtLeast, 1, v.isTitle_Complete[index], "Title"))
+	{
+		v.Title_Effect_Delay[index] += 1;
+		if (v.Title_Effect_Delay[index] > 20)
+		{
+			v.Title_Effect_Delay[index] = 0;
+			ModifyUnitHitPoints(1, 94, P7, "Player1", 1);
+			ModifyUnitHitPoints(1, 94, P7, "Player2", 1);
+			ModifyUnitHitPoints(1, 94, P7, "Player3", 1);
+			ModifyUnitHitPoints(1, 94, P7, "Player4", 1);
+			ModifyUnitHitPoints(1, 94, P7, "Player5", 1);
+		}
+	}
+	
+	// Angel
+	index = 20;
+	if (Bring(P6, AtLeast, 1, v.isTitle_Complete[index], "Title"))
+	{
+		v.Title_Effect_Delay[index] += 1;
+		if (v.Title_Effect_Delay[index] > 120)
+		{
+			v.Title_Effect_Delay[index] = 0;
+			if (Bring(Force1, AtLeast, 1, av.Unit_ID[0], "Anywhere")) { abt.Add_DearNow(0, 10); }
+			if (Bring(Force1, AtLeast, 1, av.Unit_ID[1], "Anywhere")) { abt.Add_DearNow(1, 10); }
+			if (Bring(Force1, AtLeast, 1, av.Unit_ID[2], "Anywhere")) { abt.Add_DearNow(2, 10); }
+			if (Bring(Force1, AtLeast, 1, av.Unit_ID[3], "Anywhere")) { abt.Add_DearNow(3, 10); }
+			if (Bring(Force1, AtLeast, 1, av.Unit_ID[4], "Anywhere")) { abt.Add_DearNow(4, 10); }
+			if (Bring(Force1, AtLeast, 1, av.Unit_ID[5], "Anywhere")) { abt.Add_DearNow(5, 10); }
+			if (Bring(Force1, AtLeast, 1, av.Unit_ID[6], "Anywhere")) { abt.Add_DearNow(6, 10); }
+			if (Bring(Force1, AtLeast, 1, av.Unit_ID[7], "Anywhere")) { abt.Add_DearNow(7, 10); }
+			if (Bring(Force1, AtLeast, 1, av.Unit_ID[8], "Anywhere")) { abt.Add_DearNow(8, 10); }
+			if (Bring(Force1, AtLeast, 1, av.Unit_ID[9], "Anywhere")) { abt.Add_DearNow(9, 10); }
+			if (Bring(Force1, AtLeast, 1, av.Unit_ID[10], "Anywhere")) { abt.Add_DearNow(10, 10); }
+			if (Bring(Force1, AtLeast, 1, av.Unit_ID[11], "Anywhere")) { abt.Add_DearNow(11, 10); }
+			if (Bring(Force1, AtLeast, 1, av.Unit_ID[12], "Anywhere")) { abt.Add_DearNow(12, 10); }
+		}
+	}
+	
+	index = 22;
+	if (Bring(P6, AtLeast, 1, v.isTitle_Complete[index], "Title"))
+	{
+		v.Title_Effect_Delay[index] += 1;
+		if (v.Title_Effect_Delay[index] > 20)
+		{
+			v.Title_Effect_Delay[index] = 0;
+			ModifyUnitHitPoints(1, 95, P7, "Player1", 1);
+			ModifyUnitHitPoints(1, 95, P7, "Player2", 1);
+			ModifyUnitHitPoints(1, 95, P7, "Player3", 1);
+			ModifyUnitHitPoints(1, 95, P7, "Player4", 1);
+			ModifyUnitHitPoints(1, 95, P7, "Player5", 1);
+		}
+	}
+}
+
+function Add_Dear()
+{
+	// Princess
+	if (Bring(Force1, AtLeast, 1, pv.Unit_ID[0], "Anywhere")) 	{ pbt.Add_DearNow(0, 10); }
+	if (Bring(Force1, AtLeast, 1, pv.Unit_ID[1], "Anywhere")) 	{ pbt.Add_DearNow(1, 10); }
+	if (Bring(Force1, AtLeast, 1, pv.Unit_ID[2], "Anywhere")) 	{ pbt.Add_DearNow(2, 10); }
+	if (Bring(Force1, AtLeast, 1, pv.Unit_ID[3], "Anywhere")) 	{ pbt.Add_DearNow(3, 10); }
+	if (Bring(Force1, AtLeast, 1, pv.Unit_ID[4], "Anywhere")) 	{ pbt.Add_DearNow(4, 10); }
+	if (Bring(Force1, AtLeast, 1, pv.Unit_ID[5], "Anywhere")) 	{ pbt.Add_DearNow(5, 10); }
+	if (Bring(Force1, AtLeast, 1, pv.Unit_ID[6], "Anywhere")) 	{ pbt.Add_DearNow(6, 10); }
+	if (Bring(Force1, AtLeast, 1, pv.Unit_ID[7], "Anywhere")) 	{ pbt.Add_DearNow(7, 10); }
+	if (Bring(Force1, AtLeast, 1, pv.Unit_ID[8], "Anywhere")) 	{ pbt.Add_DearNow(8, 10); }
+	if (Bring(Force1, AtLeast, 1, pv.Unit_ID[9], "Anywhere")) 	{ pbt.Add_DearNow(9, 10); }
+	if (Bring(Force1, AtLeast, 1, pv.Unit_ID[10], "Anywhere")) 	{ pbt.Add_DearNow(10, 10); }
+	if (Bring(Force1, AtLeast, 1, pv.Unit_ID[11], "Anywhere")) 	{ pbt.Add_DearNow(11, 10); }
+	if (Bring(Force1, AtLeast, 1, pv.Unit_ID[12], "Anywhere")) 	{ pbt.Add_DearNow(12, 10); }
+	
+	// Fairy
+	if (Bring(Force1, AtLeast, 1, fv.Unit_ID[0], "Anywhere"))		{ fbt.Add_DearNow(0, 10); }
+	if (Bring(Force1, AtLeast, 1, fv.Unit_ID[1], "Anywhere"))		{ fbt.Add_DearNow(1, 10); }
+	if (Bring(Force1, AtLeast, 1, fv.Unit_ID[2], "Anywhere"))		{ fbt.Add_DearNow(2, 10); }
+	if (Bring(Force1, AtLeast, 1, fv.Unit_ID[3], "Anywhere"))		{ fbt.Add_DearNow(3, 10); }
+	if (Bring(Force1, AtLeast, 1, fv.Unit_ID[4], "Anywhere"))		{ fbt.Add_DearNow(4, 10); }
+	if (Bring(Force1, AtLeast, 1, fv.Unit_ID[5], "Anywhere"))		{ fbt.Add_DearNow(5, 10); }
+	if (Bring(Force1, AtLeast, 1, fv.Unit_ID[6], "Anywhere"))		{ fbt.Add_DearNow(6, 10); }
+	if (Bring(Force1, AtLeast, 1, fv.Unit_ID[7], "Anywhere"))		{ fbt.Add_DearNow(7, 10); }
+	if (Bring(Force1, AtLeast, 1, fv.Unit_ID[8], "Anywhere"))		{ fbt.Add_DearNow(8, 10); }
+	if (Bring(Force1, AtLeast, 1, fv.Unit_ID[9], "Anywhere"))		{ fbt.Add_DearNow(9, 10); }
+	if (Bring(Force1, AtLeast, 1, fv.Unit_ID[10], "Anywhere")) 	{ fbt.Add_DearNow(10, 10); }
+	if (Bring(Force1, AtLeast, 1, fv.Unit_ID[11], "Anywhere")) 	{ fbt.Add_DearNow(11, 10); }
+	if (Bring(Force1, AtLeast, 1, fv.Unit_ID[12], "Anywhere")) 	{ fbt.Add_DearNow(12, 10); }
+	
+	// Angel
+	if (Bring(Force1, AtLeast, 1, av.Unit_ID[0], "Anywhere")) 	{ abt.Add_DearNow(0, 10); }
+	if (Bring(Force1, AtLeast, 1, av.Unit_ID[1], "Anywhere")) 	{ abt.Add_DearNow(1, 10); }
+	if (Bring(Force1, AtLeast, 1, av.Unit_ID[2], "Anywhere")) 	{ abt.Add_DearNow(2, 10); }
+	if (Bring(Force1, AtLeast, 1, av.Unit_ID[3], "Anywhere")) 	{ abt.Add_DearNow(3, 10); }
+	if (Bring(Force1, AtLeast, 1, av.Unit_ID[4], "Anywhere")) 	{ abt.Add_DearNow(4, 10); }
+	if (Bring(Force1, AtLeast, 1, av.Unit_ID[5], "Anywhere")) 	{ abt.Add_DearNow(5, 10); }
+	if (Bring(Force1, AtLeast, 1, av.Unit_ID[6], "Anywhere")) 	{ abt.Add_DearNow(6, 10); }
+	if (Bring(Force1, AtLeast, 1, av.Unit_ID[7], "Anywhere")) 	{ abt.Add_DearNow(7, 10); }
+	if (Bring(Force1, AtLeast, 1, av.Unit_ID[8], "Anywhere")) 	{ abt.Add_DearNow(8, 10); }
+	if (Bring(Force1, AtLeast, 1, av.Unit_ID[9], "Anywhere")) 	{ abt.Add_DearNow(9, 10); }
+	if (Bring(Force1, AtLeast, 1, av.Unit_ID[10], "Anywhere")) 	{ abt.Add_DearNow(10, 10); }
+	if (Bring(Force1, AtLeast, 1, av.Unit_ID[11], "Anywhere")) 	{ abt.Add_DearNow(11, 10); }
+	if (Bring(Force1, AtLeast, 1, av.Unit_ID[12], "Anywhere")) 	{ abt.Add_DearNow(12, 10); }
+}
+
+function Title_Complete_Check()
+{
+	if (Bring(P8, AtLeast, 1, 175, "Title") &&
+	v.Title_Flag[v.Title_Star_1[0]] > 1000 && 
+	v.Title_Flag[v.Title_Star_1[1]] > 1000 && 
+	v.Title_Flag[v.Title_Star_1[2]] > 1000)
+	{ GiveUnits(1, 175, P8, "Title", P6); }
+	
+	if (Bring(P8, AtLeast, 1, 174, "Title") &&
+	v.Title_Flag[v.Title_Star_2[0]] > 1000 && 
+	v.Title_Flag[v.Title_Star_2[1]] > 1000 && 
+	v.Title_Flag[v.Title_Star_2[2]] > 1000)
+	{ GiveUnits(1, 174, P8, "Title", P6); }
+	
+	if (Bring(P8, AtLeast, 1, 173, "Title") &&
+	v.Title_Flag[v.Title_Star_3[0]] > 1000 && 
+	v.Title_Flag[v.Title_Star_3[1]] > 1000 && 
+	v.Title_Flag[v.Title_Star_3[2]] > 1000)
+	{ GiveUnits(1, 173, P8, "Title", P6); }
+	
+	if (Bring(P8, AtLeast, 1, 172, "Title") &&
+	v.Title_Flag[v.Title_Star_4[0]] > 1000 && 
+	v.Title_Flag[v.Title_Star_4[1]] > 1000 && 
+	v.Title_Flag[v.Title_Star_4[2]] > 1000)
+	{ GiveUnits(1, 172, P8, "Title", P6); }
+	
+	if (Bring(P8, AtLeast, 1, 171, "Title") &&
+	v.Title_Flag[v.Title_Star_5[0]] > 1000 && 
+	v.Title_Flag[v.Title_Star_5[1]] > 1000 && 
+	v.Title_Flag[v.Title_Star_5[2]] > 1000)
+	{ GiveUnits(1, 171, P8, "Title", P6); }
+	
+	if (Bring(P8, AtLeast, 1, 170, "Title") &&
+	v.Title_Flag[v.Title_Star_6[0]] > 1000 && 
+	v.Title_Flag[v.Title_Star_6[1]] > 1000 && 
+	v.Title_Flag[v.Title_Star_6[2]] > 1000)
+	{ GiveUnits(1, 170, P8, "Title", P6); }
+	
+	if (Bring(P8, AtLeast, 1, 169, "Title")  &&
+	v.Title_Flag[v.Title_Star_7[0]] > 1000 && 
+	v.Title_Flag[v.Title_Star_7[1]] > 1000 && 
+	v.Title_Flag[v.Title_Star_7[2]] > 1000)
+	{ GiveUnits(1, 169, P8, "Title", P6); }
+	
+	if (Bring(P8, AtLeast, 1, 168, "Title")  &&
+	v.Title_Flag[v.Title_Star_8[0]] > 1000 && 
+	v.Title_Flag[v.Title_Star_8[1]] > 1000 && 
+	v.Title_Flag[v.Title_Star_8[2]] > 1000)
+	{ GiveUnits(1, 168, P8, "Title", P6); }
+	
+	if (Bring(P8, AtLeast, 1, 167, "Title")  &&
+	v.Title_Flag[v.Title_Star_9[0]] > 1000 && 
+	v.Title_Flag[v.Title_Star_9[1]] > 1000 && 
+	v.Title_Flag[v.Title_Star_9[2]] > 1000)
+	{ GiveUnits(1, 167, P8, "Title", P6); }
+	
+	if (Bring(P8, AtLeast, 1, 166, "Title")  &&
+	v.Title_Flag[v.Title_Star_10[0]] > 1000 && 
+	v.Title_Flag[v.Title_Star_10[1]] > 1000 && 
+	v.Title_Flag[v.Title_Star_10[2]] > 1000)
+	{ GiveUnits(1, 166, P8, "Title", P6); }
+	
+	if (Bring(P8, AtLeast, 1, 165, "Title")  &&
+	v.Title_Flag[v.Title_Star_11[0]] > 1000 && 
+	v.Title_Flag[v.Title_Star_11[1]] > 1000 && 
+	v.Title_Flag[v.Title_Star_11[2]] > 1000)
+	{ GiveUnits(1, 165, P8, "Title", P6); }
+	
+	if (Bring(P8, AtLeast, 1, 164, "Title")  &&
+	v.Title_Flag[v.Title_Star_12[0]] > 1000 && 
+	v.Title_Flag[v.Title_Star_12[1]] > 1000 && 
+	v.Title_Flag[v.Title_Star_12[2]] > 1000 && 
+	v.Title_Flag[v.Title_Star_12[3]] > 1000)
+	{ GiveUnits(1, 164, P8, "Title", P6); }
+	
+	// Princess
+	if (Bring(P8, AtLeast, 1, 163, "Title")  &&
+	v.Title_Flag[v.Title_Prin_1[0]] > 1000 && 
+	v.Title_Flag[v.Title_Prin_1[1]] > 1000)
+	{ GiveUnits(1, 163, P8, "Title", P6); }
+	
+	if (Bring(P8, AtLeast, 1, 160, "Title") &&
+	v.Title_Flag[v.Title_Prin_2[0]] > 1000 && 
+	v.Title_Flag[v.Title_Prin_2[1]] > 1000 && 
+	v.Title_Flag[v.Title_Prin_2[2]] > 1000)
+	{ GiveUnits(1, 160, P8, "Title", P6); }
+	
+	if (Bring(P8, AtLeast, 1, 159, "Title") &&
+	v.Title_Flag[v.Title_Prin_3[0]] > 1000 && 
+	v.Title_Flag[v.Title_Prin_3[1]] > 1000 && 
+	v.Title_Flag[v.Title_Prin_3[2]] > 1000)
+	{ GiveUnits(1, 159, P8, "Title", P6); }
+	
+	if (Bring(P8, AtLeast, 1, 136, "Title") &&
+	v.Title_Flag[v.Title_Prin_4[0]] > 1000 && 
+	v.Title_Flag[v.Title_Prin_4[1]] > 1000 && 
+	v.Title_Flag[v.Title_Prin_4[2]] > 1000 && 
+	v.Title_Flag[v.Title_Prin_4[3]] > 1000 && 
+	v.Title_Flag[v.Title_Prin_4[4]] > 1000)
+	{ GiveUnits(1, 136, P8, "Title", P6); }
+	
+	// Fariy
+	if (Bring(P8, AtLeast, 1, 154, "Title") &&
+	v.Title_Flag[v.Title_Fair_1[0]] > 1000 && 
+	v.Title_Flag[v.Title_Fair_1[1]] > 1000)
+	{ GiveUnits(1, 154, P8, "Title", P6); }
+	
+	if (Bring(P8, AtLeast, 1, 152, "Title") &&
+	v.Title_Flag[v.Title_Fair_2[0]] > 1000 && 
+	v.Title_Flag[v.Title_Fair_2[1]] > 1000 && 
+	v.Title_Flag[v.Title_Fair_2[2]] > 1000)
+	{ GiveUnits(1, 152, P8, "Title", P6); }
+	
+	if (Bring(P8, AtLeast, 1, 151, "Title") &&
+	v.Title_Flag[v.Title_Fair_3[0]] > 1000 && 
+	v.Title_Flag[v.Title_Fair_3[1]] > 1000 && 
+	v.Title_Flag[v.Title_Fair_3[2]] > 1000 && 
+	v.Title_Flag[v.Title_Fair_3[3]] > 1000)
+	{ GiveUnits(1, 151, P8, "Title", P6); }
+	
+	if (Bring(P8, AtLeast, 1, 148, "Title") &&
+	v.Title_Flag[v.Title_Fair_4[0]] > 1000 && 
+	v.Title_Flag[v.Title_Fair_4[1]] > 1000 && 
+	v.Title_Flag[v.Title_Fair_4[2]] > 1000 && 
+	v.Title_Flag[v.Title_Fair_4[3]] > 1000)
+	{ GiveUnits(1, 148, P8, "Title", P6); }
+	
+	// Angel
+	if (Bring(P8, AtLeast, 1, 147, "Title") &&
+	v.Title_Flag[v.Title_Angel_1[0]] > 1000 && 
+	v.Title_Flag[v.Title_Angel_1[1]] > 1000)
+	{ GiveUnits(1, 147, P8, "Title", P6); }
+	
+	if (Bring(P8, AtLeast, 1, 142, "Title") &&
+	v.Title_Flag[v.Title_Angel_2[0]] > 1000 && 
+	v.Title_Flag[v.Title_Angel_2[1]] > 1000 && 
+	v.Title_Flag[v.Title_Angel_2[2]] > 1000 && 
+	v.Title_Flag[v.Title_Angel_2[3]] > 1000)
+	{ GiveUnits(1, 142, P8, "Title", P6); }
+	
+	if (Bring(P8, AtLeast, 1, 140, "Title") &&
+	v.Title_Flag[v.Title_Angel_3[0]] > 1000 && 
+	v.Title_Flag[v.Title_Angel_3[1]] > 1000 && 
+	v.Title_Flag[v.Title_Angel_3[2]] > 1000)
+	{ GiveUnits(1, 140, P8, "Title", P6); }
+	
+	if (Bring(P8, AtLeast, 1, 139, "Title") &&
+	v.Title_Flag[v.Title_Angel_4[0]] > 1000 && 
+	v.Title_Flag[v.Title_Angel_4[1]] > 1000 && 
+	v.Title_Flag[v.Title_Angel_4[2]] > 1000 && 
+	v.Title_Flag[v.Title_Angel_4[3]] > 1000)
+	{ GiveUnits(1, 139, P8, "Title", P6); }
+}
