@@ -659,100 +659,100 @@ def CharacterText(cp):
         s.printAt(7, "\n")
         # (Line 267) break;
         EUDBreak()
-        # (Line 270) }
-    # (Line 272) if (cp >=0 && cp <= 2 && Switch((249), (2)))
+        # (Line 268) }
+    # (Line 270) if (cp >=0 && cp <= 2 && Switch((249), (2)))
     EUDEndSwitch()
     if EUDIf()(EUDSCAnd()(cp >= 0)(cp <= 2)(Switch((249), (2)))()):
-        # (Line 273) {
-        # (Line 274) if (v.Hero_Text[cp] == 3
+        # (Line 271) {
+        # (Line 272) if (v.Hero_Text[cp] == 3
         _t23 = EUDIf()
-        # (Line 275) || v.Hero_Text[cp] == 5
-        # (Line 276) || v.Hero_Text[cp] == 7
-        # (Line 277) || v.Hero_Text[cp] == 12
-        # (Line 278) || v.Hero_Text[cp] == 18)
+        # (Line 273) || v.Hero_Text[cp] == 5
+        # (Line 274) || v.Hero_Text[cp] == 7
+        # (Line 275) || v.Hero_Text[cp] == 12
+        # (Line 276) || v.Hero_Text[cp] == 18)
         if _t23(EUDSCOr()(v.Hero_Text[cp] == 3)(v.Hero_Text[cp] == 5)(v.Hero_Text[cp] == 7)(v.Hero_Text[cp] == 12)(v.Hero_Text[cp] == 18)()):
-            # (Line 279) { s.printAt(8, "\x13\x04선택할수 없습니다."); }
+            # (Line 277) { s.printAt(8, "\x13\x04선택할수 없습니다."); }
             s.printAt(8, "\x13\x04선택할수 없습니다.")
-            # (Line 280) else {  s.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요."); }
+            # (Line 278) else {  s.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요."); }
         if EUDElse()():
             s.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.")
-            # (Line 281) }
+            # (Line 279) }
         EUDEndIf()
-        # (Line 282) else if (cp >=3 && cp <= 5 && Switch((248), (2)))
+        # (Line 280) else if (cp >=3 && cp <= 5 && Switch((248), (2)))
     if EUDElseIf()(EUDSCAnd()(cp >= 3)(cp <= 5)(Switch((248), (2)))()):
-        # (Line 283) {
-        # (Line 284) if (v.Hero_Text[cp] == 3
+        # (Line 281) {
+        # (Line 282) if (v.Hero_Text[cp] == 3
         _t25 = EUDIf()
-        # (Line 285) || v.Hero_Text[cp] == 5
-        # (Line 286) || v.Hero_Text[cp] == 7
-        # (Line 287) || v.Hero_Text[cp] == 12
-        # (Line 288) || v.Hero_Text[cp] == 18)
+        # (Line 283) || v.Hero_Text[cp] == 5
+        # (Line 284) || v.Hero_Text[cp] == 7
+        # (Line 285) || v.Hero_Text[cp] == 12
+        # (Line 286) || v.Hero_Text[cp] == 18)
         if _t25(EUDSCOr()(v.Hero_Text[cp] == 3)(v.Hero_Text[cp] == 5)(v.Hero_Text[cp] == 7)(v.Hero_Text[cp] == 12)(v.Hero_Text[cp] == 18)()):
-            # (Line 289) {  s.printAt(8, "\x13\x04선택할수 없습니다."); }
+            # (Line 287) {  s.printAt(8, "\x13\x04선택할수 없습니다."); }
             s.printAt(8, "\x13\x04선택할수 없습니다.")
-            # (Line 290) else {  s.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요."); }
+            # (Line 288) else {  s.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요."); }
         if EUDElse()():
             s.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.")
-            # (Line 291) }
+            # (Line 289) }
         EUDEndIf()
-        # (Line 292) else {  s.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요."); }
+        # (Line 290) else {  s.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요."); }
     if EUDElse()():
         s.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.")
-        # (Line 294) v.Hero_Num[cp] = v.Hero_Text[cp];
+        # (Line 292) v.Hero_Num[cp] = v.Hero_Text[cp];
     EUDEndIf()
     _ARRW(v.Hero_Num, cp) << (v.Hero_Text[cp])
-    # (Line 295) v.Hero_Text[cp] = 0;
+    # (Line 293) v.Hero_Text[cp] = 0;
     _ARRW(v.Hero_Text, cp) << (0)
-    # (Line 296) }
-    # (Line 299) function EndTotalText(cp)
+    # (Line 294) }
+    # (Line 297) function EndTotalText(cp)
 
-# (Line 300) {
+# (Line 298) {
 @EUDFunc
 def EndTotalText(cp):
-    # (Line 301) const Exp 	= dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
+    # (Line 299) const Exp 	= dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
     Exp = f_dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp))
-    # (Line 303) s.printAt(1, "\x13\x17[ \x04",ptr2s(v.Hero_Name[v.Hero_Num[cp]])," \x17]");
+    # (Line 301) s.printAt(1, "\x13\x17[ \x04",ptr2s(v.Hero_Name[v.Hero_Num[cp]])," \x17]");
     s.printAt(1, "\x13\x17[ \x04", ptr2s(v.Hero_Name[v.Hero_Num[cp]]), " \x17]")
-    # (Line 304) s.printAt(2, "\n");
+    # (Line 302) s.printAt(2, "\n");
     s.printAt(2, "\n")
-    # (Line 305) s.printAt(3, "\x13\x04얻은 경험치 : ", Exp, "　\x19[ Total ", v.Exp_Group[20 * cp + (v.Hero_Num[cp] - 1)], " ]");
+    # (Line 303) s.printAt(3, "\x13\x04얻은 경험치 : ", Exp, "　\x19[ Total ", v.Exp_Group[20 * cp + (v.Hero_Num[cp] - 1)], " ]");
     s.printAt(3, "\x13\x04얻은 경험치 : ", Exp, "　\x19[ Total ", v.Exp_Group[20 * cp + (v.Hero_Num[cp] - 1)], " ]")
-    # (Line 306) s.printAt(4, "\x13\x04잡은 크립 : ",  v.CS_Group[20 * cp + (v.Hero_Num[cp] - 1)], "　\x19[ Total ", v.CS_Total[cp]," ]");
+    # (Line 304) s.printAt(4, "\x13\x04잡은 크립 : ",  v.CS_Group[20 * cp + (v.Hero_Num[cp] - 1)], "　\x19[ Total ", v.CS_Total[cp]," ]");
     s.printAt(4, "\x13\x04잡은 크립 : ", v.CS_Group[20 * cp + (v.Hero_Num[cp] - 1)], "　\x19[ Total ", v.CS_Total[cp], " ]")
-    # (Line 307) s.printAt(5, "\x13\x04Kill : \x08",  v.Kill_Score[cp],"　\x19[ Total ", v.Kill_Total[20 * cp + (v.Hero_Num[cp] - 1)]," ]");
+    # (Line 305) s.printAt(5, "\x13\x04Kill : \x08",  v.Kill_Score[cp],"　\x19[ Total ", v.Kill_Total[20 * cp + (v.Hero_Num[cp] - 1)]," ]");
     s.printAt(5, "\x13\x04Kill : \x08", v.Kill_Score[cp], "　\x19[ Total ", v.Kill_Total[20 * cp + (v.Hero_Num[cp] - 1)], " ]")
-    # (Line 308) s.printAt(6, "\x13\x04Death : \x08",  v.Death_Score[cp], "　\x19[ Total ", v.Death_Total[20 * cp + (v.Hero_Num[cp] - 1)]," ]");
+    # (Line 306) s.printAt(6, "\x13\x04Death : \x08",  v.Death_Score[cp], "　\x19[ Total ", v.Death_Total[20 * cp + (v.Hero_Num[cp] - 1)]," ]");
     s.printAt(6, "\x13\x04Death : \x08", v.Death_Score[cp], "　\x19[ Total ", v.Death_Total[20 * cp + (v.Hero_Num[cp] - 1)], " ]")
-    # (Line 309) s.printAt(7, "\n");
+    # (Line 307) s.printAt(7, "\n");
     s.printAt(7, "\n")
-    # (Line 311) if (sca.ConnectStatus() == 1)
+    # (Line 309) if (sca.ConnectStatus() == 1)
     if EUDIf()(sca.ConnectStatus() == 1):
-        # (Line 312) {
-        # (Line 313) switch(sca.GetLastMessage())
+        # (Line 310) {
+        # (Line 311) switch(sca.GetLastMessage())
         EUDSwitch(sca.GetLastMessage())
-        # (Line 314) {
-        # (Line 315) case 5:
+        # (Line 312) {
+        # (Line 313) case 5:
         _t2 = EUDSwitchCase()
-        # (Line 316) s.printAt(8, "\x13\x1F저장 중\x04입니다.");
+        # (Line 314) s.printAt(8, "\x13\x1F저장 중\x04입니다.");
         if _t2(5):
             s.printAt(8, "\x13\x1F저장 중\x04입니다.")
-            # (Line 317) break;
+            # (Line 315) break;
             EUDBreak()
-            # (Line 318) case 6:
+            # (Line 316) case 6:
         _t3 = EUDSwitchCase()
-        # (Line 319) s.printAt(8, "\x13\x1F저장 완료\x04되었습니다. 수고하셨습니다.");
+        # (Line 317) s.printAt(8, "\x13\x1F저장 완료\x04되었습니다. 수고하셨습니다.");
         if _t3(6):
             s.printAt(8, "\x13\x1F저장 완료\x04되었습니다. 수고하셨습니다.")
-            # (Line 320) break;
+            # (Line 318) break;
             EUDBreak()
-            # (Line 321) }
-        # (Line 322) }
+            # (Line 319) }
+        # (Line 320) }
         EUDEndSwitch()
-        # (Line 323) else
-        # (Line 324) {
+        # (Line 321) else
+        # (Line 322) {
     if EUDElse()():
-        # (Line 325) s.printAt(8, "\x13\x1F", ct.str(0x57EEEB + 36 * cp),"\x04님 수고하셨습니다.");
+        # (Line 323) s.printAt(8, "\x13\x1F", ct.str(0x57EEEB + 36 * cp),"\x04님 수고하셨습니다.");
         s.printAt(8, "\x13\x1F", ct.f_str(0x57EEEB + 36 * cp), "\x04님 수고하셨습니다.")
-        # (Line 326) }
-        # (Line 333) }
+        # (Line 324) }
+        # (Line 331) }
     EUDEndIf()
