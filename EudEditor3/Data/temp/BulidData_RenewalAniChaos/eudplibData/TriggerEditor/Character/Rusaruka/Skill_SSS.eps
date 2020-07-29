@@ -11,7 +11,6 @@ function main(cp, location, heroID)
 		switch(f.count[cp])
 		{
 		case 0:
-			SetDeaths(cp, SetTo, 1, " `SkillText");
 			f.SquareShape(heroID, 1, "Torrasque", location, cp, 48, 48);
 			KillUnitAt(All, "Torrasque", "Anywhere", cp);
 			f.SkillWait(cp, 0);

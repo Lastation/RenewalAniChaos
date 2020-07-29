@@ -7,6 +7,12 @@ const loop 		= PVariable();			// 212번 유닛 `SkillLoop
 const location 	= PVariable();			// 로케이션 번호
 const heroID 	= PVariable();			// 영웅 유닛 번호
 
+const UltimateA	= PVariable();			// 궁극기 1번 소모량
+const UltimateB	= PVariable();			// 궁극기 2번 소모량
+const UltimateC	= PVariable();			// 궁극기 3번 소모량
+
+const UniqueA	= PVariable();			// 유니크 1번 쿨타임
+	
 function MoveLoc(Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, x, y)
 {
 	MoveLocation(location, Unit, cp, "Anywhere");

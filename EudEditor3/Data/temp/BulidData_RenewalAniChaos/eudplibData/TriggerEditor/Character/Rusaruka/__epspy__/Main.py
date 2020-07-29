@@ -147,107 +147,104 @@ stb = _CGFW(lambda: [StringBuffer()], 1)[0]
 # (Line 18) {
 @EUDFunc
 def f_main(cp):
-    # (Line 19) if (Deaths(cp, Exactly, 1000, 51))
-    if EUDIf()(Deaths(cp, Exactly, 1000, 51)):
-        # (Line 20) {
-        # (Line 21) f.location[cp] = 32;
-        _ARRW(f.location, cp) << (32)
-        # (Line 22) f.heroID[cp] = 51;
-        _ARRW(f.heroID, cp) << (51)
-        # (Line 23) f.step[cp] = dwread_epd(179 * 12 + cp);
-        _ARRW(f.step, cp) << (f_dwread_epd(179 * 12 + cp))
-        # (Line 25) SkillList(cp);
-        SkillList(cp)
-        # (Line 27) if (Deaths(cp, Exactly, 0, " `SkillWait"))
-        if EUDIf()(Deaths(cp, Exactly, 0, " `SkillWait")):
-            # (Line 28) {
-            # (Line 29) switch(f.step[cp])
-            EUDSwitch(f.step[cp])
-            # (Line 30) {
-            # (Line 31) case 1:
-            _t3 = EUDSwitchCase()
-            # (Line 32) O.main(cp, f.location[cp], f.heroID[cp]);
-            if _t3(1):
-                O.f_main(cp, f.location[cp], f.heroID[cp])
-                # (Line 33) break;
-                EUDBreak()
-                # (Line 34) case 100:
-            _t4 = EUDSwitchCase()
-            # (Line 35) S.main(cp, f.location[cp], f.heroID[cp]);
-            if _t4(100):
-                S.f_main(cp, f.location[cp], f.heroID[cp])
-                # (Line 36) break;
-                EUDBreak()
-                # (Line 37) case 200:
-            _t5 = EUDSwitchCase()
-            # (Line 38) C.main(cp, f.location[cp], f.heroID[cp]);
-            if _t5(200):
-                C.f_main(cp, f.location[cp], f.heroID[cp])
-                # (Line 39) break;
-                EUDBreak()
-                # (Line 45) case 150:
-            _t6 = EUDSwitchCase()
-            # (Line 46) SSS.main(cp, f.location[cp], f.heroID[cp]);
-            if _t6(150):
-                SSS.f_main(cp, f.location[cp], f.heroID[cp])
-                # (Line 47) break;
-                EUDBreak()
-                # (Line 48) }
-            # (Line 49) }
-            EUDEndSwitch()
-            # (Line 51) if (Deaths(cp, AtLeast, 1, 186))	// Skill Text
-        EUDEndIf()
-        if EUDIf()(Deaths(cp, AtLeast, 1, 186)):
-            # (Line 52) {
-            # (Line 53) voice.Rusaruka_Voice[0] = dwread_epd(186 * 12 + cp);
-            _ARRW(voice.Rusaruka_Voice, 0) << (f_dwread_epd(186 * 12 + cp))
-            # (Line 54) voice.Rusaruka_Voice[1] = dwread_epd(186 * 12 + cp);
-            _ARRW(voice.Rusaruka_Voice, 1) << (f_dwread_epd(186 * 12 + cp))
-            # (Line 55) voice.Rusaruka_Voice[2] = dwread_epd(186 * 12 + cp);
-            _ARRW(voice.Rusaruka_Voice, 2) << (f_dwread_epd(186 * 12 + cp))
-            # (Line 56) voice.Rusaruka_Voice[3] = dwread_epd(186 * 12 + cp);
-            _ARRW(voice.Rusaruka_Voice, 3) << (f_dwread_epd(186 * 12 + cp))
-            # (Line 57) voice.Rusaruka_Voice[4] = dwread_epd(186 * 12 + cp);
-            _ARRW(voice.Rusaruka_Voice, 4) << (f_dwread_epd(186 * 12 + cp))
-            # (Line 58) voice.Rusaruka_Voice[5] = dwread_epd(186 * 12 + cp);
-            _ARRW(voice.Rusaruka_Voice, 5) << (f_dwread_epd(186 * 12 + cp))
-            # (Line 59) SetDeaths(cp, SetTo, 0, 186);
-            # (Line 60) }
-            DoActions(SetDeaths(cp, SetTo, 0, 186))
-            # (Line 61) }
-        EUDEndIf()
-        # (Line 64) text.main(cp);
+    # (Line 19) f.location[cp] = 32;
+    _ARRW(f.location, cp) << (32)
+    # (Line 20) f.heroID[cp] = 51;
+    _ARRW(f.heroID, cp) << (51)
+    # (Line 21) f.step[cp] = dwread_epd(179 * 12 + cp);
+    _ARRW(f.step, cp) << (f_dwread_epd(179 * 12 + cp))
+    # (Line 23) f.UltimateA[cp] = 650;
+    _ARRW(f.UltimateA, cp) << (650)
+    # (Line 25) SkillList(cp);
+    SkillList(cp)
+    # (Line 27) if (Deaths(cp, Exactly, 0, " `SkillWait"))
+    if EUDIf()(Deaths(cp, Exactly, 0, " `SkillWait")):
+        # (Line 28) {
+        # (Line 29) switch(f.step[cp])
+        EUDSwitch(f.step[cp])
+        # (Line 30) {
+        # (Line 31) case 1:
+        _t2 = EUDSwitchCase()
+        # (Line 32) O.main(cp, f.location[cp], f.heroID[cp]);
+        if _t2(1):
+            O.f_main(cp, f.location[cp], f.heroID[cp])
+            # (Line 33) break;
+            EUDBreak()
+            # (Line 34) case 100:
+        _t3 = EUDSwitchCase()
+        # (Line 35) S.main(cp, f.location[cp], f.heroID[cp]);
+        if _t3(100):
+            S.f_main(cp, f.location[cp], f.heroID[cp])
+            # (Line 36) break;
+            EUDBreak()
+            # (Line 37) case 200:
+        _t4 = EUDSwitchCase()
+        # (Line 38) C.main(cp, f.location[cp], f.heroID[cp]);
+        if _t4(200):
+            C.f_main(cp, f.location[cp], f.heroID[cp])
+            # (Line 39) break;
+            EUDBreak()
+            # (Line 45) case 150:
+        _t5 = EUDSwitchCase()
+        # (Line 46) SSS.main(cp, f.location[cp], f.heroID[cp]);
+        if _t5(150):
+            SSS.f_main(cp, f.location[cp], f.heroID[cp])
+            # (Line 47) break;
+            EUDBreak()
+            # (Line 48) }
+        # (Line 49) }
+        EUDEndSwitch()
+        # (Line 51) if (Deaths(cp, AtLeast, 1, 186))	// Skill Text
+    EUDEndIf()
+    if EUDIf()(Deaths(cp, AtLeast, 1, 186)):
+        # (Line 52) {
+        # (Line 53) voice.Rusaruka_Voice[0] = dwread_epd(186 * 12 + cp);
+        _ARRW(voice.Rusaruka_Voice, 0) << (f_dwread_epd(186 * 12 + cp))
+        # (Line 54) voice.Rusaruka_Voice[1] = dwread_epd(186 * 12 + cp);
+        _ARRW(voice.Rusaruka_Voice, 1) << (f_dwread_epd(186 * 12 + cp))
+        # (Line 55) voice.Rusaruka_Voice[2] = dwread_epd(186 * 12 + cp);
+        _ARRW(voice.Rusaruka_Voice, 2) << (f_dwread_epd(186 * 12 + cp))
+        # (Line 56) voice.Rusaruka_Voice[3] = dwread_epd(186 * 12 + cp);
+        _ARRW(voice.Rusaruka_Voice, 3) << (f_dwread_epd(186 * 12 + cp))
+        # (Line 57) voice.Rusaruka_Voice[4] = dwread_epd(186 * 12 + cp);
+        _ARRW(voice.Rusaruka_Voice, 4) << (f_dwread_epd(186 * 12 + cp))
+        # (Line 58) voice.Rusaruka_Voice[5] = dwread_epd(186 * 12 + cp);
+        _ARRW(voice.Rusaruka_Voice, 5) << (f_dwread_epd(186 * 12 + cp))
+        # (Line 59) SetDeaths(cp, SetTo, 0, 186);
+        # (Line 60) }
+        DoActions(SetDeaths(cp, SetTo, 0, 186))
+        # (Line 63) text.main(cp);
     EUDEndIf()
     text.f_main(cp)
-    # (Line 65) }
-    # (Line 67) function SkillList(cp)
+    # (Line 64) }
+    # (Line 66) function SkillList(cp)
 
-# (Line 68) {
+# (Line 67) {
 @EUDFunc
 def SkillList(cp):
-    # (Line 69) if(Memory(0x596A44, Exactly, 0x00000100))	// Insert key Pressed
+    # (Line 68) if(Memory(0x596A44, Exactly, 0x00000100))	// Insert key Pressed
     if EUDIf()(Memory(0x596A44, Exactly, 0x00000100)):
-        # (Line 70) {
-        # (Line 71) stb.printAt(0, "\n");
+        # (Line 69) {
+        # (Line 70) stb.printAt(0, "\n");
         stb.printAt(0, "\n")
-        # (Line 72) stb.printAt(1, "\x1F　＃\x04- 루살카 \x1B슈베게린　\x04[ 디에스 이래 ]");
+        # (Line 71) stb.printAt(1, "\x1F　＃\x04- 루살카 \x1B슈베게린　\x04[ 디에스 이래 ]");
         stb.printAt(1, "\x1F　＃\x04- 루살카 \x1B슈베게린　\x04[ 디에스 이래 ]")
-        # (Line 73) stb.printAt(2, "　　\x1FA\x04ction List");
+        # (Line 72) stb.printAt(2, "　　\x1FA\x04ction List");
         stb.printAt(2, "　　\x1FA\x04ction List")
-        # (Line 74) stb.printAt(3, "　　　\x18O \x04창조 \x19[ 15x15 / 적 5초마다 경직 / 파괴될시 5분후 재생 / 설치형 ]");
+        # (Line 73) stb.printAt(3, "　　　\x18O \x04창조 \x19[ 15x15 / 적 5초마다 경직 / 파괴될시 5분후 재생 / 설치형 ]");
         stb.printAt(3, "　　　\x18O \x04창조 \x19[ 15x15 / 적 5초마다 경직 / 파괴될시 5분후 재생 / 설치형 ]")
-        # (Line 75) stb.printAt(4, "　　　\x04\x1F>SSS \x04>위협 \x19[ 대인 / 공성 ]");
+        # (Line 74) stb.printAt(4, "　　　\x04\x1F>SSS \x04>위협 \x19[ 대인 / 공성 ]");
         stb.printAt(4, "　　　\x04\x1F>SSS \x04>위협 \x19[ 대인 / 공성 ]")
-        # (Line 76) stb.printAt(5, "　　　\x04\x1F>CCC + AA \x04고문바퀴 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]");
+        # (Line 75) stb.printAt(5, "　　　\x04\x1F>CCC + AA \x04고문바퀴 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]");
         stb.printAt(5, "　　　\x04\x1F>CCC + AA \x04고문바퀴 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]")
-        # (Line 77) stb.printAt(6, "　　　\x04\x1F>ACC \x04고문용 쇠사슬 \x19[ 대인 ]");
+        # (Line 76) stb.printAt(6, "　　　\x04\x1F>ACC \x04고문용 쇠사슬 \x19[ 대인 ]");
         stb.printAt(6, "　　　\x04\x1F>ACC \x04고문용 쇠사슬 \x19[ 대인 ]")
-        # (Line 78) stb.printAt(7, "\n");
+        # (Line 77) stb.printAt(7, "\n");
         stb.printAt(7, "\n")
-        # (Line 79) stb.printAt(8, "　　　\x08AAAC \x04갈망 \x19[ 공성 / 선딜없음 /  장판형 스킬 ] \x05650");
-        stb.printAt(8, "　　　\x08AAAC \x04갈망 \x19[ 공성 / 선딜없음 /  장판형 스킬 ] \x05650")
-        # (Line 80) stb.printAt(9, "\n");
+        # (Line 78) stb.printAt(8, "　　　\x08AAAC \x04갈망 \x19[ 공성 / 선딜없음 /  장판형 스킬 ] \x05", f.UltimateA[cp]);
+        stb.printAt(8, "　　　\x08AAAC \x04갈망 \x19[ 공성 / 선딜없음 /  장판형 스킬 ] \x05", f.UltimateA[cp])
+        # (Line 79) stb.printAt(9, "\n");
         stb.printAt(9, "\n")
+        # (Line 80) }
         # (Line 81) }
-        # (Line 82) }
     EUDEndIf()

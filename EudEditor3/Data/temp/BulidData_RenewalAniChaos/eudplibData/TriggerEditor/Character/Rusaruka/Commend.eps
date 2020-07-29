@@ -1,0 +1,80 @@
+import Function as f;
+
+const stb = StringBuffer();
+
+function main(cp)
+{
+	if (Deaths(cp, Exactly, 0, " `SkillStep");
+	{
+		if (Bring(cp, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))
+		{
+			SetDeaths(cp, SetTo, 100, " `SkillStep");
+			KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", cp);
+		}
+		if (Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))
+		{
+			SetDeaths(cp, SetTo, 200, " `SkillStep");
+			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp);
+		}
+		if (Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))
+		{
+			SetDeaths(cp, SetTo, 300, " `SkillStep");
+			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
+		}
+	}
+	
+	if (Deaths(cp, AtLeast, 2, " `SkillWait") && Deaths(cp, Exactly, 0, " `SkillCount"))
+	{
+		if (Bring(cp, AtLeast, 2, "Protoss Scout", "[Skill]UseSkill") && Deaths(cp, Exactly, 100, " `SkillStep"))
+		{
+			SetDeaths(cp, SetTo, 1, " `SkillText");
+			SetDeaths(cp, SetTo, 0, " `SkillWait");
+			SetDeaths(cp, SetTo, 150, " `SkillStep");
+			KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", cp);
+		}
+		if (Bring(cp, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") && Deaths(cp, Exactly, 200, " `SkillStep"))
+		{
+			SetDeaths(cp, SetTo, 2, " `SkillText");
+			SetDeaths(cp, SetTo, 0, " `SkillWait");
+			SetDeaths(cp, SetTo, 210, " `SkillStep");
+			KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp);
+		}
+		if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") && Deaths(cp, Exactly, 210, " `SkillStep"))
+		{
+			SetDeaths(cp, SetTo, 3, " `SkillText");
+			SetDeaths(cp, SetTo, 0, " `SkillWait");
+			SetDeaths(cp, SetTo, 220, " `SkillStep");
+			KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
+		}
+		if (Bring(cp, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") && Deaths(cp, Exactly, 300, " `SkillStep"))
+		{
+			SetDeaths(cp, SetTo, 4, " `SkillText");
+			SetDeaths(cp, SetTo, 0, " `SkillWait");
+			SetDeaths(cp, SetTo, 110, " `SkillStep");
+			KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp);
+		}
+		
+		// Ultimate
+		if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") 
+		&& Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill") 
+		&& Deaths(cp, Exactly, 300, " `SkillStep")
+		&& Deaths(cp, AtLeast, f.UltimateA[cp], " `UltimateCoolTime"))
+		{
+			if (Switch("UiltimateSwitch", Cleared))
+			{
+				SetDeaths(cp, SetTo, 0, " `SkillWait");
+				SetDeaths(cp, SetTo, 310, " `SkillStep");
+				SetDeaths(cp, Subtract, f.UltimateA[cp], " `UltimateCoolTime");
+				KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
+				KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp);
+			}
+			else
+			{
+				SetResources(CurrentPlayer, Add, 800, Gas);
+				KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
+				KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp);
+				SetDeaths(CurrentPlayer, SetTo, 999, " `SYSTEMTEXT");
+			}
+		}
+	}
+}

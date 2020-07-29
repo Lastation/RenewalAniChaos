@@ -14,43 +14,40 @@ function SkillList(cp);
 
 function main(cp)
 {
-	if (Deaths(cp, Exactly, 3000, 54))
+	f.location[cp] = 181;
+	f.heroID[cp] = 54;
+	f.step[cp] = dwread_epd(179 * 12 + cp);
+	
+	SkillList(cp);
+	
+	if (Deaths(cp, Exactly, 0, " `SkillWait"))
 	{
-		f.location[cp] = 181;
-		f.heroID[cp] = 54;
-		f.step[cp] = dwread_epd(179 * 12 + cp);
-		
-		SkillList(cp);
-		
-		if (Deaths(cp, Exactly, 0, " `SkillWait"))
+		switch(f.step[cp])
 		{
-			switch(f.step[cp])
-			{
-			case 1:
-				O.main(cp, f.location[cp], f.heroID[cp]);
-				break;
-			case 100:
-				S.main(cp, f.location[cp], f.heroID[cp]);
-				break;
-			case 200:
-				C.main(cp, f.location[cp], f.heroID[cp]);
-				break;
-			case 300:
-				A.main(cp, f.location[cp], f.heroID[cp]);
-				break;
-			}
+		case 1:
+			O.main(cp, f.location[cp], f.heroID[cp]);
+			break;
+		case 100:
+			S.main(cp, f.location[cp], f.heroID[cp]);
+			break;
+		case 200:
+			C.main(cp, f.location[cp], f.heroID[cp]);
+			break;
+		case 300:
+			A.main(cp, f.location[cp], f.heroID[cp]);
+			break;
 		}
-		
-		if (Deaths(cp, AtLeast, 1, 186))	// Skill Text
-		{
-			voice.Rusaruka_Voice[0] = dwread_epd(186 * 12 + cp);
-			voice.Rusaruka_Voice[1] = dwread_epd(186 * 12 + cp);
-			voice.Rusaruka_Voice[2] = dwread_epd(186 * 12 + cp);
-			voice.Rusaruka_Voice[3] = dwread_epd(186 * 12 + cp);
-			voice.Rusaruka_Voice[4] = dwread_epd(186 * 12 + cp);
-			voice.Rusaruka_Voice[5] = dwread_epd(186 * 12 + cp);
-			SetDeaths(cp, SetTo, 0, 186);
-		}
+	}
+	
+	if (Deaths(cp, AtLeast, 1, 186))	// Skill Text
+	{
+		voice.Rusaruka_Voice[0] = dwread_epd(186 * 12 + cp);
+		voice.Rusaruka_Voice[1] = dwread_epd(186 * 12 + cp);
+		voice.Rusaruka_Voice[2] = dwread_epd(186 * 12 + cp);
+		voice.Rusaruka_Voice[3] = dwread_epd(186 * 12 + cp);
+		voice.Rusaruka_Voice[4] = dwread_epd(186 * 12 + cp);
+		voice.Rusaruka_Voice[5] = dwread_epd(186 * 12 + cp);
+		SetDeaths(cp, SetTo, 0, 186);
 	}
 	
 	// Character Voice 건드리지 말것
