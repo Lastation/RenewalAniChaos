@@ -2,6 +2,7 @@ import customText as ct;
 import Variable as v;
 
 import Character.Rusaruka.Main as rusarukaMain;
+import Character.Yuuna.Main as yuunaMain;
 
 import Character.TextA.Chtholly 		as chtholly;
 import Character.TextA.Maihime 		as maihime;
@@ -31,8 +32,15 @@ function MargeSound(cp);
 
 function main(cp)
 {
-	if (v.Hero_Num[0] == 1 || v.Hero_Num[1] == 1 || v.Hero_Num[2] == 1 || v.Hero_Num[3] == 1 || v.Hero_Num[4] == 1 || v.Hero_Num[5] == 1)
-	{ rusarukaMain.main(cp); }
+	switch(v.Hero_Num[cp])
+	{
+	case 1:
+		rusarukaMain.main(cp);
+		break;
+	case 22:
+		yuunaMain.main(cp);
+		break;
+	}
 	
 	MargeSound(cp);
 }

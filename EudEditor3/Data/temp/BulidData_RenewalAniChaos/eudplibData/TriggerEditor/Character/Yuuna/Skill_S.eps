@@ -1,0 +1,27 @@
+import Function as f;
+
+function Shape(cp, location, heroID, Unit : TrgUnit, x, y);
+
+function main(cp, location, heroID)
+{
+	f.loop[cp] = dwread_epd(212 * 12 + cp);
+
+	if (Deaths(cp, Exactly, 0, " `WaitTime"))
+	{
+		if (f.loop[cp] < 8)
+		{
+			/*
+			var d = 50 ;
+
+			
+			f.MoveLoc(heroID, location, cp, x, y);
+			f.SkillUnit(1, "Protoss Dark Templar", location, cp);
+			f.MoveLoc(heroID, location, cp, -x, -y);
+			f.SkillUnit(1, "Protoss Dark Templar", location, cp);
+			KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp);
+			f.SkillWait(cp, 50);
+			SetDeaths(cp, Add, 1, " `SkillLoop");
+			*/
+		}
+	}
+}

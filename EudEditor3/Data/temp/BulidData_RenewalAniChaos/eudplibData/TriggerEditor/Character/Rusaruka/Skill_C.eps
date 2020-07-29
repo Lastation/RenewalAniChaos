@@ -1,67 +1,63 @@
 import Function as f;
 
-var count;
-var loop;
-
 function main(cp, location, heroID)
 {
-	count  = dwread_epd(181 * 12 + cp);
-	loop = dwread_epd(212 * 12 + cp);
+	f.count[cp]  = dwread_epd(181 * 12 + cp);
 	
 	if (Deaths(cp, Exactly, 0, " `WaitTime"))
 	{
-		switch(count)
+		switch(f.count[cp])
 		{
 		case 0:
 		case 11:
 			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
 			
 			f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 32, 0);
-			f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 24, 24);
+			f.SquareShape(heroID, 1, "Torrasque", location, cp, 24, 24);
 			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-			KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+			KillUnitAt(All, "Torrasque", "Anywhere", cp);
 			f.SkillWait(cp, 0);
 			SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 			break;
 		case 1:
 			f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 64, 0);
-			f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 48, 48);
+			f.SquareShape(heroID, 1, "Torrasque", location, cp, 48, 48);
 			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-			KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+			KillUnitAt(All, "Torrasque", "Anywhere", cp);
 			f.SkillWait(cp, 0);
 			SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 			break;
 		case 2:
 			f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 96, 0);
-			f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 72, 72);
+			f.SquareShape(heroID, 1, "Torrasque", location, cp, 72, 72);
 			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-			KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+			KillUnitAt(All, "Torrasque", "Anywhere", cp);
 			f.SkillWait(cp, 0);
 			SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 			break;
 		case 3:
 			f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 128, 0);
-			f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 96, 96);
+			f.SquareShape(heroID, 1, "Torrasque", location, cp, 96, 96);
 			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-			KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+			KillUnitAt(All, "Torrasque", "Anywhere", cp);
 			f.SkillWait(cp, 0);
 			SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 			break;
 		case 4:
 		case 7:
 			f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 160, 0);
-			f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 120, 120);
+			f.SquareShape(heroID, 1, "Torrasque", location, cp, 120, 120);
 			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-			KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+			KillUnitAt(All, "Torrasque", "Anywhere", cp);
 			f.SkillWait(cp, 0);
 			SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 			break;
 		case 5:
 		case 6:
 			f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 192, 0);
-			f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 144, 144);
+			f.SquareShape(heroID, 1, "Torrasque", location, cp, 144, 144);
 			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-			KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+			KillUnitAt(All, "Torrasque", "Anywhere", cp);
 			f.SkillWait(cp, 0);
 			SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
 			break;
@@ -69,9 +65,9 @@ function main(cp, location, heroID)
 			f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 0);
 			f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 96, 96);
 			f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 128, 0);
-			f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 96, 96);
+			f.SquareShape(heroID, 1, "Torrasque", location, cp, 96, 96);
 			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-			KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+			KillUnitAt(All, "Torrasque", "Anywhere", cp);
 			MoveLocation(location, heroID, CurrentPlayer, "Anywhere");
 			Order("50 + 1n Battlecruiser", CurrentPlayer, "Anywhere", Attack, location);
 			f.SkillWait(cp, 180);
@@ -83,9 +79,9 @@ function main(cp, location, heroID)
 			f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, 96, 0);
 			f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, 72, 72);
 			f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 96, 0);
-			f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 72, 72);
+			f.SquareShape(heroID, 1, "Torrasque", location, cp, 72, 72);
 			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-			KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+			KillUnitAt(All, "Torrasque", "Anywhere", cp);
 			MoveLocation(location, heroID, CurrentPlayer, "Anywhere");
 			Order("40 + 1n Guardian", CurrentPlayer, "Anywhere", Attack, location);
 			f.SkillWait(cp, 180);
@@ -97,9 +93,9 @@ function main(cp, location, heroID)
 			f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, 64, 0);
 			f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, 48, 48);
 			f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 64, 0);
-			f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 48, 48);
+			f.SquareShape(heroID, 1, "Torrasque", location, cp, 48, 48);
 			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-			KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+			KillUnitAt(All, "Torrasque", "Anywhere", cp);
 			MoveLocation(location, heroID, CurrentPlayer, "Anywhere");
 			Order("40 + 1n Mojo", CurrentPlayer, "Anywhere", Attack, location);
 			f.SkillWait(cp, 180);

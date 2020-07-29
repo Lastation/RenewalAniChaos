@@ -1,3 +1,12 @@
+import py_math;
+
+const step		= PVariable();			// 179번 유닛 `SkillStep
+const count 		= PVariable();			// 181번 유닛 `SkillCount	
+const loop 		= PVariable();			// 212번 유닛 `SkillLoop
+	
+const location 	= PVariable();			// 로케이션 번호
+const heroID 	= PVariable();			// 영웅 유닛 번호
+
 function MoveLoc(Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, x, y)
 {
 	MoveLocation(location, Unit, cp, "Anywhere");
@@ -33,14 +42,15 @@ function SquareShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLoca
 	SkillUnit(count, Unit, location, cp);
 }
 
-function RectangleShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, x, y)
+const angle = PVariable();
+
+function Table_Sin(cp, degree)
 {
-	MoveLoc(heroID, location, cp, x, y);
-	SkillUnit(count, Unit, location, cp);
-	MoveLoc(heroID, location, cp, -y, x);
-	SkillUnit(count, Unit, location, cp);
-	MoveLoc(heroID, location, cp, -x, -y);
-	SkillUnit(count, Unit, location, cp);
-	MoveLoc(heroID, location, cp, y, -x);
-	SkillUnit(count, Unit, location, cp);
+	const a = EUDArray(py_eval("[int(round(100*math.sin(math.radians(t)))) for t in range(91)]"));
+	angle[cp] = a[degree];
+}
+
+function Table_Cos(cp, degree)
+{
+	Table_Sin(cp, 90 - degree);
 }

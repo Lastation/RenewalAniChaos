@@ -1,0 +1,136 @@
+import Function as f;
+
+function main(cp, location, heroID)
+{
+	f.count[cp]  = dwread_epd(181 * 12 + cp);
+	
+	MoveUnit(All, "40 + 1n Guardian", cp, "Anywhere", "[Skill]HoldPosition");
+	
+	if (Deaths(cp, Exactly, 0, " `WaitTime"))
+	{
+		switch(f.count[cp])
+		{
+		case 0:
+			SetDeaths(cp, SetTo, 1, " `SkillText");
+			f.SquareShape(heroID, 1, "Torrasque", location, cp, 48, 48);
+			KillUnitAt(All, "Torrasque", "Anywhere", cp);
+			f.SkillWait(cp, 0);
+			SetDeaths(cp, Add, 1, " `SkillCount");
+			break;
+		case 1:
+			f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, 96, 96);
+			f.SquareShape(heroID, 1, "Protoss Dark Archon", location, cp, 96, 96);
+			KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+			MoveLocation(location, heroID, cp, "Anywhere");
+			Order("40 + 1n Guardian", cp, "Anywhere", Attack, location);
+			f.SkillWait(cp, 0);
+			SetDeaths(cp, Add, 1, " `SkillCount");
+			break;
+		case 2:
+			f.SquareShape(heroID, 1, "Torrasque", location, cp, 64, 0);
+			KillUnitAt(All, "Torrasque", "Anywhere", cp);
+			f.SkillWait(cp, 0);
+			SetDeaths(cp, Add, 1, " `SkillCount");
+			break;
+		case 3:
+			f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, 128, 0);
+			f.SquareShape(heroID, 1, "Protoss Dark Archon", location, cp, 128, 0);
+			KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+			MoveLocation(location, heroID, cp, "Anywhere");
+			Order("40 + 1n Guardian", cp, "Anywhere", Attack, location);
+			f.SkillWait(cp, 130);
+			SetDeaths(cp, Add, 1, " `SkillCount");
+			break;
+		case 4:
+			f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 64, 0);
+			f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, 64, 0);
+			KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+			MoveLocation(location, heroID, cp, "Anywhere");
+			Order("40 + 1n Mojo", cp, "Anywhere", Attack, location);
+			f.SkillWait(cp, 130);
+			SetDeaths(cp, Add, 1, " `SkillCount");
+			break;
+		case 5:
+			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+			
+			f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 62, 12);
+			KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+			f.SkillWait(cp, 130);
+			SetDeaths(cp, Add, 1, " `SkillCount");
+			break;
+		case 6:
+			f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 60, 25);
+			f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 60, 25);
+			KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+			MoveLocation(location, heroID, cp, "Anywhere");
+			Order("40 + 1n Wraith", cp, "Anywhere", Attack, location);
+			f.SkillWait(cp, 130);
+			SetDeaths(cp, Add, 1, " `SkillCount");
+			break;
+		case 7:
+			KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+			
+			f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 54, 36);
+			KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+			f.SkillWait(cp, 130);
+			SetDeaths(cp, Add, 1, " `SkillCount");
+			break;
+		case 8:
+			f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 45, 45);
+			f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, 45, 45);
+			KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+			MoveLocation(location, heroID, cp, "Anywhere");
+			Order("40 + 1n Mojo", cp, "Anywhere", Attack, location);
+			f.SkillWait(cp, 130);
+			SetDeaths(cp, Add, 1, " `SkillCount");
+			break;
+		case 9:
+			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+			
+			f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 36, 54);
+			KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+			f.SkillWait(cp, 130);
+			SetDeaths(cp, Add, 1, " `SkillCount");
+			break;
+		case 10:
+			f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 25, 60);
+			f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 25, 60);
+			KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+			MoveLocation(location, heroID, cp, "Anywhere");
+			Order("40 + 1n Wraith", cp, "Anywhere", Attack, location);
+			f.SkillWait(cp, 130);
+			SetDeaths(cp, Add, 1, " `SkillCount");
+			break;
+		case 11:
+			KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+			
+			f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 12, 60);
+			KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+			f.SkillWait(cp, 130);
+			SetDeaths(cp, Add, 1, " `SkillCount");
+			break;
+		case 12:
+			f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 25, 60);
+			f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, 25, 60);
+			KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+			MoveLocation(location, heroID, cp, "Anywhere");
+			Order("40 + 1n Mojo", cp, "Anywhere", Attack, location);
+			f.SkillWait(cp, 130);
+			SetDeaths(cp, Add, 1, " `SkillCount");
+			break;
+		case 13:
+			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+			f.SkillWait(cp, 200);
+			SetDeaths(cp, Add, 1, " `SkillCount");
+			break;
+		case 14:
+			KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+			f.SkillWait(cp, 0);
+			SetDeaths(cp, Add, 1, " `SkillCount");
+			break;
+		case 15:
+			f.SkillEnd(cp);
+			break;
+		}
+	}
+}
