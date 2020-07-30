@@ -1,6 +1,6 @@
 import Function as f;
 
-function Shape(cp, location, heroID, Unit : TrgUnit, x, y);
+const s = StringBuffer();
 
 function main(cp, location, heroID)
 {
@@ -9,19 +9,22 @@ function main(cp, location, heroID)
 	if (Deaths(cp, Exactly, 0, " `WaitTime"))
 	{
 		if (f.loop[cp] < 8)
-		{
-			/*
-			var d = 50 ;
-
-			
-			f.MoveLoc(heroID, location, cp, x, y);
-			f.SkillUnit(1, "Protoss Dark Templar", location, cp);
-			f.MoveLoc(heroID, location, cp, -x, -y);
-			f.SkillUnit(1, "Protoss Dark Templar", location, cp);
-			KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp);
-			f.SkillWait(cp, 50);
-			SetDeaths(cp, Add, 1, " `SkillLoop");
-			*/
-		}
-	}
+       	{
+       		f.distance[cp] = 100;
+       		
+            		f.Table_Cos(cp, 45 * f.loop[cp], f.distance[cp]);
+            		f.Table_Sin(cp, 45 * f.loop[cp], f.distance[cp]);
+            		
+            		f.SquareShape(heroID, 1, "Protoss Dark Templar", location, cp, f.CosAngle[cp], f.SinAngle[cp]);
+            		s.print("\x13 i = ", f.loop[cp], ", x = ", f.CosAngle[cp], ", y = ", f.SinAngle[cp]);
+            		
+	           	KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp);
+	            	f.SkillWait(cp, 50);
+	            	SetDeaths(cp, Add, 1, " `SkillLoop");
+        	}
+       	else if (f.loop[cp] == 8)
+        	{
+           	 	f.SkillEnd(cp);
+        	}
+        }
 }

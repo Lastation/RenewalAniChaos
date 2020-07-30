@@ -146,82 +146,126 @@ UltimateB = _CGFW(lambda: [PVariable()], 1)[0]
 UltimateC = _CGFW(lambda: [PVariable()], 1)[0]
 # (Line 14) const UniqueA	= PVariable();			// 유니크 1번 쿨타임
 UniqueA = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 16) function MoveLoc(Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, x, y)
-# (Line 17) {
+# (Line 16) const distance	= PVariable();			// 거리 관련 변수
+distance = _CGFW(lambda: [PVariable()], 1)[0]
+# (Line 17) const SinAngle 	= PVariable();			// Sin 변수
+SinAngle = _CGFW(lambda: [PVariable()], 1)[0]
+# (Line 18) const CosAngle 	= PVariable();			// Cos 변수
+CosAngle = _CGFW(lambda: [PVariable()], 1)[0]
+# (Line 20) const CosTableArray = EUDArray(py_eval("[int(round(100*math.cos(math.radians(t)))) for t in range(361)]"));
+CosTableArray = _CGFW(lambda: [EUDArray(eval("[int(round(100*math.cos(math.radians(t)))) for t in range(361)]"))], 1)[0]
+# (Line 21) const SinTableArray 	= EUDArray(py_eval("[int(round(100*math.sin(math.radians(t)))) for t in range(361)]"));
+SinTableArray = _CGFW(lambda: [EUDArray(eval("[int(round(100*math.sin(math.radians(t)))) for t in range(361)]"))], 1)[0]
+# (Line 23) function MoveLoc(Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, x, y)
+# (Line 24) {
 @EUDTypedFunc([TrgUnit, TrgLocation, TrgPlayer, None, None])
 def MoveLoc(Unit, location_1, cp, x, y):
-    # (Line 18) MoveLocation(location, Unit, cp, "Anywhere");
-    # (Line 19) addloc(location - 1, x, y);
+    # (Line 25) MoveLocation(location, Unit, cp, "Anywhere");
+    # (Line 26) addloc(location - 1, x, y);
     DoActions(MoveLocation(location_1, Unit, cp, "Anywhere"))
     f_addloc(location_1 - 1, x, y)
-    # (Line 20) }
-    # (Line 22) function SkillUnit(count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer)
-
-# (Line 23) {
-@EUDTypedFunc([None, TrgUnit, TrgLocation, TrgPlayer])
-def SkillUnit(count_1, Unit, location_1, cp):
-    # (Line 24) CreateUnit(count, Unit, "[Skill]Unit_Wait_1", cp);
-    # (Line 25) SetInvincibility(Enable, Unit, cp, "[Skill]Unit_Wait_ALL");
-    DoActions(CreateUnit(count_1, Unit, "[Skill]Unit_Wait_1", cp))
-    # (Line 26) MoveUnit(count, Unit, cp, "[Skill]Unit_Wait_ALL", location);
-    DoActions(SetInvincibility(Enable, Unit, cp, "[Skill]Unit_Wait_ALL"))
     # (Line 27) }
-    DoActions(MoveUnit(count_1, Unit, cp, "[Skill]Unit_Wait_ALL", location_1))
-    # (Line 29) function SkillWait(cp, count)
+    # (Line 29) function SkillUnit(count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer)
 
 # (Line 30) {
+@EUDTypedFunc([None, TrgUnit, TrgLocation, TrgPlayer])
+def SkillUnit(count_1, Unit, location_1, cp):
+    # (Line 31) CreateUnit(count, Unit, "[Skill]Unit_Wait_1", cp);
+    # (Line 32) SetInvincibility(Enable, Unit, cp, "[Skill]Unit_Wait_ALL");
+    DoActions(CreateUnit(count_1, Unit, "[Skill]Unit_Wait_1", cp))
+    # (Line 33) MoveUnit(count, Unit, cp, "[Skill]Unit_Wait_ALL", location);
+    DoActions(SetInvincibility(Enable, Unit, cp, "[Skill]Unit_Wait_ALL"))
+    # (Line 34) }
+    DoActions(MoveUnit(count_1, Unit, cp, "[Skill]Unit_Wait_ALL", location_1))
+    # (Line 36) function SkillWait(cp, count)
+
+# (Line 37) {
 @EUDFunc
 def SkillWait(cp, count_1):
-    # (Line 31) SetDeaths(cp, SetTo, count/83 + 1, " `WaitTime");
-    # (Line 32) }
+    # (Line 38) SetDeaths(cp, SetTo, count/83 + 1, " `WaitTime");
+    # (Line 39) }
     DoActions(SetDeaths(cp, SetTo, count_1 // 83 + 1, " `WaitTime"))
-    # (Line 34) function SkillEnd(cp)
+    # (Line 41) function SkillEnd(cp)
 
-# (Line 35) {
+# (Line 42) {
 @EUDFunc
 def SkillEnd(cp):
-    # (Line 36) SetDeaths(cp, SetTo, 12, " `SkillWait");
-    # (Line 37) }
+    # (Line 43) SetDeaths(cp, SetTo, 12, " `SkillWait");
+    # (Line 44) }
     DoActions(SetDeaths(cp, SetTo, 12, " `SkillWait"))
-    # (Line 39) function SquareShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, x, y)
+    # (Line 46) function SquareShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, x, y)
 
-# (Line 40) {
+# (Line 47) {
 @EUDTypedFunc([TrgUnit, None, TrgUnit, TrgLocation, TrgPlayer, None, None])
 def SquareShape(heroID_1, count_1, Unit, location_1, cp, x, y):
-    # (Line 41) MoveLoc(heroID, location, cp, x, y);
+    # (Line 48) MoveLoc(heroID, location, cp, x, y);
     MoveLoc(heroID_1, location_1, cp, x, y)
-    # (Line 42) SkillUnit(count, Unit, location, cp);
+    # (Line 49) SkillUnit(count, Unit, location, cp);
     SkillUnit(count_1, Unit, location_1, cp)
-    # (Line 43) MoveLoc(heroID, location, cp, -y, x);
+    # (Line 50) MoveLoc(heroID, location, cp, -y, x);
     MoveLoc(heroID_1, location_1, cp, -y, x)
-    # (Line 44) SkillUnit(count, Unit, location, cp);
+    # (Line 51) SkillUnit(count, Unit, location, cp);
     SkillUnit(count_1, Unit, location_1, cp)
-    # (Line 45) MoveLoc(heroID, location, cp, -x, -y);
+    # (Line 52) MoveLoc(heroID, location, cp, -x, -y);
     MoveLoc(heroID_1, location_1, cp, -x, -y)
-    # (Line 46) SkillUnit(count, Unit, location, cp);
+    # (Line 53) SkillUnit(count, Unit, location, cp);
     SkillUnit(count_1, Unit, location_1, cp)
-    # (Line 47) MoveLoc(heroID, location, cp, y, -x);
+    # (Line 54) MoveLoc(heroID, location, cp, y, -x);
     MoveLoc(heroID_1, location_1, cp, y, -x)
-    # (Line 48) SkillUnit(count, Unit, location, cp);
+    # (Line 55) SkillUnit(count, Unit, location, cp);
     SkillUnit(count_1, Unit, location_1, cp)
-    # (Line 49) }
-    # (Line 51) const angle = PVariable();
+    # (Line 56) }
+    # (Line 58) function Table_Sin(cp, degree, distance)
 
-angle = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 53) function Table_Sin(cp, degree)
-# (Line 54) {
+# (Line 59) {
 @EUDFunc
-def Table_Sin(cp, degree):
-    # (Line 55) const a = EUDArray(py_eval("[int(round(100*math.sin(math.radians(t)))) for t in range(91)]"));
-    a = EUDArray(eval("[int(round(100*math.sin(math.radians(t)))) for t in range(91)]"))
-    # (Line 56) angle[cp] = a[degree];
-    _ARRW(angle, cp) << (a[degree])
-    # (Line 57) }
-    # (Line 59) function Table_Cos(cp, degree)
+def Table_Sin(cp, degree, distance_1):
+    # (Line 60) degree = degree % 360;
+    degree << (degree % 360)
+    # (Line 61) SinAngle[cp] = SinTableArray[degree];
+    _ARRW(SinAngle, cp) << (SinTableArray[degree])
+    # (Line 63) if (SinAngle[cp] > 2147483648)
+    if EUDIf()(SinAngle[cp] <= 2147483648, neg=True):
+        # (Line 64) {
+        # (Line 65) SinAngle[cp] = - SinAngle[cp];
+        _ARRW(SinAngle, cp) << (-SinAngle[cp])
+        # (Line 66) SinAngle[cp] = (SinAngle[cp] * distance) / 100;
+        _ARRW(SinAngle, cp) << ((SinAngle[cp] * distance_1) // 100)
+        # (Line 67) CosAngle[cp] = -SinAngle[cp];
+        _ARRW(CosAngle, cp) << (-SinAngle[cp])
+        # (Line 68) }
+        # (Line 69) else
+        # (Line 70) {
+    if EUDElse()():
+        # (Line 71) SinAngle[cp] = (SinAngle[cp] * distance) / 100;
+        _ARRW(SinAngle, cp) << ((SinAngle[cp] * distance_1) // 100)
+        # (Line 72) }
+        # (Line 73) }
+    EUDEndIf()
+    # (Line 75) function Table_Cos(cp, degree, distance)
 
-# (Line 60) {
+# (Line 76) {
 @EUDFunc
-def Table_Cos(cp, degree):
-    # (Line 61) Table_Sin(cp, 90 - degree);
-    Table_Sin(cp, 90 - degree)
-    # (Line 62) }
+def Table_Cos(cp, degree, distance_1):
+    # (Line 77) degree = degree % 360;
+    degree << (degree % 360)
+    # (Line 78) CosAngle[cp] = CosTableArray[degree];
+    _ARRW(CosAngle, cp) << (CosTableArray[degree])
+    # (Line 80) if (CosAngle[cp] > 2147483648)
+    if EUDIf()(CosAngle[cp] <= 2147483648, neg=True):
+        # (Line 81) {
+        # (Line 82) CosAngle[cp] = -CosAngle[cp];
+        _ARRW(CosAngle, cp) << (-CosAngle[cp])
+        # (Line 83) CosAngle[cp] = (CosAngle[cp] * distance) / 100;
+        _ARRW(CosAngle, cp) << ((CosAngle[cp] * distance_1) // 100)
+        # (Line 84) CosAngle[cp] = -CosAngle[cp];
+        _ARRW(CosAngle, cp) << (-CosAngle[cp])
+        # (Line 85) }
+        # (Line 86) else
+        # (Line 87) {
+    if EUDElse()():
+        # (Line 88) CosAngle[cp] = (CosAngle[cp] * distance) / 100;
+        _ARRW(CosAngle, cp) << ((CosAngle[cp] * distance_1) // 100)
+        # (Line 89) }
+        # (Line 90) }
+    EUDEndIf()

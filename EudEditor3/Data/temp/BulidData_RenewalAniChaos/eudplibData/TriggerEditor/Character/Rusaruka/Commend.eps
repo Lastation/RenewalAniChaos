@@ -23,11 +23,12 @@ function main(cp)
 		}
 	}
 	
+	// Combo
 	if (Deaths(cp, AtLeast, 2, " `SkillWait") && Deaths(cp, Exactly, 0, " `SkillCount"))
 	{
 		if (Bring(cp, AtLeast, 2, "Protoss Scout", "[Skill]UseSkill") && Deaths(cp, Exactly, 100, " `SkillStep"))
 		{
-			SetDeaths(cp, SetTo, 1, " `SkillText");
+			SetDeaths(cp, SetTo, 4, " `SkillText");
 			SetDeaths(cp, SetTo, 0, " `SkillWait");
 			SetDeaths(cp, SetTo, 150, " `SkillStep");
 			KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", cp);
@@ -48,7 +49,7 @@ function main(cp)
 		}
 		if (Bring(cp, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") && Deaths(cp, Exactly, 300, " `SkillStep"))
 		{
-			SetDeaths(cp, SetTo, 4, " `SkillText");
+			SetDeaths(cp, SetTo, 1, " `SkillText");
 			SetDeaths(cp, SetTo, 0, " `SkillWait");
 			SetDeaths(cp, SetTo, 110, " `SkillStep");
 			KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp);

@@ -128,7 +128,8 @@ def _LSH(l, r):
 
 # (Line 1) import Function as f;
 import Function as f
-# (Line 3) function Shape(cp, location, heroID, Unit : TrgUnit, x, y);
+# (Line 3) const s = StringBuffer();
+s = _CGFW(lambda: [StringBuffer()], 1)[0]
 # (Line 5) function main(cp, location, heroID)
 # (Line 6) {
 @EUDFunc
@@ -141,9 +142,30 @@ def f_main(cp, location, heroID):
         # (Line 11) if (f.loop[cp] < 8)
         if EUDIf()(f.loop[cp] >= 8, neg=True):
             # (Line 12) {
-            # (Line 25) }
-            # (Line 26) }
-            pass
+            # (Line 13) f.distance[cp] = 100;
+            _ARRW(f.distance, cp) << (100)
+            # (Line 15) f.Table_Cos(cp, 45 * f.loop[cp], f.distance[cp]);
+            f.Table_Cos(cp, 45 * f.loop[cp], f.distance[cp])
+            # (Line 16) f.Table_Sin(cp, 45 * f.loop[cp], f.distance[cp]);
+            f.Table_Sin(cp, 45 * f.loop[cp], f.distance[cp])
+            # (Line 18) f.SquareShape(heroID, 1, "Protoss Dark Templar", location, cp, f.CosAngle[cp], f.SinAngle[cp]);
+            f.SquareShape(heroID, 1, "Protoss Dark Templar", location, cp, f.CosAngle[cp], f.SinAngle[cp])
+            # (Line 19) s.print("\x13 i = ", f.loop[cp], ", x = ", f.CosAngle[cp], ", y = ", f.SinAngle[cp]);
+            s.print("\x13 i = ", f.loop[cp], ", x = ", f.CosAngle[cp], ", y = ", f.SinAngle[cp])
+            # (Line 21) KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp);
+            # (Line 22) f.SkillWait(cp, 50);
+            DoActions(KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp))
+            f.SkillWait(cp, 50)
+            # (Line 23) SetDeaths(cp, Add, 1, " `SkillLoop");
+            # (Line 24) }
+            DoActions(SetDeaths(cp, Add, 1, " `SkillLoop"))
+            # (Line 25) else if (f.loop[cp] == 8)
+        if EUDElseIf()(f.loop[cp] == 8):
+            # (Line 26) {
+            # (Line 27) f.SkillEnd(cp);
+            f.SkillEnd(cp)
+            # (Line 28) }
+            # (Line 29) }
         EUDEndIf()
-        # (Line 27) }
+        # (Line 30) }
     EUDEndIf()

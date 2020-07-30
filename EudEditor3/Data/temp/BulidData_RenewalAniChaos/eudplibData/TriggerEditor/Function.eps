@@ -12,7 +12,14 @@ const UltimateB	= PVariable();			// 궁극기 2번 소모량
 const UltimateC	= PVariable();			// 궁극기 3번 소모량
 
 const UniqueA	= PVariable();			// 유니크 1번 쿨타임
-	
+
+const distance	= PVariable();			// 거리 관련 변수
+const SinAngle 	= PVariable();			// Sin 변수
+const CosAngle 	= PVariable();			// Cos 변수
+
+const CosTableArray = EUDArray(py_eval("[int(round(100*math.cos(math.radians(t)))) for t in range(361)]"));
+const SinTableArray 	= EUDArray(py_eval("[int(round(100*math.sin(math.radians(t)))) for t in range(361)]"));
+
 function MoveLoc(Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, x, y)
 {
 	MoveLocation(location, Unit, cp, "Anywhere");
@@ -48,15 +55,36 @@ function SquareShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLoca
 	SkillUnit(count, Unit, location, cp);
 }
 
-const angle = PVariable();
-
-function Table_Sin(cp, degree)
+function Table_Sin(cp, degree, distance)
 {
-	const a = EUDArray(py_eval("[int(round(100*math.sin(math.radians(t)))) for t in range(91)]"));
-	angle[cp] = a[degree];
+	degree = degree % 360;
+	SinAngle[cp] = SinTableArray[degree];
+	
+	if (SinAngle[cp] > 2147483648)
+	{
+		SinAngle[cp] = - SinAngle[cp];
+		SinAngle[cp] = (SinAngle[cp] * distance) / 100;
+		CosAngle[cp] = -SinAngle[cp];
+	}
+	else
+	{
+		SinAngle[cp] = (SinAngle[cp] * distance) / 100;
+	}
 }
 
-function Table_Cos(cp, degree)
+function Table_Cos(cp, degree, distance)
 {
-	Table_Sin(cp, 90 - degree);
+	degree = degree % 360;
+	CosAngle[cp] = CosTableArray[degree];
+	
+	if (CosAngle[cp] > 2147483648)
+	{
+		CosAngle[cp] = -CosAngle[cp];
+		CosAngle[cp] = (CosAngle[cp] * distance) / 100;
+		CosAngle[cp] = -CosAngle[cp];
+	}
+	else
+	{
+		CosAngle[cp] = (CosAngle[cp] * distance) / 100;
+	}
 }
