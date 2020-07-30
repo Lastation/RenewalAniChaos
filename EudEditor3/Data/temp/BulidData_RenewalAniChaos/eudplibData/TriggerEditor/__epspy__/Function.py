@@ -227,12 +227,12 @@ def Table_Sin(cp, degree, distance_1):
     # (Line 63) if (SinAngle[cp] > 2147483648)
     if EUDIf()(SinAngle[cp] <= 2147483648, neg=True):
         # (Line 64) {
-        # (Line 65) SinAngle[cp] = - SinAngle[cp];
+        # (Line 65) SinAngle[cp] = -SinAngle[cp];
         _ARRW(SinAngle, cp) << (-SinAngle[cp])
         # (Line 66) SinAngle[cp] = (SinAngle[cp] * distance) / 100;
         _ARRW(SinAngle, cp) << ((SinAngle[cp] * distance_1) // 100)
-        # (Line 67) CosAngle[cp] = -SinAngle[cp];
-        _ARRW(CosAngle, cp) << (-SinAngle[cp])
+        # (Line 67) SinAngle[cp] = -SinAngle[cp];
+        _ARRW(SinAngle, cp) << (-SinAngle[cp])
         # (Line 68) }
         # (Line 69) else
         # (Line 70) {

@@ -62,9 +62,9 @@ function Table_Sin(cp, degree, distance)
 	
 	if (SinAngle[cp] > 2147483648)
 	{
-		SinAngle[cp] = - SinAngle[cp];
+		SinAngle[cp] = -SinAngle[cp];
 		SinAngle[cp] = (SinAngle[cp] * distance) / 100;
-		CosAngle[cp] = -SinAngle[cp];
+		SinAngle[cp] = -SinAngle[cp];
 	}
 	else
 	{
