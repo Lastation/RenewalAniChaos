@@ -215,57 +215,147 @@ def SquareShape(heroID_1, count_1, Unit, location_1, cp, x, y):
     # (Line 55) SkillUnit(count, Unit, location, cp);
     SkillUnit(count_1, Unit, location_1, cp)
     # (Line 56) }
-    # (Line 58) function Table_Sin(cp, degree, distance)
+    # (Line 58) function NxNSquareShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, n, interval)
 
 # (Line 59) {
+@EUDTypedFunc([TrgUnit, None, TrgUnit, TrgLocation, TrgPlayer, None, None])
+def NxNSquareShape(heroID_1, count_1, Unit, location_1, cp, n, interval):
+    # (Line 60) var i = 0;
+    i = EUDVariable()
+    i << (0)
+    # (Line 61) var destX, destY;
+    destX, destY = EUDCreateVariables(2)
+    # (Line 62) var distance = interval / 2;
+    distance_1 = EUDVariable()
+    distance_1 << (interval // 2)
+    # (Line 63) var size = n * n;
+    size = EUDVariable()
+    size << (n * n)
+    # (Line 65) for (; i < size / 4; i++)
+    if EUDWhile()(i >= size // 4, neg=True):
+        def _t2():
+            i.__iadd__(1)
+        # (Line 66) {
+        # (Line 67) if (n % 2 == 0)
+        if EUDIf()(n % 2 == 0):
+            # (Line 68) {
+            # (Line 69) destX = i % (n / 2) + 1;
+            destX << (i % (n // 2) + 1)
+            # (Line 70) destY = i / (n / 2) + 1;
+            destY << (i // (n // 2) + 1)
+            # (Line 71) if (destX == 1)
+            if EUDIf()(destX == 1):
+                # (Line 72) {
+                # (Line 73) SquareShape(heroID, count, Unit, location, cp, distance, destY * interval - distance);
+                SquareShape(heroID_1, count_1, Unit, location_1, cp, distance_1, destY * interval - distance_1)
+                # (Line 74) }
+                # (Line 75) else if (destY == 1)
+            if EUDElseIf()(destY == 1):
+                # (Line 76) {
+                # (Line 77) SquareShape(heroID, count, Unit, location, cp, destX * interval - distance, distance);
+                SquareShape(heroID_1, count_1, Unit, location_1, cp, destX * interval - distance_1, distance_1)
+                # (Line 78) }
+                # (Line 79) else
+                # (Line 80) {
+            if EUDElse()():
+                # (Line 81) SquareShape(heroID, count, Unit, location, cp, destX * interval - distance, destY * interval - distance);
+                SquareShape(heroID_1, count_1, Unit, location_1, cp, destX * interval - distance_1, destY * interval - distance_1)
+                # (Line 82) }
+                # (Line 83) }
+            EUDEndIf()
+            # (Line 84) else if (n % 2 == 1)
+        if EUDElseIf()(n % 2 == 1):
+            # (Line 85) {
+            # (Line 86) destX = i % (n / 2);
+            destX << (i % (n // 2))
+            # (Line 87) destY = i / (n / 2);
+            destY << (i // (n // 2))
+            # (Line 89) if (i == 0)
+            if EUDIf()(i == 0):
+                # (Line 90) {
+                # (Line 91) MoveLoc(heroID, location, cp, 0, 0);
+                MoveLoc(heroID_1, location_1, cp, 0, 0)
+                # (Line 92) SkillUnit(count, Unit, location, cp);
+                SkillUnit(count_1, Unit, location_1, cp)
+                # (Line 93) }
+                # (Line 94) else if (destY == 0)
+            if EUDElseIf()(destY == 0):
+                # (Line 95) {
+                # (Line 96) SquareShape(heroID, count, Unit, location, cp, destX * interval, 0);
+                SquareShape(heroID_1, count_1, Unit, location_1, cp, destX * interval, 0)
+                # (Line 97) }
+                # (Line 98) else
+                # (Line 99) {
+            if EUDElse()():
+                # (Line 100) SquareShape(heroID, count, Unit, location, cp, destX * interval + interval, destY * interval);
+                SquareShape(heroID_1, count_1, Unit, location_1, cp, destX * interval + interval, destY * interval)
+                # (Line 101) }
+                # (Line 103) if (i == size / 4 - 1)
+            EUDEndIf()
+            if EUDIf()(i == size // 4 - 1):
+                # (Line 104) {
+                # (Line 105) SquareShape(heroID, count, Unit, location, cp, (n / 2) * interval, 0);
+                SquareShape(heroID_1, count_1, Unit, location_1, cp, (n // 2) * interval, 0)
+                # (Line 106) }
+                # (Line 107) }
+            EUDEndIf()
+            # (Line 108) }
+        EUDEndIf()
+        # (Line 109) }
+        EUDSetContinuePoint()
+        _t2()
+    EUDEndWhile()
+    # (Line 111) function Table_Sin(cp, degree, distance)
+
+# (Line 112) {
 @EUDFunc
 def Table_Sin(cp, degree, distance_1):
-    # (Line 60) degree = degree % 360;
+    # (Line 113) degree = degree % 360;
     degree << (degree % 360)
-    # (Line 61) SinAngle[cp] = SinTableArray[degree];
+    # (Line 114) SinAngle[cp] = SinTableArray[degree];
     _ARRW(SinAngle, cp) << (SinTableArray[degree])
-    # (Line 63) if (SinAngle[cp] > 2147483648)
+    # (Line 116) if (SinAngle[cp] > 2147483648)
     if EUDIf()(SinAngle[cp] <= 2147483648, neg=True):
-        # (Line 64) {
-        # (Line 65) SinAngle[cp] = -SinAngle[cp];
+        # (Line 117) {
+        # (Line 118) SinAngle[cp] = -SinAngle[cp];
         _ARRW(SinAngle, cp) << (-SinAngle[cp])
-        # (Line 66) SinAngle[cp] = (SinAngle[cp] * distance) / 100;
+        # (Line 119) SinAngle[cp] = (SinAngle[cp] * distance) / 100;
         _ARRW(SinAngle, cp) << ((SinAngle[cp] * distance_1) // 100)
-        # (Line 67) SinAngle[cp] = -SinAngle[cp];
+        # (Line 120) SinAngle[cp] = -SinAngle[cp];
         _ARRW(SinAngle, cp) << (-SinAngle[cp])
-        # (Line 68) }
-        # (Line 69) else
-        # (Line 70) {
+        # (Line 121) }
+        # (Line 122) else
+        # (Line 123) {
     if EUDElse()():
-        # (Line 71) SinAngle[cp] = (SinAngle[cp] * distance) / 100;
+        # (Line 124) SinAngle[cp] = (SinAngle[cp] * distance) / 100;
         _ARRW(SinAngle, cp) << ((SinAngle[cp] * distance_1) // 100)
-        # (Line 72) }
-        # (Line 73) }
+        # (Line 125) }
+        # (Line 126) }
     EUDEndIf()
-    # (Line 75) function Table_Cos(cp, degree, distance)
+    # (Line 128) function Table_Cos(cp, degree, distance)
 
-# (Line 76) {
+# (Line 129) {
 @EUDFunc
 def Table_Cos(cp, degree, distance_1):
-    # (Line 77) degree = degree % 360;
+    # (Line 130) degree = degree % 360;
     degree << (degree % 360)
-    # (Line 78) CosAngle[cp] = CosTableArray[degree];
+    # (Line 131) CosAngle[cp] = CosTableArray[degree];
     _ARRW(CosAngle, cp) << (CosTableArray[degree])
-    # (Line 80) if (CosAngle[cp] > 2147483648)
+    # (Line 133) if (CosAngle[cp] > 2147483648)
     if EUDIf()(CosAngle[cp] <= 2147483648, neg=True):
-        # (Line 81) {
-        # (Line 82) CosAngle[cp] = -CosAngle[cp];
+        # (Line 134) {
+        # (Line 135) CosAngle[cp] = -CosAngle[cp];
         _ARRW(CosAngle, cp) << (-CosAngle[cp])
-        # (Line 83) CosAngle[cp] = (CosAngle[cp] * distance) / 100;
+        # (Line 136) CosAngle[cp] = (CosAngle[cp] * distance) / 100;
         _ARRW(CosAngle, cp) << ((CosAngle[cp] * distance_1) // 100)
-        # (Line 84) CosAngle[cp] = -CosAngle[cp];
+        # (Line 137) CosAngle[cp] = -CosAngle[cp];
         _ARRW(CosAngle, cp) << (-CosAngle[cp])
-        # (Line 85) }
-        # (Line 86) else
-        # (Line 87) {
+        # (Line 138) }
+        # (Line 139) else
+        # (Line 140) {
     if EUDElse()():
-        # (Line 88) CosAngle[cp] = (CosAngle[cp] * distance) / 100;
+        # (Line 141) CosAngle[cp] = (CosAngle[cp] * distance) / 100;
         _ARRW(CosAngle, cp) << ((CosAngle[cp] * distance_1) // 100)
-        # (Line 89) }
-        # (Line 90) }
+        # (Line 142) }
+        # (Line 143) }
     EUDEndIf()
