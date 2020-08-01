@@ -385,15 +385,13 @@ def f_main(cp, location, heroID):
             EUDBreak()
             # (Line 130) case 15:
         _t17 = EUDSwitchCase()
-        # (Line 131) f.NxNSquareShape(heroID, 1, "40 + 1n Mojo", location, cp, 15, 64);
+        # (Line 131) f.SkillEnd(cp);
         if _t17(15):
-            f.NxNSquareShape(heroID, 1, "40 + 1n Mojo", location, cp, 15, 64)
-            # (Line 133) f.SkillEnd(cp);
             f.SkillEnd(cp)
-            # (Line 134) break;
+            # (Line 132) break;
             EUDBreak()
-            # (Line 135) }
-        # (Line 136) }
+            # (Line 133) }
+        # (Line 134) }
         EUDEndSwitch()
-        # (Line 137) }
+        # (Line 135) }
     EUDEndIf()
