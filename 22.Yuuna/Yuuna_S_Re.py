@@ -1,0 +1,96 @@
+import Function as f;
+
+const s = StringBuffer();
+
+function main(cp, location, heroID)
+{
+   f.loop[cp] = dwread_epd(212 * 12 + cp);
+
+   if (Deaths(cp, Exactly, 0, " `WaitTime"))
+   {
+      if (f.loop[cp] < 8)
+      {
+         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+   
+         f.distance[cp] = 50;
+         
+         f.Table_Cos(cp, 45 * f.loop[cp], f.distance[cp]);
+         f.Table_Sin(cp, 45 * f.loop[cp], f.distance[cp]);
+               
+         f.SquareShape(heroID, 1, "Protoss Dark Templar", location, cp, f.CosAngle[cp], f.SinAngle[cp]);
+         f.MoveLoc(heroID, location, cp, f.CosAngle[cp], f.SinAngle[cp]);
+         f.SkillUnit(1, "40 + 1n Mojo", location, cp);
+         f.MoveLoc(heroID, location, cp, -f.CosAngle[cp], -f.SinAngle[cp]);
+         f.SkillUnit(1, "40 + 1n Mojo", location, cp);
+
+         KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp);
+         MoveLocation(location, heroID, cp, "Anywhere");
+         Order("40 + 1n Mojo", cp, "Anywhere", Attack, location);
+         
+         f.SkillWait(cp, 50);
+         SetDeaths(cp, Add, 1, " `SkillLoop");
+      }
+      else if (f.loop[cp] == 8)
+      {
+         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+
+         f.Table_Cos(cp, 0, f.distance[cp]);
+         f.Table_Sin(cp, 0, f.distance[cp]);
+            
+         f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, f.CosAngle[cp], f.SinAngle[cp]);
+
+         f.Table_Cos(cp, 45, f.distance[cp]);
+         f.Table_Sin(cp, 45, f.distance[cp]);
+            
+       f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, f.CosAngle[cp], f.SinAngle[cp]);
+
+         KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
+
+         f.SkillWait(cp, 50);
+         SetDeaths(cp, Add, 1, " `SkillLoop");
+      }
+      else if (f.loop[cp] == 9)
+      {
+         f.distance[cp] = 75;
+
+         f.Table_Cos(cp, 0, f.distance[cp]);
+         f.Table_Sin(cp, 0, f.distance[cp]);
+            
+         f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, f.CosAngle[cp], f.SinAngle[cp]);
+
+         f.Table_Cos(cp, 45, f.distance[cp]);
+         f.Table_Sin(cp, 45, f.distance[cp]);
+            
+         f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, f.CosAngle[cp], f.SinAngle[cp]);
+      
+         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+
+         f.SkillWait(cp, 50);
+         SetDeaths(cp, Add, 1, " `SkillLoop");
+      }
+      else if (f.loop[cp] == 10)
+      {
+         f.distance[cp] = 50;
+         f.Table_Cos(cp, 0, f.distance[cp]);
+         f.Table_Sin(cp, 0, f.distance[cp]);
+            
+         f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, f.CosAngle[cp], f.SinAngle[cp]);
+
+         f.Table_Cos(cp, 45, f.distance[cp]);
+         f.Table_Sin(cp, 45, f.distance[cp]);
+            
+         f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, f.CosAngle[cp], f.SinAngle[cp]);
+
+         MoveLocation(location, heroID, cp, "Anywhere");
+         Order("40 + 1n Mojo", cp, "Anywhere", Attack, location);
+
+         f.SkillWait(cp, 50);
+         SetDeaths(cp, Add, 1, " `SkillLoop");
+      }
+      else if (f.loop[cp] == 11)
+      {
+         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+         f.SkillEnd(cp);
+      }
+   }
+}
