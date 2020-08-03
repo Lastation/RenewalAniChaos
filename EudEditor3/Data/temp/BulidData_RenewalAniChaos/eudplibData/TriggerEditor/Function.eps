@@ -20,6 +20,9 @@ const CosAngle 	= PVariable();			// Cos 변수
 const CosTableArray = EUDArray(py_eval("[int(round(100*math.cos(math.radians(t)))) for t in range(361)]"));
 const SinTableArray 	= EUDArray(py_eval("[int(round(100*math.sin(math.radians(t)))) for t in range(361)]"));
 
+function Table_Sin(cp, degree, distance);
+function Table_Cos(cp, degree, distance);
+
 function MoveLoc(Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, x, y)
 {
 	MoveLocation(location, Unit, cp, "Anywhere");
@@ -53,6 +56,102 @@ function SquareShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLoca
 	SkillUnit(count, Unit, location, cp);
 	MoveLoc(heroID, location, cp, y, -x);
 	SkillUnit(count, Unit, location, cp);
+}
+
+function NxNSquareShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, n, interval)
+{
+	var i = 0;
+	var destX, destY; 
+	var distance = interval / 2;
+	var size = n * n;
+
+	for (; i < size / 4; i++)
+	{
+		if (n == 1)
+		{
+			MoveLoc(heroID, location, cp, 0, 0);
+			SkillUnit(count, Unit, location, cp);
+		}
+		else if (n % 2 == 0)
+		{
+			destX = i % (n / 2) + 1;
+			destY = i / (n / 2) + 1;
+			if (destX == 1)
+			{
+				SquareShape(heroID, count, Unit, location, cp, distance, destY * interval - distance);
+			}
+			else if (destY == 1)
+			{
+				SquareShape(heroID, count, Unit, location, cp, destX * interval - distance, distance);
+			}
+			else
+			{
+				SquareShape(heroID, count, Unit, location, cp, destX * interval - distance, destY * interval - distance);
+			}
+		}
+		else if (n % 2 == 1)
+		{
+			destX = i % (n / 2);
+			destY = i / (n / 2);
+	
+			if (i == 0)
+			{
+				MoveLoc(heroID, location, cp, 0, 0);
+				SkillUnit(count, Unit, location, cp);
+			}
+			else if (destY == 0)
+			{
+				SquareShape(heroID, count, Unit, location, cp, destX * interval, 0);
+			}
+			else
+			{
+				SquareShape(heroID, count, Unit, location, cp, destX * interval + interval, destY * interval);
+			}
+			
+			if (i == size / 4 - 1)
+			{
+				SquareShape(heroID, count, Unit, location, cp, (n / 2) * interval, 0);
+			}
+		}
+	}
+}
+
+function lineShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, degree, n, interval)
+{
+	var i = 0;
+	var distance = interval / 2;
+	
+	Table_Sin(cp, degree, interval);
+	Table_Cos(cp, degree, interval);
+	
+	var gradientX = CosAngle[cp] / 2;
+	var gradientY = SinAngle[cp] / 2;
+	
+	for (; i < n / 2 + 1; i++)
+	{
+		if (n % 2 == 0 && i != n / 2)
+		{
+			MoveLoc(heroID, location, cp, -CosAngle[cp] * i - gradientX, SinAngle[cp] * i + gradientY);
+			SkillUnit(count, Unit, location, cp);
+			MoveLoc(heroID, location, cp, CosAngle[cp] * i + gradientX, -SinAngle[cp] * i - gradientY);
+			SkillUnit(count, Unit, location, cp);
+		}
+		else if (n % 2 == 1)
+		{
+			if (i == 0)
+			{
+				MoveLoc(heroID, location, cp, 0, 0);
+				SkillUnit(count, Unit, location, cp);
+			}
+			else
+			{
+				MoveLoc(heroID, location, cp, -CosAngle[cp] * i, SinAngle[cp] * i);
+				SkillUnit(count, Unit, location, cp);
+				MoveLoc(heroID, location, cp, CosAngle[cp] * i, -SinAngle[cp] * i);
+				SkillUnit(count, Unit, location, cp);
+			}
+		}
+	}
 }
 
 function Table_Sin(cp, degree, distance)

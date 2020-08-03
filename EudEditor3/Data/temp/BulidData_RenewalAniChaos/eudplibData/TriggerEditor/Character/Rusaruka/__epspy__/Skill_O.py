@@ -147,234 +147,175 @@ def f_main(cp, location, heroID):
             # (Line 13) { MoveUnit(All, heroID, cp, "Anywhere", "[Unique]Position_Team2"); }
         if EUDElse()():
             DoActions(MoveUnit(All, heroID, cp, "Anywhere", "[Unique]Position_Team2"))
-            # (Line 15) switch(f.count[cp])
+            # (Line 15) if (f.count[cp] == 0)
         EUDEndIf()
-        EUDSwitch(f.count[cp])
-        # (Line 16) {
-        # (Line 17) case 0:
-        _t3 = EUDSwitchCase()
-        # (Line 18) switch(f.loop[cp])
-        if _t3(0):
-            EUDSwitch(f.loop[cp])
-            # (Line 19) {
-            # (Line 20) case 0:
-            _t4 = EUDSwitchCase()
-            # (Line 21) SetDeaths(cp, SetTo, 7, " `SkillText");
-            if _t4(0):
-                # (Line 22) f.SkillWait(cp, 5800);
+        if EUDIf()(f.count[cp] == 0):
+            # (Line 16) {
+            # (Line 17) if (f.loop[cp] == 0)
+            if EUDIf()(f.loop[cp] == 0):
+                # (Line 18) {
+                # (Line 19) SetDeaths(cp, SetTo, 7, " `SkillText");
+                # (Line 20) f.SkillWait(cp, 5800);
                 DoActions(SetDeaths(cp, SetTo, 7, " `SkillText"))
                 f.SkillWait(cp, 5800)
-                # (Line 23) SetDeaths(cp, Add, 1, " `SkillLoop");
-                # (Line 24) break;
+                # (Line 21) SetDeaths(cp, Add, 1, " `SkillLoop");
+                # (Line 22) }
                 DoActions(SetDeaths(cp, Add, 1, " `SkillLoop"))
-                EUDBreak()
-                # (Line 25) case 1:
-            _t5 = EUDSwitchCase()
-            # (Line 26) SetDeaths(cp, SetTo, 8, " `SkillText");
-            if _t5(1):
-                # (Line 27) f.SkillWait(cp, 5600);
+                # (Line 23) else if (f.loop[cp] == 1)
+            if EUDElseIf()(f.loop[cp] == 1):
+                # (Line 24) {
+                # (Line 25) SetDeaths(cp, SetTo, 8, " `SkillText");
+                # (Line 26) f.SkillWait(cp, 5600);
                 DoActions(SetDeaths(cp, SetTo, 8, " `SkillText"))
                 f.SkillWait(cp, 5600)
-                # (Line 28) SetDeaths(cp, Add, 1, " `SkillLoop");
-                # (Line 29) break;
+                # (Line 27) SetDeaths(cp, Add, 1, " `SkillLoop");
+                # (Line 28) }
                 DoActions(SetDeaths(cp, Add, 1, " `SkillLoop"))
-                EUDBreak()
-                # (Line 30) case 2:
-            _t6 = EUDSwitchCase()
-            # (Line 31) SetDeaths(cp, SetTo, 9, " `SkillText");
-            if _t6(2):
+                # (Line 29) else if (f.loop[cp] == 2)
+            if EUDElseIf()(f.loop[cp] == 2):
+                # (Line 30) {
+                # (Line 31) SetDeaths(cp, SetTo, 9, " `SkillText");
                 # (Line 32) f.SkillWait(cp, 6100);
                 DoActions(SetDeaths(cp, SetTo, 9, " `SkillText"))
                 f.SkillWait(cp, 6100)
                 # (Line 33) SetDeaths(cp, Add, 1, " `SkillLoop");
-                # (Line 34) break;
+                # (Line 34) }
                 DoActions(SetDeaths(cp, Add, 1, " `SkillLoop"))
-                EUDBreak()
-                # (Line 35) case 3:
-            _t7 = EUDSwitchCase()
-            # (Line 36) SetDeaths(cp, SetTo, 10, " `SkillText");
-            if _t7(3):
-                # (Line 37) f.SkillWait(cp, 6200);
+                # (Line 35) else if (f.loop[cp] == 3)
+            if EUDElseIf()(f.loop[cp] == 3):
+                # (Line 36) {
+                # (Line 37) SetDeaths(cp, SetTo, 10, " `SkillText");
+                # (Line 38) f.SkillWait(cp, 6200);
                 DoActions(SetDeaths(cp, SetTo, 10, " `SkillText"))
                 f.SkillWait(cp, 6200)
-                # (Line 38) SetDeaths(cp, Add, 1, " `SkillLoop");
-                # (Line 39) break;
+                # (Line 39) SetDeaths(cp, Add, 1, " `SkillLoop");
+                # (Line 40) }
                 DoActions(SetDeaths(cp, Add, 1, " `SkillLoop"))
-                EUDBreak()
-                # (Line 40) case 4:
-            _t8 = EUDSwitchCase()
-            # (Line 41) SetDeaths(cp, SetTo, 11, " `SkillText");
-            if _t8(4):
-                # (Line 42) f.SkillWait(cp, 0);
+                # (Line 41) else if (f.loop[cp] == 4)
+            if EUDElseIf()(f.loop[cp] == 4):
+                # (Line 42) {
+                # (Line 43) SetDeaths(cp, SetTo, 11, " `SkillText");
+                # (Line 44) f.SkillWait(cp, 0);
                 DoActions(SetDeaths(cp, SetTo, 11, " `SkillText"))
                 f.SkillWait(cp, 0)
-                # (Line 43) SetDeaths(cp, Add, 1, " `SkillLoop");
-                # (Line 44) break;
+                # (Line 45) SetDeaths(cp, Add, 1, " `SkillLoop");
+                # (Line 46) }
                 DoActions(SetDeaths(cp, Add, 1, " `SkillLoop"))
-                EUDBreak()
-                # (Line 45) case 5:
-            _t9 = EUDSwitchCase()
-            # (Line 46) SetDeaths(cp, SetTo, 0, " `SkillLoop");
-            if _t9(5):
-                # (Line 47) SetDeaths(cp, Add, 1, " `SkillCount");
+                # (Line 47) else if (f.loop[cp] == 5)
+            if EUDElseIf()(f.loop[cp] == 5):
+                # (Line 48) {
+                # (Line 49) SetDeaths(cp, SetTo, 0, " `SkillLoop");
+                # (Line 50) SetDeaths(cp, Add, 1, " `SkillCount");
                 DoActions(SetDeaths(cp, SetTo, 0, " `SkillLoop"))
-                # (Line 48) break;
+                # (Line 51) }
                 DoActions(SetDeaths(cp, Add, 1, " `SkillCount"))
-                EUDBreak()
-                # (Line 49) }
-            # (Line 50) break;
-            EUDEndSwitch()
-            EUDBreak()
-            # (Line 51) case 1:
-        _t10 = EUDSwitchCase()
-        # (Line 52) switch(f.loop[cp])
-        if _t10(1):
-            EUDSwitch(f.loop[cp])
-            # (Line 53) {
-            # (Line 54) case 0:
-            _t11 = EUDSwitchCase()
-            # (Line 55) f.SkillUnit(1, "50 + 1n Battlecruiser", location, cp);
-            if _t11(0):
+                # (Line 52) }
+            EUDEndIf()
+            # (Line 53) else if (f.count[cp] == 1)
+        if EUDElseIf()(f.count[cp] == 1):
+            # (Line 54) {
+            # (Line 55) if (f.loop[cp] == 0)
+            if EUDIf()(f.loop[cp] == 0):
+                # (Line 56) {
+                # (Line 57) f.SkillUnit(1, "50 + 1n Battlecruiser", location, cp);
                 f.SkillUnit(1, "50 + 1n Battlecruiser", location, cp)
-                # (Line 56) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-                # (Line 57) f.SkillWait(cp, 0);
+                # (Line 58) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+                # (Line 59) f.SkillWait(cp, 0);
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
                 f.SkillWait(cp, 0)
-                # (Line 58) SetDeaths(cp, Add, 1, " `SkillLoop");
-                # (Line 59) break;
+                # (Line 60) SetDeaths(cp, Add, 1, " `SkillLoop");
+                # (Line 61) }
                 DoActions(SetDeaths(cp, Add, 1, " `SkillLoop"))
-                EUDBreak()
-                # (Line 60) case 1:
-            _t12 = EUDSwitchCase()
-            # (Line 61) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 0);
-            if _t12(1):
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 0)
-                # (Line 62) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 64);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 64)
-                # (Line 63) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-                # (Line 64) f.SkillWait(cp, 0);
+                # (Line 62) else if (f.loop[cp] == 1)
+            if EUDElseIf()(f.loop[cp] == 1):
+                # (Line 63) {
+                # (Line 64) f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 1, 64);
+                f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 1, 64)
+                # (Line 65) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+                # (Line 66) f.SkillWait(cp, 0);
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
                 f.SkillWait(cp, 0)
-                # (Line 65) SetDeaths(cp, Add, 1, " `SkillLoop");
-                # (Line 66) break;
+                # (Line 67) SetDeaths(cp, Add, 1, " `SkillLoop");
+                # (Line 68) }
                 DoActions(SetDeaths(cp, Add, 1, " `SkillLoop"))
-                EUDBreak()
-                # (Line 67) case 2:
-            _t13 = EUDSwitchCase()
-            # (Line 68) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 0);
-            if _t13(2):
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 0)
-                # (Line 69) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 64);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 64)
-                # (Line 70) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 128);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 128)
-                # (Line 71) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 128);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 128)
+                # (Line 69) else if (f.loop[cp] == 2)
+            if EUDElseIf()(f.loop[cp] == 2):
+                # (Line 70) {
+                # (Line 71) f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 3, 64);
+                f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 3, 64)
                 # (Line 72) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
                 # (Line 73) f.SkillWait(cp, 0);
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
                 f.SkillWait(cp, 0)
                 # (Line 74) SetDeaths(cp, Add, 1, " `SkillLoop");
-                # (Line 75) break;
+                # (Line 75) }
                 DoActions(SetDeaths(cp, Add, 1, " `SkillLoop"))
-                EUDBreak()
-                # (Line 76) case 3:
-            _t14 = EUDSwitchCase()
-            # (Line 77) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 0);
-            if _t14(3):
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 0)
-                # (Line 78) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 64);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 64)
-                # (Line 79) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 128);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 128)
-                # (Line 80) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 192);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 192)
-                # (Line 81) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 192);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 192)
-                # (Line 82) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 192);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 192)
-                # (Line 83) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-                # (Line 84) f.SkillWait(cp, 0);
+                # (Line 76) else if (f.loop[cp] == 3)
+            if EUDElseIf()(f.loop[cp] == 3):
+                # (Line 77) {
+                # (Line 78) f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 5, 64);
+                f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 5, 64)
+                # (Line 79) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+                # (Line 80) f.SkillWait(cp, 0);
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
                 f.SkillWait(cp, 0)
-                # (Line 85) SetDeaths(cp, Add, 1, " `SkillLoop");
-                # (Line 86) break;
+                # (Line 81) SetDeaths(cp, Add, 1, " `SkillLoop");
+                # (Line 82) }
                 DoActions(SetDeaths(cp, Add, 1, " `SkillLoop"))
-                EUDBreak()
-                # (Line 87) case 4:
-            _t15 = EUDSwitchCase()
-            # (Line 88) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 0);
-            if _t15(4):
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 0)
-                # (Line 89) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 64);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 64)
-                # (Line 90) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 128);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 128)
-                # (Line 91) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 192);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 192)
-                # (Line 92) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 256);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 256)
-                # (Line 93) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 256);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 256)
-                # (Line 94) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 256);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 256)
-                # (Line 95) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 256);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 256)
-                # (Line 96) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-                # (Line 97) f.SkillWait(cp, 0);
+                # (Line 83) else if (f.loop[cp] == 4)
+            if EUDElseIf()(f.loop[cp] == 4):
+                # (Line 84) {
+                # (Line 85) f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 7, 64);
+                f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 7, 64)
+                # (Line 86) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+                # (Line 87) f.SkillWait(cp, 0);
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
                 f.SkillWait(cp, 0)
-                # (Line 98) SetDeaths(cp, Add, 1, " `SkillLoop");
-                # (Line 99) break;
+                # (Line 88) SetDeaths(cp, Add, 1, " `SkillLoop");
+                # (Line 89) }
                 DoActions(SetDeaths(cp, Add, 1, " `SkillLoop"))
-                EUDBreak()
-                # (Line 100) case 5:
-            _t16 = EUDSwitchCase()
-            # (Line 101) if (cp < 3)
-            if _t16(5):
+                # (Line 90) else if (f.loop[cp] == 5)
+            if EUDElseIf()(f.loop[cp] == 5):
+                # (Line 91) {
+                # (Line 92) if (cp < 3)
                 if EUDIf()(cp >= 3, neg=True):
-                    # (Line 102) {
-                    # (Line 103) CreateUnit(1, "Csejte Ungarn Nachtzehrer", "[Skill]Unit_Wait_8", P7);
-                    # (Line 104) MoveUnit(1, heroID, cp, "Anywhere", "[Potal]Base7");
+                    # (Line 93) {
+                    # (Line 94) CreateUnit(1, "Csejte Ungarn Nachtzehrer", "[Skill]Unit_Wait_8", P7);
+                    # (Line 95) MoveUnit(1, heroID, cp, "Anywhere", "[Potal]Base7");
                     DoActions(CreateUnit(1, "Csejte Ungarn Nachtzehrer", "[Skill]Unit_Wait_8", P7))
-                    # (Line 105) MoveUnit(1, "Csejte Ungarn Nachtzehrer", P7, "[Skill]Unit_Wait_ALL", "[Unique]Position_Team1");
+                    # (Line 96) MoveUnit(1, "Csejte Ungarn Nachtzehrer", P7, "[Skill]Unit_Wait_ALL", "[Unique]Position_Team1");
                     DoActions(MoveUnit(1, heroID, cp, "Anywhere", "[Potal]Base7"))
-                    # (Line 106) MoveUnit(1, heroID, cp, "Anywhere", "[Unique]Position_Team1");
+                    # (Line 97) MoveUnit(1, heroID, cp, "Anywhere", "[Unique]Position_Team1");
                     DoActions(MoveUnit(1, "Csejte Ungarn Nachtzehrer", P7, "[Skill]Unit_Wait_ALL", "[Unique]Position_Team1"))
-                    # (Line 107) }
+                    # (Line 98) }
                     DoActions(MoveUnit(1, heroID, cp, "Anywhere", "[Unique]Position_Team1"))
-                    # (Line 108) else
-                    # (Line 109) {
+                    # (Line 99) else
+                    # (Line 100) {
                 if EUDElse()():
-                    # (Line 110) CreateUnit(1, "Csejte Ungarn Nachtzehrer", "[Skill]Unit_Wait_8", P8);
-                    # (Line 111) MoveUnit(1, heroID, cp, "Anywhere", "[Potal]Base8");
+                    # (Line 101) CreateUnit(1, "Csejte Ungarn Nachtzehrer", "[Skill]Unit_Wait_8", P8);
+                    # (Line 102) MoveUnit(1, heroID, cp, "Anywhere", "[Potal]Base8");
                     DoActions(CreateUnit(1, "Csejte Ungarn Nachtzehrer", "[Skill]Unit_Wait_8", P8))
-                    # (Line 112) MoveUnit(1, "Csejte Ungarn Nachtzehrer", P8, "[Skill]Unit_Wait_ALL", "[Unique]Position_Team2");
+                    # (Line 103) MoveUnit(1, "Csejte Ungarn Nachtzehrer", P8, "[Skill]Unit_Wait_ALL", "[Unique]Position_Team2");
                     DoActions(MoveUnit(1, heroID, cp, "Anywhere", "[Potal]Base8"))
-                    # (Line 113) MoveUnit(1, heroID, cp, "Anywhere", "[Unique]Position_Team2");
+                    # (Line 104) MoveUnit(1, heroID, cp, "Anywhere", "[Unique]Position_Team2");
                     DoActions(MoveUnit(1, "Csejte Ungarn Nachtzehrer", P8, "[Skill]Unit_Wait_ALL", "[Unique]Position_Team2"))
-                    # (Line 114) }
+                    # (Line 105) }
                     DoActions(MoveUnit(1, heroID, cp, "Anywhere", "[Unique]Position_Team2"))
-                    # (Line 115) f.SkillWait(cp, 0);
+                    # (Line 106) f.SkillWait(cp, 0);
                 EUDEndIf()
                 f.SkillWait(cp, 0)
-                # (Line 116) SetDeaths(cp, Add, 1, " `SkillLoop");
-                # (Line 117) break;
+                # (Line 107) SetDeaths(cp, Add, 1, " `SkillLoop");
+                # (Line 108) }
                 DoActions(SetDeaths(cp, Add, 1, " `SkillLoop"))
-                EUDBreak()
-                # (Line 118) case 6:
-            _t18 = EUDSwitchCase()
-            # (Line 119) f.SkillEnd(cp);
-            if _t18(6):
+                # (Line 109) else if (f.loop[cp] == 6)
+            if EUDElseIf()(f.loop[cp] == 6):
+                # (Line 110) {
+                # (Line 111) f.SkillEnd(cp);
                 f.SkillEnd(cp)
-                # (Line 120) break;
-                EUDBreak()
-                # (Line 121) }
-            # (Line 122) break;
-            EUDEndSwitch()
-            EUDBreak()
-            # (Line 123) }
-        # (Line 124) }
-        EUDEndSwitch()
-        # (Line 125) }
+                # (Line 112) }
+                # (Line 113) }
+            EUDEndIf()
+            # (Line 114) }
+        EUDEndIf()
+        # (Line 115) }
     EUDEndIf()

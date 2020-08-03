@@ -9,6 +9,7 @@ import Character.Rusaruka.Skill_SSS as SSS;
 
 import Character.Variable_Text as voice;
 import Character.Rusaruka.Text as text;
+import Character.Rusaruka.Commend as commend;
 
 const stb = StringBuffer();
 
@@ -61,6 +62,9 @@ function main(cp)
 	
 	// Character Voice 건드리지 말것
 	text.main(cp);
+	
+	// Commed Setting
+	commend.main(cp);
 }
 
 function SkillList(cp)

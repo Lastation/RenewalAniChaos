@@ -12,92 +12,83 @@ function main(cp, location, heroID)
 		else
 		{ MoveUnit(All, heroID, cp, "Anywhere", "[Unique]Position_Team2"); }
 	
-		switch(f.count[cp])
+		if (f.count[cp] == 0)
 		{
-		case 0:
-			switch(f.loop[cp])
+			if (f.loop[cp] == 0)
 			{
-			case 0:
 				SetDeaths(cp, SetTo, 7, " `SkillText");
 				f.SkillWait(cp, 5800);
 				SetDeaths(cp, Add, 1, " `SkillLoop");
-				break;
-			case 1:
+			}
+			else if (f.loop[cp] == 1)
+			{
 				SetDeaths(cp, SetTo, 8, " `SkillText");
 				f.SkillWait(cp, 5600);
 				SetDeaths(cp, Add, 1, " `SkillLoop");
-				break;
-			case 2:
+			}
+			else if (f.loop[cp] == 2)
+			{
 				SetDeaths(cp, SetTo, 9, " `SkillText");
 				f.SkillWait(cp, 6100);
 				SetDeaths(cp, Add, 1, " `SkillLoop");
-				break;
-			case 3:
+			}
+			else if (f.loop[cp] == 3)
+			{
 				SetDeaths(cp, SetTo, 10, " `SkillText");
 				f.SkillWait(cp, 6200);
 				SetDeaths(cp, Add, 1, " `SkillLoop");
-				break;
-			case 4:
+			}
+			else if (f.loop[cp] == 4)
+			{
 				SetDeaths(cp, SetTo, 11, " `SkillText");
 				f.SkillWait(cp, 0);
 				SetDeaths(cp, Add, 1, " `SkillLoop");
-				break;
-			case 5:
+			}
+			else if (f.loop[cp] == 5)
+			{
 				SetDeaths(cp, SetTo, 0, " `SkillLoop");
 				SetDeaths(cp, Add, 1, " `SkillCount");
-				break;
 			}
-			break;
-		case 1:
-			switch(f.loop[cp])
+		}
+		else if (f.count[cp] == 1)
+		{
+			if (f.loop[cp] == 0)
 			{
-			case 0:
 				f.SkillUnit(1, "50 + 1n Battlecruiser", location, cp);
 				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
 				f.SkillWait(cp, 0);
 				SetDeaths(cp, Add, 1, " `SkillLoop");
-				break;
-			case 1:
-				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 0);
-				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 64);
+			}
+			else if (f.loop[cp] == 1)
+			{
+				f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 1, 64);
 				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
 				f.SkillWait(cp, 0);
 				SetDeaths(cp, Add, 1, " `SkillLoop");
-				break;
-			case 2:
-				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 0);
-				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 64);
-				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 128);
-				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 128);
+			}
+			else if (f.loop[cp] == 2)
+			{
+				f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 3, 64);
 				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
 				f.SkillWait(cp, 0);
 				SetDeaths(cp, Add, 1, " `SkillLoop");
-				break;
-			case 3:
-				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 0);
-				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 64);
-				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 128);
-				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 192);
-				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 192);
-				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 192);
+			}
+			else if (f.loop[cp] == 3)
+			{
+				f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 5, 64);
 				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
 				f.SkillWait(cp, 0);
 				SetDeaths(cp, Add, 1, " `SkillLoop");
-				break;
-			case 4:
-				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 0);
-				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 64);
-				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 128);
-				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 192);
-				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 256, 256);
-				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 192, 256);
-				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 256);
-				f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 64, 256);
+			}
+			else if (f.loop[cp] == 4)
+			{
+				f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 7, 64);
 				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
 				f.SkillWait(cp, 0);
 				SetDeaths(cp, Add, 1, " `SkillLoop");
-				break;
-			case 5:
+			}
+			else if (f.loop[cp] == 5)
+			{
 				if (cp < 3)
 				{ 
 					CreateUnit(1, "Csejte Ungarn Nachtzehrer", "[Skill]Unit_Wait_8", P7);
@@ -114,12 +105,11 @@ function main(cp, location, heroID)
 				}
 				f.SkillWait(cp, 0);
 				SetDeaths(cp, Add, 1, " `SkillLoop");
-				break;
-			case 6:
-				f.SkillEnd(cp);
-				break;
 			}
-			break;
+			else if (f.loop[cp] == 6)
+			{
+				f.SkillEnd(cp);
+			}
 		}
 	}
 }
