@@ -9,7 +9,7 @@ function main(cp, location, heroID)
 
    if (Deaths(cp, Exactly, 0, " `WaitTime"))
    {
-      if (f.count[cp] == 1)
+      if (f.count[cp] == 0)
       {
          if (f.loop[cp] < 4)
          {                        
@@ -39,7 +39,7 @@ function main(cp, location, heroID)
          }
 
       }
-      else if (f.count[cp] == 2)
+      else if (f.count[cp] == 1)
       {
          if (f.loop[cp] < 4)
          {         
@@ -77,7 +77,7 @@ function main(cp, location, heroID)
             SetDeaths(cp, SetTo, 0, " `SkillLoop");
          }
       }
-      else if (f.count[cp] == 3)
+      else if (f.count[cp] == 2)
       {
          if (f.loop[cp] < 4)
          {         
@@ -115,7 +115,7 @@ function main(cp, location, heroID)
             SetDeaths(cp, SetTo, 0, " `SkillLoop");
          }
       }
-      else if (f.count[cp] == 4)
+      else if (f.count[cp] == 3)
       {
          KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
          KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);

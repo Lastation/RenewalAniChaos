@@ -1,0 +1,124 @@
+import Function as f;
+
+const s = StringBuffer();
+
+function main(cp, location, heroID)
+{
+   f.loop[cp] = dwread_epd(212 * 12 + cp);
+   f.count[cp]  = dwread_epd(181 * 12 + cp);
+
+   if (Deaths(cp, Exactly, 0, " `WaitTime"))
+   {
+      if (f.count[cp] == 0)
+      {
+         if (f.loop[cp] < 15)
+         {         
+            RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
+
+            f.SquareShape(heroID, 1, "60 + 1n Danimoth", location, cp, 200 - 50 * (f.loop[cp] % 4), 50 * (f.loop[cp] % 4));
+            f.MoveLoc(heroID, location, cp, 200 - 50 * (f.loop[cp] % 4), 50 * (f.loop[cp] % 4));
+            f.SkillUnit(1, "50 + 1n Tank", location, cp);
+            f.MoveLoc(heroID, location, cp, -200 + 50 * (f.loop[cp] % 4), -50 * (f.loop[cp] % 4));
+            f.SkillUnit(1, "50 + 1n Tank", location, cp);
+            f.MoveLoc(heroID, location, cp, 50 * (f.loop[cp] % 4), -200 + 50 * (f.loop[cp] % 4));
+            f.SkillUnit(1, "Protoss Dark Archon", location, cp);
+            f.MoveLoc(heroID, location, cp, -50 * (f.loop[cp] % 4), 200 - 50 * (f.loop[cp] % 4));
+            f.SkillUnit(1, "Protoss Dark Archon", location, cp);
+
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+            MoveLocation(location, heroID, cp, "Anywhere");
+            Order("60 + 1n Danimoth", cp, "Anywhere", Attack, location);
+
+            f.SkillWait(cp, 80);
+
+            SetDeaths(cp, Add, 1, " `SkillLoop");
+         }
+         else if (f.loop[cp] == 15)
+         {
+            RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
+
+            f.SkillWait(cp, 80);
+
+            SetDeaths(cp, Add, 1, " `SkillCount");
+            SetDeaths(cp, SetTo, 0, " `SkillLoop");
+         }
+      }
+      else if (f.count[cp] == 1)
+      {
+         if (f.loop[cp] == 0)
+         {         
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+
+            f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 100, 0);
+            f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 100, 50);
+            f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 100, -50);
+            f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 150, 0);
+            f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 150, 50);
+            f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 150, -50);
+            f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 200, 0);
+            f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 200, 50);
+            f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 200, -50);
+            f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 100, 0);
+            f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 100, 50);
+            f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 100, -50);
+            f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 150, 0);
+            f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 150, 50);
+            f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 150, -50);
+            f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 200, 0);
+            f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 200, 50);
+            f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 200, -50);
+            KillUnitAt(All, "40 + 1n Zealot", "Anywhere", cp);
+            MoveLocation(location, heroID, cp, "Anywhere");
+            Order("40 + 1n Wraith", cp, "Anywhere", Attack, location);
+
+            f.SkillWait(cp, 240);
+
+            SetDeaths(cp, Add, 1, " `SkillLoop");
+         }
+         if (f.loop[cp] == 1)
+         {         
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+
+            f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 100, 100);
+            f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 100, 150);
+            f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 100, 200);
+            f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 150, 100);
+            f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 150, 150);
+            f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 150, 200);
+            f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 200, 100);
+            f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 200, 150);
+            f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 200, 200);
+            f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 100, 100);
+            f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 100, 150);
+            f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 100, 200);
+            f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 150, 100);
+            f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 150, 150);
+            f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 150, 200);
+            f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 200, 100);
+            f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 200, 150);
+            f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 200, 200);
+            KillUnitAt(All, "40 + 1n Zealot", "Anywhere", cp);
+            MoveLocation(location, heroID, cp, "Anywhere");
+            Order("40 + 1n Wraith", cp, "Anywhere", Attack, location);
+
+            f.SkillWait(cp, 240);
+
+            SetDeaths(cp, Add, 1, " `SkillCount");
+            SetDeaths(cp, SetTo, 0, " `SkillLoop");
+         }
+         
+      }
+      else if (f.count[cp] == 2)
+      {
+
+         KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+         KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp);
+         f.SkillEnd(cp);
+
+
+      }
+
+
+   }
+}
