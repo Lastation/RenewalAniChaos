@@ -2,9 +2,7 @@ import Function as f;
 
 function main(cp, location, heroID)
 {
-	f.count[cp]  = dwread_epd(181 * 12 + cp);
-	
-	if (Deaths(cp, Exactly, 0, " `WaitTime"))
+	if (f.delay[cp] == 0)
 	{
 		switch(f.count[cp])
 		{
@@ -17,7 +15,7 @@ function main(cp, location, heroID)
 			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
 			KillUnitAt(All, "Torrasque", "Anywhere", cp);
 			f.SkillWait(cp, 0);
-			SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
+			f.count[cp] += 1;
 			break;
 		case 1:
 			f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 64, 0);
@@ -25,7 +23,7 @@ function main(cp, location, heroID)
 			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
 			KillUnitAt(All, "Torrasque", "Anywhere", cp);
 			f.SkillWait(cp, 0);
-			SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
+			f.count[cp] += 1;
 			break;
 		case 2:
 			f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 96, 0);
@@ -33,7 +31,7 @@ function main(cp, location, heroID)
 			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
 			KillUnitAt(All, "Torrasque", "Anywhere", cp);
 			f.SkillWait(cp, 0);
-			SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
+			f.count[cp] += 1;
 			break;
 		case 3:
 			f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 128, 0);
@@ -41,7 +39,7 @@ function main(cp, location, heroID)
 			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
 			KillUnitAt(All, "Torrasque", "Anywhere", cp);
 			f.SkillWait(cp, 0);
-			SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
+			f.count[cp] += 1;
 			break;
 		case 4:
 		case 7:
@@ -50,7 +48,7 @@ function main(cp, location, heroID)
 			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
 			KillUnitAt(All, "Torrasque", "Anywhere", cp);
 			f.SkillWait(cp, 0);
-			SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
+			f.count[cp] += 1;
 			break;
 		case 5:
 		case 6:
@@ -59,7 +57,7 @@ function main(cp, location, heroID)
 			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
 			KillUnitAt(All, "Torrasque", "Anywhere", cp);
 			f.SkillWait(cp, 0);
-			SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
+			f.count[cp] += 1;
 			break;
 		case 8:
 			f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 0);
@@ -71,7 +69,7 @@ function main(cp, location, heroID)
 			MoveLocation(location, heroID, CurrentPlayer, "Anywhere");
 			Order("50 + 1n Battlecruiser", CurrentPlayer, "Anywhere", Attack, location);
 			f.SkillWait(cp, 180);
-			SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
+			f.count[cp] += 1;
 			break;
 		case 9:
 			KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
@@ -85,7 +83,7 @@ function main(cp, location, heroID)
 			MoveLocation(location, heroID, CurrentPlayer, "Anywhere");
 			Order("40 + 1n Guardian", CurrentPlayer, "Anywhere", Attack, location);
 			f.SkillWait(cp, 180);
-			SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
+			f.count[cp] += 1;
 			break;
 		case 10:
 			KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
@@ -99,7 +97,7 @@ function main(cp, location, heroID)
 			MoveLocation(location, heroID, CurrentPlayer, "Anywhere");
 			Order("40 + 1n Mojo", CurrentPlayer, "Anywhere", Attack, location);
 			f.SkillWait(cp, 180);
-			SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
+			f.count[cp] += 1;
 			break;
 		case 12:
 			f.SkillEnd(cp);

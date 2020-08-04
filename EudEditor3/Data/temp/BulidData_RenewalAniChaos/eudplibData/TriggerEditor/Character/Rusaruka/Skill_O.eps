@@ -2,10 +2,7 @@ import Function as f;
 
 function main(cp, location, heroID)
 {
-	f.count[cp]  = dwread_epd(181 * 12 + cp);
-	f.loop[cp] = dwread_epd(212 * 12 + cp);
-	
-	if (Deaths(cp, Exactly, 0, " `WaitTime"))
+	if (f.delay[cp] == 0)
 	{
 		if (cp < 3)
 		{ MoveUnit(All, heroID, cp, "Anywhere", "[Unique]Position_Team1"); }
@@ -16,38 +13,38 @@ function main(cp, location, heroID)
 		{
 			if (f.loop[cp] == 0)
 			{
-				SetDeaths(cp, SetTo, 7, " `SkillText");
+				f.Voice_Routine(cp, 7);
 				f.SkillWait(cp, 5800);
-				SetDeaths(cp, Add, 1, " `SkillLoop");
+				f.loop[cp] += 1;
 			}
 			else if (f.loop[cp] == 1)
 			{
-				SetDeaths(cp, SetTo, 8, " `SkillText");
+				f.Voice_Routine(cp, 8);
 				f.SkillWait(cp, 5600);
-				SetDeaths(cp, Add, 1, " `SkillLoop");
+				f.loop[cp] += 1;
 			}
 			else if (f.loop[cp] == 2)
 			{
-				SetDeaths(cp, SetTo, 9, " `SkillText");
+				f.Voice_Routine(cp, 9);
 				f.SkillWait(cp, 6100);
-				SetDeaths(cp, Add, 1, " `SkillLoop");
+				f.loop[cp] += 1;
 			}
 			else if (f.loop[cp] == 3)
 			{
-				SetDeaths(cp, SetTo, 10, " `SkillText");
+				f.Voice_Routine(cp, 10);
 				f.SkillWait(cp, 6200);
-				SetDeaths(cp, Add, 1, " `SkillLoop");
+				f.loop[cp] += 1;
 			}
 			else if (f.loop[cp] == 4)
 			{
-				SetDeaths(cp, SetTo, 11, " `SkillText");
+				f.Voice_Routine(cp, 11);
 				f.SkillWait(cp, 0);
-				SetDeaths(cp, Add, 1, " `SkillLoop");
+				f.loop[cp] += 1;
 			}
 			else if (f.loop[cp] == 5)
 			{
-				SetDeaths(cp, SetTo, 0, " `SkillLoop");
-				SetDeaths(cp, Add, 1, " `SkillCount");
+				f.loop[cp] = 0;
+				f.count[cp] += 1;
 			}
 		}
 		else if (f.count[cp] == 1)
@@ -57,35 +54,35 @@ function main(cp, location, heroID)
 				f.SkillUnit(1, "50 + 1n Battlecruiser", location, cp);
 				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
 				f.SkillWait(cp, 0);
-				SetDeaths(cp, Add, 1, " `SkillLoop");
+				f.loop[cp] += 1;
 			}
 			else if (f.loop[cp] == 1)
 			{
 				f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 1, 64);
 				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
 				f.SkillWait(cp, 0);
-				SetDeaths(cp, Add, 1, " `SkillLoop");
+				f.loop[cp] += 1;
 			}
 			else if (f.loop[cp] == 2)
 			{
 				f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 3, 64);
 				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
 				f.SkillWait(cp, 0);
-				SetDeaths(cp, Add, 1, " `SkillLoop");
+				f.loop[cp] += 1;
 			}
 			else if (f.loop[cp] == 3)
 			{
 				f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 5, 64);
 				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
 				f.SkillWait(cp, 0);
-				SetDeaths(cp, Add, 1, " `SkillLoop");
+				f.loop[cp] += 1;
 			}
 			else if (f.loop[cp] == 4)
 			{
 				f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 7, 64);
 				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
 				f.SkillWait(cp, 0);
-				SetDeaths(cp, Add, 1, " `SkillLoop");
+				f.loop[cp] += 1;
 			}
 			else if (f.loop[cp] == 5)
 			{
@@ -104,7 +101,7 @@ function main(cp, location, heroID)
 					MoveUnit(1, heroID, cp, "Anywhere", "[Unique]Position_Team2");
 				}
 				f.SkillWait(cp, 0);
-				SetDeaths(cp, Add, 1, " `SkillLoop");
+				f.loop[cp] += 1;
 			}
 			else if (f.loop[cp] == 6)
 			{

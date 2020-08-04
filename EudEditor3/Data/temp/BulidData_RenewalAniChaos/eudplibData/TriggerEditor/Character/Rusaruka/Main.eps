@@ -7,7 +7,7 @@ import Character.Rusaruka.Skill_C as C;
 
 import Character.Rusaruka.Skill_SSS as SSS;
 
-import Character.Variable_Text as voice;
+
 import Character.Rusaruka.Text as text;
 import Character.Rusaruka.Commend as commend;
 
@@ -19,13 +19,14 @@ function main(cp)
 {
 	f.location[cp] = 32;
 	f.heroID[cp] = 51;
-	f.step[cp] = dwread_epd(179 * 12 + cp);
 	
 	f.UltimateA[cp] = 650;
 	
+	// Commed Setting
+	commend.main(cp);
 	SkillList(cp);
 	
-	if (Deaths(cp, Exactly, 0, " `SkillWait"))
+	if (f.wait[cp] == 0)
 	{
 		switch(f.step[cp])
 		{
@@ -49,22 +50,12 @@ function main(cp)
 		}
 	}
 	
-	if (Deaths(cp, AtLeast, 1, 186))	// Skill Text
-	{
-		voice.Rusaruka_Voice[0] = dwread_epd(186 * 12 + cp);
-		voice.Rusaruka_Voice[1] = dwread_epd(186 * 12 + cp);
-		voice.Rusaruka_Voice[2] = dwread_epd(186 * 12 + cp);
-		voice.Rusaruka_Voice[3] = dwread_epd(186 * 12 + cp);
-		voice.Rusaruka_Voice[4] = dwread_epd(186 * 12 + cp);
-		voice.Rusaruka_Voice[5] = dwread_epd(186 * 12 + cp);
-		SetDeaths(cp, SetTo, 0, 186);
-	}
-	
-	// Character Voice 건드리지 말것
-	text.main(cp);
-	
-	// Commed Setting
-	commend.main(cp);
+}
+
+// Character Voice
+function SkillVoice(cp)
+{
+	if (f.Rusaruka_Voice[cp] != 0) { text.main(cp); }
 }
 
 function SkillList(cp)

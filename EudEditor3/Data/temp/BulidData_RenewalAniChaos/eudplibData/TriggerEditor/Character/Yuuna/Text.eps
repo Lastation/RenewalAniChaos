@@ -1,64 +1,35 @@
-import Character.Variable_Text as tv;
+import Function as f;
 
 const s = StringBuffer();
 
 function main(cp)
 {
-	if (tv.Rusaruka_Voice[cp] > 0)
+	if (f.Yuuna_Voice[cp] > 0)
 	{
-		switch (tv.Rusaruka_Voice[cp]) 
+		switch (f.Yuuna_Voice[cp]) 
 		{
 		case 1:
-			PlayWAV("Rusaruka_1.ogg");
-			s.print("\x13\x1BRusaruka Schwagerin\n");
-			s.print("\x13\x04[ \x06너무 얕보면... 먹어버릴거야? \x04]");
+			PlayWAV("Yuuna_02.ogg");
+			s.print("\x13\x1BYuuki Yuuna\n");
+			s.print("\x13\x04인간으로서 싸우겠어!\x04");
 			break;
 		case 2:
-			PlayWAV("Rusaruka_2.ogg");
-			s.print("\x13\x1BRusaruka Schwagerin\n");
-			s.print("\x13\x04[ \x06좋아, 내가 시험해줄게. 술래잡기를 계속하도록 할까? \x04]");
+			PlayWAV("Yuuna_03.ogg");
+			s.print("\x13\x1BYuuki Yuuna\n");
+			s.print("\x13\x04살고 싶단 말야!\x04");
 			break;
 		case 3:
-			PlayWAV("Rusaruka_3.ogg");
-			s.print("\x13\x1BRusaruka Schwagerin\n");
-			s.print("\x13\x04[ \x06조금 아프겠지만, 참으렴...! \x04]\n\n");
+			PlayWAV("Yuuna_04.ogg");
+			s.print("\x13\x1BYuuki Yuuna\n");
+			s.print("\x13\x04용사는 굴하지 않아!\x04");
 			break;
 		case 4:
-			PlayWAV("Rusaruka_4.ogg");
-			s.print("\x13\x1BRusaruka Schwagerin\n");
-			s.print("\x13\x04[ 당신 여기서 \x06살해\x04당하고 싶어...? \x04]");
+			PlayWAV("Yuuna_05.ogg");
+			s.print("\x13\x1BYuuki Yuuna\n");
+			s.print("\x13\x04몇 번이라도! 다시 일어선다!\x04");
 			break;
-		case 5:
-			PlayWAV("Rusalka_Ultimate.ogg");
-			s.printAt(3, "\x13\x1BRusaruka Schwagerin\n");
-			s.printAt(5, "\n\x13\x06무서웠단 말이야! 놔두고 가버릴지!\n\x13\x06싫단 말이야! 떠밀려버리면!\n\x13\x06나... 걷는 거 느리단 말이야─!");
-			break;
-		case 6:
-			s.printAt(3, "\x13\x1BRusaruka Schwagerin\n");
-			s.printAt(5, "\n\x13\x06따라 잡을 수 없다면,\n\x13\x06아예 멈춰 세우겠다고!\n\x13\x06그렇게 생각했어! 불만있어!?");
-			break;
-		case 7:
-			PlayWAV("Rusalka_Unique.ogg");
-			s.printAt(3, "\x13\x1BRusaruka Schwagerin\n");
-			s.printAt(5, "\n\x13\x05In der Nacht, wo alles schlaft\n\x13\x04모든것이 잠드는 밤에\n\n\x13\x05Wie schon, den Meeresboden zu verlassen.\n\x13\x04물밑을 벗어나는것이야 말로 아름다움이니.");
-			break;
-		case 8:
-			s.printAt(3, "\x13\x1BRusaruka Schwagerin\n");
-			s.printAt(5, "\n\x13\x05Ich hebe den Kopf uber das Wasser\n\x13\x04수면에 고개 들어\n\n\x13\x05Welch Freude, das Spiel der Wasserwellen\n\x13\x04물장구치며 놀자, 즐기어라.");
-			break;
-		case 9:
-			s.printAt(3, "\x13\x1BRusaruka Schwagerin\n");
-			s.printAt(5, "\n\x13\x05Durch die nun zerbrochene Stille\n\x13\x04맑은 대기를 울리고\n\n\x13\x05Rufen wir unsere Namen\n\x13\x04서로 크게 불러");
-			break;
-		case 10:
-			s.printAt(3, "\x13\x1BRusaruka Schwagerin\n");
-			s.printAt(5, "\n\x13\x05Pechschwarzes Haar wirbelt im Wind\n\x13\x04새까만 젖은 머리를 털어……\n\n\x13\x05Welch Freude, sie trocknen zu sehen\n\x13\x04말리며 놀자, 즐겨라");
-			break;
-		case 11:
-			s.printAt(3, "\x13\x1BRusaruka Schwagerin\n");
-			s.printAt(5, "\n\x13\x05Briah――\n\x13\x04창조\n\n\x13\x05Csejte Ungarn Nachtzehrer\n\x13\x04체터성의 식인그림자\n\n");
-			break;
+			
 		}
-		tv.Rusaruka_Voice[cp] = 0;
+		f.Yuuna_Voice[cp] = 0;
 	}
 }

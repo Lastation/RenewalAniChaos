@@ -1,12 +1,12 @@
-import Character.Variable_Text as tv;
+import Function as f;
 
 const s = StringBuffer();
 
 function main(cp)
 {
-	if (tv.Rusaruka_Voice[cp] > 0)
+	if (f.Rusaruka_Voice[cp] > 0)
 	{
-		switch (tv.Rusaruka_Voice[cp]) 
+		switch (f.Rusaruka_Voice[cp]) 
 		{
 		case 1:
 			PlayWAV("Rusaruka_1.ogg");
@@ -59,6 +59,6 @@ function main(cp)
 			s.printAt(5, "\n\x13\x05Briah――\n\x13\x04창조\n\n\x13\x05Csejte Ungarn Nachtzehrer\n\x13\x04체터성의 식인그림자\n\n");
 			break;
 		}
-		tv.Rusaruka_Voice[cp] = 0;
+		f.Rusaruka_Voice[cp] = 0;
 	}
 }

@@ -5,27 +5,31 @@ import Character.Yuuna.Skill_S as S;
 import Character.Yuuna.Skill_C as C;
 import Character.Yuuna.Skill_A as A;
 
-import Character.Variable_Text as voice;
+import Character.Yuuna.Skill_SSS as SSS;
+import Character.Yuuna.Skill_SSSSS as SSSSS;
+import Character.Yuuna.Skill_CCC as CCC;
+import Character.Yuuna.Skill_CCCAA as CCCAA;
+
 import Character.Yuuna.Text as text;
+import Character.Yuuna.Commend as commend;
 
 const stb = StringBuffer();
-
+const s = StringBuffer();
 function SkillList(cp);
 
 function main(cp)
 {
 	f.location[cp] = 181;
 	f.heroID[cp] = 54;
-	f.step[cp] = dwread_epd(179 * 12 + cp);
-	
+
 	SkillList(cp);
 	
-	if (Deaths(cp, Exactly, 0, " `SkillWait"))
+	if (f.wait[cp] == 0)
 	{
 		switch(f.step[cp])
 		{
 		case 1:
-			O.main(cp, f.location[cp], f.heroID[cp]);
+			//O.main(cp, f.location[cp], f.heroID[cp]);
 			break;
 		case 100:
 			S.main(cp, f.location[cp], f.heroID[cp]);
@@ -36,22 +40,30 @@ function main(cp)
 		case 300:
 			A.main(cp, f.location[cp], f.heroID[cp]);
 			break;
+		case 110:
+			SSS.main(cp, f.location[cp], f.heroID[cp]);
+			break;
+		case 120:
+			SSSSS.main(cp, f.location[cp], f.heroID[cp]);
+			break;
+		case 210:
+			CCC.main(cp, f.location[cp], f.heroID[cp]);
+			break;
+		case 220:
+			CCCAA.main(cp, f.location[cp], f.heroID[cp]);
+			break;
 		}
 	}
 	
-	if (Deaths(cp, AtLeast, 1, 186))	// Skill Text
-	{
-		voice.Rusaruka_Voice[0] = dwread_epd(186 * 12 + cp);
-		voice.Rusaruka_Voice[1] = dwread_epd(186 * 12 + cp);
-		voice.Rusaruka_Voice[2] = dwread_epd(186 * 12 + cp);
-		voice.Rusaruka_Voice[3] = dwread_epd(186 * 12 + cp);
-		voice.Rusaruka_Voice[4] = dwread_epd(186 * 12 + cp);
-		voice.Rusaruka_Voice[5] = dwread_epd(186 * 12 + cp);
-		SetDeaths(cp, SetTo, 0, 186);
-	}
-	
-	// Character Voice 건드리지 말것
-	text.main(cp);
+	// Commed Setting
+	commend.main(cp);
+}
+
+// Character Voice
+// Character Voice
+function SkillVoice(cp)
+{
+	if (f.Yuuna_Voice[cp] != 0) { text.main(cp); }
 }
 
 function SkillList(cp)

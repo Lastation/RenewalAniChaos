@@ -1,1 +1,24 @@
 const Rusaruka_Voice = PVariable();
+const Yuuna_Voice = PVariable();
+
+function Set_Text(heroID, value)
+{
+	if (heroID == 1)
+	{
+		Rusaruka_Voice[0] = value;
+		Rusaruka_Voice[1] = value;
+		Rusaruka_Voice[2] = value;
+		Rusaruka_Voice[3] = value;
+		Rusaruka_Voice[4] = value;
+		Rusaruka_Voice[5] = value;
+	}
+	else if (heroID == 22)
+	{
+		Yuuna_Voice[0] = value;
+		Yuuna_Voice[1] = value;
+		Yuuna_Voice[2] = value;
+		Yuuna_Voice[3] = value;
+		Yuuna_Voice[4] = value;
+		Yuuna_Voice[5] = value;
+	}
+}

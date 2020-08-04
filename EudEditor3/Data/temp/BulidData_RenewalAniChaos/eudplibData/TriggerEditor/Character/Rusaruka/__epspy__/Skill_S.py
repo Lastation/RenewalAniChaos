@@ -133,113 +133,111 @@ import Function as f
 # (Line 6) {
 @EUDFunc
 def f_main(cp, location, heroID):
-    # (Line 7) f.loop[cp] = dwread_epd(212 * 12 + cp);
-    _ARRW(f.loop, cp) << (f_dwread_epd(212 * 12 + cp))
-    # (Line 9) if (Deaths(cp, Exactly, 0, " `WaitTime"))
-    if EUDIf()(Deaths(cp, Exactly, 0, " `WaitTime")):
-        # (Line 10) {
-        # (Line 11) switch(f.loop[cp])
+    # (Line 7) if (f.delay[cp] == 0)
+    if EUDIf()(f.delay[cp] == 0):
+        # (Line 8) {
+        # (Line 9) switch(f.loop[cp])
         EUDSwitch(f.loop[cp])
-        # (Line 12) {
-        # (Line 13) case 0:
+        # (Line 10) {
+        # (Line 11) case 0:
         _t2 = EUDSwitchCase()
-        # (Line 14) case 4:
+        # (Line 12) case 4:
         if _t2(0):
             pass
         _t3 = EUDSwitchCase()
-        # (Line 15) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+        # (Line 13) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
         if _t3(4):
-            # (Line 16) Shape(cp, location, heroID, "40 + 1n Mojo", 0, 48);
+            # (Line 14) Shape(cp, location, heroID, "40 + 1n Mojo", 0, 48);
             DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
             Shape(cp, location, heroID, "40 + 1n Mojo", 0, 48)
-            # (Line 17) break;
+            # (Line 15) break;
             EUDBreak()
-            # (Line 18) case 1:
+            # (Line 16) case 1:
         _t4 = EUDSwitchCase()
-        # (Line 19) case 5:
+        # (Line 17) case 5:
         if _t4(1):
             pass
         _t5 = EUDSwitchCase()
-        # (Line 20) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+        # (Line 18) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
         if _t5(5):
-            # (Line 21) Shape(cp, location, heroID, "40 + 1n Wraith", 42, 24);
+            # (Line 19) Shape(cp, location, heroID, "40 + 1n Wraith", 42, 24);
             DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
             Shape(cp, location, heroID, "40 + 1n Wraith", 42, 24)
-            # (Line 22) break;
+            # (Line 20) break;
             EUDBreak()
-            # (Line 23) case 2:
+            # (Line 21) case 2:
         _t6 = EUDSwitchCase()
-        # (Line 24) case 6:
+        # (Line 22) case 6:
         if _t6(2):
             pass
         _t7 = EUDSwitchCase()
-        # (Line 25) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+        # (Line 23) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
         if _t7(6):
-            # (Line 26) Shape(cp, location, heroID, "40 + 1n Mutalisk", 24, 42);
+            # (Line 24) Shape(cp, location, heroID, "40 + 1n Mutalisk", 24, 42);
             DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp))
             Shape(cp, location, heroID, "40 + 1n Mutalisk", 24, 42)
-            # (Line 27) break;
+            # (Line 25) break;
             EUDBreak()
-            # (Line 28) case 3:
+            # (Line 26) case 3:
         _t8 = EUDSwitchCase()
-        # (Line 29) case 7:
+        # (Line 27) case 7:
         if _t8(3):
             pass
         _t9 = EUDSwitchCase()
-        # (Line 30) KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
+        # (Line 28) KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
         if _t9(7):
-            # (Line 31) Shape(cp, location, heroID, "40 + 1n Mojo", 48, 0);
+            # (Line 29) Shape(cp, location, heroID, "40 + 1n Mojo", 48, 0);
             DoActions(KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp))
             Shape(cp, location, heroID, "40 + 1n Mojo", 48, 0)
-            # (Line 32) break;
+            # (Line 30) break;
             EUDBreak()
-            # (Line 33) case 8:
+            # (Line 31) case 8:
         _t10 = EUDSwitchCase()
-        # (Line 34) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+        # (Line 32) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
         if _t10(8):
-            # (Line 35) f.SkillEnd(cp);
+            # (Line 33) f.SkillEnd(cp);
             DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
             f.SkillEnd(cp)
-            # (Line 36) break;
+            # (Line 34) break;
             EUDBreak()
-            # (Line 37) }
-        # (Line 38) }
+            # (Line 35) }
+        # (Line 36) }
         EUDEndSwitch()
-        # (Line 39) }
+        # (Line 37) }
     EUDEndIf()
-    # (Line 41) function Shape(cp, location, heroID, Unit : TrgUnit, x, y)
+    # (Line 39) function Shape(cp, location, heroID, Unit : TrgUnit, x, y)
 
-# (Line 42) {
+# (Line 40) {
 @EUDTypedFunc([None, None, None, TrgUnit, None, None])
 def Shape(cp, location, heroID, Unit, x, y):
-    # (Line 43) f.MoveLoc(heroID, location, cp, x, y);
+    # (Line 41) f.MoveLoc(heroID, location, cp, x, y);
     f.MoveLoc(heroID, location, cp, x, y)
-    # (Line 44) f.SkillUnit(1, Unit, location, cp);
+    # (Line 42) f.SkillUnit(1, Unit, location, cp);
     f.SkillUnit(1, Unit, location, cp)
+    # (Line 43) f.SkillUnit(1, "Protoss Dark Templar", location, cp);
+    f.SkillUnit(1, "Protoss Dark Templar", location, cp)
+    # (Line 44) f.MoveLoc(heroID, location, cp, -y, x);
+    f.MoveLoc(heroID, location, cp, -y, x)
     # (Line 45) f.SkillUnit(1, "Protoss Dark Templar", location, cp);
     f.SkillUnit(1, "Protoss Dark Templar", location, cp)
-    # (Line 46) f.MoveLoc(heroID, location, cp, -y, x);
-    f.MoveLoc(heroID, location, cp, -y, x)
-    # (Line 47) f.SkillUnit(1, "Protoss Dark Templar", location, cp);
-    f.SkillUnit(1, "Protoss Dark Templar", location, cp)
-    # (Line 48) f.MoveLoc(heroID, location, cp, -x, -y);
+    # (Line 46) f.MoveLoc(heroID, location, cp, -x, -y);
     f.MoveLoc(heroID, location, cp, -x, -y)
-    # (Line 49) f.SkillUnit(1, Unit, location, cp);
+    # (Line 47) f.SkillUnit(1, Unit, location, cp);
     f.SkillUnit(1, Unit, location, cp)
+    # (Line 48) f.SkillUnit(1, "Protoss Dark Templar", location, cp);
+    f.SkillUnit(1, "Protoss Dark Templar", location, cp)
+    # (Line 49) f.MoveLoc(heroID, location, cp, y, -x);
+    f.MoveLoc(heroID, location, cp, y, -x)
     # (Line 50) f.SkillUnit(1, "Protoss Dark Templar", location, cp);
     f.SkillUnit(1, "Protoss Dark Templar", location, cp)
-    # (Line 51) f.MoveLoc(heroID, location, cp, y, -x);
-    f.MoveLoc(heroID, location, cp, y, -x)
-    # (Line 52) f.SkillUnit(1, "Protoss Dark Templar", location, cp);
-    f.SkillUnit(1, "Protoss Dark Templar", location, cp)
-    # (Line 53) KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp);
-    # (Line 54) MoveLocation(location, heroID, cp, "Anywhere");
+    # (Line 51) KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp);
+    # (Line 52) MoveLocation(location, heroID, cp, "Anywhere");
     DoActions(KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp))
-    # (Line 55) Order(Unit, cp, "Anywhere", Attack, location);
+    # (Line 53) Order(Unit, cp, "Anywhere", Attack, location);
     DoActions(MoveLocation(location, heroID, cp, "Anywhere"))
-    # (Line 56) f.SkillWait(cp, 50);
+    # (Line 54) f.SkillWait(cp, 50);
     DoActions(Order(Unit, cp, "Anywhere", Attack, location))
     f.SkillWait(cp, 50)
-    # (Line 57) SetDeaths(cp, Add, 1, " `SkillLoop");
-    # (Line 58) }
-    DoActions(SetDeaths(cp, Add, 1, " `SkillLoop"))
+    # (Line 55) f.loop[cp] += 1;
+    _ARRW(f.loop, cp).__iadd__(1)
+    # (Line 56) }

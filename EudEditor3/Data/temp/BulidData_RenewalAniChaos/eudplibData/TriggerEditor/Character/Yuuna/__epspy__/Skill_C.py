@@ -128,220 +128,175 @@ def _LSH(l, r):
 
 # (Line 1) import Function as f;
 import Function as f
-# (Line 3) function main(cp, location, heroID)
-# (Line 4) {
+# (Line 3) const s = StringBuffer();
+s = _CGFW(lambda: [StringBuffer()], 1)[0]
+# (Line 5) function main(cp, location, heroID)
+# (Line 6) {
 @EUDFunc
 def f_main(cp, location, heroID):
-    # (Line 5) f.count[cp]  = dwread_epd(181 * 12 + cp);
-    _ARRW(f.count, cp) << (f_dwread_epd(181 * 12 + cp))
-    # (Line 7) if (Deaths(cp, Exactly, 0, " `WaitTime"))
-    if EUDIf()(Deaths(cp, Exactly, 0, " `WaitTime")):
+    # (Line 7) if (f.delay[cp] == 0)
+    if EUDIf()(f.delay[cp] == 0):
         # (Line 8) {
-        # (Line 9) switch(f.count[cp])
-        EUDSwitch(f.count[cp])
-        # (Line 10) {
-        # (Line 11) case 0:
-        _t2 = EUDSwitchCase()
-        # (Line 12) case 11:
-        if _t2(0):
-            pass
-        _t3 = EUDSwitchCase()
-        # (Line 13) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-        if _t3(11):
-            # (Line 15) f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 32, 0);
-            DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
-            f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 32, 0)
-            # (Line 16) f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 24, 24);
-            f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 24, 24)
-            # (Line 17) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-            # (Line 18) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
-            DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
-            # (Line 19) f.SkillWait(cp, 0);
-            DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
-            f.SkillWait(cp, 0)
-            # (Line 20) SetDeaths(cp, Add, 1, " `SkillCount");
-            # (Line 21) break;
-            DoActions(SetDeaths(cp, Add, 1, " `SkillCount"))
-            EUDBreak()
-            # (Line 22) case 1:
-        _t4 = EUDSwitchCase()
-        # (Line 23) f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 64, 0);
-        if _t4(1):
-            f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 64, 0)
-            # (Line 24) f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 48, 48);
-            f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 48, 48)
-            # (Line 25) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-            # (Line 26) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
-            DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
-            # (Line 27) f.SkillWait(cp, 0);
-            DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
-            f.SkillWait(cp, 0)
-            # (Line 28) SetDeaths(cp, Add, 1, " `SkillCount");
-            # (Line 29) break;
-            DoActions(SetDeaths(cp, Add, 1, " `SkillCount"))
-            EUDBreak()
-            # (Line 30) case 2:
-        _t5 = EUDSwitchCase()
-        # (Line 31) f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 96, 0);
-        if _t5(2):
-            f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 96, 0)
-            # (Line 32) f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 72, 72);
-            f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 72, 72)
-            # (Line 33) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-            # (Line 34) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
-            DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
-            # (Line 35) f.SkillWait(cp, 0);
-            DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
-            f.SkillWait(cp, 0)
-            # (Line 36) SetDeaths(cp, Add, 1, " `SkillCount");
-            # (Line 37) break;
-            DoActions(SetDeaths(cp, Add, 1, " `SkillCount"))
-            EUDBreak()
-            # (Line 38) case 3:
-        _t6 = EUDSwitchCase()
-        # (Line 39) f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 128, 0);
-        if _t6(3):
-            f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 128, 0)
-            # (Line 40) f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 96, 96);
-            f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 96, 96)
-            # (Line 41) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-            # (Line 42) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
-            DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
-            # (Line 43) f.SkillWait(cp, 0);
-            DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
-            f.SkillWait(cp, 0)
-            # (Line 44) SetDeaths(cp, Add, 1, " `SkillCount");
-            # (Line 45) break;
-            DoActions(SetDeaths(cp, Add, 1, " `SkillCount"))
-            EUDBreak()
-            # (Line 46) case 4:
-        _t7 = EUDSwitchCase()
-        # (Line 47) case 7:
-        if _t7(4):
-            pass
-        _t8 = EUDSwitchCase()
-        # (Line 48) f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 160, 0);
-        if _t8(7):
-            f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 160, 0)
-            # (Line 49) f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 120, 120);
-            f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 120, 120)
-            # (Line 50) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-            # (Line 51) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
-            DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
-            # (Line 52) f.SkillWait(cp, 0);
-            DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
-            f.SkillWait(cp, 0)
-            # (Line 53) SetDeaths(cp, Add, 1, " `SkillCount");
-            # (Line 54) break;
-            DoActions(SetDeaths(cp, Add, 1, " `SkillCount"))
-            EUDBreak()
-            # (Line 55) case 5:
-        _t9 = EUDSwitchCase()
-        # (Line 56) case 6:
-        if _t9(5):
-            pass
-        _t10 = EUDSwitchCase()
-        # (Line 57) f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 192, 0);
-        if _t10(6):
-            f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 192, 0)
-            # (Line 58) f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 144, 144);
-            f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 144, 144)
-            # (Line 59) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-            # (Line 60) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
-            DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
-            # (Line 61) f.SkillWait(cp, 0);
-            DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
-            f.SkillWait(cp, 0)
-            # (Line 62) SetDeaths(cp, Add, 1, " `SkillCount");
-            # (Line 63) break;
-            DoActions(SetDeaths(cp, Add, 1, " `SkillCount"))
-            EUDBreak()
-            # (Line 64) case 8:
-        _t11 = EUDSwitchCase()
-        # (Line 65) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 0);
-        if _t11(8):
-            f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 128, 0)
-            # (Line 66) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 96, 96);
-            f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 96, 96)
-            # (Line 67) f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 128, 0);
-            f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 128, 0)
-            # (Line 68) f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 96, 96);
-            f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 96, 96)
-            # (Line 69) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-            # (Line 70) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
-            DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
-            # (Line 71) MoveLocation(location, heroID, cp, "Anywhere");
-            DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
-            # (Line 72) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, location);
-            DoActions(MoveLocation(location, heroID, cp, "Anywhere"))
-            # (Line 73) f.SkillWait(cp, 180);
-            DoActions(Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, location))
-            f.SkillWait(cp, 180)
-            # (Line 74) SetDeaths(cp, Add, 1, " `SkillCount");
-            # (Line 75) break;
-            DoActions(SetDeaths(cp, Add, 1, " `SkillCount"))
-            EUDBreak()
-            # (Line 76) case 9:
-        _t12 = EUDSwitchCase()
-        # (Line 77) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-        if _t12(9):
-            # (Line 79) f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, 96, 0);
+        # (Line 9) if (f.count[cp] == 0)
+        if EUDIf()(f.count[cp] == 0):
+            # (Line 10) {
+            # (Line 11) if (f.loop[cp] < 4)
+            if EUDIf()(f.loop[cp] >= 4, neg=True):
+                # (Line 12) {
+                # (Line 13) f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 200 - f.loop[cp] * 50, 0);
+                f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 200 - f.loop[cp] * 50, 0)
+                # (Line 14) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+                # (Line 16) f.SkillWait(cp, 50);
+                DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
+                f.SkillWait(cp, 50)
+                # (Line 17) f.loop[cp] += 1;
+                _ARRW(f.loop, cp).__iadd__(1)
+                # (Line 18) }
+                # (Line 19) else if (f.loop[cp] == 4)
+            if EUDElseIf()(f.loop[cp] == 4):
+                # (Line 20) {
+                # (Line 21) f.SquareShape(heroID, 4, "60 + 1n Archon", location, cp, 50, 50);
+                f.SquareShape(heroID, 4, "60 + 1n Archon", location, cp, 50, 50)
+                # (Line 22) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+                # (Line 24) f.SkillWait(cp, 50);
+                DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
+                f.SkillWait(cp, 50)
+                # (Line 25) f.loop[cp] += 1;
+                _ARRW(f.loop, cp).__iadd__(1)
+                # (Line 26) }
+                # (Line 27) else if (f.loop[cp] == 5)
+            if EUDElseIf()(f.loop[cp] == 5):
+                # (Line 28) {
+                # (Line 29) f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 3, 75);
+                f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 3, 75)
+                # (Line 30) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere");
+                # (Line 32) f.SkillWait(cp, 0);
+                DoActions(Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere"))
+                f.SkillWait(cp, 0)
+                # (Line 34) f.count[cp] += 1;
+                _ARRW(f.count, cp).__iadd__(1)
+                # (Line 35) f.loop[cp] = 0;
+                _ARRW(f.loop, cp) << (0)
+                # (Line 36) }
+                # (Line 38) }
+            EUDEndIf()
+            # (Line 39) else if (f.count[cp] == 1)
+        if EUDElseIf()(f.count[cp] == 1):
+            # (Line 40) {
+            # (Line 41) if (f.loop[cp] < 4)
+            if EUDIf()(f.loop[cp] >= 4, neg=True):
+                # (Line 42) {
+                # (Line 43) f.distance[cp] = 125;
+                _ARRW(f.distance, cp) << (125)
+                # (Line 45) f.Table_Cos(cp, 45 + 90 * f.loop[cp], f.distance[cp]);
+                f.Table_Cos(cp, 45 + 90 * f.loop[cp], f.distance[cp])
+                # (Line 46) f.Table_Sin(cp, 45 + 90 * f.loop[cp], f.distance[cp]);
+                f.Table_Sin(cp, 45 + 90 * f.loop[cp], f.distance[cp])
+                # (Line 48) f.MoveLoc(heroID, location, cp, f.CosAngle[cp], f.SinAngle[cp]);
+                f.MoveLoc(heroID, location, cp, f.CosAngle[cp], f.SinAngle[cp])
+                # (Line 49) f.SkillUnit(1, "40 + 1n Wraith", location, cp);
+                f.SkillUnit(1, "40 + 1n Wraith", location, cp)
+                # (Line 50) f.SkillUnit(1, "40 + 1n Goliath", location, cp);
+                f.SkillUnit(1, "40 + 1n Goliath", location, cp)
+                # (Line 52) f.distance[cp] = 175;
+                _ARRW(f.distance, cp) << (175)
+                # (Line 54) f.Table_Cos(cp, 45 + 90 * f.loop[cp], f.distance[cp]);
+                f.Table_Cos(cp, 45 + 90 * f.loop[cp], f.distance[cp])
+                # (Line 55) f.Table_Sin(cp, 45 + 90 * f.loop[cp], f.distance[cp]);
+                f.Table_Sin(cp, 45 + 90 * f.loop[cp], f.distance[cp])
+                # (Line 57) f.MoveLoc(heroID, location, cp, f.CosAngle[cp], f.SinAngle[cp]);
+                f.MoveLoc(heroID, location, cp, f.CosAngle[cp], f.SinAngle[cp])
+                # (Line 58) f.SkillUnit(1, "40 + 1n Wraith", location, cp);
+                f.SkillUnit(1, "40 + 1n Wraith", location, cp)
+                # (Line 59) f.SkillUnit(1, "40 + 1n Goliath", location, cp);
+                f.SkillUnit(1, "40 + 1n Goliath", location, cp)
+                # (Line 61) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+                # (Line 63) f.SkillWait(cp, 50);
+                DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp))
+                f.SkillWait(cp, 50)
+                # (Line 64) f.loop[cp] += 1;
+                _ARRW(f.loop, cp).__iadd__(1)
+                # (Line 65) }
+                # (Line 66) else if (f.loop[cp] == 4)
+            if EUDElseIf()(f.loop[cp] == 4):
+                # (Line 67) {
+                # (Line 68) MoveLocation(location, heroID, cp, "Anywhere");
+                # (Line 69) Order("40 + 1n Goliath", cp, "Anywhere", Attack, location);
+                DoActions(MoveLocation(location, heroID, cp, "Anywhere"))
+                # (Line 71) f.SkillWait(cp, 0);
+                DoActions(Order("40 + 1n Goliath", cp, "Anywhere", Attack, location))
+                f.SkillWait(cp, 0)
+                # (Line 73) f.count[cp] += 1;
+                _ARRW(f.count, cp).__iadd__(1)
+                # (Line 74) f.loop[cp] = 0;
+                _ARRW(f.loop, cp) << (0)
+                # (Line 75) }
+                # (Line 76) }
+            EUDEndIf()
+            # (Line 77) else if (f.count[cp] == 2)
+        if EUDElseIf()(f.count[cp] == 2):
+            # (Line 78) {
+            # (Line 79) if (f.loop[cp] < 4)
+            if EUDIf()(f.loop[cp] >= 4, neg=True):
+                # (Line 80) {
+                # (Line 81) f.distance[cp] = 100;
+                _ARRW(f.distance, cp) << (100)
+                # (Line 83) f.Table_Cos(cp, 0 + 90 * f.loop[cp], f.distance[cp]);
+                f.Table_Cos(cp, 0 + 90 * f.loop[cp], f.distance[cp])
+                # (Line 84) f.Table_Sin(cp, 0 + 90 * f.loop[cp], f.distance[cp]);
+                f.Table_Sin(cp, 0 + 90 * f.loop[cp], f.distance[cp])
+                # (Line 86) f.MoveLoc(heroID, location, cp, f.CosAngle[cp], f.SinAngle[cp]);
+                f.MoveLoc(heroID, location, cp, f.CosAngle[cp], f.SinAngle[cp])
+                # (Line 87) f.SkillUnit(1, "40 + 1n Wraith", location, cp);
+                f.SkillUnit(1, "40 + 1n Wraith", location, cp)
+                # (Line 88) f.SkillUnit(1, "40 + 1n Goliath", location, cp);
+                f.SkillUnit(1, "40 + 1n Goliath", location, cp)
+                # (Line 90) f.distance[cp] = 150;
+                _ARRW(f.distance, cp) << (150)
+                # (Line 92) f.Table_Cos(cp, 0 + 90 * f.loop[cp], f.distance[cp]);
+                f.Table_Cos(cp, 0 + 90 * f.loop[cp], f.distance[cp])
+                # (Line 93) f.Table_Sin(cp, 0 + 90 * f.loop[cp], f.distance[cp]);
+                f.Table_Sin(cp, 0 + 90 * f.loop[cp], f.distance[cp])
+                # (Line 95) f.MoveLoc(heroID, location, cp, f.CosAngle[cp], f.SinAngle[cp]);
+                f.MoveLoc(heroID, location, cp, f.CosAngle[cp], f.SinAngle[cp])
+                # (Line 96) f.SkillUnit(1, "40 + 1n Wraith", location, cp);
+                f.SkillUnit(1, "40 + 1n Wraith", location, cp)
+                # (Line 97) f.SkillUnit(1, "40 + 1n Goliath", location, cp);
+                f.SkillUnit(1, "40 + 1n Goliath", location, cp)
+                # (Line 99) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+                # (Line 101) f.SkillWait(cp, 50);
+                DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp))
+                f.SkillWait(cp, 50)
+                # (Line 102) f.loop[cp] += 1;
+                _ARRW(f.loop, cp).__iadd__(1)
+                # (Line 103) }
+                # (Line 104) else if (f.loop[cp] == 4)
+            if EUDElseIf()(f.loop[cp] == 4):
+                # (Line 105) {
+                # (Line 106) MoveLocation(location, heroID, cp, "Anywhere");
+                # (Line 107) Order("40 + 1n Goliath", cp, "Anywhere", Attack, location);
+                DoActions(MoveLocation(location, heroID, cp, "Anywhere"))
+                # (Line 109) f.SkillWait(cp, 50);
+                DoActions(Order("40 + 1n Goliath", cp, "Anywhere", Attack, location))
+                f.SkillWait(cp, 50)
+                # (Line 111) f.count[cp] += 1;
+                _ARRW(f.count, cp).__iadd__(1)
+                # (Line 112) f.loop[cp] = 0;
+                _ARRW(f.loop, cp) << (0)
+                # (Line 113) }
+                # (Line 114) }
+            EUDEndIf()
+            # (Line 115) else if (f.count[cp] == 3)
+        if EUDElseIf()(f.count[cp] == 3):
+            # (Line 116) {
+            # (Line 117) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
+            # (Line 118) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+            DoActions(KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp))
+            # (Line 119) f.SkillEnd(cp);
             DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
-            f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, 96, 0)
-            # (Line 80) f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, 72, 72);
-            f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, 72, 72)
-            # (Line 81) f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 96, 0);
-            f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 96, 0)
-            # (Line 82) f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 72, 72);
-            f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 72, 72)
-            # (Line 83) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-            # (Line 84) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
-            DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
-            # (Line 85) MoveLocation(location, heroID, cp, "Anywhere");
-            DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
-            # (Line 86) Order("40 + 1n Guardian", cp, "Anywhere", Attack, location);
-            DoActions(MoveLocation(location, heroID, cp, "Anywhere"))
-            # (Line 87) f.SkillWait(cp, 180);
-            DoActions(Order("40 + 1n Guardian", cp, "Anywhere", Attack, location))
-            f.SkillWait(cp, 180)
-            # (Line 88) SetDeaths(cp, Add, 1, " `SkillCount");
-            # (Line 89) break;
-            DoActions(SetDeaths(cp, Add, 1, " `SkillCount"))
-            EUDBreak()
-            # (Line 90) case 10:
-        _t13 = EUDSwitchCase()
-        # (Line 91) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-        if _t13(10):
-            # (Line 93) f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, 64, 0);
-            DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp))
-            f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, 64, 0)
-            # (Line 94) f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, 48, 48);
-            f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, 48, 48)
-            # (Line 95) f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 64, 0);
-            f.SquareShape(heroID, 1, "40 + 1n Lurker", location, cp, 64, 0)
-            # (Line 96) f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 48, 48);
-            f.SquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 48, 48)
-            # (Line 97) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-            # (Line 98) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
-            DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
-            # (Line 99) MoveLocation(location, heroID, cp, "Anywhere");
-            DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
-            # (Line 100) Order("40 + 1n Mojo", cp, "Anywhere", Attack, location);
-            DoActions(MoveLocation(location, heroID, cp, "Anywhere"))
-            # (Line 101) f.SkillWait(cp, 180);
-            DoActions(Order("40 + 1n Mojo", cp, "Anywhere", Attack, location))
-            f.SkillWait(cp, 180)
-            # (Line 102) SetDeaths(cp, Add, 1, " `SkillCount");
-            # (Line 103) break;
-            DoActions(SetDeaths(cp, Add, 1, " `SkillCount"))
-            EUDBreak()
-            # (Line 104) case 12:
-        _t14 = EUDSwitchCase()
-        # (Line 105) f.SkillEnd(cp);
-        if _t14(12):
             f.SkillEnd(cp)
-            # (Line 106) }
-        # (Line 107) }
-        EUDEndSwitch()
-        # (Line 108) }
+            # (Line 120) }
+            # (Line 121) }
+        EUDEndIf()
+        # (Line 122) }
     EUDEndIf()

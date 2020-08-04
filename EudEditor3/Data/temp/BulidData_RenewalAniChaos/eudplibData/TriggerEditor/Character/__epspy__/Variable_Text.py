@@ -128,3 +128,43 @@ def _LSH(l, r):
 
 # (Line 1) const Rusaruka_Voice = PVariable();
 Rusaruka_Voice = _CGFW(lambda: [PVariable()], 1)[0]
+# (Line 2) const Yuuna_Voice = PVariable();
+Yuuna_Voice = _CGFW(lambda: [PVariable()], 1)[0]
+# (Line 4) function Set_Text(heroID, value)
+# (Line 5) {
+@EUDFunc
+def Set_Text(heroID, value):
+    # (Line 6) if (heroID == 1)
+    if EUDIf()(heroID == 1):
+        # (Line 7) {
+        # (Line 8) Rusaruka_Voice[0] = value;
+        _ARRW(Rusaruka_Voice, 0) << (value)
+        # (Line 9) Rusaruka_Voice[1] = value;
+        _ARRW(Rusaruka_Voice, 1) << (value)
+        # (Line 10) Rusaruka_Voice[2] = value;
+        _ARRW(Rusaruka_Voice, 2) << (value)
+        # (Line 11) Rusaruka_Voice[3] = value;
+        _ARRW(Rusaruka_Voice, 3) << (value)
+        # (Line 12) Rusaruka_Voice[4] = value;
+        _ARRW(Rusaruka_Voice, 4) << (value)
+        # (Line 13) Rusaruka_Voice[5] = value;
+        _ARRW(Rusaruka_Voice, 5) << (value)
+        # (Line 14) }
+        # (Line 15) else if (heroID == 22)
+    if EUDElseIf()(heroID == 22):
+        # (Line 16) {
+        # (Line 17) Yuuna_Voice[0] = value;
+        _ARRW(Yuuna_Voice, 0) << (value)
+        # (Line 18) Yuuna_Voice[1] = value;
+        _ARRW(Yuuna_Voice, 1) << (value)
+        # (Line 19) Yuuna_Voice[2] = value;
+        _ARRW(Yuuna_Voice, 2) << (value)
+        # (Line 20) Yuuna_Voice[3] = value;
+        _ARRW(Yuuna_Voice, 3) << (value)
+        # (Line 21) Yuuna_Voice[4] = value;
+        _ARRW(Yuuna_Voice, 4) << (value)
+        # (Line 22) Yuuna_Voice[5] = value;
+        _ARRW(Yuuna_Voice, 5) << (value)
+        # (Line 23) }
+        # (Line 24) }
+    EUDEndIf()

@@ -4,67 +4,67 @@ const stb = StringBuffer();
 
 function main(cp)
 {
-	if (Deaths(cp, Exactly, 0, " `SkillStep"))
+	if ( f.step[cp] == 0)
 	{
 		if (Bring(cp, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))
 		{
-			SetDeaths(cp, SetTo, 100, " `SkillStep");
+			f.step[cp] = 100;
 			KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", cp);
 		}
 		if (Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))
 		{
-			SetDeaths(cp, SetTo, 200, " `SkillStep");
+			f.step[cp] = 200;
 			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp);
 		}
 		if (Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))
 		{
-			SetDeaths(cp, SetTo, 300, " `SkillStep");
+			f.step[cp] = 300;
 			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
 		}
 	}
 	
 	// Combo
-	if (Deaths(cp, AtLeast, 2, " `SkillWait") && Deaths(cp, Exactly, 0, " `SkillCount"))
+	if (f.wait[cp] >= 2 && f.count[cp] == 0)
 	{
-		if (Bring(cp, AtLeast, 2, "Protoss Scout", "[Skill]UseSkill") && Deaths(cp, Exactly, 100, " `SkillStep"))
+		if (Bring(cp, AtLeast, 2, "Protoss Scout", "[Skill]UseSkill") &&  f.step[cp] == 100)
 		{
-			SetDeaths(cp, SetTo, 4, " `SkillText");
-			SetDeaths(cp, SetTo, 0, " `SkillWait");
-			SetDeaths(cp, SetTo, 150, " `SkillStep");
+			f.Voice_Routine(cp, 4);
+			f.wait[cp] = 0;
+			f.step[cp] = 150;
 			KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", cp);
 		}
-		if (Bring(cp, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") && Deaths(cp, Exactly, 200, " `SkillStep"))
+		if (Bring(cp, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") &&  f.step[cp] == 200)
 		{
-			SetDeaths(cp, SetTo, 2, " `SkillText");
-			SetDeaths(cp, SetTo, 0, " `SkillWait");
-			SetDeaths(cp, SetTo, 210, " `SkillStep");
+			f.Voice_Routine(cp, 2);
+			f.wait[cp] = 0;
+			f.step[cp] = 210;
 			KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp);
 		}
-		if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") && Deaths(cp, Exactly, 210, " `SkillStep"))
+		if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") && f.step[cp] == 210)
 		{
-			SetDeaths(cp, SetTo, 3, " `SkillText");
-			SetDeaths(cp, SetTo, 0, " `SkillWait");
-			SetDeaths(cp, SetTo, 220, " `SkillStep");
+			f.Voice_Routine(cp, 3);
+			f.wait[cp] = 0;
+			f.step[cp] = 220;
 			KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
 		}
-		if (Bring(cp, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") && Deaths(cp, Exactly, 300, " `SkillStep"))
+		if (Bring(cp, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") &&  f.step[cp] == 300)
 		{
-			SetDeaths(cp, SetTo, 1, " `SkillText");
-			SetDeaths(cp, SetTo, 0, " `SkillWait");
-			SetDeaths(cp, SetTo, 110, " `SkillStep");
+			f.Voice_Routine(cp, 1);
+			f.wait[cp] = 0;
+			f.step[cp] = 110;
 			KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp);
 		}
 		
 		// Ultimate
 		if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") 
 		&& Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill") 
-		&& Deaths(cp, Exactly, 300, " `SkillStep")
+		&& f.step[cp] == 300
 		&& Deaths(cp, AtLeast, f.UltimateA[cp], " `UltimateCoolTime"))
 		{
 			if (Switch("UiltimateSwitch", Cleared))
 			{
-				SetDeaths(cp, SetTo, 0, " `SkillWait");
-				SetDeaths(cp, SetTo, 310, " `SkillStep");
+				f.wait[cp] = 0;
+				f.step[cp] = 310;
 				SetDeaths(cp, Subtract, f.UltimateA[cp], " `UltimateCoolTime");
 				KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
 				KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp);

@@ -4,9 +4,7 @@ function Shape(cp, location, heroID, Unit : TrgUnit, x, y);
 
 function main(cp, location, heroID)
 {
-	f.loop[cp] = dwread_epd(212 * 12 + cp);
-	
-	if (Deaths(cp, Exactly, 0, " `WaitTime"))
+	if (f.delay[cp] == 0)
 	{
 		switch(f.loop[cp])
 		{
@@ -54,5 +52,5 @@ function Shape(cp, location, heroID, Unit : TrgUnit, x, y)
 	MoveLocation(location, heroID, cp, "Anywhere");
 	Order(Unit, cp, "Anywhere", Attack, location);
 	f.SkillWait(cp, 50);
-	SetDeaths(cp, Add, 1, " `SkillLoop");
+	f.loop[cp] += 1;
 }

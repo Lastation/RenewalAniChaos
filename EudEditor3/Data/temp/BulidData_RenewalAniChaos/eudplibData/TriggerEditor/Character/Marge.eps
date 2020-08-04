@@ -1,34 +1,14 @@
 import customText as ct;
 import Variable as v;
+import Function as f;
 
 import Character.Rusaruka.Main as rusarukaMain;
 import Character.Yuuna.Main as yuunaMain;
 
-import Character.TextA.Chtholly 		as chtholly;
-import Character.TextA.Maihime 		as maihime;
-import Character.TextA.Tenshi 		as tenshi;
-import Character.TextA.Miyuki 		as miyuki;
-import Character.TextA.Negev 		as negev;
-
-import Character.TextB.Cecillia 		as cecillia;
-import Character.TextB.Anzu 			as anzu;
-import Character.TextB.HotoMoka 	as hotomoka;
-import Character.TextB.Altherego 	as alterego;
-import Character.TextB.Ryuzu 		as ryuzu;
-import Character.TextB.Kurumi 		as kurumi;
-
-import Character.TextC.Sakura 		as sakura;
-import Character.TextC.Yashiro 		as yashiro;
-import Character.TextC.Rin 			as rin;
-import Character.TextC.Seraphim 	as seraphim;
-import Character.TextC.Kiana 		as kiana;
-import Character.TextC.Tenkei 		as tenkei;
-
-import Character.TextD.MN 			as mn;
-import Character.TextD.EmetSelch 	as emet;
-import Character.TextD.Magellan 	as magellan;
 
 function MargeSound(cp);
+function SkillWait(cp);
+function SkillDelay(cp);
 
 function main(cp)
 {
@@ -42,135 +22,37 @@ function main(cp)
 		break;
 	}
 	
+	SkillWait(cp);
+	SkillDelay(cp);
+	
 	MargeSound(cp);
 }
 
 function MargeSound(cp)
 {
-	// 1 ~ 6
-	if (Deaths((13), (0), 1, (186)))
+	rusarukaMain.SkillVoice(cp);
+	yuunaMain.SkillVoice(cp);
+}
+
+function SkillWait(cp)
+{
+	if (f.wait[cp] >= 2)
 	{
-		v.Sound_Text1[cp] = dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * cp));
-		SetDeaths((13), (7), 0, (186));
-		
-		const Condition = v.Sound_Text1[cp];
-		chtholly.NormalText(cp);
-		maihime.NormalText(cp);
-		tenshi.NormalText(cp);
-		miyuki.NormalText(cp);
-		negev.NormalText(cp);
+		f.wait[cp] -= 1;
+		f.count[cp] = 0;
 	}
-	
-	// 7 ~ 12
-	if (Deaths((13), (0), 1, (174)))
+	else if (f.wait[cp] == 1)
 	{
-		v.Sound_Text2[cp] = dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * cp));
-		SetDeaths((13), (7), 0, (174));
-		
-		const Condition = v.Sound_Text2[cp];
-		cecillia.NormalText(cp);
-		anzu.NormalText(cp);
-		hotomoka.NormalText(cp);
-		alterego.NormalText(cp);
-		//kurumi.NormalText(cp);
-		ryuzu.NormalText(cp);
+		f.wait[cp] = 0;
+		f.step[cp] = 0;
+		f.loop[cp] = 0;
 	}
-	
-	// 13 ~ 18
-	if (Deaths((13), (0), 1, (117)))
+}
+
+function SkillDelay(cp)
+{
+	if (f.delay[cp] >= 1)
 	{
-		v.Sound_Text3[cp] = dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * cp));
-		SetDeaths((13), (7), 0, (117));
-		
-		const Condition = v.Sound_Text3[cp];
-		
-		sakura.NormalText(cp);
-		yashiro.NormalText(cp);
-		rin.NormalText(cp);
-		seraphim.NormalText(cp);
-		kiana.NormalText(cp);
-		tenkei.NormalText(cp);
-	}
-	
-	// 19 ~ 24
-	if (Deaths((13), (0), 1, (157)))
-	{
-		v.Sound_Text4[cp] = dwread_epd(EPD(0x58A364 + 48 * 157 + 4 * cp));
-		SetDeaths((13), (7), 0, (157));
-		
-		const Condition = v.Sound_Text4[cp];
-		
-		mn.NormalText(cp);
-		emet.NormalText(cp);
-		magellan.NormalText(cp);
-	}
-	
-	if (Deaths((13), (0), 1, (222)))
-	{
-		v.Sound_Text_Uilti[cp] = dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * cp));
-		SetDeaths((13), (7), 0, (222));
-		
-		const Condition = v.Sound_Text_Uilti[cp];
-		// 1 ~ 6
-		chtholly.UiltimateText(cp);
-		maihime.UiltimateText(cp);
-		tenshi.UiltimateText(cp);
-		miyuki.UiltimateText(cp);
-		negev.UiltimateText(cp);
-		
-		// 7 ~ 12
-		cecillia.UiltimateText(cp);
-		anzu.UiltimateText(cp);
-		hotomoka.UiltimateText(cp);
-		alterego.UiltimateText(cp);
-		//kurumi.UiltimateText(cp);
-		ryuzu.UiltimateText(cp);
-		
-		// 13 ~ 18
-		sakura.UiltimateText(cp);
-		yashiro.UiltimateText(cp);
-		rin.UiltimateText(cp);
-		seraphim.UiltimateText(cp);
-		kiana.UiltimateText(cp);
-		tenkei.UiltimateText(cp);
-		
-		// 19 ~ 24
-		mn.UiltimateText(cp);
-		emet.UiltimateText(cp);
-		magellan.UiltimateText(cp);
-	}
-	if (Deaths((13), (0), 1, (188)))
-	{
-		v.Sound_Text_Uniq[cp] = dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * cp));
-		SetDeaths((13), (7), 0, (188));
-		
-		const Condition = v.Sound_Text_Uniq[cp];
-		// 1 ~ 6
-		chtholly.UniqueText(cp);
-		maihime.UniqueText(cp);
-		tenshi.UniqueText(cp);
-		miyuki.UniqueText(cp);
-		negev.UniqueText(cp);
-		
-		// 7 ~ 12// 7 ~ 12
-		cecillia.UniqueText(cp);
-		anzu.UniqueText(cp);
-		hotomoka.UniqueText(cp);
-		alterego.UniqueText(cp);
-		//kurumi.UniqueText(cp);
-		ryuzu.UniqueText(cp);
-		
-		// 13 ~ 18// 13 ~ 18
-		sakura.UniqueText(cp);
-		yashiro.UniqueText(cp);
-		rin.UniqueText(cp);
-		seraphim.UniqueText(cp);
-		kiana.UniqueText(cp);
-		tenkei.UniqueText(cp);
-		
-		// 19 ~ 24// 13 ~ 18
-		mn.UniqueText(cp);
-		emet.UniqueText(cp);
-		magellan.UniqueText(cp);
+		f.delay[cp] -= 1;
 	}
 }
