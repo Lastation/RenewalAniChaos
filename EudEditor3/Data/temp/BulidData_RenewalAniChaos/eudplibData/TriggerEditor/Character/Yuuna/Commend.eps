@@ -53,6 +53,15 @@ function main(cp)
 			f.step[cp] = 210;
 			KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp);
 		}
+		else if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") && f.step[cp] == 210)
+		{
+			f.Voice_Routine(cp, 4);
+			f.wait[cp] = 0;
+			f.count[cp] = 0;
+			f.loop[cp] = 0;
+			f.step[cp] = 220;
+			KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
+		}
 		
 		// Ultimate
 		if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") 

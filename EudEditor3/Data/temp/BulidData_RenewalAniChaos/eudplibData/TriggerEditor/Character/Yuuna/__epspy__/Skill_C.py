@@ -130,10 +130,10 @@ def _LSH(l, r):
 import Function as f
 # (Line 3) const s = StringBuffer();
 s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 5) function main(cp, location, heroID)
+# (Line 5) function main(cp)
 # (Line 6) {
 @EUDFunc
-def f_main(cp, location, heroID):
+def f_main(cp):
     # (Line 7) if (f.delay[cp] == 0)
     if EUDIf()(f.delay[cp] == 0):
         # (Line 8) {
@@ -143,8 +143,8 @@ def f_main(cp, location, heroID):
             # (Line 11) if (f.loop[cp] < 4)
             if EUDIf()(f.loop[cp] >= 4, neg=True):
                 # (Line 12) {
-                # (Line 13) f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 200 - f.loop[cp] * 50, 0);
-                f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 200 - f.loop[cp] * 50, 0)
+                # (Line 13) f.SquareShape(cp, 1, "60 + 1n Archon", 200 - f.loop[cp] * 50, 0);
+                f.SquareShape(cp, 1, "60 + 1n Archon", 200 - f.loop[cp] * 50, 0)
                 # (Line 14) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
                 # (Line 16) f.SkillWait(cp, 50);
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
@@ -155,8 +155,8 @@ def f_main(cp, location, heroID):
                 # (Line 19) else if (f.loop[cp] == 4)
             if EUDElseIf()(f.loop[cp] == 4):
                 # (Line 20) {
-                # (Line 21) f.SquareShape(heroID, 4, "60 + 1n Archon", location, cp, 50, 50);
-                f.SquareShape(heroID, 4, "60 + 1n Archon", location, cp, 50, 50)
+                # (Line 21) f.SquareShape(cp, 4, "60 + 1n Archon", 50, 50);
+                f.SquareShape(cp, 4, "60 + 1n Archon", 50, 50)
                 # (Line 22) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
                 # (Line 24) f.SkillWait(cp, 50);
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
@@ -167,8 +167,8 @@ def f_main(cp, location, heroID):
                 # (Line 27) else if (f.loop[cp] == 5)
             if EUDElseIf()(f.loop[cp] == 5):
                 # (Line 28) {
-                # (Line 29) f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 3, 75);
-                f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 3, 75)
+                # (Line 29) f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75);
+                f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75)
                 # (Line 30) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere");
                 # (Line 32) f.SkillWait(cp, 0);
                 DoActions(Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere"))
@@ -192,24 +192,24 @@ def f_main(cp, location, heroID):
                 f.Table_Cos(cp, 45 + 90 * f.loop[cp], f.distance[cp])
                 # (Line 46) f.Table_Sin(cp, 45 + 90 * f.loop[cp], f.distance[cp]);
                 f.Table_Sin(cp, 45 + 90 * f.loop[cp], f.distance[cp])
-                # (Line 48) f.MoveLoc(heroID, location, cp, f.CosAngle[cp], f.SinAngle[cp]);
-                f.MoveLoc(heroID, location, cp, f.CosAngle[cp], f.SinAngle[cp])
-                # (Line 49) f.SkillUnit(1, "40 + 1n Wraith", location, cp);
-                f.SkillUnit(1, "40 + 1n Wraith", location, cp)
-                # (Line 50) f.SkillUnit(1, "40 + 1n Goliath", location, cp);
-                f.SkillUnit(1, "40 + 1n Goliath", location, cp)
+                # (Line 48) f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
+                f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp])
+                # (Line 49) f.SkillUnit(cp, 1, "40 + 1n Wraith");
+                f.SkillUnit(cp, 1, "40 + 1n Wraith")
+                # (Line 50) f.SkillUnit(cp, 1, "40 + 1n Goliath");
+                f.SkillUnit(cp, 1, "40 + 1n Goliath")
                 # (Line 52) f.distance[cp] = 175;
                 _ARRW(f.distance, cp) << (175)
                 # (Line 54) f.Table_Cos(cp, 45 + 90 * f.loop[cp], f.distance[cp]);
                 f.Table_Cos(cp, 45 + 90 * f.loop[cp], f.distance[cp])
                 # (Line 55) f.Table_Sin(cp, 45 + 90 * f.loop[cp], f.distance[cp]);
                 f.Table_Sin(cp, 45 + 90 * f.loop[cp], f.distance[cp])
-                # (Line 57) f.MoveLoc(heroID, location, cp, f.CosAngle[cp], f.SinAngle[cp]);
-                f.MoveLoc(heroID, location, cp, f.CosAngle[cp], f.SinAngle[cp])
-                # (Line 58) f.SkillUnit(1, "40 + 1n Wraith", location, cp);
-                f.SkillUnit(1, "40 + 1n Wraith", location, cp)
-                # (Line 59) f.SkillUnit(1, "40 + 1n Goliath", location, cp);
-                f.SkillUnit(1, "40 + 1n Goliath", location, cp)
+                # (Line 57) f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
+                f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp])
+                # (Line 58) f.SkillUnit(cp, 1, "40 + 1n Wraith");
+                f.SkillUnit(cp, 1, "40 + 1n Wraith")
+                # (Line 59) f.SkillUnit(cp, 1, "40 + 1n Goliath");
+                f.SkillUnit(cp, 1, "40 + 1n Goliath")
                 # (Line 61) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
                 # (Line 63) f.SkillWait(cp, 50);
                 DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp))
@@ -220,11 +220,11 @@ def f_main(cp, location, heroID):
                 # (Line 66) else if (f.loop[cp] == 4)
             if EUDElseIf()(f.loop[cp] == 4):
                 # (Line 67) {
-                # (Line 68) MoveLocation(location, heroID, cp, "Anywhere");
-                # (Line 69) Order("40 + 1n Goliath", cp, "Anywhere", Attack, location);
-                DoActions(MoveLocation(location, heroID, cp, "Anywhere"))
+                # (Line 68) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 69) Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);
+                DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
                 # (Line 71) f.SkillWait(cp, 0);
-                DoActions(Order("40 + 1n Goliath", cp, "Anywhere", Attack, location))
+                DoActions(Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]))
                 f.SkillWait(cp, 0)
                 # (Line 73) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
@@ -245,24 +245,24 @@ def f_main(cp, location, heroID):
                 f.Table_Cos(cp, 0 + 90 * f.loop[cp], f.distance[cp])
                 # (Line 84) f.Table_Sin(cp, 0 + 90 * f.loop[cp], f.distance[cp]);
                 f.Table_Sin(cp, 0 + 90 * f.loop[cp], f.distance[cp])
-                # (Line 86) f.MoveLoc(heroID, location, cp, f.CosAngle[cp], f.SinAngle[cp]);
-                f.MoveLoc(heroID, location, cp, f.CosAngle[cp], f.SinAngle[cp])
-                # (Line 87) f.SkillUnit(1, "40 + 1n Wraith", location, cp);
-                f.SkillUnit(1, "40 + 1n Wraith", location, cp)
-                # (Line 88) f.SkillUnit(1, "40 + 1n Goliath", location, cp);
-                f.SkillUnit(1, "40 + 1n Goliath", location, cp)
+                # (Line 86) f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
+                f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp])
+                # (Line 87) f.SkillUnit(cp, 1, "40 + 1n Wraith");
+                f.SkillUnit(cp, 1, "40 + 1n Wraith")
+                # (Line 88) f.SkillUnit(cp, 1, "40 + 1n Goliath");
+                f.SkillUnit(cp, 1, "40 + 1n Goliath")
                 # (Line 90) f.distance[cp] = 150;
                 _ARRW(f.distance, cp) << (150)
                 # (Line 92) f.Table_Cos(cp, 0 + 90 * f.loop[cp], f.distance[cp]);
                 f.Table_Cos(cp, 0 + 90 * f.loop[cp], f.distance[cp])
                 # (Line 93) f.Table_Sin(cp, 0 + 90 * f.loop[cp], f.distance[cp]);
                 f.Table_Sin(cp, 0 + 90 * f.loop[cp], f.distance[cp])
-                # (Line 95) f.MoveLoc(heroID, location, cp, f.CosAngle[cp], f.SinAngle[cp]);
-                f.MoveLoc(heroID, location, cp, f.CosAngle[cp], f.SinAngle[cp])
-                # (Line 96) f.SkillUnit(1, "40 + 1n Wraith", location, cp);
-                f.SkillUnit(1, "40 + 1n Wraith", location, cp)
-                # (Line 97) f.SkillUnit(1, "40 + 1n Goliath", location, cp);
-                f.SkillUnit(1, "40 + 1n Goliath", location, cp)
+                # (Line 95) f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
+                f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp])
+                # (Line 96) f.SkillUnit(cp, 1, "40 + 1n Wraith");
+                f.SkillUnit(cp, 1, "40 + 1n Wraith")
+                # (Line 97) f.SkillUnit(cp, 1, "40 + 1n Goliath");
+                f.SkillUnit(cp, 1, "40 + 1n Goliath")
                 # (Line 99) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
                 # (Line 101) f.SkillWait(cp, 50);
                 DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp))
@@ -273,11 +273,11 @@ def f_main(cp, location, heroID):
                 # (Line 104) else if (f.loop[cp] == 4)
             if EUDElseIf()(f.loop[cp] == 4):
                 # (Line 105) {
-                # (Line 106) MoveLocation(location, heroID, cp, "Anywhere");
-                # (Line 107) Order("40 + 1n Goliath", cp, "Anywhere", Attack, location);
-                DoActions(MoveLocation(location, heroID, cp, "Anywhere"))
+                # (Line 106) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 107) Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);
+                DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
                 # (Line 109) f.SkillWait(cp, 50);
-                DoActions(Order("40 + 1n Goliath", cp, "Anywhere", Attack, location))
+                DoActions(Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]))
                 f.SkillWait(cp, 50)
                 # (Line 111) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)

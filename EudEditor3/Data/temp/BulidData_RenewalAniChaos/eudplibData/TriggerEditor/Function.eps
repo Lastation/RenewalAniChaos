@@ -1,4 +1,5 @@
 import py_math;
+import Variable as v;
 
 const step		= PVariable();			// SkillStep
 const count 		= PVariable();			// SkillCount	
@@ -25,9 +26,12 @@ const SinTableArray 	= EUDArray(py_eval("[int(round(100*math.sin(math.radians(t)
 const Rusaruka_Voice 	= PVariable();
 const Yuuna_Voice 		= PVariable();
 
+function Table_Sin(cp, degree, distance);
+function Table_Cos(cp, degree, distance);
+
 function Voice_Routine(cp, num)
 {
-	switch(heroID[cp])
+	switch(v.Hero_Num[cp])
 	{
 	case 1:
 		Rusaruka_Voice[0] = num;
@@ -48,20 +52,18 @@ function Voice_Routine(cp, num)
 	}
 }
 
-function Table_Sin(cp, degree, distance);
-function Table_Cos(cp, degree, distance);
 
-function MoveLoc(Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, x, y)
+function MoveLoc(Unit : TrgUnit, cp : TrgPlayer, x, y)
 {
-	MoveLocation(location, Unit, cp, "Anywhere");
-	addloc(location - 1, x, y);
+	MoveLocation(location[cp], Unit, cp, "Anywhere");
+	addloc(location[cp] - 1, x, y);
 }
 
-function SkillUnit(count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer)
+function SkillUnit(cp : TrgPlayer, count, Unit : TrgUnit)
 {
 	CreateUnit(count, Unit, "[Skill]Unit_Wait_1", cp);
 	SetInvincibility(Enable, Unit, cp, "[Skill]Unit_Wait_ALL");
-	MoveUnit(count, Unit, cp, "[Skill]Unit_Wait_ALL", location);
+	MoveUnit(count, Unit, cp, "[Skill]Unit_Wait_ALL", location[cp]);
 }
 
 function SkillWait(cp, count)
@@ -74,19 +76,31 @@ function SkillEnd(cp)
 	wait[cp] = 12;
 }
 
-function SquareShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, x, y)
+function SquareShape(cp : TrgPlayer, count, Unit : TrgUnit, x, y)
 {
-	MoveLoc(heroID, location, cp, x, y);
-	SkillUnit(count, Unit, location, cp);
-	MoveLoc(heroID, location, cp, -y, x);
-	SkillUnit(count, Unit, location, cp);
-	MoveLoc(heroID, location, cp, -x, -y);
-	SkillUnit(count, Unit, location, cp);
-	MoveLoc(heroID, location, cp, y, -x);
-	SkillUnit(count, Unit, location, cp);
+	MoveLoc(heroID[cp], cp, x, y);
+	SkillUnit(cp, count, Unit);
+	MoveLoc(heroID[cp], cp, -y, x);
+	SkillUnit(cp, count, Unit);
+	MoveLoc(heroID[cp], cp, -x, -y);
+	SkillUnit(cp, count, Unit);
+	MoveLoc(heroID[cp], cp, y, -x);
+	SkillUnit(cp, count, Unit);
 }
 
-function NxNSquareShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, n, interval)
+function SquareShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, x, y, distanceX, distanceY)
+{
+	MoveLoc(cp, x + distanceX, y + distanceY);
+	SkillUnit(cp, count, Unit);
+	MoveLoc(cp, -y + distanceY, x + distanceX);
+	SkillUnit(cp, count, Unit);
+	MoveLoc(cp, -x + distanceX, -y + distanceY);
+	SkillUnit(cp, count, Unit);
+	MoveLoc(cp, y + distanceY, -x + distanceX);
+	SkillUnit(cp, count, Unit);
+}
+
+function NxNSquareShape(cp : TrgPlayer, count, Unit : TrgUnit, n, interval)
 {
 	var i = 0;
 	var destX, destY; 
@@ -97,8 +111,8 @@ function NxNSquareShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgL
 	{
 		if (n == 1)
 		{
-			MoveLoc(heroID, location, cp, 0, 0);
-			SkillUnit(count, Unit, location, cp);
+			MoveLoc(Unit ,cp, 0, 0);
+			SkillUnit(cp, count, Unit);
 		}
 		else if (n % 2 == 0)
 		{
@@ -106,15 +120,15 @@ function NxNSquareShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgL
 			destY = i / (n / 2) + 1;
 			if (destX == 1)
 			{
-				SquareShape(heroID, count, Unit, location, cp, distance, destY * interval - distance);
+				SquareShape(cp, count, Unit, distance, destY * interval - distance);
 			}
 			else if (destY == 1)
 			{
-				SquareShape(heroID, count, Unit, location, cp, destX * interval - distance, distance);
+				SquareShape(cp, count, Unit, destX * interval - distance, distance);
 			}
 			else
 			{
-				SquareShape(heroID, count, Unit, location, cp, destX * interval - distance, destY * interval - distance);
+				SquareShape(cp, count, Unit, destX * interval - distance, destY * interval - distance);
 			}
 		}
 		else if (n % 2 == 1)
@@ -124,66 +138,87 @@ function NxNSquareShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgL
 	
 			if (i == 0)
 			{
-				MoveLoc(heroID, location, cp, 0, 0);
-				SkillUnit(count, Unit, location, cp);
+				MoveLoc(Unit ,cp, 0, 0);
+				SkillUnit(cp, count, Unit);
 			}
 			else if (destY == 0)
 			{
-				SquareShape(heroID, count, Unit, location, cp, destX * interval, 0);
+				SquareShape(cp, count, Unit, destX * interval, 0);
 			}
 			else
 			{
-				SquareShape(heroID, count, Unit, location, cp, destX * interval + interval, destY * interval);
+				SquareShape(cp, count, Unit, destX * interval + interval, destY * interval);
 			}
 			
 			if (i == size / 4 - 1)
 			{
-				SquareShape(heroID, count, Unit, location, cp, (n / 2) * interval, 0);
+				SquareShape(cp, count, Unit, (n / 2) * interval, 0);
 			}
 		}
 	}
 }
 
-function lineShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, degree, n, interval, distanceX, distanceY)
+
+function NxNSquareShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, n, interval, distanceX, distanceY)
 {
 	var i = 0;
+	var destX, destY; 
 	var distance = interval / 2;
+	var size = n * n;
 	
-	Table_Sin(cp, degree, interval);
-	Table_Cos(cp, degree, interval);
-	
-	var gradientX = CosAngle[cp] / 2;
-	var gradientY = SinAngle[cp] / 2;
-	
-	for (; i < n / 2 + 1; i++)
+	for (; i < size / 4; i++)
 	{
-		if (n % 2 == 0 && i != n / 2)
+		if (n == 1)
 		{
-			MoveLoc(heroID, location, cp, -CosAngle[cp] * i - gradientX + (distanceX * i), SinAngle[cp] * i + gradientY + (distanceY * i));
-			SkillUnit(count, Unit, location, cp);
-			MoveLoc(heroID, location, cp, CosAngle[cp] * i + gradientX + (distanceX * i), -SinAngle[cp] * i - gradientY - (distanceY * i));
-			SkillUnit(count, Unit, location, cp);
+			MoveLoc(Unit ,cp, distanceX, distanceY);
+			SkillUnit(cp, count, Unit);
 		}
-		else if (n % 2 == 1)
+		else if (n % 2 == 0)
 		{
-			if (i == 0)
+			destX = i % (n / 2) + 1;
+			destY = i / (n / 2) + 1;
+			
+			if (destX == 1)
 			{
-				MoveLoc(heroID, location, cp, distanceX, distanceY);
-				SkillUnit(count, Unit, location, cp);
+				SquareShape(cp, count, Unit, distance + distanceX, destY * interval - distance + distanceY);
+			}
+			else if (destY == 1)
+			{
+				SquareShape(cp, count, Unit, destX * interval - distance + distanceX, distance + distanceY);
 			}
 			else
 			{
-				MoveLoc(heroID, location, cp, -CosAngle[cp] * i - (distanceX * i), SinAngle[cp] * i + (distanceY * i));
-				SkillUnit(count, Unit, location, cp);
-				MoveLoc(heroID, location, cp, CosAngle[cp] * i + (distanceX * i), -SinAngle[cp] * i - (distanceY * i));
-				SkillUnit(count, Unit, location, cp);
+				SquareShape(cp, count, Unit, destX * interval - distance + distanceX, destY * interval - distance + distanceY);
+			}
+		}
+		else if (n % 2 == 1)
+		{
+			destX = i % (n / 2);
+			destY = i / (n / 2);
+	
+			if (i == 0)
+			{
+				MoveLoc(Unit ,cp, distanceX, distanceY);
+				SkillUnit(cp, count, Unit);
+			}
+			else if (destY == 0)
+			{
+				SquareShape(cp, count, Unit, destX * interval + distanceX, distanceY);
+			}
+			else
+			{
+				SquareShape(cp, count, Unit, destX * interval + interval + distanceX, destY * interval + distanceY);
+			}
+			
+			if (i == size / 4 - 1)
+			{
+				SquareShape(cp, count, Unit, (n / 2) * interval + distanceX, distanceY);
 			}
 		}
 	}
 }
 
-
-function LineShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLocation, cp : TrgPlayer, degree, n, interval, distance)
+function LineShape(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, distance)
 {
 	var i = 0;
 
@@ -211,8 +246,8 @@ function LineShape(heroID : TrgUnit, count, Unit : TrgUnit, location : TrgLocati
 	
 	for (; i < n; i++)
 	{
-		MoveLoc(heroID, location, cp, x_initial - i * CosAngle[cp], y_initial - i * SinAngle[cp]);
-		SkillUnit(count, Unit, location, cp);
+		MoveLoc(Unit, cp, x_initial - i * CosAngle[cp], y_initial - i * SinAngle[cp]);
+		SkillUnit(cp, count, Unit);
 	}
 	
 }

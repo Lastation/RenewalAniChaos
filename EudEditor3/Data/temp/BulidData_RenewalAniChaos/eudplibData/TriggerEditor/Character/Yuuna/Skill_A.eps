@@ -2,7 +2,7 @@ import Function as f;
 
 const s = StringBuffer();
 
-function main(cp, location, heroID)
+function main(cp)
 {
    if (f.delay[cp] == 0)
    {
@@ -10,8 +10,8 @@ function main(cp, location, heroID)
       {
          if (f.loop[cp] < 8)
          {                        
-            f.LineShape(heroID, 1, "Kakaru (Twilight)", location, cp, 45 * 3 * f.loop[cp], 7, 50, 50);
-            f.LineShape(heroID, 1, "Protoss Dark Templar", location, cp, 45 * 3 * f.loop[cp], 7, 50, 50);
+            f.LineShape(cp, 1, "Kakaru (Twilight)", 45 * 3 * f.loop[cp], 7, 50, 50);
+            f.LineShape(cp, 1, "Protoss Dark Templar", 45 * 3 * f.loop[cp], 7, 50, 50);
             KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
             KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp);
             f.SkillWait(cp, 50);
@@ -30,7 +30,7 @@ function main(cp, location, heroID)
          if (f.loop[cp] < 3)
          {    
             RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-            f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 3, 75);
+            f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75);
             Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere");
 
             f.SkillWait(cp, 50);
@@ -39,7 +39,7 @@ function main(cp, location, heroID)
          else if (f.loop[cp] == 3)
          {
             RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-            f.NxNSquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 3, 75);
+            f.NxNSquareShape(cp, 1, " Unit. Hoffnung 25000", 3, 75);
             KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
 
             f.SkillWait(cp, 0);

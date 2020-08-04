@@ -1,8 +1,8 @@
 import Function as f;
 
-function Shape(cp, location, heroID, Unit : TrgUnit, x, y);
+function Shape(cp, Unit : TrgUnit, x, y);
 
-function main(cp, location, heroID)
+function main(cp)
 {
 	if (f.delay[cp] == 0)
 	{
@@ -11,22 +11,22 @@ function main(cp, location, heroID)
 		case 0:
 		case 4:
 			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-			Shape(cp, location, heroID, "40 + 1n Mojo", 0, 48);
+			Shape(cp, "40 + 1n Mojo", 0, 48);
 			break;
 		case 1:
 		case 5:
 			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-			Shape(cp, location, heroID, "40 + 1n Wraith", 42, 24);
+			Shape(cp, "40 + 1n Wraith", 42, 24);
 			break;
 		case 2:
 		case 6:
 			KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
-			Shape(cp, location, heroID, "40 + 1n Mutalisk", 24, 42);
+			Shape(cp, "40 + 1n Mutalisk", 24, 42);
 			break;
 		case 3:
 		case 7:
 			KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
-			Shape(cp, location, heroID, "40 + 1n Mojo", 48, 0);
+			Shape(cp, "40 + 1n Mojo", 48, 0);
 			break;
 		case 8:
 			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
@@ -36,21 +36,21 @@ function main(cp, location, heroID)
 	}
 }
 
-function Shape(cp, location, heroID, Unit : TrgUnit, x, y)
+function Shape(cp, Unit : TrgUnit, x, y)
 {
-	f.MoveLoc(heroID, location, cp, x, y);
-	f.SkillUnit(1, Unit, location, cp);
-	f.SkillUnit(1, "Protoss Dark Templar", location, cp);
-	f.MoveLoc(heroID, location, cp, -y, x);
-	f.SkillUnit(1, "Protoss Dark Templar", location, cp);
-	f.MoveLoc(heroID, location, cp, -x, -y);
-	f.SkillUnit(1, Unit, location, cp);
-	f.SkillUnit(1, "Protoss Dark Templar", location, cp);
-	f.MoveLoc(heroID, location, cp, y, -x);
-	f.SkillUnit(1, "Protoss Dark Templar", location, cp);
+	f.MoveLoc(f.heroID[cp], cp, x, y);
+	f.SkillUnit(cp, 1, Unit);
+	f.SkillUnit(cp, 1, "Protoss Dark Templar");
+	f.MoveLoc(f.heroID[cp], cp, -y, x);
+	f.SkillUnit(cp, 1, "Protoss Dark Templar");
+	f.MoveLoc(f.heroID[cp], cp, -x, -y);
+	f.SkillUnit(cp, 1, Unit);
+	f.SkillUnit(cp, 1, "Protoss Dark Templar");
+	f.MoveLoc(f.heroID[cp], cp, y, -x);
+	f.SkillUnit(cp, 1, "Protoss Dark Templar");
 	KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp);
-	MoveLocation(location, heroID, cp, "Anywhere");
-	Order(Unit, cp, "Anywhere", Attack, location);
+	MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+	Order(Unit, cp, "Anywhere", Attack, f.location[cp]);
 	f.SkillWait(cp, 50);
 	f.loop[cp] += 1;
 }

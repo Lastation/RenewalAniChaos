@@ -128,10 +128,10 @@ def _LSH(l, r):
 
 # (Line 1) import Function as f;
 import Function as f
-# (Line 3) function main(cp, location, heroID)
+# (Line 3) function main(cp)
 # (Line 4) {
 @EUDFunc
-def f_main(cp, location, heroID):
+def f_main(cp):
     # (Line 5) MoveUnit(All, "40 + 1n Guardian", cp, "Anywhere", "[Skill]HoldPosition");
     # (Line 7) if (f.delay[cp] == 0)
     DoActions(MoveUnit(All, "40 + 1n Guardian", cp, "Anywhere", "[Skill]HoldPosition"))
@@ -142,9 +142,9 @@ def f_main(cp, location, heroID):
         # (Line 10) {
         # (Line 11) case 0:
         _t2 = EUDSwitchCase()
-        # (Line 12) f.SquareShape(heroID, 1, "Torrasque", location, cp, 48, 48);
+        # (Line 12) f.SquareShape(cp, 1, "Torrasque", 48, 48);
         if _t2(0):
-            f.SquareShape(heroID, 1, "Torrasque", location, cp, 48, 48)
+            f.SquareShape(cp, 1, "Torrasque", 48, 48)
             # (Line 13) KillUnitAt(All, "Torrasque", "Anywhere", cp);
             # (Line 14) f.SkillWait(cp, 0);
             DoActions(KillUnitAt(All, "Torrasque", "Anywhere", cp))
@@ -155,18 +155,18 @@ def f_main(cp, location, heroID):
             EUDBreak()
             # (Line 17) case 1:
         _t3 = EUDSwitchCase()
-        # (Line 18) f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, 96, 96);
+        # (Line 18) f.SquareShape(cp, 1, "40 + 1n Guardian", 96, 96);
         if _t3(1):
-            f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, 96, 96)
-            # (Line 19) f.SquareShape(heroID, 1, "Protoss Dark Archon", location, cp, 96, 96);
-            f.SquareShape(heroID, 1, "Protoss Dark Archon", location, cp, 96, 96)
+            f.SquareShape(cp, 1, "40 + 1n Guardian", 96, 96)
+            # (Line 19) f.SquareShape(cp, 1, "Protoss Dark Archon", 96, 96);
+            f.SquareShape(cp, 1, "Protoss Dark Archon", 96, 96)
             # (Line 20) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
-            # (Line 21) MoveLocation(location, heroID, cp, "Anywhere");
+            # (Line 21) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             DoActions(KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp))
-            # (Line 22) Order("40 + 1n Guardian", cp, "Anywhere", Attack, location);
-            DoActions(MoveLocation(location, heroID, cp, "Anywhere"))
+            # (Line 22) Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
+            DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
             # (Line 23) f.SkillWait(cp, 0);
-            DoActions(Order("40 + 1n Guardian", cp, "Anywhere", Attack, location))
+            DoActions(Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]))
             f.SkillWait(cp, 0)
             # (Line 24) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
@@ -174,9 +174,9 @@ def f_main(cp, location, heroID):
             EUDBreak()
             # (Line 26) case 2:
         _t4 = EUDSwitchCase()
-        # (Line 27) f.SquareShape(heroID, 1, "Torrasque", location, cp, 64, 0);
+        # (Line 27) f.SquareShape(cp, 1, "Torrasque", 64, 0);
         if _t4(2):
-            f.SquareShape(heroID, 1, "Torrasque", location, cp, 64, 0)
+            f.SquareShape(cp, 1, "Torrasque", 64, 0)
             # (Line 28) KillUnitAt(All, "Torrasque", "Anywhere", cp);
             # (Line 29) f.SkillWait(cp, 0);
             DoActions(KillUnitAt(All, "Torrasque", "Anywhere", cp))
@@ -187,18 +187,18 @@ def f_main(cp, location, heroID):
             EUDBreak()
             # (Line 32) case 3:
         _t5 = EUDSwitchCase()
-        # (Line 33) f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, 128, 0);
+        # (Line 33) f.SquareShape(cp, 1, "40 + 1n Guardian", 128, 0);
         if _t5(3):
-            f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, 128, 0)
-            # (Line 34) f.SquareShape(heroID, 1, "Protoss Dark Archon", location, cp, 128, 0);
-            f.SquareShape(heroID, 1, "Protoss Dark Archon", location, cp, 128, 0)
+            f.SquareShape(cp, 1, "40 + 1n Guardian", 128, 0)
+            # (Line 34) f.SquareShape(cp, 1, "Protoss Dark Archon", 128, 0);
+            f.SquareShape(cp, 1, "Protoss Dark Archon", 128, 0)
             # (Line 35) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
-            # (Line 36) MoveLocation(location, heroID, cp, "Anywhere");
+            # (Line 36) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             DoActions(KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp))
-            # (Line 37) Order("40 + 1n Guardian", cp, "Anywhere", Attack, location);
-            DoActions(MoveLocation(location, heroID, cp, "Anywhere"))
+            # (Line 37) Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
+            DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
             # (Line 38) f.SkillWait(cp, 130);
-            DoActions(Order("40 + 1n Guardian", cp, "Anywhere", Attack, location))
+            DoActions(Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]))
             f.SkillWait(cp, 130)
             # (Line 39) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
@@ -206,18 +206,18 @@ def f_main(cp, location, heroID):
             EUDBreak()
             # (Line 41) case 4:
         _t6 = EUDSwitchCase()
-        # (Line 42) f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 64, 0);
+        # (Line 42) f.SquareShape(cp, 1, "60 + 1n Archon", 64, 0);
         if _t6(4):
-            f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 64, 0)
-            # (Line 43) f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, 64, 0);
-            f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, 64, 0)
+            f.SquareShape(cp, 1, "60 + 1n Archon", 64, 0)
+            # (Line 43) f.SquareShape(cp, 1, "40 + 1n Mojo", 64, 0);
+            f.SquareShape(cp, 1, "40 + 1n Mojo", 64, 0)
             # (Line 44) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
-            # (Line 45) MoveLocation(location, heroID, cp, "Anywhere");
+            # (Line 45) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
-            # (Line 46) Order("40 + 1n Mojo", cp, "Anywhere", Attack, location);
-            DoActions(MoveLocation(location, heroID, cp, "Anywhere"))
+            # (Line 46) Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+            DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
             # (Line 47) f.SkillWait(cp, 130);
-            DoActions(Order("40 + 1n Mojo", cp, "Anywhere", Attack, location))
+            DoActions(Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]))
             f.SkillWait(cp, 130)
             # (Line 48) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
@@ -227,9 +227,9 @@ def f_main(cp, location, heroID):
         _t7 = EUDSwitchCase()
         # (Line 51) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
         if _t7(5):
-            # (Line 53) f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 62, 12);
+            # (Line 53) f.SquareShape(cp, 1, "60 + 1n Archon", 62, 12);
             DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
-            f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 62, 12)
+            f.SquareShape(cp, 1, "60 + 1n Archon", 62, 12)
             # (Line 54) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
             # (Line 55) f.SkillWait(cp, 130);
             DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
@@ -240,18 +240,18 @@ def f_main(cp, location, heroID):
             EUDBreak()
             # (Line 58) case 6:
         _t8 = EUDSwitchCase()
-        # (Line 59) f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 60, 25);
+        # (Line 59) f.SquareShape(cp, 1, "60 + 1n Archon", 60, 25);
         if _t8(6):
-            f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 60, 25)
-            # (Line 60) f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 60, 25);
-            f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 60, 25)
+            f.SquareShape(cp, 1, "60 + 1n Archon", 60, 25)
+            # (Line 60) f.SquareShape(cp, 1, "40 + 1n Wraith", 60, 25);
+            f.SquareShape(cp, 1, "40 + 1n Wraith", 60, 25)
             # (Line 61) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
-            # (Line 62) MoveLocation(location, heroID, cp, "Anywhere");
+            # (Line 62) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
-            # (Line 63) Order("40 + 1n Wraith", cp, "Anywhere", Attack, location);
-            DoActions(MoveLocation(location, heroID, cp, "Anywhere"))
+            # (Line 63) Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
+            DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
             # (Line 64) f.SkillWait(cp, 130);
-            DoActions(Order("40 + 1n Wraith", cp, "Anywhere", Attack, location))
+            DoActions(Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]))
             f.SkillWait(cp, 130)
             # (Line 65) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
@@ -261,9 +261,9 @@ def f_main(cp, location, heroID):
         _t9 = EUDSwitchCase()
         # (Line 68) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
         if _t9(7):
-            # (Line 70) f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 54, 36);
+            # (Line 70) f.SquareShape(cp, 1, "60 + 1n Archon", 54, 36);
             DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp))
-            f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 54, 36)
+            f.SquareShape(cp, 1, "60 + 1n Archon", 54, 36)
             # (Line 71) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
             # (Line 72) f.SkillWait(cp, 130);
             DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
@@ -274,18 +274,18 @@ def f_main(cp, location, heroID):
             EUDBreak()
             # (Line 75) case 8:
         _t10 = EUDSwitchCase()
-        # (Line 76) f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 45, 45);
+        # (Line 76) f.SquareShape(cp, 1, "60 + 1n Archon", 45, 45);
         if _t10(8):
-            f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 45, 45)
-            # (Line 77) f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, 45, 45);
-            f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, 45, 45)
+            f.SquareShape(cp, 1, "60 + 1n Archon", 45, 45)
+            # (Line 77) f.SquareShape(cp, 1, "40 + 1n Mojo", 45, 45);
+            f.SquareShape(cp, 1, "40 + 1n Mojo", 45, 45)
             # (Line 78) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
-            # (Line 79) MoveLocation(location, heroID, cp, "Anywhere");
+            # (Line 79) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
-            # (Line 80) Order("40 + 1n Mojo", cp, "Anywhere", Attack, location);
-            DoActions(MoveLocation(location, heroID, cp, "Anywhere"))
+            # (Line 80) Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+            DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
             # (Line 81) f.SkillWait(cp, 130);
-            DoActions(Order("40 + 1n Mojo", cp, "Anywhere", Attack, location))
+            DoActions(Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]))
             f.SkillWait(cp, 130)
             # (Line 82) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
@@ -295,9 +295,9 @@ def f_main(cp, location, heroID):
         _t11 = EUDSwitchCase()
         # (Line 85) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
         if _t11(9):
-            # (Line 87) f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 36, 54);
+            # (Line 87) f.SquareShape(cp, 1, "60 + 1n Archon", 36, 54);
             DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
-            f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 36, 54)
+            f.SquareShape(cp, 1, "60 + 1n Archon", 36, 54)
             # (Line 88) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
             # (Line 89) f.SkillWait(cp, 130);
             DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
@@ -308,18 +308,18 @@ def f_main(cp, location, heroID):
             EUDBreak()
             # (Line 92) case 10:
         _t12 = EUDSwitchCase()
-        # (Line 93) f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 25, 60);
+        # (Line 93) f.SquareShape(cp, 1, "60 + 1n Archon", 25, 60);
         if _t12(10):
-            f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 25, 60)
-            # (Line 94) f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 25, 60);
-            f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 25, 60)
+            f.SquareShape(cp, 1, "60 + 1n Archon", 25, 60)
+            # (Line 94) f.SquareShape(cp, 1, "40 + 1n Wraith", 25, 60);
+            f.SquareShape(cp, 1, "40 + 1n Wraith", 25, 60)
             # (Line 95) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
-            # (Line 96) MoveLocation(location, heroID, cp, "Anywhere");
+            # (Line 96) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
-            # (Line 97) Order("40 + 1n Wraith", cp, "Anywhere", Attack, location);
-            DoActions(MoveLocation(location, heroID, cp, "Anywhere"))
+            # (Line 97) Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
+            DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
             # (Line 98) f.SkillWait(cp, 130);
-            DoActions(Order("40 + 1n Wraith", cp, "Anywhere", Attack, location))
+            DoActions(Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]))
             f.SkillWait(cp, 130)
             # (Line 99) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
@@ -329,9 +329,9 @@ def f_main(cp, location, heroID):
         _t13 = EUDSwitchCase()
         # (Line 102) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
         if _t13(11):
-            # (Line 104) f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 12, 60);
+            # (Line 104) f.SquareShape(cp, 1, "60 + 1n Archon", 12, 60);
             DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp))
-            f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 12, 60)
+            f.SquareShape(cp, 1, "60 + 1n Archon", 12, 60)
             # (Line 105) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
             # (Line 106) f.SkillWait(cp, 130);
             DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
@@ -342,18 +342,18 @@ def f_main(cp, location, heroID):
             EUDBreak()
             # (Line 109) case 12:
         _t14 = EUDSwitchCase()
-        # (Line 110) f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 25, 60);
+        # (Line 110) f.SquareShape(cp, 1, "60 + 1n Archon", 25, 60);
         if _t14(12):
-            f.SquareShape(heroID, 1, "60 + 1n Archon", location, cp, 25, 60)
-            # (Line 111) f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, 25, 60);
-            f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, 25, 60)
+            f.SquareShape(cp, 1, "60 + 1n Archon", 25, 60)
+            # (Line 111) f.SquareShape(cp, 1, "40 + 1n Mojo", 25, 60);
+            f.SquareShape(cp, 1, "40 + 1n Mojo", 25, 60)
             # (Line 112) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
-            # (Line 113) MoveLocation(location, heroID, cp, "Anywhere");
+            # (Line 113) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
-            # (Line 114) Order("40 + 1n Mojo", cp, "Anywhere", Attack, location);
-            DoActions(MoveLocation(location, heroID, cp, "Anywhere"))
+            # (Line 114) Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+            DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
             # (Line 115) f.SkillWait(cp, 130);
-            DoActions(Order("40 + 1n Mojo", cp, "Anywhere", Attack, location))
+            DoActions(Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]))
             f.SkillWait(cp, 130)
             # (Line 116) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
@@ -383,13 +383,15 @@ def f_main(cp, location, heroID):
             EUDBreak()
             # (Line 128) case 15:
         _t17 = EUDSwitchCase()
-        # (Line 129) f.SkillEnd(cp);
+        # (Line 129) f.NxNSquareShapeAt(cp, 1, "50 + 1n Battlecruiser", 5, 64, 128, 128);
         if _t17(15):
+            f.NxNSquareShapeAt(cp, 1, "50 + 1n Battlecruiser", 5, 64, 128, 128)
+            # (Line 130) f.SkillEnd(cp);
             f.SkillEnd(cp)
-            # (Line 130) break;
+            # (Line 131) break;
             EUDBreak()
-            # (Line 131) }
-        # (Line 132) }
-        EUDEndSwitch()
+            # (Line 132) }
         # (Line 133) }
+        EUDEndSwitch()
+        # (Line 134) }
     EUDEndIf()

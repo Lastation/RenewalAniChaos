@@ -130,10 +130,10 @@ def _LSH(l, r):
 import Function as f
 # (Line 3) const s = StringBuffer();
 s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 5) function main(cp, location, heroID)
+# (Line 5) function main(cp)
 # (Line 6) {
 @EUDFunc
-def f_main(cp, location, heroID):
+def f_main(cp):
     # (Line 7) if (f.delay[cp] == 0)
     if EUDIf()(f.delay[cp] == 0):
         # (Line 8) {
@@ -143,10 +143,10 @@ def f_main(cp, location, heroID):
             # (Line 11) if (f.loop[cp] < 8)
             if EUDIf()(f.loop[cp] >= 8, neg=True):
                 # (Line 12) {
-                # (Line 13) f.LineShape(heroID, 1, "Kakaru (Twilight)", location, cp, 45 * 3 * f.loop[cp], 7, 50, 50);
-                f.LineShape(heroID, 1, "Kakaru (Twilight)", location, cp, 45 * 3 * f.loop[cp], 7, 50, 50)
-                # (Line 14) f.LineShape(heroID, 1, "Protoss Dark Templar", location, cp, 45 * 3 * f.loop[cp], 7, 50, 50);
-                f.LineShape(heroID, 1, "Protoss Dark Templar", location, cp, 45 * 3 * f.loop[cp], 7, 50, 50)
+                # (Line 13) f.LineShape(cp, 1, "Kakaru (Twilight)", 45 * 3 * f.loop[cp], 7, 50, 50);
+                f.LineShape(cp, 1, "Kakaru (Twilight)", 45 * 3 * f.loop[cp], 7, 50, 50)
+                # (Line 14) f.LineShape(cp, 1, "Protoss Dark Templar", 45 * 3 * f.loop[cp], 7, 50, 50);
+                f.LineShape(cp, 1, "Protoss Dark Templar", 45 * 3 * f.loop[cp], 7, 50, 50)
                 # (Line 15) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
                 # (Line 16) KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp);
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp))
@@ -176,9 +176,9 @@ def f_main(cp, location, heroID):
             if EUDIf()(f.loop[cp] >= 3, neg=True):
                 # (Line 31) {
                 # (Line 32) RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-                # (Line 33) f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 3, 75);
+                # (Line 33) f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75);
                 DoActions(RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
-                f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 3, 75)
+                f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75)
                 # (Line 34) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere");
                 # (Line 36) f.SkillWait(cp, 50);
                 DoActions(Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere"))
@@ -190,9 +190,9 @@ def f_main(cp, location, heroID):
             if EUDElseIf()(f.loop[cp] == 3):
                 # (Line 40) {
                 # (Line 41) RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-                # (Line 42) f.NxNSquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 3, 75);
+                # (Line 42) f.NxNSquareShape(cp, 1, " Unit. Hoffnung 25000", 3, 75);
                 DoActions(RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
-                f.NxNSquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 3, 75)
+                f.NxNSquareShape(cp, 1, " Unit. Hoffnung 25000", 3, 75)
                 # (Line 43) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
                 # (Line 45) f.SkillWait(cp, 0);
                 DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))

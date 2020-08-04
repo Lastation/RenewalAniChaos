@@ -2,7 +2,7 @@ import Function as f;
 
 const s = StringBuffer();
 
-function main(cp, location, heroID)
+function main(cp)
 {
    if (f.delay[cp] == 0)
    {
@@ -12,7 +12,7 @@ function main(cp, location, heroID)
          {         
             RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
 
-            f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 3, 75);
+            f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75);
             Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere");
 
             f.SkillWait(cp, 80);
@@ -22,7 +22,7 @@ function main(cp, location, heroID)
          {
             RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
 
-            f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 3, 75);
+            f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75);
             Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere");
 
             f.SkillWait(cp, 160);
@@ -32,8 +32,8 @@ function main(cp, location, heroID)
          {
             RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
 
-            f.NxNSquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 3, 75);
-            f.NxNSquareShape(heroID, 1, "50 + 1n Tank", location, cp, 3, 75);
+            f.NxNSquareShape(cp, 1, "40 + 1n Wraith", 3, 75);
+            f.NxNSquareShape(cp, 1, "50 + 1n Tank", 3, 75);
             KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
             KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
 
@@ -43,7 +43,7 @@ function main(cp, location, heroID)
          }
          else if (f.loop[cp] == 4)
          {
-            f.NxNSquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 5, 75);
+            f.NxNSquareShape(cp, 1, "40 + 1n Wraith", 5, 75);
             KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
 
             f.SkillWait(cp, 80);
@@ -52,7 +52,7 @@ function main(cp, location, heroID)
          }
          else if (f.loop[cp] == 5)
          {
-            f.NxNSquareShape(heroID, 1, "40 + 1n Guardian", location, cp, 5, 75);
+            f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 5, 75);
             KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
 
             f.SkillWait(cp, 160);
@@ -66,7 +66,7 @@ function main(cp, location, heroID)
       {
          if (f.loop[cp] == 0)
          {         
-            f.NxNSquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 5, 75);
+            f.NxNSquareShape(cp, 1, "Kakaru (Twilight)", 5, 75);
             KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
 
             f.SkillWait(cp, 80);
@@ -77,7 +77,7 @@ function main(cp, location, heroID)
          }
          if (f.loop[cp] == 1)
          {         
-            f.NxNSquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 5, 75);
+            f.NxNSquareShape(cp, 1, " Unit. Hoffnung 25000", 5, 75);
             KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
 
             f.SkillWait(cp, 80);

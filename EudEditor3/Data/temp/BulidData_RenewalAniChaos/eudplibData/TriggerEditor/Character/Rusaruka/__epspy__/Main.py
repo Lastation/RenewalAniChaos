@@ -165,30 +165,30 @@ def f_main(cp):
         # (Line 32) {
         # (Line 33) case 1:
         _t2 = EUDSwitchCase()
-        # (Line 34) O.main(cp, f.location[cp], f.heroID[cp]);
+        # (Line 34) O.main(cp);
         if _t2(1):
-            O.f_main(cp, f.location[cp], f.heroID[cp])
+            O.f_main(cp)
             # (Line 35) break;
             EUDBreak()
             # (Line 36) case 100:
         _t3 = EUDSwitchCase()
-        # (Line 37) S.main(cp, f.location[cp], f.heroID[cp]);
+        # (Line 37) S.main(cp);
         if _t3(100):
-            S.f_main(cp, f.location[cp], f.heroID[cp])
+            S.f_main(cp)
             # (Line 38) break;
             EUDBreak()
             # (Line 39) case 200:
         _t4 = EUDSwitchCase()
-        # (Line 40) C.main(cp, f.location[cp], f.heroID[cp]);
+        # (Line 40) C.main(cp);
         if _t4(200):
-            C.f_main(cp, f.location[cp], f.heroID[cp])
+            C.f_main(cp)
             # (Line 41) break;
             EUDBreak()
             # (Line 47) case 150:
         _t5 = EUDSwitchCase()
-        # (Line 48) SSS.main(cp, f.location[cp], f.heroID[cp]);
+        # (Line 48) SSS.main(cp);
         if _t5(150):
-            SSS.f_main(cp, f.location[cp], f.heroID[cp])
+            SSS.f_main(cp)
             # (Line 49) break;
             EUDBreak()
             # (Line 50) }

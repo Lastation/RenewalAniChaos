@@ -176,51 +176,51 @@ def f_main(cp):
             EUDBreak()
             # (Line 34) case 100:
         _t3 = EUDSwitchCase()
-        # (Line 35) S.main(cp, f.location[cp], f.heroID[cp]);
+        # (Line 35) S.main(cp);
         if _t3(100):
-            S.f_main(cp, f.location[cp], f.heroID[cp])
+            S.f_main(cp)
             # (Line 36) break;
             EUDBreak()
             # (Line 37) case 200:
         _t4 = EUDSwitchCase()
-        # (Line 38) C.main(cp, f.location[cp], f.heroID[cp]);
+        # (Line 38) C.main(cp);
         if _t4(200):
-            C.f_main(cp, f.location[cp], f.heroID[cp])
+            C.f_main(cp)
             # (Line 39) break;
             EUDBreak()
             # (Line 40) case 300:
         _t5 = EUDSwitchCase()
-        # (Line 41) A.main(cp, f.location[cp], f.heroID[cp]);
+        # (Line 41) A.main(cp);
         if _t5(300):
-            A.f_main(cp, f.location[cp], f.heroID[cp])
+            A.f_main(cp)
             # (Line 42) break;
             EUDBreak()
             # (Line 43) case 110:
         _t6 = EUDSwitchCase()
-        # (Line 44) SSS.main(cp, f.location[cp], f.heroID[cp]);
+        # (Line 44) SSS.main(cp);
         if _t6(110):
-            SSS.f_main(cp, f.location[cp], f.heroID[cp])
+            SSS.f_main(cp)
             # (Line 45) break;
             EUDBreak()
             # (Line 46) case 120:
         _t7 = EUDSwitchCase()
-        # (Line 47) SSSSS.main(cp, f.location[cp], f.heroID[cp]);
+        # (Line 47) SSSSS.main(cp);
         if _t7(120):
-            SSSSS.f_main(cp, f.location[cp], f.heroID[cp])
+            SSSSS.f_main(cp)
             # (Line 48) break;
             EUDBreak()
             # (Line 49) case 210:
         _t8 = EUDSwitchCase()
-        # (Line 50) CCC.main(cp, f.location[cp], f.heroID[cp]);
+        # (Line 50) CCC.main(cp);
         if _t8(210):
-            CCC.f_main(cp, f.location[cp], f.heroID[cp])
+            CCC.f_main(cp)
             # (Line 51) break;
             EUDBreak()
             # (Line 52) case 220:
         _t9 = EUDSwitchCase()
-        # (Line 53) CCCAA.main(cp, f.location[cp], f.heroID[cp]);
+        # (Line 53) CCCAA.main(cp);
         if _t9(220):
-            CCCAA.f_main(cp, f.location[cp], f.heroID[cp])
+            CCCAA.f_main(cp)
             # (Line 54) break;
             EUDBreak()
             # (Line 55) }
@@ -230,44 +230,44 @@ def f_main(cp):
     EUDEndIf()
     commend.f_main(cp)
     # (Line 60) }
-    # (Line 64) function SkillVoice(cp)
+    # (Line 63) function SkillVoice(cp)
 
-# (Line 65) {
+# (Line 64) {
 @EUDFunc
 def SkillVoice(cp):
-    # (Line 66) if (f.Yuuna_Voice[cp] != 0) { text.main(cp); }
+    # (Line 65) if (f.Yuuna_Voice[cp] != 0) { text.main(cp); }
     if EUDIf()(f.Yuuna_Voice[cp] == 0, neg=True):
         text.f_main(cp)
-        # (Line 67) }
+        # (Line 66) }
     EUDEndIf()
-    # (Line 69) function SkillList(cp)
+    # (Line 68) function SkillList(cp)
 
-# (Line 70) {
+# (Line 69) {
 @EUDFunc
 def SkillList(cp):
-    # (Line 71) if(Memory(0x596A44, Exactly, 0x00000100))	// Insert key Pressed
+    # (Line 70) if(Memory(0x596A44, Exactly, 0x00000100))	// Insert key Pressed
     if EUDIf()(Memory(0x596A44, Exactly, 0x00000100)):
-        # (Line 72) {
-        # (Line 73) stb.printAt(0, "\n");
+        # (Line 71) {
+        # (Line 72) stb.printAt(0, "\n");
         stb.printAt(0, "\n")
-        # (Line 74) stb.printAt(1, "\x1F　＃\x04- 유우키 \x1B유우나　\x04[ 유우키 유우나는 용사다 ]");
+        # (Line 73) stb.printAt(1, "\x1F　＃\x04- 유우키 \x1B유우나　\x04[ 유우키 유우나는 용사다 ]");
         stb.printAt(1, "\x1F　＃\x04- 유우키 \x1B유우나　\x04[ 유우키 유우나는 용사다 ]")
-        # (Line 75) stb.printAt(2, "　　\x1FA\x04ction List");
+        # (Line 74) stb.printAt(2, "　　\x1FA\x04ction List");
         stb.printAt(2, "　　\x1FA\x04ction List")
-        # (Line 76) stb.printAt(3, "　　　\x18O \x04만개 \x19[ 만개 스택 5 소모 / 공 5 업 방 5 다운 / 중첩 가능 / 사망 시 해제 ]");
+        # (Line 75) stb.printAt(3, "　　　\x18O \x04만개 \x19[ 만개 스택 5 소모 / 공 5 업 방 5 다운 / 중첩 가능 / 사망 시 해제 ]");
         stb.printAt(3, "　　　\x18O \x04만개 \x19[ 만개 스택 5 소모 / 공 5 업 방 5 다운 / 중첩 가능 / 사망 시 해제 ]")
-        # (Line 77) stb.printAt(4, "　　　\x04\x1F>SSS + SS \x04>미정 \x19[ 대인 / 공성 ]");
+        # (Line 76) stb.printAt(4, "　　　\x04\x1F>SSS + SS \x04>미정 \x19[ 대인 / 공성 ]");
         stb.printAt(4, "　　　\x04\x1F>SSS + SS \x04>미정 \x19[ 대인 / 공성 ]")
-        # (Line 78) stb.printAt(5, "　　　\x04\x1F>CCC + AA \x04미정 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]");
+        # (Line 77) stb.printAt(5, "　　　\x04\x1F>CCC + AA \x04미정 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]");
         stb.printAt(5, "　　　\x04\x1F>CCC + AA \x04미정 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]")
-        # (Line 79) stb.printAt(6, "　　　\x04\x1F>CCAA + 200 Gas \x04희생 \x19[ 공성 / 자리고정 ]");
+        # (Line 78) stb.printAt(6, "　　　\x04\x1F>CCAA + 200 Gas \x04희생 \x19[ 공성 / 자리고정 ]");
         stb.printAt(6, "　　　\x04\x1F>CCAA + 200 Gas \x04희생 \x19[ 공성 / 자리고정 ]")
-        # (Line 80) stb.printAt(7, "\n");
+        # (Line 79) stb.printAt(7, "\n");
         stb.printAt(7, "\n")
-        # (Line 81) stb.printAt(8, "　　　\x08AAA \x04갈망 \x19[ 공성 / 선딜없음 /  장판형 스킬 ] \x05650");
+        # (Line 80) stb.printAt(8, "　　　\x08AAA \x04갈망 \x19[ 공성 / 선딜없음 /  장판형 스킬 ] \x05650");
         stb.printAt(8, "　　　\x08AAA \x04갈망 \x19[ 공성 / 선딜없음 /  장판형 스킬 ] \x05650")
-        # (Line 82) stb.printAt(9, "\n");
+        # (Line 81) stb.printAt(9, "\n");
         stb.printAt(9, "\n")
+        # (Line 82) }
         # (Line 83) }
-        # (Line 84) }
     EUDEndIf()

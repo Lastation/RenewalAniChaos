@@ -130,10 +130,10 @@ def _LSH(l, r):
 import Function as f
 # (Line 3) const s = StringBuffer();
 s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 5) function main(cp, location, heroID)
+# (Line 5) function main(cp)
 # (Line 6) {
 @EUDFunc
-def f_main(cp, location, heroID):
+def f_main(cp):
     # (Line 7) if (f.delay[cp] == 0)
     if EUDIf()(f.delay[cp] == 0):
         # (Line 8) {
@@ -144,34 +144,34 @@ def f_main(cp, location, heroID):
             if EUDIf()(f.loop[cp] >= 15, neg=True):
                 # (Line 12) {
                 # (Line 13) RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
-                # (Line 15) f.SquareShape(heroID, 1, "60 + 1n Danimoth", location, cp, 200 - 50 * (f.loop[cp] % 4), 50 * (f.loop[cp] % 4));
+                # (Line 15) f.SquareShape(cp, 1, "60 + 1n Danimoth", 200 - 50 * (f.loop[cp] % 4), 50 * (f.loop[cp] % 4));
                 DoActions(RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp))
-                f.SquareShape(heroID, 1, "60 + 1n Danimoth", location, cp, 200 - 50 * (f.loop[cp] % 4), 50 * (f.loop[cp] % 4))
-                # (Line 16) f.MoveLoc(heroID, location, cp, 200 - 50 * (f.loop[cp] % 4), 50 * (f.loop[cp] % 4));
-                f.MoveLoc(heroID, location, cp, 200 - 50 * (f.loop[cp] % 4), 50 * (f.loop[cp] % 4))
-                # (Line 17) f.SkillUnit(1, "50 + 1n Tank", location, cp);
-                f.SkillUnit(1, "50 + 1n Tank", location, cp)
-                # (Line 18) f.MoveLoc(heroID, location, cp, -200 + 50 * (f.loop[cp] % 4), -50 * (f.loop[cp] % 4));
-                f.MoveLoc(heroID, location, cp, -200 + 50 * (f.loop[cp] % 4), -50 * (f.loop[cp] % 4))
-                # (Line 19) f.SkillUnit(1, "50 + 1n Tank", location, cp);
-                f.SkillUnit(1, "50 + 1n Tank", location, cp)
-                # (Line 20) f.MoveLoc(heroID, location, cp, 50 * (f.loop[cp] % 4), -200 + 50 * (f.loop[cp] % 4));
-                f.MoveLoc(heroID, location, cp, 50 * (f.loop[cp] % 4), -200 + 50 * (f.loop[cp] % 4))
-                # (Line 21) f.SkillUnit(1, "Protoss Dark Archon", location, cp);
-                f.SkillUnit(1, "Protoss Dark Archon", location, cp)
-                # (Line 22) f.MoveLoc(heroID, location, cp, -50 * (f.loop[cp] % 4), 200 - 50 * (f.loop[cp] % 4));
-                f.MoveLoc(heroID, location, cp, -50 * (f.loop[cp] % 4), 200 - 50 * (f.loop[cp] % 4))
-                # (Line 23) f.SkillUnit(1, "Protoss Dark Archon", location, cp);
-                f.SkillUnit(1, "Protoss Dark Archon", location, cp)
+                f.SquareShape(cp, 1, "60 + 1n Danimoth", 200 - 50 * (f.loop[cp] % 4), 50 * (f.loop[cp] % 4))
+                # (Line 16) f.MoveLoc(f.heroID[cp], cp, 200 - 50 * (f.loop[cp] % 4), 50 * (f.loop[cp] % 4));
+                f.MoveLoc(f.heroID[cp], cp, 200 - 50 * (f.loop[cp] % 4), 50 * (f.loop[cp] % 4))
+                # (Line 17) f.SkillUnit(cp, 1, "50 + 1n Tank");
+                f.SkillUnit(cp, 1, "50 + 1n Tank")
+                # (Line 18) f.MoveLoc(f.heroID[cp], cp, -200 + 50 * (f.loop[cp] % 4), -50 * (f.loop[cp] % 4));
+                f.MoveLoc(f.heroID[cp], cp, -200 + 50 * (f.loop[cp] % 4), -50 * (f.loop[cp] % 4))
+                # (Line 19) f.SkillUnit(cp, 1, "50 + 1n Tank");
+                f.SkillUnit(cp, 1, "50 + 1n Tank")
+                # (Line 20) f.MoveLoc(f.heroID[cp], cp, 50 * (f.loop[cp] % 4), -200 + 50 * (f.loop[cp] % 4));
+                f.MoveLoc(f.heroID[cp], cp, 50 * (f.loop[cp] % 4), -200 + 50 * (f.loop[cp] % 4))
+                # (Line 21) f.SkillUnit(cp, 1, "Protoss Dark Archon");
+                f.SkillUnit(cp, 1, "Protoss Dark Archon")
+                # (Line 22) f.MoveLoc(f.heroID[cp], cp, -50 * (f.loop[cp] % 4), 200 - 50 * (f.loop[cp] % 4));
+                f.MoveLoc(f.heroID[cp], cp, -50 * (f.loop[cp] % 4), 200 - 50 * (f.loop[cp] % 4))
+                # (Line 23) f.SkillUnit(cp, 1, "Protoss Dark Archon");
+                f.SkillUnit(cp, 1, "Protoss Dark Archon")
                 # (Line 25) KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
                 # (Line 26) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
                 DoActions(KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp))
-                # (Line 27) MoveLocation(location, heroID, cp, "Anywhere");
+                # (Line 27) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                 DoActions(KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp))
-                # (Line 28) Order("60 + 1n Danimoth", cp, "Anywhere", Attack, location);
-                DoActions(MoveLocation(location, heroID, cp, "Anywhere"))
+                # (Line 28) Order("60 + 1n Danimoth", cp, "Anywhere", Attack, f.location[cp]);
+                DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
                 # (Line 30) f.SkillWait(cp, 80);
-                DoActions(Order("60 + 1n Danimoth", cp, "Anywhere", Attack, location))
+                DoActions(Order("60 + 1n Danimoth", cp, "Anywhere", Attack, f.location[cp]))
                 f.SkillWait(cp, 80)
                 # (Line 32) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
@@ -197,50 +197,50 @@ def f_main(cp, location, heroID):
             if EUDIf()(f.loop[cp] == 0):
                 # (Line 47) {
                 # (Line 48) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
-                # (Line 50) f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 100, 0);
+                # (Line 50) f.SquareShape(cp, 1, "40 + 1n Zealot", 100, 0);
                 DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp))
-                f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 100, 0)
-                # (Line 51) f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 100, 50);
-                f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 100, 50)
-                # (Line 52) f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 100, -50);
-                f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 100, -50)
-                # (Line 53) f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 150, 0);
-                f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 150, 0)
-                # (Line 54) f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 150, 50);
-                f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 150, 50)
-                # (Line 55) f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 150, -50);
-                f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 150, -50)
-                # (Line 56) f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 200, 0);
-                f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 200, 0)
-                # (Line 57) f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 200, 50);
-                f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 200, 50)
-                # (Line 58) f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 200, -50);
-                f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 200, -50)
-                # (Line 59) f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 100, 0);
-                f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 100, 0)
-                # (Line 60) f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 100, 50);
-                f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 100, 50)
-                # (Line 61) f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 100, -50);
-                f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 100, -50)
-                # (Line 62) f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 150, 0);
-                f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 150, 0)
-                # (Line 63) f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 150, 50);
-                f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 150, 50)
-                # (Line 64) f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 150, -50);
-                f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 150, -50)
-                # (Line 65) f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 200, 0);
-                f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 200, 0)
-                # (Line 66) f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 200, 50);
-                f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 200, 50)
-                # (Line 67) f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 200, -50);
-                f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 200, -50)
+                f.SquareShape(cp, 1, "40 + 1n Zealot", 100, 0)
+                # (Line 51) f.SquareShape(cp, 1, "40 + 1n Zealot", 100, 50);
+                f.SquareShape(cp, 1, "40 + 1n Zealot", 100, 50)
+                # (Line 52) f.SquareShape(cp, 1, "40 + 1n Zealot", 100, -50);
+                f.SquareShape(cp, 1, "40 + 1n Zealot", 100, -50)
+                # (Line 53) f.SquareShape(cp, 1, "40 + 1n Zealot", 150, 0);
+                f.SquareShape(cp, 1, "40 + 1n Zealot", 150, 0)
+                # (Line 54) f.SquareShape(cp, 1, "40 + 1n Zealot", 150, 50);
+                f.SquareShape(cp, 1, "40 + 1n Zealot", 150, 50)
+                # (Line 55) f.SquareShape(cp, 1, "40 + 1n Zealot", 150, -50);
+                f.SquareShape(cp, 1, "40 + 1n Zealot", 150, -50)
+                # (Line 56) f.SquareShape(cp, 1, "40 + 1n Zealot", 200, 0);
+                f.SquareShape(cp, 1, "40 + 1n Zealot", 200, 0)
+                # (Line 57) f.SquareShape(cp, 1, "40 + 1n Zealot", 200, 50);
+                f.SquareShape(cp, 1, "40 + 1n Zealot", 200, 50)
+                # (Line 58) f.SquareShape(cp, 1, "40 + 1n Zealot", 200, -50);
+                f.SquareShape(cp, 1, "40 + 1n Zealot", 200, -50)
+                # (Line 59) f.SquareShape(cp, 1, "40 + 1n Wraith", 100, 0);
+                f.SquareShape(cp, 1, "40 + 1n Wraith", 100, 0)
+                # (Line 60) f.SquareShape(cp, 1, "40 + 1n Wraith", 100, 50);
+                f.SquareShape(cp, 1, "40 + 1n Wraith", 100, 50)
+                # (Line 61) f.SquareShape(cp, 1, "40 + 1n Wraith", 100, -50);
+                f.SquareShape(cp, 1, "40 + 1n Wraith", 100, -50)
+                # (Line 62) f.SquareShape(cp, 1, "40 + 1n Wraith", 150, 0);
+                f.SquareShape(cp, 1, "40 + 1n Wraith", 150, 0)
+                # (Line 63) f.SquareShape(cp, 1, "40 + 1n Wraith", 150, 50);
+                f.SquareShape(cp, 1, "40 + 1n Wraith", 150, 50)
+                # (Line 64) f.SquareShape(cp, 1, "40 + 1n Wraith", 150, -50);
+                f.SquareShape(cp, 1, "40 + 1n Wraith", 150, -50)
+                # (Line 65) f.SquareShape(cp, 1, "40 + 1n Wraith", 200, 0);
+                f.SquareShape(cp, 1, "40 + 1n Wraith", 200, 0)
+                # (Line 66) f.SquareShape(cp, 1, "40 + 1n Wraith", 200, 50);
+                f.SquareShape(cp, 1, "40 + 1n Wraith", 200, 50)
+                # (Line 67) f.SquareShape(cp, 1, "40 + 1n Wraith", 200, -50);
+                f.SquareShape(cp, 1, "40 + 1n Wraith", 200, -50)
                 # (Line 68) KillUnitAt(All, "40 + 1n Zealot", "Anywhere", cp);
-                # (Line 69) MoveLocation(location, heroID, cp, "Anywhere");
+                # (Line 69) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                 DoActions(KillUnitAt(All, "40 + 1n Zealot", "Anywhere", cp))
-                # (Line 70) Order("40 + 1n Wraith", cp, "Anywhere", Attack, location);
-                DoActions(MoveLocation(location, heroID, cp, "Anywhere"))
+                # (Line 70) Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
+                DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
                 # (Line 72) f.SkillWait(cp, 240);
-                DoActions(Order("40 + 1n Wraith", cp, "Anywhere", Attack, location))
+                DoActions(Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]))
                 f.SkillWait(cp, 240)
                 # (Line 74) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
@@ -250,50 +250,50 @@ def f_main(cp, location, heroID):
             if EUDIf()(f.loop[cp] == 1):
                 # (Line 77) {
                 # (Line 78) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
-                # (Line 80) f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 100, 100);
+                # (Line 80) f.SquareShape(cp, 1, "40 + 1n Zealot", 100, 100);
                 DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp))
-                f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 100, 100)
-                # (Line 81) f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 100, 150);
-                f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 100, 150)
-                # (Line 82) f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 100, 200);
-                f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 100, 200)
-                # (Line 83) f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 150, 100);
-                f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 150, 100)
-                # (Line 84) f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 150, 150);
-                f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 150, 150)
-                # (Line 85) f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 150, 200);
-                f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 150, 200)
-                # (Line 86) f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 200, 100);
-                f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 200, 100)
-                # (Line 87) f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 200, 150);
-                f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 200, 150)
-                # (Line 88) f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 200, 200);
-                f.SquareShape(heroID, 1, "40 + 1n Zealot", location, cp, 200, 200)
-                # (Line 89) f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 100, 100);
-                f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 100, 100)
-                # (Line 90) f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 100, 150);
-                f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 100, 150)
-                # (Line 91) f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 100, 200);
-                f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 100, 200)
-                # (Line 92) f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 150, 100);
-                f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 150, 100)
-                # (Line 93) f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 150, 150);
-                f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 150, 150)
-                # (Line 94) f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 150, 200);
-                f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 150, 200)
-                # (Line 95) f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 200, 100);
-                f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 200, 100)
-                # (Line 96) f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 200, 150);
-                f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 200, 150)
-                # (Line 97) f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 200, 200);
-                f.SquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 200, 200)
+                f.SquareShape(cp, 1, "40 + 1n Zealot", 100, 100)
+                # (Line 81) f.SquareShape(cp, 1, "40 + 1n Zealot", 100, 150);
+                f.SquareShape(cp, 1, "40 + 1n Zealot", 100, 150)
+                # (Line 82) f.SquareShape(cp, 1, "40 + 1n Zealot", 100, 200);
+                f.SquareShape(cp, 1, "40 + 1n Zealot", 100, 200)
+                # (Line 83) f.SquareShape(cp, 1, "40 + 1n Zealot", 150, 100);
+                f.SquareShape(cp, 1, "40 + 1n Zealot", 150, 100)
+                # (Line 84) f.SquareShape(cp, 1, "40 + 1n Zealot", 150, 150);
+                f.SquareShape(cp, 1, "40 + 1n Zealot", 150, 150)
+                # (Line 85) f.SquareShape(cp, 1, "40 + 1n Zealot", 150, 200);
+                f.SquareShape(cp, 1, "40 + 1n Zealot", 150, 200)
+                # (Line 86) f.SquareShape(cp, 1, "40 + 1n Zealot", 200, 100);
+                f.SquareShape(cp, 1, "40 + 1n Zealot", 200, 100)
+                # (Line 87) f.SquareShape(cp, 1, "40 + 1n Zealot", 200, 150);
+                f.SquareShape(cp, 1, "40 + 1n Zealot", 200, 150)
+                # (Line 88) f.SquareShape(cp, 1, "40 + 1n Zealot", 200, 200);
+                f.SquareShape(cp, 1, "40 + 1n Zealot", 200, 200)
+                # (Line 89) f.SquareShape(cp, 1, "40 + 1n Wraith", 100, 100);
+                f.SquareShape(cp, 1, "40 + 1n Wraith", 100, 100)
+                # (Line 90) f.SquareShape(cp, 1, "40 + 1n Wraith", 100, 150);
+                f.SquareShape(cp, 1, "40 + 1n Wraith", 100, 150)
+                # (Line 91) f.SquareShape(cp, 1, "40 + 1n Wraith", 100, 200);
+                f.SquareShape(cp, 1, "40 + 1n Wraith", 100, 200)
+                # (Line 92) f.SquareShape(cp, 1, "40 + 1n Wraith", 150, 100);
+                f.SquareShape(cp, 1, "40 + 1n Wraith", 150, 100)
+                # (Line 93) f.SquareShape(cp, 1, "40 + 1n Wraith", 150, 150);
+                f.SquareShape(cp, 1, "40 + 1n Wraith", 150, 150)
+                # (Line 94) f.SquareShape(cp, 1, "40 + 1n Wraith", 150, 200);
+                f.SquareShape(cp, 1, "40 + 1n Wraith", 150, 200)
+                # (Line 95) f.SquareShape(cp, 1, "40 + 1n Wraith", 200, 100);
+                f.SquareShape(cp, 1, "40 + 1n Wraith", 200, 100)
+                # (Line 96) f.SquareShape(cp, 1, "40 + 1n Wraith", 200, 150);
+                f.SquareShape(cp, 1, "40 + 1n Wraith", 200, 150)
+                # (Line 97) f.SquareShape(cp, 1, "40 + 1n Wraith", 200, 200);
+                f.SquareShape(cp, 1, "40 + 1n Wraith", 200, 200)
                 # (Line 98) KillUnitAt(All, "40 + 1n Zealot", "Anywhere", cp);
-                # (Line 99) MoveLocation(location, heroID, cp, "Anywhere");
+                # (Line 99) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                 DoActions(KillUnitAt(All, "40 + 1n Zealot", "Anywhere", cp))
-                # (Line 100) Order("40 + 1n Wraith", cp, "Anywhere", Attack, location);
-                DoActions(MoveLocation(location, heroID, cp, "Anywhere"))
+                # (Line 100) Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
+                DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
                 # (Line 102) f.SkillWait(cp, 240);
-                DoActions(Order("40 + 1n Wraith", cp, "Anywhere", Attack, location))
+                DoActions(Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]))
                 f.SkillWait(cp, 240)
                 # (Line 104) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)

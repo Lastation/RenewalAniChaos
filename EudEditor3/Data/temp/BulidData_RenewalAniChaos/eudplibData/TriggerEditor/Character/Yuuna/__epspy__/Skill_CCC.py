@@ -130,10 +130,10 @@ def _LSH(l, r):
 import Function as f
 # (Line 3) const s = StringBuffer();
 s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 5) function main(cp, location, heroID)
+# (Line 5) function main(cp)
 # (Line 6) {
 @EUDFunc
-def f_main(cp, location, heroID):
+def f_main(cp):
     # (Line 7) if (f.delay[cp] == 0)
     if EUDIf()(f.delay[cp] == 0):
         # (Line 8) {
@@ -143,8 +143,8 @@ def f_main(cp, location, heroID):
             # (Line 11) if (f.loop[cp] < 4)
             if EUDIf()(f.loop[cp] >= 4, neg=True):
                 # (Line 12) {
-                # (Line 14) f.NxNSquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 2 * f.loop[cp] + 1, 50);
-                f.NxNSquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 2 * f.loop[cp] + 1, 50)
+                # (Line 14) f.NxNSquareShape(cp, 1, "40 + 1n Wraith", 2 * f.loop[cp] + 1, 50);
+                f.NxNSquareShape(cp, 1, "40 + 1n Wraith", 2 * f.loop[cp] + 1, 50)
                 # (Line 15) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
                 # (Line 17) f.SkillWait(cp, 80);
                 DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp))
@@ -155,8 +155,8 @@ def f_main(cp, location, heroID):
                 # (Line 21) else if (f.loop[cp] == 4)
             if EUDElseIf()(f.loop[cp] == 4):
                 # (Line 22) {
-                # (Line 23) f.NxNSquareShape(heroID, 1, "40 + 1n Guardian", location, cp, 6, 75);
-                f.NxNSquareShape(heroID, 1, "40 + 1n Guardian", location, cp, 6, 75)
+                # (Line 23) f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 6, 75);
+                f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 6, 75)
                 # (Line 24) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
                 # (Line 26) f.SkillWait(cp, 80);
                 DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp))
@@ -167,43 +167,43 @@ def f_main(cp, location, heroID):
                 # (Line 30) else if (f.loop[cp] == 5)
             if EUDElseIf()(f.loop[cp] == 5):
                 # (Line 31) {
-                # (Line 32) f.SquareShape(heroID, 1, "60 + 1n Siege", location, cp, 114, 114);
-                f.SquareShape(heroID, 1, "60 + 1n Siege", location, cp, 114, 114)
-                # (Line 33) f.SquareShape(heroID, 1, "60 + 1n Siege", location, cp, 114, 190);
-                f.SquareShape(heroID, 1, "60 + 1n Siege", location, cp, 114, 190)
-                # (Line 34) f.SquareShape(heroID, 1, "60 + 1n Siege", location, cp, 190, 114);
-                f.SquareShape(heroID, 1, "60 + 1n Siege", location, cp, 190, 114)
-                # (Line 35) f.SquareShape(heroID, 1, "60 + 1n Siege", location, cp, 190, 190);
-                f.SquareShape(heroID, 1, "60 + 1n Siege", location, cp, 190, 190)
-                # (Line 36) f.SquareShape(heroID, 1, "60 + 1n Siege", location, cp, 38, 114);
-                f.SquareShape(heroID, 1, "60 + 1n Siege", location, cp, 38, 114)
-                # (Line 37) f.SquareShape(heroID, 1, "60 + 1n Siege", location, cp, 38, 175);
-                f.SquareShape(heroID, 1, "60 + 1n Siege", location, cp, 38, 175)
-                # (Line 38) f.SquareShape(heroID, 1, "60 + 1n Siege", location, cp, 114, 38);
-                f.SquareShape(heroID, 1, "60 + 1n Siege", location, cp, 114, 38)
-                # (Line 39) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 175, 38);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 175, 38)
-                # (Line 40) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 114, 114);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 114, 114)
-                # (Line 41) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 114, 190);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 114, 190)
-                # (Line 42) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 190, 114);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 190, 114)
-                # (Line 43) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 190, 190);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 190, 190)
-                # (Line 44) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 38, 114);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 38, 114)
-                # (Line 45) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 38, 175);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 38, 175)
-                # (Line 46) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 114, 38);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 114, 38)
-                # (Line 47) f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 175, 38);
-                f.SquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 175, 38)
-                # (Line 48) MoveLocation(location, heroID, cp, "Anywhere");
-                # (Line 49) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, location);
-                DoActions(MoveLocation(location, heroID, cp, "Anywhere"))
+                # (Line 32) f.SquareShape(cp, 1, "60 + 1n Siege", 114, 114);
+                f.SquareShape(cp, 1, "60 + 1n Siege", 114, 114)
+                # (Line 33) f.SquareShape(cp, 1, "60 + 1n Siege", 114, 190);
+                f.SquareShape(cp, 1, "60 + 1n Siege", 114, 190)
+                # (Line 34) f.SquareShape(cp, 1, "60 + 1n Siege", 190, 114);
+                f.SquareShape(cp, 1, "60 + 1n Siege", 190, 114)
+                # (Line 35) f.SquareShape(cp, 1, "60 + 1n Siege", 190, 190);
+                f.SquareShape(cp, 1, "60 + 1n Siege", 190, 190)
+                # (Line 36) f.SquareShape(cp, 1, "60 + 1n Siege", 38, 114);
+                f.SquareShape(cp, 1, "60 + 1n Siege", 38, 114)
+                # (Line 37) f.SquareShape(cp, 1, "60 + 1n Siege", 38, 175);
+                f.SquareShape(cp, 1, "60 + 1n Siege", 38, 175)
+                # (Line 38) f.SquareShape(cp, 1, "60 + 1n Siege", 114, 38);
+                f.SquareShape(cp, 1, "60 + 1n Siege", 114, 38)
+                # (Line 39) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 175, 38);
+                f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 175, 38)
+                # (Line 40) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 114, 114);
+                f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 114, 114)
+                # (Line 41) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 114, 190);
+                f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 114, 190)
+                # (Line 42) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 190, 114);
+                f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 190, 114)
+                # (Line 43) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 190, 190);
+                f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 190, 190)
+                # (Line 44) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 38, 114);
+                f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 38, 114)
+                # (Line 45) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 38, 175);
+                f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 38, 175)
+                # (Line 46) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 114, 38);
+                f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 114, 38)
+                # (Line 47) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 175, 38);
+                f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 175, 38)
+                # (Line 48) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 49) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
+                DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
                 # (Line 50) f.SkillWait(cp, 720);
-                DoActions(Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, location))
+                DoActions(Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]))
                 f.SkillWait(cp, 720)
                 # (Line 52) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
@@ -218,10 +218,10 @@ def f_main(cp, location, heroID):
             # (Line 59) if (f.loop[cp] == 0)
             if EUDIf()(f.loop[cp] == 0):
                 # (Line 60) {
-                # (Line 61) f.NxNSquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 3, 50);
-                f.NxNSquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 3, 50)
-                # (Line 62) f.NxNSquareShape(heroID, 1, "40 + 1n Goliath", location, cp, 3, 50);
-                f.NxNSquareShape(heroID, 1, "40 + 1n Goliath", location, cp, 3, 50)
+                # (Line 61) f.NxNSquareShape(cp, 1, "Kakaru (Twilight)", 3, 50);
+                f.NxNSquareShape(cp, 1, "Kakaru (Twilight)", 3, 50)
+                # (Line 62) f.NxNSquareShape(cp, 1, "40 + 1n Goliath", 3, 50);
+                f.NxNSquareShape(cp, 1, "40 + 1n Goliath", 3, 50)
                 # (Line 63) Order("40 + 1n Goliath", cp, "Anywhere", Attack, "Anywhere");
                 # (Line 64) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
                 DoActions(Order("40 + 1n Goliath", cp, "Anywhere", Attack, "Anywhere"))
@@ -236,61 +236,61 @@ def f_main(cp, location, heroID):
             if EUDIf()(f.loop[cp] == 1):
                 # (Line 73) {
                 # (Line 74) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
-                # (Line 76) f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 100, 0);
+                # (Line 76) f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 0);
                 DoActions(KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp))
-                f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 100, 0)
-                # (Line 77) f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 100, 50);
-                f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 100, 50)
-                # (Line 78) f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 100, 100);
-                f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 100, 100)
-                # (Line 79) f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 100, 150);
-                f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 100, 150)
-                # (Line 80) f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 100, 200);
-                f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 100, 200)
-                # (Line 81) f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 150, 0);
-                f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 150, 0)
-                # (Line 82) f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 150, 50);
-                f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 150, 50)
-                # (Line 83) f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 150, 100);
-                f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 150, 100)
-                # (Line 84) f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 150, 150);
-                f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 150, 150)
-                # (Line 85) f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 150, 200);
-                f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 150, 200)
-                # (Line 86) f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 200, 0);
-                f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 200, 0)
-                # (Line 87) f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 200, 50);
-                f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 200, 50)
-                # (Line 88) f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 200, 100);
-                f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 200, 100)
-                # (Line 89) f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 200, 150);
-                f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 200, 150)
-                # (Line 90) f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 200, 200);
-                f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 200, 200)
-                # (Line 91) f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 50, 100);
-                f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 50, 100)
-                # (Line 92) f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 50, 150);
-                f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 50, 150)
-                # (Line 93) f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 50, 200);
-                f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 50, 200)
-                # (Line 94) f.SquareShape(heroID, 1, "40 + 1n Goliath", location, cp, 175, 38);
-                f.SquareShape(heroID, 1, "40 + 1n Goliath", location, cp, 175, 38)
-                # (Line 95) f.SquareShape(heroID, 1, "40 + 1n Goliath", location, cp, 114, 114);
-                f.SquareShape(heroID, 1, "40 + 1n Goliath", location, cp, 114, 114)
-                # (Line 96) f.SquareShape(heroID, 1, "40 + 1n Goliath", location, cp, 114, 190);
-                f.SquareShape(heroID, 1, "40 + 1n Goliath", location, cp, 114, 190)
-                # (Line 97) f.SquareShape(heroID, 1, "40 + 1n Goliath", location, cp, 190, 114);
-                f.SquareShape(heroID, 1, "40 + 1n Goliath", location, cp, 190, 114)
-                # (Line 98) f.SquareShape(heroID, 1, "40 + 1n Goliath", location, cp, 190, 190);
-                f.SquareShape(heroID, 1, "40 + 1n Goliath", location, cp, 190, 190)
-                # (Line 99) f.SquareShape(heroID, 1, "40 + 1n Goliath", location, cp, 38, 114);
-                f.SquareShape(heroID, 1, "40 + 1n Goliath", location, cp, 38, 114)
-                # (Line 100) f.SquareShape(heroID, 1, "40 + 1n Goliath", location, cp, 38, 175);
-                f.SquareShape(heroID, 1, "40 + 1n Goliath", location, cp, 38, 175)
-                # (Line 101) f.SquareShape(heroID, 1, "40 + 1n Goliath", location, cp, 114, 38);
-                f.SquareShape(heroID, 1, "40 + 1n Goliath", location, cp, 114, 38)
-                # (Line 102) f.SquareShape(heroID, 1, "40 + 1n Goliath", location, cp, 175, 38);
-                f.SquareShape(heroID, 1, "40 + 1n Goliath", location, cp, 175, 38)
+                f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 0)
+                # (Line 77) f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 50);
+                f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 50)
+                # (Line 78) f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 100);
+                f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 100)
+                # (Line 79) f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 150);
+                f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 150)
+                # (Line 80) f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 200);
+                f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 200)
+                # (Line 81) f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 0);
+                f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 0)
+                # (Line 82) f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 50);
+                f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 50)
+                # (Line 83) f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 100);
+                f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 100)
+                # (Line 84) f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 150);
+                f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 150)
+                # (Line 85) f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 200);
+                f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 200)
+                # (Line 86) f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 0);
+                f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 0)
+                # (Line 87) f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 50);
+                f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 50)
+                # (Line 88) f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 100);
+                f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 100)
+                # (Line 89) f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 150);
+                f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 150)
+                # (Line 90) f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 200);
+                f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 200)
+                # (Line 91) f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 100);
+                f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 100)
+                # (Line 92) f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 150);
+                f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 150)
+                # (Line 93) f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 200);
+                f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 200)
+                # (Line 94) f.SquareShape(cp, 1, "40 + 1n Goliath", 175, 38);
+                f.SquareShape(cp, 1, "40 + 1n Goliath", 175, 38)
+                # (Line 95) f.SquareShape(cp, 1, "40 + 1n Goliath", 114, 114);
+                f.SquareShape(cp, 1, "40 + 1n Goliath", 114, 114)
+                # (Line 96) f.SquareShape(cp, 1, "40 + 1n Goliath", 114, 190);
+                f.SquareShape(cp, 1, "40 + 1n Goliath", 114, 190)
+                # (Line 97) f.SquareShape(cp, 1, "40 + 1n Goliath", 190, 114);
+                f.SquareShape(cp, 1, "40 + 1n Goliath", 190, 114)
+                # (Line 98) f.SquareShape(cp, 1, "40 + 1n Goliath", 190, 190);
+                f.SquareShape(cp, 1, "40 + 1n Goliath", 190, 190)
+                # (Line 99) f.SquareShape(cp, 1, "40 + 1n Goliath", 38, 114);
+                f.SquareShape(cp, 1, "40 + 1n Goliath", 38, 114)
+                # (Line 100) f.SquareShape(cp, 1, "40 + 1n Goliath", 38, 175);
+                f.SquareShape(cp, 1, "40 + 1n Goliath", 38, 175)
+                # (Line 101) f.SquareShape(cp, 1, "40 + 1n Goliath", 114, 38);
+                f.SquareShape(cp, 1, "40 + 1n Goliath", 114, 38)
+                # (Line 102) f.SquareShape(cp, 1, "40 + 1n Goliath", 175, 38);
+                f.SquareShape(cp, 1, "40 + 1n Goliath", 175, 38)
                 # (Line 103) Order("40 + 1n Goliath", cp, "Anywhere", Attack, "Anywhere");
                 # (Line 104) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
                 DoActions(Order("40 + 1n Goliath", cp, "Anywhere", Attack, "Anywhere"))

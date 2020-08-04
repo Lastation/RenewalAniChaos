@@ -130,10 +130,10 @@ def _LSH(l, r):
 import Function as f
 # (Line 3) const s = StringBuffer();
 s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 5) function main(cp, location, heroID)
+# (Line 5) function main(cp)
 # (Line 6) {
 @EUDFunc
-def f_main(cp, location, heroID):
+def f_main(cp):
     # (Line 7) if (f.delay[cp] == 0)
     if EUDIf()(f.delay[cp] == 0):
         # (Line 8) {
@@ -148,23 +148,23 @@ def f_main(cp, location, heroID):
             f.Table_Cos(cp, 45 * f.loop[cp], f.distance[cp])
             # (Line 16) f.Table_Sin(cp, 45 * f.loop[cp], f.distance[cp]);
             f.Table_Sin(cp, 45 * f.loop[cp], f.distance[cp])
-            # (Line 18) f.SquareShape(heroID, 1, "Protoss Dark Templar", location, cp, f.CosAngle[cp], f.SinAngle[cp]);
-            f.SquareShape(heroID, 1, "Protoss Dark Templar", location, cp, f.CosAngle[cp], f.SinAngle[cp])
-            # (Line 19) f.MoveLoc(heroID, location, cp, f.CosAngle[cp], f.SinAngle[cp]);
-            f.MoveLoc(heroID, location, cp, f.CosAngle[cp], f.SinAngle[cp])
-            # (Line 20) f.SkillUnit(1, "40 + 1n Mojo", location, cp);
-            f.SkillUnit(1, "40 + 1n Mojo", location, cp)
-            # (Line 21) f.MoveLoc(heroID, location, cp, -f.CosAngle[cp], -f.SinAngle[cp]);
-            f.MoveLoc(heroID, location, cp, -f.CosAngle[cp], -f.SinAngle[cp])
-            # (Line 22) f.SkillUnit(1, "40 + 1n Mojo", location, cp);
-            f.SkillUnit(1, "40 + 1n Mojo", location, cp)
+            # (Line 18) f.SquareShape(cp, 1, "Protoss Dark Templar", f.CosAngle[cp], f.SinAngle[cp]);
+            f.SquareShape(cp, 1, "Protoss Dark Templar", f.CosAngle[cp], f.SinAngle[cp])
+            # (Line 19) f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
+            f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp])
+            # (Line 20) f.SkillUnit(cp, 1, "40 + 1n Mojo");
+            f.SkillUnit(cp, 1, "40 + 1n Mojo")
+            # (Line 21) f.MoveLoc(f.heroID[cp], cp, -f.CosAngle[cp], -f.SinAngle[cp]);
+            f.MoveLoc(f.heroID[cp], cp, -f.CosAngle[cp], -f.SinAngle[cp])
+            # (Line 22) f.SkillUnit(cp, 1, "40 + 1n Mojo");
+            f.SkillUnit(cp, 1, "40 + 1n Mojo")
             # (Line 24) KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp);
-            # (Line 25) MoveLocation(location, heroID, cp, "Anywhere");
+            # (Line 25) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             DoActions(KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp))
-            # (Line 26) Order("40 + 1n Mojo", cp, "Anywhere", Attack, location);
-            DoActions(MoveLocation(location, heroID, cp, "Anywhere"))
+            # (Line 26) Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+            DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
             # (Line 28) f.SkillWait(cp, 50);
-            DoActions(Order("40 + 1n Mojo", cp, "Anywhere", Attack, location))
+            DoActions(Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]))
             f.SkillWait(cp, 50)
             # (Line 29) f.loop[cp] += 1;
             _ARRW(f.loop, cp).__iadd__(1)
@@ -178,14 +178,14 @@ def f_main(cp, location, heroID):
             f.Table_Cos(cp, 0, f.distance[cp])
             # (Line 36) f.Table_Sin(cp, 0, f.distance[cp]);
             f.Table_Sin(cp, 0, f.distance[cp])
-            # (Line 38) f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, f.CosAngle[cp], f.SinAngle[cp]);
-            f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, f.CosAngle[cp], f.SinAngle[cp])
+            # (Line 38) f.SquareShape(cp, 1, "Kakaru (Twilight)", f.CosAngle[cp], f.SinAngle[cp]);
+            f.SquareShape(cp, 1, "Kakaru (Twilight)", f.CosAngle[cp], f.SinAngle[cp])
             # (Line 40) f.Table_Cos(cp, 45, f.distance[cp]);
             f.Table_Cos(cp, 45, f.distance[cp])
             # (Line 41) f.Table_Sin(cp, 45, f.distance[cp]);
             f.Table_Sin(cp, 45, f.distance[cp])
-            # (Line 43) f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, f.CosAngle[cp], f.SinAngle[cp]);
-            f.SquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, f.CosAngle[cp], f.SinAngle[cp])
+            # (Line 43) f.SquareShape(cp, 1, "Kakaru (Twilight)", f.CosAngle[cp], f.SinAngle[cp]);
+            f.SquareShape(cp, 1, "Kakaru (Twilight)", f.CosAngle[cp], f.SinAngle[cp])
             # (Line 45) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
             # (Line 47) f.SkillWait(cp, 50);
             DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp))
@@ -202,14 +202,14 @@ def f_main(cp, location, heroID):
             f.Table_Cos(cp, 0, f.distance[cp])
             # (Line 55) f.Table_Sin(cp, 0, f.distance[cp]);
             f.Table_Sin(cp, 0, f.distance[cp])
-            # (Line 57) f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, f.CosAngle[cp], f.SinAngle[cp]);
-            f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, f.CosAngle[cp], f.SinAngle[cp])
+            # (Line 57) f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp]);
+            f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp])
             # (Line 59) f.Table_Cos(cp, 45, f.distance[cp]);
             f.Table_Cos(cp, 45, f.distance[cp])
             # (Line 60) f.Table_Sin(cp, 45, f.distance[cp]);
             f.Table_Sin(cp, 45, f.distance[cp])
-            # (Line 62) f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, f.CosAngle[cp], f.SinAngle[cp]);
-            f.SquareShape(heroID, 1, "40 + 1n Guardian", location, cp, f.CosAngle[cp], f.SinAngle[cp])
+            # (Line 62) f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp]);
+            f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp])
             # (Line 64) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
             # (Line 66) f.SkillWait(cp, 50);
             DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp))
@@ -226,19 +226,19 @@ def f_main(cp, location, heroID):
             f.Table_Cos(cp, 0, f.distance[cp])
             # (Line 73) f.Table_Sin(cp, 0, f.distance[cp]);
             f.Table_Sin(cp, 0, f.distance[cp])
-            # (Line 75) f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, f.CosAngle[cp], f.SinAngle[cp]);
-            f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, f.CosAngle[cp], f.SinAngle[cp])
+            # (Line 75) f.SquareShape(cp, 1, "40 + 1n Mojo", f.CosAngle[cp], f.SinAngle[cp]);
+            f.SquareShape(cp, 1, "40 + 1n Mojo", f.CosAngle[cp], f.SinAngle[cp])
             # (Line 77) f.Table_Cos(cp, 45, f.distance[cp]);
             f.Table_Cos(cp, 45, f.distance[cp])
             # (Line 78) f.Table_Sin(cp, 45, f.distance[cp]);
             f.Table_Sin(cp, 45, f.distance[cp])
-            # (Line 80) f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, f.CosAngle[cp], f.SinAngle[cp]);
-            f.SquareShape(heroID, 1, "40 + 1n Mojo", location, cp, f.CosAngle[cp], f.SinAngle[cp])
-            # (Line 82) MoveLocation(location, heroID, cp, "Anywhere");
-            # (Line 83) Order("40 + 1n Mojo", cp, "Anywhere", Attack, location);
-            DoActions(MoveLocation(location, heroID, cp, "Anywhere"))
+            # (Line 80) f.SquareShape(cp, 1, "40 + 1n Mojo", f.CosAngle[cp], f.SinAngle[cp]);
+            f.SquareShape(cp, 1, "40 + 1n Mojo", f.CosAngle[cp], f.SinAngle[cp])
+            # (Line 82) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            # (Line 83) Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+            DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
             # (Line 85) f.SkillWait(cp, 50);
-            DoActions(Order("40 + 1n Mojo", cp, "Anywhere", Attack, location))
+            DoActions(Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]))
             f.SkillWait(cp, 50)
             # (Line 86) f.loop[cp] += 1;
             _ARRW(f.loop, cp).__iadd__(1)

@@ -130,10 +130,10 @@ def _LSH(l, r):
 import Function as f
 # (Line 3) const s = StringBuffer();
 s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 5) function main(cp, location, heroID)
+# (Line 5) function main(cp)
 # (Line 6) {
 @EUDFunc
-def f_main(cp, location, heroID):
+def f_main(cp):
     # (Line 7) if (f.delay[cp] == 0)
     if EUDIf()(f.delay[cp] == 0):
         # (Line 8) {
@@ -144,9 +144,9 @@ def f_main(cp, location, heroID):
             if EUDIf()(f.loop[cp] >= 2, neg=True):
                 # (Line 12) {
                 # (Line 13) RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-                # (Line 15) f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 3, 75);
+                # (Line 15) f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75);
                 DoActions(RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
-                f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 3, 75)
+                f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75)
                 # (Line 16) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere");
                 # (Line 18) f.SkillWait(cp, 80);
                 DoActions(Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere"))
@@ -158,9 +158,9 @@ def f_main(cp, location, heroID):
             if EUDElseIf()(f.loop[cp] == 2):
                 # (Line 22) {
                 # (Line 23) RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-                # (Line 25) f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 3, 75);
+                # (Line 25) f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75);
                 DoActions(RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
-                f.NxNSquareShape(heroID, 1, "50 + 1n Battlecruiser", location, cp, 3, 75)
+                f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75)
                 # (Line 26) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere");
                 # (Line 28) f.SkillWait(cp, 160);
                 DoActions(Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere"))
@@ -172,11 +172,11 @@ def f_main(cp, location, heroID):
             if EUDElseIf()(f.loop[cp] == 3):
                 # (Line 32) {
                 # (Line 33) RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-                # (Line 35) f.NxNSquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 3, 75);
+                # (Line 35) f.NxNSquareShape(cp, 1, "40 + 1n Wraith", 3, 75);
                 DoActions(RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
-                f.NxNSquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 3, 75)
-                # (Line 36) f.NxNSquareShape(heroID, 1, "50 + 1n Tank", location, cp, 3, 75);
-                f.NxNSquareShape(heroID, 1, "50 + 1n Tank", location, cp, 3, 75)
+                f.NxNSquareShape(cp, 1, "40 + 1n Wraith", 3, 75)
+                # (Line 36) f.NxNSquareShape(cp, 1, "50 + 1n Tank", 3, 75);
+                f.NxNSquareShape(cp, 1, "50 + 1n Tank", 3, 75)
                 # (Line 37) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
                 # (Line 38) KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
                 DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp))
@@ -189,8 +189,8 @@ def f_main(cp, location, heroID):
                 # (Line 44) else if (f.loop[cp] == 4)
             if EUDElseIf()(f.loop[cp] == 4):
                 # (Line 45) {
-                # (Line 46) f.NxNSquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 5, 75);
-                f.NxNSquareShape(heroID, 1, "40 + 1n Wraith", location, cp, 5, 75)
+                # (Line 46) f.NxNSquareShape(cp, 1, "40 + 1n Wraith", 5, 75);
+                f.NxNSquareShape(cp, 1, "40 + 1n Wraith", 5, 75)
                 # (Line 47) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
                 # (Line 49) f.SkillWait(cp, 80);
                 DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp))
@@ -201,8 +201,8 @@ def f_main(cp, location, heroID):
                 # (Line 53) else if (f.loop[cp] == 5)
             if EUDElseIf()(f.loop[cp] == 5):
                 # (Line 54) {
-                # (Line 55) f.NxNSquareShape(heroID, 1, "40 + 1n Guardian", location, cp, 5, 75);
-                f.NxNSquareShape(heroID, 1, "40 + 1n Guardian", location, cp, 5, 75)
+                # (Line 55) f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 5, 75);
+                f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 5, 75)
                 # (Line 56) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
                 # (Line 58) f.SkillWait(cp, 160);
                 DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp))
@@ -220,8 +220,8 @@ def f_main(cp, location, heroID):
             # (Line 67) if (f.loop[cp] == 0)
             if EUDIf()(f.loop[cp] == 0):
                 # (Line 68) {
-                # (Line 69) f.NxNSquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 5, 75);
-                f.NxNSquareShape(heroID, 1, "Kakaru (Twilight)", location, cp, 5, 75)
+                # (Line 69) f.NxNSquareShape(cp, 1, "Kakaru (Twilight)", 5, 75);
+                f.NxNSquareShape(cp, 1, "Kakaru (Twilight)", 5, 75)
                 # (Line 70) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
                 # (Line 72) f.SkillWait(cp, 80);
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp))
@@ -233,8 +233,8 @@ def f_main(cp, location, heroID):
             EUDEndIf()
             if EUDIf()(f.loop[cp] == 1):
                 # (Line 79) {
-                # (Line 80) f.NxNSquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 5, 75);
-                f.NxNSquareShape(heroID, 1, " Unit. Hoffnung 25000", location, cp, 5, 75)
+                # (Line 80) f.NxNSquareShape(cp, 1, " Unit. Hoffnung 25000", 5, 75);
+                f.NxNSquareShape(cp, 1, " Unit. Hoffnung 25000", 5, 75)
                 # (Line 81) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
                 # (Line 83) f.SkillWait(cp, 80);
                 DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
