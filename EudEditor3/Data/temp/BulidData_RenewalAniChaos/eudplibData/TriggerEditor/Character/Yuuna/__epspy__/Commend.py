@@ -145,18 +145,16 @@ def f_main(cp):
             # (Line 12) KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", cp);
             # (Line 13) }
             DoActions(KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", cp))
-            # (Line 14) if (Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))
-        EUDEndIf()
-        if EUDIf()(Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill")):
+            # (Line 14) else if (Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))
+        if EUDElseIf()(Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill")):
             # (Line 15) {
             # (Line 16) f.step[cp] = 200;
             _ARRW(f.step, cp) << (200)
             # (Line 17) KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp);
             # (Line 18) }
             DoActions(KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp))
-            # (Line 19) if (Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))
-        EUDEndIf()
-        if EUDIf()(Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill")):
+            # (Line 19) else if (Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))
+        if EUDElseIf()(Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill")):
             # (Line 20) {
             # (Line 21) f.step[cp] = 300;
             _ARRW(f.step, cp) << (300)

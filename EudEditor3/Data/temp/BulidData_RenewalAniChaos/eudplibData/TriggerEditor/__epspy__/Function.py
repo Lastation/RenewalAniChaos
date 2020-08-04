@@ -277,20 +277,20 @@ def SquareShape(cp, count_1, Unit, x, y):
 # (Line 92) {
 @EUDTypedFunc([TrgPlayer, None, TrgUnit, None, None, None, None])
 def SquareShapeAt(cp, count_1, Unit, x, y, distanceX, distanceY):
-    # (Line 93) MoveLoc(cp, x + distanceX, y + distanceY);
-    MoveLoc(cp, x + distanceX, y + distanceY)
+    # (Line 93) MoveLoc(heroID[cp], cp, x + distanceX, y + distanceY);
+    MoveLoc(heroID[cp], cp, x + distanceX, y + distanceY)
     # (Line 94) SkillUnit(cp, count, Unit);
     SkillUnit(cp, count_1, Unit)
-    # (Line 95) MoveLoc(cp, -y + distanceY, x + distanceX);
-    MoveLoc(cp, -y + distanceY, x + distanceX)
+    # (Line 95) MoveLoc(heroID[cp], cp, -y + distanceY, x + distanceX);
+    MoveLoc(heroID[cp], cp, -y + distanceY, x + distanceX)
     # (Line 96) SkillUnit(cp, count, Unit);
     SkillUnit(cp, count_1, Unit)
-    # (Line 97) MoveLoc(cp, -x + distanceX, -y + distanceY);
-    MoveLoc(cp, -x + distanceX, -y + distanceY)
+    # (Line 97) MoveLoc(heroID[cp], cp, -x + distanceX, -y + distanceY);
+    MoveLoc(heroID[cp], cp, -x + distanceX, -y + distanceY)
     # (Line 98) SkillUnit(cp, count, Unit);
     SkillUnit(cp, count_1, Unit)
-    # (Line 99) MoveLoc(cp, y + distanceY, -x + distanceX);
-    MoveLoc(cp, y + distanceY, -x + distanceX)
+    # (Line 99) MoveLoc(heroID[cp], cp, y + distanceY, -x + distanceX);
+    MoveLoc(heroID[cp], cp, y + distanceY, -x + distanceX)
     # (Line 100) SkillUnit(cp, count, Unit);
     SkillUnit(cp, count_1, Unit)
     # (Line 101) }
@@ -318,8 +318,8 @@ def NxNSquareShape(cp, count_1, Unit, n, interval):
         # (Line 112) if (n == 1)
         if EUDIf()(n == 1):
             # (Line 113) {
-            # (Line 114) MoveLoc(Unit ,cp, 0, 0);
-            MoveLoc(Unit, cp, 0, 0)
+            # (Line 114) MoveLoc(heroID[cp] ,cp, 0, 0);
+            MoveLoc(heroID[cp], cp, 0, 0)
             # (Line 115) SkillUnit(cp, count, Unit);
             SkillUnit(cp, count_1, Unit)
             # (Line 116) }
@@ -416,8 +416,8 @@ def NxNSquareShapeAt(cp, count_1, Unit, n, interval, distanceX, distanceY):
         # (Line 171) if (n == 1)
         if EUDIf()(n == 1):
             # (Line 172) {
-            # (Line 173) MoveLoc(Unit ,cp, distanceX, distanceY);
-            MoveLoc(Unit, cp, distanceX, distanceY)
+            # (Line 173) MoveLoc(heroID[cp] ,cp, distanceX, distanceY);
+            MoveLoc(heroID[cp], cp, distanceX, distanceY)
             # (Line 174) SkillUnit(cp, count, Unit);
             SkillUnit(cp, count_1, Unit)
             # (Line 175) }
@@ -431,20 +431,20 @@ def NxNSquareShapeAt(cp, count_1, Unit, n, interval, distanceX, distanceY):
             # (Line 181) if (destX == 1)
             if EUDIf()(destX == 1):
                 # (Line 182) {
-                # (Line 183) SquareShape(cp, count, Unit, distance + distanceX, destY * interval - distance + distanceY);
-                SquareShape(cp, count_1, Unit, distance_1 + distanceX, destY * interval - distance_1 + distanceY)
+                # (Line 183) SquareShapeAt(cp, count, Unit, distance, destY * interval - distance, distanceX, distanceY);
+                SquareShapeAt(cp, count_1, Unit, distance_1, destY * interval - distance_1, distanceX, distanceY)
                 # (Line 184) }
                 # (Line 185) else if (destY == 1)
             if EUDElseIf()(destY == 1):
                 # (Line 186) {
-                # (Line 187) SquareShape(cp, count, Unit, destX * interval - distance + distanceX, distance + distanceY);
-                SquareShape(cp, count_1, Unit, destX * interval - distance_1 + distanceX, distance_1 + distanceY)
+                # (Line 187) SquareShapeAt(cp, count, Unit, destX * interval - distance, distance, distanceX, distanceY);
+                SquareShapeAt(cp, count_1, Unit, destX * interval - distance_1, distance_1, distanceX, distanceY)
                 # (Line 188) }
                 # (Line 189) else
                 # (Line 190) {
             if EUDElse()():
-                # (Line 191) SquareShape(cp, count, Unit, destX * interval - distance + distanceX, destY * interval - distance + distanceY);
-                SquareShape(cp, count_1, Unit, destX * interval - distance_1 + distanceX, destY * interval - distance_1 + distanceY)
+                # (Line 191) SquareShapeAt(cp, count, Unit, destX * interval - distance, destY * interval - distance, distanceX, distanceY);
+                SquareShapeAt(cp, count_1, Unit, destX * interval - distance_1, destY * interval - distance_1, distanceX, distanceY)
                 # (Line 192) }
                 # (Line 193) }
             EUDEndIf()
@@ -458,29 +458,29 @@ def NxNSquareShapeAt(cp, count_1, Unit, n, interval, distanceX, distanceY):
             # (Line 199) if (i == 0)
             if EUDIf()(i == 0):
                 # (Line 200) {
-                # (Line 201) MoveLoc(Unit ,cp, distanceX, distanceY);
-                MoveLoc(Unit, cp, distanceX, distanceY)
+                # (Line 201) MoveLoc(heroID[cp] ,cp, distanceX, distanceY);
+                MoveLoc(heroID[cp], cp, distanceX, distanceY)
                 # (Line 202) SkillUnit(cp, count, Unit);
                 SkillUnit(cp, count_1, Unit)
                 # (Line 203) }
                 # (Line 204) else if (destY == 0)
             if EUDElseIf()(destY == 0):
                 # (Line 205) {
-                # (Line 206) SquareShape(cp, count, Unit, destX * interval + distanceX, distanceY);
-                SquareShape(cp, count_1, Unit, destX * interval + distanceX, distanceY)
+                # (Line 206) SquareShapeAt(cp, count, Unit, destX * interval, 0, distanceX, distanceY);
+                SquareShapeAt(cp, count_1, Unit, destX * interval, 0, distanceX, distanceY)
                 # (Line 207) }
                 # (Line 208) else
                 # (Line 209) {
             if EUDElse()():
-                # (Line 210) SquareShape(cp, count, Unit, destX * interval + interval + distanceX, destY * interval + distanceY);
-                SquareShape(cp, count_1, Unit, destX * interval + interval + distanceX, destY * interval + distanceY)
+                # (Line 210) SquareShapeAt(cp, count, Unit, destX * interval + interval, destY * interval, distanceX, distanceY);
+                SquareShapeAt(cp, count_1, Unit, destX * interval + interval, destY * interval, distanceX, distanceY)
                 # (Line 211) }
                 # (Line 213) if (i == size / 4 - 1)
             EUDEndIf()
             if EUDIf()(i == size // 4 - 1):
                 # (Line 214) {
-                # (Line 215) SquareShape(cp, count, Unit, (n / 2) * interval + distanceX, distanceY);
-                SquareShape(cp, count_1, Unit, (n // 2) * interval + distanceX, distanceY)
+                # (Line 215) SquareShapeAt(cp, count, Unit, (n / 2) * interval, 0, distanceX, distanceY);
+                SquareShapeAt(cp, count_1, Unit, (n // 2) * interval, 0, distanceX, distanceY)
                 # (Line 216) }
                 # (Line 217) }
             EUDEndIf()

@@ -90,13 +90,13 @@ function SquareShape(cp : TrgPlayer, count, Unit : TrgUnit, x, y)
 
 function SquareShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, x, y, distanceX, distanceY)
 {
-	MoveLoc(cp, x + distanceX, y + distanceY);
+	MoveLoc(heroID[cp], cp, x + distanceX, y + distanceY);
 	SkillUnit(cp, count, Unit);
-	MoveLoc(cp, -y + distanceY, x + distanceX);
+	MoveLoc(heroID[cp], cp, -y + distanceY, x + distanceX);
 	SkillUnit(cp, count, Unit);
-	MoveLoc(cp, -x + distanceX, -y + distanceY);
+	MoveLoc(heroID[cp], cp, -x + distanceX, -y + distanceY);
 	SkillUnit(cp, count, Unit);
-	MoveLoc(cp, y + distanceY, -x + distanceX);
+	MoveLoc(heroID[cp], cp, y + distanceY, -x + distanceX);
 	SkillUnit(cp, count, Unit);
 }
 
@@ -111,7 +111,7 @@ function NxNSquareShape(cp : TrgPlayer, count, Unit : TrgUnit, n, interval)
 	{
 		if (n == 1)
 		{
-			MoveLoc(Unit ,cp, 0, 0);
+			MoveLoc(heroID[cp] ,cp, 0, 0);
 			SkillUnit(cp, count, Unit);
 		}
 		else if (n % 2 == 0)
@@ -170,7 +170,7 @@ function NxNSquareShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, n, interval, di
 	{
 		if (n == 1)
 		{
-			MoveLoc(Unit ,cp, distanceX, distanceY);
+			MoveLoc(heroID[cp] ,cp, distanceX, distanceY);
 			SkillUnit(cp, count, Unit);
 		}
 		else if (n % 2 == 0)
@@ -180,15 +180,15 @@ function NxNSquareShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, n, interval, di
 			
 			if (destX == 1)
 			{
-				SquareShape(cp, count, Unit, distance + distanceX, destY * interval - distance + distanceY);
+				SquareShapeAt(cp, count, Unit, distance, destY * interval - distance, distanceX, distanceY);
 			}
 			else if (destY == 1)
 			{
-				SquareShape(cp, count, Unit, destX * interval - distance + distanceX, distance + distanceY);
+				SquareShapeAt(cp, count, Unit, destX * interval - distance, distance, distanceX, distanceY);
 			}
 			else
 			{
-				SquareShape(cp, count, Unit, destX * interval - distance + distanceX, destY * interval - distance + distanceY);
+				SquareShapeAt(cp, count, Unit, destX * interval - distance, destY * interval - distance, distanceX, distanceY);
 			}
 		}
 		else if (n % 2 == 1)
@@ -198,21 +198,21 @@ function NxNSquareShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, n, interval, di
 	
 			if (i == 0)
 			{
-				MoveLoc(Unit ,cp, distanceX, distanceY);
+				MoveLoc(heroID[cp] ,cp, distanceX, distanceY);
 				SkillUnit(cp, count, Unit);
 			}
 			else if (destY == 0)
 			{
-				SquareShape(cp, count, Unit, destX * interval + distanceX, distanceY);
+				SquareShapeAt(cp, count, Unit, destX * interval, 0, distanceX, distanceY);
 			}
 			else
 			{
-				SquareShape(cp, count, Unit, destX * interval + interval + distanceX, destY * interval + distanceY);
+				SquareShapeAt(cp, count, Unit, destX * interval + interval, destY * interval, distanceX, distanceY);
 			}
 			
 			if (i == size / 4 - 1)
 			{
-				SquareShape(cp, count, Unit, (n / 2) * interval + distanceX, distanceY);
+				SquareShapeAt(cp, count, Unit, (n / 2) * interval, 0, distanceX, distanceY);
 			}
 		}
 	}
