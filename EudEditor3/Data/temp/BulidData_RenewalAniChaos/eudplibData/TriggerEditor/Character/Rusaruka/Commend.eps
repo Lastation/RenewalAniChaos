@@ -30,7 +30,7 @@ function main(cp)
 		{
 			f.Voice_Routine(cp, 4);
 			f.wait[cp] = 0;
-			f.step[cp] = 150;
+			f.step[cp] = 110;
 			KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", cp);
 		}
 		if (Bring(cp, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") &&  f.step[cp] == 200)
@@ -51,7 +51,7 @@ function main(cp)
 		{
 			f.Voice_Routine(cp, 1);
 			f.wait[cp] = 0;
-			f.step[cp] = 110;
+			f.step[cp] = 310;
 			KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp);
 		}
 		

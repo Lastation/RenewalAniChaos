@@ -174,8 +174,8 @@ def f_main(cp):
             f.Voice_Routine(cp, 4)
             # (Line 32) f.wait[cp] = 0;
             _ARRW(f.wait, cp) << (0)
-            # (Line 33) f.step[cp] = 150;
-            _ARRW(f.step, cp) << (150)
+            # (Line 33) f.step[cp] = 110;
+            _ARRW(f.step, cp) << (110)
             # (Line 34) KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", cp);
             # (Line 35) }
             DoActions(KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", cp))
@@ -213,8 +213,8 @@ def f_main(cp):
             f.Voice_Routine(cp, 1)
             # (Line 53) f.wait[cp] = 0;
             _ARRW(f.wait, cp) << (0)
-            # (Line 54) f.step[cp] = 110;
-            _ARRW(f.step, cp) << (110)
+            # (Line 54) f.step[cp] = 310;
+            _ARRW(f.step, cp) << (310)
             # (Line 55) KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp);
             # (Line 56) }
             DoActions(KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp))

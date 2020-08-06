@@ -209,11 +209,16 @@ def SkillWait(cp):
 # (Line 53) {
 @EUDFunc
 def SkillDelay(cp):
-    # (Line 54) if (f.delay[cp] >= 1)
+    # (Line 54) if (f.delay[cp] >= 1) { f.delay[cp] -= 1; }
     if EUDIf()(f.delay[cp] >= 1):
-        # (Line 55) {
-        # (Line 56) f.delay[cp] -= 1;
         _ARRW(f.delay, cp).__isub__(1)
+        # (Line 55) if (f.delayB[cp] >= 1) { f.delayB[cp] -= 1; }
+    EUDEndIf()
+    if EUDIf()(f.delayB[cp] >= 1):
+        _ARRW(f.delayB, cp).__isub__(1)
+        # (Line 56) if (f.delayC[cp] >= 1) { f.delayC[cp] -= 1; }
+    EUDEndIf()
+    if EUDIf()(f.delayC[cp] >= 1):
+        _ARRW(f.delayC, cp).__isub__(1)
         # (Line 57) }
-        # (Line 58) }
     EUDEndIf()

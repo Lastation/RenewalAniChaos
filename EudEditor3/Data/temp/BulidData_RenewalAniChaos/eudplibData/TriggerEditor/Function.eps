@@ -4,9 +4,15 @@ import Variable as v;
 const step		= PVariable();			// SkillStep
 const count 		= PVariable();			// SkillCount	
 const loop 		= PVariable();			// SkillLoop
-const delay		= PVariable();			// wait(value);
+const delay		= PVariable();			// wait(value)
 const wait		= PVariable();			// SkillWait
-	
+
+
+const loopB 		= PVariable();			// SkillLoop2
+const loopC 	= PVariable();			// SkillLoop3
+const delayB	= PVariable();			// wait(value)2
+const delayC	= PVariable();			// wait(value)3
+
 const location 	= PVariable();			// 로케이션 번호
 const heroID 	= PVariable();			// 영웅 유닛 번호
 
@@ -69,6 +75,16 @@ function SkillUnit(cp : TrgPlayer, count, Unit : TrgUnit)
 function SkillWait(cp, count)
 {
 	delay[cp] = count/83 + 1;
+}
+
+function SkillWaitB(cp, count)
+{
+	delayB[cp] = count/83 + 1;
+}
+
+function SkillWaitC(cp, count)
+{
+	delayB[cp] = count/83 + 1;
 }
 
 function SkillEnd(cp)
@@ -250,6 +266,93 @@ function LineShape(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, d
 		SkillUnit(cp, count, Unit);
 	}
 	
+}
+
+
+function LineShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, distanceX, distanceY)
+{
+	var i = 0;
+	var distance = interval / 2;
+
+	Table_Sin(cp, degree, distance);
+	Table_Cos(cp, degree, distance);
+	
+	var gradientX = CosAngle[cp] / 2;
+	var gradientY = SinAngle[cp] / 2;
+	
+	var Angle_X, Angle_Y;
+	
+	Table_Sin(cp, degree, interval);
+	Table_Cos(cp, degree, interval);
+	
+	for (; i < n; i++)
+	{
+		Angle_X = CosAngle[cp] * i;
+		Angle_Y = SinAngle[cp] * i;
+		
+		if (n % 2 == 0 && i != n / 2)
+		{
+			MoveLoc(Unit, cp, -Angle_X - gradientX + distanceX, Angle_Y + gradientY + distanceY);
+			SkillUnit(cp, count, Unit);
+			MoveLoc(Unit, cp, Angle_X + gradientX + distanceX, -Angle_Y - gradientY + distanceY);
+			SkillUnit(cp, count, Unit);
+		}
+		else if (n % 2 == 1)
+		{
+			if (i == 0)
+			{
+				MoveLoc(Unit, cp, distanceX, distanceY);
+				SkillUnit(cp, count, Unit);
+			}
+			else
+			{
+				MoveLoc(Unit, cp, -Angle_X + distanceX, Angle_Y + distanceY);
+				SkillUnit(cp, count, Unit);
+				MoveLoc(Unit, cp, Angle_X + distanceX, -Angle_Y + distanceY);
+				SkillUnit(cp, count, Unit);
+			}
+		}
+	}
+	
+}
+
+function CrossShape(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval)
+{
+	var i = 0;
+	var distance = interval / 2;
+
+	Table_Sin(cp, degree, distance);
+	Table_Cos(cp, degree, distance);
+	
+	var gradientX = CosAngle[cp] / 2;
+	var gradientY = SinAngle[cp] / 2;
+	
+	var Angle_X, Angle_Y;
+	
+	Table_Sin(cp, degree, interval);
+	Table_Cos(cp, degree, interval);
+	
+	for (; i < n; i++)
+	{
+		Angle_X = CosAngle[cp] * i;
+		Angle_Y = SinAngle[cp] * i;
+		
+		if (n % 2 == 0 && i != n / 2)
+		{
+			SquareShape(cp, count, Unit, Angle_X + gradientX, Angle_Y + gradientY);
+		}
+		else if (n % 2 == 1)
+		{
+			if (i == 0)
+			{
+				MoveLoc(Unit, cp, 0, 0);
+			}
+			else
+			{
+				SquareShape(cp, count, Unit, Angle_X, Angle_Y);
+			}
+		}
+	}
 }
 
 function Table_Sin(cp, degree, distance)

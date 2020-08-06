@@ -1,0 +1,88 @@
+import Function as f;
+
+function main(cp)
+{	
+	if (f.delay[cp] == 0)
+	{
+		if(f.count[cp] == 0)
+		{
+			if (f.loop[cp] < 11)
+			{
+				f.Table_Cos(cp, 9 * f.loop[cp], 160);
+				f.Table_Sin(cp, 9 * f.loop[cp], 160);
+				
+				f.SquareShape(cp, 1, "Zerg Devourer", f.CosAngle[cp], f.SinAngle[cp]);
+				f.SquareShape(cp, 1,"40 + 1n Zergling", f.CosAngle[cp], f.SinAngle[cp]);
+				KillUnitAt(All, "40 + 1n Zergling", "Anywhere", cp);
+				MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+				Order("Zerg Devourer", cp, "Anywhere", Move, f.location[cp]);
+				f.SkillWait(cp, 0);
+				f.loop[cp] += 1;
+			}
+			else if (f.loop[cp] == 11)
+			{
+				KillUnitAt(All, "Zerg Devourer", "Anywhere", cp);
+				f.loop[cp] = 0;
+				f.count[cp] += 1;
+			}
+		}
+		else if(f.count[cp] == 1)
+		{
+			if (f.loop[cp] < 6)
+			{
+				KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+				
+				f.SquareShape(cp, 1, "40 + 1n Wraith", 192 - 32 * f.loop[cp],  32 * f.loop[cp]);
+				f.SquareShape(cp, 1, "Torrasque", 96 - 16 * f.loop[cp], 16 * f.loop[cp]);
+				KillUnitAt(All, "Torrasque", "Anywhere", cp);
+				MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+				Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
+				f.SkillWait(cp, 0);
+				f.loop[cp] += 1;
+			}
+			else if (f.loop[cp] >= 6 && f.loop[cp] < 12)
+			{
+				KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+				KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+				
+				f.SquareShape(cp, 1, "40 + 1n Mojo", 192 - 32 * f.loop[cp],  32 * f.loop[cp] - 192);
+				f.SquareShape(cp, 1, "Torrasque", 96 - 16 * f.loop[cp], 16 * f.loop[cp] - 96);
+				KillUnitAt(All, "Torrasque", "Anywhere", cp);
+				MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+				Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+				f.SkillWait(cp, 0);
+				f.loop[cp] += 1;
+			}
+			else if (f.loop[cp] == 12)
+			{
+				KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+				
+				f.Table_Cos(cp, 30, 96);
+				f.Table_Sin(cp, 30, 96);
+				f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp]);
+				
+				f.Table_Cos(cp, 60, 96);
+				f.Table_Sin(cp, 60, 96);
+				f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp]);
+				
+				f.CrossShape(cp, 1, "50 + 1n Battlecruiser", 0, 5, 32);
+				MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+				Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
+				Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
+				f.SkillWait(cp, 1000);
+				f.loop[cp] += 1;
+			}
+			else if (f.loop[cp] == 13)
+			{
+				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+				KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+				f.SkillWait(cp, 1000);
+				f.loop[cp] += 1;
+			}
+			else if (f.loop[cp] == 14)
+			{	
+				f.SkillEnd(cp);
+			}
+		}
+	}
+}

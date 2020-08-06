@@ -134,106 +134,124 @@ from Character.Rusaruka import Skill_O as O
 from Character.Rusaruka import Skill_S as S
 # (Line 5) import Character.Rusaruka.Skill_C as C;
 from Character.Rusaruka import Skill_C as C
+# (Line 6) import Character.Rusaruka.Skill_A as A;
+from Character.Rusaruka import Skill_A as A
 # (Line 8) import Character.Rusaruka.Skill_SSS as SSS;
 from Character.Rusaruka import Skill_SSS as SSS
-# (Line 11) import Character.Rusaruka.Text as text;
+# (Line 10) import Character.Rusaruka.Skill_ACC as ACC;
+from Character.Rusaruka import Skill_ACC as ACC
+# (Line 12) import Character.Rusaruka.Text as text;
 from Character.Rusaruka import Text as text
-# (Line 12) import Character.Rusaruka.Commend as commend;
+# (Line 13) import Character.Rusaruka.Commend as commend;
 from Character.Rusaruka import Commend as commend
-# (Line 14) const stb = StringBuffer();
+# (Line 15) const stb = StringBuffer();
 stb = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 16) function SkillList(cp);
-# (Line 18) function main(cp)
-# (Line 19) {
+# (Line 17) function SkillList(cp);
+# (Line 19) function main(cp)
+# (Line 20) {
 @EUDFunc
 def f_main(cp):
-    # (Line 20) f.location[cp] = 32;
+    # (Line 21) f.location[cp] = 32;
     _ARRW(f.location, cp) << (32)
-    # (Line 21) f.heroID[cp] = 51;
+    # (Line 22) f.heroID[cp] = 51;
     _ARRW(f.heroID, cp) << (51)
-    # (Line 23) f.UltimateA[cp] = 650;
+    # (Line 24) f.UltimateA[cp] = 650;
     _ARRW(f.UltimateA, cp) << (650)
-    # (Line 26) commend.main(cp);
+    # (Line 27) commend.main(cp);
     commend.f_main(cp)
-    # (Line 27) SkillList(cp);
+    # (Line 28) SkillList(cp);
     SkillList(cp)
-    # (Line 29) if (f.wait[cp] == 0)
+    # (Line 30) if (f.wait[cp] == 0)
     if EUDIf()(f.wait[cp] == 0):
-        # (Line 30) {
-        # (Line 31) switch(f.step[cp])
+        # (Line 31) {
+        # (Line 32) switch(f.step[cp])
         EUDSwitch(f.step[cp])
-        # (Line 32) {
-        # (Line 33) case 1:
+        # (Line 33) {
+        # (Line 34) case 1:
         _t2 = EUDSwitchCase()
-        # (Line 34) O.main(cp);
+        # (Line 35) O.main(cp);
         if _t2(1):
             O.f_main(cp)
-            # (Line 35) break;
+            # (Line 36) break;
             EUDBreak()
-            # (Line 36) case 100:
+            # (Line 37) case 100:
         _t3 = EUDSwitchCase()
-        # (Line 37) S.main(cp);
+        # (Line 38) S.main(cp);
         if _t3(100):
             S.f_main(cp)
-            # (Line 38) break;
+            # (Line 39) break;
             EUDBreak()
-            # (Line 39) case 200:
+            # (Line 40) case 200:
         _t4 = EUDSwitchCase()
-        # (Line 40) C.main(cp);
+        # (Line 41) C.main(cp);
         if _t4(200):
             C.f_main(cp)
-            # (Line 41) break;
+            # (Line 42) break;
             EUDBreak()
-            # (Line 47) case 150:
+            # (Line 43) case 300:
         _t5 = EUDSwitchCase()
-        # (Line 48) SSS.main(cp);
-        if _t5(150):
-            SSS.f_main(cp)
-            # (Line 49) break;
+        # (Line 44) A.main(cp);
+        if _t5(300):
+            A.f_main(cp)
+            # (Line 45) break;
             EUDBreak()
-            # (Line 50) }
-        # (Line 51) }
-        EUDEndSwitch()
+            # (Line 46) case 110:
+        _t6 = EUDSwitchCase()
+        # (Line 47) SSS.main(cp);
+        if _t6(110):
+            SSS.f_main(cp)
+            # (Line 48) break;
+            EUDBreak()
+            # (Line 49) case 310:
+        _t7 = EUDSwitchCase()
+        # (Line 50) ACC.main(cp);
+        if _t7(310):
+            ACC.f_main(cp)
+            # (Line 51) break;
+            EUDBreak()
+            # (Line 52) }
         # (Line 53) }
+        EUDEndSwitch()
+        # (Line 55) }
     EUDEndIf()
-    # (Line 56) function SkillVoice(cp)
+    # (Line 58) function SkillVoice(cp)
 
-# (Line 57) {
+# (Line 59) {
 @EUDFunc
 def SkillVoice(cp):
-    # (Line 58) if (f.Rusaruka_Voice[cp] != 0) { text.main(cp); }
+    # (Line 60) if (f.Rusaruka_Voice[cp] != 0) { text.main(cp); }
     if EUDIf()(f.Rusaruka_Voice[cp] == 0, neg=True):
         text.f_main(cp)
-        # (Line 59) }
+        # (Line 61) }
     EUDEndIf()
-    # (Line 61) function SkillList(cp)
+    # (Line 63) function SkillList(cp)
 
-# (Line 62) {
+# (Line 64) {
 @EUDFunc
 def SkillList(cp):
-    # (Line 63) if(Memory(0x596A44, Exactly, 0x00000100))	// Insert key Pressed
+    # (Line 65) if(Memory(0x596A44, Exactly, 0x00000100))	// Insert key Pressed
     if EUDIf()(Memory(0x596A44, Exactly, 0x00000100)):
-        # (Line 64) {
-        # (Line 65) stb.printAt(0, "\n");
+        # (Line 66) {
+        # (Line 67) stb.printAt(0, "\n");
         stb.printAt(0, "\n")
-        # (Line 66) stb.printAt(1, "\x1F　＃\x04- 루살카 \x1B슈베게린　\x04[ 디에스 이래 ]");
+        # (Line 68) stb.printAt(1, "\x1F　＃\x04- 루살카 \x1B슈베게린　\x04[ 디에스 이래 ]");
         stb.printAt(1, "\x1F　＃\x04- 루살카 \x1B슈베게린　\x04[ 디에스 이래 ]")
-        # (Line 67) stb.printAt(2, "　　\x1FA\x04ction List");
+        # (Line 69) stb.printAt(2, "　　\x1FA\x04ction List");
         stb.printAt(2, "　　\x1FA\x04ction List")
-        # (Line 68) stb.printAt(3, "　　　\x18O \x04창조 \x19[ 15x15 / 적 5초마다 경직 / 파괴될시 5분후 재생 / 설치형 ]");
+        # (Line 70) stb.printAt(3, "　　　\x18O \x04창조 \x19[ 15x15 / 적 5초마다 경직 / 파괴될시 5분후 재생 / 설치형 ]");
         stb.printAt(3, "　　　\x18O \x04창조 \x19[ 15x15 / 적 5초마다 경직 / 파괴될시 5분후 재생 / 설치형 ]")
-        # (Line 69) stb.printAt(4, "　　　\x04\x1F>SSS \x04>위협 \x19[ 대인 / 공성 ]");
+        # (Line 71) stb.printAt(4, "　　　\x04\x1F>SSS \x04>위협 \x19[ 대인 / 공성 ]");
         stb.printAt(4, "　　　\x04\x1F>SSS \x04>위협 \x19[ 대인 / 공성 ]")
-        # (Line 70) stb.printAt(5, "　　　\x04\x1F>CCC + AA \x04고문바퀴 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]");
+        # (Line 72) stb.printAt(5, "　　　\x04\x1F>CCC + AA \x04고문바퀴 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]");
         stb.printAt(5, "　　　\x04\x1F>CCC + AA \x04고문바퀴 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]")
-        # (Line 71) stb.printAt(6, "　　　\x04\x1F>ACC \x04고문용 쇠사슬 \x19[ 대인 ]");
+        # (Line 73) stb.printAt(6, "　　　\x04\x1F>ACC \x04고문용 쇠사슬 \x19[ 대인 ]");
         stb.printAt(6, "　　　\x04\x1F>ACC \x04고문용 쇠사슬 \x19[ 대인 ]")
-        # (Line 72) stb.printAt(7, "\n");
+        # (Line 74) stb.printAt(7, "\n");
         stb.printAt(7, "\n")
-        # (Line 73) stb.printAt(8, "　　　\x08AAAC \x04갈망 \x19[ 공성 / 선딜없음 /  장판형 스킬 ] \x05", f.UltimateA[cp]);
+        # (Line 75) stb.printAt(8, "　　　\x08AAAC \x04갈망 \x19[ 공성 / 선딜없음 /  장판형 스킬 ] \x05", f.UltimateA[cp]);
         stb.printAt(8, "　　　\x08AAAC \x04갈망 \x19[ 공성 / 선딜없음 /  장판형 스킬 ] \x05", f.UltimateA[cp])
-        # (Line 74) stb.printAt(9, "\n");
+        # (Line 76) stb.printAt(9, "\n");
         stb.printAt(9, "\n")
-        # (Line 75) }
-        # (Line 76) }
+        # (Line 77) }
+        # (Line 78) }
     EUDEndIf()
