@@ -105,6 +105,7 @@ def onPluginStart():
         SetMemory(0x662ED0, Add, 922746880),# units:Comp AI Idle  index:51    from 2 To 57
         SetMemory(0x662ED4, Add, 14080),# units:Comp AI Idle  index:53    from 2 To 57
         SetMemory(0x662ED4, Add, 3604480),# units:Comp AI Idle  index:54    from 2 To 57
+        SetMemory(0x662EE0, Add, 55),# units:Comp AI Idle  index:64    from 2 To 57
         SetMemory(0x662EE8, Add, 3604480),# units:Comp AI Idle  index:74    from 2 To 57
         SetMemory(0x662EEC, Add, 14080),# units:Comp AI Idle  index:77    from 2 To 57
         SetMemory(0x662EF4, Add, -8388608),# units:Comp AI Idle  index:86    from 130 To 2
@@ -120,6 +121,7 @@ def onPluginStart():
         SetMemory(0x662298, Add, 922746880),# units:Human AI Idle  index:51    from 2 To 57
         SetMemory(0x66229C, Add, 14080),# units:Human AI Idle  index:53    from 2 To 57
         SetMemory(0x66229C, Add, 3604480),# units:Human AI Idle  index:54    from 2 To 57
+        SetMemory(0x6622A8, Add, 55),# units:Human AI Idle  index:64    from 2 To 57
         SetMemory(0x6622B0, Add, 3604480),# units:Human AI Idle  index:74    from 2 To 57
         SetMemory(0x6622B4, Add, 14080),# units:Human AI Idle  index:77    from 2 To 57
         SetMemory(0x6622BC, Add, -8388608),# units:Human AI Idle  index:86    from 130 To 2
@@ -133,6 +135,7 @@ def onPluginStart():
         SetMemory(0x6648C8, Add, 922746880),# units:Return to Idle  index:51    from 2 To 57
         SetMemory(0x6648CC, Add, 14080),# units:Return to Idle  index:53    from 2 To 57
         SetMemory(0x6648CC, Add, 3604480),# units:Return to Idle  index:54    from 2 To 57
+        SetMemory(0x6648D8, Add, 55),# units:Return to Idle  index:64    from 2 To 57
         SetMemory(0x6648E0, Add, 3604480),# units:Return to Idle  index:74    from 2 To 57
         SetMemory(0x6648E4, Add, 14080),# units:Return to Idle  index:77    from 2 To 57
         SetMemory(0x6648F8, Add, 922746880),# units:Return to Idle  index:99    from 2 To 57
@@ -169,20 +172,27 @@ def onPluginStart():
         SetMemory(0x65FC54, Add, -65536),# units:Max Air Hits  index:62    from 1 To 0
         SetMemory(0x65FC88, Add, 16777216),# units:Max Air Hits  index:115    from 0 To 1
         SetMemory(0x6601A0, Add, -768),# units:AI Internal  index:41    from 3 To 0
+        SetMemory(0x6640C0, Add, -2163072),# units:Special Ability Flags  index:16    from 404816448 To 402653376
         SetMemory(0x6640CC, Add, 4),# units:Special Ability Flags  index:19    from 1476395072 To 1476395076
         SetMemory(0x6640E4, Add, 4),# units:Special Ability Flags  index:25    from 1107296320 To 1107296324
         SetMemory(0x6640F8, Add, 4),# units:Special Ability Flags  index:30    from 1107296256 To 1107296260
         SetMemory(0x664124, Add, -8),# units:Special Ability Flags  index:41    from 403767432 To 403767424
         SetMemory(0x664138, Add, 4),# units:Special Ability Flags  index:46    from 439419008 To 439419012
+        SetMemory(0x66414C, Add, -2163200),# units:Special Ability Flags  index:51    from 404816576 To 402653376
         SetMemory(0x664150, Add, 4),# units:Special Ability Flags  index:52    from 439419072 To 439419076
+        SetMemory(0x664154, Add, -1114112),# units:Special Ability Flags  index:53    from 403767488 To 402653376
+        SetMemory(0x664158, Add, -1115136),# units:Special Ability Flags  index:54    from 403768512 To 402653376
         SetMemory(0x66417C, Add, 4),# units:Special Ability Flags  index:63    from 471859456 To 471859460
+        SetMemory(0x664180, Add, -1073758024),# units:Special Ability Flags  index:64    from 1476411400 To 402653376
         SetMemory(0x664188, Add, 4),# units:Special Ability Flags  index:66    from 1509949440 To 1509949444
         SetMemory(0x6641A4, Add, 536870912),# units:Special Ability Flags  index:73    from 1476395012 To 2013265924
-        SetMemory(0x6641A8, Add, -4194304),# units:Special Ability Flags  index:74    from 406913024 To 402718720
+        SetMemory(0x6641A8, Add, -4259648),# units:Special Ability Flags  index:74    from 406913024 To 402653376
         SetMemory(0x6641AC, Add, 4),# units:Special Ability Flags  index:75    from 406913088 To 406913092
         SetMemory(0x6641B0, Add, 4),# units:Special Ability Flags  index:76    from 469762368 To 469762372
+        SetMemory(0x6641B4, Add, -65408),# units:Special Ability Flags  index:77    from 402718784 To 402653376
         SetMemory(0x6641B8, Add, 4),# units:Special Ability Flags  index:78    from 1509949504 To 1509949508
         SetMemory(0x664208, Add, -64),# units:Special Ability Flags  index:98    from 1512046660 To 1512046596
+        SetMemory(0x66420C, Add, -2163072),# units:Special Ability Flags  index:99    from 404816448 To 402653376
         SetMemory(0x664234, Add, -603977729),# units:Special Ability Flags  index:109    from 1140850689 To 536872960
         SetMemory(0x66424C, Add, 369100865),# units:Special Ability Flags  index:115    from 1140850691 To 1509951556
         SetMemory(0x664258, Add, -603977727),# units:Special Ability Flags  index:118    from 1140850691 To 536872964
@@ -229,6 +239,7 @@ def onPluginStart():
         SetMemory(0x65FF38, Add, 33554432),# units:Armor  index:115    from 1 To 3
         SetMemory(0x6620C0, Add, -768),# units:Right-click Action  index:41    from 4 To 1
         SetMemory(0x6620C4, Add, 83886080),# units:Right-click Action  index:47    from 1 To 6
+        SetMemory(0x6620D8, Add, -3),# units:Right-click Action  index:64    from 4 To 1
         SetMemory(0x662108, Add, 16777216),# units:Right-click Action  index:115    from 0 To 1
         SetMemory(0x662118, Add, 262144),# units:Right-click Action  index:130    from 2 To 6
         SetMemory(0x662084, Add, -492),# units:Ready Sound  index:98    from 1041 To 549
@@ -878,6 +889,7 @@ def onPluginStart():
         SetMemory(0x656990, Add, 112),# weapons:Attack Angle  index:0    from 16 To 128
         SetMemory(0x656990, Add, 28672),# weapons:Attack Angle  index:1    from 16 To 128
         SetMemory(0x656990, Add, 7340032),# weapons:Attack Angle  index:2    from 16 To 128
+        SetMemory(0x656990, Add, 1879048192),# weapons:Attack Angle  index:3    from 16 To 128
         SetMemory(0x656994, Add, 64),# weapons:Attack Angle  index:4    from 64 To 128
         SetMemory(0x656994, Add, 16384),# weapons:Attack Angle  index:5    from 64 To 128
         SetMemory(0x656994, Add, 1879048192),# weapons:Attack Angle  index:7    from 16 To 128
@@ -889,11 +901,16 @@ def onPluginStart():
         SetMemory(0x6569A4, Add, 7340032),# weapons:Attack Angle  index:22    from 16 To 128
         SetMemory(0x6569A4, Add, 1879048192),# weapons:Attack Angle  index:23    from 16 To 128
         SetMemory(0x6569A8, Add, 112),# weapons:Attack Angle  index:24    from 16 To 128
+        SetMemory(0x6569B4, Add, 112),# weapons:Attack Angle  index:36    from 16 To 128
+        SetMemory(0x6569B4, Add, 28672),# weapons:Attack Angle  index:37    from 16 To 128
+        SetMemory(0x6569B4, Add, 1879048192),# weapons:Attack Angle  index:39    from 16 To 128
         SetMemory(0x6569B8, Add, 1879048192),# weapons:Attack Angle  index:43    from 16 To 128
         SetMemory(0x6569BC, Add, 7340032),# weapons:Attack Angle  index:46    from 16 To 128
         SetMemory(0x6569BC, Add, 1879048192),# weapons:Attack Angle  index:47    from 16 To 128
         SetMemory(0x6569C0, Add, 112),# weapons:Attack Angle  index:48    from 16 To 128
         SetMemory(0x6569C0, Add, 28672),# weapons:Attack Angle  index:49    from 16 To 128
+        SetMemory(0x6569CC, Add, 7340032),# weapons:Attack Angle  index:62    from 16 To 128
+        SetMemory(0x6569D0, Add, 28672),# weapons:Attack Angle  index:65    from 16 To 128
         SetMemory(0x6569D4, Add, 112),# weapons:Attack Angle  index:68    from 16 To 128
         SetMemory(0x6569D4, Add, 7340032),# weapons:Attack Angle  index:70    from 16 To 128
         SetMemory(0x6569D4, Add, 1879048192),# weapons:Attack Angle  index:71    from 16 To 128
@@ -901,6 +918,8 @@ def onPluginStart():
         SetMemory(0x6569D8, Add, 1879048192),# weapons:Attack Angle  index:75    from 16 To 128
         SetMemory(0x6569DC, Add, 28672),# weapons:Attack Angle  index:77    from 16 To 128
         SetMemory(0x6569DC, Add, 7340032),# weapons:Attack Angle  index:78    from 16 To 128
+        SetMemory(0x6569E4, Add, 7340032),# weapons:Attack Angle  index:86    from 16 To 128
+        SetMemory(0x656A00, Add, 112),# weapons:Attack Angle  index:112    from 16 To 128
         SetMemory(0x656A00, Add, 28672),# weapons:Attack Angle  index:113    from 16 To 128
         SetMemory(0x656A00, Add, 7340032),# weapons:Attack Angle  index:114    from 16 To 128
         SetMemory(0x6C9EF8, Add, 1706),# flingy:Speed  index:0    from 1707 To 3413

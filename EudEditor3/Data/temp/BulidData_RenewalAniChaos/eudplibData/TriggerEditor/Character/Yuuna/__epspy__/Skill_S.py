@@ -137,17 +137,17 @@ def f_main(cp):
     # (Line 7) if (f.delay[cp] == 0)
     if EUDIf()(f.delay[cp] == 0):
         # (Line 8) {
-        # (Line 9) if (f.loop[cp] < 8)
-        if EUDIf()(f.loop[cp] >= 8, neg=True):
+        # (Line 9) if (f.count[cp] < 8)
+        if EUDIf()(f.count[cp] >= 8, neg=True):
             # (Line 10) {
             # (Line 11) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
             # (Line 13) f.distance[cp] = 50;
             DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
             _ARRW(f.distance, cp) << (50)
-            # (Line 15) f.Table_Cos(cp, 45 * f.loop[cp], f.distance[cp]);
-            f.Table_Cos(cp, 45 * f.loop[cp], f.distance[cp])
-            # (Line 16) f.Table_Sin(cp, 45 * f.loop[cp], f.distance[cp]);
-            f.Table_Sin(cp, 45 * f.loop[cp], f.distance[cp])
+            # (Line 15) f.Table_Cos(cp, 45 * f.count[cp], f.distance[cp]);
+            f.Table_Cos(cp, 45 * f.count[cp], f.distance[cp])
+            # (Line 16) f.Table_Sin(cp, 45 * f.count[cp], f.distance[cp]);
+            f.Table_Sin(cp, 45 * f.count[cp], f.distance[cp])
             # (Line 18) f.SquareShape(cp, 1, "Protoss Dark Templar", f.CosAngle[cp], f.SinAngle[cp]);
             f.SquareShape(cp, 1, "Protoss Dark Templar", f.CosAngle[cp], f.SinAngle[cp])
             # (Line 19) f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
@@ -166,11 +166,11 @@ def f_main(cp):
             # (Line 28) f.SkillWait(cp, 50);
             DoActions(Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]))
             f.SkillWait(cp, 50)
-            # (Line 29) f.loop[cp] += 1;
-            _ARRW(f.loop, cp).__iadd__(1)
+            # (Line 29) f.count[cp] += 1;
+            _ARRW(f.count, cp).__iadd__(1)
             # (Line 30) }
-            # (Line 31) else if (f.loop[cp] == 8)
-        if EUDElseIf()(f.loop[cp] == 8):
+            # (Line 31) else if (f.count[cp] == 8)
+        if EUDElseIf()(f.count[cp] == 8):
             # (Line 32) {
             # (Line 33) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
             # (Line 35) f.Table_Cos(cp, 0, f.distance[cp]);
@@ -190,11 +190,11 @@ def f_main(cp):
             # (Line 47) f.SkillWait(cp, 50);
             DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp))
             f.SkillWait(cp, 50)
-            # (Line 48) f.loop[cp] += 1;
-            _ARRW(f.loop, cp).__iadd__(1)
+            # (Line 48) f.count[cp] += 1;
+            _ARRW(f.count, cp).__iadd__(1)
             # (Line 49) }
-            # (Line 50) else if (f.loop[cp] == 9)
-        if EUDElseIf()(f.loop[cp] == 9):
+            # (Line 50) else if (f.count[cp] == 9)
+        if EUDElseIf()(f.count[cp] == 9):
             # (Line 51) {
             # (Line 52) f.distance[cp] = 75;
             _ARRW(f.distance, cp) << (75)
@@ -214,11 +214,11 @@ def f_main(cp):
             # (Line 66) f.SkillWait(cp, 50);
             DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp))
             f.SkillWait(cp, 50)
-            # (Line 67) f.loop[cp] += 1;
-            _ARRW(f.loop, cp).__iadd__(1)
+            # (Line 67) f.count[cp] += 1;
+            _ARRW(f.count, cp).__iadd__(1)
             # (Line 68) }
-            # (Line 69) else if (f.loop[cp] == 10)
-        if EUDElseIf()(f.loop[cp] == 10):
+            # (Line 69) else if (f.count[cp] == 10)
+        if EUDElseIf()(f.count[cp] == 10):
             # (Line 70) {
             # (Line 71) f.distance[cp] = 50;
             _ARRW(f.distance, cp) << (50)
@@ -240,11 +240,11 @@ def f_main(cp):
             # (Line 85) f.SkillWait(cp, 50);
             DoActions(Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]))
             f.SkillWait(cp, 50)
-            # (Line 86) f.loop[cp] += 1;
-            _ARRW(f.loop, cp).__iadd__(1)
+            # (Line 86) f.count[cp] += 1;
+            _ARRW(f.count, cp).__iadd__(1)
             # (Line 87) }
-            # (Line 88) else if (f.loop[cp] == 11)
-        if EUDElseIf()(f.loop[cp] == 11):
+            # (Line 88) else if (f.count[cp] == 11)
+        if EUDElseIf()(f.count[cp] == 11):
             # (Line 89) {
             # (Line 90) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
             # (Line 91) f.SkillEnd(cp);

@@ -134,8 +134,8 @@ stb = _CGFW(lambda: [StringBuffer()], 1)[0]
 # (Line 6) {
 @EUDFunc
 def f_main(cp):
-    # (Line 7) if (f.step[cp] == 0)
-    if EUDIf()(f.step[cp] == 0):
+    # (Line 7) if (f.wait[cp] == 0 && f.step[cp] == 0)
+    if EUDIf()(EUDSCAnd()(f.wait[cp] == 0)(f.step[cp] == 0)()):
         # (Line 8) {
         # (Line 9) if (Bring(cp, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))
         if EUDIf()(Bring(cp, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill")):

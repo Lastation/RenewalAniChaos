@@ -1,0 +1,85 @@
+import Function as f;
+
+import Character.Chtholly.Skill_O as O;
+import Character.Chtholly.Skill_S as S;
+import Character.Chtholly.Skill_C as C;
+import Character.Chtholly.Skill_A as A;
+
+import Character.Chtholly.Text as text;
+import Character.Chtholly.Commend as commend;
+
+const stb = StringBuffer();
+
+function SkillList(cp);
+
+function main(cp)
+{
+	f.location[cp] = 32;
+	f.heroID[cp] = 51;
+	
+	f.UltimateA[cp] = 700;
+	f.UltimateB[cp] = 700;
+	
+	// Commed Setting
+	commend.main(cp);
+	SkillList(cp);
+	
+	if (f.wait[cp] == 0)
+	{
+		switch(f.step[cp])
+		{
+		case 1:
+			O.main(cp);
+			break;
+		case 100:
+			S.main(cp);
+			break;
+		case 200:
+			C.main(cp);
+			break;
+		case 300:
+			A.main(cp);
+			break;
+		case 110:
+			SSS.main(cp);
+			break;
+		case 210:
+			CCC.main(cp);
+			break;
+		case 220:
+			CCCAA.main(cp);
+			break;
+		case 310:
+			ACC.main(cp);
+			break;
+		case 320:
+			AAAC.main(cp);
+			break;
+		}
+	}
+	
+}
+
+// Character Voice
+function SkillVoice(cp)
+{
+	if (f.Rusaruka_Voice[cp] != 0) { text.main(cp); }
+}
+
+function SkillList(cp)
+{
+	if(Deaths(cp, Exactly, 2, "Terran SCV")) 	// Insert key Pressed
+	{
+		stb.printAt(0, "\n");
+		stb.printAt(1, "\x1F　＃\x04- 크톨리 \x1B노타 세니오리스　\x04[ 종말에 뭐 하세요? 바쁘세요? 구해 주실 수 있나요? ]");
+		stb.printAt(2, "　　\x1FA\x04ction List\r\n　　　\x07O \x19 전투속행 ON/OFF [ 침식 도중 사망시 5초간 전투 속행 ] \x05개인쿨 4분");
+		stb.printAt(3, "　　　\x1F>SSS \x04어쩔수 없지;; \x19[ 공성 ]");
+		stb.printAt(4, "　　　\x1F>CCA + CA + AAA \x04침식 \x19[ 공성 / AAA - 자리고정 / 귀환봉인 ] \x1F[1]");
+		stb.printAt(5, "\n");
+		stb.printAt(6, "　　　\x1F[1] + \x08O \x04세상에서 가장 행복한 여자 \x19[ 공성 / 선딜 4.5초 / 장판형 / 쉴드 10고정 ] \x05", f.UltimateA[cp]);
+		stb.printAt(7, "　　　\x08AAAA \x04세상에서 가장 행복한 여자 \x19[ 공성 / 선딜 4.5초 / 장판형 / 쉴드 10고정 ] \x05", f.UltimateB[cp]);
+		stb.printAt(8, "　　　\x04 * \x19AAAA\x04사용시 \x19O\x04 사용시보다 데미지가 많이 약해집니다.");
+		stb.printAt(9, "\n");
+		PlayWAV("sound\\Bullet\\LaserHit.wav");
+	}
+}

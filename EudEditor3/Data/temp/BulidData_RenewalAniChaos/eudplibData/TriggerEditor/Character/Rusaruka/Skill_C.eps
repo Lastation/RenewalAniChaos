@@ -8,7 +8,6 @@ function main(cp)
 		{
 		case 0:
 		case 11:
-			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
 			
 			f.SquareShape(cp, 1, "40 + 1n Lurker", 32, 0);
 			f.SquareShape(cp, 1, "Torrasque", 24, 24);
@@ -94,8 +93,7 @@ function main(cp)
 			f.SquareShape(cp, 1, "Torrasque", 48, 48);
 			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
 			KillUnitAt(All, "Torrasque", "Anywhere", cp);
-			MoveLocation( f.location[cp], f.heroID[cp], cp, "Anywhere");
-			Order("40 + 1n Mojo", CurrentPlayer, "Anywhere", Attack, f.location[cp]);
+			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
 			f.SkillWait(cp, 180);
 			f.count[cp] += 1;
 			break;

@@ -144,202 +144,198 @@ def f_main(cp):
         if _t2(0):
             pass
         _t3 = EUDSwitchCase()
-        # (Line 11) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+        # (Line 12) f.SquareShape(cp, 1, "40 + 1n Lurker", 32, 0);
         if _t3(11):
-            # (Line 13) f.SquareShape(cp, 1, "40 + 1n Lurker", 32, 0);
-            DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
             f.SquareShape(cp, 1, "40 + 1n Lurker", 32, 0)
-            # (Line 14) f.SquareShape(cp, 1, "Torrasque", 24, 24);
+            # (Line 13) f.SquareShape(cp, 1, "Torrasque", 24, 24);
             f.SquareShape(cp, 1, "Torrasque", 24, 24)
-            # (Line 15) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-            # (Line 16) KillUnitAt(All, "Torrasque", "Anywhere", cp);
+            # (Line 14) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
+            # (Line 15) KillUnitAt(All, "Torrasque", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
-            # (Line 17) f.SkillWait(cp, 0);
+            # (Line 16) f.SkillWait(cp, 0);
             DoActions(KillUnitAt(All, "Torrasque", "Anywhere", cp))
             f.SkillWait(cp, 0)
-            # (Line 18) f.count[cp] += 1;
+            # (Line 17) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
-            # (Line 19) break;
+            # (Line 18) break;
             EUDBreak()
-            # (Line 20) case 1:
+            # (Line 19) case 1:
         _t4 = EUDSwitchCase()
-        # (Line 21) f.SquareShape(cp, 1, "40 + 1n Lurker", 64, 0);
+        # (Line 20) f.SquareShape(cp, 1, "40 + 1n Lurker", 64, 0);
         if _t4(1):
             f.SquareShape(cp, 1, "40 + 1n Lurker", 64, 0)
-            # (Line 22) f.SquareShape(cp, 1, "Torrasque", 48, 48);
+            # (Line 21) f.SquareShape(cp, 1, "Torrasque", 48, 48);
             f.SquareShape(cp, 1, "Torrasque", 48, 48)
-            # (Line 23) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-            # (Line 24) KillUnitAt(All, "Torrasque", "Anywhere", cp);
+            # (Line 22) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
+            # (Line 23) KillUnitAt(All, "Torrasque", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
-            # (Line 25) f.SkillWait(cp, 0);
+            # (Line 24) f.SkillWait(cp, 0);
             DoActions(KillUnitAt(All, "Torrasque", "Anywhere", cp))
             f.SkillWait(cp, 0)
-            # (Line 26) f.count[cp] += 1;
+            # (Line 25) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
-            # (Line 27) break;
+            # (Line 26) break;
             EUDBreak()
-            # (Line 28) case 2:
+            # (Line 27) case 2:
         _t5 = EUDSwitchCase()
-        # (Line 29) f.SquareShape(cp, 1, "40 + 1n Lurker", 96, 0);
+        # (Line 28) f.SquareShape(cp, 1, "40 + 1n Lurker", 96, 0);
         if _t5(2):
             f.SquareShape(cp, 1, "40 + 1n Lurker", 96, 0)
-            # (Line 30) f.SquareShape(cp, 1, "Torrasque", 72, 72);
+            # (Line 29) f.SquareShape(cp, 1, "Torrasque", 72, 72);
             f.SquareShape(cp, 1, "Torrasque", 72, 72)
-            # (Line 31) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-            # (Line 32) KillUnitAt(All, "Torrasque", "Anywhere", cp);
+            # (Line 30) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
+            # (Line 31) KillUnitAt(All, "Torrasque", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
-            # (Line 33) f.SkillWait(cp, 0);
+            # (Line 32) f.SkillWait(cp, 0);
             DoActions(KillUnitAt(All, "Torrasque", "Anywhere", cp))
             f.SkillWait(cp, 0)
-            # (Line 34) f.count[cp] += 1;
+            # (Line 33) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
-            # (Line 35) break;
+            # (Line 34) break;
             EUDBreak()
-            # (Line 36) case 3:
+            # (Line 35) case 3:
         _t6 = EUDSwitchCase()
-        # (Line 37) f.SquareShape(cp, 1, "40 + 1n Lurker", 128, 0);
+        # (Line 36) f.SquareShape(cp, 1, "40 + 1n Lurker", 128, 0);
         if _t6(3):
             f.SquareShape(cp, 1, "40 + 1n Lurker", 128, 0)
-            # (Line 38) f.SquareShape(cp, 1, "Torrasque", 96, 96);
+            # (Line 37) f.SquareShape(cp, 1, "Torrasque", 96, 96);
             f.SquareShape(cp, 1, "Torrasque", 96, 96)
-            # (Line 39) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-            # (Line 40) KillUnitAt(All, "Torrasque", "Anywhere", cp);
+            # (Line 38) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
+            # (Line 39) KillUnitAt(All, "Torrasque", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
-            # (Line 41) f.SkillWait(cp, 0);
+            # (Line 40) f.SkillWait(cp, 0);
             DoActions(KillUnitAt(All, "Torrasque", "Anywhere", cp))
             f.SkillWait(cp, 0)
-            # (Line 42) f.count[cp] += 1;
+            # (Line 41) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
-            # (Line 43) break;
+            # (Line 42) break;
             EUDBreak()
-            # (Line 44) case 4:
+            # (Line 43) case 4:
         _t7 = EUDSwitchCase()
-        # (Line 45) case 7:
+        # (Line 44) case 7:
         if _t7(4):
             pass
         _t8 = EUDSwitchCase()
-        # (Line 46) f.SquareShape(cp, 1, "40 + 1n Lurker", 160, 0);
+        # (Line 45) f.SquareShape(cp, 1, "40 + 1n Lurker", 160, 0);
         if _t8(7):
             f.SquareShape(cp, 1, "40 + 1n Lurker", 160, 0)
-            # (Line 47) f.SquareShape(cp, 1, "Torrasque", 120, 120);
+            # (Line 46) f.SquareShape(cp, 1, "Torrasque", 120, 120);
             f.SquareShape(cp, 1, "Torrasque", 120, 120)
-            # (Line 48) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-            # (Line 49) KillUnitAt(All, "Torrasque", "Anywhere", cp);
+            # (Line 47) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
+            # (Line 48) KillUnitAt(All, "Torrasque", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
-            # (Line 50) f.SkillWait(cp, 0);
+            # (Line 49) f.SkillWait(cp, 0);
             DoActions(KillUnitAt(All, "Torrasque", "Anywhere", cp))
             f.SkillWait(cp, 0)
-            # (Line 51) f.count[cp] += 1;
+            # (Line 50) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
-            # (Line 52) break;
+            # (Line 51) break;
             EUDBreak()
-            # (Line 53) case 5:
+            # (Line 52) case 5:
         _t9 = EUDSwitchCase()
-        # (Line 54) case 6:
+        # (Line 53) case 6:
         if _t9(5):
             pass
         _t10 = EUDSwitchCase()
-        # (Line 55) f.SquareShape(cp, 1, "40 + 1n Lurker", 192, 0);
+        # (Line 54) f.SquareShape(cp, 1, "40 + 1n Lurker", 192, 0);
         if _t10(6):
             f.SquareShape(cp, 1, "40 + 1n Lurker", 192, 0)
-            # (Line 56) f.SquareShape(cp, 1, "Torrasque", 144, 144);
+            # (Line 55) f.SquareShape(cp, 1, "Torrasque", 144, 144);
             f.SquareShape(cp, 1, "Torrasque", 144, 144)
-            # (Line 57) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-            # (Line 58) KillUnitAt(All, "Torrasque", "Anywhere", cp);
+            # (Line 56) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
+            # (Line 57) KillUnitAt(All, "Torrasque", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
-            # (Line 59) f.SkillWait(cp, 0);
+            # (Line 58) f.SkillWait(cp, 0);
             DoActions(KillUnitAt(All, "Torrasque", "Anywhere", cp))
             f.SkillWait(cp, 0)
-            # (Line 60) f.count[cp] += 1;
+            # (Line 59) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
-            # (Line 61) break;
+            # (Line 60) break;
             EUDBreak()
-            # (Line 62) case 8:
+            # (Line 61) case 8:
         _t11 = EUDSwitchCase()
-        # (Line 63) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 128, 0);
+        # (Line 62) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 128, 0);
         if _t11(8):
             f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 128, 0)
-            # (Line 64) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 96, 96);
+            # (Line 63) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 96, 96);
             f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 96, 96)
-            # (Line 65) f.SquareShape(cp, 1, "40 + 1n Lurker", 128, 0);
+            # (Line 64) f.SquareShape(cp, 1, "40 + 1n Lurker", 128, 0);
             f.SquareShape(cp, 1, "40 + 1n Lurker", 128, 0)
-            # (Line 66) f.SquareShape(cp, 1, "Torrasque", 96, 96);
+            # (Line 65) f.SquareShape(cp, 1, "Torrasque", 96, 96);
             f.SquareShape(cp, 1, "Torrasque", 96, 96)
-            # (Line 67) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-            # (Line 68) KillUnitAt(All, "Torrasque", "Anywhere", cp);
+            # (Line 66) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
+            # (Line 67) KillUnitAt(All, "Torrasque", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
-            # (Line 69) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            # (Line 68) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             DoActions(KillUnitAt(All, "Torrasque", "Anywhere", cp))
-            # (Line 70) Order("50 + 1n Battlecruiser", CurrentPlayer, "Anywhere", Attack, f.location[cp]);
+            # (Line 69) Order("50 + 1n Battlecruiser", CurrentPlayer, "Anywhere", Attack, f.location[cp]);
             DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-            # (Line 71) f.SkillWait(cp, 180);
+            # (Line 70) f.SkillWait(cp, 180);
             DoActions(Order("50 + 1n Battlecruiser", CurrentPlayer, "Anywhere", Attack, f.location[cp]))
             f.SkillWait(cp, 180)
-            # (Line 72) f.count[cp] += 1;
+            # (Line 71) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
-            # (Line 73) break;
+            # (Line 72) break;
             EUDBreak()
-            # (Line 74) case 9:
+            # (Line 73) case 9:
         _t12 = EUDSwitchCase()
-        # (Line 75) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+        # (Line 74) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
         if _t12(9):
-            # (Line 77) f.SquareShape(cp, 1, "40 + 1n Guardian", 96, 0);
+            # (Line 76) f.SquareShape(cp, 1, "40 + 1n Guardian", 96, 0);
             DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
             f.SquareShape(cp, 1, "40 + 1n Guardian", 96, 0)
-            # (Line 78) f.SquareShape(cp, 1, "40 + 1n Guardian", 72, 72);
+            # (Line 77) f.SquareShape(cp, 1, "40 + 1n Guardian", 72, 72);
             f.SquareShape(cp, 1, "40 + 1n Guardian", 72, 72)
-            # (Line 79) f.SquareShape(cp, 1, "40 + 1n Lurker", 96, 0);
+            # (Line 78) f.SquareShape(cp, 1, "40 + 1n Lurker", 96, 0);
             f.SquareShape(cp, 1, "40 + 1n Lurker", 96, 0)
-            # (Line 80) f.SquareShape(cp, 1, "Torrasque", 72, 72);
+            # (Line 79) f.SquareShape(cp, 1, "Torrasque", 72, 72);
             f.SquareShape(cp, 1, "Torrasque", 72, 72)
-            # (Line 81) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-            # (Line 82) KillUnitAt(All, "Torrasque", "Anywhere", cp);
+            # (Line 80) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
+            # (Line 81) KillUnitAt(All, "Torrasque", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
-            # (Line 83) MoveLocation( f.location[cp], f.heroID[cp], cp, "Anywhere");
+            # (Line 82) MoveLocation( f.location[cp], f.heroID[cp], cp, "Anywhere");
             DoActions(KillUnitAt(All, "Torrasque", "Anywhere", cp))
-            # (Line 84) Order("40 + 1n Guardian", CurrentPlayer, "Anywhere", Attack, f.location[cp]);
+            # (Line 83) Order("40 + 1n Guardian", CurrentPlayer, "Anywhere", Attack, f.location[cp]);
             DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-            # (Line 85) f.SkillWait(cp, 180);
+            # (Line 84) f.SkillWait(cp, 180);
             DoActions(Order("40 + 1n Guardian", CurrentPlayer, "Anywhere", Attack, f.location[cp]))
             f.SkillWait(cp, 180)
-            # (Line 86) f.count[cp] += 1;
+            # (Line 85) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
-            # (Line 87) break;
+            # (Line 86) break;
             EUDBreak()
-            # (Line 88) case 10:
+            # (Line 87) case 10:
         _t13 = EUDSwitchCase()
-        # (Line 89) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+        # (Line 88) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
         if _t13(10):
-            # (Line 91) f.SquareShape(cp, 1, "40 + 1n Mojo", 64, 0);
+            # (Line 90) f.SquareShape(cp, 1, "40 + 1n Mojo", 64, 0);
             DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp))
             f.SquareShape(cp, 1, "40 + 1n Mojo", 64, 0)
-            # (Line 92) f.SquareShape(cp, 1, "40 + 1n Mojo", 48, 48);
+            # (Line 91) f.SquareShape(cp, 1, "40 + 1n Mojo", 48, 48);
             f.SquareShape(cp, 1, "40 + 1n Mojo", 48, 48)
-            # (Line 93) f.SquareShape(cp, 1, "40 + 1n Lurker", 64, 0);
+            # (Line 92) f.SquareShape(cp, 1, "40 + 1n Lurker", 64, 0);
             f.SquareShape(cp, 1, "40 + 1n Lurker", 64, 0)
-            # (Line 94) f.SquareShape(cp, 1, "Torrasque", 48, 48);
+            # (Line 93) f.SquareShape(cp, 1, "Torrasque", 48, 48);
             f.SquareShape(cp, 1, "Torrasque", 48, 48)
-            # (Line 95) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-            # (Line 96) KillUnitAt(All, "Torrasque", "Anywhere", cp);
+            # (Line 94) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
+            # (Line 95) KillUnitAt(All, "Torrasque", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
-            # (Line 97) MoveLocation( f.location[cp], f.heroID[cp], cp, "Anywhere");
+            # (Line 96) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
             DoActions(KillUnitAt(All, "Torrasque", "Anywhere", cp))
-            # (Line 98) Order("40 + 1n Mojo", CurrentPlayer, "Anywhere", Attack, f.location[cp]);
-            DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-            # (Line 99) f.SkillWait(cp, 180);
-            DoActions(Order("40 + 1n Mojo", CurrentPlayer, "Anywhere", Attack, f.location[cp]))
+            # (Line 97) f.SkillWait(cp, 180);
+            DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
             f.SkillWait(cp, 180)
-            # (Line 100) f.count[cp] += 1;
+            # (Line 98) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
-            # (Line 101) break;
+            # (Line 99) break;
             EUDBreak()
-            # (Line 102) case 12:
+            # (Line 100) case 12:
         _t14 = EUDSwitchCase()
-        # (Line 103) f.SkillEnd(cp);
+        # (Line 101) f.SkillEnd(cp);
         if _t14(12):
             f.SkillEnd(cp)
-            # (Line 104) }
-        # (Line 105) }
+            # (Line 102) }
+        # (Line 103) }
         EUDEndSwitch()
-        # (Line 106) }
+        # (Line 104) }
     EUDEndIf()

@@ -245,8 +245,8 @@ def SkillVoice(cp):
 # (Line 69) {
 @EUDFunc
 def SkillList(cp):
-    # (Line 70) if(Memory(0x596A44, Exactly, 0x00000100))	// Insert key Pressed
-    if EUDIf()(Memory(0x596A44, Exactly, 0x00000100)):
+    # (Line 70) if(Deaths(cp, Exactly, 2, "Terran SCV")) 	// Insert key Pressed
+    if EUDIf()(Deaths(cp, Exactly, 2, "Terran SCV")):
         # (Line 71) {
         # (Line 72) stb.printAt(0, "\n");
         stb.printAt(0, "\n")
@@ -268,6 +268,8 @@ def SkillList(cp):
         stb.printAt(8, "　　　\x08AAA \x04갈망 \x19[ 공성 / 선딜없음 /  장판형 스킬 ] \x05650")
         # (Line 81) stb.printAt(9, "\n");
         stb.printAt(9, "\n")
-        # (Line 82) }
+        # (Line 82) PlayWAV("sound\\Bullet\\LaserHit.wav");
         # (Line 83) }
+        DoActions(PlayWAV("sound\\Bullet\\LaserHit.wav"))
+        # (Line 84) }
     EUDEndIf()

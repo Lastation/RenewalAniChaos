@@ -76,11 +76,6 @@ function main(cp)
 		else if(f.count[cp] == 16)
 		{
 			KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
-			f.SkillWait(cp, 1000);
-			f.count[cp] += 1;
-		}
-		else if(f.count[cp] == 17)
-		{
 			f.SkillEnd(cp);
 		}
 	}

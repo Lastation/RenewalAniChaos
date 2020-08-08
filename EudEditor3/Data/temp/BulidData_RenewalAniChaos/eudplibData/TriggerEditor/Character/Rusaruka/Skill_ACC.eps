@@ -65,7 +65,7 @@ function main(cp)
 				f.Table_Sin(cp, 60, 96);
 				f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp]);
 				
-				f.CrossShape(cp, 1, "50 + 1n Battlecruiser", 0, 5, 32);
+				f.CrossShape(cp, 1, "50 + 1n Battlecruiser", 0, 7, 32);
 				MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
 				Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
 				Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
@@ -76,11 +76,6 @@ function main(cp)
 			{
 				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
 				KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-				f.SkillWait(cp, 1000);
-				f.loop[cp] += 1;
-			}
-			else if (f.loop[cp] == 14)
-			{	
 				f.SkillEnd(cp);
 			}
 		}

@@ -234,8 +234,8 @@ def f_main(cp):
                 f.Table_Sin(cp, 60, 96)
                 # (Line 66) f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp]);
                 f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp])
-                # (Line 68) f.CrossShape(cp, 1, "50 + 1n Battlecruiser", 0, 5, 32);
-                f.CrossShape(cp, 1, "50 + 1n Battlecruiser", 0, 5, 32)
+                # (Line 68) f.CrossShape(cp, 1, "50 + 1n Battlecruiser", 0, 7, 32);
+                f.CrossShape(cp, 1, "50 + 1n Battlecruiser", 0, 7, 32)
                 # (Line 69) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                 # (Line 70) Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
@@ -253,21 +253,13 @@ def f_main(cp):
                 # (Line 77) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
                 # (Line 78) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
-                # (Line 79) f.SkillWait(cp, 1000);
+                # (Line 79) f.SkillEnd(cp);
                 DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp))
-                f.SkillWait(cp, 1000)
-                # (Line 80) f.loop[cp] += 1;
-                _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 81) }
-                # (Line 82) else if (f.loop[cp] == 14)
-            if EUDElseIf()(f.loop[cp] == 14):
-                # (Line 83) {
-                # (Line 84) f.SkillEnd(cp);
                 f.SkillEnd(cp)
-                # (Line 85) }
-                # (Line 86) }
+                # (Line 80) }
+                # (Line 81) }
             EUDEndIf()
-            # (Line 87) }
+            # (Line 82) }
         EUDEndIf()
-        # (Line 88) }
+        # (Line 83) }
     EUDEndIf()

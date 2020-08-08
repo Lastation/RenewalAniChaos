@@ -259,19 +259,11 @@ def f_main(cp):
         if EUDElseIf()(f.count[cp] == 16):
             # (Line 77) {
             # (Line 78) KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
-            # (Line 79) f.SkillWait(cp, 1000);
+            # (Line 79) f.SkillEnd(cp);
             DoActions(KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp))
-            f.SkillWait(cp, 1000)
-            # (Line 80) f.count[cp] += 1;
-            _ARRW(f.count, cp).__iadd__(1)
-            # (Line 81) }
-            # (Line 82) else if(f.count[cp] == 17)
-        if EUDElseIf()(f.count[cp] == 17):
-            # (Line 83) {
-            # (Line 84) f.SkillEnd(cp);
             f.SkillEnd(cp)
-            # (Line 85) }
-            # (Line 86) }
+            # (Line 80) }
+            # (Line 81) }
         EUDEndIf()
-        # (Line 87) }
+        # (Line 82) }
     EUDEndIf()
