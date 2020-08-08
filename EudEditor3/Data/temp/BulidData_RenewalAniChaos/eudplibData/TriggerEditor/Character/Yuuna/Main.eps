@@ -67,7 +67,7 @@ function SkillVoice(cp)
 
 function SkillList(cp)
 {
-	if(Memory(0x596A44, Exactly, 0x00000100))	// Insert key Pressed
+	if(Deaths(cp, Exactly, 2, "Terran SCV")) 	// Insert key Pressed
 	{
 		stb.printAt(0, "\n");
 		stb.printAt(1, "\x1F　＃\x04- 유우키 \x1B유우나　\x04[ 유우키 유우나는 용사다 ]");
@@ -79,5 +79,6 @@ function SkillList(cp)
 		stb.printAt(7, "\n");
 		stb.printAt(8, "　　　\x08AAA \x04갈망 \x19[ 공성 / 선딜없음 /  장판형 스킬 ] \x05650");
 		stb.printAt(9, "\n");
+		PlayWAV("sound\\Bullet\\LaserHit.wav");
 	}
 }

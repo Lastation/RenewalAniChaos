@@ -383,15 +383,13 @@ def f_main(cp):
             EUDBreak()
             # (Line 128) case 15:
         _t17 = EUDSwitchCase()
-        # (Line 129) f.NxNSquareShapeAt(cp, 1, "50 + 1n Battlecruiser", 5, 64, 128, 128);
+        # (Line 129) f.SkillEnd(cp);
         if _t17(15):
-            f.NxNSquareShapeAt(cp, 1, "50 + 1n Battlecruiser", 5, 64, 128, 128)
-            # (Line 130) f.SkillEnd(cp);
             f.SkillEnd(cp)
-            # (Line 131) break;
+            # (Line 130) break;
             EUDBreak()
-            # (Line 132) }
-        # (Line 133) }
+            # (Line 131) }
+        # (Line 132) }
         EUDEndSwitch()
-        # (Line 134) }
+        # (Line 133) }
     EUDEndIf()

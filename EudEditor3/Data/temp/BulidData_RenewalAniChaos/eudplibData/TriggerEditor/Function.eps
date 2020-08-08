@@ -4,9 +4,15 @@ import Variable as v;
 const step		= PVariable();			// SkillStep
 const count 		= PVariable();			// SkillCount	
 const loop 		= PVariable();			// SkillLoop
-const delay		= PVariable();			// wait(value);
+const delay		= PVariable();			// wait(value)
 const wait		= PVariable();			// SkillWait
-	
+
+
+const loopB 		= PVariable();			// SkillLoop2
+const loopC 	= PVariable();			// SkillLoop3
+const delayB	= PVariable();			// wait(value)2
+const delayC	= PVariable();			// wait(value)3
+
 const location 	= PVariable();			// 로케이션 번호
 const heroID 	= PVariable();			// 영웅 유닛 번호
 
@@ -20,10 +26,13 @@ const distance	= PVariable();			// 거리 관련 변수
 const SinAngle 	= PVariable();			// Sin 변수
 const CosAngle 	= PVariable();			// Cos 변수
 
+const HoldLocation = [96, 119, 122, 126, 134, 143, 0, 0];
+
 const CosTableArray = EUDArray(py_eval("[int(round(100*math.cos(math.radians(t)))) for t in range(361)]"));
 const SinTableArray 	= EUDArray(py_eval("[int(round(100*math.sin(math.radians(t)))) for t in range(361)]"));
 
 const Rusaruka_Voice 	= PVariable();
+const Chtholly_Voice 	= PVariable();
 const Yuuna_Voice 		= PVariable();
 
 function Table_Sin(cp, degree, distance);
@@ -40,6 +49,14 @@ function Voice_Routine(cp, num)
 		Rusaruka_Voice[3] = num;
 		Rusaruka_Voice[4] = num;
 		Rusaruka_Voice[5] = num;
+		break;
+	case 2:
+		Chtholly_Voice[0] = num;
+		Chtholly_Voice[1] = num;
+		Chtholly_Voice[2] = num;
+		Chtholly_Voice[3] = num;
+		Chtholly_Voice[4] = num;
+		Chtholly_Voice[5] = num;
 		break;
 	case 22:
 		Yuuna_Voice[0] = num;
@@ -66,14 +83,41 @@ function SkillUnit(cp : TrgPlayer, count, Unit : TrgUnit)
 	MoveUnit(count, Unit, cp, "[Skill]Unit_Wait_ALL", location[cp]);
 }
 
+function BanReturn(cp)
+{
+	KillUnit("Protoss Observer", cp);
+}
+
+function HoldPosition(cp)
+{
+	MoveLocation(HoldLocation[cp], heroID[cp], cp, "Anywhere");
+	Order(heroID[cp], cp, "Anywhere", Move, HoldLocation[cp]);
+}
+
+function DotShape(cp : TrgPlayer, count, Unit : TrgUnit, x, y)
+{
+	MoveLoc(heroID[cp], cp, x, y);
+	SkillUnit(cp, count, Unit);
+}
+
 function SkillWait(cp, count)
 {
 	delay[cp] = count/83 + 1;
 }
 
+function SkillWaitB(cp, count)
+{
+	delayB[cp] = count/83 + 1;
+}
+
+function SkillWaitC(cp, count)
+{
+	delayB[cp] = count/83 + 1;
+}
+
 function SkillEnd(cp)
 {
-	wait[cp] = 12;
+	count[cp] = 999;
 }
 
 function SquareShape(cp : TrgPlayer, count, Unit : TrgUnit, x, y)
@@ -250,6 +294,93 @@ function LineShape(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, d
 		SkillUnit(cp, count, Unit);
 	}
 	
+}
+
+
+function LineShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, distanceX, distanceY)
+{
+	var i = 0;
+	var distance = interval / 2;
+
+	Table_Sin(cp, degree, distance);
+	Table_Cos(cp, degree, distance);
+	
+	var gradientX = CosAngle[cp] / 2;
+	var gradientY = SinAngle[cp] / 2;
+	
+	var Angle_X, Angle_Y;
+	
+	Table_Sin(cp, degree, interval);
+	Table_Cos(cp, degree, interval);
+	
+	for (; i < n; i++)
+	{
+		Angle_X = CosAngle[cp] * i;
+		Angle_Y = SinAngle[cp] * i;
+		
+		if (n % 2 == 0 && i != n / 2)
+		{
+			MoveLoc(Unit, cp, -Angle_X - gradientX + distanceX, Angle_Y + gradientY + distanceY);
+			SkillUnit(cp, count, Unit);
+			MoveLoc(Unit, cp, Angle_X + gradientX + distanceX, -Angle_Y - gradientY + distanceY);
+			SkillUnit(cp, count, Unit);
+		}
+		else if (n % 2 == 1)
+		{
+			if (i == 0)
+			{
+				MoveLoc(Unit, cp, distanceX, distanceY);
+				SkillUnit(cp, count, Unit);
+			}
+			else
+			{
+				MoveLoc(Unit, cp, -Angle_X + distanceX, Angle_Y + distanceY);
+				SkillUnit(cp, count, Unit);
+				MoveLoc(Unit, cp, Angle_X + distanceX, -Angle_Y + distanceY);
+				SkillUnit(cp, count, Unit);
+			}
+		}
+	}
+	
+}
+
+function CrossShape(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval)
+{
+	var i = 0;
+	var distance = interval / 2;
+
+	Table_Sin(cp, degree, distance);
+	Table_Cos(cp, degree, distance);
+	
+	var gradientX = CosAngle[cp] / 2;
+	var gradientY = SinAngle[cp] / 2;
+	
+	var Angle_X, Angle_Y;
+	
+	Table_Sin(cp, degree, interval);
+	Table_Cos(cp, degree, interval);
+	
+	for (; i < n; i++)
+	{
+		Angle_X = CosAngle[cp] * i;
+		Angle_Y = SinAngle[cp] * i;
+		
+		if (n % 2 == 0 && i != n / 2)
+		{
+			SquareShape(cp, count, Unit, Angle_X + gradientX, Angle_Y + gradientY);
+		}
+		else if (n % 2 == 1)
+		{
+			if (i == 0)
+			{
+				MoveLoc(Unit, cp, 0, 0);
+			}
+			else
+			{
+				SquareShape(cp, count, Unit, Angle_X, Angle_Y);
+			}
+		}
+	}
 }
 
 function Table_Sin(cp, degree, distance)

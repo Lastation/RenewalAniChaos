@@ -184,36 +184,56 @@ def MargeSound(cp):
 # (Line 38) {
 @EUDFunc
 def SkillWait(cp):
-    # (Line 39) if (f.wait[cp] >= 2)
-    if EUDIf()(f.wait[cp] >= 2):
+    # (Line 39) if (f.delay[cp] == 0)
+    if EUDIf()(f.delay[cp] == 0):
         # (Line 40) {
-        # (Line 41) f.wait[cp] -= 1;
-        _ARRW(f.wait, cp).__isub__(1)
-        # (Line 42) f.count[cp] = 0;
-        _ARRW(f.count, cp) << (0)
-        # (Line 43) }
-        # (Line 44) else if (f.wait[cp] == 1)
-    if EUDElseIf()(f.wait[cp] == 1):
-        # (Line 45) {
-        # (Line 46) f.wait[cp] = 0;
-        _ARRW(f.wait, cp) << (0)
-        # (Line 47) f.step[cp] = 0;
-        _ARRW(f.step, cp) << (0)
-        # (Line 48) f.loop[cp] = 0;
-        _ARRW(f.loop, cp) << (0)
-        # (Line 49) }
-        # (Line 50) }
+        # (Line 41) if (f.count[cp] == 999)
+        if EUDIf()(f.count[cp] == 999):
+            # (Line 42) {
+            # (Line 43) f.SkillWait(cp, 500);
+            f.SkillWait(cp, 500)
+            # (Line 44) f.count[cp] = 1000;
+            _ARRW(f.count, cp) << (1000)
+            # (Line 45) }
+            # (Line 46) else if (f.count[cp] == 1000) { f.count[cp] = 0; f.loop[cp] = 0; f.wait[cp] = 12; }
+        if EUDElseIf()(f.count[cp] == 1000):
+            _ARRW(f.count, cp) << (0)
+            _ARRW(f.loop, cp) << (0)
+            _ARRW(f.wait, cp) << (12)
+            # (Line 47) }
+        EUDEndIf()
+        # (Line 49) if (f.wait[cp] >= 2)
     EUDEndIf()
-    # (Line 52) function SkillDelay(cp)
-
-# (Line 53) {
-@EUDFunc
-def SkillDelay(cp):
-    # (Line 54) if (f.delay[cp] >= 1)
-    if EUDIf()(f.delay[cp] >= 1):
-        # (Line 55) {
-        # (Line 56) f.delay[cp] -= 1;
-        _ARRW(f.delay, cp).__isub__(1)
+    if EUDIf()(f.wait[cp] >= 2):
+        # (Line 50) {
+        # (Line 51) f.wait[cp] -= 1;
+        _ARRW(f.wait, cp).__isub__(1)
+        # (Line 52) }
+        # (Line 53) else if (f.wait[cp] == 1)
+    if EUDElseIf()(f.wait[cp] == 1):
+        # (Line 54) {
+        # (Line 55) f.wait[cp] = 0;
+        _ARRW(f.wait, cp) << (0)
+        # (Line 56) f.step[cp] = 0;
+        _ARRW(f.step, cp) << (0)
         # (Line 57) }
         # (Line 58) }
+    EUDEndIf()
+    # (Line 60) function SkillDelay(cp)
+
+# (Line 61) {
+@EUDFunc
+def SkillDelay(cp):
+    # (Line 62) if (f.delay[cp] >= 1) { f.delay[cp] -= 1; }
+    if EUDIf()(f.delay[cp] >= 1):
+        _ARRW(f.delay, cp).__isub__(1)
+        # (Line 63) if (f.delayB[cp] >= 1) { f.delayB[cp] -= 1; }
+    EUDEndIf()
+    if EUDIf()(f.delayB[cp] >= 1):
+        _ARRW(f.delayB, cp).__isub__(1)
+        # (Line 64) if (f.delayC[cp] >= 1) { f.delayC[cp] -= 1; }
+    EUDEndIf()
+    if EUDIf()(f.delayC[cp] >= 1):
+        _ARRW(f.delayC, cp).__isub__(1)
+        # (Line 65) }
     EUDEndIf()

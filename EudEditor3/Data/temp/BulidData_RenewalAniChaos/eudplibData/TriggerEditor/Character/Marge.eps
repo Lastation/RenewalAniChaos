@@ -36,23 +36,30 @@ function MargeSound(cp)
 
 function SkillWait(cp)
 {
+	if (f.delay[cp] == 0)
+	{
+		if (f.count[cp] == 999)
+		{
+			f.SkillWait(cp, 500);
+			f.count[cp] = 1000;
+		}
+		else if (f.count[cp] == 1000) { f.count[cp] = 0; f.loop[cp] = 0; f.wait[cp] = 12; }
+	}
+	
 	if (f.wait[cp] >= 2)
 	{
 		f.wait[cp] -= 1;
-		f.count[cp] = 0;
 	}
 	else if (f.wait[cp] == 1)
 	{
 		f.wait[cp] = 0;
 		f.step[cp] = 0;
-		f.loop[cp] = 0;
 	}
 }
 
 function SkillDelay(cp)
 {
-	if (f.delay[cp] >= 1)
-	{
-		f.delay[cp] -= 1;
-	}
+	if (f.delay[cp] >= 1) { f.delay[cp] -= 1; }
+	if (f.delayB[cp] >= 1) { f.delayB[cp] -= 1; }
+	if (f.delayC[cp] >= 1) { f.delayC[cp] -= 1; }
 }

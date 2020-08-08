@@ -6,32 +6,30 @@ function main(cp)
 {
 	if (f.delay[cp] == 0)
 	{
-		switch(f.loop[cp])
+		if (f.count[cp] == 0 || f.count[cp] == 4)
 		{
-		case 0:
-		case 4:
 			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
 			Shape(cp, "40 + 1n Mojo", 0, 48);
-			break;
-		case 1:
-		case 5:
+		}
+		else if (f.count[cp] == 1 || f.count[cp] == 5)
+		{
 			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
 			Shape(cp, "40 + 1n Wraith", 42, 24);
-			break;
-		case 2:
-		case 6:
+		}
+		else if (f.count[cp] == 2 || f.count[cp] == 6)
+		{
 			KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
 			Shape(cp, "40 + 1n Mutalisk", 24, 42);
-			break;
-		case 3:
-		case 7:
+		}
+		else if (f.count[cp] == 3 || f.count[cp] == 7)
+		{
 			KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
 			Shape(cp, "40 + 1n Mojo", 48, 0);
-			break;
-		case 8:
+		}
+		else if (f.count[cp] == 8)
+		{
 			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
 			f.SkillEnd(cp);
-			break;
 		}
 	}
 }
@@ -52,5 +50,5 @@ function Shape(cp, Unit : TrgUnit, x, y)
 	MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
 	Order(Unit, cp, "Anywhere", Attack, f.location[cp]);
 	f.SkillWait(cp, 50);
-	f.loop[cp] += 1;
+	f.count[cp] += 1;
 }
