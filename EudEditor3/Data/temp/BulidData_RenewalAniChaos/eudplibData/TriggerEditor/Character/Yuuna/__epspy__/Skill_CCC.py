@@ -134,214 +134,207 @@ s = _CGFW(lambda: [StringBuffer()], 1)[0]
 # (Line 6) {
 @EUDFunc
 def f_main(cp):
-    # (Line 7) if (f.delay[cp] == 0)
+    # (Line 7) f.BanReturn(cp);
+    f.BanReturn(cp)
+    # (Line 8) f.HoldPosition(cp);
+    f.HoldPosition(cp)
+    # (Line 10) if (f.delay[cp] == 0)
     if EUDIf()(f.delay[cp] == 0):
-        # (Line 8) {
-        # (Line 9) if (f.count[cp] == 0)
+        # (Line 11) {
+        # (Line 12) if (f.count[cp] == 0)
         if EUDIf()(f.count[cp] == 0):
-            # (Line 10) {
-            # (Line 11) if (f.loop[cp] < 4)
+            # (Line 13) {
+            # (Line 14) if (f.loop[cp] < 4)
             if EUDIf()(f.loop[cp] >= 4, neg=True):
-                # (Line 12) {
-                # (Line 14) f.NxNSquareShape(cp, 1, "40 + 1n Wraith", 2 * f.loop[cp] + 1, 50);
+                # (Line 15) {
+                # (Line 17) f.NxNSquareShape(cp, 1, "40 + 1n Wraith", 2 * f.loop[cp] + 1, 50);
                 f.NxNSquareShape(cp, 1, "40 + 1n Wraith", 2 * f.loop[cp] + 1, 50)
-                # (Line 15) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
-                # (Line 17) f.SkillWait(cp, 80);
+                # (Line 18) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+                # (Line 20) f.SkillWait(cp, 80);
                 DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp))
                 f.SkillWait(cp, 80)
-                # (Line 19) f.loop[cp] += 1;
+                # (Line 22) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 20) }
-                # (Line 21) else if (f.loop[cp] == 4)
+                # (Line 23) }
+                # (Line 24) else if (f.loop[cp] == 4)
             if EUDElseIf()(f.loop[cp] == 4):
-                # (Line 22) {
-                # (Line 23) f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 6, 75);
+                # (Line 25) {
+                # (Line 26) f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 6, 75);
                 f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 6, 75)
-                # (Line 24) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-                # (Line 26) f.SkillWait(cp, 80);
+                # (Line 27) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+                # (Line 29) f.SkillWait(cp, 80);
                 DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp))
                 f.SkillWait(cp, 80)
-                # (Line 28) f.loop[cp] += 1;
+                # (Line 31) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 29) }
-                # (Line 30) else if (f.loop[cp] == 5)
+                # (Line 32) }
+                # (Line 33) else if (f.loop[cp] == 5)
             if EUDElseIf()(f.loop[cp] == 5):
-                # (Line 31) {
-                # (Line 32) f.SquareShape(cp, 1, "60 + 1n Siege", 114, 114);
+                # (Line 34) {
+                # (Line 35) f.SquareShape(cp, 1, "60 + 1n Siege", 114, 114);
                 f.SquareShape(cp, 1, "60 + 1n Siege", 114, 114)
-                # (Line 33) f.SquareShape(cp, 1, "60 + 1n Siege", 114, 190);
+                # (Line 36) f.SquareShape(cp, 1, "60 + 1n Siege", 114, 190);
                 f.SquareShape(cp, 1, "60 + 1n Siege", 114, 190)
-                # (Line 34) f.SquareShape(cp, 1, "60 + 1n Siege", 190, 114);
+                # (Line 37) f.SquareShape(cp, 1, "60 + 1n Siege", 190, 114);
                 f.SquareShape(cp, 1, "60 + 1n Siege", 190, 114)
-                # (Line 35) f.SquareShape(cp, 1, "60 + 1n Siege", 190, 190);
+                # (Line 38) f.SquareShape(cp, 1, "60 + 1n Siege", 190, 190);
                 f.SquareShape(cp, 1, "60 + 1n Siege", 190, 190)
-                # (Line 36) f.SquareShape(cp, 1, "60 + 1n Siege", 38, 114);
+                # (Line 39) f.SquareShape(cp, 1, "60 + 1n Siege", 38, 114);
                 f.SquareShape(cp, 1, "60 + 1n Siege", 38, 114)
-                # (Line 37) f.SquareShape(cp, 1, "60 + 1n Siege", 38, 175);
+                # (Line 40) f.SquareShape(cp, 1, "60 + 1n Siege", 38, 175);
                 f.SquareShape(cp, 1, "60 + 1n Siege", 38, 175)
-                # (Line 38) f.SquareShape(cp, 1, "60 + 1n Siege", 114, 38);
+                # (Line 41) f.SquareShape(cp, 1, "60 + 1n Siege", 114, 38);
                 f.SquareShape(cp, 1, "60 + 1n Siege", 114, 38)
-                # (Line 39) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 175, 38);
+                # (Line 42) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 175, 38);
                 f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 175, 38)
-                # (Line 40) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 114, 114);
+                # (Line 43) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 114, 114);
                 f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 114, 114)
-                # (Line 41) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 114, 190);
+                # (Line 44) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 114, 190);
                 f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 114, 190)
-                # (Line 42) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 190, 114);
+                # (Line 45) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 190, 114);
                 f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 190, 114)
-                # (Line 43) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 190, 190);
+                # (Line 46) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 190, 190);
                 f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 190, 190)
-                # (Line 44) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 38, 114);
+                # (Line 47) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 38, 114);
                 f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 38, 114)
-                # (Line 45) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 38, 175);
+                # (Line 48) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 38, 175);
                 f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 38, 175)
-                # (Line 46) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 114, 38);
+                # (Line 49) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 114, 38);
                 f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 114, 38)
-                # (Line 47) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 175, 38);
+                # (Line 50) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 175, 38);
                 f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 175, 38)
-                # (Line 48) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                # (Line 49) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 51) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 52) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 50) f.SkillWait(cp, 720);
+                # (Line 53) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
                 DoActions(Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]))
+                # (Line 54) f.SkillWait(cp, 720);
+                DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
                 f.SkillWait(cp, 720)
-                # (Line 52) f.count[cp] += 1;
+                # (Line 56) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 53) f.loop[cp] = 0;
+                # (Line 57) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
-                # (Line 54) }
-                # (Line 56) }
+                # (Line 58) }
+                # (Line 60) }
             EUDEndIf()
-            # (Line 57) else if (f.count[cp] == 1)
+            # (Line 61) else if (f.count[cp] == 1)
         if EUDElseIf()(f.count[cp] == 1):
-            # (Line 58) {
-            # (Line 59) if (f.loop[cp] == 0)
+            # (Line 62) {
+            # (Line 63) if (f.loop[cp] == 0)
             if EUDIf()(f.loop[cp] == 0):
-                # (Line 60) {
-                # (Line 61) f.NxNSquareShape(cp, 1, "Kakaru (Twilight)", 3, 50);
+                # (Line 64) {
+                # (Line 65) f.NxNSquareShape(cp, 1, "Kakaru (Twilight)", 3, 50);
                 f.NxNSquareShape(cp, 1, "Kakaru (Twilight)", 3, 50)
-                # (Line 62) f.NxNSquareShape(cp, 1, "40 + 1n Goliath", 3, 50);
+                # (Line 66) f.NxNSquareShape(cp, 1, "40 + 1n Goliath", 3, 50);
                 f.NxNSquareShape(cp, 1, "40 + 1n Goliath", 3, 50)
-                # (Line 63) Order("40 + 1n Goliath", cp, "Anywhere", Attack, "Anywhere");
-                # (Line 64) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
+                # (Line 67) Order("40 + 1n Goliath", cp, "Anywhere", Attack, "Anywhere");
+                # (Line 68) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
                 DoActions(Order("40 + 1n Goliath", cp, "Anywhere", Attack, "Anywhere"))
-                # (Line 66) f.SkillWait(cp, 320);
+                # (Line 70) f.SkillWait(cp, 320);
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp))
                 f.SkillWait(cp, 320)
-                # (Line 68) f.loop[cp] += 1;
+                # (Line 72) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 71) }
-                # (Line 72) if (f.loop[cp] == 1)
-            EUDEndIf()
-            if EUDIf()(f.loop[cp] == 1):
-                # (Line 73) {
-                # (Line 74) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
-                # (Line 76) f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 0);
+                # (Line 75) }
+                # (Line 76) else if (f.loop[cp] == 1)
+            if EUDElseIf()(f.loop[cp] == 1):
+                # (Line 77) {
+                # (Line 78) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
+                # (Line 80) f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 0);
                 DoActions(KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp))
                 f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 0)
-                # (Line 77) f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 50);
+                # (Line 81) f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 50);
                 f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 50)
-                # (Line 78) f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 100);
+                # (Line 82) f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 100);
                 f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 100)
-                # (Line 79) f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 150);
+                # (Line 83) f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 150);
                 f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 150)
-                # (Line 80) f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 200);
+                # (Line 84) f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 200);
                 f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 200)
-                # (Line 81) f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 0);
+                # (Line 85) f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 0);
                 f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 0)
-                # (Line 82) f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 50);
+                # (Line 86) f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 50);
                 f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 50)
-                # (Line 83) f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 100);
+                # (Line 87) f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 100);
                 f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 100)
-                # (Line 84) f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 150);
+                # (Line 88) f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 150);
                 f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 150)
-                # (Line 85) f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 200);
+                # (Line 89) f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 200);
                 f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 200)
-                # (Line 86) f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 0);
+                # (Line 90) f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 0);
                 f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 0)
-                # (Line 87) f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 50);
+                # (Line 91) f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 50);
                 f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 50)
-                # (Line 88) f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 100);
+                # (Line 92) f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 100);
                 f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 100)
-                # (Line 89) f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 150);
+                # (Line 93) f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 150);
                 f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 150)
-                # (Line 90) f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 200);
+                # (Line 94) f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 200);
                 f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 200)
-                # (Line 91) f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 100);
+                # (Line 95) f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 100);
                 f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 100)
-                # (Line 92) f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 150);
+                # (Line 96) f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 150);
                 f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 150)
-                # (Line 93) f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 200);
+                # (Line 97) f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 200);
                 f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 200)
-                # (Line 94) f.SquareShape(cp, 1, "40 + 1n Goliath", 175, 38);
-                f.SquareShape(cp, 1, "40 + 1n Goliath", 175, 38)
-                # (Line 95) f.SquareShape(cp, 1, "40 + 1n Goliath", 114, 114);
-                f.SquareShape(cp, 1, "40 + 1n Goliath", 114, 114)
-                # (Line 96) f.SquareShape(cp, 1, "40 + 1n Goliath", 114, 190);
-                f.SquareShape(cp, 1, "40 + 1n Goliath", 114, 190)
-                # (Line 97) f.SquareShape(cp, 1, "40 + 1n Goliath", 190, 114);
-                f.SquareShape(cp, 1, "40 + 1n Goliath", 190, 114)
-                # (Line 98) f.SquareShape(cp, 1, "40 + 1n Goliath", 190, 190);
-                f.SquareShape(cp, 1, "40 + 1n Goliath", 190, 190)
-                # (Line 99) f.SquareShape(cp, 1, "40 + 1n Goliath", 38, 114);
-                f.SquareShape(cp, 1, "40 + 1n Goliath", 38, 114)
-                # (Line 100) f.SquareShape(cp, 1, "40 + 1n Goliath", 38, 175);
-                f.SquareShape(cp, 1, "40 + 1n Goliath", 38, 175)
-                # (Line 101) f.SquareShape(cp, 1, "40 + 1n Goliath", 114, 38);
-                f.SquareShape(cp, 1, "40 + 1n Goliath", 114, 38)
-                # (Line 102) f.SquareShape(cp, 1, "40 + 1n Goliath", 175, 38);
-                f.SquareShape(cp, 1, "40 + 1n Goliath", 175, 38)
-                # (Line 103) Order("40 + 1n Goliath", cp, "Anywhere", Attack, "Anywhere");
-                # (Line 104) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
-                DoActions(Order("40 + 1n Goliath", cp, "Anywhere", Attack, "Anywhere"))
-                # (Line 106) f.SkillWait(cp, 320);
+                # (Line 98) f.EdgeShape(cp, 1, "40 + 1n Goliath", 45, 3, 125);
+                f.EdgeShape(cp, 1, "40 + 1n Goliath", 45, 3, 125)
+                # (Line 99) f.EdgeShape(cp, 1, "40 + 1n Goliath", 45, 5, 175);
+                f.EdgeShape(cp, 1, "40 + 1n Goliath", 45, 5, 175)
+                # (Line 100) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 101) MoveUnit(All, "40 + 1n Goliath", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+                DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
+                # (Line 102) Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);
+                DoActions(MoveUnit(All, "40 + 1n Goliath", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
+                # (Line 103) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
+                DoActions(Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]))
+                # (Line 105) f.SkillWait(cp, 320);
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp))
                 f.SkillWait(cp, 320)
-                # (Line 108) f.count[cp] += 1;
+                # (Line 107) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 109) f.loop[cp] = 0;
+                # (Line 108) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
-                # (Line 110) }
-                # (Line 113) }
+                # (Line 109) }
+                # (Line 112) }
             EUDEndIf()
-            # (Line 114) else if (f.count[cp] == 2)
+            # (Line 113) else if (f.count[cp] == 2)
         if EUDElseIf()(f.count[cp] == 2):
-            # (Line 115) {
-            # (Line 116) if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") && Deaths(cp, Exactly, 210, " `SkillStep"))
-            if EUDIf()(EUDSCAnd()(Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill"))(Deaths(cp, Exactly, 210, " `SkillStep"))()):
-                # (Line 117) {
-                # (Line 118) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
-                # (Line 119) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+            # (Line 114) {
+            # (Line 115) if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") && f.step[cp] == 210)
+            if EUDIf()(EUDSCAnd()(Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill"))(f.step[cp] == 210)()):
+                # (Line 116) {
+                # (Line 117) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
+                # (Line 118) f.Voice_Routine(cp, 4);
                 DoActions(KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp))
-                # (Line 120) SetDeaths(cp, SetTo, 4, 136);
-                DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
-                # (Line 121) SetDeaths(cp, SetTo, 0, " `SkillWait");
-                DoActions(SetDeaths(cp, SetTo, 4, 136))
-                # (Line 122) SetDeaths(cp, SetTo, 0, " `SkillCount");
-                DoActions(SetDeaths(cp, SetTo, 0, " `SkillWait"))
-                # (Line 123) f.loop[cp] = 0;
-                DoActions(SetDeaths(cp, SetTo, 0, " `SkillCount"))
+                f.Voice_Routine(cp, 4)
+                # (Line 119) f.wait[cp] = 0;
+                _ARRW(f.wait, cp) << (0)
+                # (Line 120) f.count[cp] = 0;
+                _ARRW(f.count, cp) << (0)
+                # (Line 121) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
-                # (Line 124) SetDeaths(cp, SetTo, 220, " `SkillStep");
-                # (Line 125) KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
-                DoActions(SetDeaths(cp, SetTo, 220, " `SkillStep"))
-                # (Line 126) }
+                # (Line 122) f.step[cp] = 220;
+                _ARRW(f.step, cp) << (220)
+                # (Line 123) KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
+                # (Line 124) }
                 DoActions(KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp))
-                # (Line 127) else
-                # (Line 128) {
+                # (Line 125) else
+                # (Line 126) {
             if EUDElse()():
-                # (Line 129) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
-                # (Line 130) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+                # (Line 127) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
+                # (Line 128) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
                 DoActions(KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp))
-                # (Line 131) KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp);
+                # (Line 129) KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp);
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
-                # (Line 132) f.SkillEnd(cp);
+                # (Line 130) f.SkillEnd(cp);
                 DoActions(KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp))
                 f.SkillEnd(cp)
-                # (Line 133) }
-                # (Line 136) }
+                # (Line 131) }
+                # (Line 134) }
             EUDEndIf()
-            # (Line 139) }
+            # (Line 137) }
         EUDEndIf()
-        # (Line 140) }
+        # (Line 138) }
     EUDEndIf()

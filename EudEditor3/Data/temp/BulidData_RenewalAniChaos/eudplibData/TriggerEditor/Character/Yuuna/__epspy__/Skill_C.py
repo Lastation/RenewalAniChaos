@@ -221,10 +221,10 @@ def f_main(cp):
             if EUDElseIf()(f.loop[cp] == 4):
                 # (Line 67) {
                 # (Line 68) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                # (Line 69) Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 69) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
                 # (Line 71) f.SkillWait(cp, 0);
-                DoActions(Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]))
+                DoActions(KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp))
                 f.SkillWait(cp, 0)
                 # (Line 73) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
@@ -274,29 +274,31 @@ def f_main(cp):
             if EUDElseIf()(f.loop[cp] == 4):
                 # (Line 105) {
                 # (Line 106) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                # (Line 107) Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 107) MoveUnit(All, "40 + 1n Goliath", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 109) f.SkillWait(cp, 50);
+                # (Line 108) Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);
+                DoActions(MoveUnit(All, "40 + 1n Goliath", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
+                # (Line 110) f.SkillWait(cp, 50);
                 DoActions(Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]))
                 f.SkillWait(cp, 50)
-                # (Line 111) f.count[cp] += 1;
+                # (Line 112) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 112) f.loop[cp] = 0;
+                # (Line 113) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
-                # (Line 113) }
                 # (Line 114) }
+                # (Line 115) }
             EUDEndIf()
-            # (Line 115) else if (f.count[cp] == 3)
+            # (Line 116) else if (f.count[cp] == 3)
         if EUDElseIf()(f.count[cp] == 3):
-            # (Line 116) {
-            # (Line 117) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
-            # (Line 118) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+            # (Line 117) {
+            # (Line 118) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
+            # (Line 119) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp))
-            # (Line 119) f.SkillEnd(cp);
+            # (Line 120) f.SkillEnd(cp);
             DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
             f.SkillEnd(cp)
-            # (Line 120) }
             # (Line 121) }
+            # (Line 122) }
         EUDEndIf()
-        # (Line 122) }
+        # (Line 123) }
     EUDEndIf()

@@ -172,8 +172,8 @@ def f_main(cp):
         EUDEndIf()
         if EUDIf()(f.count[cp] == 1):
             # (Line 29) {
-            # (Line 30) if (f.loop[cp] < 3)
-            if EUDIf()(f.loop[cp] >= 3, neg=True):
+            # (Line 30) if (f.loop[cp] < 2)
+            if EUDIf()(f.loop[cp] >= 2, neg=True):
                 # (Line 31) {
                 # (Line 32) RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
                 # (Line 33) f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75);
@@ -186,8 +186,8 @@ def f_main(cp):
                 # (Line 37) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
                 # (Line 38) }
-                # (Line 39) else if (f.loop[cp] == 3)
-            if EUDElseIf()(f.loop[cp] == 3):
+                # (Line 39) else if (f.loop[cp] == 2)
+            if EUDElseIf()(f.loop[cp] == 2):
                 # (Line 40) {
                 # (Line 41) RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
                 # (Line 42) f.NxNSquareShape(cp, 1, " Unit. Hoffnung 25000", 3, 75);

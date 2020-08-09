@@ -256,8 +256,8 @@ def SkillVoice(cp):
 # (Line 75) {
 @EUDFunc
 def SkillList(cp):
-    # (Line 76) if(Deaths(cp, Exactly, 2, "Terran SCV")) 	// Insert key Pressed
-    if EUDIf()(Deaths(cp, Exactly, 2, "Terran SCV")):
+    # (Line 76) if(f.INSERT_KEY[cp] == 1) 	// Insert key Pressed
+    if EUDIf()(f.INSERT_KEY[cp] == 1):
         # (Line 77) {
         # (Line 78) stb.printAt(0, "\n");
         stb.printAt(0, "\n")
@@ -267,12 +267,12 @@ def SkillList(cp):
         stb.printAt(2, "　　\x1FA\x04ction List")
         # (Line 81) stb.printAt(3, "　　　\x18O \x04창조 \x19[ 15x15 / 적 5초마다 경직 / 파괴될시 5분후 재생 / 설치형 ]");
         stb.printAt(3, "　　　\x18O \x04창조 \x19[ 15x15 / 적 5초마다 경직 / 파괴될시 5분후 재생 / 설치형 ]")
-        # (Line 82) stb.printAt(4, "　　　\x04\x1F>SSS \x04위협 \x19[ 대인 / 공성 ]");
-        stb.printAt(4, "　　　\x04\x1F>SSS \x04위협 \x19[ 대인 / 공성 ]")
-        # (Line 83) stb.printAt(5, "　　　\x04\x1F>CCC + AA \x04고문바퀴 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]");
-        stb.printAt(5, "　　　\x04\x1F>CCC + AA \x04고문바퀴 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]")
-        # (Line 84) stb.printAt(6, "　　　\x04\x1F>ACC \x04고문용 쇠사슬 \x19[ 대인 ]");
-        stb.printAt(6, "　　　\x04\x1F>ACC \x04고문용 쇠사슬 \x19[ 대인 ]")
+        # (Line 82) stb.printAt(4, "　　　\x04\x1FSSS \x04위협 \x19[ 대인 / 공성 ]");
+        stb.printAt(4, "　　　\x04\x1FSSS \x04위협 \x19[ 대인 / 공성 ]")
+        # (Line 83) stb.printAt(5, "　　　\x04\x1FCCC + AA \x04고문바퀴 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]");
+        stb.printAt(5, "　　　\x04\x1FCCC + AA \x04고문바퀴 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]")
+        # (Line 84) stb.printAt(6, "　　　\x04\x1FACC \x04고문용 쇠사슬 \x19[ 대인 ]");
+        stb.printAt(6, "　　　\x04\x1FACC \x04고문용 쇠사슬 \x19[ 대인 ]")
         # (Line 85) stb.printAt(7, "\n");
         stb.printAt(7, "\n")
         # (Line 86) stb.printAt(8, "　　　\x08AAAC \x04갈망 \x19[ 공성 / 선딜없음 /  장판형 스킬 ] \x05", f.UltimateA[cp]);
@@ -280,7 +280,9 @@ def SkillList(cp):
         # (Line 87) stb.printAt(9, "\n");
         stb.printAt(9, "\n")
         # (Line 88) PlayWAV("sound\\Bullet\\LaserHit.wav");
-        # (Line 89) }
+        # (Line 89) f.INSERT_KEY[cp] = 0;
         DoActions(PlayWAV("sound\\Bullet\\LaserHit.wav"))
+        _ARRW(f.INSERT_KEY, cp) << (0)
         # (Line 90) }
+        # (Line 91) }
     EUDEndIf()

@@ -31,8 +31,10 @@ def onPluginStart():
         SetMemory(0x664878, Add, 1),# units:Shield Enable  index:200    from 0 To 1
         SetMemory(0x660EE4, Add, 19660800),# units:Shield Amount  index:115    from 100 To 400
         SetMemory(0x662354, Add, 615680),# units:Hit Points  index:1    from 11520 To 627200
+        SetMemory(0x662358, Add, -5120),# units:Hit Points  index:2    from 71680 To 66560
         SetMemory(0x662390, Add, 151040),# units:Hit Points  index:16    from 476160 To 627200
         SetMemory(0x6623A4, Add, 499200),# units:Hit Points  index:21    from 128000 To 627200
+        SetMemory(0x6623F0, Add, -5120),# units:Hit Points  index:40    from 81920 To 76800
         SetMemory(0x66241C, Add, 151040),# units:Hit Points  index:51    from 476160 To 627200
         SetMemory(0x662424, Add, 151040),# units:Hit Points  index:53    from 476160 To 627200
         SetMemory(0x662428, Add, 151040),# units:Hit Points  index:54    from 476160 To 627200
@@ -757,6 +759,7 @@ def onPluginStart():
         SetMemory(0x6573C4, Add, -4259840),# weapons:Label  index:115    from 294 To 229
         SetMemory(0x6573C8, Add, -2),# weapons:Label  index:116    from 231 To 229
         SetMemory(0x657A00, Add, 2),# weapons:Target Flags  index:52    from 1 To 3
+        SetMemory(0x657A14, Add, 0),# weapons:Target Flags  index:62    from 2 To 2
         SetMemory(0x656A84, Add, -64),# weapons:Minimum Range  index:27    from 64 To 0
         SetMemory(0x656A88, Add, -64),# weapons:Minimum Range  index:28    from 64 To 0
         SetMemory(0x657470, Add, 32),# weapons:Maximum Range  index:0    from 128 To 160
@@ -827,6 +830,8 @@ def onPluginStart():
         SetMemory(0x657200, Add, -33554432),# weapons:Damage Upgrade  index:51    from 11 To 9
         SetMemory(0x657204, Add, -51),# weapons:Damage Upgrade  index:52    from 60 To 9
         SetMemory(0x657204, Add, -13056),# weapons:Damage Upgrade  index:53    from 60 To 9
+        SetMemory(0x65720C, Add, -3342336),# weapons:Damage Upgrade  index:62    from 60 To 9
+        SetMemory(0x65720C, Add, -855638016),# weapons:Damage Upgrade  index:63    from 60 To 9
         SetMemory(0x657210, Add, -4),# weapons:Damage Upgrade  index:64    from 13 To 9
         SetMemory(0x657210, Add, -1024),# weapons:Damage Upgrade  index:65    from 13 To 9
         SetMemory(0x657210, Add, -262144),# weapons:Damage Upgrade  index:66    from 13 To 9

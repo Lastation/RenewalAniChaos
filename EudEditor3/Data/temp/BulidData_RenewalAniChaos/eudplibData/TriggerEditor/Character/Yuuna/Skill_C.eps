@@ -66,7 +66,7 @@ function main(cp)
          else if (f.loop[cp] == 4)
          {
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
 
             f.SkillWait(cp, 0);
 
@@ -104,6 +104,7 @@ function main(cp)
          else if (f.loop[cp] == 4)
          {
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            MoveUnit(All, "40 + 1n Goliath", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
             Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);
 
             f.SkillWait(cp, 50);

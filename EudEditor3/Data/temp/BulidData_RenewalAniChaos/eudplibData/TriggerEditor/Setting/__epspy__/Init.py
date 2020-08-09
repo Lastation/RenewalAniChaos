@@ -180,48 +180,77 @@ def SetVariable(cp):
             # (Line 33) break;
         EUDEndIf()
         EUDBreak()
-        # (Line 34) default:
-    # (Line 35) bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp));
-    if EUDSwitchDefault()():
-        f_bwrite(0x58D2B0 + 0x207C * ((2) // 46) + (cp) * (46 - 31 * ((2) // 46)) + ((2) % 46), f_bread(0x58D2B0 + 0 + 46 * cp))
-        # (Line 36) break;
-        EUDBreak()
-        # (Line 37) }
-    # (Line 40) switch (v.Hero_Num[cp])	// 공격력 관련
-    EUDEndSwitch()
-    EUDSwitch(v.Hero_Num[cp])
-    # (Line 41) {
-    # (Line 42) case 19:
+        # (Line 34) case 18:
     _t4 = EUDSwitchCase()
-    # (Line 43) if(Deaths(CurrentPlayer, Exactly, 210, " `SkillStep"))
-    if _t4(19):
-        if EUDIf()(Deaths(CurrentPlayer, Exactly, 210, " `SkillStep")):
-            # (Line 44) {
-            # (Line 45) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
-            f_bwrite(0x58D2B0 + 0x207C * ((9) // 46) + (cp) * (46 - 31 * ((9) // 46)) + ((9) % 46), f_bread(0x58D2B0 + 7 + 46 * cp))
-            # (Line 46) }
-            # (Line 47) else
-            # (Line 48) {
+    # (Line 35) if(Deaths(CurrentPlayer, Exactly, 320, " `SkillStep"))
+    if _t4(18):
+        if EUDIf()(Deaths(CurrentPlayer, Exactly, 320, " `SkillStep")):
+            # (Line 36) {
+            # (Line 37) bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), 255);
+            f_bwrite(0x58D2B0 + 0x207C * ((2) // 46) + (cp) * (46 - 31 * ((2) // 46)) + ((2) % 46), 255)
+            # (Line 38) }
+            # (Line 39) else bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp));
         if EUDElse()():
-            # (Line 49) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
-            f_bwrite(0x58D2B0 + 0x207C * ((9) // 46) + (cp) * (46 - 31 * ((9) // 46)) + ((9) % 46), f_bread(0x58D2B0 + 7 + 46 * cp))
-            # (Line 50) }
-            # (Line 51) break;
+            f_bwrite(0x58D2B0 + 0x207C * ((2) // 46) + (cp) * (46 - 31 * ((2) // 46)) + ((2) % 46), f_bread(0x58D2B0 + 0 + 46 * cp))
+            # (Line 40) break;
         EUDEndIf()
         EUDBreak()
-        # (Line 52) case 14:
+        # (Line 41) case 22:
     _t6 = EUDSwitchCase()
-    # (Line 53) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp) + 2 * dwread_epd(204 * 12 + cp));
-    if _t6(14):
-        f_bwrite(0x58D2B0 + 0x207C * ((9) // 46) + (cp) * (46 - 31 * ((9) // 46)) + ((9) % 46), f_bread(0x58D2B0 + 7 + 46 * cp) + 2 * f_dwread_epd(204 * 12 + cp))
-        # (Line 54) break;
+    # (Line 42) bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp) - 3 * dwread_epd(204 * 12 + cp));
+    if _t6(22):
+        f_bwrite(0x58D2B0 + 0x207C * ((2) // 46) + (cp) * (46 - 31 * ((2) // 46)) + ((2) % 46), f_bread(0x58D2B0 + 0 + 46 * cp) - 3 * f_dwread_epd(204 * 12 + cp))
+        # (Line 43) break;
         EUDBreak()
-        # (Line 55) default:
-    # (Line 56) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
+        # (Line 44) default:
+    # (Line 45) bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp));
+    if EUDSwitchDefault()():
+        f_bwrite(0x58D2B0 + 0x207C * ((2) // 46) + (cp) * (46 - 31 * ((2) // 46)) + ((2) % 46), f_bread(0x58D2B0 + 0 + 46 * cp))
+        # (Line 46) break;
+        EUDBreak()
+        # (Line 47) }
+    # (Line 50) switch (v.Hero_Num[cp])	// 공격력 관련
+    EUDEndSwitch()
+    EUDSwitch(v.Hero_Num[cp])
+    # (Line 51) {
+    # (Line 52) case 19:
+    _t7 = EUDSwitchCase()
+    # (Line 53) if(Deaths(CurrentPlayer, Exactly, 210, " `SkillStep"))
+    if _t7(19):
+        if EUDIf()(Deaths(CurrentPlayer, Exactly, 210, " `SkillStep")):
+            # (Line 54) {
+            # (Line 55) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
+            f_bwrite(0x58D2B0 + 0x207C * ((9) // 46) + (cp) * (46 - 31 * ((9) // 46)) + ((9) % 46), f_bread(0x58D2B0 + 7 + 46 * cp))
+            # (Line 56) }
+            # (Line 57) else
+            # (Line 58) {
+        if EUDElse()():
+            # (Line 59) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
+            f_bwrite(0x58D2B0 + 0x207C * ((9) // 46) + (cp) * (46 - 31 * ((9) // 46)) + ((9) % 46), f_bread(0x58D2B0 + 7 + 46 * cp))
+            # (Line 60) }
+            # (Line 61) break;
+        EUDEndIf()
+        EUDBreak()
+        # (Line 62) case 14:
+    _t9 = EUDSwitchCase()
+    # (Line 63) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp) + 2 * dwread_epd(204 * 12 + cp));
+    if _t9(14):
+        f_bwrite(0x58D2B0 + 0x207C * ((9) // 46) + (cp) * (46 - 31 * ((9) // 46)) + ((9) % 46), f_bread(0x58D2B0 + 7 + 46 * cp) + 2 * f_dwread_epd(204 * 12 + cp))
+        # (Line 64) break;
+        EUDBreak()
+        # (Line 65) case 22:
+    _t10 = EUDSwitchCase()
+    # (Line 66) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp) + 3 * dwread_epd(204 * 12 + cp));
+    if _t10(22):
+        f_bwrite(0x58D2B0 + 0x207C * ((9) // 46) + (cp) * (46 - 31 * ((9) // 46)) + ((9) % 46), f_bread(0x58D2B0 + 7 + 46 * cp) + 3 * f_dwread_epd(204 * 12 + cp))
+        # (Line 67) break;
+        EUDBreak()
+        # (Line 69) default:
+    # (Line 70) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
     if EUDSwitchDefault()():
         f_bwrite(0x58D2B0 + 0x207C * ((9) // 46) + (cp) * (46 - 31 * ((9) // 46)) + ((9) % 46), f_bread(0x58D2B0 + 7 + 46 * cp))
-        # (Line 57) break;
+        # (Line 71) break;
         EUDBreak()
-        # (Line 58) }
-    # (Line 61) }
+        # (Line 72) }
+    # (Line 75) }
     EUDEndSwitch()

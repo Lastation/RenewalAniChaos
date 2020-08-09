@@ -7,6 +7,7 @@ const loop 		= PVariable();			// SkillLoop
 const delay		= PVariable();			// wait(value)
 const wait		= PVariable();			// SkillWait
 
+const INSERT_KEY = PVariable();
 
 const loopB 		= PVariable();			// SkillLoop2
 const loopC 	= PVariable();			// SkillLoop3
@@ -182,7 +183,7 @@ function NxNSquareShape(cp : TrgPlayer, count, Unit : TrgUnit, n, interval)
 	
 			if (i == 0)
 			{
-				MoveLoc(Unit ,cp, 0, 0);
+				MoveLoc(heroID[cp] ,cp, 0, 0);
 				SkillUnit(cp, count, Unit);
 			}
 			else if (destY == 0)
@@ -290,7 +291,7 @@ function LineShape(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, d
 	
 	for (; i < n; i++)
 	{
-		MoveLoc(Unit, cp, x_initial - i * CosAngle[cp], y_initial - i * SinAngle[cp]);
+		MoveLoc(heroID[cp], cp, x_initial - i * CosAngle[cp], y_initial - i * SinAngle[cp]);
 		SkillUnit(cp, count, Unit);
 	}
 	
@@ -320,23 +321,23 @@ function LineShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval,
 		
 		if (n % 2 == 0 && i != n / 2)
 		{
-			MoveLoc(Unit, cp, -Angle_X - gradientX + distanceX, Angle_Y + gradientY + distanceY);
+			MoveLoc(heroID[cp], cp, -Angle_X - gradientX + distanceX, Angle_Y + gradientY + distanceY);
 			SkillUnit(cp, count, Unit);
-			MoveLoc(Unit, cp, Angle_X + gradientX + distanceX, -Angle_Y - gradientY + distanceY);
+			MoveLoc(heroID[cp], cp, Angle_X + gradientX + distanceX, -Angle_Y - gradientY + distanceY);
 			SkillUnit(cp, count, Unit);
 		}
 		else if (n % 2 == 1)
 		{
 			if (i == 0)
 			{
-				MoveLoc(Unit, cp, distanceX, distanceY);
+				MoveLoc(heroID[cp], cp, distanceX, distanceY);
 				SkillUnit(cp, count, Unit);
 			}
 			else
 			{
-				MoveLoc(Unit, cp, -Angle_X + distanceX, Angle_Y + distanceY);
+				MoveLoc(heroID[cp], cp, -Angle_X + distanceX, Angle_Y + distanceY);
 				SkillUnit(cp, count, Unit);
-				MoveLoc(Unit, cp, Angle_X + distanceX, -Angle_Y + distanceY);
+				MoveLoc(heroID[cp], cp, Angle_X + distanceX, -Angle_Y + distanceY);
 				SkillUnit(cp, count, Unit);
 			}
 		}
@@ -373,7 +374,7 @@ function CrossShape(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval)
 		{
 			if (i == 0)
 			{
-				MoveLoc(Unit, cp, 0, 0);
+				MoveLoc(heroID[cp], cp, 0, 0);
 			}
 			else
 			{
@@ -415,4 +416,34 @@ function Table_Cos(cp, degree, distance)
 	{
 		CosAngle[cp] = (CosAngle[cp] * distance) / 100;
 	}
+}
+function EdgeShape(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval)
+{
+   var i = 0;
+
+   Table_Sin(cp, degree, interval * 14 / 10);
+   Table_Cos(cp, degree, interval * 14 / 10);
+
+   var x_o = CosAngle[cp];
+   var y_o = SinAngle[cp];
+
+   var distance = (interval * 2) / (n - 1);
+
+   Table_Sin(cp, degree + 45, distance);
+   Table_Cos(cp, degree + 45, distance);
+
+   var distance_x = CosAngle[cp];
+   var distance_y = SinAngle[cp];
+   
+   if (n == 1)
+   {
+      DotShape(cp, 1, Unit, 0, 0);
+   }
+   else if (n > 1)
+   {
+      for (; i < n - 1; i++)
+      {
+         SquareShape(cp, 1, Unit, x_o - (distance_x * i), y_o - (distance_y * i));
+      }
+   }
 }

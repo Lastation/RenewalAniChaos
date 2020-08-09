@@ -31,6 +31,16 @@ function SetVariable(cp)
 			bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp)); 
 		}
 		break;
+  	case 18:
+  		if(Deaths(CurrentPlayer, Exactly, 320, " `SkillStep"))
+  		{
+			bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), 255); 
+  		}
+  		else bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp));
+     		break;
+  	case 22:
+		bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp) - 3 * dwread_epd(204 * 12 + cp));
+     		break;
 	default:
 		bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), bread(0x58D2B0 + 0 + 46 * cp));
 		break;
@@ -52,6 +62,10 @@ function SetVariable(cp)
   	case 14:
       		bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp) + 2 * dwread_epd(204 * 12 + cp));
      		break;
+  	case 22:
+      		bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp) + 3 * dwread_epd(204 * 12 + cp));
+     		break;
+     		
 	default:
 		bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), bread(0x58D2B0 + 7 + 46 * cp));
 		break;

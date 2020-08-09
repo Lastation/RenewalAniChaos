@@ -137,137 +137,192 @@ def f_main(cp):
     # (Line 7) if (f.wait[cp] == 0 && f.step[cp] == 0)
     if EUDIf()(EUDSCAnd()(f.wait[cp] == 0)(f.step[cp] == 0)()):
         # (Line 8) {
-        # (Line 9) if (Bring(cp, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))
-        if EUDIf()(Bring(cp, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill")):
-            # (Line 10) {
-            # (Line 11) f.step[cp] = 100;
-            _ARRW(f.step, cp) << (100)
-            # (Line 12) KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", cp);
-            # (Line 13) }
-            DoActions(KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", cp))
-            # (Line 14) else if (Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))
-        if EUDElseIf()(Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill")):
-            # (Line 15) {
-            # (Line 16) f.step[cp] = 200;
-            _ARRW(f.step, cp) << (200)
-            # (Line 17) KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp);
+        # (Line 9) if (Bring(cp, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill")
+        _t2 = EUDIf()
+        # (Line 10) && Deaths(CurrentPlayer, Exactly, 0, " `UniqueCoolTime")
+        # (Line 11) && Deaths(CurrentPlayer, AtMost, 2, " `UniqueSkill")
+        # (Line 12) && MemoryEPD(EPD(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46)), AtLeast, 4)
+        # (Line 13) && Score(CurrentPlayer, Custom, AtLeast, 25))
+        if _t2(EUDSCAnd()(Bring(cp, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill"))(Deaths(CurrentPlayer, Exactly, 0, " `UniqueCoolTime"))(Deaths(CurrentPlayer, AtMost, 2, " `UniqueSkill"))(MemoryEPD(EPD(0x58D2B0 + 0x207C * ((2) // 46) + (cp) * (46 - 31 * ((2) // 46)) + ((2) % 46)), AtLeast, 4))(Score(CurrentPlayer, Custom, AtLeast, 25))()):
+            # (Line 14) {
+            # (Line 15) f.Voice_Routine(cp, 14);
+            f.Voice_Routine(cp, 14)
+            # (Line 16) f.step[cp] = 1;
+            _ARRW(f.step, cp) << (1)
+            # (Line 17) KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", cp);
             # (Line 18) }
-            DoActions(KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp))
-            # (Line 19) else if (Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))
-        if EUDElseIf()(Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill")):
+            DoActions(KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", cp))
+            # (Line 19) else if (Bring(cp, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill"))
+        if EUDElseIf()(Bring(cp, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill")):
             # (Line 20) {
-            # (Line 21) f.step[cp] = 300;
-            _ARRW(f.step, cp) << (300)
-            # (Line 22) KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
+            # (Line 21) SetResources(CurrentPlayer, Add, 60, Gas);
+            # (Line 22) KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", cp);
+            DoActions(SetResources(CurrentPlayer, Add, 60, Gas))
             # (Line 23) }
+            DoActions(KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", cp))
+            # (Line 24) else if (Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))
+        if EUDElseIf()(Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill")):
+            # (Line 25) {
+            # (Line 26) f.step[cp] = 200;
+            _ARRW(f.step, cp) << (200)
+            # (Line 27) KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp);
+            # (Line 28) }
+            DoActions(KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp))
+            # (Line 29) else if (Bring(cp, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))
+        if EUDElseIf()(Bring(cp, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill")):
+            # (Line 30) {
+            # (Line 31) f.step[cp] = 100;
+            _ARRW(f.step, cp) << (100)
+            # (Line 32) KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", cp);
+            # (Line 33) }
+            DoActions(KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", cp))
+            # (Line 34) else if (Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))
+        if EUDElseIf()(Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill")):
+            # (Line 35) {
+            # (Line 36) f.step[cp] = 300;
+            _ARRW(f.step, cp) << (300)
+            # (Line 37) KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
+            # (Line 38) }
             DoActions(KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp))
-            # (Line 24) }
+            # (Line 39) }
         EUDEndIf()
-        # (Line 27) if (f.wait[cp] >= 2 && f.count[cp] == 0)
+        # (Line 42) if (f.wait[cp] >= 2 && f.count[cp] == 0)
     EUDEndIf()
     if EUDIf()(EUDSCAnd()(f.wait[cp] >= 2)(f.count[cp] == 0)()):
-        # (Line 28) {
-        # (Line 29) if (Bring(cp, AtLeast, 2, "Protoss Scout", "[Skill]UseSkill") && f.step[cp] == 100)
+        # (Line 43) {
+        # (Line 44) if (Bring(cp, AtLeast, 2, "Protoss Scout", "[Skill]UseSkill") && f.step[cp] == 100)
         if EUDIf()(EUDSCAnd()(Bring(cp, AtLeast, 2, "Protoss Scout", "[Skill]UseSkill"))(f.step[cp] == 100)()):
-            # (Line 30) {
-            # (Line 31) f.Voice_Routine(cp, 1);
+            # (Line 45) {
+            # (Line 46) f.Voice_Routine(cp, 1);
             f.Voice_Routine(cp, 1)
-            # (Line 32) f.wait[cp] = 0;
+            # (Line 47) f.wait[cp] = 0;
             _ARRW(f.wait, cp) << (0)
-            # (Line 33) f.count[cp] = 0;
+            # (Line 48) f.count[cp] = 0;
             _ARRW(f.count, cp) << (0)
-            # (Line 34) f.loop[cp] = 0;
+            # (Line 49) f.loop[cp] = 0;
             _ARRW(f.loop, cp) << (0)
-            # (Line 35) f.step[cp] = 110;
+            # (Line 50) f.step[cp] = 110;
             _ARRW(f.step, cp) << (110)
-            # (Line 36) KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", cp);
-            # (Line 37) }
+            # (Line 51) KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", cp);
+            # (Line 52) }
             DoActions(KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", cp))
-            # (Line 38) else if (Bring(cp, AtLeast, 2, "Protoss Scout", "[Skill]UseSkill") && f.step[cp] == 110)
-        if EUDElseIf()(EUDSCAnd()(Bring(cp, AtLeast, 2, "Protoss Scout", "[Skill]UseSkill"))(f.step[cp] == 110)()):
-            # (Line 39) {
-            # (Line 40) f.Voice_Routine(cp, 2);
+            # (Line 53) else if (Bring(cp, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") && f.step[cp] == 110)
+        if EUDElseIf()(EUDSCAnd()(Bring(cp, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill"))(f.step[cp] == 110)()):
+            # (Line 54) {
+            # (Line 55) f.Voice_Routine(cp, 2);
             f.Voice_Routine(cp, 2)
-            # (Line 41) f.wait[cp] = 0;
+            # (Line 56) f.wait[cp] = 0;
             _ARRW(f.wait, cp) << (0)
-            # (Line 42) f.count[cp] = 0;
+            # (Line 57) f.count[cp] = 0;
             _ARRW(f.count, cp) << (0)
-            # (Line 43) f.loop[cp] = 0;
+            # (Line 58) f.loop[cp] = 0;
             _ARRW(f.loop, cp) << (0)
-            # (Line 44) f.step[cp] = 120;
+            # (Line 59) f.step[cp] = 120;
             _ARRW(f.step, cp) << (120)
-            # (Line 45) KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", cp);
-            # (Line 46) }
-            DoActions(KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", cp))
-            # (Line 47) else if (Bring(cp, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") && f.step[cp] == 200)
-        if EUDElseIf()(EUDSCAnd()(Bring(cp, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill"))(f.step[cp] == 200)()):
-            # (Line 48) {
-            # (Line 49) f.Voice_Routine(cp, 3);
-            f.Voice_Routine(cp, 3)
-            # (Line 50) f.wait[cp] = 0;
-            _ARRW(f.wait, cp) << (0)
-            # (Line 51) f.count[cp] = 0;
-            _ARRW(f.count, cp) << (0)
-            # (Line 52) f.loop[cp] = 0;
-            _ARRW(f.loop, cp) << (0)
-            # (Line 53) f.step[cp] = 210;
-            _ARRW(f.step, cp) << (210)
-            # (Line 54) KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp);
-            # (Line 55) }
+            # (Line 60) KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp);
+            # (Line 61) }
             DoActions(KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp))
-            # (Line 56) else if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") && f.step[cp] == 210)
-        if EUDElseIf()(EUDSCAnd()(Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill"))(f.step[cp] == 210)()):
-            # (Line 57) {
-            # (Line 58) f.Voice_Routine(cp, 4);
-            f.Voice_Routine(cp, 4)
-            # (Line 59) f.wait[cp] = 0;
+            # (Line 62) else if (Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill") && f.step[cp] == 200)
+        if EUDElseIf()(EUDSCAnd()(Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))(f.step[cp] == 200)()):
+            # (Line 63) {
+            # (Line 64) f.Voice_Routine(cp, 3);
+            f.Voice_Routine(cp, 3)
+            # (Line 65) f.wait[cp] = 0;
             _ARRW(f.wait, cp) << (0)
-            # (Line 60) f.count[cp] = 0;
+            # (Line 66) f.count[cp] = 0;
             _ARRW(f.count, cp) << (0)
-            # (Line 61) f.loop[cp] = 0;
+            # (Line 67) f.loop[cp] = 0;
             _ARRW(f.loop, cp) << (0)
-            # (Line 62) f.step[cp] = 220;
-            _ARRW(f.step, cp) << (220)
-            # (Line 63) KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
-            # (Line 64) }
-            DoActions(KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp))
-            # (Line 67) if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill")
-        EUDEndIf()
-        _t10 = EUDIf()
-        # (Line 68) && Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill")
-        # (Line 69) && f.step[cp] == 300
-        # (Line 70) && Deaths(cp, AtLeast, f.UltimateA[cp], " `UltimateCoolTime"))
-        if _t10(EUDSCAnd()(Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill"))(Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))(f.step[cp] == 300)(Deaths(cp, AtLeast, f.UltimateA[cp], " `UltimateCoolTime"))()):
-            # (Line 71) {
-            # (Line 72) if (Switch("UiltimateSwitch", Cleared))
+            # (Line 68) f.step[cp] = 210;
+            _ARRW(f.step, cp) << (210)
+            # (Line 69) KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp);
+            # (Line 70) }
+            DoActions(KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp))
+            # (Line 71) else if (Bring(cp, AtLeast, 3, "Protoss Arbiter", "[Skill]UseSkill")
+        _t11 = EUDElseIf()
+        # (Line 72) && Accumulate(cp, AtLeast, 200, Gas)
+        # (Line 73) && f.step[cp] == 200)
+        if _t11(EUDSCAnd()(Bring(cp, AtLeast, 3, "Protoss Arbiter", "[Skill]UseSkill"))(Accumulate(cp, AtLeast, 200, Gas))(f.step[cp] == 200)()):
+            # (Line 74) {
+            # (Line 75) f.Voice_Routine(cp, 5);
+            f.Voice_Routine(cp, 5)
+            # (Line 76) f.wait[cp] = 0;
+            _ARRW(f.wait, cp) << (0)
+            # (Line 77) f.count[cp] = 0;
+            _ARRW(f.count, cp) << (0)
+            # (Line 78) f.loop[cp] = 0;
+            _ARRW(f.loop, cp) << (0)
+            # (Line 79) f.step[cp] = 230;
+            _ARRW(f.step, cp) << (230)
+            # (Line 80) KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", cp);
+            # (Line 81) SetResources(cp, Subtract, 200, Gas);
+            DoActions(KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", cp))
+            # (Line 82) }
+            DoActions(SetResources(cp, Subtract, 200, Gas))
+            # (Line 84) else if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill")
+        _t12 = EUDElseIf()
+        # (Line 85) && f.step[cp] == 300
+        # (Line 86) && Deaths(cp, AtLeast, f.UltimateA[cp], " `UltimateCoolTime"))
+        if _t12(EUDSCAnd()(Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill"))(f.step[cp] == 300)(Deaths(cp, AtLeast, f.UltimateA[cp], " `UltimateCoolTime"))()):
+            # (Line 87) {
+            # (Line 88) if (Switch("UiltimateSwitch", Cleared))
             if EUDIf()(Switch("UiltimateSwitch", Cleared)):
-                # (Line 73) {
-                # (Line 74) f.wait[cp] = 0;
+                # (Line 89) {
+                # (Line 90) f.Voice_Routine(cp, 8);
+                f.Voice_Routine(cp, 8)
+                # (Line 91) SetSwitch("UiltimateSwitch", Set);
+                # (Line 92) f.wait[cp] = 0;
+                DoActions(SetSwitch("UiltimateSwitch", Set))
                 _ARRW(f.wait, cp) << (0)
-                # (Line 75) f.step[cp] = 310;
+                # (Line 93) f.count[cp] = 0;
+                _ARRW(f.count, cp) << (0)
+                # (Line 94) f.loop[cp] = 0;
+                _ARRW(f.loop, cp) << (0)
+                # (Line 95) f.step[cp] = 310;
                 _ARRW(f.step, cp) << (310)
-                # (Line 76) SetDeaths(cp, Subtract, f.UltimateA[cp], " `UltimateCoolTime");
-                # (Line 77) KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
+                # (Line 96) SetDeaths(cp, Subtract, f.UltimateA[cp], " `UltimateCoolTime");
+                # (Line 97) KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
                 DoActions(SetDeaths(cp, Subtract, f.UltimateA[cp], " `UltimateCoolTime"))
-                # (Line 78) KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp);
+                # (Line 98) }
                 DoActions(KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp))
-                # (Line 79) }
-                DoActions(KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp))
-                # (Line 80) else
-                # (Line 81) {
+                # (Line 99) else
+                # (Line 100) {
             if EUDElse()():
-                # (Line 82) SetResources(CurrentPlayer, Add, 800, Gas);
-                # (Line 83) KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
-                DoActions(SetResources(CurrentPlayer, Add, 800, Gas))
-                # (Line 84) KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp);
+                # (Line 101) SetResources(CurrentPlayer, Add, 600, Gas);
+                # (Line 102) KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
+                DoActions(SetResources(CurrentPlayer, Add, 600, Gas))
+                # (Line 103) SetDeaths(CurrentPlayer, SetTo, 999, " `SYSTEMTEXT");
                 DoActions(KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp))
-                # (Line 85) SetDeaths(CurrentPlayer, SetTo, 999, " `SYSTEMTEXT");
-                DoActions(KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp))
-                # (Line 86) }
+                # (Line 104) }
                 DoActions(SetDeaths(CurrentPlayer, SetTo, 999, " `SYSTEMTEXT"))
-                # (Line 87) }
+                # (Line 105) }
             EUDEndIf()
-            # (Line 88) }
+            # (Line 106) else if (Bring(cp, AtLeast, 3, "Protoss Arbiter", "[Skill]UseSkill")
+        _t14 = EUDElseIf()
+        # (Line 107) && f.step[cp] == 310
+        # (Line 108) && Deaths(cp, AtLeast, f.UltimateB[cp], " `UltimateCoolTime")
+        # (Line 109) && Deaths(cp, AtLeast, 3, " `UniqueSkill")
+        # (Line 110) )
+        if _t14(EUDSCAnd()(Bring(cp, AtLeast, 3, "Protoss Arbiter", "[Skill]UseSkill"))(f.step[cp] == 310)(Deaths(cp, AtLeast, f.UltimateB[cp], " `UltimateCoolTime"))(Deaths(cp, AtLeast, 3, " `UniqueSkill"))()):
+            # (Line 111) {
+            # (Line 112) SetSwitch("UiltimateSwitch", Set);
+            # (Line 113) f.Voice_Routine(cp, 12);
+            DoActions(SetSwitch("UiltimateSwitch", Set))
+            f.Voice_Routine(cp, 12)
+            # (Line 114) f.wait[cp] = 0;
+            _ARRW(f.wait, cp) << (0)
+            # (Line 115) f.count[cp] = 0;
+            _ARRW(f.count, cp) << (0)
+            # (Line 116) f.loop[cp] = 0;
+            _ARRW(f.loop, cp) << (0)
+            # (Line 117) f.step[cp] = 320;
+            _ARRW(f.step, cp) << (320)
+            # (Line 118) SetDeaths(cp, Subtract, f.UltimateB[cp], " `UltimateCoolTime");
+            # (Line 119) KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", cp);
+            DoActions(SetDeaths(cp, Subtract, f.UltimateB[cp], " `UltimateCoolTime"))
+            # (Line 120) }
+            DoActions(KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", cp))
+            # (Line 122) }
         EUDEndIf()
-        # (Line 89) }
+        # (Line 123) }
     EUDEndIf()

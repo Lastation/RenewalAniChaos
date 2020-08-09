@@ -144,132 +144,169 @@ from Character.Yuuna import Skill_SSSSS as SSSSS
 from Character.Yuuna import Skill_CCC as CCC
 # (Line 11) import Character.Yuuna.Skill_CCCAA as CCCAA;
 from Character.Yuuna import Skill_CCCAA as CCCAA
-# (Line 13) import Character.Yuuna.Text as text;
+# (Line 12) import Character.Yuuna.Skill_CAAA as CAAA;
+from Character.Yuuna import Skill_CAAA as CAAA
+# (Line 13) import Character.Yuuna.Skill_AAA as AAA;
+from Character.Yuuna import Skill_AAA as AAA
+# (Line 14) import Character.Yuuna.Skill_AAAAAA as AAAAAA;
+from Character.Yuuna import Skill_AAAAAA as AAAAAA
+# (Line 16) import Character.Yuuna.Text as text;
 from Character.Yuuna import Text as text
-# (Line 14) import Character.Yuuna.Commend as commend;
+# (Line 17) import Character.Yuuna.Commend as commend;
 from Character.Yuuna import Commend as commend
-# (Line 16) const stb = StringBuffer();
+# (Line 19) const stb = StringBuffer();
 stb = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 17) const s = StringBuffer();
+# (Line 20) const s = StringBuffer();
 s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 18) function SkillList(cp);
-# (Line 20) function main(cp)
-# (Line 21) {
+# (Line 21) function SkillList(cp);
+# (Line 23) function main(cp)
+# (Line 24) {
 @EUDFunc
 def f_main(cp):
-    # (Line 22) f.location[cp] = 181;
+    # (Line 25) f.location[cp] = 181;
     _ARRW(f.location, cp) << (181)
-    # (Line 23) f.heroID[cp] = 54;
+    # (Line 26) f.heroID[cp] = 54;
     _ARRW(f.heroID, cp) << (54)
-    # (Line 25) SkillList(cp);
+    # (Line 28) f.UltimateA[cp] = 700;
+    _ARRW(f.UltimateA, cp) << (700)
+    # (Line 29) f.UltimateB[cp] = 300;
+    _ARRW(f.UltimateB, cp) << (300)
+    # (Line 31) SkillList(cp);
     SkillList(cp)
-    # (Line 27) if (f.wait[cp] == 0)
+    # (Line 32) commend.main(cp);
+    commend.f_main(cp)
+    # (Line 34) if (f.wait[cp] == 0)
     if EUDIf()(f.wait[cp] == 0):
-        # (Line 28) {
-        # (Line 29) switch(f.step[cp])
+        # (Line 35) {
+        # (Line 36) switch(f.step[cp])
         EUDSwitch(f.step[cp])
-        # (Line 30) {
-        # (Line 31) case 1:
+        # (Line 37) {
+        # (Line 38) case 1:
         _t2 = EUDSwitchCase()
-        # (Line 33) break;
+        # (Line 39) O.main(cp);
         if _t2(1):
+            O.f_main(cp)
+            # (Line 40) break;
             EUDBreak()
-            # (Line 34) case 100:
+            # (Line 41) case 100:
         _t3 = EUDSwitchCase()
-        # (Line 35) S.main(cp);
+        # (Line 42) S.main(cp);
         if _t3(100):
             S.f_main(cp)
-            # (Line 36) break;
+            # (Line 43) break;
             EUDBreak()
-            # (Line 37) case 200:
+            # (Line 44) case 200:
         _t4 = EUDSwitchCase()
-        # (Line 38) C.main(cp);
+        # (Line 45) C.main(cp);
         if _t4(200):
             C.f_main(cp)
-            # (Line 39) break;
+            # (Line 46) break;
             EUDBreak()
-            # (Line 40) case 300:
+            # (Line 47) case 300:
         _t5 = EUDSwitchCase()
-        # (Line 41) A.main(cp);
+        # (Line 48) A.main(cp);
         if _t5(300):
             A.f_main(cp)
-            # (Line 42) break;
+            # (Line 49) break;
             EUDBreak()
-            # (Line 43) case 110:
+            # (Line 50) case 110:
         _t6 = EUDSwitchCase()
-        # (Line 44) SSS.main(cp);
+        # (Line 51) SSS.main(cp);
         if _t6(110):
             SSS.f_main(cp)
-            # (Line 45) break;
+            # (Line 52) break;
             EUDBreak()
-            # (Line 46) case 120:
+            # (Line 53) case 120:
         _t7 = EUDSwitchCase()
-        # (Line 47) SSSSS.main(cp);
+        # (Line 54) SSSSS.main(cp);
         if _t7(120):
             SSSSS.f_main(cp)
-            # (Line 48) break;
+            # (Line 55) break;
             EUDBreak()
-            # (Line 49) case 210:
+            # (Line 56) case 210:
         _t8 = EUDSwitchCase()
-        # (Line 50) CCC.main(cp);
+        # (Line 57) CCC.main(cp);
         if _t8(210):
             CCC.f_main(cp)
-            # (Line 51) break;
+            # (Line 58) break;
             EUDBreak()
-            # (Line 52) case 220:
+            # (Line 59) case 220:
         _t9 = EUDSwitchCase()
-        # (Line 53) CCCAA.main(cp);
+        # (Line 60) CCCAA.main(cp);
         if _t9(220):
             CCCAA.f_main(cp)
-            # (Line 54) break;
+            # (Line 61) break;
             EUDBreak()
-            # (Line 55) }
-        # (Line 56) }
+            # (Line 62) case 230:
+        _t10 = EUDSwitchCase()
+        # (Line 63) CAAA.main(cp);
+        if _t10(230):
+            CAAA.f_main(cp)
+            # (Line 64) break;
+            EUDBreak()
+            # (Line 65) case 310:
+        _t11 = EUDSwitchCase()
+        # (Line 66) AAA.main(cp);
+        if _t11(310):
+            AAA.f_main(cp)
+            # (Line 67) break;
+            EUDBreak()
+            # (Line 68) case 320:
+        _t12 = EUDSwitchCase()
+        # (Line 69) AAAAAA.main(cp);
+        if _t12(320):
+            AAAAAA.f_main(cp)
+            # (Line 70) break;
+            EUDBreak()
+            # (Line 72) }
+        # (Line 73) }
         EUDEndSwitch()
-        # (Line 59) commend.main(cp);
+        # (Line 77) }
     EUDEndIf()
-    commend.f_main(cp)
-    # (Line 60) }
-    # (Line 63) function SkillVoice(cp)
+    # (Line 80) function SkillVoice(cp)
 
-# (Line 64) {
+# (Line 81) {
 @EUDFunc
 def SkillVoice(cp):
-    # (Line 65) if (f.Yuuna_Voice[cp] != 0) { text.main(cp); }
+    # (Line 82) if (f.Yuuna_Voice[cp] != 0) { text.main(cp); }
     if EUDIf()(f.Yuuna_Voice[cp] == 0, neg=True):
         text.f_main(cp)
-        # (Line 66) }
+        # (Line 83) }
     EUDEndIf()
-    # (Line 68) function SkillList(cp)
+    # (Line 85) function SkillList(cp)
 
-# (Line 69) {
+# (Line 86) {
 @EUDFunc
 def SkillList(cp):
-    # (Line 70) if(Deaths(cp, Exactly, 2, "Terran SCV")) 	// Insert key Pressed
-    if EUDIf()(Deaths(cp, Exactly, 2, "Terran SCV")):
-        # (Line 71) {
-        # (Line 72) stb.printAt(0, "\n");
+    # (Line 87) if(f.INSERT_KEY[cp] == 1) 	// Insert key Pressed
+    if EUDIf()(f.INSERT_KEY[cp] == 1):
+        # (Line 88) {
+        # (Line 89) stb.printAt(0, "\n");
         stb.printAt(0, "\n")
-        # (Line 73) stb.printAt(1, "\x1F　＃\x04- 유우키 \x1B유우나　\x04[ 유우키 유우나는 용사다 ]");
+        # (Line 90) stb.printAt(1, "\x1F　＃\x04- 유우키 \x1B유우나　\x04[ 유우키 유우나는 용사다 ]");
         stb.printAt(1, "\x1F　＃\x04- 유우키 \x1B유우나　\x04[ 유우키 유우나는 용사다 ]")
-        # (Line 74) stb.printAt(2, "　　\x1FA\x04ction List");
+        # (Line 91) stb.printAt(2, "　　\x1FA\x04ction List");
         stb.printAt(2, "　　\x1FA\x04ction List")
-        # (Line 75) stb.printAt(3, "　　　\x18O \x04만개 \x19[ 만개 스택 5 소모 / 공 5 업 방 5 다운 / 중첩 가능 / 사망 시 해제 ]");
-        stb.printAt(3, "　　　\x18O \x04만개 \x19[ 만개 스택 5 소모 / 공 5 업 방 5 다운 / 중첩 가능 / 사망 시 해제 ]")
-        # (Line 76) stb.printAt(4, "　　　\x04\x1F>SSS + SS \x04>미정 \x19[ 대인 / 공성 ]");
-        stb.printAt(4, "　　　\x04\x1F>SSS + SS \x04>미정 \x19[ 대인 / 공성 ]")
-        # (Line 77) stb.printAt(5, "　　　\x04\x1F>CCC + AA \x04미정 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]");
-        stb.printAt(5, "　　　\x04\x1F>CCC + AA \x04미정 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]")
-        # (Line 78) stb.printAt(6, "　　　\x04\x1F>CCAA + 200 Gas \x04희생 \x19[ 공성 / 자리고정 ]");
-        stb.printAt(6, "　　　\x04\x1F>CCAA + 200 Gas \x04희생 \x19[ 공성 / 자리고정 ]")
-        # (Line 79) stb.printAt(7, "\n");
+        # (Line 92) stb.printAt(3, "　　　\x18O \x04만개 \x19[ 공 3 업 방 3 다운 / 최대 3 중첩 가능 / 사망 시 해제 ] \x051분");
+        stb.printAt(3, "　　　\x18O \x04만개 \x19[ 공 3 업 방 3 다운 / 최대 3 중첩 가능 / 사망 시 해제 ] \x051분")
+        # (Line 93) stb.printAt(4, "　　　\x04\x1FSSS + CC \x04인간 \x19[ 대인 / 순간딜 ]");
+        stb.printAt(4, "　　　\x04\x1FSSS + CC \x04인간 \x19[ 대인 / 순간딜 ]")
+        # (Line 94) stb.printAt(5, "　　　\x04\x1FCC + AA \x04강인함 \x19[ 공성 / 순간딜 / 자리고정 ]");
+        stb.printAt(5, "　　　\x04\x1FCC + AA \x04강인함 \x19[ 공성 / 순간딜 / 자리고정 ]")
+        # (Line 95) stb.printAt(6, "　　　\x04\x1FCAAA + 300 Gas \x04희생 \x19[ 공성 / 지속딜 / 자리고정 ]");
+        stb.printAt(6, "　　　\x04\x1FCAAA + 300 Gas \x04희생 \x19[ 공성 / 지속딜 / 자리고정 ]")
+        # (Line 96) stb.printAt(7, "\n");
         stb.printAt(7, "\n")
-        # (Line 80) stb.printAt(8, "　　　\x08AAA \x04갈망 \x19[ 공성 / 선딜없음 /  장판형 스킬 ] \x05650");
-        stb.printAt(8, "　　　\x08AAA \x04갈망 \x19[ 공성 / 선딜없음 /  장판형 스킬 ] \x05650")
-        # (Line 81) stb.printAt(9, "\n");
-        stb.printAt(9, "\n")
-        # (Line 82) PlayWAV("sound\\Bullet\\LaserHit.wav");
-        # (Line 83) }
+        # (Line 97) stb.printAt(8, "　　　\x08AAA \x04대만개 \x19[ 공성 ] \x05", f.UltimateA[cp]);
+        stb.printAt(8, "　　　\x08AAA \x04대만개 \x19[ 공성 ] \x05", f.UltimateA[cp])
+        # (Line 98) stb.printAt(9, "　　　\x04+ \x08AAA \x04용사 펀치 \x19[ 만개 3 중첩 시 사용 가능 ] \x05", f.UltimateB[cp]);
+        stb.printAt(9, "　　　\x04+ \x08AAA \x04용사 펀치 \x19[ 만개 3 중첩 시 사용 가능 ] \x05", f.UltimateB[cp])
+        # (Line 99) stb.printAt(10, "\n");
+        stb.printAt(10, "\n")
+        # (Line 100) PlayWAV("sound\\Bullet\\LaserHit.wav");
+        # (Line 101) f.INSERT_KEY[cp] = 0;
         DoActions(PlayWAV("sound\\Bullet\\LaserHit.wav"))
-        # (Line 84) }
+        _ARRW(f.INSERT_KEY, cp) << (0)
+        # (Line 102) }
+        # (Line 103) }
     EUDEndIf()

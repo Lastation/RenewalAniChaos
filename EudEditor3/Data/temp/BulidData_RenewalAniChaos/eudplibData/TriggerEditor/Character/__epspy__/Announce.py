@@ -130,6 +130,8 @@ def _LSH(l, r):
 import customText as tct
 # (Line 2) import Variable as v;
 import Variable as v
+# (Line 3) import Function as f;
+import Function as f
 # (Line 4) var txtPtr, btnPtr, btnPos, oldCP;
 txtPtr, btnPtr, btnPos, oldCP = EUDCreateVariables(4)
 # (Line 5) const trgk = $T('Artanis & safhfh');
@@ -381,30 +383,38 @@ def Announce_Marge(cp):
             _ARRW(v.AnnounceList, cp) << (0)
             # (Line 135) }
         EUDEndIf()
-        # (Line 137) switch(v.AnnounceList[cp])
+        # (Line 136) else if (Deaths(CurrentPlayer, Exactly, 2, "Terran SCV"))
+    if EUDElseIf()(Deaths(CurrentPlayer, Exactly, 2, "Terran SCV")):
+        # (Line 137) {
+        # (Line 138) SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV");
+        # (Line 139) f.INSERT_KEY[cp] = 1;
+        DoActions(SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV"))
+        _ARRW(f.INSERT_KEY, cp) << (1)
+        # (Line 140) }
+        # (Line 143) switch(v.AnnounceList[cp])
     EUDEndIf()
     EUDSwitch(v.AnnounceList[cp])
-    # (Line 138) {
-    # (Line 139) case 0:
-    _t3 = EUDSwitchCase()
-    # (Line 140) if (Switch(255, Set))		Announce_Ingame(cp);
-    if _t3(0):
+    # (Line 144) {
+    # (Line 145) case 0:
+    _t4 = EUDSwitchCase()
+    # (Line 146) if (Switch(255, Set))		Announce_Ingame(cp);
+    if _t4(0):
         if EUDIf()(Switch(255, Set)):
             Announce_Ingame(cp)
-            # (Line 141) if (Switch(255, Cleared))	Announce_Init();
+            # (Line 147) if (Switch(255, Cleared))	Announce_Init();
         EUDEndIf()
         if EUDIf()(Switch(255, Cleared)):
             Announce_Init()
-            # (Line 142) break;
+            # (Line 148) break;
         EUDEndIf()
         EUDBreak()
-        # (Line 143) case 1:
-    _t6 = EUDSwitchCase()
-    # (Line 144) Announce_Character(cp);
-    if _t6(1):
+        # (Line 149) case 1:
+    _t7 = EUDSwitchCase()
+    # (Line 150) Announce_Character(cp);
+    if _t7(1):
         Announce_Character(cp)
-        # (Line 145) break;
+        # (Line 151) break;
         EUDBreak()
-        # (Line 146) }
-    # (Line 147) }
+        # (Line 152) }
+    # (Line 153) }
     EUDEndSwitch()

@@ -27,7 +27,7 @@ function main(cp)
       }
       if (f.count[cp] == 1)
       {
-         if (f.loop[cp] < 3)
+         if (f.loop[cp] < 2)
          {    
             RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
             f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75);
@@ -36,7 +36,7 @@ function main(cp)
             f.SkillWait(cp, 50);
             f.loop[cp] += 1;
          }
-         else if (f.loop[cp] == 3)
+         else if (f.loop[cp] == 2)
          {
             RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
             f.NxNSquareShape(cp, 1, " Unit. Hoffnung 25000", 3, 75);

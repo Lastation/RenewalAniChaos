@@ -316,10 +316,10 @@ def f_main(cp):
                 # (Line 123) f.NxNSquareShape(cp, 1, "60 + 1n Archon", 3, 50);
                 f.NxNSquareShape(cp, 1, "60 + 1n Archon", 3, 50)
                 # (Line 124) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
-                # (Line 125) Order("40 + 1n Mojo", cp, "Anywhere", Attack, "Anywhere");
+                # (Line 125) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
                 # (Line 127) f.SkillWait(cp, 160);
-                DoActions(Order("40 + 1n Mojo", cp, "Anywhere", Attack, "Anywhere"))
+                DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
                 f.SkillWait(cp, 160)
                 # (Line 129) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)

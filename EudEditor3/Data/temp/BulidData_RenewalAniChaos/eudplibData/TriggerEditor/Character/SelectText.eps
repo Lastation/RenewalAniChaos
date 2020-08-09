@@ -1,6 +1,7 @@
 import customText as ct;
 import Variable as v;
 import SCArchive as sca;
+import Function as f;
 
 const s = StringBuffer();
 
@@ -54,6 +55,7 @@ function CharacterTextNum(cp)
 		break;
 	case 64:
 		if 		(v.PlayerID[cp] == 8 		|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 21; }	// Magellan
+		else if 	(v.PlayerID[cp] == 9 		|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 23; }	// Mayuri
 		 v.Unit_ID[cp] = 0;
 		break;
 		
@@ -275,7 +277,15 @@ function CharacterText(cp)
 		s.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04하이리스크 \x1F#\x04하이리턴 \x1F#\x04조작어려움");
 		s.printAt(7, "\n");
 		break;
-		
+	case 23:
+		s.printAt(1, "\x13\x04- \x17슈타인즈 게이트 \x04-");
+		s.printAt(2, "\n");
+		s.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
+		s.printAt(4, "\x13\x04모든 플레이어에게 추천합니다.");
+		s.printAt(5, "\n");
+		s.printAt(6, "\x13\x1F#\x04대인 \x1F#\x04고정 \x1F#\x04조작쉬움");
+		s.printAt(7, "\n");
+		break;
 	}
 	
 	if (cp >=0 && cp <= 2 && Switch((249), (2)))
@@ -284,7 +294,8 @@ function CharacterText(cp)
 		|| v.Hero_Text[cp] == 5 
 		|| v.Hero_Text[cp] == 7 
 		|| v.Hero_Text[cp] == 12 
-		|| v.Hero_Text[cp] == 18)
+		|| v.Hero_Text[cp] == 18
+		|| v.Hero_Text[cp] == 23)
 		{ s.printAt(8, "\x13\x04선택할수 없습니다."); }
 		else {  s.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요."); }
 	}
@@ -294,7 +305,8 @@ function CharacterText(cp)
 		|| v.Hero_Text[cp] == 5 
 		|| v.Hero_Text[cp] == 7 
 		|| v.Hero_Text[cp] == 12
-		|| v.Hero_Text[cp] == 18)
+		|| v.Hero_Text[cp] == 18
+		|| v.Hero_Text[cp] == 23)
 		{  s.printAt(8, "\x13\x04선택할수 없습니다."); }
 		else {  s.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요."); }
 	}

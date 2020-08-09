@@ -122,7 +122,7 @@ function main(cp)
             f.NxNSquareShape(cp, 1, "40 + 1n Mojo", 3, 50);
             f.NxNSquareShape(cp, 1, "60 + 1n Archon", 3, 50);
             KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
-            Order("40 + 1n Mojo", cp, "Anywhere", Attack, "Anywhere");
+            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
 
             f.SkillWait(cp, 160);
 
