@@ -25,6 +25,8 @@ function main(cp)
          {
             f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 6, 75);
             KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+            f.NxNSquareShape(cp, 1, "40 + 1n Goliath", 3, 50);
+            Order("40 + 1n Goliath", cp, "Anywhere", Attack, "Anywhere");
 
             f.SkillWait(cp, 80);
 
@@ -32,6 +34,7 @@ function main(cp)
          }
          else if (f.loop[cp] == 5)
          {
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
             f.SquareShape(cp, 1, "60 + 1n Siege", 114, 114);
             f.SquareShape(cp, 1, "60 + 1n Siege", 114, 190);
             f.SquareShape(cp, 1, "60 + 1n Siege", 190, 114);
@@ -64,7 +67,7 @@ function main(cp)
          {         
             f.NxNSquareShape(cp, 1, "Kakaru (Twilight)", 3, 50);
             f.NxNSquareShape(cp, 1, "40 + 1n Goliath", 3, 50);
-            Order("40 + 1n Goliath", cp, "Anywhere", Attack, "Anywhere");
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp); 
             KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
 
             f.SkillWait(cp, 320);
@@ -75,8 +78,6 @@ function main(cp)
          }
          else if (f.loop[cp] == 1)
          {         
-            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
-
             f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 0);
             f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 50);
             f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 100);
@@ -112,7 +113,9 @@ function main(cp)
       }
       else if (f.count[cp] == 2)
       {
-         if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") && f.step[cp] == 210)
+         if (Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill") 
+         && Bring(cp, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill") 
+         && f.step[cp] == 210)
          {
             KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
             f.Voice_Routine(cp, 4);
@@ -120,7 +123,8 @@ function main(cp)
             f.count[cp] = 0;
             f.loop[cp] = 0;
             f.step[cp] = 220;
-            KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
+            KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
+            KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", cp);
          }
          else 
          {

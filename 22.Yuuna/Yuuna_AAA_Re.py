@@ -7,13 +7,14 @@ function main(cp)
 {
    MoveLocation("22.Yuuna_Bozo", f.heroID[cp], cp, "Anywhere");
    ModifyUnitShields(All, f.heroID[cp], cp, "Anywhere", 1);
-
+   
    if (f.delay[cp] == 0)
    {
       if (f.count[cp] == 0)
       {
          if (f.loop[cp] == 0)
          {         
+            SetDeaths(cp, SetTo, 1, " `ShieldRecharge");
             SetSwitch("Recall - Yuuna", Set);
 
             f.SkillWait(cp, 2080);
@@ -235,6 +236,7 @@ function main(cp)
          KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
          SetSwitch("Recall - Yuuna", Clear);
          SetSwitch("UiltimateSwitch", Clear);
+         SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
          f.SkillEnd(cp);
       }
    }

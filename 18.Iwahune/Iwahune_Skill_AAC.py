@@ -13,8 +13,6 @@ Trigger { -- Skill : S
    },
 }
 
-
-
 interval = 32;
 
 x1 = -64;
