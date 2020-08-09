@@ -64,9 +64,9 @@ function main(cp)
          }
          else if (f.loop[cp] == 4)
          {         
-            f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 11, 75);
+            f.NxNSquareShape(cp, 1, "130 + 1n Norad", 11, 75);
             f.NxNSquareShape(cp, 1, "60 + 1n Siege", 11, 75);
-            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+            KillUnitAt(All, "130 + 1n Norad", "Anywhere", cp);
 
             f.SkillWait(cp, 80);
 
@@ -108,12 +108,12 @@ function main(cp)
       {  
          if (f.loop[cp] < 4)
          {         
-            RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-            f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 2 * f.loop[cp] + 5, 75);
+            RemoveUnitAt(All, "130 + 1n Norad", "Anywhere", cp);
+            f.NxNSquareShape(cp, 1, "130 + 1n Norad", 2 * f.loop[cp] + 5, 75);
             f.NxNSquareShape(cp, 1, "50 + 1n Tank", 2 * f.loop[cp] + 5, 75);
             KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
+            Order("130 + 1n Norad", cp, "Anywhere", Attack, f.location[cp]);
 
             f.SkillWait(cp, 80);
 
@@ -127,7 +127,7 @@ function main(cp)
          }
          else if (f.loop[cp] == 5)
          {         
-            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+            KillUnitAt(All, "130 + 1n Norad", "Anywhere", cp);
             KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp);
 
             f.SkillWait(cp, 80);
@@ -166,9 +166,9 @@ function main(cp)
       {
          if (f.loopB[cp] == 0)
          {
-            RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-            f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75);
-            Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere");
+            RemoveUnitAt(All, "130 + 1n Norad", "Anywhere", cp);
+            f.NxNSquareShape(cp, 1, "130 + 1n Norad", 3, 75);
+            Order("130 + 1n Norad", cp, "Anywhere", Attack, "Anywhere");
             f.NxNSquareShape(cp, 1, "50 + 1n Tank", 3, 75);
             KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
 

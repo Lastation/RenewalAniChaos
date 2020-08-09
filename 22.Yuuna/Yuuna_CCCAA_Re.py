@@ -15,11 +15,12 @@ function main(cp)
          {         
             RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
 
-            f.SquareShape(cp, 1, "60 + 1n Danimoth", 200 - 50 * (f.loop[cp] % 4), 50 * (f.loop[cp] % 4));
             f.MoveLoc(f.heroID[cp], cp, 200 - 50 * (f.loop[cp] % 4), 50 * (f.loop[cp] % 4));
             f.SkillUnit(cp, 1, "50 + 1n Tank");
+            f.SkillUnit(cp, 1, "60 + 1n Danimoth");
             f.MoveLoc(f.heroID[cp], cp, -200 + 50 * (f.loop[cp] % 4), -50 * (f.loop[cp] % 4));
             f.SkillUnit(cp, 1, "50 + 1n Tank");
+            f.SkillUnit(cp, 1, "60 + 1n Danimoth");
             f.MoveLoc(f.heroID[cp], cp, 50 * (f.loop[cp] % 4), -200 + 50 * (f.loop[cp] % 4));
             f.SkillUnit(cp, 1, "Protoss Dark Archon");
             f.MoveLoc(f.heroID[cp], cp, -50 * (f.loop[cp] % 4), 200 - 50 * (f.loop[cp] % 4));
@@ -70,7 +71,7 @@ function main(cp)
             f.SquareShape(cp, 1, "40 + 1n Wraith", 200, -50);
             KillUnitAt(All, "40 + 1n Zealot", "Anywhere", cp);
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
 
             f.SkillWait(cp, 240);
 

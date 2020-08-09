@@ -6,6 +6,7 @@ function FlowerShape(cp : TrgPlayer, count, Unit : TrgUnit, i, distance, interva
 function main(cp)
 {
    MoveLocation("22.Yuuna_Bozo", f.heroID[cp], cp, "Anywhere");
+   ModifyUnitShields(All, f.heroID[cp], cp, "Anywhere", 1);
 
    if (f.delay[cp] == 0)
    {

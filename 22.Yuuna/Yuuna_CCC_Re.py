@@ -95,16 +95,11 @@ function main(cp)
             f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 100);
             f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 150);
             f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 200);
-            f.SquareShape(cp, 1, "40 + 1n Goliath", 175, 38);
-            f.SquareShape(cp, 1, "40 + 1n Goliath", 114, 114);
-            f.SquareShape(cp, 1, "40 + 1n Goliath", 114, 190);
-            f.SquareShape(cp, 1, "40 + 1n Goliath", 190, 114);
-            f.SquareShape(cp, 1, "40 + 1n Goliath", 190, 190);
-            f.SquareShape(cp, 1, "40 + 1n Goliath", 38, 114);
-            f.SquareShape(cp, 1, "40 + 1n Goliath", 38, 175);
-            f.SquareShape(cp, 1, "40 + 1n Goliath", 114, 38);
-            f.SquareShape(cp, 1, "40 + 1n Goliath", 175, 38);
-            Order("40 + 1n Goliath", cp, "Anywhere", Attack, "Anywhere");
+            f.EdgeShape(cp, 1, "40 + 1n Goliath", 45, 3, 125);
+            f.EdgeShape(cp, 1, "40 + 1n Goliath", 45, 5, 175);
+            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            MoveUnit(All, "40 + 1n Goliath", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+            Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);
             KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
 
             f.SkillWait(cp, 320);

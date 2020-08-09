@@ -1,3 +1,19 @@
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 2000, " * Samir Duran");
+      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
+      Deaths(CurrentPlayer, AtLeast, 5, " `SkillCount");
+   },
+   actions = {
+      Comment("Skill : Combo");
+      PreserveTrigger();
+      ModifyUnitShields(All, " * Samir Duran", CurrentPlayer, "Anywhere", 1);
+   },
+}
+
+
 
 interval = 32;
 

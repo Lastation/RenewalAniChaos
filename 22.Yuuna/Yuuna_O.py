@@ -43,7 +43,7 @@ function main(cp)
 
             KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
             KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
-            SetDeaths(cp, SetTo, 1440, " `UniqueCoolTime");
+            SetDeaths(cp, SetTo, 1080, " `UniqueCoolTime");
             SetDeaths(cp, Add, 1, " `UniqueSkill");
 
             f.SkillWait(cp, 80);

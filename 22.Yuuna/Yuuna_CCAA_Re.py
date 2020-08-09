@@ -140,7 +140,6 @@ function main(cp)
             f.LineShape(cp, 1, "40 + 1n Guardian", 225, 9, 50, 50);
             KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
             KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
-            Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere");
 
             f.SkillWait(cp, 80);
 
@@ -154,7 +153,6 @@ function main(cp)
             f.LineShape(cp, 1, "40 + 1n Guardian", 135, 9, 50, 50);
             KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
             KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
-            Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere");
 
             f.SkillWait(cp, 80);
 
