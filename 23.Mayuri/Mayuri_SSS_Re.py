@@ -40,7 +40,8 @@ function main(cp)
             f.loop[cp] += 1;
          }
          else if (f.loop[cp] == 2)
-         {                 
+         {            
+            RemoveUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
             f.SquareShape(cp, 1, "Target", 50, 0);
             f.SquareShape(cp, 1, "Target", 100, 0);
 
