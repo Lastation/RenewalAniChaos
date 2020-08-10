@@ -7,12 +7,20 @@ function main(cp)
    MoveUnit(All, "50 + 1n Battlecruiser", cp, "Anywhere", "[Skill]HoldPosition");
    ModifyUnitShields(All, f.heroID[cp], cp, "Anywhere", 1);
 
+   if (f.count[cp] < 2)
+   {
+      SetAllianceStatus(P7, Ally);
+      SetAllianceStatus(P8, Ally);
+   }
+
    if (f.delay[cp] == 0)
    {
       if (f.count[cp] == 0)
       {
          if (f.loop[cp] < 12)
          {    
+            SetSwitch("ComputerAlliy", Set);
+
             SetDeaths(cp, SetTo, 1, " `ShieldRecharge");
 
             KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
@@ -86,6 +94,17 @@ function main(cp)
       {
          if (f.loop[cp] < 12)
          {    
+            SetSwitch("ComputerAlliy", Clear);
+
+            if (cp < 3)
+            {
+               SetAllianceStatus(P8, Enemy);
+            }
+            else
+            {
+               SetAllianceStatus(P7, Enemy);
+            }
+
             KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
 
             f.Table_Sin(cp, (30 * f.loop[cp]), 160);

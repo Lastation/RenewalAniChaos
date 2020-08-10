@@ -16,7 +16,7 @@ function main(cp)
          else if (f.loop[cp] == 3) Shape(cp, -50, 0);
 
 
-         f.SkillWait(cp, 80);
+         f.SkillWait(cp, 160);
 
          f.loop[cp] += 1;
 
@@ -35,7 +35,7 @@ function main(cp)
             f.EdgeShape(cp, 1, "60 + 1n Archon", 0, 5, 100);
             KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
 
-            f.SkillWait(cp, 80);
+            f.SkillWait(cp, 160);
             f.loop[cp] += 1;
          }
          else if (f.loop[cp] == 1)
@@ -48,7 +48,7 @@ function main(cp)
             MoveUnit(All, "40 + 1n Goliath", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
             Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);
 
-            f.SkillWait(cp, 80);
+            f.SkillWait(cp, 160);
             f.loop[cp] += 1;
          }
          else if (f.loop[cp] == 2)
@@ -58,7 +58,7 @@ function main(cp)
             f.EdgeShape(cp, 1, "Kakaru (Twilight)", 0, 5, 100);
             KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
 
-            f.SkillWait(cp, 320);
+            f.SkillWait(cp, 480);
             f.loop[cp] += 1;
          }
          else if (f.loop[cp] == 3)
@@ -71,7 +71,7 @@ function main(cp)
             MoveUnit(All, "40 + 1n Goliath", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
             Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);
 
-            f.SkillWait(cp, 80);
+            f.SkillWait(cp, 160);
             f.loop[cp] += 1;
          }
          else if (f.loop[cp] == 4)

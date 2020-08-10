@@ -42,13 +42,13 @@ function main(cp)
       {
          if (f.loop[cp] < 36)
          {    
-            KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
+            KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
 
-            f.NxNSquareShape(cp, 1, "80 + 1n Vulture", 7, 75);
+            f.NxNSquareShape(cp, 1, " Creep. Dunkelheit", 7, 75);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, "80 + 1n Vulture", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-            Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]);
+            MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+            Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
 
             f.SkillWait(cp, 80);
 
@@ -56,7 +56,7 @@ function main(cp)
          }
          else if (f.loop[cp] == 36)
          {       
-            KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
+            KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
             KillUnitAt(All, "60 + 3n Siege", "Anywhere", cp);
 
             f.SkillWait(cp, 80);
