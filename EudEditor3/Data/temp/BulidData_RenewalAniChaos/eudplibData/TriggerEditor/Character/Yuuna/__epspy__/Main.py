@@ -291,10 +291,10 @@ def SkillList(cp):
         stb.printAt(3, "　　　\x18O \x04만개 \x19[ 공 3 업 방 3 다운 / 최대 3 중첩 가능 / 사망 시 해제 ] \x051분")
         # (Line 93) stb.printAt(4, "　　　\x04\x1FSSS + CC \x04인간 \x19[ 대인 / 순간딜 ]");
         stb.printAt(4, "　　　\x04\x1FSSS + CC \x04인간 \x19[ 대인 / 순간딜 ]")
-        # (Line 94) stb.printAt(5, "　　　\x04\x1FCC + AA \x04강인함 \x19[ 공성 / 순간딜 / 자리고정 ]");
-        stb.printAt(5, "　　　\x04\x1FCC + AA \x04강인함 \x19[ 공성 / 순간딜 / 자리고정 ]")
-        # (Line 95) stb.printAt(6, "　　　\x04\x1FCAAA + 300 Gas \x04희생 \x19[ 공성 / 지속딜 / 자리고정 ]");
-        stb.printAt(6, "　　　\x04\x1FCAAA + 300 Gas \x04희생 \x19[ 공성 / 지속딜 / 자리고정 ]")
+        # (Line 94) stb.printAt(5, "　　　\x04\x1FCC + AS \x04강인함 \x19[ 공성 / 순간딜 / 자리고정 ]");
+        stb.printAt(5, "　　　\x04\x1FCC + AS \x04강인함 \x19[ 공성 / 순간딜 / 자리고정 ]")
+        # (Line 95) stb.printAt(6, "　　　\x04\x1FCAAA + 200 Gas \x04희생 \x19[ 공성 / 지속딜 / 자리고정 ]");
+        stb.printAt(6, "　　　\x04\x1FCAAA + 200 Gas \x04희생 \x19[ 공성 / 지속딜 / 자리고정 ]")
         # (Line 96) stb.printAt(7, "\n");
         stb.printAt(7, "\n")
         # (Line 97) stb.printAt(8, "　　　\x08AAA \x04대만개 \x19[ 공성 ] \x05", f.UltimateA[cp]);

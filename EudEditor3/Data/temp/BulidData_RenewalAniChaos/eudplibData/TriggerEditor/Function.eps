@@ -34,7 +34,9 @@ const SinTableArray 	= EUDArray(py_eval("[int(round(100*math.sin(math.radians(t)
 
 const Rusaruka_Voice 	= PVariable();
 const Chtholly_Voice 	= PVariable();
-const Yuuna_Voice 		= PVariable();
+const Kiana_Voice 		= PVariable();	// 17
+const Yuuna_Voice 		= PVariable();	// 22
+const Mayuri_Voice 		= PVariable();	// 23
 
 function Table_Sin(cp, degree, distance);
 function Table_Cos(cp, degree, distance);
@@ -67,6 +69,15 @@ function Voice_Routine(cp, num)
 		Yuuna_Voice[4] = num;
 		Yuuna_Voice[5] = num;
 		break;
+	case 23:
+		Mayuri_Voice[0] = num;
+		Mayuri_Voice[1] = num;
+		Mayuri_Voice[2] = num;
+		Mayuri_Voice[3] = num;
+		Mayuri_Voice[4] = num;
+		Mayuri_Voice[5] = num;
+		break;
+		
 	}
 }
 

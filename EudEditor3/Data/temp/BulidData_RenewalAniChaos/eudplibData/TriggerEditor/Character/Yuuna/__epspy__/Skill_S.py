@@ -137,8 +137,8 @@ def f_main(cp):
     # (Line 7) if (f.delay[cp] == 0)
     if EUDIf()(f.delay[cp] == 0):
         # (Line 8) {
-        # (Line 9) if (f.count[cp] < 8)
-        if EUDIf()(f.count[cp] >= 8, neg=True):
+        # (Line 9) if (f.count[cp] < 6)
+        if EUDIf()(f.count[cp] >= 6, neg=True):
             # (Line 10) {
             # (Line 11) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
             # (Line 13) f.distance[cp] = 50;
@@ -169,8 +169,8 @@ def f_main(cp):
             # (Line 29) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
             # (Line 30) }
-            # (Line 31) else if (f.count[cp] == 8)
-        if EUDElseIf()(f.count[cp] == 8):
+            # (Line 31) else if (f.count[cp] == 6)
+        if EUDElseIf()(f.count[cp] == 6):
             # (Line 32) {
             # (Line 33) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
             # (Line 35) f.Table_Cos(cp, 0, f.distance[cp]);
@@ -193,8 +193,8 @@ def f_main(cp):
             # (Line 48) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
             # (Line 49) }
-            # (Line 50) else if (f.count[cp] == 9)
-        if EUDElseIf()(f.count[cp] == 9):
+            # (Line 50) else if (f.count[cp] == 7)
+        if EUDElseIf()(f.count[cp] == 7):
             # (Line 51) {
             # (Line 52) f.distance[cp] = 75;
             _ARRW(f.distance, cp) << (75)
@@ -217,8 +217,8 @@ def f_main(cp):
             # (Line 67) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
             # (Line 68) }
-            # (Line 69) else if (f.count[cp] == 10)
-        if EUDElseIf()(f.count[cp] == 10):
+            # (Line 69) else if (f.count[cp] == 8)
+        if EUDElseIf()(f.count[cp] == 8):
             # (Line 70) {
             # (Line 71) f.distance[cp] = 50;
             _ARRW(f.distance, cp) << (50)
@@ -243,8 +243,8 @@ def f_main(cp):
             # (Line 86) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
             # (Line 87) }
-            # (Line 88) else if (f.count[cp] == 11)
-        if EUDElseIf()(f.count[cp] == 11):
+            # (Line 88) else if (f.count[cp] == 9)
+        if EUDElseIf()(f.count[cp] == 9):
             # (Line 89) {
             # (Line 90) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
             # (Line 91) f.SkillEnd(cp);

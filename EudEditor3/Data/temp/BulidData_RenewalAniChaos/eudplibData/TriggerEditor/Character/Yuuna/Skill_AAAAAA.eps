@@ -8,6 +8,7 @@ function main(cp)
    MoveLocation("22.Yuuna_Bozo", f.heroID[cp], cp, "Anywhere");
    f.BanReturn(cp);
    f.HoldPosition(cp);
+   ModifyUnitShields(All, f.heroID[cp], cp, "Anywhere", 1);
    
    if (f.delay[cp] == 0)
    {
@@ -16,7 +17,8 @@ function main(cp)
          if (f.loop[cp] == 0)
          {         
             SetSwitch("Recall - Yuuna", Set);
-
+            SetDeaths(cp, SetTo, 1, " `ShieldRecharge");
+            
             f.SkillWait(cp, 2000);
 
             f.loop[cp] += 1;
@@ -129,7 +131,8 @@ function main(cp)
          {         
             KillUnitAt(All, "130 + 1n Norad", "Anywhere", cp);
             KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp);
-
+            SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
+            
             f.SkillWait(cp, 80);
 
             f.count[cp] += 1;

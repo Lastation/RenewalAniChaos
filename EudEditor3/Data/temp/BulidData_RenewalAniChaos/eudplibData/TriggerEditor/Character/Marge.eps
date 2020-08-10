@@ -3,7 +3,9 @@ import Variable as v;
 import Function as f;
 
 import Character.Rusaruka.Main as rusarukaMain;
+import Character.Kiana.Main as kianaMain;
 import Character.Yuuna.Main as yuunaMain;
+import Character.Mayuri.Main as mayuriMain;
 
 import Character.TextA.Chtholly 		as chtholly;
 import Character.TextA.Maihime 		as maihime;
@@ -22,7 +24,6 @@ import Character.TextC.Sakura 		as sakura;
 import Character.TextC.Yashiro 		as yashiro;
 import Character.TextC.Rin 			as rin;
 import Character.TextC.Seraphim 	as seraphim;
-import Character.TextC.Kiana 		as kiana;
 import Character.TextC.Tenkei 		as tenkei;
 
 import Character.TextD.MN 			as mn;
@@ -44,8 +45,14 @@ function main(cp)
 	case 1:
 		rusarukaMain.main(cp);
 		break;
+	case 17:
+		kianaMain.main(cp);
+		break;
 	case 22:
 		yuunaMain.main(cp);
+		break;
+	case 23:
+		mayuriMain.main(cp);
 		break;
 	}
 	
@@ -60,7 +67,7 @@ function MargeSound(cp)
 {
 	rusarukaMain.SkillVoice(cp);
 	yuunaMain.SkillVoice(cp);
-	
+	mayuriMain.SkillVoice(cp);
 // 1 ~ 6
 	if (Deaths((13), (0), 1, (186)))
 	{
@@ -102,7 +109,6 @@ function MargeSound(cp)
 		yashiro.NormalText(cp);
 		rin.NormalText(cp);
 		seraphim.NormalText(cp);
-		kiana.NormalText(cp);
 		tenkei.NormalText(cp);
 	}
 	
@@ -145,7 +151,6 @@ function MargeSound(cp)
 		yashiro.UiltimateText(cp);
 		rin.UiltimateText(cp);
 		seraphim.UiltimateText(cp);
-		kiana.UiltimateText(cp);
 		tenkei.UiltimateText(cp);
 		
 		// 19 ~ 24
@@ -179,7 +184,6 @@ function MargeSound(cp)
 		yashiro.UniqueText(cp);
 		rin.UniqueText(cp);
 		seraphim.UniqueText(cp);
-		kiana.UniqueText(cp);
 		tenkei.UniqueText(cp);
 		
 		// 19 ~ 24// 13 ~ 18
@@ -211,7 +215,12 @@ function SkillWait(cp)
 			f.SkillWait(cp, 500);
 			f.count[cp] = 1000;
 		}
-		else if (f.count[cp] == 1000) { f.count[cp] = 0; f.loop[cp] = 0; f.wait[cp] = 12; }
+		else if (f.count[cp] == 1000)
+		{
+			f.count[cp] = 0;
+			f.loop[cp] = 0;
+			f.wait[cp] = 12;
+		}
 	}
 	
 	if (f.wait[cp] >= 2)
