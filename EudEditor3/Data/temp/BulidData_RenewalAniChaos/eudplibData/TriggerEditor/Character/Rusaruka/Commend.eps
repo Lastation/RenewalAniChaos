@@ -5,8 +5,21 @@ const stb = StringBuffer();
 function main(cp)
 {
 	if (f.wait[cp] == 0 && f.step[cp] == 0)
-	{
-		if (Bring(cp, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))
+	{		
+		if (Bring(cp, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill")
+		&& Deaths(CurrentPlayer, Exactly, 0, " `UniqueCoolTime")
+		&& Bring(AllPlayers, Exactly, 0, 130, "Anywhere")
+		&& Score(CurrentPlayer, Custom, AtLeast, 25))
+		{
+			f.step[cp] = 1;
+			KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", cp);
+		}
+		else if (Bring(cp, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill"))
+		{
+			SetResources(CurrentPlayer, Add, 60, Gas);
+			KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", cp);
+		}
+		else if (Bring(cp, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))
 		{
 			f.step[cp] = 100;
 			KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", cp);

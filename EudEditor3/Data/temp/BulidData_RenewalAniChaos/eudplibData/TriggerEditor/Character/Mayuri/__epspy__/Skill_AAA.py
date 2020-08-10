@@ -137,275 +137,301 @@ def f_main(cp):
     # (Line 7) MoveUnit(All, "50 + 1n Battlecruiser", cp, "Anywhere", "[Skill]HoldPosition");
     # (Line 8) ModifyUnitShields(All, f.heroID[cp], cp, "Anywhere", 1);
     DoActions(MoveUnit(All, "50 + 1n Battlecruiser", cp, "Anywhere", "[Skill]HoldPosition"))
-    # (Line 10) if (f.delay[cp] == 0)
+    # (Line 10) if (f.count[cp] < 2)
     DoActions(ModifyUnitShields(All, f.heroID[cp], cp, "Anywhere", 1))
-    if EUDIf()(f.delay[cp] == 0):
+    if EUDIf()(f.count[cp] >= 2, neg=True):
         # (Line 11) {
-        # (Line 12) if (f.count[cp] == 0)
+        # (Line 12) SetAllianceStatus(P7, Ally);
+        # (Line 13) SetAllianceStatus(P8, Ally);
+        DoActions(SetAllianceStatus(P7, Ally))
+        # (Line 14) }
+        DoActions(SetAllianceStatus(P8, Ally))
+        # (Line 16) if (f.delay[cp] == 0)
+    EUDEndIf()
+    if EUDIf()(f.delay[cp] == 0):
+        # (Line 17) {
+        # (Line 18) if (f.count[cp] == 0)
         if EUDIf()(f.count[cp] == 0):
-            # (Line 13) {
-            # (Line 14) if (f.loop[cp] < 12)
+            # (Line 19) {
+            # (Line 20) if (f.loop[cp] < 12)
             if EUDIf()(f.loop[cp] >= 12, neg=True):
-                # (Line 15) {
-                # (Line 16) SetDeaths(cp, SetTo, 1, " `ShieldRecharge");
-                # (Line 18) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
+                # (Line 21) {
+                # (Line 22) SetSwitch("ComputerAlliy", Set);
+                # (Line 24) SetDeaths(cp, SetTo, 1, " `ShieldRecharge");
+                DoActions(SetSwitch("ComputerAlliy", Set))
+                # (Line 26) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
                 DoActions(SetDeaths(cp, SetTo, 1, " `ShieldRecharge"))
-                # (Line 20) f.Table_Sin(cp, (30 * f.loop[cp]), 160);
+                # (Line 28) f.Table_Sin(cp, (30 * f.loop[cp]), 160);
                 DoActions(KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp))
                 f.Table_Sin(cp, (30 * f.loop[cp]), 160)
-                # (Line 21) f.Table_Cos(cp, (30 * f.loop[cp]), 160);
+                # (Line 29) f.Table_Cos(cp, (30 * f.loop[cp]), 160);
                 f.Table_Cos(cp, (30 * f.loop[cp]), 160)
-                # (Line 23) f.SquareShape(cp, 1, "60 + 3n Siege", 120 + f.CosAngle[cp], 120 + f.SinAngle[cp]);
+                # (Line 31) f.SquareShape(cp, 1, "60 + 3n Siege", 120 + f.CosAngle[cp], 120 + f.SinAngle[cp]);
                 f.SquareShape(cp, 1, "60 + 3n Siege", 120 + f.CosAngle[cp], 120 + f.SinAngle[cp])
-                # (Line 24) f.SquareShape(cp, 16, "80 + 1n Vulture", 120 + f.CosAngle[cp], 120 + f.SinAngle[cp]);
+                # (Line 32) f.SquareShape(cp, 16, "80 + 1n Vulture", 120 + f.CosAngle[cp], 120 + f.SinAngle[cp]);
                 f.SquareShape(cp, 16, "80 + 1n Vulture", 120 + f.CosAngle[cp], 120 + f.SinAngle[cp])
-                # (Line 25) GiveUnits(All, "60 + 3n Siege", cp, "Anywhere", P9);
-                # (Line 27) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 33) GiveUnits(All, "60 + 3n Siege", cp, "Anywhere", P9);
+                # (Line 35) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                 DoActions(GiveUnits(All, "60 + 3n Siege", cp, "Anywhere", P9))
-                # (Line 28) MoveUnit(All, "80 + 1n Vulture", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+                # (Line 36) MoveUnit(All, "80 + 1n Vulture", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 29) Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 37) Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveUnit(All, "80 + 1n Vulture", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
-                # (Line 31) f.SkillWait(cp, 80);
+                # (Line 39) f.SkillWait(cp, 80);
                 DoActions(Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]))
                 f.SkillWait(cp, 80)
-                # (Line 33) f.loop[cp] += 1;
+                # (Line 41) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 34) }
-                # (Line 35) else if (f.loop[cp] == 12)
+                # (Line 42) }
+                # (Line 43) else if (f.loop[cp] == 12)
             if EUDElseIf()(f.loop[cp] == 12):
-                # (Line 36) {
-                # (Line 37) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
-                # (Line 39) f.SkillWait(cp, 640);
+                # (Line 44) {
+                # (Line 45) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
+                # (Line 47) f.SkillWait(cp, 640);
                 DoActions(KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp))
                 f.SkillWait(cp, 640)
-                # (Line 41) f.count[cp] += 1;
+                # (Line 49) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 42) f.loop[cp] = 0;
+                # (Line 50) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
-                # (Line 43) }
-                # (Line 44) }
+                # (Line 51) }
+                # (Line 52) }
             EUDEndIf()
-            # (Line 45) else if (f.count[cp] == 1)
+            # (Line 53) else if (f.count[cp] == 1)
         if EUDElseIf()(f.count[cp] == 1):
-            # (Line 46) {
-            # (Line 47) if (f.loop[cp] < 12)
+            # (Line 54) {
+            # (Line 55) if (f.loop[cp] < 12)
             if EUDIf()(f.loop[cp] >= 12, neg=True):
-                # (Line 48) {
-                # (Line 49) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
-                # (Line 51) f.Table_Sin(cp, (30 * f.loop[cp]), 160);
+                # (Line 56) {
+                # (Line 57) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
+                # (Line 59) f.Table_Sin(cp, (30 * f.loop[cp]), 160);
                 DoActions(KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp))
                 f.Table_Sin(cp, (30 * f.loop[cp]), 160)
-                # (Line 52) f.Table_Cos(cp, (30 * f.loop[cp]), 160);
+                # (Line 60) f.Table_Cos(cp, (30 * f.loop[cp]), 160);
                 f.Table_Cos(cp, (30 * f.loop[cp]), 160)
-                # (Line 54) f.SquareShape(cp, 1, "60 + 3n Siege", 160 + f.CosAngle[cp], f.SinAngle[cp]);
+                # (Line 62) f.SquareShape(cp, 1, "60 + 3n Siege", 160 + f.CosAngle[cp], f.SinAngle[cp]);
                 f.SquareShape(cp, 1, "60 + 3n Siege", 160 + f.CosAngle[cp], f.SinAngle[cp])
-                # (Line 55) f.SquareShape(cp, 16, "80 + 1n Vulture", 160 + f.CosAngle[cp], f.SinAngle[cp]);
+                # (Line 63) f.SquareShape(cp, 16, "80 + 1n Vulture", 160 + f.CosAngle[cp], f.SinAngle[cp]);
                 f.SquareShape(cp, 16, "80 + 1n Vulture", 160 + f.CosAngle[cp], f.SinAngle[cp])
-                # (Line 56) GiveUnits(All, "60 + 3n Siege", cp, "Anywhere", P9);
-                # (Line 58) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 64) GiveUnits(All, "60 + 3n Siege", cp, "Anywhere", P9);
+                # (Line 66) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                 DoActions(GiveUnits(All, "60 + 3n Siege", cp, "Anywhere", P9))
-                # (Line 59) MoveUnit(All, "80 + 1n Vulture", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+                # (Line 67) MoveUnit(All, "80 + 1n Vulture", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 60) Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 68) Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveUnit(All, "80 + 1n Vulture", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
-                # (Line 62) f.SkillWait(cp, 80);
+                # (Line 70) f.SkillWait(cp, 80);
                 DoActions(Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]))
                 f.SkillWait(cp, 80)
-                # (Line 64) f.loop[cp] += 1;
-                _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 65) }
-                # (Line 66) else if (f.loop[cp] == 12)
-            if EUDElseIf()(f.loop[cp] == 12):
-                # (Line 67) {
-                # (Line 68) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
-                # (Line 70) f.SkillWait(cp, 560);
-                DoActions(KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp))
-                f.SkillWait(cp, 560)
                 # (Line 72) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
                 # (Line 73) }
-                # (Line 74) else if (f.loop[cp] == 13)
-            if EUDElseIf()(f.loop[cp] == 13):
+                # (Line 74) else if (f.loop[cp] == 12)
+            if EUDElseIf()(f.loop[cp] == 12):
                 # (Line 75) {
-                # (Line 76) f.Voice_Routine(cp, 11);
-                f.Voice_Routine(cp, 11)
-                # (Line 78) f.SkillWait(cp, 80);
-                f.SkillWait(cp, 80)
-                # (Line 80) f.count[cp] += 1;
-                _ARRW(f.count, cp).__iadd__(1)
-                # (Line 81) f.loop[cp] = 0;
-                _ARRW(f.loop, cp) << (0)
-                # (Line 82) }
-                # (Line 84) }
-            EUDEndIf()
-            # (Line 85) else if (f.count[cp] == 2)
-        if EUDElseIf()(f.count[cp] == 2):
-            # (Line 86) {
-            # (Line 87) if (f.loop[cp] < 12)
-            if EUDIf()(f.loop[cp] >= 12, neg=True):
-                # (Line 88) {
-                # (Line 89) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
-                # (Line 91) f.Table_Sin(cp, (30 * f.loop[cp]), 160);
-                DoActions(KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp))
-                f.Table_Sin(cp, (30 * f.loop[cp]), 160)
-                # (Line 92) f.Table_Cos(cp, (30 * f.loop[cp]), 160);
-                f.Table_Cos(cp, (30 * f.loop[cp]), 160)
-                # (Line 94) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 120 + f.CosAngle[cp], 120 + f.SinAngle[cp]);
-                f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 120 + f.CosAngle[cp], 120 + f.SinAngle[cp])
-                # (Line 95) f.SquareShape(cp, 8, "80 + 1n Vulture", 120 + f.CosAngle[cp], 120 + f.SinAngle[cp]);
-                f.SquareShape(cp, 8, "80 + 1n Vulture", 120 + f.CosAngle[cp], 120 + f.SinAngle[cp])
-                # (Line 97) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                # (Line 98) MoveUnit(All, "80 + 1n Vulture", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-                DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 99) Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]);
-                DoActions(MoveUnit(All, "80 + 1n Vulture", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
-                # (Line 100) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
-                DoActions(Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]))
-                # (Line 102) f.SkillWait(cp, 80);
-                DoActions(Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]))
-                f.SkillWait(cp, 80)
-                # (Line 104) f.loop[cp] += 1;
-                _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 105) }
-                # (Line 106) else if (f.loop[cp] == 12)
-            if EUDElseIf()(f.loop[cp] == 12):
-                # (Line 107) {
-                # (Line 108) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
-                # (Line 110) f.SkillWait(cp, 1760);
-                DoActions(KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp))
-                f.SkillWait(cp, 1760)
-                # (Line 112) f.loop[cp] += 1;
-                _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 113) }
-                # (Line 114) else if (f.loop[cp] == 13)
-            if EUDElseIf()(f.loop[cp] == 13):
-                # (Line 115) {
-                # (Line 116) f.Voice_Routine(cp, 12);
-                f.Voice_Routine(cp, 12)
-                # (Line 118) f.SkillWait(cp, 80);
-                f.SkillWait(cp, 80)
-                # (Line 120) f.count[cp] += 1;
-                _ARRW(f.count, cp).__iadd__(1)
-                # (Line 121) f.loop[cp] = 0;
-                _ARRW(f.loop, cp) << (0)
-                # (Line 122) }
-                # (Line 123) }
-            EUDEndIf()
-            # (Line 124) else if (f.count[cp] == 3)
-        if EUDElseIf()(f.count[cp] == 3):
-            # (Line 125) {
-            # (Line 126) if (f.loop[cp] < 12)
-            if EUDIf()(f.loop[cp] >= 12, neg=True):
-                # (Line 127) {
-                # (Line 128) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
-                # (Line 130) f.Table_Sin(cp, (30 * f.loop[cp]), 160);
-                DoActions(KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp))
-                f.Table_Sin(cp, (30 * f.loop[cp]), 160)
-                # (Line 131) f.Table_Cos(cp, (30 * f.loop[cp]), 160);
-                f.Table_Cos(cp, (30 * f.loop[cp]), 160)
-                # (Line 133) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 160 + f.CosAngle[cp], f.SinAngle[cp]);
-                f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 160 + f.CosAngle[cp], f.SinAngle[cp])
-                # (Line 134) f.SquareShape(cp, 8, "80 + 1n Vulture", 160 + f.CosAngle[cp], f.SinAngle[cp]);
-                f.SquareShape(cp, 8, "80 + 1n Vulture", 160 + f.CosAngle[cp], f.SinAngle[cp])
-                # (Line 136) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                # (Line 137) MoveUnit(All, "80 + 1n Vulture", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-                DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 138) Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]);
-                DoActions(MoveUnit(All, "80 + 1n Vulture", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
-                # (Line 139) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
-                DoActions(Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]))
-                # (Line 141) f.SkillWait(cp, 80);
-                DoActions(Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]))
-                f.SkillWait(cp, 80)
-                # (Line 143) f.loop[cp] += 1;
-                _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 144) }
-                # (Line 145) else if (f.loop[cp] == 12)
-            if EUDElseIf()(f.loop[cp] == 12):
-                # (Line 146) {
-                # (Line 147) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
-                # (Line 149) f.SkillWait(cp, 560);
+                # (Line 76) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
+                # (Line 78) f.SkillWait(cp, 560);
                 DoActions(KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp))
                 f.SkillWait(cp, 560)
-                # (Line 151) f.loop[cp] += 1;
+                # (Line 80) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 152) }
-                # (Line 153) else if (f.loop[cp] == 13)
+                # (Line 81) }
+                # (Line 82) else if (f.loop[cp] == 13)
             if EUDElseIf()(f.loop[cp] == 13):
-                # (Line 154) {
-                # (Line 155) f.SkillWait(cp, 1440);
-                f.SkillWait(cp, 1440)
-                # (Line 157) f.count[cp] += 1;
+                # (Line 83) {
+                # (Line 84) f.Voice_Routine(cp, 11);
+                f.Voice_Routine(cp, 11)
+                # (Line 86) f.SkillWait(cp, 80);
+                f.SkillWait(cp, 80)
+                # (Line 88) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 158) f.loop[cp] = 0;
+                # (Line 89) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
-                # (Line 159) }
-                # (Line 161) }
+                # (Line 90) }
+                # (Line 92) }
             EUDEndIf()
-            # (Line 162) else if (f.count[cp] == 4)
+            # (Line 93) else if (f.count[cp] == 2)
+        if EUDElseIf()(f.count[cp] == 2):
+            # (Line 94) {
+            # (Line 95) if (f.loop[cp] < 12)
+            if EUDIf()(f.loop[cp] >= 12, neg=True):
+                # (Line 96) {
+                # (Line 97) SetSwitch("ComputerAlliy", Clear);
+                # (Line 99) if (cp < 3)
+                DoActions(SetSwitch("ComputerAlliy", Clear))
+                if EUDIf()(cp >= 3, neg=True):
+                    # (Line 100) {
+                    # (Line 101) SetAllianceStatus(P8, Enemy);
+                    # (Line 102) }
+                    DoActions(SetAllianceStatus(P8, Enemy))
+                    # (Line 103) else
+                    # (Line 104) {
+                if EUDElse()():
+                    # (Line 105) SetAllianceStatus(P7, Enemy);
+                    # (Line 106) }
+                    DoActions(SetAllianceStatus(P7, Enemy))
+                    # (Line 108) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
+                EUDEndIf()
+                # (Line 110) f.Table_Sin(cp, (30 * f.loop[cp]), 160);
+                DoActions(KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp))
+                f.Table_Sin(cp, (30 * f.loop[cp]), 160)
+                # (Line 111) f.Table_Cos(cp, (30 * f.loop[cp]), 160);
+                f.Table_Cos(cp, (30 * f.loop[cp]), 160)
+                # (Line 113) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 120 + f.CosAngle[cp], 120 + f.SinAngle[cp]);
+                f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 120 + f.CosAngle[cp], 120 + f.SinAngle[cp])
+                # (Line 114) f.SquareShape(cp, 8, "80 + 1n Vulture", 120 + f.CosAngle[cp], 120 + f.SinAngle[cp]);
+                f.SquareShape(cp, 8, "80 + 1n Vulture", 120 + f.CosAngle[cp], 120 + f.SinAngle[cp])
+                # (Line 116) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 117) MoveUnit(All, "80 + 1n Vulture", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+                DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
+                # (Line 118) Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]);
+                DoActions(MoveUnit(All, "80 + 1n Vulture", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
+                # (Line 119) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
+                DoActions(Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]))
+                # (Line 121) f.SkillWait(cp, 80);
+                DoActions(Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]))
+                f.SkillWait(cp, 80)
+                # (Line 123) f.loop[cp] += 1;
+                _ARRW(f.loop, cp).__iadd__(1)
+                # (Line 124) }
+                # (Line 125) else if (f.loop[cp] == 12)
+            if EUDElseIf()(f.loop[cp] == 12):
+                # (Line 126) {
+                # (Line 127) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
+                # (Line 129) f.SkillWait(cp, 1760);
+                DoActions(KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp))
+                f.SkillWait(cp, 1760)
+                # (Line 131) f.loop[cp] += 1;
+                _ARRW(f.loop, cp).__iadd__(1)
+                # (Line 132) }
+                # (Line 133) else if (f.loop[cp] == 13)
+            if EUDElseIf()(f.loop[cp] == 13):
+                # (Line 134) {
+                # (Line 135) f.Voice_Routine(cp, 12);
+                f.Voice_Routine(cp, 12)
+                # (Line 137) f.SkillWait(cp, 80);
+                f.SkillWait(cp, 80)
+                # (Line 139) f.count[cp] += 1;
+                _ARRW(f.count, cp).__iadd__(1)
+                # (Line 140) f.loop[cp] = 0;
+                _ARRW(f.loop, cp) << (0)
+                # (Line 141) }
+                # (Line 142) }
+            EUDEndIf()
+            # (Line 143) else if (f.count[cp] == 3)
+        if EUDElseIf()(f.count[cp] == 3):
+            # (Line 144) {
+            # (Line 145) if (f.loop[cp] < 12)
+            if EUDIf()(f.loop[cp] >= 12, neg=True):
+                # (Line 146) {
+                # (Line 147) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
+                # (Line 149) f.Table_Sin(cp, (30 * f.loop[cp]), 160);
+                DoActions(KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp))
+                f.Table_Sin(cp, (30 * f.loop[cp]), 160)
+                # (Line 150) f.Table_Cos(cp, (30 * f.loop[cp]), 160);
+                f.Table_Cos(cp, (30 * f.loop[cp]), 160)
+                # (Line 152) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 160 + f.CosAngle[cp], f.SinAngle[cp]);
+                f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 160 + f.CosAngle[cp], f.SinAngle[cp])
+                # (Line 153) f.SquareShape(cp, 8, "80 + 1n Vulture", 160 + f.CosAngle[cp], f.SinAngle[cp]);
+                f.SquareShape(cp, 8, "80 + 1n Vulture", 160 + f.CosAngle[cp], f.SinAngle[cp])
+                # (Line 155) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 156) MoveUnit(All, "80 + 1n Vulture", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+                DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
+                # (Line 157) Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]);
+                DoActions(MoveUnit(All, "80 + 1n Vulture", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
+                # (Line 158) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
+                DoActions(Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]))
+                # (Line 160) f.SkillWait(cp, 80);
+                DoActions(Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]))
+                f.SkillWait(cp, 80)
+                # (Line 162) f.loop[cp] += 1;
+                _ARRW(f.loop, cp).__iadd__(1)
+                # (Line 163) }
+                # (Line 164) else if (f.loop[cp] == 12)
+            if EUDElseIf()(f.loop[cp] == 12):
+                # (Line 165) {
+                # (Line 166) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
+                # (Line 168) f.SkillWait(cp, 560);
+                DoActions(KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp))
+                f.SkillWait(cp, 560)
+                # (Line 170) f.loop[cp] += 1;
+                _ARRW(f.loop, cp).__iadd__(1)
+                # (Line 171) }
+                # (Line 172) else if (f.loop[cp] == 13)
+            if EUDElseIf()(f.loop[cp] == 13):
+                # (Line 173) {
+                # (Line 174) f.SkillWait(cp, 1440);
+                f.SkillWait(cp, 1440)
+                # (Line 176) f.count[cp] += 1;
+                _ARRW(f.count, cp).__iadd__(1)
+                # (Line 177) f.loop[cp] = 0;
+                _ARRW(f.loop, cp) << (0)
+                # (Line 178) }
+                # (Line 180) }
+            EUDEndIf()
+            # (Line 181) else if (f.count[cp] == 4)
         if EUDElseIf()(f.count[cp] == 4):
-            # (Line 163) {
-            # (Line 164) if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill")
-            _t18 = EUDIf()
-            # (Line 165) && Deaths(cp, AtLeast, f.UltimateB[cp], " `UltimateCoolTime"))
-            if _t18(EUDSCAnd()(Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill"))(Deaths(cp, AtLeast, f.UltimateB[cp], " `UltimateCoolTime"))()):
-                # (Line 166) {
-                # (Line 167) if (Switch("UiltimateSwitch", Cleared))
+            # (Line 182) {
+            # (Line 183) if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill")
+            _t20 = EUDIf()
+            # (Line 184) && Deaths(cp, AtLeast, f.UltimateB[cp], " `UltimateCoolTime"))
+            if _t20(EUDSCAnd()(Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill"))(Deaths(cp, AtLeast, f.UltimateB[cp], " `UltimateCoolTime"))()):
+                # (Line 185) {
+                # (Line 186) if (Switch("UiltimateSwitch", Cleared))
                 if EUDIf()(Switch("UiltimateSwitch", Cleared)):
-                    # (Line 168) {
-                    # (Line 169) SetSwitch("UiltimateSwitch", Set);
-                    # (Line 170) f.Voice_Routine(cp, 13);
+                    # (Line 187) {
+                    # (Line 188) SetSwitch("UiltimateSwitch", Set);
+                    # (Line 189) f.Voice_Routine(cp, 13);
                     DoActions(SetSwitch("UiltimateSwitch", Set))
                     f.Voice_Routine(cp, 13)
-                    # (Line 171) f.wait[cp] = 0;
+                    # (Line 190) f.wait[cp] = 0;
                     _ARRW(f.wait, cp) << (0)
-                    # (Line 172) f.count[cp] = 0;
+                    # (Line 191) f.count[cp] = 0;
                     _ARRW(f.count, cp) << (0)
-                    # (Line 173) f.loop[cp] = 0;
+                    # (Line 192) f.loop[cp] = 0;
                     _ARRW(f.loop, cp) << (0)
-                    # (Line 174) f.step[cp] = 330;
+                    # (Line 193) f.step[cp] = 330;
                     _ARRW(f.step, cp) << (330)
-                    # (Line 175) SetDeaths(cp, Subtract, f.UltimateB[cp], " `UltimateCoolTime");
-                    # (Line 176) KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
+                    # (Line 194) SetDeaths(cp, Subtract, f.UltimateB[cp], " `UltimateCoolTime");
+                    # (Line 195) KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
                     DoActions(SetDeaths(cp, Subtract, f.UltimateB[cp], " `UltimateCoolTime"))
-                    # (Line 177) }
+                    # (Line 196) }
                     DoActions(KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp))
-                    # (Line 178) else
-                    # (Line 179) {
+                    # (Line 197) else
+                    # (Line 198) {
                 if EUDElse()():
-                    # (Line 180) SetResources(CurrentPlayer, Add, 600, Gas);
-                    # (Line 181) KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
+                    # (Line 199) SetResources(CurrentPlayer, Add, 600, Gas);
+                    # (Line 200) KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
                     DoActions(SetResources(CurrentPlayer, Add, 600, Gas))
-                    # (Line 182) SetDeaths(CurrentPlayer, SetTo, 999, " `SYSTEMTEXT");
+                    # (Line 201) SetDeaths(CurrentPlayer, SetTo, 999, " `SYSTEMTEXT");
                     DoActions(KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp))
-                    # (Line 183) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+                    # (Line 202) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
                     DoActions(SetDeaths(CurrentPlayer, SetTo, 999, " `SYSTEMTEXT"))
-                    # (Line 184) KillUnitAt(All, "60 + 3n Siege", "Anywhere", P9);
+                    # (Line 203) KillUnitAt(All, "60 + 3n Siege", "Anywhere", P9);
                     DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
-                    # (Line 185) SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
+                    # (Line 204) SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
                     DoActions(KillUnitAt(All, "60 + 3n Siege", "Anywhere", P9))
-                    # (Line 186) f.SkillEnd(cp);
+                    # (Line 205) f.SkillEnd(cp);
                     DoActions(SetDeaths(cp, SetTo, 0, " `ShieldRecharge"))
                     f.SkillEnd(cp)
-                    # (Line 187) }
-                    # (Line 188) }
+                    # (Line 206) }
+                    # (Line 207) }
                 EUDEndIf()
-                # (Line 189) else
-                # (Line 190) {
+                # (Line 208) else
+                # (Line 209) {
             if EUDElse()():
-                # (Line 191) SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
-                # (Line 192) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+                # (Line 210) SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
+                # (Line 211) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
                 DoActions(SetDeaths(cp, SetTo, 0, " `ShieldRecharge"))
-                # (Line 193) KillUnitAt(All, "60 + 3n Siege", "Anywhere", P9);
+                # (Line 212) KillUnitAt(All, "60 + 3n Siege", "Anywhere", P9);
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
-                # (Line 194) f.SkillEnd(cp);
+                # (Line 213) f.SkillEnd(cp);
                 DoActions(KillUnitAt(All, "60 + 3n Siege", "Anywhere", P9))
                 f.SkillEnd(cp)
-                # (Line 195) }
-                # (Line 199) }
+                # (Line 214) }
+                # (Line 218) }
             EUDEndIf()
-            # (Line 200) }
+            # (Line 219) }
         EUDEndIf()
-        # (Line 201) }
+        # (Line 220) }
     EUDEndIf()

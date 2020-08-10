@@ -156,9 +156,9 @@ def f_main(cp):
                 DoActions(MoveUnit(All, "40 + 1n Marine", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
                 # (Line 21) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
                 DoActions(Order("40 + 1n Marine", cp, "Anywhere", Attack, f.location[cp]))
-                # (Line 23) f.SkillWait(cp, 80);
+                # (Line 23) f.SkillWait(cp, 160);
                 DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
-                f.SkillWait(cp, 80)
+                f.SkillWait(cp, 160)
                 # (Line 24) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
                 # (Line 25) f.loop[cp] = 0;
@@ -197,49 +197,59 @@ def f_main(cp):
                 DoActions(KillUnitAt(All, "40 + 1n Marine", "Anywhere", cp))
                 f.NxNSquareShape(cp, 1, "Kakaru (Twilight)", 3, 50)
                 # (Line 46) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
-                # (Line 48) f.SkillWait(cp, 80);
+                # (Line 47) f.EdgeShape(cp, 1, "40 + 1n Ghost", 45, 3, 75);
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp))
-                f.SkillWait(cp, 80)
-                # (Line 50) f.loop[cp] += 1;
-                _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 51) }
-                # (Line 52) else if (f.loop[cp] == 5)
-            if EUDElseIf()(f.loop[cp] == 5):
-                # (Line 53) {
-                # (Line 54) f.EdgeShape(cp, 1, "60 + 1n Danimoth", 45, 5, 100);
-                f.EdgeShape(cp, 1, "60 + 1n Danimoth", 45, 5, 100)
-                # (Line 55) KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
-                # (Line 56) f.EdgeShape(cp, 1, "40 + 1n Ghost", 45, 5, 100);
-                DoActions(KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp))
-                f.EdgeShape(cp, 1, "40 + 1n Ghost", 45, 5, 100)
-                # (Line 57) f.EdgeShape(cp, 1, "60 + 1n Archon", 45, 4, 100);
-                f.EdgeShape(cp, 1, "60 + 1n Archon", 45, 4, 100)
-                # (Line 58) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
-                # (Line 60) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
-                # (Line 61) MoveUnit(All, "40 + 1n Ghost", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+                f.EdgeShape(cp, 1, "40 + 1n Ghost", 45, 3, 75)
+                # (Line 48) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 49) MoveUnit(All, "40 + 1n Ghost", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 62) Order("40 + 1n Ghost", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 50) Order("40 + 1n Ghost", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveUnit(All, "40 + 1n Ghost", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
-                # (Line 64) f.SkillWait(cp, 320);
+                # (Line 52) f.SkillWait(cp, 320);
                 DoActions(Order("40 + 1n Ghost", cp, "Anywhere", Attack, f.location[cp]))
                 f.SkillWait(cp, 320)
-                # (Line 66) f.count[cp] += 1;
+                # (Line 54) f.loop[cp] += 1;
+                _ARRW(f.loop, cp).__iadd__(1)
+                # (Line 55) }
+                # (Line 56) else if (f.loop[cp] == 5)
+            if EUDElseIf()(f.loop[cp] == 5):
+                # (Line 57) {
+                # (Line 58) KillUnitAt(All, "40 + 1n Ghost", "Anywhere", cp);
+                # (Line 59) f.EdgeShape(cp, 1, "60 + 1n Danimoth", 45, 5, 100);
+                DoActions(KillUnitAt(All, "40 + 1n Ghost", "Anywhere", cp))
+                f.EdgeShape(cp, 1, "60 + 1n Danimoth", 45, 5, 100)
+                # (Line 60) KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
+                # (Line 61) f.EdgeShape(cp, 1, "40 + 1n Ghost", 45, 3, 100);
+                DoActions(KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp))
+                f.EdgeShape(cp, 1, "40 + 1n Ghost", 45, 3, 100)
+                # (Line 62) f.EdgeShape(cp, 1, "60 + 1n Archon", 45, 4, 100);
+                f.EdgeShape(cp, 1, "60 + 1n Archon", 45, 4, 100)
+                # (Line 63) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+                # (Line 65) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
+                # (Line 66) MoveUnit(All, "40 + 1n Ghost", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+                DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
+                # (Line 67) Order("40 + 1n Ghost", cp, "Anywhere", Attack, f.location[cp]);
+                DoActions(MoveUnit(All, "40 + 1n Ghost", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
+                # (Line 69) f.SkillWait(cp, 320);
+                DoActions(Order("40 + 1n Ghost", cp, "Anywhere", Attack, f.location[cp]))
+                f.SkillWait(cp, 320)
+                # (Line 71) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 67) f.loop[cp] = 0;
+                # (Line 72) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
-                # (Line 68) }
-                # (Line 69) }
+                # (Line 73) }
+                # (Line 74) }
             EUDEndIf()
-            # (Line 70) else if (f.count[cp] == 2)
+            # (Line 75) else if (f.count[cp] == 2)
         if EUDElseIf()(f.count[cp] == 2):
-            # (Line 71) {
-            # (Line 72) KillUnitAt(All, "40 + 1n Ghost", "Anywhere", cp);
-            # (Line 73) f.SkillEnd(cp);
+            # (Line 76) {
+            # (Line 77) KillUnitAt(All, "40 + 1n Ghost", "Anywhere", cp);
+            # (Line 78) f.SkillEnd(cp);
             DoActions(KillUnitAt(All, "40 + 1n Ghost", "Anywhere", cp))
             f.SkillEnd(cp)
-            # (Line 74) }
-            # (Line 75) }
+            # (Line 79) }
+            # (Line 80) }
         EUDEndIf()
-        # (Line 76) }
+        # (Line 81) }
     EUDEndIf()

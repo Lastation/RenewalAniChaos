@@ -186,17 +186,17 @@ def f_main(cp):
             # (Line 43) if (f.loop[cp] < 36)
             if EUDIf()(f.loop[cp] >= 36, neg=True):
                 # (Line 44) {
-                # (Line 45) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
-                # (Line 47) f.NxNSquareShape(cp, 1, "80 + 1n Vulture", 7, 75);
-                DoActions(KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp))
-                f.NxNSquareShape(cp, 1, "80 + 1n Vulture", 7, 75)
+                # (Line 45) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
+                # (Line 47) f.NxNSquareShape(cp, 1, " Creep. Dunkelheit", 7, 75);
+                DoActions(KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp))
+                f.NxNSquareShape(cp, 1, " Creep. Dunkelheit", 7, 75)
                 # (Line 49) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                # (Line 50) MoveUnit(All, "80 + 1n Vulture", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+                # (Line 50) MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 51) Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]);
-                DoActions(MoveUnit(All, "80 + 1n Vulture", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
+                # (Line 51) Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
+                DoActions(MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
                 # (Line 53) f.SkillWait(cp, 80);
-                DoActions(Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]))
+                DoActions(Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]))
                 f.SkillWait(cp, 80)
                 # (Line 55) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
@@ -204,9 +204,9 @@ def f_main(cp):
                 # (Line 57) else if (f.loop[cp] == 36)
             if EUDElseIf()(f.loop[cp] == 36):
                 # (Line 58) {
-                # (Line 59) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
+                # (Line 59) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
                 # (Line 60) KillUnitAt(All, "60 + 3n Siege", "Anywhere", cp);
-                DoActions(KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp))
+                DoActions(KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp))
                 # (Line 62) f.SkillWait(cp, 80);
                 DoActions(KillUnitAt(All, "60 + 3n Siege", "Anywhere", cp))
                 f.SkillWait(cp, 80)

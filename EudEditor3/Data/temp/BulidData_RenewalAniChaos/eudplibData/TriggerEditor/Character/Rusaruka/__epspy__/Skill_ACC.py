@@ -221,45 +221,53 @@ def f_main(cp):
             if EUDElseIf()(f.loop[cp] == 12):
                 # (Line 57) {
                 # (Line 58) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-                # (Line 60) f.Table_Cos(cp, 30, 96);
+                # (Line 59) f.SkillWait(cp, 500);
                 DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
+                f.SkillWait(cp, 500)
+                # (Line 60) f.loop[cp] += 1;
+                _ARRW(f.loop, cp).__iadd__(1)
+                # (Line 61) }
+                # (Line 62) else if (f.loop[cp] == 13)
+            if EUDElseIf()(f.loop[cp] == 13):
+                # (Line 63) {
+                # (Line 65) f.Table_Cos(cp, 30, 96);
                 f.Table_Cos(cp, 30, 96)
-                # (Line 61) f.Table_Sin(cp, 30, 96);
+                # (Line 66) f.Table_Sin(cp, 30, 96);
                 f.Table_Sin(cp, 30, 96)
-                # (Line 62) f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp]);
+                # (Line 67) f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp]);
                 f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp])
-                # (Line 64) f.Table_Cos(cp, 60, 96);
+                # (Line 69) f.Table_Cos(cp, 60, 96);
                 f.Table_Cos(cp, 60, 96)
-                # (Line 65) f.Table_Sin(cp, 60, 96);
+                # (Line 70) f.Table_Sin(cp, 60, 96);
                 f.Table_Sin(cp, 60, 96)
-                # (Line 66) f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp]);
+                # (Line 71) f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp]);
                 f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp])
-                # (Line 68) f.CrossShape(cp, 1, "50 + 1n Battlecruiser", 0, 7, 32);
-                f.CrossShape(cp, 1, "50 + 1n Battlecruiser", 0, 7, 32)
-                # (Line 69) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                # (Line 70) Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 73) f.CrossShape(cp, 1, "50 + 1n Battlecruiser", 0, 5, 48);
+                f.CrossShape(cp, 1, "50 + 1n Battlecruiser", 0, 5, 48)
+                # (Line 74) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 75) Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 71) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 76) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]))
-                # (Line 72) f.SkillWait(cp, 1000);
+                # (Line 77) f.SkillWait(cp, 1000);
                 DoActions(Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]))
                 f.SkillWait(cp, 1000)
-                # (Line 73) f.loop[cp] += 1;
+                # (Line 78) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 74) }
-                # (Line 75) else if (f.loop[cp] == 13)
-            if EUDElseIf()(f.loop[cp] == 13):
-                # (Line 76) {
-                # (Line 77) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-                # (Line 78) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+                # (Line 79) }
+                # (Line 80) else if (f.loop[cp] == 14)
+            if EUDElseIf()(f.loop[cp] == 14):
+                # (Line 81) {
+                # (Line 82) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+                # (Line 83) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
-                # (Line 79) f.SkillEnd(cp);
+                # (Line 84) f.SkillEnd(cp);
                 DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp))
                 f.SkillEnd(cp)
-                # (Line 80) }
-                # (Line 81) }
+                # (Line 85) }
+                # (Line 86) }
             EUDEndIf()
-            # (Line 82) }
+            # (Line 87) }
         EUDEndIf()
-        # (Line 83) }
+        # (Line 88) }
     EUDEndIf()

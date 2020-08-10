@@ -297,8 +297,8 @@ def SkillList(cp):
         stb.printAt(6, "　　　\x04\x1FAA \x04무한원점의 아크라이트 \x19[ 대인 / 순간딜 / 쉴드고정 1 ]")
         # (Line 96) stb.printAt(7, "\n");
         stb.printAt(7, "\n")
-        # (Line 97) stb.printAt(8, "　　　\x08ACCC \x04교차좌표의 스타더스트 \x19[ 대인 / 자리고정 ] \x05", f.UltimateA[cp]);
-        stb.printAt(8, "　　　\x08ACCC \x04교차좌표의 스타더스트 \x19[ 대인 / 자리고정 ] \x05", f.UltimateA[cp])
+        # (Line 97) stb.printAt(8, "　　　\x08CAA \x04교차좌표의 스타더스트 \x19[ 대인 / 자리고정 ] \x05", f.UltimateA[cp]);
+        stb.printAt(8, "　　　\x08CAA \x04교차좌표의 스타더스트 \x19[ 대인 / 자리고정 ] \x05", f.UltimateA[cp])
         # (Line 98) stb.printAt(9, "　　　\x04+ \x08AA \x04슈타인즈 게이트 \x19[ 공성 / 자리고정 ] \x05", f.UltimateB[cp]);
         stb.printAt(9, "　　　\x04+ \x08AA \x04슈타인즈 게이트 \x19[ 공성 / 자리고정 ] \x05", f.UltimateB[cp])
         # (Line 99) stb.printAt(10, "\n");

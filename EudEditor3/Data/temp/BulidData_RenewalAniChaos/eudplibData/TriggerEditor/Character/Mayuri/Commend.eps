@@ -83,15 +83,15 @@ function main(cp)
 		}
 		
 		// Ultimate
-		else if (Bring(cp, AtLeast, 3, "Protoss Carrier", "[Skill]UseSkill") 
-		&& f.step[cp] == 300
+		else if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") 
+		&& f.step[cp] == 200
 		&& Deaths(cp, AtLeast, f.UltimateA[cp], " `UltimateCoolTime"))
 		{
 			f.Voice_Routine(cp, 10);
 			f.wait[cp] = 0;
 			f.step[cp] = 320;
 			SetDeaths(cp, Subtract, f.UltimateA[cp], " `UltimateCoolTime");
-			KillUnitAt(3, "Protoss Carrier", "[Skill]UseSkill", cp);
+			KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
 		}
 		
 	}

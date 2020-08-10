@@ -153,9 +153,9 @@ def f_main(cp):
                 # (Line 16) else if (f.loop[cp] == 3) Shape(cp, -50, 0);
             if EUDElseIf()(f.loop[cp] == 3):
                 Shape(cp, -50, 0)
-                # (Line 19) f.SkillWait(cp, 80);
+                # (Line 19) f.SkillWait(cp, 160);
             EUDEndIf()
-            f.SkillWait(cp, 80)
+            f.SkillWait(cp, 160)
             # (Line 21) f.loop[cp] += 1;
             _ARRW(f.loop, cp).__iadd__(1)
             # (Line 23) if (f.loop[cp] == 4)
@@ -179,9 +179,9 @@ def f_main(cp):
                 DoActions(KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp))
                 f.EdgeShape(cp, 1, "60 + 1n Archon", 0, 5, 100)
                 # (Line 36) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
-                # (Line 38) f.SkillWait(cp, 80);
+                # (Line 38) f.SkillWait(cp, 160);
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
-                f.SkillWait(cp, 80)
+                f.SkillWait(cp, 160)
                 # (Line 39) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
                 # (Line 40) }
@@ -199,9 +199,9 @@ def f_main(cp):
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
                 # (Line 49) Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveUnit(All, "40 + 1n Goliath", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
-                # (Line 51) f.SkillWait(cp, 80);
+                # (Line 51) f.SkillWait(cp, 160);
                 DoActions(Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]))
-                f.SkillWait(cp, 80)
+                f.SkillWait(cp, 160)
                 # (Line 52) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
                 # (Line 53) }
@@ -213,9 +213,9 @@ def f_main(cp):
                 DoActions(KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp))
                 f.EdgeShape(cp, 1, "Kakaru (Twilight)", 0, 5, 100)
                 # (Line 59) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
-                # (Line 61) f.SkillWait(cp, 320);
+                # (Line 61) f.SkillWait(cp, 480);
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp))
-                f.SkillWait(cp, 320)
+                f.SkillWait(cp, 480)
                 # (Line 62) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
                 # (Line 63) }
@@ -233,9 +233,9 @@ def f_main(cp):
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
                 # (Line 72) Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveUnit(All, "40 + 1n Goliath", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
-                # (Line 74) f.SkillWait(cp, 80);
+                # (Line 74) f.SkillWait(cp, 160);
                 DoActions(Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]))
-                f.SkillWait(cp, 80)
+                f.SkillWait(cp, 160)
                 # (Line 75) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
                 # (Line 76) }
