@@ -1106,22 +1106,22 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
-      CreateUnit(5, "40 + 1n Guardian", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      CreateUnit(5, "40 + 1n Mutalisk", "[Skill]Unit_Wait_8", CurrentPlayer);  
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       LMove(172, x1, y1);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, -x1, -y1);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, -y1, x1);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, y1, -x1);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
-      KillUnitAt(All, "40 + 1n Guardian", "Anywhere", CurrentPlayer);
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", CurrentPlayer);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop2");
    },
 }
@@ -1139,21 +1139,21 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
-      CreateUnit(4, "40 + 1n Guardian", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      CreateUnit(4, "40 + 1n Mutalisk", "[Skill]Unit_Wait_8", CurrentPlayer);  
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, x2, y2);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, -x2, -y2);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, -y2, x2);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, y2, -x2);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
-      KillUnitAt(All, "40 + 1n Guardian", "Anywhere", CurrentPlayer);
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", CurrentPlayer);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop2");
    },
 }
@@ -1171,21 +1171,21 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
-      CreateUnit(4, "40 + 1n Guardian", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      CreateUnit(4, "40 + 1n Mutalisk", "[Skill]Unit_Wait_8", CurrentPlayer);  
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, x3, y3);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, -x3, -y3);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, -y3, x3);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, y3, -x3);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
-      KillUnitAt(All, "40 + 1n Guardian", "Anywhere", CurrentPlayer);
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", CurrentPlayer);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop2");
    },
 }
@@ -1203,21 +1203,21 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
-      CreateUnit(4, "40 + 1n Guardian", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      CreateUnit(4, "40 + 1n Mutalisk", "[Skill]Unit_Wait_8", CurrentPlayer);  
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, x4, y4);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, -x4, -y4);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, -y4, x4);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, y4, -x4);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
-      KillUnitAt(All, "40 + 1n Guardian", "Anywhere", CurrentPlayer);
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", CurrentPlayer);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop2");
    },
 }
@@ -1235,21 +1235,21 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
-      CreateUnit(4, "40 + 1n Guardian", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      CreateUnit(4, "40 + 1n Mutalisk", "[Skill]Unit_Wait_8", CurrentPlayer);  
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, x5, y5);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, -x5, -y5);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, -y5, x5);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, y5, -x5);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
-      KillUnitAt(All, "40 + 1n Guardian", "Anywhere", CurrentPlayer);
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", CurrentPlayer);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop2");
    },
 }
@@ -1268,21 +1268,21 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
-      CreateUnit(4, "40 + 1n Guardian", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      CreateUnit(4, "40 + 1n Mutalisk", "[Skill]Unit_Wait_8", CurrentPlayer);  
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, x6, y6);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, -x6, -y6);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, -y6, x6);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, y6, -x6);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
-      KillUnitAt(All, "40 + 1n Guardian", "Anywhere", CurrentPlayer);
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", CurrentPlayer);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop2");
    },
 }
@@ -1300,21 +1300,21 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
-      CreateUnit(4, "40 + 1n Guardian", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      CreateUnit(4, "40 + 1n Mutalisk", "[Skill]Unit_Wait_8", CurrentPlayer);  
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, x7, y7);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, -x7, -y7);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, -y7, x7);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, y7, -x7);
-      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
-      KillUnitAt(All, "40 + 1n Guardian", "Anywhere", CurrentPlayer);
+      MoveUnit(1, "40 + 1n Mutalisk", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", CurrentPlayer);
       Wait(0);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop2");

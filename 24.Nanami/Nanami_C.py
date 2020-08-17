@@ -137,6 +137,7 @@ function main(cp)
             f.count[cp] += 1;
             f.loop[cp] = 0;
          }
+
       }
       else if (f.count[cp] == 2)
       {
