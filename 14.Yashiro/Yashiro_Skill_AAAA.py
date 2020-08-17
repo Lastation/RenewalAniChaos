@@ -39,7 +39,6 @@ Trigger { -- Skill : S
    },
 }
 
-
 for i = 0, 7, 1 do
 
 Trigger { -- Skill : S
@@ -54,11 +53,28 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Ulitmate");
       PreserveTrigger();
-      SetDeaths(CurrentPlayer, SetTo, 901 - i * 100, " `SkillLoop4");
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillCount");
    },
 }
 end
+
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 1000, " * Samir Duran");
+      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 0, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop4");
+      Deaths(CurrentPlayer, Exactly, 8, " `UniqueSkill");
+   },
+   actions = {
+      Comment("Skill : Ulitmate");
+      PreserveTrigger();
+      SetDeaths(CurrentPlayer, SetTo, 201, " `SkillLoop4");
+   },
+}
 
 Trigger { -- Skill : S
    players = {Force1, Force2},

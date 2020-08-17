@@ -88,6 +88,12 @@ Trigger { -- Skill : S
       PreserveTrigger();
       Wait(300);
       SetSwitch("Recall - M&N", Set);
+      SetDeaths(P1, SetTo, 0, " `NarugeTarget");
+      SetDeaths(P2, SetTo, 0, " `NarugeTarget");
+      SetDeaths(P3, SetTo, 0, " `NarugeTarget");
+      SetDeaths(P4, SetTo, 0, " `NarugeTarget");
+      SetDeaths(P5, SetTo, 0, " `NarugeTarget");
+      SetDeaths(P6, SetTo, 0, " `NarugeTarget");
       SetDeaths(AllPlayers, SetTo, 1004, " `SkillText4");
       SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
@@ -585,24 +591,6 @@ Trigger { -- Skill : S
 }
 
 Trigger { -- Skill : S
-   players = {Force1, Force2},
-   conditions = {
-      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
-      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
-      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
-      Deaths(CurrentPlayer, Exactly, 3, " `SkillCount");
-      Deaths(CurrentPlayer, Exactly, 8, " `SkillLoop");
-   },
-   actions = {
-      Comment("Skill : Combo");
-      PreserveTrigger();
-      SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
-      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
-   },
-}
-
-
-Trigger { -- Skill : S
    players = {Force1},
    conditions = {
       Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
@@ -615,7 +603,7 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Combo");
       PreserveTrigger();
-      SetDeaths(P4, SetTo, 360, " `NarugeTarget");
+      SetDeaths(P4, SetTo, 720, " `NarugeTarget");
    },
 }
 Trigger { -- Skill : S
@@ -631,7 +619,7 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Combo");
       PreserveTrigger();
-      SetDeaths(P5, SetTo, 360, " `NarugeTarget");
+      SetDeaths(P5, SetTo, 720, " `NarugeTarget");
    },
 }
 Trigger { -- Skill : S
@@ -647,7 +635,7 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Combo");
       PreserveTrigger();
-      SetDeaths(P6, SetTo, 360, " `NarugeTarget");
+      SetDeaths(P6, SetTo, 720, " `NarugeTarget");
    },
 }
 Trigger { -- Skill : S
@@ -663,7 +651,7 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Combo");
       PreserveTrigger();
-      SetDeaths(P1, SetTo, 360, " `NarugeTarget");
+      SetDeaths(P1, SetTo, 720, " `NarugeTarget");
    },
 }
 Trigger { -- Skill : S
@@ -679,7 +667,7 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Combo");
       PreserveTrigger();
-      SetDeaths(P2, SetTo, 360, " `NarugeTarget");
+      SetDeaths(P2, SetTo, 720, " `NarugeTarget");
    },
 }
 Trigger { -- Skill : S
@@ -695,7 +683,7 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Combo");
       PreserveTrigger();
-      SetDeaths(P3, SetTo, 360, " `NarugeTarget");
+      SetDeaths(P3, SetTo, 720, " `NarugeTarget");
    },
 }
 Trigger { -- Skill : S
@@ -707,6 +695,23 @@ Trigger { -- Skill : S
       Comment("Skill : Combo");
       PreserveTrigger();
       SetDeaths(CurrentPlayer, Subtract, 1, " `NarugeTarget");
+   },
+}
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 320, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 3, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 8, " `SkillLoop");
+   },
+   actions = {
+      Comment("Skill : Combo");
+      PreserveTrigger();
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
    },
 }
 

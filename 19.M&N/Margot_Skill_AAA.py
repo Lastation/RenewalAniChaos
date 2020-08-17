@@ -215,6 +215,19 @@ Trigger { -- Skill : S
       MoveLocation("19.M&N_Bozo2", " * Devouring One", CurrentPlayer, "Anywhere");
    },
 }
+Trigger { -- Skill : Ultimate
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, AtLeast, 1000, " * Probe");
+      Deaths(CurrentPlayer, AtLeast, 1, " `NarugeTarget");
+      Switch("Ult - M&N", Set);
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      MoveLocation("19.M&N_Bozo2", " * Probe", CurrentPlayer, "Anywhere");
+   },
+}
 
 Trigger { -- Skill : S
    players = {Force1, Force2},
@@ -701,7 +714,7 @@ Trigger { -- Skill : S
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
-      Order("Target", CurrentPlayer, "Anywhere", Move, "19.M&N_Bozo2");
+      MoveUnit(All, "Target", CurrentPlayer, "Anywhere", "19.M&N_Bozo2");
    },
 }
 
@@ -969,34 +982,18 @@ Trigger { -- Skill : S
       Comment("Skill : Ultimate");
       PreserveTrigger();
       CreateUnit(4, "40 + 1n Gantrithor", "[Skill]Unit_Wait_8", CurrentPlayer);  
-      CreateUnitWithProperties(4, "Zerg Defiler", "[Skill]Unit_Wait_8", CurrentPlayer, {
-         clocked = false,
-         burrowed = true,
-         intransit = false,
-         hallucinated = false,
-         invincible = false,
-         hitpoint = 100,
-         shield = 100,
-         energy = 100,
-         resource = 0,
-         hanger = 0,
-      }); 
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, x, y);
-      MoveUnit(1, "Zerg Defiler", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, -x, -y);
-      MoveUnit(1, "Zerg Defiler", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, -y, x);
-      MoveUnit(1, "Zerg Defiler", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
       LMove(172, y, -x);
-      MoveUnit(1, "Zerg Defiler", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       MoveUnit(1, "40 + 1n Gantrithor", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
       KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", CurrentPlayer);
    },
@@ -1065,41 +1062,35 @@ Trigger { -- Skill : S
       Comment("Skill : Ultimate");
       PreserveTrigger();
       Wait(500);
-      SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
-      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
-   },
-}
-
-Trigger { -- Skill : S
-   players = {Force1, Force2},
-   conditions = {
-      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
-      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
-      Deaths(CurrentPlayer, Exactly, 330, " `SkillStep");
-      Deaths(CurrentPlayer, Exactly, 7, " `SkillCount");
-      Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop");
-   },
-   actions = {
-      Comment("Skill : Ultimate");
-      PreserveTrigger();
-      SetDeaths(CurrentPlayer, SetTo, 1, " `SkillLoop2");
       SetDeaths(AllPlayers, SetTo, 19010, " `SkillText_Uiltimate");
-      Wait(1000);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop2");
    },
 }
 
-for i = 0, 7, 1 do
+for i = 0, 5, 1 do
 
-radius1 = (i * 2 + 3) / 8 * math.pi;
+x1 = 64;
+y1 = 0;
 
-d = 40 + 40 * i;
+x2 = 96;
+y2 = 0;
 
-x = math.sin(radius1) * d;
-y = math.cos(radius1) * d;
-x = math.floor(x + 0.5);
-y = math.floor(y + 0.5);
+x3 = 64;
+y3 = 96;
+
+x4 = 96;
+y4 = 96;
+
+x5 = 96;
+y5 = 64;
+
+x6 = 128;
+y6 = 0;
+
+x7 = 160;
+y7 = 0;
 
 
 Trigger { -- Skill : S
@@ -1109,39 +1100,228 @@ Trigger { -- Skill : S
       Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
       Deaths(CurrentPlayer, Exactly, 330, " `SkillStep");
       Deaths(CurrentPlayer, Exactly, 7, " `SkillCount");
-      Deaths(CurrentPlayer, Exactly, i + 1, " `SkillLoop2");
-      Bring(CurrentPlayer, AtLeast, 1, "Zerg Defiler", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, i, " `SkillLoop");
+      Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop2");
    },
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
-      CreateUnit(4, "80 + 1n Marine", "[Skill]Unit_Wait_8", CurrentPlayer);  
-      CreateUnit(4, "Kakaru (Twilight)", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      CreateUnit(5, "40 + 1n Guardian", "[Skill]Unit_Wait_8", CurrentPlayer);  
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
-      MoveLocation("19.M&N", "Zerg Defiler", CurrentPlayer, "Anywhere");
-      RemoveUnitAt(1, "Zerg Defiler", "Anywhere", CurrentPlayer);
-      MoveUnit(1, "80 + 1n Marine", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
-      MoveUnit(1, "Kakaru (Twilight)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
-      MoveLocation("19.M&N", "Zerg Defiler", CurrentPlayer, "Anywhere");
-      RemoveUnitAt(1, "Zerg Defiler", "Anywhere", CurrentPlayer);
-      MoveUnit(1, "80 + 1n Marine", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
-      MoveUnit(1, "Kakaru (Twilight)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
-      MoveLocation("19.M&N", "Zerg Defiler", CurrentPlayer, "Anywhere");
-      RemoveUnitAt(1, "Zerg Defiler", "Anywhere", CurrentPlayer);
-      MoveUnit(1, "80 + 1n Marine", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
-      MoveUnit(1, "Kakaru (Twilight)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
-      MoveLocation("19.M&N", "Zerg Defiler", CurrentPlayer, "Anywhere");
-      RemoveUnitAt(1, "Zerg Defiler", "Anywhere", CurrentPlayer);
-      MoveUnit(1, "80 + 1n Marine", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
-      MoveUnit(1, "Kakaru (Twilight)", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
-      KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", CurrentPlayer);
       MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
-      MoveUnit(All, "80 + 1n Marine", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
-      KillUnitAt(All, "80 + 1n Marine", "[Skill]Unit_Wait_ALL", CurrentPlayer);
-      GiveUnits(All, "80 + 1n Marine", CurrentPlayer, "Anywhere", P9);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      LMove(172, x1, y1);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, -x1, -y1);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, -y1, x1);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, y1, -x1);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      KillUnitAt(All, "40 + 1n Guardian", "Anywhere", CurrentPlayer);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop2");
    },
 }
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 330, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 7, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, i, " `SkillLoop");
+      Deaths(CurrentPlayer, Exactly, 1, " `SkillLoop2");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      CreateUnit(4, "40 + 1n Guardian", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, x2, y2);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, -x2, -y2);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, -y2, x2);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, y2, -x2);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      KillUnitAt(All, "40 + 1n Guardian", "Anywhere", CurrentPlayer);
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop2");
+   },
+}
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 330, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 7, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, i, " `SkillLoop");
+      Deaths(CurrentPlayer, Exactly, 2, " `SkillLoop2");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      CreateUnit(4, "40 + 1n Guardian", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, x3, y3);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, -x3, -y3);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, -y3, x3);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, y3, -x3);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      KillUnitAt(All, "40 + 1n Guardian", "Anywhere", CurrentPlayer);
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop2");
+   },
+}
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 330, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 7, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, i, " `SkillLoop");
+      Deaths(CurrentPlayer, Exactly, 3, " `SkillLoop2");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      CreateUnit(4, "40 + 1n Guardian", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, x4, y4);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, -x4, -y4);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, -y4, x4);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, y4, -x4);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      KillUnitAt(All, "40 + 1n Guardian", "Anywhere", CurrentPlayer);
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop2");
+   },
+}
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 330, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 7, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, i, " `SkillLoop");
+      Deaths(CurrentPlayer, Exactly, 4, " `SkillLoop2");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      CreateUnit(4, "40 + 1n Guardian", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, x5, y5);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, -x5, -y5);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, -y5, x5);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, y5, -x5);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      KillUnitAt(All, "40 + 1n Guardian", "Anywhere", CurrentPlayer);
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop2");
+   },
+}
+
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 330, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 7, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, i, " `SkillLoop");
+      Deaths(CurrentPlayer, Exactly, 5, " `SkillLoop2");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      CreateUnit(4, "40 + 1n Guardian", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, x6, y6);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, -x6, -y6);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, -y6, x6);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, y6, -x6);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      KillUnitAt(All, "40 + 1n Guardian", "Anywhere", CurrentPlayer);
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop2");
+   },
+}
+
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 4000, " * Infested Kerrigan");
+      Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 330, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 7, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, i, " `SkillLoop");
+      Deaths(CurrentPlayer, Exactly, 6, " `SkillLoop2");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      CreateUnit(4, "40 + 1n Guardian", "[Skill]Unit_Wait_8", CurrentPlayer);  
+      SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, x7, y7);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, -x7, -y7);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, -y7, x7);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      MoveLocation("19.M&N", "Target", CurrentPlayer, "Anywhere");
+      LMove(172, y7, -x7);
+      MoveUnit(1, "40 + 1n Guardian", CurrentPlayer, "[Skill]Unit_Wait_ALL", "19.M&N");
+      KillUnitAt(All, "40 + 1n Guardian", "Anywhere", CurrentPlayer);
+      Wait(0);
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop2");
+   },
+}
+
+
 end
 
 Trigger { -- Skill : S
@@ -1151,16 +1331,17 @@ Trigger { -- Skill : S
       Bring(CurrentPlayer, AtLeast, 1, " * Infested Kerrigan", "Anywhere");
       Deaths(CurrentPlayer, Exactly, 330, " `SkillStep");
       Deaths(CurrentPlayer, Exactly, 7, " `SkillCount");
-      Deaths(CurrentPlayer, Exactly, 9, " `SkillLoop2");
+      Deaths(CurrentPlayer, Exactly, 6, " `SkillLoop");
    },
    actions = {
       Comment("Skill : Ultimate");
       PreserveTrigger();
-      SetDeaths(CurrentPlayer, SetTo, 1, " `SkillLoop2");
+      Wait(400);
+      SetDeaths(CurrentPlayer, Add, 2, " `SkillCount");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
+      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop2");
    },
 }
-
-
 
 Trigger { -- Skill : S
    players = {Force1, Force2},
