@@ -10,22 +10,14 @@ function main(cp)
       {
          if (f.loop[cp] == 0)
          {         
-            if (Switch("Unique - Nanami1", Set))
-            {
-               SetSwitch("Unique - Nanami2", Set);
-               SetSwitch("Unique - Nanami1", Clear);
-            }
-
-            else if (Switch("Unique - Nanami2", Set))
-            {
-               SetSwitch("Unique - Nanami1", Set);
-               SetSwitch("Unique - Nanami2", Clear);
-            }
-            else
-               SetSwitch("Unique - Nanami1", Set);
+            if (cp < 3) SetSwitch("Unique - Nanami1", Set);
+            else SetSwitch("Unique - Nanami2", Set);
 
             f.DotShape(cp, 1, "50 + 1n Battlecruiser", 0, 0);
             KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+
+            SetDeaths(cp, SetTo, 2160, " `UniqueCoolTime");
+            SetDeaths(cp, SetTo, 720, " `UniqueSkill");
 
             f.SkillWait(cp, 80);
 

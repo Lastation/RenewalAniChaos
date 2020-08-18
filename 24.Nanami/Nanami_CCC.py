@@ -2,6 +2,9 @@ import Function as f;
 
 function main(cp)
 {
+   f.HoldPosition(cp);
+   f.BanReturn(cp);
+   
    if (f.delay[cp] == 0)
    {
       if (f.count[cp] == 0)
@@ -88,8 +91,11 @@ function main(cp)
          {         
             f.DotShape(cp, 1, "40 + 1n Wraith", 160 - 40 * f.loop[cp], 40 * f.loop[cp]);
             f.DotShape(cp, 1, "40 + 1n Wraith", -160 + 40 * f.loop[cp], -40 * f.loop[cp]);
-            f.DotShape(cp, 1, "40 + 1n Goliath", 160 - 40 * f.loop[cp], 40 * f.loop[cp]);
-            f.DotShape(cp, 1, "40 + 1n Goliath", -160 + 40 * f.loop[cp], -40 * f.loop[cp]);
+            if (f.loop[cp] % 2 == 0)
+            {
+               f.DotShape(cp, 1, "40 + 1n Goliath", 160 - 40 * f.loop[cp], 40 * f.loop[cp]);
+               f.DotShape(cp, 1, "40 + 1n Goliath", -160 + 40 * f.loop[cp], -40 * f.loop[cp]);
+            }
 
             KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
 
@@ -104,8 +110,12 @@ function main(cp)
          {
             f.DotShape(cp, 1, "40 + 1n Wraith", -40 * (f.loop[cp] - 4), 160 - 40 * (f.loop[cp] - 4));
             f.DotShape(cp, 1, "40 + 1n Wraith", 40 * (f.loop[cp] - 4), -160 + 40 * (f.loop[cp] - 4));
-            f.DotShape(cp, 1, "40 + 1n Goliath", -40 * (f.loop[cp] - 4), 160 - 40 * (f.loop[cp] - 4));
-            f.DotShape(cp, 1, "40 + 1n Goliath", 40 * (f.loop[cp] - 4), -160 + 40 * (f.loop[cp] - 4));
+
+            if (f.loop[cp] % 2 == 0)
+            {
+               f.DotShape(cp, 1, "40 + 1n Goliath", -40 * (f.loop[cp] - 4), 160 - 40 * (f.loop[cp] - 4));
+               f.DotShape(cp, 1, "40 + 1n Goliath", 40 * (f.loop[cp] - 4), -160 + 40 * (f.loop[cp] - 4));
+            }
 
             KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
 

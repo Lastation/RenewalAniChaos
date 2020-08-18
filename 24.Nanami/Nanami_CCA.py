@@ -2,12 +2,19 @@ import Function as f;
 
 function main(cp)
 {
+   f.HoldPosition(cp);
+   f.BanReturn(cp);
+   MoveLocation("24.Nanami_Bozo", f.heroID[cp], cp, "Anywhere");
+
    if (f.delay[cp] == 0)
    {
       if (f.count[cp] == 0)
       {
          if (f.loop[cp] == 0)
          {         
+            if (cp < 3) SetSwitch("Passive - Nanami1", Set);
+            else SetSwitch("Passive - Nanami2", Set);
+
             f.EdgeShape(cp, 1, "60 + 1n High Templar", 45, 5, 100);
             KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
 
@@ -78,9 +85,9 @@ function main(cp)
             f.Table_Sin(cp, 22, 225);
             f.Table_Cos(cp, 22, 225);
 
-            f.SquareShape(cp, 1, "80 + 1n Artanis", f.CosAngle[cp], f.SinAngle[cp]);
+            f.SquareShape(cp, 1, "40 + 1n Mojo", f.CosAngle[cp], f.SinAngle[cp]);
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("80 + 1n Artanis", cp, "Anywhere", Attack, f.location[cp]);
+            Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
 
             f.SkillWait(cp, 160);
 
@@ -123,8 +130,8 @@ function main(cp)
             }
             else if ((f.loop[cp] / 4) % 2 == 1)
             { 
-               f.DotShape(cp, 1, "40 + 1n Wraith", 160 - 40 * (f.loop[cp] % 4), 40 * (f.loop[cp] % 4));
-               f.DotShape(cp, 1, "40 + 1n Wraith", -160 + 40 * (f.loop[cp] % 4), -40 * (f.loop[cp] % 4));
+               f.DotShape(cp, 1, "40 + 1n Wraith", -40 * (f.loop[cp] % 4), 160 - 40 * (f.loop[cp] % 4));
+               f.DotShape(cp, 1, "40 + 1n Wraith", 40 * (f.loop[cp] % 4), -160 + 40 * (f.loop[cp] % 4));
             }
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
@@ -151,26 +158,20 @@ function main(cp)
          if (f.loop[cp] < 8)
          {       
             KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
-            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
 
             if ((f.loop[cp] / 4) % 2 == 0)
             { 
                f.DotShape(cp, 1, "40 + 1n Wraith", 160 - 40 * (f.loop[cp] % 4) , 40 * (f.loop[cp] % 4));
                f.DotShape(cp, 1, "40 + 1n Wraith", -160 + 40 * (f.loop[cp] % 4), -40 * (f.loop[cp] % 4));
-               f.DotShape(cp, 1, "40 + 1n Mojo", 160 - 40 * (f.loop[cp] % 4), 40 * (f.loop[cp] % 4));
-               f.DotShape(cp, 1, "40 + 1n Mojo", -160 + 40 * (f.loop[cp] % 4), -40 * (f.loop[cp] % 4));
             }
             else if ((f.loop[cp] / 4) % 2 == 1)
             { 
-               f.DotShape(cp, 1, "40 + 1n Wraith", 160 - 40 * (f.loop[cp] % 4), 40 * (f.loop[cp] % 4));
-               f.DotShape(cp, 1, "40 + 1n Wraith", -160 + 40 * (f.loop[cp] % 4), -40 * (f.loop[cp] % 4));
-               f.DotShape(cp, 1, "40 + 1n Mojo", 160 - 40 * (f.loop[cp] % 4) , 40 * (f.loop[cp] % 4));
-               f.DotShape(cp, 1, "40 + 1n Mojo", -160 + 40 * (f.loop[cp] % 4), -40 * (f.loop[cp] % 4));
+               f.DotShape(cp, 1, "40 + 1n Wraith", -40 * (f.loop[cp] % 4), 160 - 40 * (f.loop[cp] % 4));
+               f.DotShape(cp, 1, "40 + 1n Wraith", 40 * (f.loop[cp] % 4), -160 + 40 * (f.loop[cp] % 4));
             }
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
-            Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
 
             f.SkillWait(cp, 320);
 
@@ -179,7 +180,6 @@ function main(cp)
          else if (f.loop[cp] == 8)
          {
             KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
-            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
 
             f.SkillWait(cp, 80);
 
@@ -190,10 +190,12 @@ function main(cp)
 
       else if (f.count[cp] == 3)
       {
+         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
          KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
-         KillUnitAt(All, "80 + 1n Artanis", "Anywhere", cp);
          KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
          KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", cp);
+         SetSwitch("Passive - Nanami1", Clear);
+         SetSwitch("Passive - Nanami2", Clear);
 
          f.SkillEnd(cp);
       }
@@ -275,10 +277,10 @@ function main(cp)
          }
          else if (f.loopC[cp] < 8)
          {
-            f.DotShape(cp, 1, " Unit. Schnee", 160 - 40 * (f.loopC[cp] - 4), 40 * (f.loopC[cp] - 4));
-            f.DotShape(cp, 1, " Unit. Schnee", -160 + 40 * (f.loopC[cp] - 4), -40 * (f.loopC[cp] - 4));
-            f.DotShape(cp, 1, "40 + 1n Zealot", -40 * (f.loopC[cp] - 4), 160 - 40 * (f.loopC[cp] - 4));
-            f.DotShape(cp, 1, "40 + 1n Zealot", 40 * (f.loopC[cp] - 4), -160 + 40 * (f.loopC[cp] - 4));
+            f.DotShape(cp, 1, " Unit. Schnee", -40 * (f.loopC[cp] - 4), 160 - 40 * (f.loopC[cp] - 4));
+            f.DotShape(cp, 1, " Unit. Schnee", 40 * (f.loopC[cp] - 4), -160 + 40 * (f.loopC[cp] - 4));
+            f.DotShape(cp, 1, "40 + 1n Zealot", 160 - 40 * (f.loopC[cp] - 4), 40 * (f.loopC[cp] - 4));
+            f.DotShape(cp, 1, "40 + 1n Zealot", -160 + 40 * (f.loopC[cp] - 4), -40 * (f.loopC[cp] - 4));
 
             KillUnitAt(All, " Unit. Schnee", "Anywhere", cp);
             KillUnitAt(All, "40 + 1n Zealot", "Anywhere", cp);
@@ -288,17 +290,17 @@ function main(cp)
             f.loopC[cp] += 1;
          }
       }
-      else if (f.count[cp] < 3)
+      else if (f.count[cp] < 3 && f.count[cp] > 1)
       {
          if (f.loopC[cp] == 8) f.loopC[cp] = 0;
          if (f.loopC[cp] < 4)
          {
-            f.DotShape(cp, 1, " Unit. Hoffnung", 160 - 40 * f.loopC[cp], 40 * f.loopC[cp]);
-            f.DotShape(cp, 1, " Unit. Hoffnung", -160 + 40 * f.loopC[cp], -40 * f.loopC[cp]);
+            f.DotShape(cp, 1, " Unit. Hoffnung 25000", 160 - 40 * f.loopC[cp], 40 * f.loopC[cp]);
+            f.DotShape(cp, 1, " Unit. Hoffnung 25000", -160 + 40 * f.loopC[cp], -40 * f.loopC[cp]);
             f.DotShape(cp, 1, "100 + 1n Dragoon", -40 * f.loopC[cp], 160 - 40 * f.loopC[cp]);
             f.DotShape(cp, 1, "100 + 1n Dragoon", 40 * f.loopC[cp], -160 + 40 * f.loopC[cp]);
 
-            KillUnitAt(All, " Unit. Hoffnung", "Anywhere", cp);
+            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
             KillUnitAt(All, "100 + 1n Dragoon", "Anywhere", cp);
 
             f.SkillWaitC(cp, 320);
@@ -307,12 +309,12 @@ function main(cp)
          }
          else if (f.loopC[cp] < 8)
          {
-            f.DotShape(cp, 1, " Unit. Hoffnung", 160 - 40 * (f.loopC[cp] - 4), 40 * (f.loopC[cp] - 4));
-            f.DotShape(cp, 1, " Unit. Hoffnung", -160 + 40 * (f.loopC[cp] - 4), -40 * (f.loopC[cp] - 4));
-            f.DotShape(cp, 1, "100 + 1n Dragoon", -40 * (f.loopC[cp] - 4), 160 - 40 * (f.loopC[cp] - 4));
-            f.DotShape(cp, 1, "100 + 1n Dragoon", 40 * (f.loopC[cp] - 4), -160 + 40 * (f.loopC[cp] - 4));
+            f.DotShape(cp, 1, " Unit. Hoffnung 25000", -40 * (f.loopC[cp] - 4), 160 - 40 * (f.loopC[cp] - 4));
+            f.DotShape(cp, 1, " Unit. Hoffnung 25000", 40 * (f.loopC[cp] - 4), -160 + 40 * (f.loopC[cp] - 4));
+            f.DotShape(cp, 1, "100 + 1n Dragoon", 160 - 40 * (f.loopC[cp] - 4), 40 * (f.loopC[cp] - 4));
+            f.DotShape(cp, 1, "100 + 1n Dragoon", -160 + 40 * (f.loopC[cp] - 4), -40 * (f.loopC[cp] - 4));
 
-            KillUnitAt(All, " Unit. Hoffnung", "Anywhere", cp);
+            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
             KillUnitAt(All, "100 + 1n Dragoon", "Anywhere", cp);
 
             f.SkillWaitC(cp, 320);

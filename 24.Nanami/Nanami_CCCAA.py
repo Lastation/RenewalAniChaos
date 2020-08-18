@@ -2,6 +2,9 @@ import Function as f;
 
 function main(cp)
 {
+   f.HoldPosition(cp);
+   f.BanReturn(cp);
+
    if (f.delay[cp] == 0)
    {
       if (f.count[cp] == 0)
@@ -95,6 +98,12 @@ function main(cp)
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
 
+            f.EdgeShape(cp, 1, "40 + 1n Firebat", 0, 5, 150);
+
+            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            MoveUnit(All, "40 + 1n Firebat", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+            Order("40 + 1n Firebat", cp, "Anywhere", Attack, f.location[cp]);
+
             f.SkillWait(cp, 560);
 
             f.count[cp] += 1;
@@ -168,12 +177,6 @@ function main(cp)
          }
          else if (f.loop[cp] == 5)
          {
-            f.EdgeShape(cp, 1, "40 + 1n Firebat", 0, 5, 150);
-
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, "40 + 1n Firebat", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-            Order("40 + 1n Firebat", cp, "Anywhere", Attack, f.location[cp]);
-
             f.SkillWait(cp, 160);
 
             f.loop[cp] += 1;
