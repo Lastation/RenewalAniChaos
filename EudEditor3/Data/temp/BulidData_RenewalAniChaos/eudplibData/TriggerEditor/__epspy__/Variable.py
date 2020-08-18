@@ -208,30 +208,35 @@ BuildingIndex = _CGFW(lambda: [PVariable()], 1)[0]
 DeathOre = _CGFW(lambda: [PVariable()], 1)[0]
 # (Line 59) const Team_Num 	= PVariable();
 Team_Num = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 61) const Hero_Name =
-# (Line 62) [Db("#REF"),
-# (Line 63) Db("루살카 슈베게린"),
-# (Line 64) Db("크톨리 노타 세니오리스"),
-# (Line 65) Db("텐카와 마이히메"),
-# (Line 66) Db("히나나위 텐시"),
-# (Line 67) Db("소네 미유키"),
-# (Line 68) Db("네게브"),
-# (Line 69) Db("세실리아"),
-# (Line 70) Db("후타바 안즈"),
-# (Line 71) Db("호토 모카"),
-# (Line 72) Db("수수께끼의 얼터에고 Λ"),
-# (Line 73) Db("토키사키 쿠루미"),
-# (Line 74) Db("류즈"),
-# (Line 75) Db("사쿠라"),
-# (Line 76) Db("야시로 가쿠"),
-# (Line 77) Db("린"),
-# (Line 78) Db("세라핌"),
-# (Line 79) Db("키아나 카스라나"),
-# (Line 80) Db("이와후네 텐케이"),
-# (Line 81) Db("마르고트 나이트 & 마르가 나르제"),
-# (Line 82) Db("에메트셀크"),
-# (Line 83) Db("마젤란"),
-# (Line 84) Db("유우키 유우나"),
-# (Line 85) Db("시이나 마유리"),
-# (Line 86) Db("#REF")];
-Hero_Name = _CGFW(lambda: [_ARR(FlattenList([Db("#REF"), Db("루살카 슈베게린"), Db("크톨리 노타 세니오리스"), Db("텐카와 마이히메"), Db("히나나위 텐시"), Db("소네 미유키"), Db("네게브"), Db("세실리아"), Db("후타바 안즈"), Db("호토 모카"), Db("수수께끼의 얼터에고 Λ"), Db("토키사키 쿠루미"), Db("류즈"), Db("사쿠라"), Db("야시로 가쿠"), Db("린"), Db("세라핌"), Db("키아나 카스라나"), Db("이와후네 텐케이"), Db("마르고트 나이트 & 마르가 나르제"), Db("에메트셀크"), Db("마젤란"), Db("유우키 유우나"), Db("시이나 마유리"), Db("#REF")]))], 1)[0]
+# (Line 61) const Atk		 	= PVariable();		//영웅 공격력
+Atk = _CGFW(lambda: [PVariable()], 1)[0]
+# (Line 62) const Dfs		 	= PVariable();		//영웅 방어력
+Dfs = _CGFW(lambda: [PVariable()], 1)[0]
+# (Line 64) const Hero_Name =
+# (Line 65) [Db("#REF"),
+# (Line 66) Db("루살카 슈베게린"),
+# (Line 67) Db("크톨리 노타 세니오리스"),
+# (Line 68) Db("텐카와 마이히메"),
+# (Line 69) Db("히나나위 텐시"),
+# (Line 70) Db("소네 미유키"),
+# (Line 71) Db("네게브"),
+# (Line 72) Db("세실리아"),
+# (Line 73) Db("후타바 안즈"),
+# (Line 74) Db("호토 모카"),
+# (Line 75) Db("수수께끼의 얼터에고 Λ"),
+# (Line 76) Db("토키사키 쿠루미"),
+# (Line 77) Db("류즈"),
+# (Line 78) Db("사쿠라"),
+# (Line 79) Db("야시로 가쿠"),
+# (Line 80) Db("린"),
+# (Line 81) Db("세라핌"),
+# (Line 82) Db("키아나 카스라나"),
+# (Line 83) Db("이와후네 텐케이"),
+# (Line 84) Db("마르고트 나이트 & 마르가 나르제"),
+# (Line 85) Db("에메트셀크"),
+# (Line 86) Db("마젤란"),
+# (Line 87) Db("유우키 유우나"),
+# (Line 88) Db("시이나 마유리"),
+# (Line 89) Db("나나미 치아키"),
+# (Line 90) Db("#REF")];
+Hero_Name = _CGFW(lambda: [_ARR(FlattenList([Db("#REF"), Db("루살카 슈베게린"), Db("크톨리 노타 세니오리스"), Db("텐카와 마이히메"), Db("히나나위 텐시"), Db("소네 미유키"), Db("네게브"), Db("세실리아"), Db("후타바 안즈"), Db("호토 모카"), Db("수수께끼의 얼터에고 Λ"), Db("토키사키 쿠루미"), Db("류즈"), Db("사쿠라"), Db("야시로 가쿠"), Db("린"), Db("세라핌"), Db("키아나 카스라나"), Db("이와후네 텐케이"), Db("마르고트 나이트 & 마르가 나르제"), Db("에메트셀크"), Db("마젤란"), Db("유우키 유우나"), Db("시이나 마유리"), Db("나나미 치아키"), Db("#REF")]))], 1)[0]

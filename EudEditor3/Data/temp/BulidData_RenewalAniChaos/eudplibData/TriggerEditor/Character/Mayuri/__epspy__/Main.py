@@ -283,16 +283,16 @@ def SkillList(cp):
         # (Line 88) {
         # (Line 89) stb.printAt(0, "\n");
         stb.printAt(0, "\n")
-        # (Line 90) stb.printAt(1, "\x1F　＃\x04- 시이나 \x1B마유리　\x04[ 슈타인즈 게이트 ]");
-        stb.printAt(1, "\x1F　＃\x04- 시이나 \x1B마유리　\x04[ 슈타인즈 게이트 ]")
+        # (Line 90) stb.printAt(1, "\x1F　＃\x1A- 시이나 마유리　\x04[ 슈타인즈 게이트 ]");
+        stb.printAt(1, "\x1F　＃\x1A- 시이나 마유리　\x04[ 슈타인즈 게이트 ]")
         # (Line 91) stb.printAt(2, "　　\x1FA\x04ction List");
         stb.printAt(2, "　　\x1FA\x04ction List")
         # (Line 92) stb.printAt(3, "　　　\x18O \x04무한원점의 알타이르 \x19[ 15초 동안 팀 전체 마나 회복 + 20 ] \x051분 30초");
         stb.printAt(3, "　　　\x18O \x04무한원점의 알타이르 \x19[ 15초 동안 팀 전체 마나 회복 + 20 ] \x051분 30초")
         # (Line 93) stb.printAt(4, "　　　\x04\x1FSSS \x04뚯뚜루~ \x19[ 대인 / 순간딜 ]");
         stb.printAt(4, "　　　\x04\x1FSSS \x04뚯뚜루~ \x19[ 대인 / 순간딜 ]")
-        # (Line 94) stb.printAt(5, "　　　\x04\x1FCCA + CC + CC \x04비익연리의 달링 \x19[ 대인 / 지속딜 / 자리고정 / 쉴드고정 1 ]");
-        stb.printAt(5, "　　　\x04\x1FCCA + CC + CC \x04비익연리의 달링 \x19[ 대인 / 지속딜 / 자리고정 / 쉴드고정 1 ]")
+        # (Line 94) stb.printAt(5, "　　　\x04\x1FCCA + CC + AS \x04비익연리의 달링 \x19[ 대인 / 지속딜 / 자리고정 / 쉴드고정 1 ]");
+        stb.printAt(5, "　　　\x04\x1FCCA + CC + AS \x04비익연리의 달링 \x19[ 대인 / 지속딜 / 자리고정 / 쉴드고정 1 ]")
         # (Line 95) stb.printAt(6, "　　　\x04\x1FAA \x04무한원점의 아크라이트 \x19[ 대인 / 순간딜 / 쉴드고정 1 ]");
         stb.printAt(6, "　　　\x04\x1FAA \x04무한원점의 아크라이트 \x19[ 대인 / 순간딜 / 쉴드고정 1 ]")
         # (Line 96) stb.printAt(7, "\n");

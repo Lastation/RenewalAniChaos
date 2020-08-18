@@ -4,6 +4,8 @@ const s = StringBuffer();
 
 function main(cp)
 {
+   f.HoldPosition(cp);
+
    if (f.delay[cp] == 0)
    {
       if (f.count[cp] == 0)

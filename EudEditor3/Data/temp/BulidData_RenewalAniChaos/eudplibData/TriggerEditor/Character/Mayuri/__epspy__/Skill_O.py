@@ -128,47 +128,45 @@ def _LSH(l, r):
 
 # (Line 1) import Function as f;
 import Function as f
-# (Line 3) const s = StringBuffer();
-s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 5) function main(cp)
-# (Line 6) {
+# (Line 3) function main(cp)
+# (Line 4) {
 @EUDFunc
 def f_main(cp):
-    # (Line 7) MoveLocation("23.Mayuri_Bozo", f.heroID[cp], cp, "Anywhere");
-    # (Line 9) if (f.delay[cp] == 0)
+    # (Line 5) MoveLocation("23.Mayuri_Bozo", f.heroID[cp], cp, "Anywhere");
+    # (Line 7) if (f.delay[cp] == 0)
     DoActions(MoveLocation("23.Mayuri_Bozo", f.heroID[cp], cp, "Anywhere"))
     if EUDIf()(f.delay[cp] == 0):
-        # (Line 10) {
-        # (Line 11) if (f.count[cp] == 0)
+        # (Line 8) {
+        # (Line 9) if (f.count[cp] == 0)
         if EUDIf()(f.count[cp] == 0):
-            # (Line 12) {
-            # (Line 13) SetSwitch("Recall - Mayuri", Set);
-            # (Line 15) if (cp < 3) SetSwitch("Unique - Mayuri1", Set);
+            # (Line 10) {
+            # (Line 11) SetSwitch("Recall - Mayuri", Set);
+            # (Line 13) if (cp < 3) SetSwitch("Unique - Mayuri1", Set);
             DoActions(SetSwitch("Recall - Mayuri", Set))
             if EUDIf()(cp >= 3, neg=True):
-                # (Line 16) else SetSwitch("Unique - Mayuri2", Set);
+                # (Line 14) else SetSwitch("Unique - Mayuri2", Set);
                 DoActions(SetSwitch("Unique - Mayuri1", Set))
             if EUDElse()():
-                # (Line 18) SetDeaths(cp, SetTo, 1080, " `UniqueCoolTime");
+                # (Line 16) SetDeaths(cp, SetTo, 1080, " `UniqueCoolTime");
                 DoActions(SetSwitch("Unique - Mayuri2", Set))
             EUDEndIf()
-            # (Line 19) SetDeaths(cp, SetTo, 180, " `UniqueSkill");
+            # (Line 17) SetDeaths(cp, SetTo, 180, " `UniqueSkill");
             DoActions(SetDeaths(cp, SetTo, 1080, " `UniqueCoolTime"))
-            # (Line 21) f.SkillWait(cp, 80);
+            # (Line 19) f.SkillWait(cp, 80);
             DoActions(SetDeaths(cp, SetTo, 180, " `UniqueSkill"))
             f.SkillWait(cp, 80)
-            # (Line 23) f.count[cp] += 1;
+            # (Line 21) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
-            # (Line 24) }
-            # (Line 25) else if (f.count[cp] == 1)
+            # (Line 22) }
+            # (Line 23) else if (f.count[cp] == 1)
         if EUDElseIf()(f.count[cp] == 1):
-            # (Line 26) {
-            # (Line 27) SetSwitch("Recall - Mayuri", Clear);
-            # (Line 28) f.SkillEnd(cp);
+            # (Line 24) {
+            # (Line 25) SetSwitch("Recall - Mayuri", Clear);
+            # (Line 26) f.SkillEnd(cp);
             DoActions(SetSwitch("Recall - Mayuri", Clear))
             f.SkillEnd(cp)
-            # (Line 29) }
-            # (Line 30) }
+            # (Line 27) }
+            # (Line 28) }
         EUDEndIf()
-        # (Line 31) }
+        # (Line 29) }
     EUDEndIf()

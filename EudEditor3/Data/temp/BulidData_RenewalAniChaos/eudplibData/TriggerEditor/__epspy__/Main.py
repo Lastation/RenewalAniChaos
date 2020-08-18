@@ -225,22 +225,24 @@ def MainLoop():
 # (Line 70) {
 @EUDFunc
 def beforeTriggerExec():
-    # (Line 71) EUDPlayerLoop()();
+    # (Line 71) randomize();
+    f_randomize()
+    # (Line 73) EUDPlayerLoop()();
     EUDPlayerLoop()()
-    # (Line 73) if(getcurpl() < 6)
+    # (Line 75) if(getcurpl() < 6)
     if EUDIf()(f_getcurpl() >= 6, neg=True):
-        # (Line 74) {
-        # (Line 75) MainLoop();
+        # (Line 76) {
+        # (Line 77) MainLoop();
         MainLoop()
-        # (Line 76) }
-        # (Line 78) EUDEndPlayerLoop();
+        # (Line 78) }
+        # (Line 80) EUDEndPlayerLoop();
     EUDEndIf()
     EUDEndPlayerLoop()
-    # (Line 79) }
-    # (Line 81) function afterTriggerExec()
+    # (Line 81) }
+    # (Line 83) function afterTriggerExec()
 
-# (Line 82) {
+# (Line 84) {
 @EUDFunc
 def afterTriggerExec():
-    # (Line 84) }
+    # (Line 86) }
     pass

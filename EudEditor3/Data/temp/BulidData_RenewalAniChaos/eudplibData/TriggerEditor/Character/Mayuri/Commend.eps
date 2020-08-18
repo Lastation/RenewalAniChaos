@@ -7,6 +7,7 @@ function main(cp)
 	if (f.wait[cp] == 0 && f.step[cp] == 0)
 	{
 		if (Bring(cp, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill")
+		&& Score(CurrentPlayer, Custom, AtLeast, 25)
 		&& Deaths(CurrentPlayer, Exactly, 0, " `UniqueCoolTime"))
 		{
 			f.Voice_Routine(cp, 15);
@@ -71,7 +72,8 @@ function main(cp)
 			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp);
 			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
 		}
-		else if (Bring(cp, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") 
+		else if (Bring(cp, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill") 
+		&& Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill") 
 		&& f.step[cp] == 220)
 		{
 			f.Voice_Routine(cp, 8);
@@ -79,7 +81,8 @@ function main(cp)
 			f.count[cp] = 0;
 			f.loop[cp] = 0;
 			f.step[cp] = 230;
-			KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp);
+			KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", cp);
+			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
 		}
 		
 		// Ultimate

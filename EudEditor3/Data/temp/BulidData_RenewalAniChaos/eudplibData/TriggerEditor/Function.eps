@@ -37,6 +37,7 @@ const Chtholly_Voice 	= PVariable();
 const Kiana_Voice 		= PVariable();	// 17
 const Yuuna_Voice 		= PVariable();	// 22
 const Mayuri_Voice 		= PVariable();	// 23
+const Nanami_Voice 		= PVariable();	// 24
 
 function Table_Sin(cp, degree, distance);
 function Table_Cos(cp, degree, distance);
@@ -77,7 +78,16 @@ function Voice_Routine(cp, num)
 		Mayuri_Voice[4] = num;
 		Mayuri_Voice[5] = num;
 		break;
-		
+	case 24:
+		Nanami_Voice[0] = num;
+		Nanami_Voice[1] = num;
+		Nanami_Voice[2] = num;
+		Nanami_Voice[3] = num;
+		Nanami_Voice[4] = num;
+		Nanami_Voice[5] = num;
+		break;	
+	
+	
 	}
 }
 
@@ -85,12 +95,12 @@ function Voice_Routine(cp, num)
 function MoveLoc(Unit : TrgUnit, cp : TrgPlayer, x, y)
 {
 	MoveLocation(location[cp], Unit, cp, "Anywhere");
-	addloc(location[cp] - 1, x, y);
+	addloc(location[cp], x, y);
 }
 
 function SkillUnit(cp : TrgPlayer, count, Unit : TrgUnit)
 {
-	CreateUnit(count, Unit, "[Skill]Unit_Wait_1", cp);
+	CreateUnit(count, Unit, dwrand() % 8 + 33, cp);
 	SetInvincibility(Enable, Unit, cp, "[Skill]Unit_Wait_ALL");
 	MoveUnit(count, Unit, cp, "[Skill]Unit_Wait_ALL", location[cp]);
 }
@@ -124,7 +134,7 @@ function SkillWaitB(cp, count)
 
 function SkillWaitC(cp, count)
 {
-	delayB[cp] = count/83 + 1;
+	delayC[cp] = count/83 + 1;
 }
 
 function SkillEnd(cp)

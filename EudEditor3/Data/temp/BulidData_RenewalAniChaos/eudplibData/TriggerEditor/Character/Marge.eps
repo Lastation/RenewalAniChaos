@@ -6,6 +6,7 @@ import Character.Rusaruka.Main as rusarukaMain;
 import Character.Kiana.Main as kianaMain;
 import Character.Yuuna.Main as yuunaMain;
 import Character.Mayuri.Main as mayuriMain;
+import Character.Nanami.Main as nanamiMain;
 
 import Character.TextA.Chtholly 		as chtholly;
 import Character.TextA.Maihime 		as maihime;
@@ -54,6 +55,10 @@ function main(cp)
 	case 23:
 		mayuriMain.main(cp);
 		break;
+	case 24:
+		nanamiMain.main(cp);
+		break;
+		
 	}
 	
 	SkillWait(cp);
@@ -68,6 +73,7 @@ function MargeSound(cp)
 	rusarukaMain.SkillVoice(cp);
 	yuunaMain.SkillVoice(cp);
 	mayuriMain.SkillVoice(cp);
+	nanamiMain.SkillVoice(cp);
 // 1 ~ 6
 	if (Deaths((13), (0), 1, (186)))
 	{
