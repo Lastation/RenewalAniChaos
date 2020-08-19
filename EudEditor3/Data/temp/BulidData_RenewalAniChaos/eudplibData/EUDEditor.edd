@@ -5,6 +5,7 @@
 [main]
 input: ..\..\..\..\..\NEW!6.scx
 output: ..\..\..\..\..\..\..\Starcraft\Maps\RenewalAniChaos\RenewalAniChaos_T2.scx
+sectorSize: None
 [DataEditor.py]
 [ExtraDataEditor.py]
 [dataDumper]
