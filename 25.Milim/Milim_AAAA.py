@@ -21,7 +21,7 @@ function main(cp)
 
             f.loop[cp] += 1;
          }
-         else if (f.loop[cp] < 9)
+         else if (f.loop[cp] < 5)
          {
             f.NxNSquareShape(cp, 1, "Protoss Observer", 11, 75);
             f.NxNSquareShape(cp, 1, "60 + 1n Archon", 11, 75);
@@ -29,11 +29,11 @@ function main(cp)
             KillUnitAt(All, "Protoss Observer", "Anywhere", cp);
             KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
 
-            f.SkillWait(cp, 80);
+            f.SkillWait(cp, 160);
 
             f.loop[cp] += 1;
          }
-         else if (f.loop[cp] == 9)
+         else if (f.loop[cp] == 5)
          {
             f.NxNSquareShape(cp, 1, " Unit. Hoffnung 25000", 11, 75);
             f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 11, 75);
@@ -45,7 +45,7 @@ function main(cp)
 
             f.loop[cp] += 1;
          }
-         else if (f.loop[cp] == 10)
+         else if (f.loop[cp] == 6)
          {
             f.SkillWait(cp, 80);
 
@@ -107,15 +107,15 @@ function main(cp)
          {         
             if (cp < 3)
             {
-               GiveUnits(All, "40 + 1n Mojo", cp, "Anywhere", P7);
-               GiveUnits(All, "40 + 1n Mutalisk", cp, "Anywhere", P7);
-               GiveUnits(All, "40 + 1n Wraith", cp, "Anywhere", P7);
+               GiveUnits(All, "80 + 1n Artanis", cp, "Anywhere", P7);
+               GiveUnits(All, "80 + 1n Mutalisk", cp, "Anywhere", P7);
+               GiveUnits(All, "80 + 1n Tom Kazansky", cp, "Anywhere", P7);
             }
             else if (cp >= 3)
             {
-               GiveUnits(All, "40 + 1n Mojo", cp, "Anywhere", P8);
-               GiveUnits(All, "40 + 1n Mutalisk", cp, "Anywhere", P8);
-               GiveUnits(All, "40 + 1n Wraith", cp, "Anywhere", P8);
+               GiveUnits(All, "80 + 1n Artanis", cp, "Anywhere", P8);
+               GiveUnits(All, "80 + 1n Mutalisk", cp, "Anywhere", P8);
+               GiveUnits(All, "80 + 1n Tom Kazansky", cp, "Anywhere", P8);
             }
             SetSwitch("JunkYardDog", Set);
 
@@ -127,20 +127,20 @@ function main(cp)
          {         
             if (cp < 3)
             {
-               GiveUnits(All, "40 + 1n Mojo", P7, "Anywhere", cp);
-               GiveUnits(All, "40 + 1n Mutalisk", P7, "Anywhere", cp);
-               GiveUnits(All, "40 + 1n Wraith", P7, "Anywhere", cp);
+               GiveUnits(All, "80 + 1n Artanis", P7, "Anywhere", cp);
+               GiveUnits(All, "80 + 1n Mutalisk", P7, "Anywhere", cp);
+               GiveUnits(All, "80 + 1n Tom Kazansky", P7, "Anywhere", cp);
             }
             else if (cp >= 3)
             {
-               GiveUnits(All, "40 + 1n Mojo", P8, "Anywhere", cp);
-               GiveUnits(All, "40 + 1n Mutalisk", P8, "Anywhere", cp);
-               GiveUnits(All, "40 + 1n Wraith", P8, "Anywhere", cp);
+               GiveUnits(All, "80 + 1n Artanis", P8, "Anywhere", cp);
+               GiveUnits(All, "80 + 1n Mutalisk", P8, "Anywhere", cp);
+               GiveUnits(All, "80 + 1n Tom Kazansky", P8, "Anywhere", cp);
             }
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
-            Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
-            Order("40 + 1n Mutalisk", cp, "Anywhere", Attack, f.location[cp]);
+            Order("80 + 1n Artanis", cp, "Anywhere", Attack, f.location[cp]);
+            Order("80 + 1n Tom Kazansky", cp, "Anywhere", Attack, f.location[cp]);
+            Order("80 + 1n Mutalisk", cp, "Anywhere", Attack, f.location[cp]);
 
             SetSwitch("JunkYardDog", Clear);
 
@@ -179,24 +179,32 @@ function main(cp)
          }
          else if (f.loop[cp] == 12)
          {         
-            f.SkillWait(cp, 2000);
+            f.SkillWait(cp, 1920);
+
+            f.loop[cp] += 1;
+         }
+         else if (f.loop[cp] == 13)
+         {         
+            f.SkillWait(cp, 80);
 
             f.count[cp] += 1;
             f.loop[cp] = 0;
          }
+
+
       }
       else if (f.count[cp] == 5)
       {
-         if (f.loop[cp] < 20)
+         if (f.loop[cp] < 9)
          {         
             f.NxNSquareShape(cp, 1, "50 + 1n Tank", 9, 75);
             KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
 
-            f.SkillWait(cp, 160);
+            f.SkillWait(cp, 320);
 
             f.loop[cp] += 1;
          }
-         else if (f.loop[cp] == 20)
+         else if (f.loop[cp] == 9)
          {         
             f.SkillWait(cp, 80);
 
@@ -208,6 +216,9 @@ function main(cp)
       {
          SetSwitch("UiltimateSwitch", Clear);
          SetSwitch("Recall - MilimUlt", Clear);
+         KillUnitAt(All, "80 + 1n Artanis", "Anywhere", cp);
+         KillUnitAt(All, "80 + 1n Mutalisk", "Anywhere", cp);
+         KillUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", cp);
          KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
          KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
          KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
@@ -226,19 +237,19 @@ function main(cp)
             f.Table_Cos(cp, 10 * f.loopB[cp], 300);
 
             f.SquareShape(cp, 1, "Protoss Dark Archon", f.CosAngle[cp], f.SinAngle[cp]);
-            f.SquareShape(cp, 1, "40 + 1n Mojo", f.CosAngle[cp], f.SinAngle[cp]);
+            f.SquareShape(cp, 1, "80 + 1n Artanis", f.CosAngle[cp], f.SinAngle[cp]);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Mojo", cp, "Anywhere", Move, f.location[cp]);
+            Order("80 + 1n Artanis", cp, "Anywhere", Move, f.location[cp]);
 
             KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            RemoveUnitAt(All, "40 + 1n Mojo", f.location[cp], cp);
-            RemoveUnitAt(All, "40 + 1n Mutalisk", f.location[cp], cp);
-            RemoveUnitAt(All, "40 + 1n Wraith", f.location[cp], cp);
+            RemoveUnitAt(All, "80 + 1n Artanis", f.location[cp], cp);
+            RemoveUnitAt(All, "80 + 1n Mutalisk", f.location[cp], cp);
+            RemoveUnitAt(All, "80 + 1n Tom Kazansky", f.location[cp], cp);
 
-            f.SkillWaitB(cp, 80);
+            f.SkillWaitB(cp, 160);
 
             f.loopB[cp] += 1;
          }
@@ -252,64 +263,77 @@ function main(cp)
             f.Table_Cos(cp, 10 * f.loopB[cp], 300);
 
             f.SquareShape(cp, 1, "Protoss Dark Archon", f.CosAngle[cp], f.SinAngle[cp]);
-            f.SquareShape(cp, 1, "40 + 1n Mojo", f.CosAngle[cp], f.SinAngle[cp]);
+            f.SquareShape(cp, 1, "80 + 1n Artanis", f.CosAngle[cp], f.SinAngle[cp]);
 
             f.Table_Sin(cp, 10 * f.loopB[cp] + 30, 300);
             f.Table_Cos(cp, 10 * f.loopB[cp] + 30, 300);
 
             f.SquareShape(cp, 1, " Unit. Hoffnung 25000", f.CosAngle[cp], f.SinAngle[cp]);
-            f.SquareShape(cp, 1, "40 + 1n Wraith", f.CosAngle[cp], f.SinAngle[cp]);
+            f.SquareShape(cp, 1, "80 + 1n Tom Kazansky", f.CosAngle[cp], f.SinAngle[cp]);
 
             f.Table_Sin(cp, 10 * f.loopB[cp] + 60, 300);
             f.Table_Cos(cp, 10 * f.loopB[cp] + 60, 300);
 
             f.SquareShape(cp, 1, "50 + 1n Tank", f.CosAngle[cp], f.SinAngle[cp]);
-            f.SquareShape(cp, 1, "40 + 1n Mutalisk", f.CosAngle[cp], f.SinAngle[cp]);
+            f.SquareShape(cp, 1, "80 + 1n Mutalisk", f.CosAngle[cp], f.SinAngle[cp]);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Mojo", cp, "Anywhere", Move, f.location[cp]);
-            Order("40 + 1n Wraith", cp, "Anywhere", Move, f.location[cp]);
-            Order("40 + 1n Mutalisk", cp, "Anywhere", Move, f.location[cp]);
+            Order("80 + 1n Artanis", cp, "Anywhere", Move, f.location[cp]);
+            Order("80 + 1n Tom Kazansky", cp, "Anywhere", Move, f.location[cp]);
+            Order("80 + 1n Mutalisk", cp, "Anywhere", Move, f.location[cp]);
 
             KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
             KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
             KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            RemoveUnitAt(All, "40 + 1n Mojo", f.location[cp], cp);
-            RemoveUnitAt(All, "40 + 1n Mutalisk", f.location[cp], cp);
-            RemoveUnitAt(All, "40 + 1n Wraith", f.location[cp], cp);
+            RemoveUnitAt(All, "80 + 1n Artanis", f.location[cp], cp);
+            RemoveUnitAt(All, "80 + 1n Mutalisk", f.location[cp], cp);
+            RemoveUnitAt(All, "80 + 1n Tom Kazansky", f.location[cp], cp);
 
-            f.SkillWaitB(cp, 80);
+            f.SkillWaitB(cp, 160);
 
             f.loopB[cp] += 1;
          }
       }
+      else if (f.count[cp] <= 5)
+      {
+         MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+         RemoveUnitAt(All, "80 + 1n Artanis", f.location[cp], cp);
+         RemoveUnitAt(All, "80 + 1n Mutalisk", f.location[cp], cp);
+         RemoveUnitAt(All, "80 + 1n Tom Kazansky", f.location[cp], cp);
+         Order("80 + 1n Artanis", cp, "Anywhere", Attack, f.location[cp]);
+         Order("80 + 1n Tom Kazansky", cp, "Anywhere", Attack, f.location[cp]);
+         Order("80 + 1n Mutalisk", cp, "Anywhere", Attack, f.location[cp]);
+
+         f.SkillWaitB(cp, 160);
+      }
+
    }
    if (f.delayC[cp] == 0)
    {
       if (f.count[cp] == 1)
       {
-         if (f.loopC[cp] == 3) f.loopC[cp] = 0;
+         if (f.loopC[cp] >= 3) f.loopC[cp] = 0;
          if (f.loopC[cp] < 3)
          {
             f.NxNSquareShape(cp, 1, "Protoss Dark Archon", 9, 75);
             KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
 
-            f.SkillWaitC(cp, 160);
+            f.SkillWaitC(cp, 320);
 
             f.loopC[cp] += 1;
          }
       }
       else if (f.count[cp] <= 3)
       {
-         if (f.loopC[cp] == 2) f.loopC[cp] = 0;
+         if (f.loopC[cp] >= 2) f.loopC[cp] = 0;
          if (f.loopC[cp] == 0)
          {
             f.NxNSquareShape(cp, 1, "Protoss Dark Archon", 9, 75);
             KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
 
-            f.SkillWaitC(cp, 160);
+            f.SkillWaitC(cp, 320);
 
             f.loopC[cp] += 1;
          }
@@ -318,7 +342,7 @@ function main(cp)
             f.NxNSquareShape(cp, 1, "50 + 1n Tank", 9, 75);
             KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
 
-            f.SkillWaitC(cp, 160);
+            f.SkillWaitC(cp, 320);
 
             f.loopC[cp] += 1;
          }

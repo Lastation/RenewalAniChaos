@@ -34,6 +34,22 @@ Trigger { -- Skill : Combo
    },
 }
 
+Trigger { -- Skill : Combo
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 2000, " * Devouring One");
+      Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
+      Bring(CurrentPlayer, AtLeast, 1, " * Devouring One", "Anywhere");
+      Deaths(CurrentPlayer, AtLeast, 4, " `SkillCount");
+      Deaths(CurrentPlayer, AtMost, 8, " `SkillCount");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      SetInvincibility(Enable, " * Devouring One", CurrentPlayer, "Anywhere");
+   },
+}
+
 Trigger { -- Skill : Use Combo
    players = {Force1, Force2},
    conditions = {
@@ -796,12 +812,27 @@ Trigger { -- Skill : Combo
       KillUnitAt(All, "40 + 1n Mojo", "Anywhere", CurrentPlayer);
       Wait(3100);
       KillUnitAt(All, "60 + 1n Siege", "Anywhere", CurrentPlayer);
-      SetSwitch("Recall - Rin", Clear);
-      SetSwitch("UiltimateSwitch", Clear);
-      Wait(500);
-      SetDeaths(CurrentPlayer, SetTo, 0, " `SkillCount");
+      SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");
-      SetDeaths(CurrentPlayer, Add, 12, " `SkillWait");
    },
 }
 
+Trigger { -- Skill : Combo
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 2000, " * Devouring One");
+      Bring(CurrentPlayer, AtLeast, 1, " * Devouring One", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 9, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 0, " `SkillLoop");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      SetSwitch("Recall - Rin", Clear);
+      SetSwitch("UiltimateSwitch", Clear);
+      SetInvincibility(Disable, " * Devouring One", CurrentPlayer, "Anywhere");
+      Wait(500);
+      SetDeaths(CurrentPlayer, Add, 12, " `SkillWait");
+   },
+}

@@ -51,8 +51,8 @@ function main(cp)
             MoveUnit(1, "40 + 1n Wraith", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
             KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
 
-            if (Bring(cp, AtLeast, 1, "Flame Blue", "[Potal]Shop7") || Bring(cp, AtLeast, 1, "Flame Blue", "[Potal]Potal7")
-               || Bring(cp, AtLeast, 1, "Flame Blue", "[Potal]Shop8") || Bring(cp, AtLeast, 1, "Flame Blue", "[Potal]Potal8"))
+            if ((cp >= 3 && (Bring(cp, AtLeast, 1, "Flame Blue", "[Potal]Shop7") || Bring(cp, AtLeast, 1, "Flame Blue", "[Potal]Potal7")))
+               || (cp < 3 && (Bring(cp, AtLeast, 1, "Flame Blue", "[Potal]Shop8") || Bring(cp, AtLeast, 1, "Flame Blue", "[Potal]Potal8"))))
             {
                SetDeaths(cp, SetTo, 120, " `UniqueCoolTime");
 
@@ -147,7 +147,10 @@ function main(cp)
             }
 
             f.NxNSquareShape(cp, 1, "130 + 1n Norad", 3, 75);
+            f.DotShape(cp, 16, "80 + 1n Goliath", 0, 0);
             Order("130 + 1n Norad", cp, "Anywhere", Attack, "Anywhere");
+            MoveUnit(All, "80 + 1n Goliath", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+            Order("80 + 1n Goliath", cp, "Anywhere", Attack, "Anywhere");
             SetSwitch("Recall - Milim", Clear);
 
             f.SkillWait(cp, 80);
@@ -170,6 +173,7 @@ function main(cp)
          else if (f.loop[cp] == 45)
          {      
             KillUnitAt(All, "130 + 1n Norad", "Anywhere", cp);
+            KillUnitAt(All, "80 + 1n Goliath", "Anywhere", cp);
 
             f.EdgeShape(cp, 1, " Unit. Hoffnung 25000", 0, 3, 50);
             f.EdgeShape(cp, 1, " Unit. Hoffnung 25000", 0, 5, 100);

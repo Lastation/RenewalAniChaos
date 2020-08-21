@@ -1,4 +1,25 @@
 
+Trigger { -- Skill : Combo
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 3000, " * Samir Duran");
+      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 210, " `SkillStep");
+   },
+   actions = {
+      Comment("Skill : Combo");
+      PreserveTrigger();
+      KillUnit("Protoss Observer", CurrentPlayer);
+      CreateUnit(1, "Target", "[Skill]Unit_Wait_1", CurrentPlayer);
+      SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
+      MoveLocation("20.EmetSelch_Bozo", " * Samir Duran", CurrentPlayer, "Anywhere");
+      MoveUnit(1, "Target", CurrentPlayer, "[Skill]Unit_Wait_ALL", "20.EmetSelch_Bozo");
+      RemoveUnitAt(All, "Target", "Anywhere", CurrentPlayer);
+      Order(" * Samir Duran", CurrentPlayer, "Anywhere", Move, "20.EmetSelch_Bozo");      
+   },
+}
+
+
 x = -200;
 y = -84;
 

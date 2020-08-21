@@ -162,12 +162,12 @@ function main(cp)
          {        
             KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
 
-            f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 0, 5, 150);
+            f.EdgeShape(cp, 1, "60 + 1n Danimoth", 0, 5, 150);
             f.EdgeShape(cp, 1, "50 + 1n Tank", 0, 5, 150);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             MoveUnit(All, "50 + 1n Tank", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-            Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
+            Order("60 + 1n Danimoth", cp, "Anywhere", Attack, f.location[cp]);
             Order("50 + 1n Tank", cp, "Anywhere", Attack, f.location[cp]);
 
             f.SkillWait(cp, 160);
@@ -248,6 +248,7 @@ function main(cp)
          else if (f.loop[cp] == 12)
          {
             KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
 
             f.SkillWait(cp, 80);
 
@@ -302,26 +303,26 @@ function main(cp)
             f.Table_Sin(cp, 22, 75);
             f.Table_Cos(cp, 22, 75);
 
-            f.SquareShape(cp, 1, "40 + 1n Marine", f.CosAngle[cp], f.SinAngle[cp]);
+            f.SquareShape(cp, 1, "40 + 1n Drone", f.CosAngle[cp], f.SinAngle[cp]);
 
             f.Table_Sin(cp, 67, 150);
             f.Table_Cos(cp, 67, 150);
 
-            f.SquareShape(cp, 1, "40 + 1n Marine", f.CosAngle[cp], f.SinAngle[cp]);
+            f.SquareShape(cp, 1, "40 + 1n Drone", f.CosAngle[cp], f.SinAngle[cp]);
 
             f.Table_Sin(cp, 22, 225);
             f.Table_Cos(cp, 22, 225);
 
-            f.SquareShape(cp, 1, "40 + 1n Marine", f.CosAngle[cp], f.SinAngle[cp]);
+            f.SquareShape(cp, 1, "40 + 1n Drone", f.CosAngle[cp], f.SinAngle[cp]);
 
             f.Table_Sin(cp, 67, 300);
             f.Table_Cos(cp, 67, 300);
 
-            f.SquareShape(cp, 1, "40 + 1n Marine", f.CosAngle[cp], f.SinAngle[cp]);
+            f.SquareShape(cp, 1, "40 + 1n Drone", f.CosAngle[cp], f.SinAngle[cp]);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, "40 + 1n Marine", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-            Order("40 + 1n Marine", cp, "Anywhere", Attack, f.location[cp]);
+            MoveUnit(All, "40 + 1n Drone", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+            Order("40 + 1n Drone", cp, "Anywhere", Attack, f.location[cp]);
 
             f.SkillWait(cp, 80);
             f.loop[cp] += 1;
@@ -340,7 +341,7 @@ function main(cp)
          }
          else if (f.loop[cp] == 28)
          {         
-            KillUnitAt(All, "40 + 1n Marine", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Drone", "Anywhere", cp);
 
             f.SkillWait(cp, 80);
 
@@ -388,7 +389,7 @@ function main(cp)
          {         
             KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
 
-            f.SkillWait(cp, 3200);
+            f.SkillWait(cp, 800);
 
             f.count[cp] += 1;
             f.loop[cp] = 0;
