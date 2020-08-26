@@ -45,6 +45,7 @@ function CharacterTextNum(cp)
 		if 		(v.PlayerID[cp] == 8 		|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 12; }	// Ryuzu
 		else if 	(v.PlayerID[cp] == 9 		|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 15; }	// Rin
 		else if 	(v.PlayerID[cp] == 10 	|| v.Unit_Death[cp] == 3000) { v.Hero_Text[cp] = 22; }	// Yuuna
+		else if 	(v.PlayerID[cp] == 11 	|| v.Unit_Death[cp] == 4000) { v.Hero_Text[cp] = 25; }	// Milim
 		 v.Unit_ID[cp] = 0;
 		break;
 	case 99:
@@ -296,7 +297,15 @@ function CharacterText(cp)
 		s.printAt(6, "\x13\x1F#\x04만능 \x1F#\x04서포트 \x1F#\x04조작보통");
 		s.printAt(7, "\n");
 		break;
-		
+	case 25:
+		s.printAt(1, "\x13\x04- \x17전생했더니 슬라임이었던 건에 대하여 \x04-");
+		s.printAt(2, "\n");
+		s.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
+		s.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
+		s.printAt(5, "\n");
+		s.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04기동성 \x1F#\x04조작보통");
+		s.printAt(7, "\n");
+		break;
 	}
 	
 	if (cp >=0 && cp <= 2 && Switch((249), (2)))

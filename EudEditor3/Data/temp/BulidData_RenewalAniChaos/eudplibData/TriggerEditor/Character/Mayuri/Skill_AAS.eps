@@ -1,5 +1,7 @@
 import Function as f;
 
+const s = StringBuffer();
+
 function main(cp)
 {
    MoveLocation("23.Mayuri_Bozo", f.heroID[cp], cp, "Anywhere");
@@ -43,14 +45,10 @@ function main(cp)
             f.DotShape(cp, 1, " Creep. Dunkelheit", -125, -175 + 50 * f.loop[cp]);
             f.DotShape(cp, 1, " Creep. Dunkelheit", -175, -175 + 50 * f.loop[cp]);
 
-
-            if (f.loop[cp] % 2 == 0)
-            {
-               MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-               MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-               Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
-            }
-
+            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+            Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
+            
             f.DotShape(cp, 1, "40 + 1n Mojo", 25, 175 - 50 * f.loop[cp]);
             f.DotShape(cp, 1, "40 + 1n Mojo", 75, 175 - 50 * f.loop[cp]);
             f.DotShape(cp, 1, "40 + 1n Mojo", 125, 175 - 50 * f.loop[cp]);

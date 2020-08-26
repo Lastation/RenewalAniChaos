@@ -2,11 +2,11 @@ import Function as f;
 
 function main(cp)
 {
-	f.BanReturn(cp);
-	
+
 	if (f.count[cp] < 2)
 	{
 		f.HoldPosition(cp);
+		f.BanReturn(cp);
 	}
 	
 	if (f.delay[cp] == 0)

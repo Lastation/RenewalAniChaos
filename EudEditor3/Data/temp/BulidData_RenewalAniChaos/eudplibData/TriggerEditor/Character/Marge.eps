@@ -7,6 +7,7 @@ import Character.Kiana.Main as kianaMain;
 import Character.Yuuna.Main as yuunaMain;
 import Character.Mayuri.Main as mayuriMain;
 import Character.Nanami.Main as nanamiMain;
+import Character.Milim.Main as milimMain;
 
 import Character.TextA.Chtholly 		as chtholly;
 import Character.TextA.Maihime 		as maihime;
@@ -58,7 +59,9 @@ function main(cp)
 	case 24:
 		nanamiMain.main(cp);
 		break;
-		
+	case 25:
+		milimMain.main(cp);
+		break;
 	}
 	
 	SkillWait(cp);
@@ -74,6 +77,7 @@ function MargeSound(cp)
 	yuunaMain.SkillVoice(cp);
 	mayuriMain.SkillVoice(cp);
 	nanamiMain.SkillVoice(cp);
+	milimMain.SkillVoice(cp);
 // 1 ~ 6
 	if (Deaths((13), (0), 1, (186)))
 	{

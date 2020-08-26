@@ -38,6 +38,7 @@ const Kiana_Voice 		= PVariable();	// 17
 const Yuuna_Voice 		= PVariable();	// 22
 const Mayuri_Voice 		= PVariable();	// 23
 const Nanami_Voice 		= PVariable();	// 24
+const Milim_Voice 		= PVariable();	// 25
 
 function Table_Sin(cp, degree, distance);
 function Table_Cos(cp, degree, distance);
@@ -86,7 +87,14 @@ function Voice_Routine(cp, num)
 		Nanami_Voice[4] = num;
 		Nanami_Voice[5] = num;
 		break;	
-	
+	case 25:
+		Milim_Voice[0] = num;
+		Milim_Voice[1] = num;
+		Milim_Voice[2] = num;
+		Milim_Voice[3] = num;
+		Milim_Voice[4] = num;
+		Milim_Voice[5] = num;
+		break;	
 	
 	}
 }

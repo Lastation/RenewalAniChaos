@@ -91,6 +91,7 @@ function main(cp)
 			{
 				f.Voice_Routine(cp, 8);
 				SetSwitch("UiltimateSwitch", Set);
+               		CreateUnit(1, " Item. Flag", "[Uiltimate]Flag", CurrentPlayer);
 				f.wait[cp] = 0;
 				f.count[cp] = 0;
 				f.loop[cp] = 0;
