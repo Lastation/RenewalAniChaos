@@ -189,7 +189,7 @@ function main(cp)
          {     
             f.Voice_Routine(cp, 4); 
             SetSwitch("Unique - Milim", Set);
-            SetDeaths(cp, SetTo, 2160, " `UniqueCoolTime");
+            SetDeaths(cp, SetTo, 2880, " `UniqueCoolTime");
             SetDeaths(cp, SetTo, 720, " `UniqueSkill");
 
             f.SkillWait(cp, 80);

@@ -303,26 +303,26 @@ function main(cp)
             f.Table_Sin(cp, 22, 75);
             f.Table_Cos(cp, 22, 75);
 
-            f.SquareShape(cp, 1, "40 + 1n Drone", f.CosAngle[cp], f.SinAngle[cp]);
+            f.SquareShape(cp, 1, "40 + 1n Marine", f.CosAngle[cp], f.SinAngle[cp]);
 
             f.Table_Sin(cp, 67, 150);
             f.Table_Cos(cp, 67, 150);
 
-            f.SquareShape(cp, 1, "40 + 1n Drone", f.CosAngle[cp], f.SinAngle[cp]);
+            f.SquareShape(cp, 1, "40 + 1n Marine", f.CosAngle[cp], f.SinAngle[cp]);
 
             f.Table_Sin(cp, 22, 225);
             f.Table_Cos(cp, 22, 225);
 
-            f.SquareShape(cp, 1, "40 + 1n Drone", f.CosAngle[cp], f.SinAngle[cp]);
+            f.SquareShape(cp, 1, "40 + 1n Marine", f.CosAngle[cp], f.SinAngle[cp]);
 
             f.Table_Sin(cp, 67, 300);
             f.Table_Cos(cp, 67, 300);
 
-            f.SquareShape(cp, 1, "40 + 1n Drone", f.CosAngle[cp], f.SinAngle[cp]);
+            f.SquareShape(cp, 1, "40 + 1n Marine", f.CosAngle[cp], f.SinAngle[cp]);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, "40 + 1n Drone", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-            Order("40 + 1n Drone", cp, "Anywhere", Attack, f.location[cp]);
+            MoveUnit(All, "40 + 1n Marine", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+            Order("40 + 1n Marine", cp, "Anywhere", Attack, f.location[cp]);
 
             f.SkillWait(cp, 80);
             f.loop[cp] += 1;
@@ -341,7 +341,7 @@ function main(cp)
          }
          else if (f.loop[cp] == 28)
          {         
-            KillUnitAt(All, "40 + 1n Drone", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Marine", "Anywhere", cp);
 
             f.SkillWait(cp, 80);
 

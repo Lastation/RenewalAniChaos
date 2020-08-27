@@ -9,6 +9,8 @@ function main(cp)
    f.BanReturn(cp);
    f.HoldPosition(cp);
 
+   ModifyUnitShields(All, f.heroID[cp], cp, "Anywhere", 1);
+
    if (f.delay[cp] == 0)
    {
       if (f.count[cp] == 0)
@@ -16,6 +18,7 @@ function main(cp)
          if (f.loop[cp] == 0)
          {
             SetSwitch("Recall - MilimUlt", Set);
+            SetDeaths(cp, SetTo, 1, " `ShieldRecharge");
 
             f.SkillWait(cp, 720);
 
@@ -222,6 +225,7 @@ function main(cp)
          KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
          KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
          KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+         SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
 
          f.SkillEnd(cp);
       }
