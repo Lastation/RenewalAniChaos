@@ -6,6 +6,39 @@ function main(cp)
    {
       if (f.count[cp] == 0)
       {
+         if (f.loop[cp] < 6)
+         {
+            f.SkillWait(cp, 80);
+
+            if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") 
+            && Deaths(cp, AtLeast, f.UltimateA[cp], " `UltimateCoolTime"))
+            {
+               f.Voice_Routine(cp, 5);
+               f.wait[cp] = 0;
+               f.count[cp] = 0;
+               f.loop[cp] = 0;
+               f.step[cp] = 310;
+               SetDeaths(cp, Subtract, f.UltimateA[cp], " `UltimateCoolTime");
+               KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
+            }
+            else {
+               f.loop[cp] += 1;
+            }
+
+         }
+         else if (f.loop[cp] == 6)
+         {                        
+            f.SkillWait(cp, 80);
+
+            f.count[cp] += 1;
+            f.loop[cp] = 0;
+         }
+
+      }
+
+
+      else if (f.count[cp] == 1)
+      {
          if (f.loop[cp] < 4)
          {          
             RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
@@ -45,7 +78,7 @@ function main(cp)
          }
 
       }
-      else if (f.count[cp] == 1)
+      else if (f.count[cp] == 2)
       {
          if (f.loop[cp] < 4)
          {       
@@ -76,7 +109,7 @@ function main(cp)
 
          }
       }
-      else if (f.count[cp] == 2)
+      else if (f.count[cp] == 3)
       {
          f.SkillEnd(cp);
       }

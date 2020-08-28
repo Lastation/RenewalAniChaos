@@ -209,7 +209,7 @@ function main(cp)
 
          else if (f.loop[cp] == 9)
          {         
-            SetDeaths(cp, SetTo, 2880, " `UniqueCoolTime");
+            SetDeaths(cp, SetTo, 1080, " `UniqueCoolTime");
 
             f.SkillWait(cp, 80);
 

@@ -40,35 +40,13 @@ function main(cp)
       }
       else if (f.count[cp] == 1)
       {
-         if (f.loop[cp] < 8)
-         {       
-            var x = 0;
-            var y = 0;
-
-            if (f.loop[cp] == 0) { x = 100; y = 100; }
-            else if (f.loop[cp] == 1) { x = 50; y = 100; }
-            else if (f.loop[cp] == 2) { x = 0; y = 100; }
-            else if (f.loop[cp] == 3) { x = -50; y = 100; }
-            else if (f.loop[cp] == 4) { x = -100; y = 100; }
-            else if (f.loop[cp] == 5) { x = -100; y = 50; }
-            else if (f.loop[cp] == 6) { x = -100; y = 0; }
-            else if (f.loop[cp] == 7) { x = -100; y = 50; }
-
-            f.DoubleShape(cp, 1, " Unit. Hoffnung 25000", x, y);
-            f.DoubleShape(cp, 1, "Kakaru (Twilight)", x, y);
-            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
-            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
-
-            f.SkillWait(cp, 80);
-            f.loop[cp] += 1;
-         }
-         else if (f.loop[cp] < 10)
+         if (f.loop[cp] < 2)
          {         
             var x = 0;
             var y = 0;
 
-            if (f.loop[cp] == 8) { x = 150; y = 100; }
-            else if (f.loop[cp] == 9) { x = 100; y = 50; }
+            if (f.loop[cp] == 0) { x = 150; y = 100; }
+            else if (f.loop[cp] == 1) { x = 100; y = 50; }
 
             f.SquareShape(cp, 1, "40 + 1n Guardian", x, y);
             f.SquareShape(cp, 1, "40 + 1n Guardian", y, x);
@@ -79,7 +57,7 @@ function main(cp)
             f.loop[cp] += 1;
 
          }
-         else if (f.loop[cp] == 10)
+         else if (f.loop[cp] == 2)
          {         
             KillUnitAt(All, "40 + 1n Marine", "Anywhere", cp);
 
@@ -98,7 +76,7 @@ function main(cp)
             f.loop[cp] += 1;
 
          }
-         else if (f.loop[cp] == 11)
+         else if (f.loop[cp] == 3)
          {         
             KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
 
