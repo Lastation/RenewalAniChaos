@@ -13,6 +13,8 @@ import Character.DeathText as deathText;			// 사망 텍스트
 import Character.Marge as marge;				// 유닛 스킬 텍스트
 import Character.Announce as announce;			// 상태창 텍스트
 
+import Character.Rusaruka.Text 		as T_rusaruka;
+
 import Function as f;			// 상태창 텍스트
 
 function onPluginStart() 	// 초기화 함수
@@ -81,7 +83,13 @@ function beforeTriggerExec()
 		MainLoop();
 	}
 	
+	if (getuserplayerid() == 128)
+	{
+		T_rusaruka.Looker();
+	}
+	
 	EUDEndPlayerLoop();
+	
 }
 
 function afterTriggerExec()

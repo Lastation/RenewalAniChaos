@@ -12,13 +12,15 @@ function main(cp)
 		looker[cp] = f.Rusaruka_Voice[cp];
 		f.Rusaruka_Voice[cp] = 0;
 	}
-	
-	if (getuserplayerid() >= 128 && getuserplayerid() <= 131)
+}
+
+function Looker()
+{
+	f.stb("hi");
+	if (looker[getuserplayerid() - 128] > 0)
 	{
-		if (looker[getuserplayerid() - 128] > 0)
-		{
-			Text(looker[getuserplayerid() - 128]);
-		}
+		Text(looker[getuserplayerid() - 128]);
+		looker[getuserplayerid() - 128] = 0;
 	}
 }
 
