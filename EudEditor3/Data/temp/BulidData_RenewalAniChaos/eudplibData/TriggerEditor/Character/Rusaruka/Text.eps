@@ -11,13 +11,13 @@ function main(cp)
 			f.stb.print("\x13\x1BRusaruka Schwagerin\n");
 			f.stb.print("\x13\x04[ \x06너무 얕보면... 먹어버릴거야? \x04]");
 			
-			if (cp <4)
+			if (cp == 0)
 			{
-				SetMemory(0x6509B0, SetTo, 128 + cp);
-				PlayWAV("Rusaruka_1.ogg");
+				SetMemory(0x6509B0, SetTo, 128);
+				PlayWAV("Rusaruka_2.ogg");
 				f.stb.print("\x13\x1BRusaruka Schwagerin\n");
-				f.stb.print("\x13\x04[ \x06너무 얕보면... 먹어버릴거야? \x04]");
-				SetMemory(0x6509B0, SetTo, cp);
+				f.stb.print("\x13\x04[ \x06좋아, 내가 시험해줄게. 술래잡기를 계속하도록 할까? \x04]");
+				SetMemory(0x6509B0, SetTo, 0);
 			}
 			break;
 		case 2:
