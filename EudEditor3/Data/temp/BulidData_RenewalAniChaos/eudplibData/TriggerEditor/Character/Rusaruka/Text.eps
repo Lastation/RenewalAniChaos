@@ -3,6 +3,14 @@ import Function as f;
 const looker = PVariable();
 
 function Text(num);
+function Looker()
+{
+	if (looker[getuserplayerid() - 128] > 0)
+	{
+		Text(looker[getuserplayerid() - 128]);
+		looker[getuserplayerid() - 128] = 0;
+	}
+}
 
 function main(cp)
 {
@@ -11,16 +19,6 @@ function main(cp)
 		Text(f.Rusaruka_Voice[cp]);
 		looker[cp] = f.Rusaruka_Voice[cp];
 		f.Rusaruka_Voice[cp] = 0;
-	}
-}
-
-function Looker()
-{
-	f.stb.print("hi");
-	if (looker[getuserplayerid() - 128] > 0)
-	{
-		Text(looker[getuserplayerid() - 128]);
-		looker[getuserplayerid() - 128] = 0;
 	}
 }
 
