@@ -70,12 +70,11 @@ function MainLoop(cp)
       	 { v.Hero_Num[cp] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)); }
 }
 
-function LookerMain()
+function LookerMain(cp)
 {
-	if (getuserplayerid() == 128)
-	{
-		T_rusaruka.Looker();
-	}
+	SetMemory(0x6509B0, SetTo, 128 + cp);
+	T_rusaruka.Looker();
+	SetMemory(0x6509B0, SetTo, cp);
 }
 
 function beforeTriggerExec() 
@@ -87,7 +86,7 @@ function beforeTriggerExec()
 		setcurpl(cp);
 		
 		MainLoop(cp);
-		LookerMain();
+		LookerMain(cp);
 	}
 }
 
