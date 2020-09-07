@@ -23,10 +23,8 @@ function onPluginStart() 	// 초기화 함수
     	EUDEndPlayerLoop();
 }
 
-function MainLoop()
+function MainLoop(cp)
 {
-	const cp = getcurpl();
-	
 	unitID.Get_UnitID(cp);
 	
 	announce.Announce_Marge(cp);	// 상태창 텍스트
@@ -72,26 +70,25 @@ function MainLoop()
       	 { v.Hero_Num[cp] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)); }
 }
 
+function LookerMain()
+{
+	if (getuserplayerid() == 128)
+	{
+		T_rusaruka.Looker();
+	}
+}
+
 function beforeTriggerExec() 
 {
 	randomize();
 	
-	EUDPlayerLoop()();
-	
-	if(getcurpl() < 6)
+	foreach(cp : EUDLoopPlayer())
 	{
-		SetMemory(0x6509B0,SetTo, 128 + cp);
-		if (getuserplayerid() == 128 + cp)
-		{
-			T_rusaruka.Looker();
-		}
-		SetMemory(0x6509B0,SetTo, cp);
+		setcurpl(cp);
 		
-		MainLoop();
+		MainLoop(cp);
+		LookerMain();
 	}
-	
-	EUDEndPlayerLoop();
-	
 }
 
 function afterTriggerExec()
