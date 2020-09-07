@@ -1,20 +1,18 @@
 [TriggerEditor\Main.eps]
 
-[unlimiter]
-[noAirCollision]
 [main]
 input: ..\..\..\..\..\NEW!6.scx
 output: ..\..\..\..\..\..\..\Starcraft\Maps\RenewalAniChaos\RenewalAniChaos_T2.scx
-sectorSize: None
+[unlimiter]
+[noAirCollision]
 [DataEditor.py]
 [ExtraDataEditor.py]
 [dataDumper]
 ..\temp\custom_txt.tbl : 0x6D5A30, copy
 
-
 [MSQC]
 QCDebug : False
 ` : Terran SCV, 1
 INSERT : Terran SCV, 2
-[eudTurbo]
+
 

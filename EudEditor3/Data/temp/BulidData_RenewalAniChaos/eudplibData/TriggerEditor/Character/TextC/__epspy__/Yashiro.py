@@ -128,227 +128,227 @@ def _LSH(l, r):
 
 # (Line 1) import Variable as v;
 import Variable as v
-# (Line 3) const s = StringBuffer();
-s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 5) function NormalText(cp)
-# (Line 6) {
+# (Line 2) import Function as f;
+import Function as f
+# (Line 4) function NormalText(cp)
+# (Line 5) {
 @EUDFunc
 def NormalText(cp):
-    # (Line 7) switch (v.Sound_Text3[cp])
+    # (Line 6) switch (v.Sound_Text3[cp])
     EUDSwitch(v.Sound_Text3[cp])
-    # (Line 8) {
-    # (Line 9) case 2000:
+    # (Line 7) {
+    # (Line 8) case 2000:
     _t1 = EUDSwitchCase()
-    # (Line 10) PlayWAV("yashiro_sss.ogg");
+    # (Line 9) PlayWAV("yashiro_ssf.stb.ogg");
     if _t1(2000):
-        # (Line 11) v.Sound_Text3[cp] = 0;
-        DoActions(PlayWAV("yashiro_sss.ogg"))
+        # (Line 10) v.Sound_Text3[cp] = 0;
+        DoActions(PlayWAV("yashiro_ssf.stb.ogg"))
         _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 12) s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그것은 분에 넘치는 소망이다\n\n");
-        s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그것은 분에 넘치는 소망이다\n\n")
-        # (Line 13) break;
+        # (Line 11) f.stb.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그것은 분에 넘치는 소망이다\n\n");
+        f.stb.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그것은 분에 넘치는 소망이다\n\n")
+        # (Line 12) break;
         EUDBreak()
-        # (Line 14) case 2002:
+        # (Line 13) case 2002:
     _t2 = EUDSwitchCase()
-    # (Line 15) s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04네가 손에 넣는 것은 이 마을의 평화다\n\x13\x04네가 원한 것은 바로 그거잖아?\n\n");
+    # (Line 14) f.stb.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04네가 손에 넣는 것은 이 마을의 평화다\n\x13\x04네가 원한 것은 바로 그거잖아?\n\n");
     if _t2(2002):
-        s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04네가 손에 넣는 것은 이 마을의 평화다\n\x13\x04네가 원한 것은 바로 그거잖아?\n\n")
-        # (Line 16) PlayWAV("yashiro_ccaa.ogg");
-        # (Line 17) v.Sound_Text3[cp] = 0;
+        f.stb.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04네가 손에 넣는 것은 이 마을의 평화다\n\x13\x04네가 원한 것은 바로 그거잖아?\n\n")
+        # (Line 15) PlayWAV("yashiro_ccaa.ogg");
+        # (Line 16) v.Sound_Text3[cp] = 0;
         DoActions(PlayWAV("yashiro_ccaa.ogg"))
         _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 18) break;
+        # (Line 17) break;
         EUDBreak()
-        # (Line 19) case 2003:
+        # (Line 18) case 2003:
     _t3 = EUDSwitchCase()
-    # (Line 20) s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04내가 손에 넣는 것은\n\x13\x04내 손에 의한, 나만을 위해 존재하는 죽음이다\n\n");
+    # (Line 19) f.stb.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04내가 손에 넣는 것은\n\x13\x04내 손에 의한, 나만을 위해 존재하는 죽음이다\n\n");
     if _t3(2003):
-        s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04내가 손에 넣는 것은\n\x13\x04내 손에 의한, 나만을 위해 존재하는 죽음이다\n\n")
-        # (Line 21) v.Sound_Text3[cp] = 0;
+        f.stb.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04내가 손에 넣는 것은\n\x13\x04내 손에 의한, 나만을 위해 존재하는 죽음이다\n\n")
+        # (Line 20) v.Sound_Text3[cp] = 0;
         _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 22) break;
+        # (Line 21) break;
         EUDBreak()
-        # (Line 23) case 2001:
+        # (Line 22) case 2001:
     _t4 = EUDSwitchCase()
-    # (Line 24) PlayWAV("yashiro_aac.ogg");
+    # (Line 23) PlayWAV("yashiro_aac.ogg");
     if _t4(2001):
-        # (Line 25) s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04게임 오버다, 너도 나도\n\n");
+        # (Line 24) f.stb.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04게임 오버다, 너도 나도\n\n");
         DoActions(PlayWAV("yashiro_aac.ogg"))
-        s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04게임 오버다, 너도 나도\n\n")
-        # (Line 26) v.Sound_Text3[cp] = 0;
+        f.stb.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04게임 오버다, 너도 나도\n\n")
+        # (Line 25) v.Sound_Text3[cp] = 0;
         _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 27) break;
+        # (Line 26) break;
         EUDBreak()
-        # (Line 28) }
-    # (Line 29) }
+        # (Line 27) }
+    # (Line 28) }
     EUDEndSwitch()
-    # (Line 31) function UiltimateText(cp)
+    # (Line 30) function UiltimateText(cp)
 
-# (Line 32) {
+# (Line 31) {
 @EUDFunc
 def UiltimateText(cp):
-    # (Line 33) switch (v.Sound_Text_Uilti[cp])
+    # (Line 32) switch (v.Sound_Text_Uilti[cp])
     EUDSwitch(v.Sound_Text_Uilti[cp])
-    # (Line 34) {
-    # (Line 35) case 14000:
+    # (Line 33) {
+    # (Line 34) case 14000:
     _t1 = EUDSwitchCase()
-    # (Line 36) s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04고마워 사토루, 하지만 사탕은 안 들어 있어\n\n");
+    # (Line 35) f.stb.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04고마워 사토루, 하지만 사탕은 안 들어 있어\n\n");
     if _t1(14000):
-        s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04고마워 사토루, 하지만 사탕은 안 들어 있어\n\n")
-        # (Line 37) PlayWAV("yashiro_aaaa.ogg");
-        # (Line 38) v.Sound_Text_Uilti[cp] = 0;
+        f.stb.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04고마워 사토루, 하지만 사탕은 안 들어 있어\n\n")
+        # (Line 36) PlayWAV("yashiro_aaaa.ogg");
+        # (Line 37) v.Sound_Text_Uilti[cp] = 0;
         DoActions(PlayWAV("yashiro_aaaa.ogg"))
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 39) break;
+        # (Line 38) break;
         EUDBreak()
-        # (Line 40) case 14001:
+        # (Line 39) case 14001:
     _t2 = EUDSwitchCase()
-    # (Line 41) s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04왜냐면, 이거... \x08내 차가 아니야\n\n");
+    # (Line 40) f.stb.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04왜냐면, 이거... \x08내 차가 아니야\n\n");
     if _t2(14001):
-        s.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04왜냐면, 이거... \x08내 차가 아니야\n\n")
-        # (Line 42) v.Sound_Text_Uilti[cp] = 0;
+        f.stb.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04왜냐면, 이거... \x08내 차가 아니야\n\n")
+        # (Line 41) v.Sound_Text_Uilti[cp] = 0;
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 43) break;
+        # (Line 42) break;
         EUDBreak()
-        # (Line 44) }
-    # (Line 46) }
+        # (Line 43) }
+    # (Line 45) }
     EUDEndSwitch()
-    # (Line 48) function UniqueText(cp)
+    # (Line 47) function UniqueText(cp)
 
-# (Line 49) {
+# (Line 48) {
 @EUDFunc
 def UniqueText(cp):
-    # (Line 50) switch (v.Sound_Text_Uniq[cp])
+    # (Line 49) switch (v.Sound_Text_Uniq[cp])
     EUDSwitch(v.Sound_Text_Uniq[cp])
-    # (Line 51) {
-    # (Line 52) case 14000:
+    # (Line 50) {
+    # (Line 51) case 14000:
     _t1 = EUDSwitchCase()
-    # (Line 53) s.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x04이런 이야기를 믿어 줄 것 같진 않지만, 굳이 말하마.");
+    # (Line 52) f.stb.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x04이런 이야기를 믿어 줄 것 같진 않지만, 굳이 말하마.");
     if _t1(14000):
-        s.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x04이런 이야기를 믿어 줄 것 같진 않지만, 굳이 말하마.")
-        # (Line 54) PlayWAV("yashiro_u1.ogg");
-        # (Line 55) v.Sound_Text_Uniq[cp] = 0;
+        f.stb.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x04이런 이야기를 믿어 줄 것 같진 않지만, 굳이 말하마.")
+        # (Line 53) PlayWAV("yashiro_u1.ogg");
+        # (Line 54) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("yashiro_u1.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 56) break;
+        # (Line 55) break;
         EUDBreak()
-        # (Line 57) case 14001:
+        # (Line 56) case 14001:
     _t2 = EUDSwitchCase()
-    # (Line 58) s.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x04아니, 너라면 알아줄 지도 몰라.");
+    # (Line 57) f.stb.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x04아니, 너라면 알아줄 지도 몰라.");
     if _t2(14001):
-        s.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x04아니, 너라면 알아줄 지도 몰라.")
-        # (Line 59) v.Sound_Text_Uniq[cp] = 0;
+        f.stb.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x04아니, 너라면 알아줄 지도 몰라.")
+        # (Line 58) v.Sound_Text_Uniq[cp] = 0;
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 60) break;
+        # (Line 59) break;
         EUDBreak()
-        # (Line 61) case 14002:
+        # (Line 60) case 14002:
     _t3 = EUDSwitchCase()
-    # (Line 62) s.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x03스파이스\x04랑 만난 이후로,");
+    # (Line 61) f.stb.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x03스파이스\x04랑 만난 이후로,");
     if _t3(14002):
-        s.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x03스파이스\x04랑 만난 이후로,")
-        # (Line 63) PlayWAV("yashiro_u2.ogg");
-        # (Line 64) v.Sound_Text_Uniq[cp] = 0;
+        f.stb.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x03스파이스\x04랑 만난 이후로,")
+        # (Line 62) PlayWAV("yashiro_u2.ogg");
+        # (Line 63) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("yashiro_u2.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 65) break;
+        # (Line 64) break;
         EUDBreak()
-        # (Line 66) case 14003:
+        # (Line 65) case 14003:
     _t4 = EUDSwitchCase()
-    # (Line 67) s.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x04나에게는 \x17거미줄\x04이 보이게 됐다.");
+    # (Line 66) f.stb.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x04나에게는 \x17거미줄\x04이 보이게 됐다.");
     if _t4(14003):
-        s.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x04나에게는 \x17거미줄\x04이 보이게 됐다.")
-        # (Line 68) v.Sound_Text_Uniq[cp] = 0;
+        f.stb.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x04나에게는 \x17거미줄\x04이 보이게 됐다.")
+        # (Line 67) v.Sound_Text_Uniq[cp] = 0;
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 69) break;
+        # (Line 68) break;
         EUDBreak()
-        # (Line 70) case 14004:
+        # (Line 69) case 14004:
     _t5 = EUDSwitchCase()
-    # (Line 71) s.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x04그게 보인 인간을 죽여 왔다.");
+    # (Line 70) f.stb.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x04그게 보인 인간을 죽여 왔다.");
     if _t5(14004):
-        s.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x04그게 보인 인간을 죽여 왔다.")
-        # (Line 72) PlayWAV("yashiro_u3.ogg");
-        # (Line 73) v.Sound_Text_Uniq[cp] = 0;
+        f.stb.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x04그게 보인 인간을 죽여 왔다.")
+        # (Line 71) PlayWAV("yashiro_u3.ogg");
+        # (Line 72) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("yashiro_u3.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 74) break;
+        # (Line 73) break;
         EUDBreak()
-        # (Line 75) case 14005:
+        # (Line 74) case 14005:
     _t6 = EUDSwitchCase()
-    # (Line 76) s.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x04그러나 어느 날\n\x13\x04한 명의 소년이 내 계획을 저지했다.");
+    # (Line 75) f.stb.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x04그러나 어느 날\n\x13\x04한 명의 소년이 내 계획을 저지했다.");
     if _t6(14005):
-        s.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x04그러나 어느 날\n\x13\x04한 명의 소년이 내 계획을 저지했다.")
-        # (Line 77) PlayWAV("yashiro_u4.ogg");
-        # (Line 78) v.Sound_Text_Uniq[cp] = 0;
+        f.stb.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x04그러나 어느 날\n\x13\x04한 명의 소년이 내 계획을 저지했다.")
+        # (Line 76) PlayWAV("yashiro_u4.ogg");
+        # (Line 77) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("yashiro_u4.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 79) break;
+        # (Line 78) break;
         EUDBreak()
-        # (Line 80) case 14006:
+        # (Line 79) case 14006:
     _t7 = EUDSwitchCase()
-    # (Line 81) s.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x04그리고 그 소년의 머리 위에도\n\x13\x17거미줄\x04이 나타났다.");
+    # (Line 80) f.stb.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x04그리고 그 소년의 머리 위에도\n\x13\x17거미줄\x04이 나타났다.");
     if _t7(14006):
-        s.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x04그리고 그 소년의 머리 위에도\n\x13\x17거미줄\x04이 나타났다.")
-        # (Line 82) PlayWAV("yashiro_u5.ogg");
-        # (Line 83) v.Sound_Text_Uniq[cp] = 0;
+        f.stb.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x04그리고 그 소년의 머리 위에도\n\x13\x17거미줄\x04이 나타났다.")
+        # (Line 81) PlayWAV("yashiro_u5.ogg");
+        # (Line 82) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("yashiro_u5.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 84) break;
+        # (Line 83) break;
         EUDBreak()
-        # (Line 85) case 14007:
+        # (Line 84) case 14007:
     _t8 = EUDSwitchCase()
-    # (Line 86) s.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x04그러나 그는 죽지 않았다.");
+    # (Line 85) f.stb.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x04그러나 그는 죽지 않았다.");
     if _t8(14007):
-        s.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x04그러나 그는 죽지 않았다.")
-        # (Line 87) PlayWAV("yashiro_u6.ogg");
-        # (Line 88) v.Sound_Text_Uniq[cp] = 0;
+        f.stb.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x04그러나 그는 죽지 않았다.")
+        # (Line 86) PlayWAV("yashiro_u6.ogg");
+        # (Line 87) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("yashiro_u6.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 89) break;
+        # (Line 88) break;
         EUDBreak()
-        # (Line 90) case 14008:
+        # (Line 89) case 14008:
     _t9 = EUDSwitchCase()
-    # (Line 91) s.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x04나는 그 녀석을 \x03스파이스\x04라고 이름짓고\n\x13\x04관찰하기로 했다.");
+    # (Line 90) f.stb.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x04나는 그 녀석을 \x03스파이스\x04라고 이름짓고\n\x13\x04관찰하기로 했다.");
     if _t9(14008):
-        s.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x04나는 그 녀석을 \x03스파이스\x04라고 이름짓고\n\x13\x04관찰하기로 했다.")
-        # (Line 92) PlayWAV("yashiro_u7.ogg");
-        # (Line 93) v.Sound_Text_Uniq[cp] = 0;
+        f.stb.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x04나는 그 녀석을 \x03스파이스\x04라고 이름짓고\n\x13\x04관찰하기로 했다.")
+        # (Line 91) PlayWAV("yashiro_u7.ogg");
+        # (Line 92) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("yashiro_u7.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 94) break;
+        # (Line 93) break;
         EUDBreak()
-        # (Line 95) case 14009:
+        # (Line 94) case 14009:
     _t10 = EUDSwitchCase()
-    # (Line 96) PlayWAV("yashiro_u8.ogg");
+    # (Line 95) PlayWAV("yashiro_u8.ogg");
     if _t10(14009):
-        # (Line 97) s.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x08그게 너야...");
+        # (Line 96) f.stb.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x08그게 너야...");
         DoActions(PlayWAV("yashiro_u8.ogg"))
-        s.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x08그게 너야...")
-        # (Line 98) v.Sound_Text_Uniq[cp] = 0;
+        f.stb.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x08그게 너야...")
+        # (Line 97) v.Sound_Text_Uniq[cp] = 0;
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 99) break;
+        # (Line 98) break;
         EUDBreak()
-        # (Line 100) case 14010:
+        # (Line 99) case 14010:
     _t11 = EUDSwitchCase()
-    # (Line 101) s.printAt(4,"\x13\x02Yashiro Gaku\n\x13\x04그런 게 있을 리가 없잖냐");
+    # (Line 100) f.stb.printAt(4,"\x13\x02Yashiro Gaku\n\x13\x04그런 게 있을 리가 없잖냐");
     if _t11(14010):
-        s.printAt(4, "\x13\x02Yashiro Gaku\n\x13\x04그런 게 있을 리가 없잖냐")
-        # (Line 102) PlayWAV("yashiro_o_active.ogg");
-        # (Line 103) v.Sound_Text_Uniq[cp] = 0;
+        f.stb.printAt(4, "\x13\x02Yashiro Gaku\n\x13\x04그런 게 있을 리가 없잖냐")
+        # (Line 101) PlayWAV("yashiro_o_active.ogg");
+        # (Line 102) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("yashiro_o_active.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 104) break;
+        # (Line 103) break;
         EUDBreak()
-        # (Line 105) case 14012:
+        # (Line 104) case 14012:
     _t12 = EUDSwitchCase()
-    # (Line 106) PlayWAV("yashiro_o_end.ogg");
+    # (Line 105) PlayWAV("yashiro_o_end.ogg");
     if _t12(14012):
-        # (Line 107) s.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x04이건 나에게도 이판사판의 도박이었다");
+        # (Line 106) f.stb.printAt(3,"\x13\x02Yashiro Gaku\n\x13\x04이건 나에게도 이판사판의 도박이었다");
         DoActions(PlayWAV("yashiro_o_end.ogg"))
-        s.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x04이건 나에게도 이판사판의 도박이었다")
-        # (Line 108) v.Sound_Text_Uniq[cp] = 0;
+        f.stb.printAt(3, "\x13\x02Yashiro Gaku\n\x13\x04이건 나에게도 이판사판의 도박이었다")
+        # (Line 107) v.Sound_Text_Uniq[cp] = 0;
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 109) break;
+        # (Line 108) break;
         EUDBreak()
-        # (Line 110) }
-    # (Line 111) }
+        # (Line 109) }
+    # (Line 110) }
     EUDEndSwitch()

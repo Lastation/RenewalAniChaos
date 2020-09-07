@@ -142,379 +142,417 @@ from Character.Yuuna import Main as yuunaMain
 from Character.Mayuri import Main as mayuriMain
 # (Line 9) import Character.Nanami.Main as nanamiMain;
 from Character.Nanami import Main as nanamiMain
-# (Line 11) import Character.TextA.Chtholly 		as chtholly;
+# (Line 10) import Character.Milim.Main as milimMain;
+from Character.Milim import Main as milimMain
+# (Line 11) import Character.Yume.Main as yumeMain;
+from Character.Yume import Main as yumeMain
+# (Line 13) import Character.TextA.Chtholly 		as chtholly;
 from Character.TextA import Chtholly as chtholly
-# (Line 12) import Character.TextA.Maihime 		as maihime;
+# (Line 14) import Character.TextA.Maihime 		as maihime;
 from Character.TextA import Maihime as maihime
-# (Line 13) import Character.TextA.Tenshi 		as tenshi;
+# (Line 15) import Character.TextA.Tenshi 		as tenshi;
 from Character.TextA import Tenshi as tenshi
-# (Line 14) import Character.TextA.Miyuki 		as miyuki;
+# (Line 16) import Character.TextA.Miyuki 		as miyuki;
 from Character.TextA import Miyuki as miyuki
-# (Line 15) import Character.TextA.Negev 		as negev;
+# (Line 17) import Character.TextA.Negev 		as negev;
 from Character.TextA import Negev as negev
-# (Line 17) import Character.TextB.Cecillia 		as cecillia;
+# (Line 19) import Character.TextB.Cecillia 		as cecillia;
 from Character.TextB import Cecillia as cecillia
-# (Line 18) import Character.TextB.Anzu 			as anzu;
+# (Line 20) import Character.TextB.Anzu 			as anzu;
 from Character.TextB import Anzu as anzu
-# (Line 19) import Character.TextB.HotoMoka 	as hotomoka;
+# (Line 21) import Character.TextB.HotoMoka 	as hotomoka;
 from Character.TextB import HotoMoka as hotomoka
-# (Line 20) import Character.TextB.Altherego 	as alterego;
+# (Line 22) import Character.TextB.Altherego 	as alterego;
 from Character.TextB import Altherego as alterego
-# (Line 21) import Character.TextB.Ryuzu 		as ryuzu;
+# (Line 23) import Character.TextB.Ryuzu 		as ryuzu;
 from Character.TextB import Ryuzu as ryuzu
-# (Line 22) import Character.TextB.Kurumi 		as kurumi;
+# (Line 24) import Character.TextB.Kurumi 		as kurumi;
 from Character.TextB import Kurumi as kurumi
-# (Line 24) import Character.TextC.Sakura 		as sakura;
+# (Line 26) import Character.TextC.Sakura 		as sakura;
 from Character.TextC import Sakura as sakura
-# (Line 25) import Character.TextC.Yashiro 		as yashiro;
+# (Line 27) import Character.TextC.Yashiro 		as yashiro;
 from Character.TextC import Yashiro as yashiro
-# (Line 26) import Character.TextC.Rin 			as rin;
+# (Line 28) import Character.TextC.Rin 			as rin;
 from Character.TextC import Rin as rin
-# (Line 27) import Character.TextC.Seraphim 	as seraphim;
+# (Line 29) import Character.TextC.Seraphim 	as seraphim;
 from Character.TextC import Seraphim as seraphim
-# (Line 28) import Character.TextC.Tenkei 		as tenkei;
+# (Line 30) import Character.TextC.Tenkei 		as tenkei;
 from Character.TextC import Tenkei as tenkei
-# (Line 30) import Character.TextD.MN 			as mn;
+# (Line 32) import Character.TextD.MN 			as mn;
 from Character.TextD import MN as mn
-# (Line 31) import Character.TextD.EmetSelch 	as emet;
+# (Line 33) import Character.TextD.EmetSelch 	as emet;
 from Character.TextD import EmetSelch as emet
-# (Line 32) import Character.TextD.Magellan 	as magellan;
+# (Line 34) import Character.TextD.Magellan 	as magellan;
 from Character.TextD import Magellan as magellan
-# (Line 34) const bgmWait		= PVariable();
+# (Line 36) const bgmWait		= PVariable();
 bgmWait = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 35) const s = StringBuffer();
-s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 37) function MargeSound(cp);
-# (Line 38) function SkillWait(cp);
-# (Line 39) function SkillDelay(cp);
-# (Line 40) function BGMRoutine(cp);
-# (Line 42) function main(cp)
-# (Line 43) {
+# (Line 38) function MargeSound(cp);
+# (Line 39) function SkillWait(cp);
+# (Line 40) function SkillDelay(cp);
+# (Line 41) function BGMRoutine(cp);
+# (Line 43) function main(cp)
+# (Line 44) {
 @EUDFunc
 def f_main(cp):
-    # (Line 44) switch(v.Hero_Num[cp])
+    # (Line 45) switch(v.Hero_Num[cp])
     EUDSwitch(v.Hero_Num[cp])
-    # (Line 45) {
-    # (Line 46) case 1:
+    # (Line 46) {
+    # (Line 47) case 1:
     _t1 = EUDSwitchCase()
-    # (Line 47) rusarukaMain.main(cp);
+    # (Line 48) rusarukaMain.main(cp);
     if _t1(1):
         rusarukaMain.f_main(cp)
-        # (Line 48) break;
+        # (Line 49) break;
         EUDBreak()
-        # (Line 49) case 17:
+        # (Line 50) case 17:
     _t2 = EUDSwitchCase()
-    # (Line 50) kianaMain.main(cp);
+    # (Line 51) kianaMain.main(cp);
     if _t2(17):
         kianaMain.f_main(cp)
-        # (Line 51) break;
+        # (Line 52) break;
         EUDBreak()
-        # (Line 52) case 22:
+        # (Line 53) case 22:
     _t3 = EUDSwitchCase()
-    # (Line 53) yuunaMain.main(cp);
+    # (Line 54) yuunaMain.main(cp);
     if _t3(22):
         yuunaMain.f_main(cp)
-        # (Line 54) break;
+        # (Line 55) break;
         EUDBreak()
-        # (Line 55) case 23:
+        # (Line 56) case 23:
     _t4 = EUDSwitchCase()
-    # (Line 56) mayuriMain.main(cp);
+    # (Line 57) mayuriMain.main(cp);
     if _t4(23):
         mayuriMain.f_main(cp)
-        # (Line 57) break;
+        # (Line 58) break;
         EUDBreak()
-        # (Line 58) case 24:
+        # (Line 59) case 24:
     _t5 = EUDSwitchCase()
-    # (Line 59) nanamiMain.main(cp);
+    # (Line 60) nanamiMain.main(cp);
     if _t5(24):
         nanamiMain.f_main(cp)
-        # (Line 60) break;
+        # (Line 61) break;
         EUDBreak()
-        # (Line 62) }
-    # (Line 64) SkillWait(cp);
+        # (Line 62) case 25:
+    _t6 = EUDSwitchCase()
+    # (Line 63) milimMain.main(cp);
+    if _t6(25):
+        milimMain.f_main(cp)
+        # (Line 64) break;
+        EUDBreak()
+        # (Line 65) case 26:
+    _t7 = EUDSwitchCase()
+    # (Line 66) yumeMain.main(cp);
+    if _t7(26):
+        yumeMain.f_main(cp)
+        # (Line 67) break;
+        EUDBreak()
+        # (Line 69) }
+    # (Line 71) SkillWait(cp);
     EUDEndSwitch()
     SkillWait(cp)
-    # (Line 65) SkillDelay(cp);
+    # (Line 72) SkillDelay(cp);
     SkillDelay(cp)
-    # (Line 67) MargeSound(cp);
+    # (Line 74) MargeSound(cp);
     MargeSound(cp)
-    # (Line 68) BGMRoutine(cp);
+    # (Line 75) BGMRoutine(cp);
     BGMRoutine(cp)
-    # (Line 69) }
-    # (Line 71) function MargeSound(cp)
+    # (Line 76) }
+    # (Line 78) function MargeSound(cp)
 
-# (Line 72) {
+# (Line 79) {
 @EUDFunc
 def MargeSound(cp):
-    # (Line 73) rusarukaMain.SkillVoice(cp);
+    # (Line 80) rusarukaMain.SkillVoice(cp);
     rusarukaMain.SkillVoice(cp)
-    # (Line 74) yuunaMain.SkillVoice(cp);
+    # (Line 81) yuunaMain.SkillVoice(cp);
     yuunaMain.SkillVoice(cp)
-    # (Line 75) mayuriMain.SkillVoice(cp);
+    # (Line 82) mayuriMain.SkillVoice(cp);
     mayuriMain.SkillVoice(cp)
-    # (Line 76) nanamiMain.SkillVoice(cp);
+    # (Line 83) nanamiMain.SkillVoice(cp);
     nanamiMain.SkillVoice(cp)
-    # (Line 78) if (Deaths((13), (0), 1, (186)))
+    # (Line 84) milimMain.SkillVoice(cp);
+    milimMain.SkillVoice(cp)
+    # (Line 85) yumeMain.SkillVoice(cp);
+    yumeMain.SkillVoice(cp)
+    # (Line 87) if (Deaths((13), (0), 1, (186)))
     if EUDIf()(Deaths((13), (0), 1, (186))):
-        # (Line 79) {
-        # (Line 80) v.Sound_Text1[cp] = dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * cp));
+        # (Line 88) {
+        # (Line 89) v.Sound_Text1[cp] = dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * cp));
         _ARRW(v.Sound_Text1, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * cp)))
-        # (Line 81) SetDeaths((13), (7), 0, (186));
-        # (Line 83) const Condition = v.Sound_Text1[cp];
+        # (Line 90) SetDeaths((13), (7), 0, (186));
+        # (Line 92) const Condition = v.Sound_Text1[cp];
         DoActions(SetDeaths((13), (7), 0, (186)))
         Condition = v.Sound_Text1[cp]
-        # (Line 84) chtholly.NormalText(cp);
+        # (Line 93) chtholly.NormalText(cp);
         chtholly.NormalText(cp)
-        # (Line 85) maihime.NormalText(cp);
+        # (Line 94) maihime.NormalText(cp);
         maihime.NormalText(cp)
-        # (Line 86) tenshi.NormalText(cp);
+        # (Line 95) tenshi.NormalText(cp);
         tenshi.NormalText(cp)
-        # (Line 87) miyuki.NormalText(cp);
+        # (Line 96) miyuki.NormalText(cp);
         miyuki.NormalText(cp)
-        # (Line 88) negev.NormalText(cp);
+        # (Line 97) negev.NormalText(cp);
         negev.NormalText(cp)
-        # (Line 89) }
-        # (Line 92) if (Deaths((13), (0), 1, (174)))
+        # (Line 98) }
+        # (Line 101) if (Deaths((13), (0), 1, (174)))
     EUDEndIf()
     if EUDIf()(Deaths((13), (0), 1, (174))):
-        # (Line 93) {
-        # (Line 94) v.Sound_Text2[cp] = dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * cp));
+        # (Line 102) {
+        # (Line 103) v.Sound_Text2[cp] = dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * cp));
         _ARRW(v.Sound_Text2, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * cp)))
-        # (Line 95) SetDeaths((13), (7), 0, (174));
-        # (Line 97) const Condition = v.Sound_Text2[cp];
+        # (Line 104) SetDeaths((13), (7), 0, (174));
+        # (Line 106) const Condition = v.Sound_Text2[cp];
         DoActions(SetDeaths((13), (7), 0, (174)))
         Condition = v.Sound_Text2[cp]
-        # (Line 98) cecillia.NormalText(cp);
+        # (Line 107) cecillia.NormalText(cp);
         cecillia.NormalText(cp)
-        # (Line 99) anzu.NormalText(cp);
+        # (Line 108) anzu.NormalText(cp);
         anzu.NormalText(cp)
-        # (Line 100) hotomoka.NormalText(cp);
+        # (Line 109) hotomoka.NormalText(cp);
         hotomoka.NormalText(cp)
-        # (Line 101) alterego.NormalText(cp);
+        # (Line 110) alterego.NormalText(cp);
         alterego.NormalText(cp)
-        # (Line 103) ryuzu.NormalText(cp);
+        # (Line 112) ryuzu.NormalText(cp);
         ryuzu.NormalText(cp)
-        # (Line 104) }
-        # (Line 107) if (Deaths((13), (0), 1, (117)))
+        # (Line 113) }
+        # (Line 116) if (Deaths((13), (0), 1, (117)))
     EUDEndIf()
     if EUDIf()(Deaths((13), (0), 1, (117))):
-        # (Line 108) {
-        # (Line 109) v.Sound_Text3[cp] = dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * cp));
+        # (Line 117) {
+        # (Line 118) v.Sound_Text3[cp] = dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * cp));
         _ARRW(v.Sound_Text3, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * cp)))
-        # (Line 110) SetDeaths((13), (7), 0, (117));
-        # (Line 112) const Condition = v.Sound_Text3[cp];
+        # (Line 119) SetDeaths((13), (7), 0, (117));
+        # (Line 121) const Condition = v.Sound_Text3[cp];
         DoActions(SetDeaths((13), (7), 0, (117)))
         Condition = v.Sound_Text3[cp]
-        # (Line 114) sakura.NormalText(cp);
+        # (Line 123) sakura.NormalText(cp);
         sakura.NormalText(cp)
-        # (Line 115) yashiro.NormalText(cp);
+        # (Line 124) yashiro.NormalText(cp);
         yashiro.NormalText(cp)
-        # (Line 116) rin.NormalText(cp);
+        # (Line 125) rin.NormalText(cp);
         rin.NormalText(cp)
-        # (Line 117) seraphim.NormalText(cp);
+        # (Line 126) seraphim.NormalText(cp);
         seraphim.NormalText(cp)
-        # (Line 118) tenkei.NormalText(cp);
+        # (Line 127) tenkei.NormalText(cp);
         tenkei.NormalText(cp)
-        # (Line 119) }
-        # (Line 122) if (Deaths((13), (0), 1, (157)))
+        # (Line 128) }
+        # (Line 131) if (Deaths((13), (0), 1, (157)))
     EUDEndIf()
     if EUDIf()(Deaths((13), (0), 1, (157))):
-        # (Line 123) {
-        # (Line 124) v.Sound_Text4[cp] = dwread_epd(EPD(0x58A364 + 48 * 157 + 4 * cp));
+        # (Line 132) {
+        # (Line 133) v.Sound_Text4[cp] = dwread_epd(EPD(0x58A364 + 48 * 157 + 4 * cp));
         _ARRW(v.Sound_Text4, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 157 + 4 * cp)))
-        # (Line 125) SetDeaths((13), (7), 0, (157));
-        # (Line 127) const Condition = v.Sound_Text4[cp];
+        # (Line 134) SetDeaths((13), (7), 0, (157));
+        # (Line 136) const Condition = v.Sound_Text4[cp];
         DoActions(SetDeaths((13), (7), 0, (157)))
         Condition = v.Sound_Text4[cp]
-        # (Line 129) mn.NormalText(cp);
+        # (Line 138) mn.NormalText(cp);
         mn.NormalText(cp)
-        # (Line 130) emet.NormalText(cp);
+        # (Line 139) emet.NormalText(cp);
         emet.NormalText(cp)
-        # (Line 131) magellan.NormalText(cp);
+        # (Line 140) magellan.NormalText(cp);
         magellan.NormalText(cp)
-        # (Line 132) }
-        # (Line 134) if (Deaths((13), (0), 1, (222)))
+        # (Line 141) }
+        # (Line 143) if (Deaths((13), (0), 1, (222)))
     EUDEndIf()
     if EUDIf()(Deaths((13), (0), 1, (222))):
-        # (Line 135) {
-        # (Line 136) v.Sound_Text_Uilti[cp] = dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * cp));
+        # (Line 144) {
+        # (Line 145) v.Sound_Text_Uilti[cp] = dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * cp));
         _ARRW(v.Sound_Text_Uilti, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * cp)))
-        # (Line 137) SetDeaths((13), (7), 0, (222));
-        # (Line 139) const Condition = v.Sound_Text_Uilti[cp];
+        # (Line 146) SetDeaths((13), (7), 0, (222));
+        # (Line 148) const Condition = v.Sound_Text_Uilti[cp];
         DoActions(SetDeaths((13), (7), 0, (222)))
         Condition = v.Sound_Text_Uilti[cp]
-        # (Line 141) chtholly.UiltimateText(cp);
+        # (Line 150) chtholly.UiltimateText(cp);
         chtholly.UiltimateText(cp)
-        # (Line 142) maihime.UiltimateText(cp);
+        # (Line 151) maihime.UiltimateText(cp);
         maihime.UiltimateText(cp)
-        # (Line 143) tenshi.UiltimateText(cp);
+        # (Line 152) tenshi.UiltimateText(cp);
         tenshi.UiltimateText(cp)
-        # (Line 144) miyuki.UiltimateText(cp);
+        # (Line 153) miyuki.UiltimateText(cp);
         miyuki.UiltimateText(cp)
-        # (Line 145) negev.UiltimateText(cp);
+        # (Line 154) negev.UiltimateText(cp);
         negev.UiltimateText(cp)
-        # (Line 148) cecillia.UiltimateText(cp);
+        # (Line 157) cecillia.UiltimateText(cp);
         cecillia.UiltimateText(cp)
-        # (Line 149) anzu.UiltimateText(cp);
+        # (Line 158) anzu.UiltimateText(cp);
         anzu.UiltimateText(cp)
-        # (Line 150) hotomoka.UiltimateText(cp);
+        # (Line 159) hotomoka.UiltimateText(cp);
         hotomoka.UiltimateText(cp)
-        # (Line 151) alterego.UiltimateText(cp);
+        # (Line 160) alterego.UiltimateText(cp);
         alterego.UiltimateText(cp)
-        # (Line 153) ryuzu.UiltimateText(cp);
+        # (Line 162) ryuzu.UiltimateText(cp);
         ryuzu.UiltimateText(cp)
-        # (Line 156) sakura.UiltimateText(cp);
+        # (Line 165) sakura.UiltimateText(cp);
         sakura.UiltimateText(cp)
-        # (Line 157) yashiro.UiltimateText(cp);
+        # (Line 166) yashiro.UiltimateText(cp);
         yashiro.UiltimateText(cp)
-        # (Line 158) rin.UiltimateText(cp);
+        # (Line 167) rin.UiltimateText(cp);
         rin.UiltimateText(cp)
-        # (Line 159) seraphim.UiltimateText(cp);
+        # (Line 168) seraphim.UiltimateText(cp);
         seraphim.UiltimateText(cp)
-        # (Line 160) tenkei.UiltimateText(cp);
+        # (Line 169) tenkei.UiltimateText(cp);
         tenkei.UiltimateText(cp)
-        # (Line 163) mn.UiltimateText(cp);
+        # (Line 172) mn.UiltimateText(cp);
         mn.UiltimateText(cp)
-        # (Line 164) emet.UiltimateText(cp);
+        # (Line 173) emet.UiltimateText(cp);
         emet.UiltimateText(cp)
-        # (Line 165) magellan.UiltimateText(cp);
+        # (Line 174) magellan.UiltimateText(cp);
         magellan.UiltimateText(cp)
-        # (Line 166) }
-        # (Line 167) if (Deaths((13), (0), 1, (188)))
+        # (Line 175) }
+        # (Line 176) if (Deaths((13), (0), 1, (188)))
     EUDEndIf()
     if EUDIf()(Deaths((13), (0), 1, (188))):
-        # (Line 168) {
-        # (Line 169) v.Sound_Text_Uniq[cp] = dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * cp));
+        # (Line 177) {
+        # (Line 178) v.Sound_Text_Uniq[cp] = dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * cp));
         _ARRW(v.Sound_Text_Uniq, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * cp)))
-        # (Line 170) SetDeaths((13), (7), 0, (188));
-        # (Line 172) const Condition = v.Sound_Text_Uniq[cp];
+        # (Line 179) SetDeaths((13), (7), 0, (188));
+        # (Line 181) const Condition = v.Sound_Text_Uniq[cp];
         DoActions(SetDeaths((13), (7), 0, (188)))
         Condition = v.Sound_Text_Uniq[cp]
-        # (Line 174) chtholly.UniqueText(cp);
+        # (Line 183) chtholly.UniqueText(cp);
         chtholly.UniqueText(cp)
-        # (Line 175) maihime.UniqueText(cp);
+        # (Line 184) maihime.UniqueText(cp);
         maihime.UniqueText(cp)
-        # (Line 176) tenshi.UniqueText(cp);
+        # (Line 185) tenshi.UniqueText(cp);
         tenshi.UniqueText(cp)
-        # (Line 177) miyuki.UniqueText(cp);
+        # (Line 186) miyuki.UniqueText(cp);
         miyuki.UniqueText(cp)
-        # (Line 178) negev.UniqueText(cp);
+        # (Line 187) negev.UniqueText(cp);
         negev.UniqueText(cp)
-        # (Line 181) cecillia.UniqueText(cp);
+        # (Line 190) cecillia.UniqueText(cp);
         cecillia.UniqueText(cp)
-        # (Line 182) anzu.UniqueText(cp);
+        # (Line 191) anzu.UniqueText(cp);
         anzu.UniqueText(cp)
-        # (Line 183) hotomoka.UniqueText(cp);
+        # (Line 192) hotomoka.UniqueText(cp);
         hotomoka.UniqueText(cp)
-        # (Line 184) alterego.UniqueText(cp);
+        # (Line 193) alterego.UniqueText(cp);
         alterego.UniqueText(cp)
-        # (Line 186) ryuzu.UniqueText(cp);
+        # (Line 195) ryuzu.UniqueText(cp);
         ryuzu.UniqueText(cp)
-        # (Line 189) sakura.UniqueText(cp);
+        # (Line 198) sakura.UniqueText(cp);
         sakura.UniqueText(cp)
-        # (Line 190) yashiro.UniqueText(cp);
+        # (Line 199) yashiro.UniqueText(cp);
         yashiro.UniqueText(cp)
-        # (Line 191) rin.UniqueText(cp);
+        # (Line 200) rin.UniqueText(cp);
         rin.UniqueText(cp)
-        # (Line 192) seraphim.UniqueText(cp);
+        # (Line 201) seraphim.UniqueText(cp);
         seraphim.UniqueText(cp)
-        # (Line 193) tenkei.UniqueText(cp);
+        # (Line 202) tenkei.UniqueText(cp);
         tenkei.UniqueText(cp)
-        # (Line 196) mn.UniqueText(cp);
+        # (Line 205) mn.UniqueText(cp);
         mn.UniqueText(cp)
-        # (Line 197) emet.UniqueText(cp);
+        # (Line 206) emet.UniqueText(cp);
         emet.UniqueText(cp)
-        # (Line 198) magellan.UniqueText(cp);
+        # (Line 207) magellan.UniqueText(cp);
         magellan.UniqueText(cp)
-        # (Line 199) }
-        # (Line 200) }
+        # (Line 208) }
+        # (Line 209) }
     EUDEndIf()
-    # (Line 201) function BGMRoutine(cp)
+    # (Line 210) function BGMRoutine(cp)
 
-# (Line 202) {
+# (Line 211) {
 @EUDFunc
 def BGMRoutine(cp):
-    # (Line 203) if (bgmWait[cp] == 1 && Bring(cp, Exactly, 0, "Terran SCV", "[BGM]ON")) bgmWait[cp] = 0;
-    if EUDIf()(EUDSCAnd()(bgmWait[cp] == 1)(Bring(cp, Exactly, 0, "Terran SCV", "[BGM]ON"))()):
-        _ARRW(bgmWait, cp) << (0)
-        # (Line 204) else if (bgmWait[cp] == 1)
-    if EUDElseIf()(bgmWait[cp] == 1):
-        # (Line 205) {
-        # (Line 206) bgmWait[cp] = 2720;
-        _ARRW(bgmWait, cp) << (2720)
-        # (Line 208) s.print("\x04N\x02ow \x04P\x02laying... ' \x1FL\x04ayers [\x1BR\x04e : \x19C\x04REATORS] \x02by \x04S\x02awano \x04H\x02iroyuki \x04'");
-        s.print("\x04N\x02ow \x04P\x02laying... ' \x1FL\x04ayers [\x1BR\x04e : \x19C\x04REATORS] \x02by \x04S\x02awano \x04H\x02iroyuki \x04'")
-        # (Line 209) PlayWAV("BGM03.ogg");
-        # (Line 210) }
-        DoActions(PlayWAV("BGM03.ogg"))
-        # (Line 211) else if (bgmWait[cp] > 1)	 bgmWait[cp] -= 1;
-    if EUDElseIf()(bgmWait[cp] <= 1, neg=True):
-        _ARRW(bgmWait, cp).__isub__(1)
-        # (Line 212) else if (bgmWait[cp] == 0 && Bring(cp, AtLeast, 1, "Terran SCV", "[BGM]ON")) bgmWait[cp] = 1;
-    if EUDElseIf()(EUDSCAnd()(bgmWait[cp] == 0)(Bring(cp, AtLeast, 1, "Terran SCV", "[BGM]ON"))()):
-        _ARRW(bgmWait, cp) << (1)
-        # (Line 213) }
-    EUDEndIf()
-    # (Line 215) function SkillWait(cp)
-
-# (Line 216) {
-@EUDFunc
-def SkillWait(cp):
-    # (Line 217) if (f.delay[cp] == 0)
-    if EUDIf()(f.delay[cp] == 0):
-        # (Line 218) {
-        # (Line 219) if (f.count[cp] == 999)
-        if EUDIf()(f.count[cp] == 999):
-            # (Line 220) {
-            # (Line 221) f.SkillWait(cp, 500);
-            f.SkillWait(cp, 500)
-            # (Line 222) f.count[cp] = 1000;
-            _ARRW(f.count, cp) << (1000)
-            # (Line 223) }
-            # (Line 224) else if (f.count[cp] == 1000)
-        if EUDElseIf()(f.count[cp] == 1000):
-            # (Line 225) {
-            # (Line 226) f.count[cp] = 0;
-            _ARRW(f.count, cp) << (0)
-            # (Line 227) f.loop[cp] = 0;
-            _ARRW(f.loop, cp) << (0)
-            # (Line 228) f.wait[cp] = 12;
-            _ARRW(f.wait, cp) << (12)
-            # (Line 229) }
+    # (Line 212) if (Bring(cp, AtLeast, 1, "Terran SCV", "[BGM]ON"))
+    if EUDIf()(Bring(cp, AtLeast, 1, "Terran SCV", "[BGM]ON")):
+        # (Line 213) {
+        # (Line 214) if (bgmWait[cp] == 0)
+        if EUDIf()(bgmWait[cp] == 0):
+            # (Line 215) {
+            # (Line 217) if (Bring(P7, AtLeast, 1, 200, "Anywhere") && Bring(P8, AtLeast, 1, 200, "Anywhere"))			// 초반 인식
+            if EUDIf()(EUDSCAnd()(Bring(P7, AtLeast, 1, 200, "Anywhere"))(Bring(P8, AtLeast, 1, 200, "Anywhere"))()):
+                # (Line 218) {
+                # (Line 219) f.stb.print("　　\x04\x1F# N\x04ow \x04Playing... ' \x10RE/ /MEMBER \x04' by \x19S\x04awano \x19H\x04iroyuki \x04");
+                f.stb.print("　　\x04\x1F# N\x04ow \x04Playing... ' \x10RE/ /MEMBER \x04' by \x19S\x04awano \x19H\x04iroyuki \x04")
+                # (Line 220) PlayWAV("BGM1.ogg");
+                # (Line 221) bgmWait[cp] = 3708;
+                DoActions(PlayWAV("BGM1.ogg"))
+                _ARRW(bgmWait, cp) << (3708)
+                # (Line 222) }
+                # (Line 223) else if (Bring(P7, AtLeast, 1, 79, "Anywhere") && Bring(P8, AtLeast, 1, 79, "Anywhere")) 		// 중반 인식
+            if EUDElseIf()(EUDSCAnd()(Bring(P7, AtLeast, 1, 79, "Anywhere"))(Bring(P8, AtLeast, 1, 79, "Anywhere"))()):
+                # (Line 224) {
+                # (Line 225) f.stb.print("　　\x04N\x02ow \x04P\x02laying... ' \x1FS\x04h0ut [\x1BR\x04e : \x19C\x04REATORS] \x02by \x04S\x02awano \x04H\x02iroyuki \x04'");
+                f.stb.print("　　\x04N\x02ow \x04P\x02laying... ' \x1FS\x04h0ut [\x1BR\x04e : \x19C\x04REATORS] \x02by \x04S\x02awano \x04H\x02iroyuki \x04'")
+                # (Line 226) PlayWAV("BGM2.ogg");
+                # (Line 227) bgmWait[cp] = 2916;
+                DoActions(PlayWAV("BGM2.ogg"))
+                _ARRW(bgmWait, cp) << (2916)
+                # (Line 228) }
+                # (Line 229) }
+            EUDEndIf()
             # (Line 230) }
         EUDEndIf()
-        # (Line 232) if (f.wait[cp] >= 2)
+        # (Line 232) if (bgmWait[cp] > 0)
+    EUDEndIf()
+    if EUDIf()(bgmWait[cp] <= 0, neg=True):
+        # (Line 233) {
+        # (Line 234) bgmWait[cp] -= 1;
+        _ARRW(bgmWait, cp).__isub__(1)
+        # (Line 235) }
+        # (Line 236) }
+    EUDEndIf()
+    # (Line 238) function SkillWait(cp)
+
+# (Line 239) {
+@EUDFunc
+def SkillWait(cp):
+    # (Line 240) if (f.delay[cp] == 0)
+    if EUDIf()(f.delay[cp] == 0):
+        # (Line 241) {
+        # (Line 242) if (f.count[cp] == 999)
+        if EUDIf()(f.count[cp] == 999):
+            # (Line 243) {
+            # (Line 244) f.SkillWait(cp, 500);
+            f.SkillWait(cp, 500)
+            # (Line 245) f.count[cp] = 1000;
+            _ARRW(f.count, cp) << (1000)
+            # (Line 246) }
+            # (Line 247) else if (f.count[cp] == 1000)
+        if EUDElseIf()(f.count[cp] == 1000):
+            # (Line 248) {
+            # (Line 249) f.count[cp] = 0;
+            _ARRW(f.count, cp) << (0)
+            # (Line 250) f.loop[cp] = 0;
+            _ARRW(f.loop, cp) << (0)
+            # (Line 251) f.wait[cp] = 12;
+            _ARRW(f.wait, cp) << (12)
+            # (Line 252) }
+            # (Line 253) }
+        EUDEndIf()
+        # (Line 255) if (f.wait[cp] >= 2)
     EUDEndIf()
     if EUDIf()(f.wait[cp] >= 2):
-        # (Line 233) {
-        # (Line 234) f.wait[cp] -= 1;
+        # (Line 256) {
+        # (Line 257) f.wait[cp] -= 1;
         _ARRW(f.wait, cp).__isub__(1)
-        # (Line 235) }
-        # (Line 236) else if (f.wait[cp] == 1)
+        # (Line 258) }
+        # (Line 259) else if (f.wait[cp] == 1)
     if EUDElseIf()(f.wait[cp] == 1):
-        # (Line 237) {
-        # (Line 238) f.wait[cp] = 0;
+        # (Line 260) {
+        # (Line 261) f.wait[cp] = 0;
         _ARRW(f.wait, cp) << (0)
-        # (Line 239) f.step[cp] = 0;
+        # (Line 262) f.step[cp] = 0;
         _ARRW(f.step, cp) << (0)
-        # (Line 240) }
-        # (Line 241) }
+        # (Line 263) }
+        # (Line 264) }
     EUDEndIf()
-    # (Line 243) function SkillDelay(cp)
+    # (Line 266) function SkillDelay(cp)
 
-# (Line 244) {
+# (Line 267) {
 @EUDFunc
 def SkillDelay(cp):
-    # (Line 245) if (f.delay[cp] >= 1) { f.delay[cp] -= 1; }
+    # (Line 268) if (f.delay[cp] >= 1) { f.delay[cp] -= 1; }
     if EUDIf()(f.delay[cp] >= 1):
         _ARRW(f.delay, cp).__isub__(1)
-        # (Line 246) if (f.delayB[cp] >= 1) { f.delayB[cp] -= 1; }
+        # (Line 269) if (f.delayB[cp] >= 1) { f.delayB[cp] -= 1; }
     EUDEndIf()
     if EUDIf()(f.delayB[cp] >= 1):
         _ARRW(f.delayB, cp).__isub__(1)
-        # (Line 247) if (f.delayC[cp] >= 1) { f.delayC[cp] -= 1; }
+        # (Line 270) if (f.delayC[cp] >= 1) { f.delayC[cp] -= 1; }
     EUDEndIf()
     if EUDIf()(f.delayC[cp] >= 1):
         _ARRW(f.delayC, cp).__isub__(1)
-        # (Line 248) }
+        # (Line 271) }
     EUDEndIf()

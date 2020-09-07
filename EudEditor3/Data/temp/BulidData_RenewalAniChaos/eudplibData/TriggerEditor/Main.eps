@@ -13,6 +13,8 @@ import Character.DeathText as deathText;			// 사망 텍스트
 import Character.Marge as marge;				// 유닛 스킬 텍스트
 import Character.Announce as announce;			// 상태창 텍스트
 
+import Function as f;			// 상태창 텍스트
+
 function onPluginStart() 	// 초기화 함수
 {
     	EUDPlayerLoop()();
@@ -32,6 +34,8 @@ function MainLoop()
 		selectText.CharacterTextNum(cp);		// 캐릭터 클릭 인식
 		
 		ppty.PropertyText();					// 특성 텍스트
+		
+		f.SetHeroID(cp);
 		
 		if (Switch((253), (2)))					// TestMode
 		{

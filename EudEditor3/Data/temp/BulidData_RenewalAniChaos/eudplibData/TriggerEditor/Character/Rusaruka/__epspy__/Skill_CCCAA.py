@@ -132,13 +132,13 @@ import Function as f
 # (Line 4) {
 @EUDFunc
 def f_main(cp):
-    # (Line 5) f.BanReturn(cp);
-    f.BanReturn(cp)
-    # (Line 7) if (f.count[cp] < 2)
+    # (Line 6) if (f.count[cp] < 2)
     if EUDIf()(f.count[cp] >= 2, neg=True):
-        # (Line 8) {
-        # (Line 9) f.HoldPosition(cp);
+        # (Line 7) {
+        # (Line 8) f.HoldPosition(cp);
         f.HoldPosition(cp)
+        # (Line 9) f.BanReturn(cp);
+        f.BanReturn(cp)
         # (Line 10) }
         # (Line 12) if (f.delay[cp] == 0)
     EUDEndIf()

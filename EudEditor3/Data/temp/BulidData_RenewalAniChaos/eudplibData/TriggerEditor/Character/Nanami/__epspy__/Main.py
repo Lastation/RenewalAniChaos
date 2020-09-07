@@ -156,166 +156,162 @@ from Character.Nanami import Skill_Ult2 as Ult2
 from Character.Nanami import Text as text
 # (Line 17) import Character.Nanami.Commend as commend;
 from Character.Nanami import Commend as commend
-# (Line 19) const stb = StringBuffer();
-stb = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 20) const s = StringBuffer();
-s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 21) function SkillList(cp);
-# (Line 23) function main(cp)
-# (Line 24) {
+# (Line 19) function SkillList(cp);
+# (Line 21) function main(cp)
+# (Line 22) {
 @EUDFunc
 def f_main(cp):
-    # (Line 25) f.location[cp] = 185;
+    # (Line 23) f.location[cp] = 185;
     _ARRW(f.location, cp) << (185)
-    # (Line 26) f.heroID[cp] = 64;
+    # (Line 24) f.heroID[cp] = 64;
     _ARRW(f.heroID, cp) << (64)
-    # (Line 28) f.UltimateA[cp] = 700;
+    # (Line 26) f.UltimateA[cp] = 700;
     _ARRW(f.UltimateA, cp) << (700)
-    # (Line 29) f.UltimateB[cp] = 500;
+    # (Line 27) f.UltimateB[cp] = 500;
     _ARRW(f.UltimateB, cp) << (500)
-    # (Line 31) SkillList(cp);
+    # (Line 29) SkillList(cp);
     SkillList(cp)
-    # (Line 32) commend.main(cp);
+    # (Line 30) commend.main(cp);
     commend.f_main(cp)
-    # (Line 34) if (f.wait[cp] == 0)
+    # (Line 32) if (f.wait[cp] == 0)
     if EUDIf()(f.wait[cp] == 0):
-        # (Line 35) {
-        # (Line 36) switch(f.step[cp])
+        # (Line 33) {
+        # (Line 34) switch(f.step[cp])
         EUDSwitch(f.step[cp])
-        # (Line 37) {
-        # (Line 38) case 1:
+        # (Line 35) {
+        # (Line 36) case 1:
         _t2 = EUDSwitchCase()
-        # (Line 39) O.main(cp);
+        # (Line 37) O.main(cp);
         if _t2(1):
             O.f_main(cp)
-            # (Line 40) break;
+            # (Line 38) break;
             EUDBreak()
-            # (Line 41) case 100:
+            # (Line 39) case 100:
         _t3 = EUDSwitchCase()
-        # (Line 42) S.main(cp);
+        # (Line 40) S.main(cp);
         if _t3(100):
             S.f_main(cp)
-            # (Line 43) break;
+            # (Line 41) break;
             EUDBreak()
-            # (Line 44) case 200:
+            # (Line 42) case 200:
         _t4 = EUDSwitchCase()
-        # (Line 45) C.main(cp);
+        # (Line 43) C.main(cp);
         if _t4(200):
             C.f_main(cp)
-            # (Line 46) break;
+            # (Line 44) break;
             EUDBreak()
-            # (Line 47) case 300:
+            # (Line 45) case 300:
         _t5 = EUDSwitchCase()
-        # (Line 48) A.main(cp);
+        # (Line 46) A.main(cp);
         if _t5(300):
             A.f_main(cp)
-            # (Line 49) break;
+            # (Line 47) break;
             EUDBreak()
-            # (Line 50) case 110:
+            # (Line 48) case 110:
         _t6 = EUDSwitchCase()
-        # (Line 51) SSS.main(cp);
+        # (Line 49) SSS.main(cp);
         if _t6(110):
             SSS.f_main(cp)
-            # (Line 52) break;
+            # (Line 50) break;
             EUDBreak()
-            # (Line 53) case 210:
+            # (Line 51) case 210:
         _t7 = EUDSwitchCase()
-        # (Line 54) CCC.main(cp);
+        # (Line 52) CCC.main(cp);
         if _t7(210):
             CCC.f_main(cp)
-            # (Line 55) break;
+            # (Line 53) break;
             EUDBreak()
-            # (Line 56) case 220:
+            # (Line 54) case 220:
         _t8 = EUDSwitchCase()
-        # (Line 57) CCCAA.main(cp);
+        # (Line 55) CCCAA.main(cp);
         if _t8(220):
             CCCAA.f_main(cp)
-            # (Line 58) break;
+            # (Line 56) break;
             EUDBreak()
-            # (Line 59) case 230:
+            # (Line 57) case 230:
         _t9 = EUDSwitchCase()
-        # (Line 60) CCA.main(cp);
+        # (Line 58) CCA.main(cp);
         if _t9(230):
             CCA.f_main(cp)
-            # (Line 61) break;
+            # (Line 59) break;
             EUDBreak()
-            # (Line 62) case 240:
+            # (Line 60) case 240:
         _t10 = EUDSwitchCase()
-        # (Line 63) CCAAA.main(cp);
+        # (Line 61) CCAAA.main(cp);
         if _t10(240):
             CCAAA.f_main(cp)
-            # (Line 64) break;
+            # (Line 62) break;
             EUDBreak()
-            # (Line 65) case 250:
+            # (Line 63) case 250:
         _t11 = EUDSwitchCase()
-        # (Line 66) CCAAAAA.main(cp);
+        # (Line 64) CCAAAAA.main(cp);
         if _t11(250):
             CCAAAAA.f_main(cp)
-            # (Line 67) break;
+            # (Line 65) break;
             EUDBreak()
-            # (Line 68) case 260:
+            # (Line 66) case 260:
         _t12 = EUDSwitchCase()
-        # (Line 69) Ult1.main(cp);
+        # (Line 67) Ult1.main(cp);
         if _t12(260):
             Ult1.f_main(cp)
-            # (Line 70) break;
+            # (Line 68) break;
             EUDBreak()
-            # (Line 71) case 310:
+            # (Line 69) case 310:
         _t13 = EUDSwitchCase()
-        # (Line 72) Ult2.main(cp);
+        # (Line 70) Ult2.main(cp);
         if _t13(310):
             Ult2.f_main(cp)
-            # (Line 73) break;
+            # (Line 71) break;
             EUDBreak()
-            # (Line 74) }
-        # (Line 75) }
+            # (Line 72) }
+        # (Line 73) }
         EUDEndSwitch()
-        # (Line 79) }
+        # (Line 77) }
     EUDEndIf()
-    # (Line 82) function SkillVoice(cp)
+    # (Line 80) function SkillVoice(cp)
 
-# (Line 83) {
+# (Line 81) {
 @EUDFunc
 def SkillVoice(cp):
-    # (Line 84) if (f.Nanami_Voice[cp] != 0) { text.main(cp); }
+    # (Line 82) if (f.Nanami_Voice[cp] != 0) { text.main(cp); }
     if EUDIf()(f.Nanami_Voice[cp] == 0, neg=True):
         text.f_main(cp)
-        # (Line 85) }
+        # (Line 83) }
     EUDEndIf()
-    # (Line 87) function SkillList(cp)
+    # (Line 85) function SkillList(cp)
 
-# (Line 88) {
+# (Line 86) {
 @EUDFunc
 def SkillList(cp):
-    # (Line 89) if(f.INSERT_KEY[cp] == 1) 	// Insert key Pressed
+    # (Line 87) if(f.INSERT_KEY[cp] == 1) 	// Insert key Pressed
     if EUDIf()(f.INSERT_KEY[cp] == 1):
-        # (Line 90) {
-        # (Line 91) stb.printAt(0, "\n");
-        stb.printAt(0, "\n")
-        # (Line 92) stb.printAt(1, "\x1F　＃\x1B- 나나미 치아키　\x04[ 단간론파 ]");
-        stb.printAt(1, "\x1F　＃\x1B- 나나미 치아키　\x04[ 단간론파 ]")
-        # (Line 93) stb.printAt(2, "　　\x1FA\x04ction List");
-        stb.printAt(2, "　　\x1FA\x04ction List")
-        # (Line 94) stb.printAt(3, "　　　\x17Passive \x04초고교급 게이머 \x19[ 아군 마나 회복 증가 +5 ]");
-        stb.printAt(3, "　　　\x17Passive \x04초고교급 게이머 \x19[ 아군 마나 회복 증가 +5 ]")
-        # (Line 95) stb.printAt(4, "　　　\x18O \x04모두의 힘 \x19[ 1분 간 아군 공 방 증가 +5 ] \x053분");
-        stb.printAt(4, "　　　\x18O \x04모두의 힘 \x19[ 1분 간 아군 공 방 증가 +5 ] \x053분")
-        # (Line 96) stb.printAt(5, "　　　\x04\x1FSSS \x04발상 \x19[ 만능 ]");
-        stb.printAt(5, "　　　\x04\x1FSSS \x04발상 \x19[ 만능 ]")
-        # (Line 97) stb.printAt(6, "　　　\x04\x1FACC+ CA \x04필살기 \x19[ 만능 / 자리고정 ]");
-        stb.printAt(6, "　　　\x04\x1FACC+ CA \x04필살기 \x19[ 만능 / 자리고정 ]")
-        # (Line 98) stb.printAt(7, "　　　\x04\x1FCCC + AA + AA \x04응원 \x19[ 공성 / 자리고정 / 15 x 15 아군 공 방 증가 +5 ] \x1F[1]");
-        stb.printAt(7, "　　　\x04\x1FCCC + AA + AA \x04응원 \x19[ 공성 / 자리고정 / 15 x 15 아군 공 방 증가 +5 ] \x1F[1]")
-        # (Line 99) stb.printAt(8, "\n");
-        stb.printAt(8, "\n")
-        # (Line 100) stb.printAt(9, "　　　\x1F[1] + \x08O \x04클래스메이트 \x19[ 공성 / 자리고정 ] \x05", f.UltimateA[cp]);
-        stb.printAt(9, "　　　\x1F[1] + \x08O \x04클래스메이트 \x19[ 공성 / 자리고정 ] \x05", f.UltimateA[cp])
-        # (Line 101) stb.printAt(10, "　　　\x08AAA \x04격려 \x19[ 서포트 / 아군 궁게이지 +250 ] \x05", f.UltimateB[cp]);
-        stb.printAt(10, "　　　\x08AAA \x04격려 \x19[ 서포트 / 아군 궁게이지 +250 ] \x05", f.UltimateB[cp])
-        # (Line 102) PlayWAV("sound\\Bullet\\LaserHit.wav");
-        # (Line 103) f.INSERT_KEY[cp] = 0;
+        # (Line 88) {
+        # (Line 89) f.stb.printAt(0, "\n");
+        f.stb.printAt(0, "\n")
+        # (Line 90) f.stb.printAt(1, "\x1F　＃\x1B- 나나미 치아키　\x04[ 단간론파 ]");
+        f.stb.printAt(1, "\x1F　＃\x1B- 나나미 치아키　\x04[ 단간론파 ]")
+        # (Line 91) f.stb.printAt(2, "　　\x1FA\x04ction List");
+        f.stb.printAt(2, "　　\x1FA\x04ction List")
+        # (Line 92) f.stb.printAt(3, "　　　\x17Passive \x04초고교급 게이머 \x19[ 아군 마나 회복 증가 +5 ]");
+        f.stb.printAt(3, "　　　\x17Passive \x04초고교급 게이머 \x19[ 아군 마나 회복 증가 +5 ]")
+        # (Line 93) f.stb.printAt(4, "　　　\x18O \x04모두의 힘 \x19[ 1분 간 아군 공 방 증가 +5 ] \x053분");
+        f.stb.printAt(4, "　　　\x18O \x04모두의 힘 \x19[ 1분 간 아군 공 방 증가 +5 ] \x053분")
+        # (Line 94) f.stb.printAt(5, "　　　\x04\x1FSSS \x04발상 \x19[ 만능 ]");
+        f.stb.printAt(5, "　　　\x04\x1FSSS \x04발상 \x19[ 만능 ]")
+        # (Line 95) f.stb.printAt(6, "　　　\x04\x1FACC+ CA \x04필살기 \x19[ 만능 / 자리고정 ]");
+        f.stb.printAt(6, "　　　\x04\x1FACC+ CA \x04필살기 \x19[ 만능 / 자리고정 ]")
+        # (Line 96) f.stb.printAt(7, "　　　\x04\x1FCCC + AA + AA \x04응원 \x19[ 공성 / CCC + AA - 자리고정 / 15 x 15 아군 공 방 증가 +5 ] \x1F[1]");
+        f.stb.printAt(7, "　　　\x04\x1FCCC + AA + AA \x04응원 \x19[ 공성 / CCC + AA - 자리고정 / 15 x 15 아군 공 방 증가 +5 ] \x1F[1]")
+        # (Line 97) f.stb.printAt(8, "\n");
+        f.stb.printAt(8, "\n")
+        # (Line 98) f.stb.printAt(9, "　　　\x1F[1] + \x08O \x04클래스메이트 \x19[ 공성 / 자리고정 ] \x05", f.UltimateA[cp]);
+        f.stb.printAt(9, "　　　\x1F[1] + \x08O \x04클래스메이트 \x19[ 공성 / 자리고정 ] \x05", f.UltimateA[cp])
+        # (Line 99) f.stb.printAt(10, "　　　\x08AAA \x04격려 \x19[ 서포트 / 아군 궁게이지 +250 ] \x05", f.UltimateB[cp]);
+        f.stb.printAt(10, "　　　\x08AAA \x04격려 \x19[ 서포트 / 아군 궁게이지 +250 ] \x05", f.UltimateB[cp])
+        # (Line 100) PlayWAV("sound\\Bullet\\LaserHit.wav");
+        # (Line 101) f.INSERT_KEY[cp] = 0;
         DoActions(PlayWAV("sound\\Bullet\\LaserHit.wav"))
         _ARRW(f.INSERT_KEY, cp) << (0)
-        # (Line 104) }
-        # (Line 105) }
+        # (Line 102) }
+        # (Line 103) }
     EUDEndIf()

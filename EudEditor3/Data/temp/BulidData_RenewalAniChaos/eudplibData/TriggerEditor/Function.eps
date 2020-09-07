@@ -27,6 +27,8 @@ const distance	= PVariable();			// 거리 관련 변수
 const SinAngle 	= PVariable();			// Sin 변수
 const CosAngle 	= PVariable();			// Cos 변수
 
+const stb		= StringBuffer();
+
 const HoldLocation = [97, 119, 122, 126, 134, 143, 0, 0];
 
 const CosTableArray = EUDArray(py_eval("[int(round(100*math.cos(math.radians(t)))) for t in range(361)]"));
@@ -39,6 +41,7 @@ const Yuuna_Voice 		= PVariable();	// 22
 const Mayuri_Voice 		= PVariable();	// 23
 const Nanami_Voice 		= PVariable();	// 24
 const Milim_Voice 		= PVariable();	// 25
+const Yume_Voice 		= PVariable();	// 26
 
 function Table_Sin(cp, degree, distance);
 function Table_Cos(cp, degree, distance);
@@ -95,7 +98,81 @@ function Voice_Routine(cp, num)
 		Milim_Voice[4] = num;
 		Milim_Voice[5] = num;
 		break;	
-	
+	case 26:
+		Yume_Voice[0] = num;
+		Yume_Voice[1] = num;
+		Yume_Voice[2] = num;
+		Yume_Voice[3] = num;
+		Yume_Voice[4] = num;
+		Yume_Voice[5] = num;
+		break;	
+	}
+}
+
+function SetHeroID(cp)
+{
+	switch(v.Hero_Num[cp])
+	{
+		case 2:
+			heroID[cp] = 77;
+			break;
+		case 3:
+			heroID[cp] = 74;
+			break;
+		case 4:
+			heroID[cp] = 74;
+			break;			
+		case 5:
+			heroID[cp] = 74;
+			break;	
+		case 6:
+			heroID[cp] = 16;
+			break;	
+		case 7:
+			heroID[cp] = 77;
+			break;	
+		case 8:
+			heroID[cp] = 51;
+			break;	
+		case 9:
+			heroID[cp] = 51;
+			break;	
+		case 10:
+			heroID[cp] = 77;
+			break;	
+		case 11:
+			heroID[cp] = 16;
+			break;	
+		case 12:
+			heroID[cp] = 54;
+			break;	
+		case 13:
+			heroID[cp] = 16;
+			break;	
+		case 14:
+			heroID[cp] = 99;
+			break;	
+		case 15:
+			heroID[cp] = 54;
+			break;	
+		case 16:
+			heroID[cp] = 16;
+			break;	
+		case 17:
+			heroID[cp] = 77;
+			break;	
+		case 18:
+			heroID[cp] = 99;
+			break;	
+		case 19:
+			heroID[cp] = 51;
+			break;	
+		case 20:
+			heroID[cp] = 99;
+			break;	
+		case 21:
+			heroID[cp] = 64;
+			break;	
 	}
 }
 
@@ -124,6 +201,13 @@ function HoldPosition(cp)
 	Order(heroID[cp], cp, "Anywhere", Move, HoldLocation[cp]);
 }
 
+function Slow(cp)
+{
+   MoveLocation(HoldLocation[cp], heroID[cp], cp, "Anywhere");
+   SkillUnit(cp, 1, "Zerg Devourer");
+   RemoveUnitAt(1, "Zerg Devourer", "Anywhere", cp);
+}
+
 function DotShape(cp : TrgPlayer, count, Unit : TrgUnit, x, y)
 {
 	MoveLoc(heroID[cp], cp, x, y);
@@ -150,6 +234,14 @@ function SkillEnd(cp)
 	count[cp] = 999;
 }
 
+function DoubleShape(cp : TrgPlayer, count, Unit : TrgUnit, x, y)
+{
+	MoveLoc(heroID[cp], cp, x, y);
+	SkillUnit(cp, count, Unit);
+	MoveLoc(heroID[cp], cp, -x, -y);
+	SkillUnit(cp, count, Unit);
+}
+
 function SquareShape(cp : TrgPlayer, count, Unit : TrgUnit, x, y)
 {
 	MoveLoc(heroID[cp], cp, x, y);
@@ -166,11 +258,11 @@ function SquareShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, x, y, distanceX, d
 {
 	MoveLoc(heroID[cp], cp, x + distanceX, y + distanceY);
 	SkillUnit(cp, count, Unit);
-	MoveLoc(heroID[cp], cp, -y + distanceY, x + distanceX);
+	MoveLoc(heroID[cp], cp, -y + distanceX, x + distanceY);
 	SkillUnit(cp, count, Unit);
 	MoveLoc(heroID[cp], cp, -x + distanceX, -y + distanceY);
 	SkillUnit(cp, count, Unit);
-	MoveLoc(heroID[cp], cp, y + distanceY, -x + distanceX);
+	MoveLoc(heroID[cp], cp, y + distanceX, -x + distanceY);
 	SkillUnit(cp, count, Unit);
 }
 

@@ -144,166 +144,166 @@ def f_main(cp):
         _t2 = EUDSwitchCase()
         # (Line 12) PlayWAV("Nanami_01.ogg");
         if _t2(1):
-            # (Line 13) s.print("\x13\x1BNanami Chiaki\n");
+            # (Line 13) f.stb.print("\x13\x1BNanami Chiaki\n");
             DoActions(PlayWAV("Nanami_01.ogg"))
-            s.print("\x13\x1BNanami Chiaki\n")
-            # (Line 14) s.print("\x13\x04아, 떠올랐다! ...일 지도 몰라\x04\n");
-            s.print("\x13\x04아, 떠올랐다! ...일 지도 몰라\x04\n")
+            f.stb.print("\x13\x1BNanami Chiaki\n")
+            # (Line 14) f.stb.print("\x13\x04아, 떠올랐다! ...일 지도 몰라\x04\n");
+            f.stb.print("\x13\x04아, 떠올랐다! ...일 지도 몰라\x04\n")
             # (Line 15) break;
             EUDBreak()
             # (Line 16) case 2:
         _t3 = EUDSwitchCase()
         # (Line 17) PlayWAV("Nanami_02.ogg");
         if _t3(2):
-            # (Line 18) s.print("\x13\x1BNanami Chiaki\n");
+            # (Line 18) f.stb.print("\x13\x1BNanami Chiaki\n");
             DoActions(PlayWAV("Nanami_02.ogg"))
-            s.print("\x13\x1BNanami Chiaki\n")
-            # (Line 19) s.print("\x13\x04너희들에겐 그런 걸 뛰어넘을 수 있는 어마어마한 필살기가 있잖아\x04\n");
-            s.print("\x13\x04너희들에겐 그런 걸 뛰어넘을 수 있는 어마어마한 필살기가 있잖아\x04\n")
+            f.stb.print("\x13\x1BNanami Chiaki\n")
+            # (Line 19) f.stb.print("\x13\x04너희들에겐 그런 걸 뛰어넘을 수 있는 어마어마한 필살기가 있잖아\x04\n");
+            f.stb.print("\x13\x04너희들에겐 그런 걸 뛰어넘을 수 있는 어마어마한 필살기가 있잖아\x04\n")
             # (Line 20) break;
             EUDBreak()
             # (Line 21) case 3:
         _t4 = EUDSwitchCase()
         # (Line 22) PlayWAV("Nanami_03.ogg");
         if _t4(3):
-            # (Line 23) s.print("\x13\x1ANanami Chiaki\n");
+            # (Line 23) f.stb.print("\x13\x1ANanami Chiaki\n");
             DoActions(PlayWAV("Nanami_03.ogg"))
-            s.print("\x13\x1ANanami Chiaki\n")
-            # (Line 24) s.print("\x13\x04바로, 하면 어떻게든 된다 같은 거 말이야\x04\n");
-            s.print("\x13\x04바로, 하면 어떻게든 된다 같은 거 말이야\x04\n")
+            f.stb.print("\x13\x1ANanami Chiaki\n")
+            # (Line 24) f.stb.print("\x13\x04바로, 하면 어떻게든 된다 같은 거 말이야\x04\n");
+            f.stb.print("\x13\x04바로, 하면 어떻게든 된다 같은 거 말이야\x04\n")
             # (Line 25) break;
             EUDBreak()
             # (Line 26) case 4:
         _t5 = EUDSwitchCase()
         # (Line 27) PlayWAV("Nanami_04.ogg");
         if _t5(4):
-            # (Line 28) s.print("\x13\x1ANanami Chiaki\n");
+            # (Line 28) f.stb.print("\x13\x1ANanami Chiaki\n");
             DoActions(PlayWAV("Nanami_04.ogg"))
-            s.print("\x13\x1ANanami Chiaki\n")
-            # (Line 29) s.print("\x13\x04그것이 어떤 미래라도 해도, 너희들이 계속 나아가는 한 나는 사라지지 않아\x04\n");
-            s.print("\x13\x04그것이 어떤 미래라도 해도, 너희들이 계속 나아가는 한 나는 사라지지 않아\x04\n")
+            f.stb.print("\x13\x1ANanami Chiaki\n")
+            # (Line 29) f.stb.print("\x13\x04그것이 어떤 미래라도 해도, 너희들이 계속 나아가는 한 나는 사라지지 않아\x04\n");
+            f.stb.print("\x13\x04그것이 어떤 미래라도 해도, 너희들이 계속 나아가는 한 나는 사라지지 않아\x04\n")
             # (Line 30) break;
             EUDBreak()
             # (Line 31) case 5:
         _t6 = EUDSwitchCase()
-        # (Line 32) s.print("\x13\x1ANanami Chiaki\n");
+        # (Line 32) f.stb.print("\x13\x1ANanami Chiaki\n");
         if _t6(5):
-            s.print("\x13\x1ANanami Chiaki\n")
-            # (Line 33) s.print("\x13\x04이곳에서의 일들도... 무의미했던 게 아니야\x04\n");
-            s.print("\x13\x04이곳에서의 일들도... 무의미했던 게 아니야\x04\n")
+            f.stb.print("\x13\x1ANanami Chiaki\n")
+            # (Line 33) f.stb.print("\x13\x04이곳에서의 일들도... 무의미했던 게 아니야\x04\n");
+            f.stb.print("\x13\x04이곳에서의 일들도... 무의미했던 게 아니야\x04\n")
             # (Line 34) break;
             EUDBreak()
             # (Line 35) case 6:
         _t7 = EUDSwitchCase()
         # (Line 36) PlayWAV("Nanami_05.ogg");
         if _t7(6):
-            # (Line 37) s.print("\x13\x1ANanami Chiaki\n");
+            # (Line 37) f.stb.print("\x13\x1ANanami Chiaki\n");
             DoActions(PlayWAV("Nanami_05.ogg"))
-            s.print("\x13\x1ANanami Chiaki\n")
-            # (Line 38) s.print("\x13\x04희망도 절망도 짊어진 너희들이라면, 분명 미래도 만들 수 있을 거야\x04\n");
-            s.print("\x13\x04희망도 절망도 짊어진 너희들이라면, 분명 미래도 만들 수 있을 거야\x04\n")
+            f.stb.print("\x13\x1ANanami Chiaki\n")
+            # (Line 38) f.stb.print("\x13\x04희망도 절망도 짊어진 너희들이라면, 분명 미래도 만들 수 있을 거야\x04\n");
+            f.stb.print("\x13\x04희망도 절망도 짊어진 너희들이라면, 분명 미래도 만들 수 있을 거야\x04\n")
             # (Line 39) break;
             EUDBreak()
             # (Line 40) case 7:
         _t8 = EUDSwitchCase()
-        # (Line 41) s.print("\x13\x1ANanami Chiaki\n");
+        # (Line 41) f.stb.print("\x13\x1ANanami Chiaki\n");
         if _t8(7):
-            s.print("\x13\x1ANanami Chiaki\n")
-            # (Line 42) s.print("\x13\x04편한 기적 같은 것도 한다면 어떻게든 될 거야\x04\n");
-            s.print("\x13\x04편한 기적 같은 것도 한다면 어떻게든 될 거야\x04\n")
+            f.stb.print("\x13\x1ANanami Chiaki\n")
+            # (Line 42) f.stb.print("\x13\x04편한 기적 같은 것도 한다면 어떻게든 될 거야\x04\n");
+            f.stb.print("\x13\x04편한 기적 같은 것도 한다면 어떻게든 될 거야\x04\n")
             # (Line 43) break;
             EUDBreak()
             # (Line 44) case 8:
         _t9 = EUDSwitchCase()
         # (Line 45) PlayWAV("Nanami_06.ogg");
         if _t9(8):
-            # (Line 46) s.print("\x13\x1ANanami Chiaki\n");
+            # (Line 46) f.stb.print("\x13\x1ANanami Chiaki\n");
             DoActions(PlayWAV("Nanami_06.ogg"))
-            s.print("\x13\x1ANanami Chiaki\n")
-            # (Line 47) s.print("\x13\x04그러니까, 어중간하게 머뭇거리지 말고, 모든 걸 버릴 각오로 진심을 담아서 해 줘!\x04\n");
-            s.print("\x13\x04그러니까, 어중간하게 머뭇거리지 말고, 모든 걸 버릴 각오로 진심을 담아서 해 줘!\x04\n")
+            f.stb.print("\x13\x1ANanami Chiaki\n")
+            # (Line 47) f.stb.print("\x13\x04그러니까, 어중간하게 머뭇거리지 말고, 모든 걸 버릴 각오로 진심을 담아서 해 줘!\x04\n");
+            f.stb.print("\x13\x04그러니까, 어중간하게 머뭇거리지 말고, 모든 걸 버릴 각오로 진심을 담아서 해 줘!\x04\n")
             # (Line 48) break;
             EUDBreak()
             # (Line 49) case 9:
         _t10 = EUDSwitchCase()
-        # (Line 50) s.print("\x13\x1ANanami Chiaki\n");
+        # (Line 50) f.stb.print("\x13\x1ANanami Chiaki\n");
         if _t10(9):
-            s.print("\x13\x1ANanami Chiaki\n")
-            # (Line 51) s.print("\x13\x04나도... 응원할테니까 말이야...\x04\n");
-            s.print("\x13\x04나도... 응원할테니까 말이야...\x04\n")
+            f.stb.print("\x13\x1ANanami Chiaki\n")
+            # (Line 51) f.stb.print("\x13\x04나도... 응원할테니까 말이야...\x04\n");
+            f.stb.print("\x13\x04나도... 응원할테니까 말이야...\x04\n")
             # (Line 52) break;
             EUDBreak()
             # (Line 53) case 10:
         _t11 = EUDSwitchCase()
         # (Line 54) PlayWAV("Nanami_Unique.ogg");
         if _t11(10):
-            # (Line 55) s.print("\x13\x1ANanami Chiaki\n");
+            # (Line 55) f.stb.print("\x13\x1ANanami Chiaki\n");
             DoActions(PlayWAV("Nanami_Unique.ogg"))
-            s.print("\x13\x1ANanami Chiaki\n")
-            # (Line 56) s.print("\x13\x04나 혼자선 무리니까... 모두 힘을 합쳐서 생각해보자\x04\n");
-            s.print("\x13\x04나 혼자선 무리니까... 모두 힘을 합쳐서 생각해보자\x04\n")
-            # (Line 57) s.print("\x13\x04지금까지도.. 그렇게 극복해왔으니까\x04\n");
-            s.print("\x13\x04지금까지도.. 그렇게 극복해왔으니까\x04\n")
+            f.stb.print("\x13\x1ANanami Chiaki\n")
+            # (Line 56) f.stb.print("\x13\x04나 혼자선 무리니까... 모두 힘을 합쳐서 생각해보자\x04\n");
+            f.stb.print("\x13\x04나 혼자선 무리니까... 모두 힘을 합쳐서 생각해보자\x04\n")
+            # (Line 57) f.stb.print("\x13\x04지금까지도.. 그렇게 극복해왔으니까\x04\n");
+            f.stb.print("\x13\x04지금까지도.. 그렇게 극복해왔으니까\x04\n")
             # (Line 58) break;
             EUDBreak()
             # (Line 59) case 11:
         _t12 = EUDSwitchCase()
         # (Line 60) PlayWAV("Nanami_Ult01.ogg");
         if _t12(11):
-            # (Line 61) s.print("\x13\x1ANanami Chiaki\n");
+            # (Line 61) f.stb.print("\x13\x1ANanami Chiaki\n");
             DoActions(PlayWAV("Nanami_Ult01.ogg"))
-            s.print("\x13\x1ANanami Chiaki\n")
-            # (Line 62) s.print("\x13\x04나야 말로... 고마워\x04\n");
-            s.print("\x13\x04나야 말로... 고마워\x04\n")
+            f.stb.print("\x13\x1ANanami Chiaki\n")
+            # (Line 62) f.stb.print("\x13\x04나야 말로... 고마워\x04\n");
+            f.stb.print("\x13\x04나야 말로... 고마워\x04\n")
             # (Line 63) break;
             EUDBreak()
             # (Line 64) case 12:
         _t13 = EUDSwitchCase()
-        # (Line 65) s.print("\x13\x1ANanami Chiaki\n");
+        # (Line 65) f.stb.print("\x13\x1ANanami Chiaki\n");
         if _t13(12):
-            s.print("\x13\x1ANanami Chiaki\n")
-            # (Line 66) s.print("\x13\x04모두를... 잊지 않을게\x04\n");
-            s.print("\x13\x04모두를... 잊지 않을게\x04\n")
+            f.stb.print("\x13\x1ANanami Chiaki\n")
+            # (Line 66) f.stb.print("\x13\x04모두를... 잊지 않을게\x04\n");
+            f.stb.print("\x13\x04모두를... 잊지 않을게\x04\n")
             # (Line 67) break;
             EUDBreak()
             # (Line 68) case 13:
         _t14 = EUDSwitchCase()
-        # (Line 69) s.print("\x13\x1ANanami Chiaki\n");
+        # (Line 69) f.stb.print("\x13\x1ANanami Chiaki\n");
         if _t14(13):
-            s.print("\x13\x1ANanami Chiaki\n")
-            # (Line 70) s.print("\x13\x04계속 계속... 잊지 않을게\x04\n");
-            s.print("\x13\x04계속 계속... 잊지 않을게\x04\n")
+            f.stb.print("\x13\x1ANanami Chiaki\n")
+            # (Line 70) f.stb.print("\x13\x04계속 계속... 잊지 않을게\x04\n");
+            f.stb.print("\x13\x04계속 계속... 잊지 않을게\x04\n")
             # (Line 71) break;
             EUDBreak()
             # (Line 72) case 14:
         _t15 = EUDSwitchCase()
-        # (Line 73) s.print("\x13\x1ANanami Chiaki\n");
+        # (Line 73) f.stb.print("\x13\x1ANanami Chiaki\n");
         if _t15(14):
-            s.print("\x13\x1ANanami Chiaki\n")
-            # (Line 74) s.print("\x13\x04이 앞으로도... 어딘가에서 모두를 응원하고 있을게\x04\n");
-            s.print("\x13\x04이 앞으로도... 어딘가에서 모두를 응원하고 있을게\x04\n")
+            f.stb.print("\x13\x1ANanami Chiaki\n")
+            # (Line 74) f.stb.print("\x13\x04이 앞으로도... 어딘가에서 모두를 응원하고 있을게\x04\n");
+            f.stb.print("\x13\x04이 앞으로도... 어딘가에서 모두를 응원하고 있을게\x04\n")
             # (Line 75) break;
             EUDBreak()
             # (Line 76) case 15:
         _t16 = EUDSwitchCase()
-        # (Line 77) s.print("\x13\x1ANanami Chiaki\n");
+        # (Line 77) f.stb.print("\x13\x1ANanami Chiaki\n");
         if _t16(15):
-            s.print("\x13\x1ANanami Chiaki\n")
-            # (Line 78) s.print("\x13\x04그야... 우린 계속 동료니까\x04\n");
-            s.print("\x13\x04그야... 우린 계속 동료니까\x04\n")
+            f.stb.print("\x13\x1ANanami Chiaki\n")
+            # (Line 78) f.stb.print("\x13\x04그야... 우린 계속 동료니까\x04\n");
+            f.stb.print("\x13\x04그야... 우린 계속 동료니까\x04\n")
             # (Line 79) break;
             EUDBreak()
             # (Line 80) case 16:
         _t17 = EUDSwitchCase()
         # (Line 81) PlayWAV("Nanami_Ult02.ogg");
         if _t17(16):
-            # (Line 82) s.print("\x13\x1ANanami Chiaki\n");
+            # (Line 82) f.stb.print("\x13\x1ANanami Chiaki\n");
             DoActions(PlayWAV("Nanami_Ult02.ogg"))
-            s.print("\x13\x1ANanami Chiaki\n")
-            # (Line 83) s.print("\x13\x04어이! 언제까지 머뭇거리고 있을 거야! 가슴 펼 수 있는 자신이 되고 싶었던 거 아니야?\x04\n");
-            s.print("\x13\x04어이! 언제까지 머뭇거리고 있을 거야! 가슴 펼 수 있는 자신이 되고 싶었던 거 아니야?\x04\n")
-            # (Line 84) s.print("\x13\x04그래서, 키보가미네 학원을 동경했던거 아니야?\x04\n");
-            s.print("\x13\x04그래서, 키보가미네 학원을 동경했던거 아니야?\x04\n")
+            f.stb.print("\x13\x1ANanami Chiaki\n")
+            # (Line 83) f.stb.print("\x13\x04어이! 언제까지 머뭇거리고 있을 거야! 가슴 펼 수 있는 자신이 되고 싶었던 거 아니야?\x04\n");
+            f.stb.print("\x13\x04어이! 언제까지 머뭇거리고 있을 거야! 가슴 펼 수 있는 자신이 되고 싶었던 거 아니야?\x04\n")
+            # (Line 84) f.stb.print("\x13\x04그래서, 키보가미네 학원을 동경했던거 아니야?\x04\n");
+            f.stb.print("\x13\x04그래서, 키보가미네 학원을 동경했던거 아니야?\x04\n")
             # (Line 85) break;
             EUDBreak()
             # (Line 87) }

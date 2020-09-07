@@ -136,100 +136,98 @@ from Character.Kiana import Skill_C as C
 from Character.Kiana import Text as text
 # (Line 9) import Character.Kiana.Commend as commend;
 from Character.Kiana import Commend as commend
-# (Line 11) const stb = StringBuffer();
-stb = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 13) function SkillList(cp);
-# (Line 15) function main(cp)
-# (Line 16) {
+# (Line 11) function SkillList(cp);
+# (Line 13) function main(cp)
+# (Line 14) {
 @EUDFunc
 def f_main(cp):
-    # (Line 17) f.location[cp] = 170;
+    # (Line 15) f.location[cp] = 170;
     _ARRW(f.location, cp) << (170)
-    # (Line 18) f.heroID[cp] = 77;
+    # (Line 16) f.heroID[cp] = 77;
     _ARRW(f.heroID, cp) << (77)
-    # (Line 20) f.UltimateA[cp] = 700;
+    # (Line 18) f.UltimateA[cp] = 700;
     _ARRW(f.UltimateA, cp) << (700)
-    # (Line 21) f.UltimateB[cp] = 700;
+    # (Line 19) f.UltimateB[cp] = 700;
     _ARRW(f.UltimateB, cp) << (700)
-    # (Line 24) commend.main(cp);
+    # (Line 22) commend.main(cp);
     commend.f_main(cp)
-    # (Line 25) SkillList(cp);
+    # (Line 23) SkillList(cp);
     SkillList(cp)
-    # (Line 27) if (f.wait[cp] == 0)
+    # (Line 25) if (f.wait[cp] == 0)
     if EUDIf()(f.wait[cp] == 0):
-        # (Line 28) {
-        # (Line 29) switch(f.step[cp])
+        # (Line 26) {
+        # (Line 27) switch(f.step[cp])
         EUDSwitch(f.step[cp])
-        # (Line 30) {
-        # (Line 31) case 1:
+        # (Line 28) {
+        # (Line 29) case 1:
         _t2 = EUDSwitchCase()
-        # (Line 33) break;
+        # (Line 31) break;
         if _t2(1):
             EUDBreak()
-            # (Line 34) case 100:
+            # (Line 32) case 100:
         _t3 = EUDSwitchCase()
-        # (Line 35) S.main(cp);
+        # (Line 33) S.main(cp);
         if _t3(100):
             S.f_main(cp)
-            # (Line 36) break;
+            # (Line 34) break;
             EUDBreak()
-            # (Line 37) case 200:
+            # (Line 35) case 200:
         _t4 = EUDSwitchCase()
-        # (Line 38) C.main(cp);
+        # (Line 36) C.main(cp);
         if _t4(200):
             C.f_main(cp)
-            # (Line 39) break;
+            # (Line 37) break;
             EUDBreak()
-            # (Line 40) case 300:
+            # (Line 38) case 300:
         _t5 = EUDSwitchCase()
-        # (Line 42) break;
+        # (Line 40) break;
         if _t5(300):
             EUDBreak()
-            # (Line 43) }
-        # (Line 44) }
+            # (Line 41) }
+        # (Line 42) }
         EUDEndSwitch()
-        # (Line 46) }
+        # (Line 44) }
     EUDEndIf()
-    # (Line 49) function SkillVoice(cp)
+    # (Line 47) function SkillVoice(cp)
 
-# (Line 50) {
+# (Line 48) {
 @EUDFunc
 def SkillVoice(cp):
-    # (Line 51) if (f.Kiana_Voice[cp] != 0) { text.main(cp); }
+    # (Line 49) if (f.Kiana_Voice[cp] != 0) { text.main(cp); }
     if EUDIf()(f.Kiana_Voice[cp] == 0, neg=True):
         text.f_main(cp)
-        # (Line 52) }
+        # (Line 50) }
     EUDEndIf()
-    # (Line 54) function SkillList(cp)
+    # (Line 52) function SkillList(cp)
 
-# (Line 55) {
+# (Line 53) {
 @EUDFunc
 def SkillList(cp):
-    # (Line 56) if(Deaths(cp, Exactly, 2, "Terran SCV")) 	// Insert key Pressed
+    # (Line 54) if(Deaths(cp, Exactly, 2, "Terran SCV")) 	// Insert key Pressed
     if EUDIf()(Deaths(cp, Exactly, 2, "Terran SCV")):
-        # (Line 57) {
-        # (Line 58) stb.printAt(0, "\n");
-        stb.printAt(0, "\n")
-        # (Line 59) stb.printAt(1, "\x1F　＃\x04- \x17키아나 카스라나　\x04[ 붕괴3 ]");
-        stb.printAt(1, "\x1F　＃\x04- \x17키아나 카스라나　\x04[ 붕괴3 ]")
-        # (Line 60) stb.printAt(2, "　　\x1FA\x04ction List");
-        stb.printAt(2, "　　\x1FA\x04ction List")
-        # (Line 61) stb.printAt(3, "　　　\x18 O \x04  \x19[  ] \x053분");
-        stb.printAt(3, "　　　\x18 O \x04  \x19[  ] \x053분")
-        # (Line 62) stb.printAt(4, "　　　\x1F SSS \x04 네코참! \x19[ 공성 ]");
-        stb.printAt(4, "　　　\x1F SSS \x04 네코참! \x19[ 공성 ]")
-        # (Line 63) stb.printAt(5, "　　　\x1F ??? \x04  \x19[  ]");
-        stb.printAt(5, "　　　\x1F ??? \x04  \x19[  ]")
-        # (Line 64) stb.printAt(6, "\n");
-        stb.printAt(6, "\n")
-        # (Line 65) stb.printAt(7, "　　　\x08AAAA \x04 \x19[  ] \x05", f.UltimateA[cp]);
-        stb.printAt(7, "　　　\x08AAAA \x04 \x19[  ] \x05", f.UltimateA[cp])
-        # (Line 66) stb.printAt(8, "\n");
-        stb.printAt(8, "\n")
-        # (Line 67) stb.printAt(9, "\n");
-        stb.printAt(9, "\n")
-        # (Line 68) PlayWAV("sound\\Bullet\\LaserHit.wav");
-        # (Line 69) }
+        # (Line 55) {
+        # (Line 56) f.stb.printAt(0, "\n");
+        f.stb.printAt(0, "\n")
+        # (Line 57) f.stb.printAt(1, "\x1F　＃\x04- \x17키아나 카스라나　\x04[ 붕괴3 ]");
+        f.stb.printAt(1, "\x1F　＃\x04- \x17키아나 카스라나　\x04[ 붕괴3 ]")
+        # (Line 58) f.stb.printAt(2, "　　\x1FA\x04ction List");
+        f.stb.printAt(2, "　　\x1FA\x04ction List")
+        # (Line 59) f.stb.printAt(3, "　　　\x18 O \x04  \x19[  ] \x053분");
+        f.stb.printAt(3, "　　　\x18 O \x04  \x19[  ] \x053분")
+        # (Line 60) f.stb.printAt(4, "　　　\x1F SSS \x04 네코참! \x19[ 공성 ]");
+        f.stb.printAt(4, "　　　\x1F SSS \x04 네코참! \x19[ 공성 ]")
+        # (Line 61) f.stb.printAt(5, "　　　\x1F ??? \x04  \x19[  ]");
+        f.stb.printAt(5, "　　　\x1F ??? \x04  \x19[  ]")
+        # (Line 62) f.stb.printAt(6, "\n");
+        f.stb.printAt(6, "\n")
+        # (Line 63) f.stb.printAt(7, "　　　\x08AAAA \x04 \x19[  ] \x05", f.UltimateA[cp]);
+        f.stb.printAt(7, "　　　\x08AAAA \x04 \x19[  ] \x05", f.UltimateA[cp])
+        # (Line 64) f.stb.printAt(8, "\n");
+        f.stb.printAt(8, "\n")
+        # (Line 65) f.stb.printAt(9, "\n");
+        f.stb.printAt(9, "\n")
+        # (Line 66) PlayWAV("sound\\Bullet\\LaserHit.wav");
+        # (Line 67) }
         DoActions(PlayWAV("sound\\Bullet\\LaserHit.wav"))
-        # (Line 70) }
+        # (Line 68) }
     EUDEndIf()

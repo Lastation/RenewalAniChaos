@@ -758,6 +758,7 @@ def onPluginStart():
         SetMemory(0x6573C4, Add, -64),# weapons:Label  index:114    from 293 To 229
         SetMemory(0x6573C4, Add, -4259840),# weapons:Label  index:115    from 294 To 229
         SetMemory(0x6573C8, Add, -2),# weapons:Label  index:116    from 231 To 229
+        SetMemory(0x656E78, Add, 15),# weapons:Graphics  index:116    from 143 To 158
         SetMemory(0x657A00, Add, 2),# weapons:Target Flags  index:52    from 1 To 3
         SetMemory(0x657A14, Add, 0),# weapons:Target Flags  index:62    from 2 To 2
         SetMemory(0x656A84, Add, -64),# weapons:Minimum Range  index:27    from 64 To 0
@@ -790,7 +791,7 @@ def onPluginStart():
         SetMemory(0x6575C4, Add, 305),# weapons:Maximum Range  index:85    from 15 To 320
         SetMemory(0x6575C8, Add, 17),# weapons:Maximum Range  index:86    from 15 To 32
         SetMemory(0x657634, Add, 64),# weapons:Maximum Range  index:113    from 192 To 256
-        SetMemory(0x657640, Add, 32),# weapons:Maximum Range  index:116    from 192 To 224
+        SetMemory(0x657640, Add, 64),# weapons:Maximum Range  index:116    from 192 To 256
         SetMemory(0x6571D0, Add, 2),# weapons:Damage Upgrade  index:0    from 7 To 9
         SetMemory(0x6571D0, Add, 512),# weapons:Damage Upgrade  index:1    from 7 To 9
         SetMemory(0x6571D0, Add, 131072),# weapons:Damage Upgrade  index:2    from 7 To 9
@@ -868,19 +869,25 @@ def onPluginStart():
         SetMemory(0x65728C, Add, 512),# weapons:Weapon Type  index:53    from 1 To 3
         SetMemory(0x65729C, Add, -2),# weapons:Weapon Type  index:68    from 3 To 1
         SetMemory(0x6572A0, Add, -256),# weapons:Weapon Type  index:73    from 3 To 2
+        SetMemory(0x6572CC, Add, 1),# weapons:Weapon Type  index:116    from 2 To 3
         SetMemory(0x6566A0, Add, -6),# weapons:Weapon Behavior  index:48    from 7 To 1
         SetMemory(0x6566A0, Add, -1536),# weapons:Weapon Behavior  index:49    from 7 To 1
         SetMemory(0x6566A8, Add, -65536),# weapons:Weapon Behavior  index:58    from 1 To 0
+        SetMemory(0x6566E4, Add, -2),# weapons:Weapon Behavior  index:116    from 2 To 0
         SetMemory(0x656710, Add, -512),# weapons:Explosion Type  index:25    from 3 To 1
         SetMemory(0x656710, Add, 16777216),# weapons:Explosion Type  index:27    from 2 To 3
         SetMemory(0x656714, Add, 1),# weapons:Explosion Type  index:28    from 2 To 3
         SetMemory(0x656728, Add, -33554432),# weapons:Explosion Type  index:51    from 2 To 0
+        SetMemory(0x65676C, Add, 2),# weapons:Explosion Type  index:116    from 1 To 3
         SetMemory(0x6568B8, Add, -983040),# weapons:Inner Splash Range  index:25    from 15 To 0
         SetMemory(0x6568EC, Add, -655360),# weapons:Inner Splash Range  index:51    from 10 To 0
+        SetMemory(0x656970, Add, 32),# weapons:Inner Splash Range  index:116    from 0 To 32
         SetMemory(0x6570F8, Add, -1310720),# weapons:Medium Splash Range  index:25    from 20 To 0
         SetMemory(0x65712C, Add, -1310720),# weapons:Medium Splash Range  index:51    from 20 To 0
+        SetMemory(0x6571B0, Add, 64),# weapons:Medium Splash Range  index:116    from 0 To 64
         SetMemory(0x6577B0, Add, -1638400),# weapons:Outer Splash Range  index:25    from 25 To 0
         SetMemory(0x6577E4, Add, -1966080),# weapons:Outer Splash Range  index:51    from 30 To 0
+        SetMemory(0x657868, Add, 128),# weapons:Outer Splash Range  index:116    from 0 To 128
         SetMemory(0x656F14, Add, 4587520),# weapons:Damage Amount  index:51    from 10 To 80
         SetMemory(0x656F38, Add, 55),# weapons:Damage Amount  index:68    from 5 To 60
         SetMemory(0x656F40, Add, 2097152),# weapons:Damage Amount  index:73    from 8 To 40
@@ -927,6 +934,7 @@ def onPluginStart():
         SetMemory(0x656A00, Add, 112),# weapons:Attack Angle  index:112    from 16 To 128
         SetMemory(0x656A00, Add, 28672),# weapons:Attack Angle  index:113    from 16 To 128
         SetMemory(0x656A00, Add, 7340032),# weapons:Attack Angle  index:114    from 16 To 128
+        SetMemory(0x656A04, Add, 111),# weapons:Attack Angle  index:116    from 16 To 127
         SetMemory(0x6C9EF8, Add, 1706),# flingy:Speed  index:0    from 1707 To 3413
         SetMemory(0x6C9F18, Add, 1279),# flingy:Speed  index:8    from 1 To 1280
         SetMemory(0x6C9F1C, Add, 1279),# flingy:Speed  index:9    from 1 To 1280
@@ -940,6 +948,7 @@ def onPluginStart():
         SetMemory(0x6CA020, Add, 1279),# flingy:Speed  index:74    from 1 To 1280
         SetMemory(0x6CA02C, Add, 1279),# flingy:Speed  index:77    from 1 To 1280
         SetMemory(0x6CA058, Add, -683),# flingy:Speed  index:88    from 1707 To 1024
+        SetMemory(0x6CA170, Add, -4533),# flingy:Speed  index:158    from 8533 To 4000
         SetMemory(0x6C9C88, Add, 1279),# flingy:Acceleration  index:8    from 1 To 1280
         SetMemory(0x6C9C88, Add, 83820544),# flingy:Acceleration  index:9    from 1 To 1280
         SetMemory(0x6C9C94, Add, 54329344),# flingy:Acceleration  index:15    from 1 To 830
@@ -951,6 +960,7 @@ def onPluginStart():
         SetMemory(0x6C9D04, Add, 6),# flingy:Acceleration  index:70    from 27 To 33
         SetMemory(0x6C9D0C, Add, 1279),# flingy:Acceleration  index:74    from 1 To 1280
         SetMemory(0x6C9D10, Add, 83820544),# flingy:Acceleration  index:77    from 1 To 1280
+        SetMemory(0x6C9DB4, Add, -4533),# flingy:Acceleration  index:158    from 8533 To 4000
         SetMemory(0x6C9E04, Add, 3145728),# flingy:Acceleration  index:199    from 16 To 64
         SetMemory(0x6C9950, Add, -1),# flingy:Halt Distance  index:8    from 1 To 0
         SetMemory(0x6C9954, Add, -1),# flingy:Halt Distance  index:9    from 1 To 0
@@ -963,6 +973,7 @@ def onPluginStart():
         SetMemory(0x6C9A58, Add, -1),# flingy:Halt Distance  index:74    from 1 To 0
         SetMemory(0x6C9A64, Add, -1),# flingy:Halt Distance  index:77    from 1 To 0
         SetMemory(0x6C9A90, Add, -14569),# flingy:Halt Distance  index:88    from 14569 To 0
+        SetMemory(0x6C9BA8, Add, -2267),# flingy:Halt Distance  index:158    from 4267 To 2000
         SetMemory(0x6C9E28, Add, -3328),# flingy:Turn Radius  index:9    from 40 To 27
         SetMemory(0x6C9E44, Add, 335544320),# flingy:Turn Radius  index:39    from 20 To 40
         SetMemory(0x6C9E4C, Add, -851968),# flingy:Turn Radius  index:46    from 40 To 27
@@ -982,6 +993,7 @@ def onPluginStart():
         SetMemory(0x6663A4, Add, -1900544),# sprites:Image File  index:291    from 396 To 367
         SetMemory(0x669E88, Add, 33554432),# images:Draw Function  index:99    from 0 To 2
         SetMemory(0x669F88, Add, 2560),# images:Draw Function  index:353    from 0 To 10
+        SetMemory(0x66A044, Add, 4096),# images:Draw Function  index:541    from 0 To 16
         SetMemory(0x66EDD4, Add, 120),# images:Iscript ID  index:99    from 59 To 179
         SetMemory(0x66F1CC, Add, -46),# images:Iscript ID  index:353    from 207 To 161
         SetMemory(0x655AC4, Add, 1),# upgrades:Icon  index:2    from 291 To 292

@@ -128,232 +128,229 @@ def _LSH(l, r):
 
 # (Line 1) import Function as f;
 import Function as f
-# (Line 3) function main(cp)
-# (Line 4) {
+# (Line 3) const s = StringBuffer();
+s = _CGFW(lambda: [StringBuffer()], 1)[0]
+# (Line 5) function main(cp)
+# (Line 6) {
 @EUDFunc
 def f_main(cp):
-    # (Line 5) MoveLocation("23.Mayuri_Bozo", f.heroID[cp], cp, "Anywhere");
-    # (Line 6) ModifyUnitShields(All, f.heroID[cp], cp, "Anywhere", 1);
+    # (Line 7) MoveLocation("23.Mayuri_Bozo", f.heroID[cp], cp, "Anywhere");
+    # (Line 8) ModifyUnitShields(All, f.heroID[cp], cp, "Anywhere", 1);
     DoActions(MoveLocation("23.Mayuri_Bozo", f.heroID[cp], cp, "Anywhere"))
-    # (Line 8) if (f.delay[cp] == 0)
+    # (Line 10) if (f.delay[cp] == 0)
     DoActions(ModifyUnitShields(All, f.heroID[cp], cp, "Anywhere", 1))
     if EUDIf()(f.delay[cp] == 0):
-        # (Line 9) {
-        # (Line 10) if (f.count[cp] == 0)
+        # (Line 11) {
+        # (Line 12) if (f.count[cp] == 0)
         if EUDIf()(f.count[cp] == 0):
-            # (Line 11) {
-            # (Line 12) if (f.loop[cp] == 0)
+            # (Line 13) {
+            # (Line 14) if (f.loop[cp] == 0)
             if EUDIf()(f.loop[cp] == 0):
-                # (Line 13) {
-                # (Line 14) SetDeaths(cp, SetTo, 1, " `ShieldRecharge");
-                # (Line 15) SetSwitch("Recall - Mayuri", Set);
+                # (Line 15) {
+                # (Line 16) SetDeaths(cp, SetTo, 1, " `ShieldRecharge");
+                # (Line 17) SetSwitch("Recall - Mayuri", Set);
                 DoActions(SetDeaths(cp, SetTo, 1, " `ShieldRecharge"))
-                # (Line 17) f.SkillWait(cp, 1600);
+                # (Line 19) f.SkillWait(cp, 1600);
                 DoActions(SetSwitch("Recall - Mayuri", Set))
                 f.SkillWait(cp, 1600)
-                # (Line 19) f.loop[cp] += 1;
+                # (Line 21) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 20) }
-                # (Line 21) else if (f.loop[cp] == 1)
+                # (Line 22) }
+                # (Line 23) else if (f.loop[cp] == 1)
             if EUDElseIf()(f.loop[cp] == 1):
-                # (Line 22) {
-                # (Line 23) f.Voice_Routine(cp, 4);
+                # (Line 24) {
+                # (Line 25) f.Voice_Routine(cp, 4);
                 f.Voice_Routine(cp, 4)
-                # (Line 25) f.SkillWait(cp, 80);
+                # (Line 27) f.SkillWait(cp, 80);
                 f.SkillWait(cp, 80)
-                # (Line 27) f.count[cp] += 1;
+                # (Line 29) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 28) f.loop[cp] = 0;
+                # (Line 30) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
-                # (Line 29) }
-                # (Line 30) }
+                # (Line 31) }
+                # (Line 32) }
             EUDEndIf()
-            # (Line 31) else if (f.count[cp] == 1)
+            # (Line 33) else if (f.count[cp] == 1)
         if EUDElseIf()(f.count[cp] == 1):
-            # (Line 32) {
-            # (Line 33) if (f.loop[cp] < 8)
+            # (Line 34) {
+            # (Line 35) if (f.loop[cp] < 8)
             if EUDIf()(f.loop[cp] >= 8, neg=True):
-                # (Line 34) {
-                # (Line 35) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
-                # (Line 37) f.DotShape(cp, 1, " Creep. Dunkelheit", 25, 175 - 50 * f.loop[cp]);
+                # (Line 36) {
+                # (Line 37) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
+                # (Line 39) f.DotShape(cp, 1, " Creep. Dunkelheit", 25, 175 - 50 * f.loop[cp]);
                 DoActions(KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp))
                 f.DotShape(cp, 1, " Creep. Dunkelheit", 25, 175 - 50 * f.loop[cp])
-                # (Line 38) f.DotShape(cp, 1, " Creep. Dunkelheit", 75, 175 - 50 * f.loop[cp]);
+                # (Line 40) f.DotShape(cp, 1, " Creep. Dunkelheit", 75, 175 - 50 * f.loop[cp]);
                 f.DotShape(cp, 1, " Creep. Dunkelheit", 75, 175 - 50 * f.loop[cp])
-                # (Line 39) f.DotShape(cp, 1, " Creep. Dunkelheit", 125, 175 - 50 * f.loop[cp]);
+                # (Line 41) f.DotShape(cp, 1, " Creep. Dunkelheit", 125, 175 - 50 * f.loop[cp]);
                 f.DotShape(cp, 1, " Creep. Dunkelheit", 125, 175 - 50 * f.loop[cp])
-                # (Line 40) f.DotShape(cp, 1, " Creep. Dunkelheit", 175, 175 - 50 * f.loop[cp]);
+                # (Line 42) f.DotShape(cp, 1, " Creep. Dunkelheit", 175, 175 - 50 * f.loop[cp]);
                 f.DotShape(cp, 1, " Creep. Dunkelheit", 175, 175 - 50 * f.loop[cp])
-                # (Line 41) f.DotShape(cp, 1, " Creep. Dunkelheit", -25, -175 + 50 * f.loop[cp]);
+                # (Line 43) f.DotShape(cp, 1, " Creep. Dunkelheit", -25, -175 + 50 * f.loop[cp]);
                 f.DotShape(cp, 1, " Creep. Dunkelheit", -25, -175 + 50 * f.loop[cp])
-                # (Line 42) f.DotShape(cp, 1, " Creep. Dunkelheit", -75, -175 + 50 * f.loop[cp]);
+                # (Line 44) f.DotShape(cp, 1, " Creep. Dunkelheit", -75, -175 + 50 * f.loop[cp]);
                 f.DotShape(cp, 1, " Creep. Dunkelheit", -75, -175 + 50 * f.loop[cp])
-                # (Line 43) f.DotShape(cp, 1, " Creep. Dunkelheit", -125, -175 + 50 * f.loop[cp]);
+                # (Line 45) f.DotShape(cp, 1, " Creep. Dunkelheit", -125, -175 + 50 * f.loop[cp]);
                 f.DotShape(cp, 1, " Creep. Dunkelheit", -125, -175 + 50 * f.loop[cp])
-                # (Line 44) f.DotShape(cp, 1, " Creep. Dunkelheit", -175, -175 + 50 * f.loop[cp]);
+                # (Line 46) f.DotShape(cp, 1, " Creep. Dunkelheit", -175, -175 + 50 * f.loop[cp]);
                 f.DotShape(cp, 1, " Creep. Dunkelheit", -175, -175 + 50 * f.loop[cp])
-                # (Line 47) if (f.loop[cp] % 2 == 0)
-                if EUDIf()(f.loop[cp] % 2 == 0):
-                    # (Line 48) {
-                    # (Line 49) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                    # (Line 50) MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-                    DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                    # (Line 51) Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
-                    DoActions(MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
-                    # (Line 52) }
-                    DoActions(Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]))
-                    # (Line 54) f.DotShape(cp, 1, "40 + 1n Mojo", 25, 175 - 50 * f.loop[cp]);
-                EUDEndIf()
+                # (Line 48) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 49) MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+                DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
+                # (Line 50) Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
+                DoActions(MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
+                # (Line 52) f.DotShape(cp, 1, "40 + 1n Mojo", 25, 175 - 50 * f.loop[cp]);
+                DoActions(Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]))
                 f.DotShape(cp, 1, "40 + 1n Mojo", 25, 175 - 50 * f.loop[cp])
-                # (Line 55) f.DotShape(cp, 1, "40 + 1n Mojo", 75, 175 - 50 * f.loop[cp]);
+                # (Line 53) f.DotShape(cp, 1, "40 + 1n Mojo", 75, 175 - 50 * f.loop[cp]);
                 f.DotShape(cp, 1, "40 + 1n Mojo", 75, 175 - 50 * f.loop[cp])
-                # (Line 56) f.DotShape(cp, 1, "40 + 1n Mojo", 125, 175 - 50 * f.loop[cp]);
+                # (Line 54) f.DotShape(cp, 1, "40 + 1n Mojo", 125, 175 - 50 * f.loop[cp]);
                 f.DotShape(cp, 1, "40 + 1n Mojo", 125, 175 - 50 * f.loop[cp])
-                # (Line 57) f.DotShape(cp, 1, "40 + 1n Mojo", 175, 175 - 50 * f.loop[cp]);
+                # (Line 55) f.DotShape(cp, 1, "40 + 1n Mojo", 175, 175 - 50 * f.loop[cp]);
                 f.DotShape(cp, 1, "40 + 1n Mojo", 175, 175 - 50 * f.loop[cp])
-                # (Line 58) f.DotShape(cp, 1, "40 + 1n Mojo", -25, -175 + 50 * f.loop[cp]);
+                # (Line 56) f.DotShape(cp, 1, "40 + 1n Mojo", -25, -175 + 50 * f.loop[cp]);
                 f.DotShape(cp, 1, "40 + 1n Mojo", -25, -175 + 50 * f.loop[cp])
-                # (Line 59) f.DotShape(cp, 1, "40 + 1n Mojo", -75, -175 + 50 * f.loop[cp]);
+                # (Line 57) f.DotShape(cp, 1, "40 + 1n Mojo", -75, -175 + 50 * f.loop[cp]);
                 f.DotShape(cp, 1, "40 + 1n Mojo", -75, -175 + 50 * f.loop[cp])
-                # (Line 60) f.DotShape(cp, 1, "40 + 1n Mojo", -125, -175 + 50 * f.loop[cp]);
+                # (Line 58) f.DotShape(cp, 1, "40 + 1n Mojo", -125, -175 + 50 * f.loop[cp]);
                 f.DotShape(cp, 1, "40 + 1n Mojo", -125, -175 + 50 * f.loop[cp])
-                # (Line 61) f.DotShape(cp, 1, "40 + 1n Mojo", -175, -175 + 50 * f.loop[cp]);
+                # (Line 59) f.DotShape(cp, 1, "40 + 1n Mojo", -175, -175 + 50 * f.loop[cp]);
                 f.DotShape(cp, 1, "40 + 1n Mojo", -175, -175 + 50 * f.loop[cp])
-                # (Line 62) f.DotShape(cp, 1, "Kakaru (Twilight)", 25, 225 - 50 * f.loop[cp]);
+                # (Line 60) f.DotShape(cp, 1, "Kakaru (Twilight)", 25, 225 - 50 * f.loop[cp]);
                 f.DotShape(cp, 1, "Kakaru (Twilight)", 25, 225 - 50 * f.loop[cp])
-                # (Line 63) f.DotShape(cp, 1, "Kakaru (Twilight)", 75, 225 - 50 * f.loop[cp]);
+                # (Line 61) f.DotShape(cp, 1, "Kakaru (Twilight)", 75, 225 - 50 * f.loop[cp]);
                 f.DotShape(cp, 1, "Kakaru (Twilight)", 75, 225 - 50 * f.loop[cp])
-                # (Line 64) f.DotShape(cp, 1, "Kakaru (Twilight)", 125, 225 - 50 * f.loop[cp]);
+                # (Line 62) f.DotShape(cp, 1, "Kakaru (Twilight)", 125, 225 - 50 * f.loop[cp]);
                 f.DotShape(cp, 1, "Kakaru (Twilight)", 125, 225 - 50 * f.loop[cp])
-                # (Line 65) f.DotShape(cp, 1, "Kakaru (Twilight)", 175, 225 - 50 * f.loop[cp]);
+                # (Line 63) f.DotShape(cp, 1, "Kakaru (Twilight)", 175, 225 - 50 * f.loop[cp]);
                 f.DotShape(cp, 1, "Kakaru (Twilight)", 175, 225 - 50 * f.loop[cp])
-                # (Line 66) f.DotShape(cp, 1, "Kakaru (Twilight)", -25, -225 + 50 * f.loop[cp]);
+                # (Line 64) f.DotShape(cp, 1, "Kakaru (Twilight)", -25, -225 + 50 * f.loop[cp]);
                 f.DotShape(cp, 1, "Kakaru (Twilight)", -25, -225 + 50 * f.loop[cp])
-                # (Line 67) f.DotShape(cp, 1, "Kakaru (Twilight)", -75, -225 + 50 * f.loop[cp]);
+                # (Line 65) f.DotShape(cp, 1, "Kakaru (Twilight)", -75, -225 + 50 * f.loop[cp]);
                 f.DotShape(cp, 1, "Kakaru (Twilight)", -75, -225 + 50 * f.loop[cp])
-                # (Line 68) f.DotShape(cp, 1, "Kakaru (Twilight)", -125, -225 + 50 * f.loop[cp]);
+                # (Line 66) f.DotShape(cp, 1, "Kakaru (Twilight)", -125, -225 + 50 * f.loop[cp]);
                 f.DotShape(cp, 1, "Kakaru (Twilight)", -125, -225 + 50 * f.loop[cp])
-                # (Line 69) f.DotShape(cp, 1, "Kakaru (Twilight)", -175, -225 + 50 * f.loop[cp]);
+                # (Line 67) f.DotShape(cp, 1, "Kakaru (Twilight)", -175, -225 + 50 * f.loop[cp]);
                 f.DotShape(cp, 1, "Kakaru (Twilight)", -175, -225 + 50 * f.loop[cp])
-                # (Line 71) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-                # (Line 72) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
+                # (Line 69) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+                # (Line 70) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
                 DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
-                # (Line 74) f.SkillWait(cp, 80);
+                # (Line 72) f.SkillWait(cp, 80);
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp))
                 f.SkillWait(cp, 80)
-                # (Line 75) f.loop[cp] += 1;
+                # (Line 73) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 76) }
-                # (Line 77) else if (f.loop[cp] == 8)
+                # (Line 74) }
+                # (Line 75) else if (f.loop[cp] == 8)
             if EUDElseIf()(f.loop[cp] == 8):
-                # (Line 78) {
-                # (Line 79) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
-                # (Line 81) f.SkillWait(cp, 1040);
+                # (Line 76) {
+                # (Line 77) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
+                # (Line 79) f.SkillWait(cp, 1040);
                 DoActions(KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp))
                 f.SkillWait(cp, 1040)
-                # (Line 83) f.count[cp] += 1;
+                # (Line 81) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 84) f.loop[cp] = 0;
+                # (Line 82) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
-                # (Line 85) }
-                # (Line 86) }
+                # (Line 83) }
+                # (Line 84) }
             EUDEndIf()
-            # (Line 87) else if (f.count[cp] == 2)
+            # (Line 85) else if (f.count[cp] == 2)
         if EUDElseIf()(f.count[cp] == 2):
-            # (Line 88) {
-            # (Line 89) if (f.loop[cp] < 8)
+            # (Line 86) {
+            # (Line 87) if (f.loop[cp] < 8)
             if EUDIf()(f.loop[cp] >= 8, neg=True):
-                # (Line 90) {
-                # (Line 91) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
-                # (Line 93) f.DotShape(cp, 1, " Creep. Dunkelheit", 175 - 50 * f.loop[cp], 25);
+                # (Line 88) {
+                # (Line 89) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
+                # (Line 91) f.DotShape(cp, 1, " Creep. Dunkelheit", 175 - 50 * f.loop[cp], 25);
                 DoActions(KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp))
                 f.DotShape(cp, 1, " Creep. Dunkelheit", 175 - 50 * f.loop[cp], 25)
-                # (Line 94) f.DotShape(cp, 1, " Creep. Dunkelheit", 175 - 50 * f.loop[cp], 75);
+                # (Line 92) f.DotShape(cp, 1, " Creep. Dunkelheit", 175 - 50 * f.loop[cp], 75);
                 f.DotShape(cp, 1, " Creep. Dunkelheit", 175 - 50 * f.loop[cp], 75)
-                # (Line 95) f.DotShape(cp, 1, " Creep. Dunkelheit", 175 - 50 * f.loop[cp], 125);
+                # (Line 93) f.DotShape(cp, 1, " Creep. Dunkelheit", 175 - 50 * f.loop[cp], 125);
                 f.DotShape(cp, 1, " Creep. Dunkelheit", 175 - 50 * f.loop[cp], 125)
-                # (Line 96) f.DotShape(cp, 1, " Creep. Dunkelheit", 175 - 50 * f.loop[cp], 175);
+                # (Line 94) f.DotShape(cp, 1, " Creep. Dunkelheit", 175 - 50 * f.loop[cp], 175);
                 f.DotShape(cp, 1, " Creep. Dunkelheit", 175 - 50 * f.loop[cp], 175)
-                # (Line 97) f.DotShape(cp, 1, " Creep. Dunkelheit", -175 + 50 * f.loop[cp], -25);
+                # (Line 95) f.DotShape(cp, 1, " Creep. Dunkelheit", -175 + 50 * f.loop[cp], -25);
                 f.DotShape(cp, 1, " Creep. Dunkelheit", -175 + 50 * f.loop[cp], -25)
-                # (Line 98) f.DotShape(cp, 1, " Creep. Dunkelheit", -175 + 50 * f.loop[cp], -75);
+                # (Line 96) f.DotShape(cp, 1, " Creep. Dunkelheit", -175 + 50 * f.loop[cp], -75);
                 f.DotShape(cp, 1, " Creep. Dunkelheit", -175 + 50 * f.loop[cp], -75)
-                # (Line 99) f.DotShape(cp, 1, " Creep. Dunkelheit", -175 + 50 * f.loop[cp], -125);
+                # (Line 97) f.DotShape(cp, 1, " Creep. Dunkelheit", -175 + 50 * f.loop[cp], -125);
                 f.DotShape(cp, 1, " Creep. Dunkelheit", -175 + 50 * f.loop[cp], -125)
-                # (Line 100) f.DotShape(cp, 1, " Creep. Dunkelheit", -175 + 50 * f.loop[cp], -175);
+                # (Line 98) f.DotShape(cp, 1, " Creep. Dunkelheit", -175 + 50 * f.loop[cp], -175);
                 f.DotShape(cp, 1, " Creep. Dunkelheit", -175 + 50 * f.loop[cp], -175)
-                # (Line 102) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                # (Line 103) MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+                # (Line 100) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 101) MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 104) Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 102) Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
-                # (Line 106) f.DotShape(cp, 1, "40 + 1n Mojo", 175 - 50 * f.loop[cp], 25);
+                # (Line 104) f.DotShape(cp, 1, "40 + 1n Mojo", 175 - 50 * f.loop[cp], 25);
                 DoActions(Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]))
                 f.DotShape(cp, 1, "40 + 1n Mojo", 175 - 50 * f.loop[cp], 25)
-                # (Line 107) f.DotShape(cp, 1, "40 + 1n Mojo", 175 - 50 * f.loop[cp], 75);
+                # (Line 105) f.DotShape(cp, 1, "40 + 1n Mojo", 175 - 50 * f.loop[cp], 75);
                 f.DotShape(cp, 1, "40 + 1n Mojo", 175 - 50 * f.loop[cp], 75)
-                # (Line 108) f.DotShape(cp, 1, "40 + 1n Mojo", 175 - 50 * f.loop[cp], 125);
+                # (Line 106) f.DotShape(cp, 1, "40 + 1n Mojo", 175 - 50 * f.loop[cp], 125);
                 f.DotShape(cp, 1, "40 + 1n Mojo", 175 - 50 * f.loop[cp], 125)
-                # (Line 109) f.DotShape(cp, 1, "40 + 1n Mojo", 175 - 50 * f.loop[cp], 175);
+                # (Line 107) f.DotShape(cp, 1, "40 + 1n Mojo", 175 - 50 * f.loop[cp], 175);
                 f.DotShape(cp, 1, "40 + 1n Mojo", 175 - 50 * f.loop[cp], 175)
-                # (Line 110) f.DotShape(cp, 1, "40 + 1n Mojo", -175 + 50 * f.loop[cp], -25);
+                # (Line 108) f.DotShape(cp, 1, "40 + 1n Mojo", -175 + 50 * f.loop[cp], -25);
                 f.DotShape(cp, 1, "40 + 1n Mojo", -175 + 50 * f.loop[cp], -25)
-                # (Line 111) f.DotShape(cp, 1, "40 + 1n Mojo", -175 + 50 * f.loop[cp], -75);
+                # (Line 109) f.DotShape(cp, 1, "40 + 1n Mojo", -175 + 50 * f.loop[cp], -75);
                 f.DotShape(cp, 1, "40 + 1n Mojo", -175 + 50 * f.loop[cp], -75)
-                # (Line 112) f.DotShape(cp, 1, "40 + 1n Mojo", -175 + 50 * f.loop[cp], -125);
+                # (Line 110) f.DotShape(cp, 1, "40 + 1n Mojo", -175 + 50 * f.loop[cp], -125);
                 f.DotShape(cp, 1, "40 + 1n Mojo", -175 + 50 * f.loop[cp], -125)
-                # (Line 113) f.DotShape(cp, 1, "40 + 1n Mojo", -175 + 50 * f.loop[cp], -175);
+                # (Line 111) f.DotShape(cp, 1, "40 + 1n Mojo", -175 + 50 * f.loop[cp], -175);
                 f.DotShape(cp, 1, "40 + 1n Mojo", -175 + 50 * f.loop[cp], -175)
-                # (Line 114) f.DotShape(cp, 1, "Kakaru (Twilight)", 175 - 50 * f.loop[cp], 25);
+                # (Line 112) f.DotShape(cp, 1, "Kakaru (Twilight)", 175 - 50 * f.loop[cp], 25);
                 f.DotShape(cp, 1, "Kakaru (Twilight)", 175 - 50 * f.loop[cp], 25)
-                # (Line 115) f.DotShape(cp, 1, "Kakaru (Twilight)", 175 - 50 * f.loop[cp], 75);
+                # (Line 113) f.DotShape(cp, 1, "Kakaru (Twilight)", 175 - 50 * f.loop[cp], 75);
                 f.DotShape(cp, 1, "Kakaru (Twilight)", 175 - 50 * f.loop[cp], 75)
-                # (Line 116) f.DotShape(cp, 1, "Kakaru (Twilight)", 175 - 50 * f.loop[cp], 125);
+                # (Line 114) f.DotShape(cp, 1, "Kakaru (Twilight)", 175 - 50 * f.loop[cp], 125);
                 f.DotShape(cp, 1, "Kakaru (Twilight)", 175 - 50 * f.loop[cp], 125)
-                # (Line 117) f.DotShape(cp, 1, "Kakaru (Twilight)", 175 - 50 * f.loop[cp], 175);
+                # (Line 115) f.DotShape(cp, 1, "Kakaru (Twilight)", 175 - 50 * f.loop[cp], 175);
                 f.DotShape(cp, 1, "Kakaru (Twilight)", 175 - 50 * f.loop[cp], 175)
-                # (Line 118) f.DotShape(cp, 1, "Kakaru (Twilight)", -175 + 50 * f.loop[cp], -25);
+                # (Line 116) f.DotShape(cp, 1, "Kakaru (Twilight)", -175 + 50 * f.loop[cp], -25);
                 f.DotShape(cp, 1, "Kakaru (Twilight)", -175 + 50 * f.loop[cp], -25)
-                # (Line 119) f.DotShape(cp, 1, "Kakaru (Twilight)", -175 + 50 * f.loop[cp], -75);
+                # (Line 117) f.DotShape(cp, 1, "Kakaru (Twilight)", -175 + 50 * f.loop[cp], -75);
                 f.DotShape(cp, 1, "Kakaru (Twilight)", -175 + 50 * f.loop[cp], -75)
-                # (Line 120) f.DotShape(cp, 1, "Kakaru (Twilight)", -175 + 50 * f.loop[cp], -125);
+                # (Line 118) f.DotShape(cp, 1, "Kakaru (Twilight)", -175 + 50 * f.loop[cp], -125);
                 f.DotShape(cp, 1, "Kakaru (Twilight)", -175 + 50 * f.loop[cp], -125)
-                # (Line 121) f.DotShape(cp, 1, "Kakaru (Twilight)", -175 + 50 * f.loop[cp], -175);
+                # (Line 119) f.DotShape(cp, 1, "Kakaru (Twilight)", -175 + 50 * f.loop[cp], -175);
                 f.DotShape(cp, 1, "Kakaru (Twilight)", -175 + 50 * f.loop[cp], -175)
-                # (Line 123) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-                # (Line 124) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
+                # (Line 121) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+                # (Line 122) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
                 DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
-                # (Line 126) f.SkillWait(cp, 80);
+                # (Line 124) f.SkillWait(cp, 80);
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp))
                 f.SkillWait(cp, 80)
-                # (Line 127) f.loop[cp] += 1;
+                # (Line 125) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 128) }
-                # (Line 129) else if (f.loop[cp] == 8)
+                # (Line 126) }
+                # (Line 127) else if (f.loop[cp] == 8)
             if EUDElseIf()(f.loop[cp] == 8):
-                # (Line 130) {
-                # (Line 131) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
-                # (Line 133) f.SkillWait(cp, 80);
+                # (Line 128) {
+                # (Line 129) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
+                # (Line 131) f.SkillWait(cp, 80);
                 DoActions(KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp))
                 f.SkillWait(cp, 80)
-                # (Line 135) f.count[cp] += 1;
+                # (Line 133) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 136) f.loop[cp] = 0;
+                # (Line 134) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
-                # (Line 137) }
-                # (Line 138) }
+                # (Line 135) }
+                # (Line 136) }
             EUDEndIf()
-            # (Line 139) else if (f.count[cp] == 3)
+            # (Line 137) else if (f.count[cp] == 3)
         if EUDElseIf()(f.count[cp] == 3):
-            # (Line 140) {
-            # (Line 141) SetSwitch("Recall - Mayuri", Clear);
-            # (Line 142) SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
+            # (Line 138) {
+            # (Line 139) SetSwitch("Recall - Mayuri", Clear);
+            # (Line 140) SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
             DoActions(SetSwitch("Recall - Mayuri", Clear))
-            # (Line 143) f.SkillEnd(cp);
+            # (Line 141) f.SkillEnd(cp);
             DoActions(SetDeaths(cp, SetTo, 0, " `ShieldRecharge"))
             f.SkillEnd(cp)
-            # (Line 144) }
-            # (Line 145) }
+            # (Line 142) }
+            # (Line 143) }
         EUDEndIf()
-        # (Line 146) }
+        # (Line 144) }
     EUDEndIf()

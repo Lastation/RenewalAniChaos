@@ -1,6 +1,5 @@
 import Variable as v;
-
-const s = StringBuffer();
+import Function as f;
 
 function NormalText(cp)
 {
@@ -9,30 +8,30 @@ function NormalText(cp)
 	case 3000:
 		PlayWAV("staredit\\wav\\Hime_1.ogg");
 		v.Sound_Text1[cp] = 0;
-		s.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04있잖아, 힘에는 책임이 따르고 파워에는 책임이 따른다구?\n");
+		f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04있잖아, 힘에는 책임이 따르고 파워에는 책임이 따른다구?\n");
 		break;
 	case 3001:
 		PlayWAV("staredit\\wav\\Hime_2.ogg");
 		v.Sound_Text1[cp] = 0;
-		s.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04즉 힘이야말로 책임이며 책임이야말로 파워!\n");
+		f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04즉 힘이야말로 책임이며 책임이야말로 파워!\n");
 		break;
 	case 3002:
 		v.Sound_Text1[cp] = 0;
-		s.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04따라서 힘이야말로 파워!\n");
+		f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04따라서 힘이야말로 파워!\n");
 		break;
 	case 3100:
 		PlayWAV("staredit\\wav\\Hime_3.ogg");
 		v.Sound_Text1[cp] = 0;
-		s.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04여기는 나의 영역이다\n");
+		f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04여기는 나의 영역이다\n");
 		break;
 	case 3101:
 		v.Sound_Text1[cp] = 0;
-		s.print("\n\x13\x04Tenkawa \x07MaiHime\n\n\x13\x04내 \x07세계\x04에\n\x13\x04네놈들이 들어올 자리는 없어!!!\n");
+		f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\n\x13\x04내 \x07세계\x04에\n\x13\x04네놈들이 들어올 자리는 없어!!!\n");
 		break;
 	case 3300:
 		PlayWAV("staredit\\wav\\Hime_0.ogg");
 		v.Sound_Text1[cp] = 0;
-		s.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04강하닷―――!!\n");
+		f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04강하닷―――!!\n");
 		break;
 	}
 }
@@ -44,12 +43,12 @@ function UiltimateText(cp)
 	case 3200:
 		PlayWAV("staredit\\wav\\Hime_EX01.ogg");
 		v.Sound_Text_Uilti[cp] = 0;
-		s.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n\x13\x04이정도 힘으로 나에게 \x06싸움\x04을 걸었던거야?");
+		f.stb.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n\x13\x04이정도 힘으로 나에게 \x06싸움\x04을 걸었던거야?");
 		break;
 	case 3201:
 		PlayWAV("staredit\\wav\\Hime_EX02.ogg");
 		v.Sound_Text_Uilti[cp] = 0;
-		s.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n\x13\x04이정도 힘으로 모두를 \x08죽이려고했던거야?");
+		f.stb.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n\x13\x04이정도 힘으로 모두를 \x08죽이려고했던거야?");
 		break;
 	}
 }
@@ -61,7 +60,7 @@ function UniqueText(cp)
 	case 3000:
 		PlayWAV("staredit\\wav\\Hime_Unique01.ogg");
 		v.Sound_Text_Uniq[cp] = 0;
-		s.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n\x13\x04제군 ! \x07광연\x04의 시간이다!");
+		f.stb.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n\x13\x04제군 ! \x07광연\x04의 시간이다!");
 		break;
 	}
 }

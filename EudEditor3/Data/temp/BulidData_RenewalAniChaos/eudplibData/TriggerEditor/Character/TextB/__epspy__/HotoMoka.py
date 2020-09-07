@@ -128,108 +128,108 @@ def _LSH(l, r):
 
 # (Line 1) import Variable as v;
 import Variable as v
-# (Line 3) const s = StringBuffer();
-s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 5) function NormalText(cp)
-# (Line 6) {
+# (Line 2) import Function as f;
+import Function as f
+# (Line 4) function NormalText(cp)
+# (Line 5) {
 @EUDFunc
 def NormalText(cp):
-    # (Line 7) switch (v.Sound_Text2[cp])
+    # (Line 6) switch (v.Sound_Text2[cp])
     EUDSwitch(v.Sound_Text2[cp])
-    # (Line 8) {
-    # (Line 9) case 3110:
+    # (Line 7) {
+    # (Line 8) case 3110:
     _t1 = EUDSwitchCase()
-    # (Line 10) PlayWAV("HotoMoka_01.ogg");
+    # (Line 9) PlayWAV("HotoMoka_01.ogg");
     if _t1(3110):
-        # (Line 11) v.Sound_Text2[cp] = 0;
+        # (Line 10) v.Sound_Text2[cp] = 0;
         DoActions(PlayWAV("HotoMoka_01.ogg"))
         _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 12) s.print("\n\n\x13\x1BHoto Moka\n\x13\x04어서오세욧~\n\n");
-        s.print("\n\n\x13\x1BHoto Moka\n\x13\x04어서오세욧~\n\n")
-        # (Line 13) break;
+        # (Line 11) f.stb.print("\n\n\x13\x1BHoto Moka\n\x13\x04어서오세욧~\n\n");
+        f.stb.print("\n\n\x13\x1BHoto Moka\n\x13\x04어서오세욧~\n\n")
+        # (Line 12) break;
         EUDBreak()
-        # (Line 14) case 3210:
+        # (Line 13) case 3210:
     _t2 = EUDSwitchCase()
-    # (Line 15) PlayWAV("HotoMoka_02.ogg");
+    # (Line 14) PlayWAV("HotoMoka_02.ogg");
     if _t2(3210):
-        # (Line 16) v.Sound_Text2[cp] = 0;
+        # (Line 15) v.Sound_Text2[cp] = 0;
         DoActions(PlayWAV("HotoMoka_02.ogg"))
         _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 17) s.print("\n\n\x13\x1BHoto Moka\n\x13\x04코코아가 젤 첨에 되고 싶었던거 기억나?\n\n");
-        s.print("\n\n\x13\x1BHoto Moka\n\x13\x04코코아가 젤 첨에 되고 싶었던거 기억나?\n\n")
-        # (Line 18) break;
+        # (Line 16) f.stb.print("\n\n\x13\x1BHoto Moka\n\x13\x04코코아가 젤 첨에 되고 싶었던거 기억나?\n\n");
+        f.stb.print("\n\n\x13\x1BHoto Moka\n\x13\x04코코아가 젤 첨에 되고 싶었던거 기억나?\n\n")
+        # (Line 17) break;
         EUDBreak()
-        # (Line 19) case 3220:
+        # (Line 18) case 3220:
     _t3 = EUDSwitchCase()
-    # (Line 20) PlayWAV("HotoMoka_03.ogg");
+    # (Line 19) PlayWAV("HotoMoka_03.ogg");
     if _t3(3220):
-        # (Line 21) v.Sound_Text2[cp] = 0;
+        # (Line 20) v.Sound_Text2[cp] = 0;
         DoActions(PlayWAV("HotoMoka_03.ogg"))
         _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 22) break;
+        # (Line 21) break;
         EUDBreak()
-        # (Line 23) case 3221:
+        # (Line 22) case 3221:
     _t4 = EUDSwitchCase()
-    # (Line 24) v.Sound_Text2[cp] = 0;
+    # (Line 23) v.Sound_Text2[cp] = 0;
     if _t4(3221):
         _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 25) s.print("\n\n\x13\x1BHoto Moka\n\x13\x04마법사!\n\n");
-        s.print("\n\n\x13\x1BHoto Moka\n\x13\x04마법사!\n\n")
-        # (Line 26) break;
+        # (Line 24) f.stb.print("\n\n\x13\x1BHoto Moka\n\x13\x04마법사!\n\n");
+        f.stb.print("\n\n\x13\x1BHoto Moka\n\x13\x04마법사!\n\n")
+        # (Line 25) break;
         EUDBreak()
-        # (Line 27) }
-    # (Line 28) }
+        # (Line 26) }
+    # (Line 27) }
     EUDEndSwitch()
-    # (Line 30) function UiltimateText(cp)
+    # (Line 29) function UiltimateText(cp)
 
-# (Line 31) {
+# (Line 30) {
 @EUDFunc
 def UiltimateText(cp):
-    # (Line 32) switch (v.Sound_Text_Uilti[cp])
+    # (Line 31) switch (v.Sound_Text_Uilti[cp])
     EUDSwitch(v.Sound_Text_Uilti[cp])
-    # (Line 33) {
-    # (Line 34) case 9000:
+    # (Line 32) {
+    # (Line 33) case 9000:
     _t1 = EUDSwitchCase()
-    # (Line 35) PlayWAV("HotoMoka_Uiltimate.ogg");
+    # (Line 34) PlayWAV("HotoMoka_Uiltimate.ogg");
     if _t1(9000):
-        # (Line 36) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 35) v.Sound_Text_Uilti[cp] = 0;
         DoActions(PlayWAV("HotoMoka_Uiltimate.ogg"))
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 37) s.printAt(3,"\x13\x1BHoto Moka\n\n\x13\x04나, 준비해올게");
-        s.printAt(3, "\x13\x1BHoto Moka\n\n\x13\x04나, 준비해올게")
-        # (Line 38) break;
+        # (Line 36) f.stb.printAt(3,"\x13\x1BHoto Moka\n\n\x13\x04나, 준비해올게");
+        f.stb.printAt(3, "\x13\x1BHoto Moka\n\n\x13\x04나, 준비해올게")
+        # (Line 37) break;
         EUDBreak()
-        # (Line 39) case 9001:
+        # (Line 38) case 9001:
     _t2 = EUDSwitchCase()
-    # (Line 40) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 39) v.Sound_Text_Uilti[cp] = 0;
     if _t2(9001):
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 41) s.printAt(3,"\x13\x1BHoto Moka\n\n\x13\x04좋아, 준비 완료!");
-        s.printAt(3, "\x13\x1BHoto Moka\n\n\x13\x04좋아, 준비 완료!")
-        # (Line 42) break;
+        # (Line 40) f.stb.printAt(3,"\x13\x1BHoto Moka\n\n\x13\x04좋아, 준비 완료!");
+        f.stb.printAt(3, "\x13\x1BHoto Moka\n\n\x13\x04좋아, 준비 완료!")
+        # (Line 41) break;
         EUDBreak()
-        # (Line 43) }
-    # (Line 44) }
+        # (Line 42) }
+    # (Line 43) }
     EUDEndSwitch()
-    # (Line 46) function UniqueText(cp)
+    # (Line 45) function UniqueText(cp)
 
-# (Line 47) {
+# (Line 46) {
 @EUDFunc
 def UniqueText(cp):
-    # (Line 48) switch (v.Sound_Text_Uniq[cp])
+    # (Line 47) switch (v.Sound_Text_Uniq[cp])
     EUDSwitch(v.Sound_Text_Uniq[cp])
-    # (Line 49) {
-    # (Line 50) case 9000:
+    # (Line 48) {
+    # (Line 49) case 9000:
     _t1 = EUDSwitchCase()
-    # (Line 51) PlayWAV("HotoMoka_00.ogg");
+    # (Line 50) PlayWAV("HotoMoka_00.ogg");
     if _t1(9000):
-        # (Line 52) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 51) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("HotoMoka_00.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 53) s.printAt(3,"\x13\x1BHoto Moka\n\n\x13\x04이 앞에는 전파가 닿지 않으니까\n\x13\x04핸드폰은 쓰지 못한단다?");
-        s.printAt(3, "\x13\x1BHoto Moka\n\n\x13\x04이 앞에는 전파가 닿지 않으니까\n\x13\x04핸드폰은 쓰지 못한단다?")
-        # (Line 54) break;
+        # (Line 52) f.stb.printAt(3,"\x13\x1BHoto Moka\n\n\x13\x04이 앞에는 전파가 닿지 않으니까\n\x13\x04핸드폰은 쓰지 못한단다?");
+        f.stb.printAt(3, "\x13\x1BHoto Moka\n\n\x13\x04이 앞에는 전파가 닿지 않으니까\n\x13\x04핸드폰은 쓰지 못한단다?")
+        # (Line 53) break;
         EUDBreak()
-        # (Line 55) }
-    # (Line 56) }
+        # (Line 54) }
+    # (Line 55) }
     EUDEndSwitch()

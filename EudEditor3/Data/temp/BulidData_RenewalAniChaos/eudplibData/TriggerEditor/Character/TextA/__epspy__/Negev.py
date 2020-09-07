@@ -128,100 +128,100 @@ def _LSH(l, r):
 
 # (Line 1) import Variable as v;
 import Variable as v
-# (Line 3) const s = StringBuffer();
-s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 5) function NormalText(cp)
-# (Line 6) {
+# (Line 2) import Function as f;
+import Function as f
+# (Line 4) function NormalText(cp)
+# (Line 5) {
 @EUDFunc
 def NormalText(cp):
-    # (Line 7) switch (v.Sound_Text1[cp])
+    # (Line 6) switch (v.Sound_Text1[cp])
     EUDSwitch(v.Sound_Text1[cp])
-    # (Line 8) {
-    # (Line 9) case 6000:
+    # (Line 7) {
+    # (Line 8) case 6000:
     _t1 = EUDSwitchCase()
-    # (Line 10) PlayWAV("Negev_01.ogg");
+    # (Line 9) PlayWAV("Negev_01.ogg");
     if _t1(6000):
-        # (Line 11) v.Sound_Text1[cp] = 0;
+        # (Line 10) v.Sound_Text1[cp] = 0;
         DoActions(PlayWAV("Negev_01.ogg"))
         _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 12) s.print("\n\x13\x06Negev\n\x13\x04「　사라져　」\n");
-        s.print("\n\x13\x06Negev\n\x13\x04「　사라져　」\n")
-        # (Line 13) break;
+        # (Line 11) f.stb.print("\n\x13\x06Negev\n\x13\x04「　사라져　」\n");
+        f.stb.print("\n\x13\x06Negev\n\x13\x04「　사라져　」\n")
+        # (Line 12) break;
         EUDBreak()
-        # (Line 14) case 6001:
+        # (Line 13) case 6001:
     _t2 = EUDSwitchCase()
-    # (Line 15) PlayWAV("Negev_02.ogg");
+    # (Line 14) PlayWAV("Negev_02.ogg");
     if _t2(6001):
-        # (Line 16) v.Sound_Text1[cp] = 0;
+        # (Line 15) v.Sound_Text1[cp] = 0;
         DoActions(PlayWAV("Negev_02.ogg"))
         _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 17) s.print("\n\x13\x06Negev\n\x13\x04「　\x06벌레\x04같은 녀석들이...　\x04」\n");
-        s.print("\n\x13\x06Negev\n\x13\x04「　\x06벌레\x04같은 녀석들이...　\x04」\n")
-        # (Line 18) break;
+        # (Line 16) f.stb.print("\n\x13\x06Negev\n\x13\x04「　\x06벌레\x04같은 녀석들이...　\x04」\n");
+        f.stb.print("\n\x13\x06Negev\n\x13\x04「　\x06벌레\x04같은 녀석들이...　\x04」\n")
+        # (Line 17) break;
         EUDBreak()
-        # (Line 19) case 6002:
+        # (Line 18) case 6002:
     _t3 = EUDSwitchCase()
-    # (Line 20) v.Sound_Text1[cp] = 0;
+    # (Line 19) v.Sound_Text1[cp] = 0;
     if _t3(6002):
         _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 21) s.print("\n\x13\x06Negev\n\x13\x04「　\x06죽어!　\x04」\n");
-        s.print("\n\x13\x06Negev\n\x13\x04「　\x06죽어!　\x04」\n")
-        # (Line 22) break;
+        # (Line 20) f.stb.print("\n\x13\x06Negev\n\x13\x04「　\x06죽어!　\x04」\n");
+        f.stb.print("\n\x13\x06Negev\n\x13\x04「　\x06죽어!　\x04」\n")
+        # (Line 21) break;
         EUDBreak()
-        # (Line 23) case 6100:
+        # (Line 22) case 6100:
     _t4 = EUDSwitchCase()
-    # (Line 24) PlayWAV("Negev_03.ogg");
+    # (Line 23) PlayWAV("Negev_03.ogg");
     if _t4(6100):
-        # (Line 25) v.Sound_Text1[cp] = 0;
+        # (Line 24) v.Sound_Text1[cp] = 0;
         DoActions(PlayWAV("Negev_03.ogg"))
         _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 26) s.print("\n\x13\x06Negev\n\x13\x04「　\x06벌레\x04는 용서하지 않아, 최고의 얼굴로 \x06죽여주도록 할까　\x04」\n");
-        s.print("\n\x13\x06Negev\n\x13\x04「　\x06벌레\x04는 용서하지 않아, 최고의 얼굴로 \x06죽여주도록 할까　\x04」\n")
-        # (Line 27) break;
+        # (Line 25) f.stb.print("\n\x13\x06Negev\n\x13\x04「　\x06벌레\x04는 용서하지 않아, 최고의 얼굴로 \x06죽여주도록 할까　\x04」\n");
+        f.stb.print("\n\x13\x06Negev\n\x13\x04「　\x06벌레\x04는 용서하지 않아, 최고의 얼굴로 \x06죽여주도록 할까　\x04」\n")
+        # (Line 26) break;
         EUDBreak()
-        # (Line 28) }
-    # (Line 29) }
+        # (Line 27) }
+    # (Line 28) }
     EUDEndSwitch()
-    # (Line 31) function UiltimateText(cp)
+    # (Line 30) function UiltimateText(cp)
 
-# (Line 32) {
+# (Line 31) {
 @EUDFunc
 def UiltimateText(cp):
-    # (Line 33) switch (v.Sound_Text_Uilti[cp]) {
+    # (Line 32) switch (v.Sound_Text_Uilti[cp]) {
     EUDSwitch(v.Sound_Text_Uilti[cp])
-    # (Line 34) case 6000:
+    # (Line 33) case 6000:
     _t1 = EUDSwitchCase()
-    # (Line 35) PlayWAV("Negev_Uiltimate.ogg");
+    # (Line 34) PlayWAV("Negev_Uiltimate.ogg");
     if _t1(6000):
-        # (Line 36) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 35) v.Sound_Text_Uilti[cp] = 0;
         DoActions(PlayWAV("Negev_Uiltimate.ogg"))
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 37) s.printAt(3,"\x13\x06Negev\n\n\x13\x04「　우후훗… \x06아무도 날 쓰러뜨릴 수 없어!　\x04」");
-        s.printAt(3, "\x13\x06Negev\n\n\x13\x04「　우후훗… \x06아무도 날 쓰러뜨릴 수 없어!　\x04」")
-        # (Line 38) break;
+        # (Line 36) f.stb.printAt(3,"\x13\x06Negev\n\n\x13\x04「　우후훗… \x06아무도 날 쓰러뜨릴 수 없어!　\x04」");
+        f.stb.printAt(3, "\x13\x06Negev\n\n\x13\x04「　우후훗… \x06아무도 날 쓰러뜨릴 수 없어!　\x04」")
+        # (Line 37) break;
         EUDBreak()
-        # (Line 39) }
-    # (Line 40) }
+        # (Line 38) }
+    # (Line 39) }
     EUDEndSwitch()
-    # (Line 42) function UniqueText(cp)
+    # (Line 41) function UniqueText(cp)
 
-# (Line 43) {
+# (Line 42) {
 @EUDFunc
 def UniqueText(cp):
-    # (Line 44) switch (v.Sound_Text_Uniq[cp])
+    # (Line 43) switch (v.Sound_Text_Uniq[cp])
     EUDSwitch(v.Sound_Text_Uniq[cp])
-    # (Line 45) {
-    # (Line 46) case 6000:
+    # (Line 44) {
+    # (Line 45) case 6000:
     _t1 = EUDSwitchCase()
-    # (Line 47) PlayWAV("Negev_Unique.ogg");
+    # (Line 46) PlayWAV("Negev_Unique.ogg");
     if _t1(6000):
-        # (Line 48) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 47) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("Negev_Unique.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 49) s.printAt(3, "\x13\x06Negev\n\x13\x04「　후후, 햇병아리 자식들, 알았어 내가 지도해 주도록 하지.　」");
-        s.printAt(3, "\x13\x06Negev\n\x13\x04「　후후, 햇병아리 자식들, 알았어 내가 지도해 주도록 하지.　」")
-        # (Line 50) break;
+        # (Line 48) f.stb.printAt(3, "\x13\x06Negev\n\x13\x04「　후후, 햇병아리 자식들, 알았어 내가 지도해 주도록 하지.　」");
+        f.stb.printAt(3, "\x13\x06Negev\n\x13\x04「　후후, 햇병아리 자식들, 알았어 내가 지도해 주도록 하지.　」")
+        # (Line 49) break;
         EUDBreak()
-        # (Line 51) }
-    # (Line 52) }
+        # (Line 50) }
+    # (Line 51) }
     EUDEndSwitch()

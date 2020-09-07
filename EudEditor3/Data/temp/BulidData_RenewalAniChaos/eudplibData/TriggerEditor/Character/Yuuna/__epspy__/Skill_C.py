@@ -128,177 +128,175 @@ def _LSH(l, r):
 
 # (Line 1) import Function as f;
 import Function as f
-# (Line 3) const s = StringBuffer();
-s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 5) function main(cp)
-# (Line 6) {
+# (Line 3) function main(cp)
+# (Line 4) {
 @EUDFunc
 def f_main(cp):
-    # (Line 7) if (f.delay[cp] == 0)
+    # (Line 5) if (f.delay[cp] == 0)
     if EUDIf()(f.delay[cp] == 0):
-        # (Line 8) {
-        # (Line 9) if (f.count[cp] == 0)
+        # (Line 6) {
+        # (Line 7) if (f.count[cp] == 0)
         if EUDIf()(f.count[cp] == 0):
-            # (Line 10) {
-            # (Line 11) if (f.loop[cp] < 4)
+            # (Line 8) {
+            # (Line 9) if (f.loop[cp] < 4)
             if EUDIf()(f.loop[cp] >= 4, neg=True):
-                # (Line 12) {
-                # (Line 13) f.SquareShape(cp, 1, "60 + 1n Archon", 200 - f.loop[cp] * 50, 0);
+                # (Line 10) {
+                # (Line 11) f.SquareShape(cp, 1, "60 + 1n Archon", 200 - f.loop[cp] * 50, 0);
                 f.SquareShape(cp, 1, "60 + 1n Archon", 200 - f.loop[cp] * 50, 0)
-                # (Line 14) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
-                # (Line 16) f.SkillWait(cp, 50);
+                # (Line 12) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+                # (Line 14) f.SkillWait(cp, 50);
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
                 f.SkillWait(cp, 50)
-                # (Line 17) f.loop[cp] += 1;
+                # (Line 15) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 18) }
-                # (Line 19) else if (f.loop[cp] == 4)
+                # (Line 16) }
+                # (Line 17) else if (f.loop[cp] == 4)
             if EUDElseIf()(f.loop[cp] == 4):
-                # (Line 20) {
-                # (Line 21) f.SquareShape(cp, 4, "60 + 1n Archon", 50, 50);
+                # (Line 18) {
+                # (Line 19) f.SquareShape(cp, 4, "60 + 1n Archon", 50, 50);
                 f.SquareShape(cp, 4, "60 + 1n Archon", 50, 50)
-                # (Line 22) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
-                # (Line 24) f.SkillWait(cp, 50);
+                # (Line 20) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+                # (Line 22) f.SkillWait(cp, 50);
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
                 f.SkillWait(cp, 50)
-                # (Line 25) f.loop[cp] += 1;
+                # (Line 23) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 26) }
-                # (Line 27) else if (f.loop[cp] == 5)
+                # (Line 24) }
+                # (Line 25) else if (f.loop[cp] == 5)
             if EUDElseIf()(f.loop[cp] == 5):
-                # (Line 28) {
-                # (Line 29) f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75);
+                # (Line 26) {
+                # (Line 27) f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75);
                 f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75)
-                # (Line 30) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere");
-                # (Line 32) f.SkillWait(cp, 0);
+                # (Line 28) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere");
+                # (Line 30) f.SkillWait(cp, 0);
                 DoActions(Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere"))
                 f.SkillWait(cp, 0)
-                # (Line 34) f.count[cp] += 1;
+                # (Line 32) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 35) f.loop[cp] = 0;
+                # (Line 33) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
+                # (Line 34) }
                 # (Line 36) }
-                # (Line 38) }
             EUDEndIf()
-            # (Line 39) else if (f.count[cp] == 1)
+            # (Line 37) else if (f.count[cp] == 1)
         if EUDElseIf()(f.count[cp] == 1):
-            # (Line 40) {
-            # (Line 41) if (f.loop[cp] < 4)
+            # (Line 38) {
+            # (Line 39) if (f.loop[cp] < 4)
             if EUDIf()(f.loop[cp] >= 4, neg=True):
-                # (Line 42) {
-                # (Line 43) f.distance[cp] = 125;
+                # (Line 40) {
+                # (Line 41) f.distance[cp] = 125;
                 _ARRW(f.distance, cp) << (125)
-                # (Line 45) f.Table_Cos(cp, 45 + 90 * f.loop[cp], f.distance[cp]);
+                # (Line 43) f.Table_Cos(cp, 45 + 90 * f.loop[cp], f.distance[cp]);
                 f.Table_Cos(cp, 45 + 90 * f.loop[cp], f.distance[cp])
-                # (Line 46) f.Table_Sin(cp, 45 + 90 * f.loop[cp], f.distance[cp]);
+                # (Line 44) f.Table_Sin(cp, 45 + 90 * f.loop[cp], f.distance[cp]);
                 f.Table_Sin(cp, 45 + 90 * f.loop[cp], f.distance[cp])
-                # (Line 48) f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
+                # (Line 46) f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
                 f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp])
-                # (Line 49) f.SkillUnit(cp, 1, "40 + 1n Wraith");
+                # (Line 47) f.SkillUnit(cp, 1, "40 + 1n Wraith");
                 f.SkillUnit(cp, 1, "40 + 1n Wraith")
-                # (Line 50) f.SkillUnit(cp, 1, "40 + 1n Goliath");
+                # (Line 48) f.SkillUnit(cp, 1, "40 + 1n Goliath");
                 f.SkillUnit(cp, 1, "40 + 1n Goliath")
-                # (Line 52) f.distance[cp] = 175;
+                # (Line 50) f.distance[cp] = 175;
                 _ARRW(f.distance, cp) << (175)
-                # (Line 54) f.Table_Cos(cp, 45 + 90 * f.loop[cp], f.distance[cp]);
+                # (Line 52) f.Table_Cos(cp, 45 + 90 * f.loop[cp], f.distance[cp]);
                 f.Table_Cos(cp, 45 + 90 * f.loop[cp], f.distance[cp])
-                # (Line 55) f.Table_Sin(cp, 45 + 90 * f.loop[cp], f.distance[cp]);
+                # (Line 53) f.Table_Sin(cp, 45 + 90 * f.loop[cp], f.distance[cp]);
                 f.Table_Sin(cp, 45 + 90 * f.loop[cp], f.distance[cp])
-                # (Line 57) f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
+                # (Line 55) f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
                 f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp])
-                # (Line 58) f.SkillUnit(cp, 1, "40 + 1n Wraith");
+                # (Line 56) f.SkillUnit(cp, 1, "40 + 1n Wraith");
                 f.SkillUnit(cp, 1, "40 + 1n Wraith")
-                # (Line 59) f.SkillUnit(cp, 1, "40 + 1n Goliath");
+                # (Line 57) f.SkillUnit(cp, 1, "40 + 1n Goliath");
                 f.SkillUnit(cp, 1, "40 + 1n Goliath")
-                # (Line 61) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
-                # (Line 63) f.SkillWait(cp, 50);
+                # (Line 59) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+                # (Line 61) f.SkillWait(cp, 50);
                 DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp))
                 f.SkillWait(cp, 50)
-                # (Line 64) f.loop[cp] += 1;
+                # (Line 62) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 65) }
-                # (Line 66) else if (f.loop[cp] == 4)
+                # (Line 63) }
+                # (Line 64) else if (f.loop[cp] == 4)
             if EUDElseIf()(f.loop[cp] == 4):
-                # (Line 67) {
-                # (Line 68) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                # (Line 69) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
+                # (Line 65) {
+                # (Line 66) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 67) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 71) f.SkillWait(cp, 0);
+                # (Line 69) f.SkillWait(cp, 0);
                 DoActions(KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp))
                 f.SkillWait(cp, 0)
-                # (Line 73) f.count[cp] += 1;
+                # (Line 71) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 74) f.loop[cp] = 0;
+                # (Line 72) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
-                # (Line 75) }
-                # (Line 76) }
+                # (Line 73) }
+                # (Line 74) }
             EUDEndIf()
-            # (Line 77) else if (f.count[cp] == 2)
+            # (Line 75) else if (f.count[cp] == 2)
         if EUDElseIf()(f.count[cp] == 2):
-            # (Line 78) {
-            # (Line 79) if (f.loop[cp] < 4)
+            # (Line 76) {
+            # (Line 77) if (f.loop[cp] < 4)
             if EUDIf()(f.loop[cp] >= 4, neg=True):
-                # (Line 80) {
-                # (Line 81) f.distance[cp] = 100;
+                # (Line 78) {
+                # (Line 79) f.distance[cp] = 100;
                 _ARRW(f.distance, cp) << (100)
-                # (Line 83) f.Table_Cos(cp, 0 + 90 * f.loop[cp], f.distance[cp]);
+                # (Line 81) f.Table_Cos(cp, 0 + 90 * f.loop[cp], f.distance[cp]);
                 f.Table_Cos(cp, 0 + 90 * f.loop[cp], f.distance[cp])
-                # (Line 84) f.Table_Sin(cp, 0 + 90 * f.loop[cp], f.distance[cp]);
+                # (Line 82) f.Table_Sin(cp, 0 + 90 * f.loop[cp], f.distance[cp]);
                 f.Table_Sin(cp, 0 + 90 * f.loop[cp], f.distance[cp])
-                # (Line 86) f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
+                # (Line 84) f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
                 f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp])
-                # (Line 87) f.SkillUnit(cp, 1, "40 + 1n Wraith");
+                # (Line 85) f.SkillUnit(cp, 1, "40 + 1n Wraith");
                 f.SkillUnit(cp, 1, "40 + 1n Wraith")
-                # (Line 88) f.SkillUnit(cp, 1, "40 + 1n Goliath");
+                # (Line 86) f.SkillUnit(cp, 1, "40 + 1n Goliath");
                 f.SkillUnit(cp, 1, "40 + 1n Goliath")
-                # (Line 90) f.distance[cp] = 150;
+                # (Line 88) f.distance[cp] = 150;
                 _ARRW(f.distance, cp) << (150)
-                # (Line 92) f.Table_Cos(cp, 0 + 90 * f.loop[cp], f.distance[cp]);
+                # (Line 90) f.Table_Cos(cp, 0 + 90 * f.loop[cp], f.distance[cp]);
                 f.Table_Cos(cp, 0 + 90 * f.loop[cp], f.distance[cp])
-                # (Line 93) f.Table_Sin(cp, 0 + 90 * f.loop[cp], f.distance[cp]);
+                # (Line 91) f.Table_Sin(cp, 0 + 90 * f.loop[cp], f.distance[cp]);
                 f.Table_Sin(cp, 0 + 90 * f.loop[cp], f.distance[cp])
-                # (Line 95) f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
+                # (Line 93) f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
                 f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp])
-                # (Line 96) f.SkillUnit(cp, 1, "40 + 1n Wraith");
+                # (Line 94) f.SkillUnit(cp, 1, "40 + 1n Wraith");
                 f.SkillUnit(cp, 1, "40 + 1n Wraith")
-                # (Line 97) f.SkillUnit(cp, 1, "40 + 1n Goliath");
+                # (Line 95) f.SkillUnit(cp, 1, "40 + 1n Goliath");
                 f.SkillUnit(cp, 1, "40 + 1n Goliath")
-                # (Line 99) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
-                # (Line 101) f.SkillWait(cp, 50);
+                # (Line 97) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+                # (Line 99) f.SkillWait(cp, 50);
                 DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp))
                 f.SkillWait(cp, 50)
-                # (Line 102) f.loop[cp] += 1;
+                # (Line 100) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 103) }
-                # (Line 104) else if (f.loop[cp] == 4)
+                # (Line 101) }
+                # (Line 102) else if (f.loop[cp] == 4)
             if EUDElseIf()(f.loop[cp] == 4):
-                # (Line 105) {
-                # (Line 106) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                # (Line 107) MoveUnit(All, "40 + 1n Goliath", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+                # (Line 103) {
+                # (Line 104) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 105) MoveUnit(All, "40 + 1n Goliath", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 108) Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 106) Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveUnit(All, "40 + 1n Goliath", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
-                # (Line 110) f.SkillWait(cp, 50);
+                # (Line 108) f.SkillWait(cp, 50);
                 DoActions(Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]))
                 f.SkillWait(cp, 50)
-                # (Line 112) f.count[cp] += 1;
+                # (Line 110) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 113) f.loop[cp] = 0;
+                # (Line 111) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
-                # (Line 114) }
-                # (Line 115) }
+                # (Line 112) }
+                # (Line 113) }
             EUDEndIf()
-            # (Line 116) else if (f.count[cp] == 3)
+            # (Line 114) else if (f.count[cp] == 3)
         if EUDElseIf()(f.count[cp] == 3):
-            # (Line 117) {
-            # (Line 118) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
-            # (Line 119) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+            # (Line 115) {
+            # (Line 116) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
+            # (Line 117) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp))
-            # (Line 120) f.SkillEnd(cp);
+            # (Line 118) f.SkillEnd(cp);
             DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
             f.SkillEnd(cp)
-            # (Line 121) }
-            # (Line 122) }
+            # (Line 119) }
+            # (Line 120) }
         EUDEndIf()
-        # (Line 123) }
+        # (Line 121) }
     EUDEndIf()

@@ -128,158 +128,156 @@ def _LSH(l, r):
 
 # (Line 1) import Function as f;
 import Function as f
-# (Line 3) const s = StringBuffer();
-s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 5) function main(cp)
-# (Line 6) {
+# (Line 3) function main(cp)
+# (Line 4) {
 @EUDFunc
 def f_main(cp):
-    # (Line 7) if (f.Yuuna_Voice[cp] > 0)
+    # (Line 5) if (f.Yuuna_Voice[cp] > 0)
     if EUDIf()(f.Yuuna_Voice[cp] <= 0, neg=True):
-        # (Line 8) {
-        # (Line 9) switch (f.Yuuna_Voice[cp])
+        # (Line 6) {
+        # (Line 7) switch (f.Yuuna_Voice[cp])
         EUDSwitch(f.Yuuna_Voice[cp])
-        # (Line 10) {
-        # (Line 11) case 1:
+        # (Line 8) {
+        # (Line 9) case 1:
         _t2 = EUDSwitchCase()
-        # (Line 12) PlayWAV("Yuuna_02.ogg");
+        # (Line 10) PlayWAV("Yuuna_02.ogg");
         if _t2(1):
-            # (Line 13) s.print("\x13\x1BYuuki Yuuna\n");
+            # (Line 11) f.stb.print("\x13\x1BYuuki Yuuna\n");
             DoActions(PlayWAV("Yuuna_02.ogg"))
-            s.print("\x13\x1BYuuki Yuuna\n")
-            # (Line 14) s.print("\x13\x04인간으로서 싸우겠어!\x04");
-            s.print("\x13\x04인간으로서 싸우겠어!\x04")
-            # (Line 15) break;
+            f.stb.print("\x13\x1BYuuki Yuuna\n")
+            # (Line 12) f.stb.print("\x13\x04인간으로서 싸우겠어!\x04");
+            f.stb.print("\x13\x04인간으로서 싸우겠어!\x04")
+            # (Line 13) break;
             EUDBreak()
-            # (Line 16) case 2:
+            # (Line 14) case 2:
         _t3 = EUDSwitchCase()
-        # (Line 17) PlayWAV("Yuuna_03.ogg");
+        # (Line 15) PlayWAV("Yuuna_03.ogg");
         if _t3(2):
-            # (Line 18) s.print("\x13\x1BYuuki Yuuna\n");
+            # (Line 16) f.stb.print("\x13\x1BYuuki Yuuna\n");
             DoActions(PlayWAV("Yuuna_03.ogg"))
-            s.print("\x13\x1BYuuki Yuuna\n")
-            # (Line 19) s.print("\x13\x04살고 싶단 말야!\x04");
-            s.print("\x13\x04살고 싶단 말야!\x04")
-            # (Line 20) break;
+            f.stb.print("\x13\x1BYuuki Yuuna\n")
+            # (Line 17) f.stb.print("\x13\x04살고 싶단 말야!\x04");
+            f.stb.print("\x13\x04살고 싶단 말야!\x04")
+            # (Line 18) break;
             EUDBreak()
-            # (Line 21) case 3:
+            # (Line 19) case 3:
         _t4 = EUDSwitchCase()
-        # (Line 22) PlayWAV("Yuuna_04.ogg");
+        # (Line 20) PlayWAV("Yuuna_04.ogg");
         if _t4(3):
-            # (Line 23) s.print("\x13\x1BYuuki Yuuna\n");
+            # (Line 21) f.stb.print("\x13\x1BYuuki Yuuna\n");
             DoActions(PlayWAV("Yuuna_04.ogg"))
-            s.print("\x13\x1BYuuki Yuuna\n")
-            # (Line 24) s.print("\x13\x04용사는 굴하지 않아!\x04");
-            s.print("\x13\x04용사는 굴하지 않아!\x04")
-            # (Line 25) break;
+            f.stb.print("\x13\x1BYuuki Yuuna\n")
+            # (Line 22) f.stb.print("\x13\x04용사는 굴하지 않아!\x04");
+            f.stb.print("\x13\x04용사는 굴하지 않아!\x04")
+            # (Line 23) break;
             EUDBreak()
-            # (Line 26) case 4:
+            # (Line 24) case 4:
         _t5 = EUDSwitchCase()
-        # (Line 27) PlayWAV("Yuuna_05.ogg");
+        # (Line 25) PlayWAV("Yuuna_05.ogg");
         if _t5(4):
-            # (Line 28) s.print("\x13\x1BYuuki Yuuna\n");
+            # (Line 26) f.stb.print("\x13\x1BYuuki Yuuna\n");
             DoActions(PlayWAV("Yuuna_05.ogg"))
-            s.print("\x13\x1BYuuki Yuuna\n")
-            # (Line 29) s.print("\x13\x04몇 번이라도! 다시 일어선다!\x04");
-            s.print("\x13\x04몇 번이라도! 다시 일어선다!\x04")
-            # (Line 30) break;
+            f.stb.print("\x13\x1BYuuki Yuuna\n")
+            # (Line 27) f.stb.print("\x13\x04몇 번이라도! 다시 일어선다!\x04");
+            f.stb.print("\x13\x04몇 번이라도! 다시 일어선다!\x04")
+            # (Line 28) break;
             EUDBreak()
-            # (Line 31) case 5:
+            # (Line 29) case 5:
         _t6 = EUDSwitchCase()
-        # (Line 32) PlayWAV("Yuuna_01.ogg");
+        # (Line 30) PlayWAV("Yuuna_01.ogg");
         if _t6(5):
-            # (Line 33) s.print("\x13\x1BYuuki Yuuna\n");
+            # (Line 31) f.stb.print("\x13\x1BYuuki Yuuna\n");
             DoActions(PlayWAV("Yuuna_01.ogg"))
-            s.print("\x13\x1BYuuki Yuuna\n")
-            # (Line 34) s.print("\x13\x04이게...!\x04");
-            s.print("\x13\x04이게...!\x04")
-            # (Line 35) break;
+            f.stb.print("\x13\x1BYuuki Yuuna\n")
+            # (Line 32) f.stb.print("\x13\x04이게...!\x04");
+            f.stb.print("\x13\x04이게...!\x04")
+            # (Line 33) break;
             EUDBreak()
-            # (Line 36) case 6:
+            # (Line 34) case 6:
         _t7 = EUDSwitchCase()
-        # (Line 37) s.print("\x13\x1BYuuki Yuuna\n");
+        # (Line 35) f.stb.print("\x13\x1BYuuki Yuuna\n");
         if _t7(6):
-            s.print("\x13\x1BYuuki Yuuna\n")
-            # (Line 38) s.print("\x13\x04아파, 무서워... 하지만...!\x04");
-            s.print("\x13\x04아파, 무서워... 하지만...!\x04")
-            # (Line 39) break;
+            f.stb.print("\x13\x1BYuuki Yuuna\n")
+            # (Line 36) f.stb.print("\x13\x04아파, 무서워... 하지만...!\x04");
+            f.stb.print("\x13\x04아파, 무서워... 하지만...!\x04")
+            # (Line 37) break;
             EUDBreak()
-            # (Line 40) case 7:
+            # (Line 38) case 7:
         _t8 = EUDSwitchCase()
-        # (Line 41) s.print("\x13\x1BYuuki Yuuna\n");
+        # (Line 39) f.stb.print("\x13\x1BYuuki Yuuna\n");
         if _t8(7):
-            s.print("\x13\x1BYuuki Yuuna\n")
-            # (Line 42) s.print("\x13\x04괜찮아ㅡ!!\x04");
-            s.print("\x13\x04괜찮아ㅡ!!\x04")
-            # (Line 43) break;
+            f.stb.print("\x13\x1BYuuki Yuuna\n")
+            # (Line 40) f.stb.print("\x13\x04괜찮아ㅡ!!\x04");
+            f.stb.print("\x13\x04괜찮아ㅡ!!\x04")
+            # (Line 41) break;
             EUDBreak()
-            # (Line 44) case 8:
+            # (Line 42) case 8:
         _t9 = EUDSwitchCase()
-        # (Line 45) PlayWAV("Yuuna_Ult01.ogg");
+        # (Line 43) PlayWAV("Yuuna_Ult01.ogg");
         if _t9(8):
-            # (Line 46) s.print("\x13\x17Inubozaki Huu\n\n");
+            # (Line 44) f.stb.print("\x13\x17Inubozaki Huu\n\n");
             DoActions(PlayWAV("Yuuna_Ult01.ogg"))
-            s.print("\x13\x17Inubozaki Huu\n\n")
-            # (Line 47) s.print("\x13\x04용사부ㅡ!!\x04");
-            s.print("\x13\x04용사부ㅡ!!\x04")
-            # (Line 48) break;
+            f.stb.print("\x13\x17Inubozaki Huu\n\n")
+            # (Line 45) f.stb.print("\x13\x04용사부ㅡ!!\x04");
+            f.stb.print("\x13\x04용사부ㅡ!!\x04")
+            # (Line 46) break;
             EUDBreak()
-            # (Line 49) case 9:
+            # (Line 47) case 9:
         _t10 = EUDSwitchCase()
-        # (Line 50) s.print("\n\x13\x04Fightㅡ!!\x04");
+        # (Line 48) f.stb.print("\n\x13\x04Fightㅡ!!\x04");
         if _t10(9):
-            s.print("\n\x13\x04Fightㅡ!!\x04")
-            # (Line 51) break;
+            f.stb.print("\n\x13\x04Fightㅡ!!\x04")
+            # (Line 49) break;
             EUDBreak()
-            # (Line 52) case 10:
+            # (Line 50) case 10:
         _t11 = EUDSwitchCase()
-        # (Line 53) s.printAt(3, "\x13\x1BYuuki Yuuna\n");
+        # (Line 51) f.stb.printAt(3, "\x13\x1BYuuki Yuuna\n");
         if _t11(10):
-            s.printAt(3, "\x13\x1BYuuki Yuuna\n")
-            # (Line 54) s.printAt(5, "\x13\x04용사는...!\x04");
-            s.printAt(5, "\x13\x04용사는...!\x04")
-            # (Line 55) break;
+            f.stb.printAt(3, "\x13\x1BYuuki Yuuna\n")
+            # (Line 52) f.stb.printAt(5, "\x13\x04용사는...!\x04");
+            f.stb.printAt(5, "\x13\x04용사는...!\x04")
+            # (Line 53) break;
             EUDBreak()
-            # (Line 56) case 11:
+            # (Line 54) case 11:
         _t12 = EUDSwitchCase()
-        # (Line 57) s.printAt(3, "\x13\x1BYuuki Yuuna\n");
+        # (Line 55) f.stb.printAt(3, "\x13\x1BYuuki Yuuna\n");
         if _t12(11):
-            s.printAt(3, "\x13\x1BYuuki Yuuna\n")
-            # (Line 58) s.printAt(5, "\x13\x08근성ㅡ!!\x04");
-            s.printAt(5, "\x13\x08근성ㅡ!!\x04")
-            # (Line 59) break;
+            f.stb.printAt(3, "\x13\x1BYuuki Yuuna\n")
+            # (Line 56) f.stb.printAt(5, "\x13\x08근성ㅡ!!\x04");
+            f.stb.printAt(5, "\x13\x08근성ㅡ!!\x04")
+            # (Line 57) break;
             EUDBreak()
-            # (Line 60) case 12:
+            # (Line 58) case 12:
         _t13 = EUDSwitchCase()
-        # (Line 61) PlayWAV("Yuuna_Ult02.ogg");
+        # (Line 59) PlayWAV("Yuuna_Ult02.ogg");
         if _t13(12):
-            # (Line 62) break;
+            # (Line 60) break;
             DoActions(PlayWAV("Yuuna_Ult02.ogg"))
             EUDBreak()
-            # (Line 63) case 13:
+            # (Line 61) case 13:
         _t14 = EUDSwitchCase()
-        # (Line 64) s.printAt(3, "\x13\x1BYuuki Yuuna\n");
+        # (Line 62) f.stb.printAt(3, "\x13\x1BYuuki Yuuna\n");
         if _t14(13):
-            s.printAt(3, "\x13\x1BYuuki Yuuna\n")
-            # (Line 65) s.printAt(5, "\x13\x08용사──── 펀치─────!!\x04");
-            s.printAt(5, "\x13\x08용사──── 펀치─────!!\x04")
-            # (Line 66) break;
+            f.stb.printAt(3, "\x13\x1BYuuki Yuuna\n")
+            # (Line 63) f.stb.printAt(5, "\x13\x08용사──── 펀치─────!!\x04");
+            f.stb.printAt(5, "\x13\x08용사──── 펀치─────!!\x04")
+            # (Line 64) break;
             EUDBreak()
-            # (Line 67) case 14:
+            # (Line 65) case 14:
         _t15 = EUDSwitchCase()
-        # (Line 68) PlayWAV("Yuuna_06.ogg");
+        # (Line 66) PlayWAV("Yuuna_06.ogg");
         if _t15(14):
-            # (Line 69) s.printAt(3, "\x13\x1BYuuki Yuuna\n");
+            # (Line 67) f.stb.printAt(3, "\x13\x1BYuuki Yuuna\n");
             DoActions(PlayWAV("Yuuna_06.ogg"))
-            s.printAt(3, "\x13\x1BYuuki Yuuna\n")
-            # (Line 70) s.printAt(5, "\x13\x04만개!\x04");
-            s.printAt(5, "\x13\x04만개!\x04")
-            # (Line 71) break;
+            f.stb.printAt(3, "\x13\x1BYuuki Yuuna\n")
+            # (Line 68) f.stb.printAt(5, "\x13\x04만개!\x04");
+            f.stb.printAt(5, "\x13\x04만개!\x04")
+            # (Line 69) break;
             EUDBreak()
-            # (Line 73) }
-        # (Line 74) f.Yuuna_Voice[cp] = 0;
+            # (Line 71) }
+        # (Line 72) f.Yuuna_Voice[cp] = 0;
         EUDEndSwitch()
         _ARRW(f.Yuuna_Voice, cp) << (0)
-        # (Line 75) }
-        # (Line 76) }
+        # (Line 73) }
+        # (Line 74) }
     EUDEndIf()

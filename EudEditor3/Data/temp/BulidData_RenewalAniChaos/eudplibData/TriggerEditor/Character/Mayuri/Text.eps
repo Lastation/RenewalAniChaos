@@ -1,7 +1,5 @@
 import Function as f;
 
-const s = StringBuffer();
-
 function main(cp)
 {
 	if (f.Mayuri_Voice[cp] > 0)
@@ -10,70 +8,70 @@ function main(cp)
 		{
 		case 1:
 			PlayWAV("Mayuri_07.ogg");
-			s.print("\x13\x1AShiina Mayuri\n");
-			s.print("\x13\x04뚯뚜루~\x04\n");
+			f.stb.print("\x13\x1AShiina Mayuri\n");
+			f.stb.print("\x13\x04뚯뚜루~\x04\n");
 			break;
 		case 2:
 			PlayWAV("Mayuri_08.ogg");
-			s.print("\x13\x1AShiina Mayuri\n");
-			s.print("\x13\x04마유시입니다~\x04\n");
+			f.stb.print("\x13\x1AShiina Mayuri\n");
+			f.stb.print("\x13\x04마유시입니다~\x04\n");
 			break;
 		case 3:
 			PlayWAV("Mayuri_01.ogg");
-			s.print("\x13\x1AShiina Mayuri\n");
-			s.print("\x13\x04그래...\x04\n");
+			f.stb.print("\x13\x1AShiina Mayuri\n");
+			f.stb.print("\x13\x04그래...\x04\n");
 			break;
 		case 4:
-			s.print("\x13\x1AShiina Mayuri\n");
-			s.print("\x13\x04호오인 쿄우마...!\x04\n");
+			f.stb.print("\x13\x1AShiina Mayuri\n");
+			f.stb.print("\x13\x04호오인 쿄우마...!\x04\n");
 			break;
 		case 5:
 			PlayWAV("Mayuri_04.ogg");
-			s.print("\x13\x1AShiina Mayuri\n");
-			s.print("\x13\x04울고 싶을 정도로 바라고 있어...\x04\n");
+			f.stb.print("\x13\x1AShiina Mayuri\n");
+			f.stb.print("\x13\x04울고 싶을 정도로 바라고 있어...\x04\n");
 			break;
 		case 6:
-			s.print("\x13\x1AShiina Mayuri\n");
-			s.print("\x13\x04외치고 싶을 정도로 소망하고 있어...!\x04\n");
+			f.stb.print("\x13\x1AShiina Mayuri\n");
+			f.stb.print("\x13\x04외치고 싶을 정도로 소망하고 있어...!\x04\n");
 			break;
 		case 7:
 			PlayWAV("Mayuri_05.ogg");
-			s.print("\x13\x1AShiina Mayuri\n");
-			s.print("\x13\x04나... 오카링이 좋아\x04\n");
+			f.stb.print("\x13\x1AShiina Mayuri\n");
+			f.stb.print("\x13\x04나... 오카링이 좋아\x04\n");
 			break;
 		case 8:
 			PlayWAV("Mayuri_06.ogg");
-			s.print("\x13\x1AShiina Mayuri\n");
-			s.print("\x13\x04절대로... 크리스 씨에게 지지 않을 정도로 훨씬...\x04\n");
+			f.stb.print("\x13\x1AShiina Mayuri\n");
+			f.stb.print("\x13\x04절대로... 크리스 씨에게 지지 않을 정도로 훨씬...\x04\n");
 			break;
 		case 9:
-			s.print("\x13\x1AShiina Mayuri\n");
-			s.print("\x13\x04훨씬 좋아해...!\x04\n");
+			f.stb.print("\x13\x1AShiina Mayuri\n");
+			f.stb.print("\x13\x04훨씬 좋아해...!\x04\n");
 			break;
 		case 10:
 			PlayWAV("Mayuri_Ult01.ogg");
-			s.print("\x13\x1AShiina Mayuri\n");
-			s.print("\x13\x04마유시는, 언제나 그 랩에서...\x04\n");
+			f.stb.print("\x13\x1AShiina Mayuri\n");
+			f.stb.print("\x13\x04마유시는, 언제나 그 랩에서...\x04\n");
 			break;
 		case 11:
-			s.print("\x13\x1AShiina Mayuri\n");
-			s.print("\x13\x04언제나 당신을\x04\n");
+			f.stb.print("\x13\x1AShiina Mayuri\n");
+			f.stb.print("\x13\x04언제나 당신을\x04\n");
 			break;
 		case 12:
-			s.print("\x13\x1AShiina Mayuri\n");
-			s.print("\x13\x04모두를 기다리고 있을테니까\x04\n");
+			f.stb.print("\x13\x1AShiina Mayuri\n");
+			f.stb.print("\x13\x04모두를 기다리고 있을테니까\x04\n");
 			break;
 		case 13:
 			PlayWAV("Mayuri_Ult02.ogg");
 			break;
 		case 14:
-			s.print("\x13\x1AShiina Mayuri\n");
-			s.print("\x13\x04슈타인즈 게이트에서 만나자\x04\n");
+			f.stb.print("\x13\x1AShiina Mayuri\n");
+			f.stb.print("\x13\x04슈타인즈 게이트에서 만나자\x04\n");
 			break;
 		case 15:
 			PlayWAV("Mayuri_03.ogg");
-			s.print("\x13\x1AShiina Mayuri\n");
-			s.print("\x13\x04마유시는 오늘만, 인질을 그만두려고 합니다!\x04\n");
+			f.stb.print("\x13\x1AShiina Mayuri\n");
+			f.stb.print("\x13\x04마유시는 오늘만, 인질을 그만두려고 합니다!\x04\n");
 			break;
 		}
 		f.Mayuri_Voice[cp] = 0;

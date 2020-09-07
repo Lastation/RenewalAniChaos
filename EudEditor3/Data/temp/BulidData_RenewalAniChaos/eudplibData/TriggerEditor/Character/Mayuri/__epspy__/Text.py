@@ -128,171 +128,169 @@ def _LSH(l, r):
 
 # (Line 1) import Function as f;
 import Function as f
-# (Line 3) const s = StringBuffer();
-s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 5) function main(cp)
-# (Line 6) {
+# (Line 3) function main(cp)
+# (Line 4) {
 @EUDFunc
 def f_main(cp):
-    # (Line 7) if (f.Mayuri_Voice[cp] > 0)
+    # (Line 5) if (f.Mayuri_Voice[cp] > 0)
     if EUDIf()(f.Mayuri_Voice[cp] <= 0, neg=True):
-        # (Line 8) {
-        # (Line 9) switch (f.Mayuri_Voice[cp])
+        # (Line 6) {
+        # (Line 7) switch (f.Mayuri_Voice[cp])
         EUDSwitch(f.Mayuri_Voice[cp])
-        # (Line 10) {
-        # (Line 11) case 1:
+        # (Line 8) {
+        # (Line 9) case 1:
         _t2 = EUDSwitchCase()
-        # (Line 12) PlayWAV("Mayuri_07.ogg");
+        # (Line 10) PlayWAV("Mayuri_07.ogg");
         if _t2(1):
-            # (Line 13) s.print("\x13\x1AShiina Mayuri\n");
+            # (Line 11) f.stb.print("\x13\x1AShiina Mayuri\n");
             DoActions(PlayWAV("Mayuri_07.ogg"))
-            s.print("\x13\x1AShiina Mayuri\n")
-            # (Line 14) s.print("\x13\x04뚯뚜루~\x04\n");
-            s.print("\x13\x04뚯뚜루~\x04\n")
-            # (Line 15) break;
+            f.stb.print("\x13\x1AShiina Mayuri\n")
+            # (Line 12) f.stb.print("\x13\x04뚯뚜루~\x04\n");
+            f.stb.print("\x13\x04뚯뚜루~\x04\n")
+            # (Line 13) break;
             EUDBreak()
-            # (Line 16) case 2:
+            # (Line 14) case 2:
         _t3 = EUDSwitchCase()
-        # (Line 17) PlayWAV("Mayuri_08.ogg");
+        # (Line 15) PlayWAV("Mayuri_08.ogg");
         if _t3(2):
-            # (Line 18) s.print("\x13\x1AShiina Mayuri\n");
+            # (Line 16) f.stb.print("\x13\x1AShiina Mayuri\n");
             DoActions(PlayWAV("Mayuri_08.ogg"))
-            s.print("\x13\x1AShiina Mayuri\n")
-            # (Line 19) s.print("\x13\x04마유시입니다~\x04\n");
-            s.print("\x13\x04마유시입니다~\x04\n")
-            # (Line 20) break;
+            f.stb.print("\x13\x1AShiina Mayuri\n")
+            # (Line 17) f.stb.print("\x13\x04마유시입니다~\x04\n");
+            f.stb.print("\x13\x04마유시입니다~\x04\n")
+            # (Line 18) break;
             EUDBreak()
-            # (Line 21) case 3:
+            # (Line 19) case 3:
         _t4 = EUDSwitchCase()
-        # (Line 22) PlayWAV("Mayuri_01.ogg");
+        # (Line 20) PlayWAV("Mayuri_01.ogg");
         if _t4(3):
-            # (Line 23) s.print("\x13\x1AShiina Mayuri\n");
+            # (Line 21) f.stb.print("\x13\x1AShiina Mayuri\n");
             DoActions(PlayWAV("Mayuri_01.ogg"))
-            s.print("\x13\x1AShiina Mayuri\n")
-            # (Line 24) s.print("\x13\x04그래...\x04\n");
-            s.print("\x13\x04그래...\x04\n")
-            # (Line 25) break;
+            f.stb.print("\x13\x1AShiina Mayuri\n")
+            # (Line 22) f.stb.print("\x13\x04그래...\x04\n");
+            f.stb.print("\x13\x04그래...\x04\n")
+            # (Line 23) break;
             EUDBreak()
-            # (Line 26) case 4:
+            # (Line 24) case 4:
         _t5 = EUDSwitchCase()
-        # (Line 27) s.print("\x13\x1AShiina Mayuri\n");
+        # (Line 25) f.stb.print("\x13\x1AShiina Mayuri\n");
         if _t5(4):
-            s.print("\x13\x1AShiina Mayuri\n")
-            # (Line 28) s.print("\x13\x04호오인 쿄우마...!\x04\n");
-            s.print("\x13\x04호오인 쿄우마...!\x04\n")
-            # (Line 29) break;
+            f.stb.print("\x13\x1AShiina Mayuri\n")
+            # (Line 26) f.stb.print("\x13\x04호오인 쿄우마...!\x04\n");
+            f.stb.print("\x13\x04호오인 쿄우마...!\x04\n")
+            # (Line 27) break;
             EUDBreak()
-            # (Line 30) case 5:
+            # (Line 28) case 5:
         _t6 = EUDSwitchCase()
-        # (Line 31) PlayWAV("Mayuri_04.ogg");
+        # (Line 29) PlayWAV("Mayuri_04.ogg");
         if _t6(5):
-            # (Line 32) s.print("\x13\x1AShiina Mayuri\n");
+            # (Line 30) f.stb.print("\x13\x1AShiina Mayuri\n");
             DoActions(PlayWAV("Mayuri_04.ogg"))
-            s.print("\x13\x1AShiina Mayuri\n")
-            # (Line 33) s.print("\x13\x04울고 싶을 정도로 바라고 있어...\x04\n");
-            s.print("\x13\x04울고 싶을 정도로 바라고 있어...\x04\n")
-            # (Line 34) break;
+            f.stb.print("\x13\x1AShiina Mayuri\n")
+            # (Line 31) f.stb.print("\x13\x04울고 싶을 정도로 바라고 있어...\x04\n");
+            f.stb.print("\x13\x04울고 싶을 정도로 바라고 있어...\x04\n")
+            # (Line 32) break;
             EUDBreak()
-            # (Line 35) case 6:
+            # (Line 33) case 6:
         _t7 = EUDSwitchCase()
-        # (Line 36) s.print("\x13\x1AShiina Mayuri\n");
+        # (Line 34) f.stb.print("\x13\x1AShiina Mayuri\n");
         if _t7(6):
-            s.print("\x13\x1AShiina Mayuri\n")
-            # (Line 37) s.print("\x13\x04외치고 싶을 정도로 소망하고 있어...!\x04\n");
-            s.print("\x13\x04외치고 싶을 정도로 소망하고 있어...!\x04\n")
-            # (Line 38) break;
+            f.stb.print("\x13\x1AShiina Mayuri\n")
+            # (Line 35) f.stb.print("\x13\x04외치고 싶을 정도로 소망하고 있어...!\x04\n");
+            f.stb.print("\x13\x04외치고 싶을 정도로 소망하고 있어...!\x04\n")
+            # (Line 36) break;
             EUDBreak()
-            # (Line 39) case 7:
+            # (Line 37) case 7:
         _t8 = EUDSwitchCase()
-        # (Line 40) PlayWAV("Mayuri_05.ogg");
+        # (Line 38) PlayWAV("Mayuri_05.ogg");
         if _t8(7):
-            # (Line 41) s.print("\x13\x1AShiina Mayuri\n");
+            # (Line 39) f.stb.print("\x13\x1AShiina Mayuri\n");
             DoActions(PlayWAV("Mayuri_05.ogg"))
-            s.print("\x13\x1AShiina Mayuri\n")
-            # (Line 42) s.print("\x13\x04나... 오카링이 좋아\x04\n");
-            s.print("\x13\x04나... 오카링이 좋아\x04\n")
-            # (Line 43) break;
+            f.stb.print("\x13\x1AShiina Mayuri\n")
+            # (Line 40) f.stb.print("\x13\x04나... 오카링이 좋아\x04\n");
+            f.stb.print("\x13\x04나... 오카링이 좋아\x04\n")
+            # (Line 41) break;
             EUDBreak()
-            # (Line 44) case 8:
+            # (Line 42) case 8:
         _t9 = EUDSwitchCase()
-        # (Line 45) PlayWAV("Mayuri_06.ogg");
+        # (Line 43) PlayWAV("Mayuri_06.ogg");
         if _t9(8):
-            # (Line 46) s.print("\x13\x1AShiina Mayuri\n");
+            # (Line 44) f.stb.print("\x13\x1AShiina Mayuri\n");
             DoActions(PlayWAV("Mayuri_06.ogg"))
-            s.print("\x13\x1AShiina Mayuri\n")
-            # (Line 47) s.print("\x13\x04절대로... 크리스 씨에게 지지 않을 정도로 훨씬...\x04\n");
-            s.print("\x13\x04절대로... 크리스 씨에게 지지 않을 정도로 훨씬...\x04\n")
-            # (Line 48) break;
+            f.stb.print("\x13\x1AShiina Mayuri\n")
+            # (Line 45) f.stb.print("\x13\x04절대로... 크리스 씨에게 지지 않을 정도로 훨씬...\x04\n");
+            f.stb.print("\x13\x04절대로... 크리스 씨에게 지지 않을 정도로 훨씬...\x04\n")
+            # (Line 46) break;
             EUDBreak()
-            # (Line 49) case 9:
+            # (Line 47) case 9:
         _t10 = EUDSwitchCase()
-        # (Line 50) s.print("\x13\x1AShiina Mayuri\n");
+        # (Line 48) f.stb.print("\x13\x1AShiina Mayuri\n");
         if _t10(9):
-            s.print("\x13\x1AShiina Mayuri\n")
-            # (Line 51) s.print("\x13\x04훨씬 좋아해...!\x04\n");
-            s.print("\x13\x04훨씬 좋아해...!\x04\n")
-            # (Line 52) break;
+            f.stb.print("\x13\x1AShiina Mayuri\n")
+            # (Line 49) f.stb.print("\x13\x04훨씬 좋아해...!\x04\n");
+            f.stb.print("\x13\x04훨씬 좋아해...!\x04\n")
+            # (Line 50) break;
             EUDBreak()
-            # (Line 53) case 10:
+            # (Line 51) case 10:
         _t11 = EUDSwitchCase()
-        # (Line 54) PlayWAV("Mayuri_Ult01.ogg");
+        # (Line 52) PlayWAV("Mayuri_Ult01.ogg");
         if _t11(10):
-            # (Line 55) s.print("\x13\x1AShiina Mayuri\n");
+            # (Line 53) f.stb.print("\x13\x1AShiina Mayuri\n");
             DoActions(PlayWAV("Mayuri_Ult01.ogg"))
-            s.print("\x13\x1AShiina Mayuri\n")
-            # (Line 56) s.print("\x13\x04마유시는, 언제나 그 랩에서...\x04\n");
-            s.print("\x13\x04마유시는, 언제나 그 랩에서...\x04\n")
-            # (Line 57) break;
+            f.stb.print("\x13\x1AShiina Mayuri\n")
+            # (Line 54) f.stb.print("\x13\x04마유시는, 언제나 그 랩에서...\x04\n");
+            f.stb.print("\x13\x04마유시는, 언제나 그 랩에서...\x04\n")
+            # (Line 55) break;
             EUDBreak()
-            # (Line 58) case 11:
+            # (Line 56) case 11:
         _t12 = EUDSwitchCase()
-        # (Line 59) s.print("\x13\x1AShiina Mayuri\n");
+        # (Line 57) f.stb.print("\x13\x1AShiina Mayuri\n");
         if _t12(11):
-            s.print("\x13\x1AShiina Mayuri\n")
-            # (Line 60) s.print("\x13\x04언제나 당신을\x04\n");
-            s.print("\x13\x04언제나 당신을\x04\n")
-            # (Line 61) break;
+            f.stb.print("\x13\x1AShiina Mayuri\n")
+            # (Line 58) f.stb.print("\x13\x04언제나 당신을\x04\n");
+            f.stb.print("\x13\x04언제나 당신을\x04\n")
+            # (Line 59) break;
             EUDBreak()
-            # (Line 62) case 12:
+            # (Line 60) case 12:
         _t13 = EUDSwitchCase()
-        # (Line 63) s.print("\x13\x1AShiina Mayuri\n");
+        # (Line 61) f.stb.print("\x13\x1AShiina Mayuri\n");
         if _t13(12):
-            s.print("\x13\x1AShiina Mayuri\n")
-            # (Line 64) s.print("\x13\x04모두를 기다리고 있을테니까\x04\n");
-            s.print("\x13\x04모두를 기다리고 있을테니까\x04\n")
-            # (Line 65) break;
+            f.stb.print("\x13\x1AShiina Mayuri\n")
+            # (Line 62) f.stb.print("\x13\x04모두를 기다리고 있을테니까\x04\n");
+            f.stb.print("\x13\x04모두를 기다리고 있을테니까\x04\n")
+            # (Line 63) break;
             EUDBreak()
-            # (Line 66) case 13:
+            # (Line 64) case 13:
         _t14 = EUDSwitchCase()
-        # (Line 67) PlayWAV("Mayuri_Ult02.ogg");
+        # (Line 65) PlayWAV("Mayuri_Ult02.ogg");
         if _t14(13):
-            # (Line 68) break;
+            # (Line 66) break;
             DoActions(PlayWAV("Mayuri_Ult02.ogg"))
             EUDBreak()
-            # (Line 69) case 14:
+            # (Line 67) case 14:
         _t15 = EUDSwitchCase()
-        # (Line 70) s.print("\x13\x1AShiina Mayuri\n");
+        # (Line 68) f.stb.print("\x13\x1AShiina Mayuri\n");
         if _t15(14):
-            s.print("\x13\x1AShiina Mayuri\n")
-            # (Line 71) s.print("\x13\x04슈타인즈 게이트에서 만나자\x04\n");
-            s.print("\x13\x04슈타인즈 게이트에서 만나자\x04\n")
-            # (Line 72) break;
+            f.stb.print("\x13\x1AShiina Mayuri\n")
+            # (Line 69) f.stb.print("\x13\x04슈타인즈 게이트에서 만나자\x04\n");
+            f.stb.print("\x13\x04슈타인즈 게이트에서 만나자\x04\n")
+            # (Line 70) break;
             EUDBreak()
-            # (Line 73) case 15:
+            # (Line 71) case 15:
         _t16 = EUDSwitchCase()
-        # (Line 74) PlayWAV("Mayuri_03.ogg");
+        # (Line 72) PlayWAV("Mayuri_03.ogg");
         if _t16(15):
-            # (Line 75) s.print("\x13\x1AShiina Mayuri\n");
+            # (Line 73) f.stb.print("\x13\x1AShiina Mayuri\n");
             DoActions(PlayWAV("Mayuri_03.ogg"))
-            s.print("\x13\x1AShiina Mayuri\n")
-            # (Line 76) s.print("\x13\x04마유시는 오늘만, 인질을 그만두려고 합니다!\x04\n");
-            s.print("\x13\x04마유시는 오늘만, 인질을 그만두려고 합니다!\x04\n")
-            # (Line 77) break;
+            f.stb.print("\x13\x1AShiina Mayuri\n")
+            # (Line 74) f.stb.print("\x13\x04마유시는 오늘만, 인질을 그만두려고 합니다!\x04\n");
+            f.stb.print("\x13\x04마유시는 오늘만, 인질을 그만두려고 합니다!\x04\n")
+            # (Line 75) break;
             EUDBreak()
-            # (Line 78) }
-        # (Line 79) f.Mayuri_Voice[cp] = 0;
+            # (Line 76) }
+        # (Line 77) f.Mayuri_Voice[cp] = 0;
         EUDEndSwitch()
         _ARRW(f.Mayuri_Voice, cp) << (0)
-        # (Line 80) }
-        # (Line 81) }
+        # (Line 78) }
+        # (Line 79) }
     EUDEndIf()

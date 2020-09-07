@@ -1,6 +1,5 @@
 import Variable as v;
-
-const s = StringBuffer();
+import Function as f;
 
 function NormalText(cp)
 {
@@ -9,22 +8,22 @@ function NormalText(cp)
 	case 4000:
 		PlayWAV("Tenshi_01.ogg");
 		v.Sound_Text1[cp] = 0;
-		s.print("\n\x13\x1FTenshi Hinanai\n\x13\x1F하늘\x04로서 \x1B대지\x04를 지배하고\n");
+		f.stb.print("\n\x13\x1FTenshi Hinanai\n\x13\x1F하늘\x04로서 \x1B대지\x04를 지배하고\n");
 		break;
 	case 4001:
 		PlayWAV("Tenshi_02.ogg");
 		v.Sound_Text1[cp] = 0;
-		s.print("\n\x13\x1FTenshi Hinanai\n\x13\x15땅\x04으로서 \x1B요석\x04을 빼내어,\n");
+		f.stb.print("\n\x13\x1FTenshi Hinanai\n\x13\x15땅\x04으로서 \x1B요석\x04을 빼내어,\n");
 		break;
 	case 4002:
 		PlayWAV("Tenshi_03.ogg");
 		v.Sound_Text1[cp] = 0;
-		s.print("\n\x13\x1FTenshi Hinanai\n\x13\x1B사람\x04의 \x11주홍색\x1B마음\x04을 비춰라 !\n");
+		f.stb.print("\n\x13\x1FTenshi Hinanai\n\x13\x1B사람\x04의 \x11주홍색\x1B마음\x04을 비춰라 !\n");
 		break;
 	case 4003:
 		PlayWAV("Tenshi_04.ogg");
 		v.Sound_Text1[cp] = 0;
-		s.print("\n\x13\x1FTenshi Hinanai\n\x13\x15대지\x04여!\n");
+		f.stb.print("\n\x13\x1FTenshi Hinanai\n\x13\x15대지\x04여!\n");
 		break;
 	}
 }
@@ -36,24 +35,24 @@ function UiltimateText(cp)
 	case 4000:
 		PlayWAV("Tenshi_05.ogg");
 		v.Sound_Text_Uilti[cp] = 0;
-		s.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x04피할 수 있을까 ?");
+		f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x04피할 수 있을까 ?");
 		break;
 	case 4001:
 		v.Sound_Text_Uilti[cp] = 0;
-		s.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x04요석\x06「천지개벽 프레스」");
+		f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x04요석\x06「천지개벽 프레스」");
 		break;
 	case 4010:
 		PlayWAV("Tenshi_Uiltimate.ogg");
 		v.Sound_Text_Uilti[cp] = 0;
-		s.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x04단숨에 끝내주겠어");
+		f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x04단숨에 끝내주겠어");
 		break;
 	case 4011:
 		v.Sound_Text_Uilti[cp] = 0;
-		s.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x17끝이야");
+		f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x17끝이야");
 		break;
 	case 4012:
 		v.Sound_Text_Uilti[cp] = 0;
-		s.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x17「전 인류의 비상천」\n\x13\x17「全人類の緋想天」");
+		f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x17「전 인류의 비상천」\n\x13\x17「全人類の緋想天」");
 		break;
 	}
 }
@@ -65,7 +64,7 @@ function UniqueText(cp)
 	case 4000:
 		PlayWAV("Tenshi_Unique.ogg");
 		v.Sound_Text_Uniq[cp] = 0;
-		s.printAt(3, "\x13\x1FTenshi Hinanai\n\x13\x04기부「무념무상의 경지」");
+		f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\x13\x04기부「무념무상의 경지」");
 		break;
 	}
 }

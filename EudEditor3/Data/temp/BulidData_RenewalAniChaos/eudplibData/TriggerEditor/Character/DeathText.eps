@@ -1,6 +1,5 @@
 import Variable as v;
-
-const s = StringBuffer();
+import Function as f;
 
 function SetDeathValue(cp)
 {
@@ -71,7 +70,7 @@ function DeathText(cp)
 	{
 		const value = dwread_epd(EPD(0x58A364 + 48 * 211 + 4 * cp));
 		
-		s.printAt(1,"\n\x13\x08!! Warning !!\n\x13\x19:: \x17", 
+		f.stb.printAt(1,"\n\x13\x08!! Warning !!\n\x13\x19:: \x17", 
 		ptr2s(v.Hero_Name[value]), "\x04이 치명상을 입었습니다. \x19::\n\n\x13\x07", 
 		v.Team_Num[cp], "\x04Team \x17+ ",
 		v.DeathOre_Text[cp], " \x04Ore\n");
@@ -89,4 +88,6 @@ function SetKillScore(cp)
 	if (Kills(CurrentPlayer, AtLeast, 1, 16))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 16); }
 	if (Kills(CurrentPlayer, AtLeast, 1, 54))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 54); }
 	if (Kills(CurrentPlayer, AtLeast, 1, 99))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 99); }
+	if (Kills(CurrentPlayer, AtLeast, 1, 64))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 64); }
+	if (Kills(CurrentPlayer, AtLeast, 1, 53))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 53); }
 }

@@ -128,115 +128,113 @@ def _LSH(l, r):
 
 # (Line 1) import Variable as v;
 import Variable as v
-# (Line 2) const s = StringBuffer();
-s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 4) function SetBuildingHP(cp)
-# (Line 5) {
+# (Line 3) function SetBuildingHP(cp)
+# (Line 4) {
 @EUDFunc
 def SetBuildingHP(cp):
-    # (Line 6) ModifyUnitHitPoints(1, (155), (13), (64), 100 - (v.Unique_Cool[cp] / 10));
-    # (Line 7) ModifyUnitShields(1, (167), (13), (64), dwread_epd(EPD(0x58A364 + 48 * 205 + 4 * cp)) / 10);
+    # (Line 5) ModifyUnitHitPoints(1, (155), (13), (64), 100 - (v.Unique_Cool[cp] / 10));
+    # (Line 6) ModifyUnitShields(1, (167), (13), (64), dwread_epd(EPD(0x58A364 + 48 * 205 + 4 * cp)) / 10);
     DoActions(ModifyUnitHitPoints(1, (155), (13), (64), 100 - (v.Unique_Cool[cp] // 10)))
-    # (Line 8) }
+    # (Line 7) }
     DoActions(ModifyUnitShields(1, (167), (13), (64), f_dwread_epd(EPD(0x58A364 + 48 * 205 + 4 * cp)) // 10))
-    # (Line 10) function SetVariable(cp)
+    # (Line 9) function SetVariable(cp)
 
-# (Line 11) {
+# (Line 10) {
 @EUDFunc
 def SetVariable(cp):
-    # (Line 12) v.Potion[cp] = dwread_epd(EPD(0x58A364 + 48 * 219 + 4 * cp));
+    # (Line 11) v.Potion[cp] = dwread_epd(EPD(0x58A364 + 48 * 219 + 4 * cp));
     _ARRW(v.Potion, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 219 + 4 * cp)))
-    # (Line 13) v.EXP_Need[cp] = dwread_epd(EPD(0x58A364 + 48 * 225 + 4 * cp));
+    # (Line 12) v.EXP_Need[cp] = dwread_epd(EPD(0x58A364 + 48 * 225 + 4 * cp));
     _ARRW(v.EXP_Need, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 225 + 4 * cp)))
-    # (Line 14) v.EXP_Now[cp] = dwread_epd(EPD(0x58A364 + 48 * 185 + 4 * cp));
+    # (Line 13) v.EXP_Now[cp] = dwread_epd(EPD(0x58A364 + 48 * 185 + 4 * cp));
     _ARRW(v.EXP_Now, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 185 + 4 * cp)))
-    # (Line 15) v.DeathCount[cp] = dwread_epd(EPD(0x58A364 + 48 * 210 + 4 * cp))/12;
+    # (Line 14) v.DeathCount[cp] = dwread_epd(EPD(0x58A364 + 48 * 210 + 4 * cp))/12;
     _ARRW(v.DeathCount, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 210 + 4 * cp)) // 12)
-    # (Line 16) v.Unique_Cool[cp] = dwread_epd(EPD(0x58A364 + 48 * 203 + 4 * cp))/12;
+    # (Line 15) v.Unique_Cool[cp] = dwread_epd(EPD(0x58A364 + 48 * 203 + 4 * cp))/12;
     _ARRW(v.Unique_Cool, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 203 + 4 * cp)) // 12)
-    # (Line 18) if (bread(0x58D2B0 + 0x207C * ((7) / 46) + (cp) * (46 - 31 * ((7) / 46)) + ((7) % 46)) != bread(0x58D2B0 + 35 + 46 * cp))
+    # (Line 17) if (bread(0x58D2B0 + 0x207C * ((7) / 46) + (cp) * (46 - 31 * ((7) / 46)) + ((7) % 46)) != bread(0x58D2B0 + 35 + 46 * cp))
     if EUDIf()(f_bread(0x58D2B0 + 0x207C * ((7) // 46) + (cp) * (46 - 31 * ((7) // 46)) + ((7) % 46)) == f_bread(0x58D2B0 + 35 + 46 * cp), neg=True):
-        # (Line 19) { bwrite(0x58D2B0 + 0x207C * ((35) / 46) + (cp) * (46 - 31 * ((35) / 46)) + ((35) % 46), bread(0x58D2B0 + 7 + 46 * cp)); }
+        # (Line 18) { bwrite(0x58D2B0 + 0x207C * ((35) / 46) + (cp) * (46 - 31 * ((35) / 46)) + ((35) % 46), bread(0x58D2B0 + 7 + 46 * cp)); }
         f_bwrite(0x58D2B0 + 0x207C * ((35) // 46) + (cp) * (46 - 31 * ((35) // 46)) + ((35) % 46), f_bread(0x58D2B0 + 7 + 46 * cp))
-        # (Line 20) v.Dfs[cp] = bread(0x58D2B0 + 0 + 46 * cp);
+        # (Line 19) v.Dfs[cp] = bread(0x58D2B0 + 0 + 46 * cp);
     EUDEndIf()
     _ARRW(v.Dfs, cp) << (f_bread(0x58D2B0 + 0 + 46 * cp))
-    # (Line 21) v.Atk[cp] = bread(0x58D2B0 + 7 + 46 * cp);
+    # (Line 20) v.Atk[cp] = bread(0x58D2B0 + 7 + 46 * cp);
     _ARRW(v.Atk, cp) << (f_bread(0x58D2B0 + 7 + 46 * cp))
-    # (Line 23) switch (v.Hero_Num[cp])	// 방어력 관련
+    # (Line 22) switch (v.Hero_Num[cp])	// 방어력 관련
     EUDSwitch(v.Hero_Num[cp])
-    # (Line 24) {
-    # (Line 25) case 10:	//얼터
+    # (Line 23) {
+    # (Line 24) case 10:	//얼터
     _t2 = EUDSwitchCase()
-    # (Line 26) if (Deaths((13), (0), 1, (204)))
+    # (Line 25) if (Deaths((13), (0), 1, (204)))
     if _t2(10):
         if EUDIf()(Deaths((13), (0), 1, (204))):
-            # (Line 27) {
-            # (Line 28) v.Dfs[cp] += 10;
+            # (Line 26) {
+            # (Line 27) v.Dfs[cp] += 10;
             _ARRW(v.Dfs, cp).__iadd__(10)
-            # (Line 29) SetDeaths((13), (9), 1, (204));
-            # (Line 30) }
+            # (Line 28) SetDeaths((13), (9), 1, (204));
+            # (Line 29) }
             DoActions(SetDeaths((13), (9), 1, (204)))
-            # (Line 31) break;
+            # (Line 30) break;
         EUDEndIf()
         EUDBreak()
-        # (Line 32) case 18:	//텐케이
+        # (Line 31) case 18:	//텐케이
     _t4 = EUDSwitchCase()
-    # (Line 33) if (Deaths(CurrentPlayer, Exactly, 320, " `SkillStep")) v.Dfs[cp] = 255;
+    # (Line 32) if (Deaths(CurrentPlayer, Exactly, 320, " `SkillStep")) v.Dfs[cp] = 200;
     if _t4(18):
         if EUDIf()(Deaths(CurrentPlayer, Exactly, 320, " `SkillStep")):
-            _ARRW(v.Dfs, cp) << (255)
-            # (Line 34) break;
+            _ARRW(v.Dfs, cp) << (200)
+            # (Line 33) break;
         EUDEndIf()
         EUDBreak()
-        # (Line 35) case 22:	//유우나
+        # (Line 34) case 22:	//유우나
     _t6 = EUDSwitchCase()
-    # (Line 36) v.Dfs[cp] -= 3 * dwread_epd(204 * 12 + cp);
+    # (Line 35) v.Dfs[cp] -= 3 * dwread_epd(204 * 12 + cp);
     if _t6(22):
         _ARRW(v.Dfs, cp).__isub__(3 * f_dwread_epd(204 * 12 + cp))
-        # (Line 37) break;
+        # (Line 36) break;
         EUDBreak()
-        # (Line 38) }
-    # (Line 41) switch (v.Hero_Num[cp])	// 공격력 관련
+        # (Line 37) }
+    # (Line 40) switch (v.Hero_Num[cp])	// 공격력 관련
     EUDEndSwitch()
     EUDSwitch(v.Hero_Num[cp])
-    # (Line 42) {
-    # (Line 43) case 14:
+    # (Line 41) {
+    # (Line 42) case 14:
     _t7 = EUDSwitchCase()
-    # (Line 44) v.Atk[cp] += 2 * dwread_epd(204 * 12 + cp);
+    # (Line 43) v.Atk[cp] += 2 * dwread_epd(204 * 12 + cp);
     if _t7(14):
         _ARRW(v.Atk, cp).__iadd__(2 * f_dwread_epd(204 * 12 + cp))
-        # (Line 45) break;
+        # (Line 44) break;
         EUDBreak()
-        # (Line 46) case 22:
+        # (Line 45) case 22:
     _t8 = EUDSwitchCase()
-    # (Line 47) v.Atk[cp] += 3 * dwread_epd(204 * 12 + cp);
+    # (Line 46) v.Atk[cp] += 3 * dwread_epd(204 * 12 + cp);
     if _t8(22):
         _ARRW(v.Atk, cp).__iadd__(3 * f_dwread_epd(204 * 12 + cp))
-        # (Line 48) break;
+        # (Line 47) break;
         EUDBreak()
-        # (Line 49) }
-    # (Line 50) if (cp < 3 && Switch("Passive - Nanami1", Set) && Bring(cp, AtLeast, 1, "Any unit", "24.Nanami_Bozo")) { v.Atk[cp] += 5; v.Dfs[cp] += 5; }
+        # (Line 48) }
+    # (Line 49) if (cp < 3 && Switch("Passive - Nanami1", Set) && Bring(cp, AtLeast, 1, "Any unit", "24.Nanami_Bozo")) { v.Atk[cp] += 5; v.Dfs[cp] += 5; }
     EUDEndSwitch()
     if EUDIf()(EUDSCAnd()(cp >= 3, neg=True)(Switch("Passive - Nanami1", Set))(Bring(cp, AtLeast, 1, "Any unit", "24.Nanami_Bozo"))()):
         _ARRW(v.Atk, cp).__iadd__(5)
         _ARRW(v.Dfs, cp).__iadd__(5)
-        # (Line 51) else if (cp >= 3 && Switch("Passive - Nanami2", Set) && Bring(cp, AtLeast, 1, "Any unit", "24.Nanami_Bozo")) { v.Atk[cp] += 5; v.Dfs[cp] += 5; }
+        # (Line 50) else if (cp >= 3 && Switch("Passive - Nanami2", Set) && Bring(cp, AtLeast, 1, "Any unit", "24.Nanami_Bozo")) { v.Atk[cp] += 5; v.Dfs[cp] += 5; }
     if EUDElseIf()(EUDSCAnd()(cp >= 3)(Switch("Passive - Nanami2", Set))(Bring(cp, AtLeast, 1, "Any unit", "24.Nanami_Bozo"))()):
         _ARRW(v.Atk, cp).__iadd__(5)
         _ARRW(v.Dfs, cp).__iadd__(5)
-        # (Line 53) if (cp < 3 && Switch("Unique - Nanami1", Set)) { v.Atk[cp] += 5; v.Dfs[cp] += 5; }
+        # (Line 52) if (cp < 3 && Switch("Unique - Nanami1", Set)) { v.Atk[cp] += 5; v.Dfs[cp] += 5; }
     EUDEndIf()
     if EUDIf()(EUDSCAnd()(cp >= 3, neg=True)(Switch("Unique - Nanami1", Set))()):
         _ARRW(v.Atk, cp).__iadd__(5)
         _ARRW(v.Dfs, cp).__iadd__(5)
-        # (Line 54) else if (cp >= 3 && Switch("Unique - Nanami2", Set)) { v.Atk[cp] += 5; v.Dfs[cp] += 5; }
+        # (Line 53) else if (cp >= 3 && Switch("Unique - Nanami2", Set)) { v.Atk[cp] += 5; v.Dfs[cp] += 5; }
     if EUDElseIf()(EUDSCAnd()(cp >= 3)(Switch("Unique - Nanami2", Set))()):
         _ARRW(v.Atk, cp).__iadd__(5)
         _ARRW(v.Dfs, cp).__iadd__(5)
-        # (Line 56) bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), v.Dfs[cp]); 	//방어력 최종 적용
+        # (Line 55) bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), v.Dfs[cp]); 	//방어력 최종 적용
     EUDEndIf()
     f_bwrite(0x58D2B0 + 0x207C * ((2) // 46) + (cp) * (46 - 31 * ((2) // 46)) + ((2) % 46), v.Dfs[cp])
-    # (Line 57) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), v.Atk[cp]);	//공격력 최종 적용
+    # (Line 56) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), v.Atk[cp]);	//공격력 최종 적용
     f_bwrite(0x58D2B0 + 0x207C * ((9) // 46) + (cp) * (46 - 31 * ((9) // 46)) + ((9) % 46), v.Atk[cp])
-    # (Line 59) }
+    # (Line 58) }

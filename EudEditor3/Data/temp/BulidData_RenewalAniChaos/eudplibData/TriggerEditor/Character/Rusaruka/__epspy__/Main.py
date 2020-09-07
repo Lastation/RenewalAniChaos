@@ -150,139 +150,137 @@ from Character.Rusaruka import Skill_AAAC as AAAC
 from Character.Rusaruka import Text as text
 # (Line 15) import Character.Rusaruka.Commend as commend;
 from Character.Rusaruka import Commend as commend
-# (Line 17) const stb = StringBuffer();
-stb = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 19) function SkillList(cp);
-# (Line 21) function main(cp)
-# (Line 22) {
+# (Line 17) function SkillList(cp);
+# (Line 19) function main(cp)
+# (Line 20) {
 @EUDFunc
 def f_main(cp):
-    # (Line 23) f.location[cp] = 32;
+    # (Line 21) f.location[cp] = 32;
     _ARRW(f.location, cp) << (32)
-    # (Line 24) f.heroID[cp] = 51;
+    # (Line 22) f.heroID[cp] = 51;
     _ARRW(f.heroID, cp) << (51)
-    # (Line 26) f.UltimateA[cp] = 650;
+    # (Line 24) f.UltimateA[cp] = 650;
     _ARRW(f.UltimateA, cp) << (650)
-    # (Line 29) commend.main(cp);
+    # (Line 27) commend.main(cp);
     commend.f_main(cp)
-    # (Line 30) SkillList(cp);
+    # (Line 28) SkillList(cp);
     SkillList(cp)
-    # (Line 32) if (f.wait[cp] == 0)
+    # (Line 30) if (f.wait[cp] == 0)
     if EUDIf()(f.wait[cp] == 0):
-        # (Line 33) {
-        # (Line 34) switch(f.step[cp])
+        # (Line 31) {
+        # (Line 32) switch(f.step[cp])
         EUDSwitch(f.step[cp])
-        # (Line 35) {
-        # (Line 36) case 1:
+        # (Line 33) {
+        # (Line 34) case 1:
         _t2 = EUDSwitchCase()
-        # (Line 37) O.main(cp);
+        # (Line 35) O.main(cp);
         if _t2(1):
             O.f_main(cp)
-            # (Line 38) break;
+            # (Line 36) break;
             EUDBreak()
-            # (Line 39) case 100:
+            # (Line 37) case 100:
         _t3 = EUDSwitchCase()
-        # (Line 40) S.main(cp);
+        # (Line 38) S.main(cp);
         if _t3(100):
             S.f_main(cp)
-            # (Line 41) break;
+            # (Line 39) break;
             EUDBreak()
-            # (Line 42) case 200:
+            # (Line 40) case 200:
         _t4 = EUDSwitchCase()
-        # (Line 43) C.main(cp);
+        # (Line 41) C.main(cp);
         if _t4(200):
             C.f_main(cp)
-            # (Line 44) break;
+            # (Line 42) break;
             EUDBreak()
-            # (Line 45) case 300:
+            # (Line 43) case 300:
         _t5 = EUDSwitchCase()
-        # (Line 46) A.main(cp);
+        # (Line 44) A.main(cp);
         if _t5(300):
             A.f_main(cp)
-            # (Line 47) break;
+            # (Line 45) break;
             EUDBreak()
-            # (Line 48) case 110:
+            # (Line 46) case 110:
         _t6 = EUDSwitchCase()
-        # (Line 49) SSS.main(cp);
+        # (Line 47) SSS.main(cp);
         if _t6(110):
             SSS.f_main(cp)
-            # (Line 50) break;
+            # (Line 48) break;
             EUDBreak()
-            # (Line 51) case 210:
+            # (Line 49) case 210:
         _t7 = EUDSwitchCase()
-        # (Line 52) CCC.main(cp);
+        # (Line 50) CCC.main(cp);
         if _t7(210):
             CCC.f_main(cp)
-            # (Line 53) break;
+            # (Line 51) break;
             EUDBreak()
-            # (Line 54) case 220:
+            # (Line 52) case 220:
         _t8 = EUDSwitchCase()
-        # (Line 55) CCCAA.main(cp);
+        # (Line 53) CCCAA.main(cp);
         if _t8(220):
             CCCAA.f_main(cp)
-            # (Line 56) break;
+            # (Line 54) break;
             EUDBreak()
-            # (Line 57) case 310:
+            # (Line 55) case 310:
         _t9 = EUDSwitchCase()
-        # (Line 58) ACC.main(cp);
+        # (Line 56) ACC.main(cp);
         if _t9(310):
             ACC.f_main(cp)
-            # (Line 59) break;
+            # (Line 57) break;
             EUDBreak()
-            # (Line 60) case 320:
+            # (Line 58) case 320:
         _t10 = EUDSwitchCase()
-        # (Line 61) AAAC.main(cp);
+        # (Line 59) AAAC.main(cp);
         if _t10(320):
             AAAC.f_main(cp)
-            # (Line 62) break;
+            # (Line 60) break;
             EUDBreak()
-            # (Line 63) }
-        # (Line 64) }
+            # (Line 61) }
+        # (Line 62) }
         EUDEndSwitch()
-        # (Line 66) }
+        # (Line 64) }
     EUDEndIf()
-    # (Line 69) function SkillVoice(cp)
+    # (Line 67) function SkillVoice(cp)
 
-# (Line 70) {
+# (Line 68) {
 @EUDFunc
 def SkillVoice(cp):
-    # (Line 71) if (f.Rusaruka_Voice[cp] != 0) { text.main(cp); }
+    # (Line 69) if (f.Rusaruka_Voice[cp] != 0) { text.main(cp); }
     if EUDIf()(f.Rusaruka_Voice[cp] == 0, neg=True):
         text.f_main(cp)
-        # (Line 72) }
+        # (Line 70) }
     EUDEndIf()
-    # (Line 74) function SkillList(cp)
+    # (Line 72) function SkillList(cp)
 
-# (Line 75) {
+# (Line 73) {
 @EUDFunc
 def SkillList(cp):
-    # (Line 76) if(f.INSERT_KEY[cp] == 1) 	// Insert key Pressed
+    # (Line 74) if(f.INSERT_KEY[cp] == 1) 	// Insert key Pressed
     if EUDIf()(f.INSERT_KEY[cp] == 1):
-        # (Line 77) {
-        # (Line 78) stb.printAt(0, "\n");
-        stb.printAt(0, "\n")
-        # (Line 79) stb.printAt(1, "\x1F　＃\x04- 루살카 \x1B슈베게린　\x04[ 디에스 이래 ]");
-        stb.printAt(1, "\x1F　＃\x04- 루살카 \x1B슈베게린　\x04[ 디에스 이래 ]")
-        # (Line 80) stb.printAt(2, "　　\x1FA\x04ction List");
-        stb.printAt(2, "　　\x1FA\x04ction List")
-        # (Line 81) stb.printAt(3, "　　　\x18O \x04창조 \x19[ 15x15 / 적 5초마다 경직 / 파괴될시 5분후 재생 / 설치형 ]");
-        stb.printAt(3, "　　　\x18O \x04창조 \x19[ 15x15 / 적 5초마다 경직 / 파괴될시 5분후 재생 / 설치형 ]")
-        # (Line 82) stb.printAt(4, "　　　\x04\x1FSSS \x04위협 \x19[ 대인 / 공성 ]");
-        stb.printAt(4, "　　　\x04\x1FSSS \x04위협 \x19[ 대인 / 공성 ]")
-        # (Line 83) stb.printAt(5, "　　　\x04\x1FCCC + AA \x04고문바퀴 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]");
-        stb.printAt(5, "　　　\x04\x1FCCC + AA \x04고문바퀴 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]")
-        # (Line 84) stb.printAt(6, "　　　\x04\x1FACC \x04고문용 쇠사슬 \x19[ 대인 ]");
-        stb.printAt(6, "　　　\x04\x1FACC \x04고문용 쇠사슬 \x19[ 대인 ]")
-        # (Line 85) stb.printAt(7, "\n");
-        stb.printAt(7, "\n")
-        # (Line 86) stb.printAt(8, "　　　\x08AAAC \x04갈망 \x19[ 공성 / 선딜없음 /  장판형 스킬 ] \x05", f.UltimateA[cp]);
-        stb.printAt(8, "　　　\x08AAAC \x04갈망 \x19[ 공성 / 선딜없음 /  장판형 스킬 ] \x05", f.UltimateA[cp])
-        # (Line 87) stb.printAt(9, "\n");
-        stb.printAt(9, "\n")
-        # (Line 88) PlayWAV("sound\\Bullet\\LaserHit.wav");
-        # (Line 89) f.INSERT_KEY[cp] = 0;
+        # (Line 75) {
+        # (Line 76) f.stb.printAt(0, "\n");
+        f.stb.printAt(0, "\n")
+        # (Line 77) f.stb.printAt(1, "\x1F　＃\x04- 루살카 \x1B슈베게린　\x04[ 디에스 이래 ]");
+        f.stb.printAt(1, "\x1F　＃\x04- 루살카 \x1B슈베게린　\x04[ 디에스 이래 ]")
+        # (Line 78) f.stb.printAt(2, "　　\x1FA\x04ction List");
+        f.stb.printAt(2, "　　\x1FA\x04ction List")
+        # (Line 79) f.stb.printAt(3, "　　　\x18O \x04창조 \x19[ 15x15 / 적 5초마다 경직 / 파괴될시 5분후 재생 / 설치형 ]");
+        f.stb.printAt(3, "　　　\x18O \x04창조 \x19[ 15x15 / 적 5초마다 경직 / 파괴될시 5분후 재생 / 설치형 ]")
+        # (Line 80) f.stb.printAt(4, "　　　\x04\x1FSSS \x04위협 \x19[ 대인 / 공성 ]");
+        f.stb.printAt(4, "　　　\x04\x1FSSS \x04위협 \x19[ 대인 / 공성 ]")
+        # (Line 81) f.stb.printAt(5, "　　　\x04\x1FCCC + AA \x04고문바퀴 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]");
+        f.stb.printAt(5, "　　　\x04\x1FCCC + AA \x04고문바퀴 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]")
+        # (Line 82) f.stb.printAt(6, "　　　\x04\x1FACC \x04고문용 쇠사슬 \x19[ 대인 ]");
+        f.stb.printAt(6, "　　　\x04\x1FACC \x04고문용 쇠사슬 \x19[ 대인 ]")
+        # (Line 83) f.stb.printAt(7, "\n");
+        f.stb.printAt(7, "\n")
+        # (Line 84) f.stb.printAt(8, "　　　\x08AAAC \x04갈망 \x19[ 공성 / 선딜없음 /  장판형 스킬 ] \x05", f.UltimateA[cp]);
+        f.stb.printAt(8, "　　　\x08AAAC \x04갈망 \x19[ 공성 / 선딜없음 /  장판형 스킬 ] \x05", f.UltimateA[cp])
+        # (Line 85) f.stb.printAt(9, "\n");
+        f.stb.printAt(9, "\n")
+        # (Line 86) PlayWAV("sound\\Bullet\\LaserHit.wav");
+        # (Line 87) f.INSERT_KEY[cp] = 0;
         DoActions(PlayWAV("sound\\Bullet\\LaserHit.wav"))
         _ARRW(f.INSERT_KEY, cp) << (0)
-        # (Line 90) }
-        # (Line 91) }
+        # (Line 88) }
+        # (Line 89) }
     EUDEndIf()

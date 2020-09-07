@@ -128,25 +128,25 @@ def _LSH(l, r):
 
 # (Line 1) import Variable as v;
 import Variable as v
-# (Line 3) const s = StringBuffer();
-s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 5) function NormalText(cp)
-# (Line 6) {
+# (Line 2) import Function as f;
+import Function as f
+# (Line 4) function NormalText(cp)
+# (Line 5) {
 @EUDFunc
 def NormalText(cp):
-    # (Line 8) }
-    # (Line 10) function UiltimateText(cp)
+    # (Line 7) }
+    # (Line 9) function UiltimateText(cp)
     pass
 
-# (Line 11) {
+# (Line 10) {
 @EUDFunc
 def UiltimateText(cp):
-    # (Line 13) }
-    # (Line 15) function UniqueText(cp)
+    # (Line 12) }
+    # (Line 14) function UniqueText(cp)
     pass
 
-# (Line 16) {
+# (Line 15) {
 @EUDFunc
 def UniqueText(cp):
-    # (Line 18) }
+    # (Line 17) }
     pass

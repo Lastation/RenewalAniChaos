@@ -128,92 +128,92 @@ def _LSH(l, r):
 
 # (Line 1) import Variable as v;
 import Variable as v
-# (Line 3) const s = StringBuffer();
-s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 5) function NormalText(cp)
-# (Line 6) {
+# (Line 2) import Function as f;
+import Function as f
+# (Line 4) function NormalText(cp)
+# (Line 5) {
 @EUDFunc
 def NormalText(cp):
-    # (Line 7) switch (v.Sound_Text2[cp])
+    # (Line 6) switch (v.Sound_Text2[cp])
     EUDSwitch(v.Sound_Text2[cp])
-    # (Line 8) {
-    # (Line 9) case 1000:
+    # (Line 7) {
+    # (Line 8) case 1000:
     _t1 = EUDSwitchCase()
-    # (Line 10) PlayWAV("Cecillia_01.ogg");
+    # (Line 9) PlayWAV("Cecillia_01.ogg");
     if _t1(1000):
-        # (Line 11) v.Sound_Text2[cp] = 0;
+        # (Line 10) v.Sound_Text2[cp] = 0;
         DoActions(PlayWAV("Cecillia_01.ogg"))
         _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 12) s.print("\n\x13\x17Cecillia\n\x13\x04「　간다, \x17파동각!　\x04」\n");
-        s.print("\n\x13\x17Cecillia\n\x13\x04「　간다, \x17파동각!　\x04」\n")
-        # (Line 13) break;
+        # (Line 11) f.stb.print("\n\x13\x17Cecillia\n\x13\x04「　간다, \x17파동각!　\x04」\n");
+        f.stb.print("\n\x13\x17Cecillia\n\x13\x04「　간다, \x17파동각!　\x04」\n")
+        # (Line 12) break;
         EUDBreak()
-        # (Line 14) case 1010:
+        # (Line 13) case 1010:
     _t2 = EUDSwitchCase()
-    # (Line 15) PlayWAV("Cecillia_02.ogg");
+    # (Line 14) PlayWAV("Cecillia_02.ogg");
     if _t2(1010):
-        # (Line 16) v.Sound_Text2[cp] = 0;
+        # (Line 15) v.Sound_Text2[cp] = 0;
         DoActions(PlayWAV("Cecillia_02.ogg"))
         _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 17) s.print("\n\x13\x17Cecillia\n\x13\x04「　받아라! \x17천추각!　\x04」\n");
-        s.print("\n\x13\x17Cecillia\n\x13\x04「　받아라! \x17천추각!　\x04」\n")
-        # (Line 18) break;
+        # (Line 16) f.stb.print("\n\x13\x17Cecillia\n\x13\x04「　받아라! \x17천추각!　\x04」\n");
+        f.stb.print("\n\x13\x17Cecillia\n\x13\x04「　받아라! \x17천추각!　\x04」\n")
+        # (Line 17) break;
         EUDBreak()
-        # (Line 19) case 1020:
+        # (Line 18) case 1020:
     _t3 = EUDSwitchCase()
-    # (Line 20) PlayWAV("Cecillia_03.ogg");
+    # (Line 19) PlayWAV("Cecillia_03.ogg");
     if _t3(1020):
-        # (Line 21) v.Sound_Text2[cp] = 0;
+        # (Line 20) v.Sound_Text2[cp] = 0;
         DoActions(PlayWAV("Cecillia_03.ogg"))
         _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 22) s.print("\n\x13\x17Cecillia\n\x13\x04「　부셔져라, \x06폭렬각!!!　\x04」\n");
-        s.print("\n\x13\x17Cecillia\n\x13\x04「　부셔져라, \x06폭렬각!!!　\x04」\n")
-        # (Line 23) break;
+        # (Line 21) f.stb.print("\n\x13\x17Cecillia\n\x13\x04「　부셔져라, \x06폭렬각!!!　\x04」\n");
+        f.stb.print("\n\x13\x17Cecillia\n\x13\x04「　부셔져라, \x06폭렬각!!!　\x04」\n")
+        # (Line 22) break;
         EUDBreak()
-        # (Line 24) }
-    # (Line 25) }
+        # (Line 23) }
+    # (Line 24) }
     EUDEndSwitch()
-    # (Line 27) function UiltimateText(cp)
+    # (Line 26) function UiltimateText(cp)
 
-# (Line 28) {
+# (Line 27) {
 @EUDFunc
 def UiltimateText(cp):
-    # (Line 29) switch (v.Sound_Text_Uilti[cp])
+    # (Line 28) switch (v.Sound_Text_Uilti[cp])
     EUDSwitch(v.Sound_Text_Uilti[cp])
-    # (Line 30) {
-    # (Line 31) case 7000:
+    # (Line 29) {
+    # (Line 30) case 7000:
     _t1 = EUDSwitchCase()
-    # (Line 32) PlayWAV("Cecillia_Uiltimate.ogg");
+    # (Line 31) PlayWAV("Cecillia_Uiltimate.ogg");
     if _t1(7000):
-        # (Line 33) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 32) v.Sound_Text_Uilti[cp] = 0;
         DoActions(PlayWAV("Cecillia_Uiltimate.ogg"))
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 34) s.printAt(3,"\x13\x17Cecillia\n\n\x13\x04「　하아앗.. \x06필살 유성각!　\x04」");
-        s.printAt(3, "\x13\x17Cecillia\n\n\x13\x04「　하아앗.. \x06필살 유성각!　\x04」")
-        # (Line 35) break;
+        # (Line 33) f.stb.printAt(3,"\x13\x17Cecillia\n\n\x13\x04「　하아앗.. \x06필살 유성각!　\x04」");
+        f.stb.printAt(3, "\x13\x17Cecillia\n\n\x13\x04「　하아앗.. \x06필살 유성각!　\x04」")
+        # (Line 34) break;
         EUDBreak()
-        # (Line 36) }
-    # (Line 37) }
+        # (Line 35) }
+    # (Line 36) }
     EUDEndSwitch()
-    # (Line 39) function UniqueText(cp)
+    # (Line 38) function UniqueText(cp)
 
-# (Line 40) {
+# (Line 39) {
 @EUDFunc
 def UniqueText(cp):
-    # (Line 41) switch (v.Sound_Text_Uniq[cp])
+    # (Line 40) switch (v.Sound_Text_Uniq[cp])
     EUDSwitch(v.Sound_Text_Uniq[cp])
-    # (Line 42) {
-    # (Line 43) case 7000:
+    # (Line 41) {
+    # (Line 42) case 7000:
     _t1 = EUDSwitchCase()
-    # (Line 44) PlayWAV("Cecillia_Unique.ogg");
+    # (Line 43) PlayWAV("Cecillia_Unique.ogg");
     if _t1(7000):
-        # (Line 45) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 44) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("Cecillia_Unique.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 46) s.printAt(3,"\x13\x17Cecillia\n\x13\x04「　괴로워도 포기하면 거기서 끝이라고? 용기란 포기하지 않는 걸 말하는거라고　\x04」");
-        s.printAt(3, "\x13\x17Cecillia\n\x13\x04「　괴로워도 포기하면 거기서 끝이라고? 용기란 포기하지 않는 걸 말하는거라고　\x04」")
-        # (Line 47) break;
+        # (Line 45) f.stb.printAt(3,"\x13\x17Cecillia\n\x13\x04「　괴로워도 포기하면 거기서 끝이라고? 용기란 포기하지 않는 걸 말하는거라고　\x04」");
+        f.stb.printAt(3, "\x13\x17Cecillia\n\x13\x04「　괴로워도 포기하면 거기서 끝이라고? 용기란 포기하지 않는 걸 말하는거라고　\x04」")
+        # (Line 46) break;
         EUDBreak()
-        # (Line 48) }
-    # (Line 49) }
+        # (Line 47) }
+    # (Line 48) }
     EUDEndSwitch()

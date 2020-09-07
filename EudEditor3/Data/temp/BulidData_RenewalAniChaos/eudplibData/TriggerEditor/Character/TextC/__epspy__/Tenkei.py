@@ -128,119 +128,128 @@ def _LSH(l, r):
 
 # (Line 1) import Variable as v;
 import Variable as v
-# (Line 3) const s = StringBuffer();
-s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 5) function NormalText(cp)
-# (Line 6) {
+# (Line 2) import Function as f;
+import Function as f
+# (Line 4) function NormalText(cp)
+# (Line 5) {
 @EUDFunc
 def NormalText(cp):
-    # (Line 7) switch (v.Sound_Text3[cp])
+    # (Line 6) switch (v.Sound_Text3[cp])
     EUDSwitch(v.Sound_Text3[cp])
-    # (Line 8) {
-    # (Line 9) case 6000:
+    # (Line 7) {
+    # (Line 8) case 6000:
     _t1 = EUDSwitchCase()
-    # (Line 10) s.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04하항, 풋내나는구만 정말이지\n\n");
+    # (Line 9) f.stb.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04하항, 풋내나는구만 정말이지\n\n");
     if _t1(6000):
-        s.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04하항, 풋내나는구만 정말이지\n\n")
-        # (Line 11) PlayWAV("iwa_sss.ogg");
-        # (Line 12) v.Sound_Text3[cp] = 0;
-        DoActions(PlayWAV("iwa_sss.ogg"))
+        f.stb.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04하항, 풋내나는구만 정말이지\n\n")
+        # (Line 10) PlayWAV("iwa_ssf.stb.ogg");
+        # (Line 11) v.Sound_Text3[cp] = 0;
+        DoActions(PlayWAV("iwa_ssf.stb.ogg"))
         _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 13) break;
+        # (Line 12) break;
         EUDBreak()
-        # (Line 14) case 6001:
+        # (Line 13) case 6001:
     _t2 = EUDSwitchCase()
-    # (Line 15) s.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04이상의 세계라는 것을 자신의 힘으로 만들 수 있다고 믿는 건\n\n");
+    # (Line 14) f.stb.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04이상의 세계라는 것을 자신의 힘으로 만들 수 있다고 믿는 건\n\n");
     if _t2(6001):
-        s.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04이상의 세계라는 것을 자신의 힘으로 만들 수 있다고 믿는 건\n\n")
-        # (Line 16) PlayWAV("iwa_sssccc.ogg");
-        # (Line 17) v.Sound_Text3[cp] = 0;
+        f.stb.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04이상의 세계라는 것을 자신의 힘으로 만들 수 있다고 믿는 건\n\n")
+        # (Line 15) PlayWAV("iwa_sssccc.ogg");
+        # (Line 16) v.Sound_Text3[cp] = 0;
         DoActions(PlayWAV("iwa_sssccc.ogg"))
         _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 18) break;
+        # (Line 17) break;
         EUDBreak()
-        # (Line 19) case 6002:
+        # (Line 18) case 6002:
     _t3 = EUDSwitchCase()
-    # (Line 20) s.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04무나카타, 네가 아직 좌절을 맛본 적 없는 풋내기라서야\n\n");
+    # (Line 19) f.stb.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04무나카타, 네가 아직 좌절을 맛본 적 없는 풋내기라서야\n\n");
     if _t3(6002):
-        s.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04무나카타, 네가 아직 좌절을 맛본 적 없는 풋내기라서야\n\n")
-        # (Line 21) v.Sound_Text3[cp] = 0;
+        f.stb.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04무나카타, 네가 아직 좌절을 맛본 적 없는 풋내기라서야\n\n")
+        # (Line 20) v.Sound_Text3[cp] = 0;
         _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 22) break;
+        # (Line 21) break;
         EUDBreak()
-        # (Line 23) case 6003:
+        # (Line 22) case 6003:
     _t4 = EUDSwitchCase()
-    # (Line 24) s.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04어이어이, 어딜 노리는 거냐~?\n\n");
+    # (Line 23) f.stb.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04어이어이, 어딜 노리는 거냐~?\n\n");
     if _t4(6003):
-        s.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04어이어이, 어딜 노리는 거냐~?\n\n")
-        # (Line 25) PlayWAV("iwa_aac.ogg");
-        # (Line 26) v.Sound_Text3[cp] = 0;
+        f.stb.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04어이어이, 어딜 노리는 거냐~?\n\n")
+        # (Line 24) PlayWAV("iwa_aac.ogg");
+        # (Line 25) v.Sound_Text3[cp] = 0;
         DoActions(PlayWAV("iwa_aac.ogg"))
         _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 27) break;
+        # (Line 26) break;
         EUDBreak()
-        # (Line 28) }
-    # (Line 29) }
+        # (Line 27) }
+    # (Line 28) }
     EUDEndSwitch()
-    # (Line 31) function UiltimateText(cp)
+    # (Line 30) function UiltimateText(cp)
 
-# (Line 32) {
+# (Line 31) {
 @EUDFunc
 def UiltimateText(cp):
-    # (Line 33) switch (v.Sound_Text_Uilti[cp])
+    # (Line 32) switch (v.Sound_Text_Uilti[cp])
     EUDSwitch(v.Sound_Text_Uilti[cp])
-    # (Line 34) {
-    # (Line 35) case 18000:
+    # (Line 33) {
+    # (Line 34) case 18000:
     _t1 = EUDSwitchCase()
-    # (Line 36) s.printAt(3,"\x13\x02Iwahune Tenkei\n\x13\x04약해진 상대한테 전력을 쏟는 것도 쪽팔리지만,");
+    # (Line 35) f.stb.printAt(3,"\x13\x02Iwahune Tenkei\n\x13\x04약해진 상대한테 전력을 쏟는 것도 쪽팔리지만,");
     if _t1(18000):
-        s.printAt(3, "\x13\x02Iwahune Tenkei\n\x13\x04약해진 상대한테 전력을 쏟는 것도 쪽팔리지만,")
-        # (Line 37) PlayWAV("iwa_aaa.ogg");
-        # (Line 38) v.Sound_Text_Uilti[cp] = 0;
+        f.stb.printAt(3, "\x13\x02Iwahune Tenkei\n\x13\x04약해진 상대한테 전력을 쏟는 것도 쪽팔리지만,")
+        # (Line 36) PlayWAV("iwa_aaa.ogg");
+        # (Line 37) v.Sound_Text_Uilti[cp] = 0;
         DoActions(PlayWAV("iwa_aaa.ogg"))
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 39) break;
+        # (Line 38) break;
         EUDBreak()
-        # (Line 40) case 18001:
+        # (Line 39) case 18001:
     _t2 = EUDSwitchCase()
-    # (Line 41) s.printAt(3,"\x13\x02Iwahune Tenkei\n\x13\x04이쪽도 슬슬 물러날 때다!");
+    # (Line 40) f.stb.printAt(3,"\x13\x02Iwahune Tenkei\n\x13\x04이쪽도 슬슬 물러날 때다!");
     if _t2(18001):
-        s.printAt(3, "\x13\x02Iwahune Tenkei\n\x13\x04이쪽도 슬슬 물러날 때다!")
-        # (Line 42) v.Sound_Text_Uilti[cp] = 0;
+        f.stb.printAt(3, "\x13\x02Iwahune Tenkei\n\x13\x04이쪽도 슬슬 물러날 때다!")
+        # (Line 41) v.Sound_Text_Uilti[cp] = 0;
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 43) break;
+        # (Line 42) break;
         EUDBreak()
-        # (Line 44) }
-    # (Line 45) }
+        # (Line 43) case 18010:
+    _t3 = EUDSwitchCase()
+    # (Line 44) PlayWAV("iwa_acf.stb.ogg");
+    if _t3(18010):
+        # (Line 45) v.Sound_Text_Uilti[cp] = 0;
+        DoActions(PlayWAV("iwa_acf.stb.ogg"))
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
+        # (Line 46) break;
+        EUDBreak()
+        # (Line 47) }
+    # (Line 48) }
     EUDEndSwitch()
-    # (Line 47) function UniqueText(cp)
+    # (Line 50) function UniqueText(cp)
 
-# (Line 48) {
+# (Line 51) {
 @EUDFunc
 def UniqueText(cp):
-    # (Line 49) switch (v.Sound_Text_Uniq[cp])
+    # (Line 52) switch (v.Sound_Text_Uniq[cp])
     EUDSwitch(v.Sound_Text_Uniq[cp])
-    # (Line 50) {
-    # (Line 51) case 18000:
+    # (Line 53) {
+    # (Line 54) case 18000:
     _t1 = EUDSwitchCase()
-    # (Line 52) s.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04아, 잠깐만\n\n");
+    # (Line 55) f.stb.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04아, 잠깐만\n\n");
     if _t1(18000):
-        s.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04아, 잠깐만\n\n")
-        # (Line 53) PlayWAV("iwa_o.ogg");
-        # (Line 54) v.Sound_Text_Uniq[cp] = 0;
+        f.stb.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04아, 잠깐만\n\n")
+        # (Line 56) PlayWAV("iwa_o.ogg");
+        # (Line 57) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("iwa_o.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 55) break;
+        # (Line 58) break;
         EUDBreak()
-        # (Line 56) case 18001:
+        # (Line 59) case 18001:
     _t2 = EUDSwitchCase()
-    # (Line 57) s.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04너무 죽기 살기로 덤비지 마, 풋내기\n\n");
+    # (Line 60) f.stb.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04너무 죽기 살기로 덤비지 마, 풋내기\n\n");
     if _t2(18001):
-        s.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04너무 죽기 살기로 덤비지 마, 풋내기\n\n")
-        # (Line 58) v.Sound_Text_Uniq[cp] = 0;
+        f.stb.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04너무 죽기 살기로 덤비지 마, 풋내기\n\n")
+        # (Line 61) v.Sound_Text_Uniq[cp] = 0;
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 59) break;
+        # (Line 62) break;
         EUDBreak()
-        # (Line 60) }
-    # (Line 61) }
+        # (Line 63) }
+    # (Line 64) }
     EUDEndSwitch()

@@ -128,125 +128,125 @@ def _LSH(l, r):
 
 # (Line 1) import Variable as v;
 import Variable as v
-# (Line 3) const s = StringBuffer();
-s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 5) function NormalText(cp)
-# (Line 6) {
+# (Line 2) import Function as f;
+import Function as f
+# (Line 4) function NormalText(cp)
+# (Line 5) {
 @EUDFunc
 def NormalText(cp):
-    # (Line 7) switch (v.Sound_Text3[cp])
+    # (Line 6) switch (v.Sound_Text3[cp])
     EUDSwitch(v.Sound_Text3[cp])
-    # (Line 8) {
-    # (Line 9) case 1000:
+    # (Line 7) {
+    # (Line 8) case 1000:
     _t1 = EUDSwitchCase()
-    # (Line 10) s.print("\n\x13\x1BMato Sakura\n\x13\x04와~~앙!!\n");
+    # (Line 9) f.stb.print("\n\x13\x1BMato Sakura\n\x13\x04와~~앙!!\n");
     if _t1(1000):
-        s.print("\n\x13\x1BMato Sakura\n\x13\x04와~~앙!!\n")
-        # (Line 11) PlayWAV("sakura_01.ogg");
-        # (Line 12) v.Sound_Text3[cp] = 0;
+        f.stb.print("\n\x13\x1BMato Sakura\n\x13\x04와~~앙!!\n")
+        # (Line 10) PlayWAV("sakura_01.ogg");
+        # (Line 11) v.Sound_Text3[cp] = 0;
         DoActions(PlayWAV("sakura_01.ogg"))
         _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 13) break;
+        # (Line 12) break;
         EUDBreak()
-        # (Line 14) case 1001:
+        # (Line 13) case 1001:
     _t2 = EUDSwitchCase()
-    # (Line 15) s.print("\n\x13\x1BMato Sakura\n\x13\x04어째서... \x08항상 \x04이렇게 되어버리는 걸까...\n");
+    # (Line 14) f.stb.print("\n\x13\x1BMato Sakura\n\x13\x04어째서... \x08항상 \x04이렇게 되어버리는 걸까...\n");
     if _t2(1001):
-        s.print("\n\x13\x1BMato Sakura\n\x13\x04어째서... \x08항상 \x04이렇게 되어버리는 걸까...\n")
-        # (Line 16) PlayWAV("sakura_02.ogg");
-        # (Line 17) v.Sound_Text3[cp] = 0;
+        f.stb.print("\n\x13\x1BMato Sakura\n\x13\x04어째서... \x08항상 \x04이렇게 되어버리는 걸까...\n")
+        # (Line 15) PlayWAV("sakura_02.ogg");
+        # (Line 16) v.Sound_Text3[cp] = 0;
         DoActions(PlayWAV("sakura_02.ogg"))
         _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 18) break;
+        # (Line 17) break;
         EUDBreak()
-        # (Line 19) case 1002:
+        # (Line 18) case 1002:
     _t3 = EUDSwitchCase()
-    # (Line 20) s.print("\n\x13\x1BMato Sakura\n\x13\x04아주 예전부터 생각했다...\n");
+    # (Line 19) f.stb.print("\n\x13\x1BMato Sakura\n\x13\x04아주 예전부터 생각했다...\n");
     if _t3(1002):
-        s.print("\n\x13\x1BMato Sakura\n\x13\x04아주 예전부터 생각했다...\n")
-        # (Line 21) v.Sound_Text3[cp] = 0;
+        f.stb.print("\n\x13\x1BMato Sakura\n\x13\x04아주 예전부터 생각했다...\n")
+        # (Line 20) v.Sound_Text3[cp] = 0;
         _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 22) break;
+        # (Line 21) break;
         EUDBreak()
-        # (Line 23) case 1003:
+        # (Line 22) case 1003:
     _t4 = EUDSwitchCase()
-    # (Line 24) s.print("\n\x13\x1BMato Sakura\n\x13\x04아주 예전부터 \x08원망\x04하고 있었던 거야...\n");
+    # (Line 23) f.stb.print("\n\x13\x1BMato Sakura\n\x13\x04아주 예전부터 \x08원망\x04하고 있었던 거야...\n");
     if _t4(1003):
-        s.print("\n\x13\x1BMato Sakura\n\x13\x04아주 예전부터 \x08원망\x04하고 있었던 거야...\n")
-        # (Line 25) v.Sound_Text3[cp] = 0;
+        f.stb.print("\n\x13\x1BMato Sakura\n\x13\x04아주 예전부터 \x08원망\x04하고 있었던 거야...\n")
+        # (Line 24) v.Sound_Text3[cp] = 0;
         _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 26) break;
+        # (Line 25) break;
         EUDBreak()
-        # (Line 27) case 1004:
+        # (Line 26) case 1004:
     _t5 = EUDSwitchCase()
-    # (Line 28) PlayWAV("sakura_03.ogg");
+    # (Line 27) PlayWAV("sakura_03.ogg");
     if _t5(1004):
-        # (Line 29) s.print("\n\x13\x1BMato Sakura\n\x13\x04왜 내 주변에 있는 \x08세계\x04는...\n");
+        # (Line 28) f.stb.print("\n\x13\x1BMato Sakura\n\x13\x04왜 내 주변에 있는 \x08세계\x04는...\n");
         DoActions(PlayWAV("sakura_03.ogg"))
-        s.print("\n\x13\x1BMato Sakura\n\x13\x04왜 내 주변에 있는 \x08세계\x04는...\n")
-        # (Line 30) v.Sound_Text3[cp] = 0;
+        f.stb.print("\n\x13\x1BMato Sakura\n\x13\x04왜 내 주변에 있는 \x08세계\x04는...\n")
+        # (Line 29) v.Sound_Text3[cp] = 0;
         _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 31) break;
+        # (Line 30) break;
         EUDBreak()
-        # (Line 32) case 1005:
+        # (Line 31) case 1005:
     _t6 = EUDSwitchCase()
-    # (Line 33) s.print("\n\x13\x1BMato Sakura\n\x13\x04이렇게나... 나를 \x08싫어하는 걸까...\n");
+    # (Line 32) f.stb.print("\n\x13\x1BMato Sakura\n\x13\x04이렇게나... 나를 \x08싫어하는 걸까...\n");
     if _t6(1005):
-        s.print("\n\x13\x1BMato Sakura\n\x13\x04이렇게나... 나를 \x08싫어하는 걸까...\n")
-        # (Line 34) v.Sound_Text3[cp] = 0;
+        f.stb.print("\n\x13\x1BMato Sakura\n\x13\x04이렇게나... 나를 \x08싫어하는 걸까...\n")
+        # (Line 33) v.Sound_Text3[cp] = 0;
         _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 35) break;
+        # (Line 34) break;
         EUDBreak()
-        # (Line 36) }
-    # (Line 37) }
+        # (Line 35) }
+    # (Line 36) }
     EUDEndSwitch()
-    # (Line 39) function UiltimateText(cp)
+    # (Line 38) function UiltimateText(cp)
 
-# (Line 40) {
+# (Line 39) {
 @EUDFunc
 def UiltimateText(cp):
-    # (Line 41) switch (v.Sound_Text_Uilti[cp])
+    # (Line 40) switch (v.Sound_Text_Uilti[cp])
     EUDSwitch(v.Sound_Text_Uilti[cp])
-    # (Line 42) {
-    # (Line 43) case 13000:
+    # (Line 41) {
+    # (Line 42) case 13000:
     _t1 = EUDSwitchCase()
-    # (Line 44) PlayWAV("sakura_04.ogg");
+    # (Line 43) PlayWAV("sakura_04.ogg");
     if _t1(13000):
-        # (Line 45) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 44) v.Sound_Text_Uilti[cp] = 0;
         DoActions(PlayWAV("sakura_04.ogg"))
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 46) break;
+        # (Line 45) break;
         EUDBreak()
-        # (Line 47) case 13001:
+        # (Line 46) case 13001:
     _t2 = EUDSwitchCase()
-    # (Line 48) PlayWAV("sakura_05.ogg");
+    # (Line 47) PlayWAV("sakura_05.ogg");
     if _t2(13001):
-        # (Line 49) s.printAt(3,"\x13\x1BMato Sakura\n\x13\x08이런 사람... 없었으면 좋았을텐데...");
+        # (Line 48) f.stb.printAt(3,"\x13\x1BMato Sakura\n\x13\x08이런 사람... 없었으면 좋았을텐데...");
         DoActions(PlayWAV("sakura_05.ogg"))
-        s.printAt(3, "\x13\x1BMato Sakura\n\x13\x08이런 사람... 없었으면 좋았을텐데...")
-        # (Line 50) v.Sound_Text_Uilti[cp] = 0;
+        f.stb.printAt(3, "\x13\x1BMato Sakura\n\x13\x08이런 사람... 없었으면 좋았을텐데...")
+        # (Line 49) v.Sound_Text_Uilti[cp] = 0;
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 51) break;
+        # (Line 50) break;
         EUDBreak()
-        # (Line 52) }
-    # (Line 53) }
+        # (Line 51) }
+    # (Line 52) }
     EUDEndSwitch()
-    # (Line 55) function UniqueText(cp)
+    # (Line 54) function UniqueText(cp)
 
-# (Line 56) {
+# (Line 55) {
 @EUDFunc
 def UniqueText(cp):
-    # (Line 57) switch (v.Sound_Text_Uniq[cp]) {
+    # (Line 56) switch (v.Sound_Text_Uniq[cp]) {
     EUDSwitch(v.Sound_Text_Uniq[cp])
-    # (Line 58) case 13000:
+    # (Line 57) case 13000:
     _t1 = EUDSwitchCase()
-    # (Line 59) PlayWAV("sakura_06.ogg");
+    # (Line 58) PlayWAV("sakura_06.ogg");
     if _t1(13000):
-        # (Line 60) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 59) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("sakura_06.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 61) break;
+        # (Line 60) break;
         EUDBreak()
-        # (Line 62) }
-    # (Line 63) }
+        # (Line 61) }
+    # (Line 62) }
     EUDEndSwitch()

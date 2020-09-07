@@ -1,0 +1,14 @@
+function SetLight(modify: TrgModifier, val) 
+{
+	const cp = getcurpl();
+	if(Memory(0x57F1B0, Exactly, cp))
+	{
+		SetMemoryEPD(EPD(0x657A9C), modify, val);
+	}
+}
+
+function GetLight()
+{
+	return dwread_epd(EPD(0x657A9C));
+}
+

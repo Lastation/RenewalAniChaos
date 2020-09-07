@@ -1,7 +1,5 @@
 import Function as f;
 
-const stb = StringBuffer();
-
 function main(cp)
 {
 	if (f.wait[cp] == 0 && f.step[cp] == 0)
@@ -10,7 +8,7 @@ function main(cp)
 		&& Deaths(CurrentPlayer, Exactly, 0, " `UniqueCoolTime")
 		&& Deaths(CurrentPlayer, AtMost, 2, " `UniqueSkill")
 		&& (bread(0x58D2B0 + 0 + 46 * cp) > 4)
-		&& Score(CurrentPlayer, Custom, AtLeast, 25))
+		&& Deaths(CurrentPlayer, AtLeast, 1, " `O Skill Condition"))
 		{
 			f.Voice_Routine(cp, 14);
 			f.step[cp] = 1;
@@ -71,7 +69,7 @@ function main(cp)
 			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp);
 		}
 		else if (Bring(cp, AtLeast, 3, "Protoss Arbiter", "[Skill]UseSkill")
-		&& Accumulate(cp, AtLeast, 200, Gas)
+		&& Accumulate(cp, AtLeast, 100, Gas)
 		&& f.step[cp] == 200)
 		{
 			f.Voice_Routine(cp, 5);
@@ -80,10 +78,10 @@ function main(cp)
 			f.loop[cp] = 0;
 			f.step[cp] = 230;
 			KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", cp);
-			SetResources(cp, Subtract, 200, Gas);
+			SetResources(cp, Subtract, 100, Gas);
 		}
 		// Ultimate
-		else if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") 
+		else if (Bring(cp, AtLeast, 3, "Protoss Arbiter", "[Skill]UseSkill") 
 		&& f.step[cp] == 300
 		&& Deaths(cp, AtLeast, f.UltimateA[cp], " `UltimateCoolTime"))
 		{
@@ -97,7 +95,7 @@ function main(cp)
 				f.loop[cp] = 0;
 				f.step[cp] = 310;
 				SetDeaths(cp, Subtract, f.UltimateA[cp], " `UltimateCoolTime");
-				KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
+				KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", cp);
 			}
 			else
 			{

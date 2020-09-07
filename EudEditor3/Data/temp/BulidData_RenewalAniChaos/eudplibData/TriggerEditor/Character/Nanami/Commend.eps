@@ -1,13 +1,11 @@
 import Function as f;
 
-const stb = StringBuffer();
-
 function main(cp)
 {
 	if (f.wait[cp] == 0 && f.step[cp] == 0)
 	{
 		if (Bring(cp, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill")
-		&& Score(CurrentPlayer, Custom, AtLeast, 25)
+		&& Deaths(CurrentPlayer, AtLeast, 1, " `O Skill Condition")
 		&& Deaths(CurrentPlayer, Exactly, 0, " `UniqueCoolTime"))
 		{
 			f.Voice_Routine(cp, 10);

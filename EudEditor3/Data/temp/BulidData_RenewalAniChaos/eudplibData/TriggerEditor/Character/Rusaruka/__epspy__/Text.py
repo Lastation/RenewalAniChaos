@@ -128,133 +128,131 @@ def _LSH(l, r):
 
 # (Line 1) import Function as f;
 import Function as f
-# (Line 3) const s = StringBuffer();
-s = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 5) function main(cp)
-# (Line 6) {
+# (Line 3) function main(cp)
+# (Line 4) {
 @EUDFunc
 def f_main(cp):
-    # (Line 7) if (f.Rusaruka_Voice[cp] > 0)
+    # (Line 5) if (f.Rusaruka_Voice[cp] > 0)
     if EUDIf()(f.Rusaruka_Voice[cp] <= 0, neg=True):
-        # (Line 8) {
-        # (Line 9) switch (f.Rusaruka_Voice[cp])
+        # (Line 6) {
+        # (Line 7) switch (f.Rusaruka_Voice[cp])
         EUDSwitch(f.Rusaruka_Voice[cp])
-        # (Line 10) {
-        # (Line 11) case 1:
+        # (Line 8) {
+        # (Line 9) case 1:
         _t2 = EUDSwitchCase()
-        # (Line 12) PlayWAV("Rusaruka_1.ogg");
+        # (Line 10) PlayWAV("Rusaruka_1.ogg");
         if _t2(1):
-            # (Line 13) s.print("\x13\x1BRusaruka Schwagerin\n");
+            # (Line 11) f.stb.print("\x13\x1BRusaruka Schwagerin\n");
             DoActions(PlayWAV("Rusaruka_1.ogg"))
-            s.print("\x13\x1BRusaruka Schwagerin\n")
-            # (Line 14) s.print("\x13\x04[ \x06너무 얕보면... 먹어버릴거야? \x04]");
-            s.print("\x13\x04[ \x06너무 얕보면... 먹어버릴거야? \x04]")
-            # (Line 15) break;
+            f.stb.print("\x13\x1BRusaruka Schwagerin\n")
+            # (Line 12) f.stb.print("\x13\x04[ \x06너무 얕보면... 먹어버릴거야? \x04]");
+            f.stb.print("\x13\x04[ \x06너무 얕보면... 먹어버릴거야? \x04]")
+            # (Line 13) break;
             EUDBreak()
-            # (Line 16) case 2:
+            # (Line 14) case 2:
         _t3 = EUDSwitchCase()
-        # (Line 17) PlayWAV("Rusaruka_2.ogg");
+        # (Line 15) PlayWAV("Rusaruka_2.ogg");
         if _t3(2):
-            # (Line 18) s.print("\x13\x1BRusaruka Schwagerin\n");
+            # (Line 16) f.stb.print("\x13\x1BRusaruka Schwagerin\n");
             DoActions(PlayWAV("Rusaruka_2.ogg"))
-            s.print("\x13\x1BRusaruka Schwagerin\n")
-            # (Line 19) s.print("\x13\x04[ \x06좋아, 내가 시험해줄게. 술래잡기를 계속하도록 할까? \x04]");
-            s.print("\x13\x04[ \x06좋아, 내가 시험해줄게. 술래잡기를 계속하도록 할까? \x04]")
-            # (Line 20) break;
+            f.stb.print("\x13\x1BRusaruka Schwagerin\n")
+            # (Line 17) f.stb.print("\x13\x04[ \x06좋아, 내가 시험해줄게. 술래잡기를 계속하도록 할까? \x04]");
+            f.stb.print("\x13\x04[ \x06좋아, 내가 시험해줄게. 술래잡기를 계속하도록 할까? \x04]")
+            # (Line 18) break;
             EUDBreak()
-            # (Line 21) case 3:
+            # (Line 19) case 3:
         _t4 = EUDSwitchCase()
-        # (Line 22) PlayWAV("Rusaruka_3.ogg");
+        # (Line 20) PlayWAV("Rusaruka_3.ogg");
         if _t4(3):
-            # (Line 23) s.print("\x13\x1BRusaruka Schwagerin\n");
+            # (Line 21) f.stb.print("\x13\x1BRusaruka Schwagerin\n");
             DoActions(PlayWAV("Rusaruka_3.ogg"))
-            s.print("\x13\x1BRusaruka Schwagerin\n")
-            # (Line 24) s.print("\x13\x04[ \x06조금 아프겠지만, 참으렴...! \x04]\n\n");
-            s.print("\x13\x04[ \x06조금 아프겠지만, 참으렴...! \x04]\n\n")
-            # (Line 25) break;
+            f.stb.print("\x13\x1BRusaruka Schwagerin\n")
+            # (Line 22) f.stb.print("\x13\x04[ \x06조금 아프겠지만, 참으렴...! \x04]\n\n");
+            f.stb.print("\x13\x04[ \x06조금 아프겠지만, 참으렴...! \x04]\n\n")
+            # (Line 23) break;
             EUDBreak()
-            # (Line 26) case 4:
+            # (Line 24) case 4:
         _t5 = EUDSwitchCase()
-        # (Line 27) PlayWAV("Rusaruka_4.ogg");
+        # (Line 25) PlayWAV("Rusaruka_4.ogg");
         if _t5(4):
-            # (Line 28) s.print("\x13\x1BRusaruka Schwagerin\n");
+            # (Line 26) f.stb.print("\x13\x1BRusaruka Schwagerin\n");
             DoActions(PlayWAV("Rusaruka_4.ogg"))
-            s.print("\x13\x1BRusaruka Schwagerin\n")
-            # (Line 29) s.print("\x13\x04[ 당신 여기서 \x06살해\x04당하고 싶어...? \x04]");
-            s.print("\x13\x04[ 당신 여기서 \x06살해\x04당하고 싶어...? \x04]")
-            # (Line 30) break;
+            f.stb.print("\x13\x1BRusaruka Schwagerin\n")
+            # (Line 27) f.stb.print("\x13\x04[ 당신 여기서 \x06살해\x04당하고 싶어...? \x04]");
+            f.stb.print("\x13\x04[ 당신 여기서 \x06살해\x04당하고 싶어...? \x04]")
+            # (Line 28) break;
             EUDBreak()
-            # (Line 31) case 5:
+            # (Line 29) case 5:
         _t6 = EUDSwitchCase()
-        # (Line 32) PlayWAV("Rusalka_Ultimate.ogg");
+        # (Line 30) PlayWAV("Rusalka_Ultimate.ogg");
         if _t6(5):
-            # (Line 33) s.printAt(3, "\x13\x1BRusaruka Schwagerin\n");
+            # (Line 31) f.stb.printAt(3, "\x13\x1BRusaruka Schwagerin\n");
             DoActions(PlayWAV("Rusalka_Ultimate.ogg"))
-            s.printAt(3, "\x13\x1BRusaruka Schwagerin\n")
-            # (Line 34) s.printAt(5, "\n\x13\x06무서웠단 말이야! 놔두고 가버릴지!\n\x13\x06싫단 말이야! 떠밀려버리면!\n\x13\x06나... 걷는 거 느리단 말이야─!");
-            s.printAt(5, "\n\x13\x06무서웠단 말이야! 놔두고 가버릴지!\n\x13\x06싫단 말이야! 떠밀려버리면!\n\x13\x06나... 걷는 거 느리단 말이야─!")
-            # (Line 35) break;
+            f.stb.printAt(3, "\x13\x1BRusaruka Schwagerin\n")
+            # (Line 32) f.stb.printAt(5, "\n\x13\x06무서웠단 말이야! 놔두고 가버릴지!\n\x13\x06싫단 말이야! 떠밀려버리면!\n\x13\x06나... 걷는 거 느리단 말이야─!");
+            f.stb.printAt(5, "\n\x13\x06무서웠단 말이야! 놔두고 가버릴지!\n\x13\x06싫단 말이야! 떠밀려버리면!\n\x13\x06나... 걷는 거 느리단 말이야─!")
+            # (Line 33) break;
             EUDBreak()
-            # (Line 36) case 6:
+            # (Line 34) case 6:
         _t7 = EUDSwitchCase()
-        # (Line 37) s.printAt(3, "\x13\x1BRusaruka Schwagerin\n");
+        # (Line 35) f.stb.printAt(3, "\x13\x1BRusaruka Schwagerin\n");
         if _t7(6):
-            s.printAt(3, "\x13\x1BRusaruka Schwagerin\n")
-            # (Line 38) s.printAt(5, "\n\x13\x06따라 잡을 수 없다면,\n\x13\x06아예 멈춰 세우겠다고!\n\x13\x06그렇게 생각했어! 불만있어!?");
-            s.printAt(5, "\n\x13\x06따라 잡을 수 없다면,\n\x13\x06아예 멈춰 세우겠다고!\n\x13\x06그렇게 생각했어! 불만있어!?")
-            # (Line 39) break;
+            f.stb.printAt(3, "\x13\x1BRusaruka Schwagerin\n")
+            # (Line 36) f.stb.printAt(5, "\n\x13\x06따라 잡을 수 없다면,\n\x13\x06아예 멈춰 세우겠다고!\n\x13\x06그렇게 생각했어! 불만있어!?");
+            f.stb.printAt(5, "\n\x13\x06따라 잡을 수 없다면,\n\x13\x06아예 멈춰 세우겠다고!\n\x13\x06그렇게 생각했어! 불만있어!?")
+            # (Line 37) break;
             EUDBreak()
-            # (Line 40) case 7:
+            # (Line 38) case 7:
         _t8 = EUDSwitchCase()
-        # (Line 41) PlayWAV("Rusalka_Unique.ogg");
+        # (Line 39) PlayWAV("Rusalka_Unique.ogg");
         if _t8(7):
-            # (Line 42) s.printAt(3, "\x13\x1BRusaruka Schwagerin\n");
+            # (Line 40) f.stb.printAt(3, "\x13\x1BRusaruka Schwagerin\n");
             DoActions(PlayWAV("Rusalka_Unique.ogg"))
-            s.printAt(3, "\x13\x1BRusaruka Schwagerin\n")
-            # (Line 43) s.printAt(5, "\n\x13\x05In der Nacht, wo alles schlaft\n\x13\x04모든것이 잠드는 밤에\n\n\x13\x05Wie schon, den Meeresboden zu verlassen.\n\x13\x04물밑을 벗어나는것이야 말로 아름다움이니.");
-            s.printAt(5, "\n\x13\x05In der Nacht, wo alles schlaft\n\x13\x04모든것이 잠드는 밤에\n\n\x13\x05Wie schon, den Meeresboden zu verlassen.\n\x13\x04물밑을 벗어나는것이야 말로 아름다움이니.")
-            # (Line 44) break;
+            f.stb.printAt(3, "\x13\x1BRusaruka Schwagerin\n")
+            # (Line 41) f.stb.printAt(5, "\n\x13\x05In der Nacht, wo alles schlaft\n\x13\x04모든것이 잠드는 밤에\n\n\x13\x05Wie schon, den Meeresboden zu verlassen.\n\x13\x04물밑을 벗어나는것이야 말로 아름다움이니.");
+            f.stb.printAt(5, "\n\x13\x05In der Nacht, wo alles schlaft\n\x13\x04모든것이 잠드는 밤에\n\n\x13\x05Wie schon, den Meeresboden zu verlassen.\n\x13\x04물밑을 벗어나는것이야 말로 아름다움이니.")
+            # (Line 42) break;
             EUDBreak()
-            # (Line 45) case 8:
+            # (Line 43) case 8:
         _t9 = EUDSwitchCase()
-        # (Line 46) s.printAt(3, "\x13\x1BRusaruka Schwagerin\n");
+        # (Line 44) f.stb.printAt(3, "\x13\x1BRusaruka Schwagerin\n");
         if _t9(8):
-            s.printAt(3, "\x13\x1BRusaruka Schwagerin\n")
-            # (Line 47) s.printAt(5, "\n\x13\x05Ich hebe den Kopf uber das Wasser\n\x13\x04수면에 고개 들어\n\n\x13\x05Welch Freude, das Spiel der Wasserwellen\n\x13\x04물장구치며 놀자, 즐기어라.");
-            s.printAt(5, "\n\x13\x05Ich hebe den Kopf uber das Wasser\n\x13\x04수면에 고개 들어\n\n\x13\x05Welch Freude, das Spiel der Wasserwellen\n\x13\x04물장구치며 놀자, 즐기어라.")
-            # (Line 48) break;
+            f.stb.printAt(3, "\x13\x1BRusaruka Schwagerin\n")
+            # (Line 45) f.stb.printAt(5, "\n\x13\x05Ich hebe den Kopf uber das Wasser\n\x13\x04수면에 고개 들어\n\n\x13\x05Welch Freude, das Spiel der Wasserwellen\n\x13\x04물장구치며 놀자, 즐기어라.");
+            f.stb.printAt(5, "\n\x13\x05Ich hebe den Kopf uber das Wasser\n\x13\x04수면에 고개 들어\n\n\x13\x05Welch Freude, das Spiel der Wasserwellen\n\x13\x04물장구치며 놀자, 즐기어라.")
+            # (Line 46) break;
             EUDBreak()
-            # (Line 49) case 9:
+            # (Line 47) case 9:
         _t10 = EUDSwitchCase()
-        # (Line 50) s.printAt(3, "\x13\x1BRusaruka Schwagerin\n");
+        # (Line 48) f.stb.printAt(3, "\x13\x1BRusaruka Schwagerin\n");
         if _t10(9):
-            s.printAt(3, "\x13\x1BRusaruka Schwagerin\n")
-            # (Line 51) s.printAt(5, "\n\x13\x05Durch die nun zerbrochene Stille\n\x13\x04맑은 대기를 울리고\n\n\x13\x05Rufen wir unsere Namen\n\x13\x04서로 크게 불러");
-            s.printAt(5, "\n\x13\x05Durch die nun zerbrochene Stille\n\x13\x04맑은 대기를 울리고\n\n\x13\x05Rufen wir unsere Namen\n\x13\x04서로 크게 불러")
-            # (Line 52) break;
+            f.stb.printAt(3, "\x13\x1BRusaruka Schwagerin\n")
+            # (Line 49) f.stb.printAt(5, "\n\x13\x05Durch die nun zerbrochene Stille\n\x13\x04맑은 대기를 울리고\n\n\x13\x05Rufen wir unsere Namen\n\x13\x04서로 크게 불러");
+            f.stb.printAt(5, "\n\x13\x05Durch die nun zerbrochene Stille\n\x13\x04맑은 대기를 울리고\n\n\x13\x05Rufen wir unsere Namen\n\x13\x04서로 크게 불러")
+            # (Line 50) break;
             EUDBreak()
-            # (Line 53) case 10:
+            # (Line 51) case 10:
         _t11 = EUDSwitchCase()
-        # (Line 54) s.printAt(3, "\x13\x1BRusaruka Schwagerin\n");
+        # (Line 52) f.stb.printAt(3, "\x13\x1BRusaruka Schwagerin\n");
         if _t11(10):
-            s.printAt(3, "\x13\x1BRusaruka Schwagerin\n")
-            # (Line 55) s.printAt(5, "\n\x13\x05Pechschwarzes Haar wirbelt im Wind\n\x13\x04새까만 젖은 머리를 털어……\n\n\x13\x05Welch Freude, sie trocknen zu sehen\n\x13\x04말리며 놀자, 즐겨라");
-            s.printAt(5, "\n\x13\x05Pechschwarzes Haar wirbelt im Wind\n\x13\x04새까만 젖은 머리를 털어……\n\n\x13\x05Welch Freude, sie trocknen zu sehen\n\x13\x04말리며 놀자, 즐겨라")
-            # (Line 56) break;
+            f.stb.printAt(3, "\x13\x1BRusaruka Schwagerin\n")
+            # (Line 53) f.stb.printAt(5, "\n\x13\x05Pechschwarzes Haar wirbelt im Wind\n\x13\x04새까만 젖은 머리를 털어……\n\n\x13\x05Welch Freude, sie trocknen zu sehen\n\x13\x04말리며 놀자, 즐겨라");
+            f.stb.printAt(5, "\n\x13\x05Pechschwarzes Haar wirbelt im Wind\n\x13\x04새까만 젖은 머리를 털어……\n\n\x13\x05Welch Freude, sie trocknen zu sehen\n\x13\x04말리며 놀자, 즐겨라")
+            # (Line 54) break;
             EUDBreak()
-            # (Line 57) case 11:
+            # (Line 55) case 11:
         _t12 = EUDSwitchCase()
-        # (Line 58) s.printAt(3, "\x13\x1BRusaruka Schwagerin\n");
+        # (Line 56) f.stb.printAt(3, "\x13\x1BRusaruka Schwagerin\n");
         if _t12(11):
-            s.printAt(3, "\x13\x1BRusaruka Schwagerin\n")
-            # (Line 59) s.printAt(5, "\n\x13\x05Briah――\n\x13\x04창조\n\n\x13\x05Csejte Ungarn Nachtzehrer\n\x13\x04체터성의 식인그림자\n\n");
-            s.printAt(5, "\n\x13\x05Briah――\n\x13\x04창조\n\n\x13\x05Csejte Ungarn Nachtzehrer\n\x13\x04체터성의 식인그림자\n\n")
-            # (Line 60) break;
+            f.stb.printAt(3, "\x13\x1BRusaruka Schwagerin\n")
+            # (Line 57) f.stb.printAt(5, "\n\x13\x05Briah――\n\x13\x04창조\n\n\x13\x05Csejte Ungarn Nachtzehrer\n\x13\x04체터성의 식인그림자\n\n");
+            f.stb.printAt(5, "\n\x13\x05Briah――\n\x13\x04창조\n\n\x13\x05Csejte Ungarn Nachtzehrer\n\x13\x04체터성의 식인그림자\n\n")
+            # (Line 58) break;
             EUDBreak()
-            # (Line 61) }
-        # (Line 62) f.Rusaruka_Voice[cp] = 0;
+            # (Line 59) }
+        # (Line 60) f.Rusaruka_Voice[cp] = 0;
         EUDEndSwitch()
         _ARRW(f.Rusaruka_Voice, cp) << (0)
-        # (Line 63) }
-        # (Line 64) }
+        # (Line 61) }
+        # (Line 62) }
     EUDEndIf()

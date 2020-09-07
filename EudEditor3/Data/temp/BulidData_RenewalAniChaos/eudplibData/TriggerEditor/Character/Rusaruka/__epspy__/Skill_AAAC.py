@@ -134,8 +134,8 @@ import Function as f
 def f_main(cp):
     # (Line 5) f.BanReturn(cp);
     f.BanReturn(cp)
-    # (Line 6) f.HoldPosition(cp);
-    f.HoldPosition(cp)
+    # (Line 6) f.Slow(cp);
+    f.Slow(cp)
     # (Line 8) if (f.loop[cp] > 30)
     if EUDIf()(f.loop[cp] <= 30, neg=True):
         # (Line 9) {

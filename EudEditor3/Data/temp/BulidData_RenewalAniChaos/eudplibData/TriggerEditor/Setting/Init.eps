@@ -1,5 +1,4 @@
 import Variable as v;
-const s = StringBuffer();
 
 function SetBuildingHP(cp) 
 {
@@ -30,7 +29,7 @@ function SetVariable(cp)
 		}
 		break;
   	case 18:	//텐케이
-  		if (Deaths(CurrentPlayer, Exactly, 320, " `SkillStep")) v.Dfs[cp] = 255;
+  		if (Deaths(CurrentPlayer, Exactly, 320, " `SkillStep")) v.Dfs[cp] = 200;
      		break;
   	case 22:	//유우나
   		v.Dfs[cp] -= 3 * dwread_epd(204 * 12 + cp);

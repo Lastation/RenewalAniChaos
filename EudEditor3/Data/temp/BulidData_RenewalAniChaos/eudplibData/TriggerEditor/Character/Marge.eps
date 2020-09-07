@@ -8,6 +8,7 @@ import Character.Yuuna.Main as yuunaMain;
 import Character.Mayuri.Main as mayuriMain;
 import Character.Nanami.Main as nanamiMain;
 import Character.Milim.Main as milimMain;
+import Character.Yume.Main as yumeMain;
 
 import Character.TextA.Chtholly 		as chtholly;
 import Character.TextA.Maihime 		as maihime;
@@ -33,7 +34,6 @@ import Character.TextD.EmetSelch 	as emet;
 import Character.TextD.Magellan 	as magellan;
 
 const bgmWait		= PVariable();			
-const s = StringBuffer();
 
 function MargeSound(cp);
 function SkillWait(cp);
@@ -62,6 +62,10 @@ function main(cp)
 	case 25:
 		milimMain.main(cp);
 		break;
+	case 26:
+		yumeMain.main(cp);
+		break;
+		
 	}
 	
 	SkillWait(cp);
@@ -78,6 +82,7 @@ function MargeSound(cp)
 	mayuriMain.SkillVoice(cp);
 	nanamiMain.SkillVoice(cp);
 	milimMain.SkillVoice(cp);
+	yumeMain.SkillVoice(cp);
 // 1 ~ 6
 	if (Deaths((13), (0), 1, (186)))
 	{
@@ -204,16 +209,30 @@ function MargeSound(cp)
 }
 function BGMRoutine(cp)
 {
-	if (bgmWait[cp] == 1 && Bring(cp, Exactly, 0, "Terran SCV", "[BGM]ON")) bgmWait[cp] = 0;
-	else if (bgmWait[cp] == 1)
+	if (Bring(cp, AtLeast, 1, "Terran SCV", "[BGM]ON"))
 	{
-		bgmWait[cp] = 2720;
-		
-		s.print("\x04N\x02ow \x04P\x02laying... ' \x1FL\x04ayers [\x1BR\x04e : \x19C\x04REATORS] \x02by \x04S\x02awano \x04H\x02iroyuki \x04'");
-		PlayWAV("BGM03.ogg");
+		if (bgmWait[cp] == 0)
+		{
+			
+			if (Bring(P7, AtLeast, 1, 200, "Anywhere") && Bring(P8, AtLeast, 1, 200, "Anywhere"))			// 초반 인식
+			{
+				f.stb.print("　　\x04\x1F# N\x04ow \x04Playing... ' \x10RE/ /MEMBER \x04' by \x19S\x04awano \x19H\x04iroyuki \x04");
+				PlayWAV("BGM1.ogg");
+				bgmWait[cp] = 3708;
+			}
+			else if (Bring(P7, AtLeast, 1, 79, "Anywhere") && Bring(P8, AtLeast, 1, 79, "Anywhere")) 		// 중반 인식
+			{
+				f.stb.print("　　\x04N\x02ow \x04P\x02laying... ' \x1FS\x04h0ut [\x1BR\x04e : \x19C\x04REATORS] \x02by \x04S\x02awano \x04H\x02iroyuki \x04'");
+				PlayWAV("BGM2.ogg");
+				bgmWait[cp] = 2916;
+			}
+		}
 	}
-	else if (bgmWait[cp] > 1)	 bgmWait[cp] -= 1;
-	else if (bgmWait[cp] == 0 && Bring(cp, AtLeast, 1, "Terran SCV", "[BGM]ON")) bgmWait[cp] = 1;
+	
+	if (bgmWait[cp] > 0)
+	{
+		bgmWait[cp] -= 1;
+	}
 }
 
 function SkillWait(cp)
