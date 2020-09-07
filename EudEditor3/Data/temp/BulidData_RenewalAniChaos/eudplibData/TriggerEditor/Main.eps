@@ -80,12 +80,14 @@ function beforeTriggerExec()
 	
 	if(getcurpl() < 6)
 	{
+		SetMemory(0x6509B0,SetTo, 128 + cp);
+		if (getuserplayerid() == 128 + cp)
+		{
+			T_rusaruka.Looker();
+		}
+		SetMemory(0x6509B0,SetTo, cp);
+		
 		MainLoop();
-	}
-	
-	if (getuserplayerid() == 128)
-	{
-		T_rusaruka.Looker();
 	}
 	
 	EUDEndPlayerLoop();
@@ -94,5 +96,4 @@ function beforeTriggerExec()
 
 function afterTriggerExec()
 {
-
 }
