@@ -1,21 +1,21 @@
 import Variable as v;
 
-import CustomText.ShopText as shopText;			// 상점 텍스트
-import CustomText.BuildingText as buildText;		// 건물 텍스트
+import CustomText.ShopText 	as shopText;				// 상점 텍스트
+import CustomText.BuildingText 	as buildText;				// 건물 텍스트
 
-import Setting.Init as init;						// 변수 초기화
-import Setting.GetUnitID as unitID;				// 유닛 아이디
-import Setting.Property as ppty;					// 특성 시스템
-import Setting.TestMode as testmode;			// 테스트 모드
+import Setting.Init 				as init;					// 변수 초기화
+import Setting.GetUnitID 		as unitID;				// 유닛 아이디
+import Setting.Property 			as ppty;					// 특성 시스템
+import Setting.TestMode	 		as testmode;			// 테스트 모드
 
-import Character.SelectText as selectText;			// 유닛 텍스트
-import Character.DeathText as deathText;			// 사망 텍스트
-import Character.Marge as marge;				// 유닛 스킬 텍스트
-import Character.Announce as announce;			// 상태창 텍스트
+import Character.SelectText 		as selectText;			// 유닛 텍스트
+import Character.DeathText 		as deathText;			// 사망 텍스트
+import Character.Marge 			as marge;				// 유닛 스킬 텍스트
+import Character.Announce 		as announce;			// 상태창 텍스트
 
-import Character.Rusaruka.Text 		as T_rusaruka;
+import Function 					as f;						// 상태창 텍스트
+import Character.Looker 			as looker;				// 관전자 텍스트
 
-import Function as f;			// 상태창 텍스트
 
 function onPluginStart() 	// 초기화 함수
 {
@@ -73,7 +73,8 @@ function MainLoop(cp)
 function LookerMain(cp)
 {
 	SetMemory(0x6509B0, SetTo, 128 + cp);
-	T_rusaruka.Looker();
+	MuteUnitSpeech();
+	looker.main(8 + cp);
 	SetMemory(0x6509B0, SetTo, cp);
 }
 
