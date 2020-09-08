@@ -74,7 +74,7 @@ function LookerMain(cp)
 {
 	SetMemory(0x6509B0, SetTo, 128 + cp);
 	MuteUnitSpeech();
-	looker.main(8 + cp);
+	looker.main(getuserplayerid() - 120);
 	SetMemory(0x6509B0, SetTo, cp);
 }
 
