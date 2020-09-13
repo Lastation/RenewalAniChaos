@@ -10,9 +10,6 @@ function main(cp)
          {             
             RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
 
-            f.DotShape(cp, 1, "Kakaru (Twilight)", 0, 0);
-            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
-
             f.DotShape(cp, 1, "40 + 1n Mutalisk", 0, 0);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
@@ -46,9 +43,9 @@ function main(cp)
             KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Guardian", cp, "Anywhere", Attack, "Anywhere");
+            Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
 
-            f.SkillWait(cp, 160);
+            f.SkillWait(cp, 240);
             f.loop[cp] += 1;
          }
          else if (f.loop[cp] == 2)
@@ -63,9 +60,9 @@ function main(cp)
             KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Guardian", cp, "Anywhere", Attack, "Anywhere");
+            Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
 
-            f.SkillWait(cp, 160);
+            f.SkillWait(cp, 320);
 
             f.loop[cp] += 1;
          }
