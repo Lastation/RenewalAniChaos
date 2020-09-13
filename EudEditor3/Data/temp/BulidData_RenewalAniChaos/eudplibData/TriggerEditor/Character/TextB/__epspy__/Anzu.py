@@ -141,33 +141,33 @@ def NormalText(cp):
     _t1 = EUDSwitchCase()
     # (Line 9) PlayWAV("Anzu_01.ogg");
     if _t1(2000):
-        # (Line 10) v.Sound_Text2[cp] = 0;
+        # (Line 10) f.stb.print("\n\x13\x1BFutaba Anzu\n\x13\x04엣헴!\x04\n");
         DoActions(PlayWAV("Anzu_01.ogg"))
-        _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 11) f.stb.print("\n\x13\x1BFutaba Anzu\n\x13\x04엣헴!\x04\n");
         f.stb.print("\n\x13\x1BFutaba Anzu\n\x13\x04엣헴!\x04\n")
+        # (Line 11) v.Sound_Text2[cp] = 0;
+        _ARRW(v.Sound_Text2, cp) << (0)
         # (Line 12) break;
         EUDBreak()
         # (Line 13) case 2010:
     _t2 = EUDSwitchCase()
     # (Line 14) PlayWAV("Anzu_02.ogg");
     if _t2(2010):
-        # (Line 15) v.Sound_Text2[cp] = 0;
+        # (Line 15) f.stb.print("\n\x13\x1BFutaba Anzu\n\x13\x04지지 않으려면 ··· \x17이것 \x04밖에 없어!\n");
         DoActions(PlayWAV("Anzu_02.ogg"))
-        _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 16) f.stb.print("\n\x13\x1BFutaba Anzu\n\x13\x04지지 않으려면 ··· \x17이것 \x04밖에 없어!\n");
         f.stb.print("\n\x13\x1BFutaba Anzu\n\x13\x04지지 않으려면 ··· \x17이것 \x04밖에 없어!\n")
+        # (Line 16) v.Sound_Text2[cp] = 0;
+        _ARRW(v.Sound_Text2, cp) << (0)
         # (Line 17) break;
         EUDBreak()
         # (Line 18) case 2011:
     _t3 = EUDSwitchCase()
     # (Line 19) PlayWAV("Anzu_03.ogg");
     if _t3(2011):
-        # (Line 20) v.Sound_Text2[cp] = 0;
+        # (Line 20) f.stb.print("\n\x13\x1BFutaba Anzu\n\x13\x04우리의 \x17정의\x04를 위해 ―――――――!!\n");
         DoActions(PlayWAV("Anzu_03.ogg"))
-        _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 21) f.stb.print("\n\x13\x1BFutaba Anzu\n\x13\x04우리의 \x17정의\x04를 위해 ―――――――!!\n");
         f.stb.print("\n\x13\x1BFutaba Anzu\n\x13\x04우리의 \x17정의\x04를 위해 ―――――――!!\n")
+        # (Line 21) v.Sound_Text2[cp] = 0;
+        _ARRW(v.Sound_Text2, cp) << (0)
         # (Line 22) break;
         EUDBreak()
         # (Line 23) }
@@ -185,40 +185,40 @@ def UiltimateText(cp):
     _t1 = EUDSwitchCase()
     # (Line 31) PlayWAV("Anzu_Uiltimate.ogg");
     if _t1(8000):
-        # (Line 32) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 32) f.stb.printAt(3,"\x13\x1BFutaba Anzu\n\x13\x17「 \x04일하지 않는 \x17모든 자\x04들에게 전한다 \x17」");
         DoActions(PlayWAV("Anzu_Uiltimate.ogg"))
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 33) f.stb.printAt(3,"\x13\x1BFutaba Anzu\n\x13\x17「 \x04일하지 않는 \x17모든 자\x04들에게 전한다 \x17」");
         f.stb.printAt(3, "\x13\x1BFutaba Anzu\n\x13\x17「 \x04일하지 않는 \x17모든 자\x04들에게 전한다 \x17」")
+        # (Line 33) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 34) break;
         EUDBreak()
         # (Line 35) case 8001:
     _t2 = EUDSwitchCase()
-    # (Line 36) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 36) f.stb.printAt(3,"\x13\x1BFutaba Anzu\n\x13\x17「 \x04이것은 \x17놀이\x04도 \x17라이브\x04도 아니야! \x17」");
     if _t2(8001):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 37) f.stb.printAt(3,"\x13\x1BFutaba Anzu\n\x13\x17「 \x04이것은 \x17놀이\x04도 \x17라이브\x04도 아니야! \x17」");
         f.stb.printAt(3, "\x13\x1BFutaba Anzu\n\x13\x17「 \x04이것은 \x17놀이\x04도 \x17라이브\x04도 아니야! \x17」")
+        # (Line 37) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 38) break;
         EUDBreak()
         # (Line 39) case 8002:
     _t3 = EUDSwitchCase()
-    # (Line 40) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 40) f.stb.printAt(3,"\x13\x1BFutaba Anzu\n\x13\x17「 \x04우리의 \x17정의\x04를 위하여―――――――――!! \x17」");
     if _t3(8002):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 41) f.stb.printAt(3,"\x13\x1BFutaba Anzu\n\x13\x17「 \x04우리의 \x17정의\x04를 위하여―――――――――!! \x17」");
         f.stb.printAt(3, "\x13\x1BFutaba Anzu\n\x13\x17「 \x04우리의 \x17정의\x04를 위하여―――――――――!! \x17」")
+        # (Line 41) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 42) break;
         EUDBreak()
         # (Line 43) case 8100:
     _t4 = EUDSwitchCase()
     # (Line 44) PlayWAV("Anzu_01.ogg");
     if _t4(8100):
-        # (Line 45) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 45) f.stb.printAt(3,"\x13\x1BFutaba Anzu\n\x13\x17「 \x04엣헴! \x17」");
         DoActions(PlayWAV("Anzu_01.ogg"))
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 46) f.stb.printAt(3,"\x13\x1BFutaba Anzu\n\x13\x17「 \x04엣헴! \x17」");
         f.stb.printAt(3, "\x13\x1BFutaba Anzu\n\x13\x17「 \x04엣헴! \x17」")
+        # (Line 46) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 47) break;
         EUDBreak()
         # (Line 48) case 8101:
@@ -232,11 +232,11 @@ def UiltimateText(cp):
         EUDBreak()
         # (Line 52) case 8102:
     _t6 = EUDSwitchCase()
-    # (Line 53) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 53) f.stb.printAt(3,"\x13\x1BFutaba Anzu\n\x13\x17「 \x04˙˙˙ 라는 \x17꿈\x04을 꿨어 \x17」");
     if _t6(8102):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 54) f.stb.printAt(3,"\x13\x1BFutaba Anzu\n\x13\x17「 \x04˙˙˙ 라는 \x17꿈\x04을 꿨어 \x17」");
         f.stb.printAt(3, "\x13\x1BFutaba Anzu\n\x13\x17「 \x04˙˙˙ 라는 \x17꿈\x04을 꿨어 \x17」")
+        # (Line 54) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 55) break;
         EUDBreak()
         # (Line 56) }
@@ -254,11 +254,11 @@ def UniqueText(cp):
     _t1 = EUDSwitchCase()
     # (Line 64) PlayWAV("Anzu_Unique.ogg");
     if _t1(8000):
-        # (Line 65) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 65) f.stb.printAt(3,"\x13\x1BFutaba Anzu\n\x13\x04「　시..싫어, 나는 \x17일\x04하지 않을꺼얏 !!　\x04」");
         DoActions(PlayWAV("Anzu_Unique.ogg"))
-        _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 66) f.stb.printAt(3,"\x13\x1BFutaba Anzu\n\x13\x04「　시..싫어, 나는 \x17일\x04하지 않을꺼얏 !!　\x04」");
         f.stb.printAt(3, "\x13\x1BFutaba Anzu\n\x13\x04「　시..싫어, 나는 \x17일\x04하지 않을꺼얏 !!　\x04」")
+        # (Line 66) v.Sound_Text_Uniq[cp] = 0;
+        _ARRW(v.Sound_Text_Uniq, cp) << (0)
         # (Line 67) break;
         EUDBreak()
         # (Line 68) }

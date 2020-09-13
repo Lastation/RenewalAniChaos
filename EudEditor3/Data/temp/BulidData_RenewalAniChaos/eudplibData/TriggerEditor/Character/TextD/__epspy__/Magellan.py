@@ -141,112 +141,112 @@ def NormalText(cp):
     _t1 = EUDSwitchCase()
     # (Line 9) PlayWAV("Magellan_02.ogg");
     if _t1(3000):
-        # (Line 10) v.Sound_Text4[cp] = 0;
+        # (Line 10) f.stb.print("\n\n\x13\x19Magellan\n\x13\x04업데이트 완료\n\n");
         DoActions(PlayWAV("Magellan_02.ogg"))
-        _ARRW(v.Sound_Text4, cp) << (0)
-        # (Line 11) f.stb.print("\n\n\x13\x19Magellan\n\x13\x04업데이트 완료\n\n");
         f.stb.print("\n\n\x13\x19Magellan\n\x13\x04업데이트 완료\n\n")
+        # (Line 11) v.Sound_Text4[cp] = 0;
+        _ARRW(v.Sound_Text4, cp) << (0)
         # (Line 12) break;
         EUDBreak()
         # (Line 13) case 3001:
     _t2 = EUDSwitchCase()
     # (Line 14) PlayWAV("Magellan_01.ogg");
     if _t2(3001):
-        # (Line 15) v.Sound_Text4[cp] = 0;
+        # (Line 15) f.stb.print("\n\n\x13\x19Magellan\n\x13\x04효율 개선!\n\n");
         DoActions(PlayWAV("Magellan_01.ogg"))
-        _ARRW(v.Sound_Text4, cp) << (0)
-        # (Line 16) f.stb.print("\n\n\x13\x19Magellan\n\x13\x04효율 개선!\n\n");
         f.stb.print("\n\n\x13\x19Magellan\n\x13\x04효율 개선!\n\n")
+        # (Line 16) v.Sound_Text4[cp] = 0;
+        _ARRW(v.Sound_Text4, cp) << (0)
         # (Line 17) break;
         EUDBreak()
         # (Line 18) case 3002:
     _t3 = EUDSwitchCase()
     # (Line 19) PlayWAV("Magellan_03.ogg");
     if _t3(3002):
-        # (Line 20) v.Sound_Text4[cp] = 0;
+        # (Line 20) f.stb.print("\n\n\x13\x19Magellan\n\x13\x04일 시작!\n\n");
         DoActions(PlayWAV("Magellan_03.ogg"))
-        _ARRW(v.Sound_Text4, cp) << (0)
-        # (Line 21) f.stb.print("\n\n\x13\x19Magellan\n\x13\x04일 시작!\n\n");
         f.stb.print("\n\n\x13\x19Magellan\n\x13\x04일 시작!\n\n")
+        # (Line 21) v.Sound_Text4[cp] = 0;
+        _ARRW(v.Sound_Text4, cp) << (0)
         # (Line 22) break;
         EUDBreak()
         # (Line 23) case 3003:
     _t4 = EUDSwitchCase()
     # (Line 24) PlayWAV("Magellan_04.ogg");
     if _t4(3003):
-        # (Line 25) v.Sound_Text4[cp] = 0;
+        # (Line 25) f.stb.print("\n\n\x13\x19Magellan\n\x13\x04시스템 올 그린!\n\n");
         DoActions(PlayWAV("Magellan_04.ogg"))
-        _ARRW(v.Sound_Text4, cp) << (0)
-        # (Line 26) f.stb.print("\n\n\x13\x19Magellan\n\x13\x04시스템 올 그린!\n\n");
         f.stb.print("\n\n\x13\x19Magellan\n\x13\x04시스템 올 그린!\n\n")
+        # (Line 26) v.Sound_Text4[cp] = 0;
+        _ARRW(v.Sound_Text4, cp) << (0)
         # (Line 27) break;
         EUDBreak()
         # (Line 28) case 3004:
     _t5 = EUDSwitchCase()
     # (Line 29) PlayWAV("Magellan_05.ogg");
     if _t5(3004):
-        # (Line 30) v.Sound_Text4[cp] = 0;
+        # (Line 30) f.stb.print("\n\n\x13\x19Magellan\n\x13\x04가라! 눈의 반사로 눈속임이야!\n\n");
         DoActions(PlayWAV("Magellan_05.ogg"))
-        _ARRW(v.Sound_Text4, cp) << (0)
-        # (Line 31) f.stb.print("\n\n\x13\x19Magellan\n\x13\x04가라! 눈의 반사로 눈속임이야!\n\n");
         f.stb.print("\n\n\x13\x19Magellan\n\x13\x04가라! 눈의 반사로 눈속임이야!\n\n")
+        # (Line 31) v.Sound_Text4[cp] = 0;
+        _ARRW(v.Sound_Text4, cp) << (0)
         # (Line 32) break;
         EUDBreak()
         # (Line 34) }
     # (Line 36) }
     EUDEndSwitch()
-    # (Line 39) function UniqueText(cp)
+    # (Line 38) function UniqueText(cp)
 
-# (Line 40) {
+# (Line 39) {
 @EUDFunc
 def UniqueText(cp):
-    # (Line 41) switch (v.Sound_Text_Uniq[cp])
+    # (Line 40) switch (v.Sound_Text_Uniq[cp])
     EUDSwitch(v.Sound_Text_Uniq[cp])
-    # (Line 42) {
-    # (Line 43) case 21000:
+    # (Line 41) {
+    # (Line 42) case 21000:
     _t1 = EUDSwitchCase()
-    # (Line 44) f.stb.print("\n\n\x13\x19Magellan\n\x13\x04좋아, 드론 기동!\n\n");
+    # (Line 43) f.stb.print("\n\n\x13\x19Magellan\n\x13\x04좋아, 드론 기동!\n\n");
     if _t1(21000):
         f.stb.print("\n\n\x13\x19Magellan\n\x13\x04좋아, 드론 기동!\n\n")
-        # (Line 45) PlayWAV("Magellan_O.ogg");
-        # (Line 46) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 44) PlayWAV("Magellan_O.ogg");
+        # (Line 45) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("Magellan_O.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 47) break;
+        # (Line 46) break;
         EUDBreak()
-        # (Line 48) }
-    # (Line 49) }
+        # (Line 47) }
+    # (Line 48) }
     EUDEndSwitch()
-    # (Line 52) function UiltimateText(cp)
+    # (Line 50) function UiltimateText(cp)
 
-# (Line 53) {
+# (Line 51) {
 @EUDFunc
 def UiltimateText(cp):
-    # (Line 54) switch (v.Sound_Text_Uilti[cp])
+    # (Line 52) switch (v.Sound_Text_Uilti[cp])
     EUDSwitch(v.Sound_Text_Uilti[cp])
-    # (Line 55) {
-    # (Line 56) case 21000:
+    # (Line 53) {
+    # (Line 54) case 21000:
     _t1 = EUDSwitchCase()
-    # (Line 57) f.stb.print("\n\n\x13\x19Magellan\n\x13\x043... 2... 1...! 가라!\n\n");
+    # (Line 55) f.stb.print("\n\n\x13\x19Magellan\n\x13\x043... 2... 1...! 가라!\n\n");
     if _t1(21000):
         f.stb.print("\n\n\x13\x19Magellan\n\x13\x043... 2... 1...! 가라!\n\n")
-        # (Line 58) PlayWAV("Magellan_Ult.ogg");
-        # (Line 59) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 56) PlayWAV("Magellan_Ult.ogg");
+        # (Line 57) v.Sound_Text_Uilti[cp] = 0;
         DoActions(PlayWAV("Magellan_Ult.ogg"))
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 60) break;
+        # (Line 58) break;
         EUDBreak()
-        # (Line 61) case 21001:
+        # (Line 59) case 21001:
     _t2 = EUDSwitchCase()
-    # (Line 62) f.stb.print("\n\n\x13\x19Magellan\n\x13\x04꽃들아, 피어나라!\n\n");
+    # (Line 60) f.stb.print("\n\n\x13\x19Magellan\n\x13\x04꽃들아, 피어나라!\n\n");
     if _t2(21001):
         f.stb.print("\n\n\x13\x19Magellan\n\x13\x04꽃들아, 피어나라!\n\n")
-        # (Line 63) PlayWAV("Magellan_Ult2.ogg");
-        # (Line 64) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 61) PlayWAV("Magellan_Ult2.ogg");
+        # (Line 62) v.Sound_Text_Uilti[cp] = 0;
         DoActions(PlayWAV("Magellan_Ult2.ogg"))
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 65) break;
+        # (Line 63) break;
         EUDBreak()
-        # (Line 67) }
-    # (Line 69) }
+        # (Line 65) }
+    # (Line 67) }
     EUDEndSwitch()

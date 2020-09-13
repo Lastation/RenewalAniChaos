@@ -141,22 +141,22 @@ def NormalText(cp):
     _t1 = EUDSwitchCase()
     # (Line 9) PlayWAV("HotoMoka_01.ogg");
     if _t1(3110):
-        # (Line 10) v.Sound_Text2[cp] = 0;
+        # (Line 10) f.stb.print("\n\n\x13\x1BHoto Moka\n\x13\x04어서오세욧~\n\n");
         DoActions(PlayWAV("HotoMoka_01.ogg"))
-        _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 11) f.stb.print("\n\n\x13\x1BHoto Moka\n\x13\x04어서오세욧~\n\n");
         f.stb.print("\n\n\x13\x1BHoto Moka\n\x13\x04어서오세욧~\n\n")
+        # (Line 11) v.Sound_Text2[cp] = 0;
+        _ARRW(v.Sound_Text2, cp) << (0)
         # (Line 12) break;
         EUDBreak()
         # (Line 13) case 3210:
     _t2 = EUDSwitchCase()
     # (Line 14) PlayWAV("HotoMoka_02.ogg");
     if _t2(3210):
-        # (Line 15) v.Sound_Text2[cp] = 0;
+        # (Line 15) f.stb.print("\n\n\x13\x1BHoto Moka\n\x13\x04코코아가 젤 첨에 되고 싶었던거 기억나?\n\n");
         DoActions(PlayWAV("HotoMoka_02.ogg"))
-        _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 16) f.stb.print("\n\n\x13\x1BHoto Moka\n\x13\x04코코아가 젤 첨에 되고 싶었던거 기억나?\n\n");
         f.stb.print("\n\n\x13\x1BHoto Moka\n\x13\x04코코아가 젤 첨에 되고 싶었던거 기억나?\n\n")
+        # (Line 16) v.Sound_Text2[cp] = 0;
+        _ARRW(v.Sound_Text2, cp) << (0)
         # (Line 17) break;
         EUDBreak()
         # (Line 18) case 3220:
@@ -170,11 +170,11 @@ def NormalText(cp):
         EUDBreak()
         # (Line 22) case 3221:
     _t4 = EUDSwitchCase()
-    # (Line 23) v.Sound_Text2[cp] = 0;
+    # (Line 23) f.stb.print("\n\n\x13\x1BHoto Moka\n\x13\x04마법사!\n\n");
     if _t4(3221):
-        _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 24) f.stb.print("\n\n\x13\x1BHoto Moka\n\x13\x04마법사!\n\n");
         f.stb.print("\n\n\x13\x1BHoto Moka\n\x13\x04마법사!\n\n")
+        # (Line 24) v.Sound_Text2[cp] = 0;
+        _ARRW(v.Sound_Text2, cp) << (0)
         # (Line 25) break;
         EUDBreak()
         # (Line 26) }
@@ -192,20 +192,20 @@ def UiltimateText(cp):
     _t1 = EUDSwitchCase()
     # (Line 34) PlayWAV("HotoMoka_Uiltimate.ogg");
     if _t1(9000):
-        # (Line 35) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 35) f.stb.printAt(3,"\x13\x1BHoto Moka\n\n\x13\x04나, 준비해올게");
         DoActions(PlayWAV("HotoMoka_Uiltimate.ogg"))
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 36) f.stb.printAt(3,"\x13\x1BHoto Moka\n\n\x13\x04나, 준비해올게");
         f.stb.printAt(3, "\x13\x1BHoto Moka\n\n\x13\x04나, 준비해올게")
+        # (Line 36) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 37) break;
         EUDBreak()
         # (Line 38) case 9001:
     _t2 = EUDSwitchCase()
-    # (Line 39) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 39) f.stb.printAt(3,"\x13\x1BHoto Moka\n\n\x13\x04좋아, 준비 완료!");
     if _t2(9001):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 40) f.stb.printAt(3,"\x13\x1BHoto Moka\n\n\x13\x04좋아, 준비 완료!");
         f.stb.printAt(3, "\x13\x1BHoto Moka\n\n\x13\x04좋아, 준비 완료!")
+        # (Line 40) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 41) break;
         EUDBreak()
         # (Line 42) }
@@ -223,11 +223,11 @@ def UniqueText(cp):
     _t1 = EUDSwitchCase()
     # (Line 50) PlayWAV("HotoMoka_00.ogg");
     if _t1(9000):
-        # (Line 51) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 51) f.stb.printAt(3,"\x13\x1BHoto Moka\n\n\x13\x04이 앞에는 전파가 닿지 않으니까\n\x13\x04핸드폰은 쓰지 못한단다?");
         DoActions(PlayWAV("HotoMoka_00.ogg"))
-        _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 52) f.stb.printAt(3,"\x13\x1BHoto Moka\n\n\x13\x04이 앞에는 전파가 닿지 않으니까\n\x13\x04핸드폰은 쓰지 못한단다?");
         f.stb.printAt(3, "\x13\x1BHoto Moka\n\n\x13\x04이 앞에는 전파가 닿지 않으니까\n\x13\x04핸드폰은 쓰지 못한단다?")
+        # (Line 52) v.Sound_Text_Uniq[cp] = 0;
+        _ARRW(v.Sound_Text_Uniq, cp) << (0)
         # (Line 53) break;
         EUDBreak()
         # (Line 54) }

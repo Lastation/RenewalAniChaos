@@ -128,125 +128,133 @@ def _LSH(l, r):
 
 # (Line 1) import Variable as v;
 import Variable as v
-# (Line 3) import CustomText.ShopText as shopText;			// 상점 텍스트
+# (Line 3) import CustomText.ShopText 	as shopText;				// 상점 텍스트
 from CustomText import ShopText as shopText
-# (Line 4) import CustomText.BuildingText as buildText;		// 건물 텍스트
+# (Line 4) import CustomText.BuildingText 	as buildText;				// 건물 텍스트
 from CustomText import BuildingText as buildText
-# (Line 6) import Setting.Init as init;						// 변수 초기화
+# (Line 6) import Setting.Init 				as init;					// 변수 초기화
 from Setting import Init as init
-# (Line 7) import Setting.GetUnitID as unitID;				// 유닛 아이디
+# (Line 7) import Setting.GetUnitID 		as unitID;				// 유닛 아이디
 from Setting import GetUnitID as unitID
-# (Line 8) import Setting.Property as ppty;					// 특성 시스템
+# (Line 8) import Setting.Property 			as ppty;					// 특성 시스템
 from Setting import Property as ppty
-# (Line 9) import Setting.TestMode as testmode;			// 테스트 모드
+# (Line 9) import Setting.TestMode	 		as testmode;			// 테스트 모드
 from Setting import TestMode as testmode
-# (Line 11) import Character.SelectText as selectText;			// 유닛 텍스트
+# (Line 11) import Character.SelectText 		as selectText;			// 유닛 텍스트
 from Character import SelectText as selectText
-# (Line 12) import Character.DeathText as deathText;			// 사망 텍스트
+# (Line 12) import Character.DeathText 		as deathText;			// 사망 텍스트
 from Character import DeathText as deathText
-# (Line 13) import Character.Marge as marge;				// 유닛 스킬 텍스트
+# (Line 13) import Character.Marge 			as marge;				// 유닛 스킬 텍스트
 from Character import Marge as marge
-# (Line 14) import Character.Announce as announce;			// 상태창 텍스트
+# (Line 14) import Character.Announce 		as announce;			// 상태창 텍스트
 from Character import Announce as announce
-# (Line 16) import Function as f;			// 상태창 텍스트
+# (Line 16) import Function 					as f;						// 상태창 텍스트
 import Function as f
-# (Line 18) function onPluginStart() 	// 초기화 함수
-# (Line 19) {
+# (Line 17) import Character.Looker 			as looker;				// 관전자 텍스트
+from Character import Looker as looker
+# (Line 19) const curpl = PVariable();
+curpl = _CGFW(lambda: [PVariable()], 1)[0]
+# (Line 21) function onPluginStart() 	// 초기화 함수
+# (Line 22) {
 @EUDFunc
 def onPluginStart():
-    # (Line 20) EUDPlayerLoop()();
+    # (Line 23) EUDPlayerLoop()();
     EUDPlayerLoop()()
-    # (Line 21) EUDEndPlayerLoop();
+    # (Line 24) EUDEndPlayerLoop();
     EUDEndPlayerLoop()
-    # (Line 22) }
-    # (Line 24) function MainLoop()
+    # (Line 25) }
+    # (Line 27) function MainLoop(cp)
 
-# (Line 25) {
+# (Line 28) {
 @EUDFunc
-def MainLoop():
-    # (Line 26) const cp = getcurpl();
-    cp = f_getcurpl()
-    # (Line 28) unitID.Get_UnitID(cp);
+def MainLoop(cp):
+    # (Line 29) unitID.Get_UnitID(cp);
     unitID.Get_UnitID(cp)
-    # (Line 30) announce.Announce_Marge(cp);	// 상태창 텍스트
+    # (Line 31) announce.Announce_Marge(cp);	// 상태창 텍스트
     announce.Announce_Marge(cp)
-    # (Line 32) if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
+    # (Line 33) if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
     if EUDIf()(Switch((255), (3))):
-        # (Line 33) {
-        # (Line 34) selectText.CharacterTextNum(cp);		// 캐릭터 클릭 인식
+        # (Line 34) {
+        # (Line 35) selectText.CharacterTextNum(cp);		// 캐릭터 클릭 인식
         selectText.CharacterTextNum(cp)
-        # (Line 36) ppty.PropertyText();					// 특성 텍스트
+        # (Line 37) ppty.PropertyText();					// 특성 텍스트
         ppty.PropertyText()
-        # (Line 38) f.SetHeroID(cp);
+        # (Line 39) f.SetHeroID(cp);
         f.SetHeroID(cp)
-        # (Line 40) if (Switch((253), (2)))					// TestMode
+        # (Line 41) if (Switch((253), (2)))					// TestMode
         if EUDIf()(Switch((253), (2))):
-            # (Line 41) {
-            # (Line 42) testmode.TestMode();
+            # (Line 42) {
+            # (Line 43) testmode.TestMode();
             testmode.TestMode()
-            # (Line 43) }
             # (Line 44) }
+            # (Line 45) }
         EUDEndIf()
-        # (Line 46) if(Switch((255), (2)))	// Switch - StartSwich Set 일경우
+        # (Line 47) if(Switch((255), (2)))	// Switch - StartSwich Set 일경우
     EUDEndIf()
     if EUDIf()(Switch((255), (2))):
-        # (Line 47) {
-        # (Line 48) buildText.BuildingText(cp);			// 건물 텍스트
+        # (Line 48) {
+        # (Line 49) buildText.BuildingText(cp);			// 건물 텍스트
         buildText.BuildingText(cp)
-        # (Line 49) shopText.ShopText(cp);				// 상점 텍스트
+        # (Line 50) shopText.ShopText(cp);				// 상점 텍스트
         shopText.ShopText(cp)
-        # (Line 51) deathText.SetKillScore(cp);			// 킬 스코어
+        # (Line 52) deathText.SetKillScore(cp);			// 킬 스코어
         deathText.SetKillScore(cp)
-        # (Line 52) deathText.SetDeathValue(cp);			// 사망 트리거
+        # (Line 53) deathText.SetDeathValue(cp);			// 사망 트리거
         deathText.SetDeathValue(cp)
-        # (Line 53) deathText.DeathText(cp);				// 사망 텍스트
+        # (Line 54) deathText.DeathText(cp);				// 사망 텍스트
         deathText.DeathText(cp)
-        # (Line 55) init.SetBuildingHP(cp);				// 건물 체력 관련
+        # (Line 56) init.SetBuildingHP(cp);				// 건물 체력 관련
         init.SetBuildingHP(cp)
-        # (Line 56) init.SetVariable(cp);					// 기본 변수 설정
+        # (Line 57) init.SetVariable(cp);					// 기본 변수 설정
         init.SetVariable(cp)
-        # (Line 58) ppty.Property(cp);					// S,C,A 특성
+        # (Line 59) ppty.Property(cp);					// S,C,A 특성
         ppty.Property(cp)
-        # (Line 60) marge.main(cp);						// 캐릭터 스킬 사운드 & 스킬 텍스트
+        # (Line 61) marge.main(cp);						// 캐릭터 스킬 사운드 & 스킬 텍스트
         marge.f_main(cp)
-        # (Line 61) }
-        # (Line 64) if (Deaths(CurrentPlayer, Exactly, 1000, 175)) 	// 점수창
+        # (Line 62) }
+        # (Line 65) if (Deaths(CurrentPlayer, Exactly, 1000, 175)) 	// 점수창
     EUDEndIf()
     if EUDIf()(Deaths(CurrentPlayer, Exactly, 1000, 175)):
-        # (Line 65) {
-        # (Line 66) SetSwitch(255, Clear);
-        # (Line 67) }
+        # (Line 66) {
+        # (Line 67) SetSwitch(255, Clear);
+        # (Line 68) }
         DoActions(SetSwitch(255, Clear))
-        # (Line 69) if (v.Hero_Num[cp] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)))
+        # (Line 70) if (v.Hero_Num[cp] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)))
     EUDEndIf()
     if EUDIf()(v.Hero_Num[cp] == f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)), neg=True):
-        # (Line 70) { v.Hero_Num[cp] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)); }
+        # (Line 71) { v.Hero_Num[cp] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)); }
         _ARRW(v.Hero_Num, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)))
-        # (Line 71) }
+        # (Line 72) }
     EUDEndIf()
-    # (Line 73) function beforeTriggerExec()
+    # (Line 74) function beforeTriggerExec()
 
-# (Line 74) {
+# (Line 75) {
 @EUDFunc
 def beforeTriggerExec():
-    # (Line 75) randomize();
+    # (Line 76) randomize();
     f_randomize()
-    # (Line 77) EUDPlayerLoop()();
-    EUDPlayerLoop()()
-    # (Line 79) if(getcurpl() < 6)
-    if EUDIf()(f_getcurpl() >= 6, neg=True):
-        # (Line 80) {
-        # (Line 81) MainLoop();
-        MainLoop()
-        # (Line 82) }
-        # (Line 84) EUDEndPlayerLoop();
-    EUDEndIf()
-    EUDEndPlayerLoop()
-    # (Line 85) }
-    # (Line 87) function afterTriggerExec()
+    # (Line 78) foreach(cp : EUDLoopPlayer())
+    for cp in EUDLoopPlayer():
+        # (Line 79) {
+        # (Line 80) setcurpl(cp);
+        f_setcurpl(cp)
+        # (Line 82) MainLoop(cp);
+        MainLoop(cp)
+        # (Line 84) SetMemory(0x6509B0, SetTo, 128 + cp);
+        # (Line 85) MuteUnitSpeech();
+        DoActions(SetMemory(0x6509B0, SetTo, 128 + cp))
+        # (Line 86) looker.main(cp);
+        DoActions(MuteUnitSpeech())
+        looker.f_main(cp)
+        # (Line 87) SetMemory(0x6509B0, SetTo, cp);
+        # (Line 88) }
+        DoActions(SetMemory(0x6509B0, SetTo, cp))
+        # (Line 89) }
 
-# (Line 88) {
+    # (Line 91) function afterTriggerExec()
+
+# (Line 92) {
 @EUDFunc
 def afterTriggerExec():
-    # (Line 90) }
+    # (Line 93) }
     pass

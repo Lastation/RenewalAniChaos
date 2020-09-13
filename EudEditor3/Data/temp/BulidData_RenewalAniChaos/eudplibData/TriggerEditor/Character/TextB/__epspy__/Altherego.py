@@ -141,40 +141,40 @@ def NormalText(cp):
     _t1 = EUDSwitchCase()
     # (Line 9) PlayWAV("Alther_0.ogg");
     if _t1(4100):
-        # (Line 10) v.Sound_Text2[cp] = 0;
+        # (Line 10) f.stb.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　멜트 스트라이크!　\x04」\n");
         DoActions(PlayWAV("Alther_0.ogg"))
-        _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 11) f.stb.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　멜트 스트라이크!　\x04」\n");
         f.stb.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　멜트 스트라이크!　\x04」\n")
+        # (Line 11) v.Sound_Text2[cp] = 0;
+        _ARRW(v.Sound_Text2, cp) << (0)
         # (Line 12) break;
         EUDBreak()
         # (Line 13) case 4200:
     _t2 = EUDSwitchCase()
     # (Line 14) PlayWAV("Alther_1.ogg");
     if _t2(4200):
-        # (Line 15) v.Sound_Text2[cp] = 0;
+        # (Line 15) f.stb.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　작별이네,　\x04」\n");
         DoActions(PlayWAV("Alther_1.ogg"))
-        _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 16) f.stb.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　작별이네,　\x04」\n");
         f.stb.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　작별이네,　\x04」\n")
+        # (Line 16) v.Sound_Text2[cp] = 0;
+        _ARRW(v.Sound_Text2, cp) << (0)
         # (Line 17) break;
         EUDBreak()
         # (Line 18) case 4201:
     _t3 = EUDSwitchCase()
-    # (Line 19) v.Sound_Text2[cp] = 0;
+    # (Line 19) f.stb.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　마지막으로 사랑을 가르쳐줄게.　\x04」\n");
     if _t3(4201):
-        _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 20) f.stb.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　마지막으로 사랑을 가르쳐줄게.　\x04」\n");
         f.stb.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　마지막으로 사랑을 가르쳐줄게.　\x04」\n")
+        # (Line 20) v.Sound_Text2[cp] = 0;
+        _ARRW(v.Sound_Text2, cp) << (0)
         # (Line 21) break;
         EUDBreak()
         # (Line 22) case 4202:
     _t4 = EUDSwitchCase()
-    # (Line 23) v.Sound_Text2[cp] = 0;
+    # (Line 23) f.stb.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　가엾고 비참한 물의 포로.　\x04」\n");
     if _t4(4202):
-        _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 24) f.stb.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　가엾고 비참한 물의 포로.　\x04」\n");
         f.stb.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　가엾고 비참한 물의 포로.　\x04」\n")
+        # (Line 24) v.Sound_Text2[cp] = 0;
+        _ARRW(v.Sound_Text2, cp) << (0)
         # (Line 25) break;
         EUDBreak()
         # (Line 26) case 4300:
@@ -188,11 +188,11 @@ def NormalText(cp):
         EUDBreak()
         # (Line 30) case 4301:
     _t6 = EUDSwitchCase()
-    # (Line 31) v.Sound_Text2[cp] = 0;
+    # (Line 31) f.stb.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　나의 가시로, 잘 가도록해!　\x04」\n");
     if _t6(4301):
-        _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 32) f.stb.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　나의 가시로, 잘 가도록해!　\x04」\n");
         f.stb.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　나의 가시로, 잘 가도록해!　\x04」\n")
+        # (Line 32) v.Sound_Text2[cp] = 0;
+        _ARRW(v.Sound_Text2, cp) << (0)
         # (Line 33) break;
         EUDBreak()
         # (Line 34) }
@@ -210,49 +210,49 @@ def UiltimateText(cp):
     _t1 = EUDSwitchCase()
     # (Line 42) PlayWAV("Alther_EX1.ogg");
     if _t1(10000):
-        # (Line 43) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 43) f.stb.printAt(3,"\x13\x1FAlther Ego Λ\n\x13\x04「　대청소로 가보실까.　\x04」");
         DoActions(PlayWAV("Alther_EX1.ogg"))
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 44) f.stb.printAt(3,"\x13\x1FAlther Ego Λ\n\x13\x04「　대청소로 가보실까.　\x04」");
         f.stb.printAt(3, "\x13\x1FAlther Ego Λ\n\x13\x04「　대청소로 가보실까.　\x04」")
+        # (Line 44) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 45) break;
         EUDBreak()
         # (Line 46) case 10001:
     _t2 = EUDSwitchCase()
-    # (Line 47) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 47) f.stb.printAt(3,"\x13\x1FAlther Ego Λ\n\x13\x04「　이걸로 피니시!　\x04」");
     if _t2(10001):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 48) f.stb.printAt(3,"\x13\x1FAlther Ego Λ\n\x13\x04「　이걸로 피니시!　\x04」");
         f.stb.printAt(3, "\x13\x1FAlther Ego Λ\n\x13\x04「　이걸로 피니시!　\x04」")
+        # (Line 48) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 49) break;
         EUDBreak()
         # (Line 50) case 10010:
     _t3 = EUDSwitchCase()
     # (Line 51) PlayWAV("Alther_EX2.ogg");
     if _t3(10010):
-        # (Line 52) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 52) f.stb.printAt(3,"\x13\x1FAlther Ego Λ\n\x13\x04「　어머, 너희들도 같이?　\x04」");
         DoActions(PlayWAV("Alther_EX2.ogg"))
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 53) f.stb.printAt(3,"\x13\x1FAlther Ego Λ\n\x13\x04「　어머, 너희들도 같이?　\x04」");
         f.stb.printAt(3, "\x13\x1FAlther Ego Λ\n\x13\x04「　어머, 너희들도 같이?　\x04」")
+        # (Line 53) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 54) break;
         EUDBreak()
         # (Line 55) case 10011:
     _t4 = EUDSwitchCase()
-    # (Line 56) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 56) f.stb.printAt(3,"\x13\x1FAlther Ego Λ\n\x13\x04「　라스트 스트로크!　\x04」");
     if _t4(10011):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 57) f.stb.printAt(3,"\x13\x1FAlther Ego Λ\n\x13\x04「　라스트 스트로크!　\x04」");
         f.stb.printAt(3, "\x13\x1FAlther Ego Λ\n\x13\x04「　라스트 스트로크!　\x04」")
+        # (Line 57) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 58) break;
         EUDBreak()
         # (Line 59) case 10012:
     _t5 = EUDSwitchCase()
-    # (Line 60) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 60) f.stb.printAt(3,"\x13\x1FAlther Ego Λ\n\n\x13\x04「　블루서머・팔라디온　\x04」");
     if _t5(10012):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 61) f.stb.printAt(3,"\x13\x1FAlther Ego Λ\n\n\x13\x04「　블루서머・팔라디온　\x04」");
         f.stb.printAt(3, "\x13\x1FAlther Ego Λ\n\n\x13\x04「　블루서머・팔라디온　\x04」")
+        # (Line 61) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 62) break;
         EUDBreak()
         # (Line 63) }
@@ -270,11 +270,11 @@ def UniqueText(cp):
     _t1 = EUDSwitchCase()
     # (Line 71) PlayWAV("Alther_O.ogg");
     if _t1(10000):
-        # (Line 72) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 72) f.stb.printAt(3,"\x13\x1FAlther Ego Λ\n\x13\x04「　도망칠 곳? 있을리가 없잖아.　\x04」");
         DoActions(PlayWAV("Alther_O.ogg"))
-        _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 73) f.stb.printAt(3,"\x13\x1FAlther Ego Λ\n\x13\x04「　도망칠 곳? 있을리가 없잖아.　\x04」");
         f.stb.printAt(3, "\x13\x1FAlther Ego Λ\n\x13\x04「　도망칠 곳? 있을리가 없잖아.　\x04」")
+        # (Line 73) v.Sound_Text_Uniq[cp] = 0;
+        _ARRW(v.Sound_Text_Uniq, cp) << (0)
         # (Line 74) break;
         EUDBreak()
         # (Line 75) }

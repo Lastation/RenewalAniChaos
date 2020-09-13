@@ -128,98 +128,126 @@ def _LSH(l, r):
 
 # (Line 1) import Function as f;
 import Function as f
-# (Line 3) function main(cp)
-# (Line 4) {
+# (Line 3) const looker = PVariable();
+looker = _CGFW(lambda: [PVariable()], 1)[0]
+# (Line 5) function Text(num);
+# (Line 6) function Looker()
+# (Line 7) {
+@EUDFunc
+def Looker():
+    # (Line 8) if (looker[getuserplayerid() - 128] > 0)
+    if EUDIf()(looker[f_getuserplayerid() - 128] <= 0, neg=True):
+        # (Line 9) {
+        # (Line 10) Text(looker[getuserplayerid() - 128]);
+        Text(looker[f_getuserplayerid() - 128])
+        # (Line 11) looker[getuserplayerid() - 128] = 0;
+        _ARRW(looker, f_getuserplayerid() - 128) << (0)
+        # (Line 12) }
+        # (Line 13) }
+    EUDEndIf()
+    # (Line 15) function main(cp)
+
+# (Line 16) {
 @EUDFunc
 def f_main(cp):
-    # (Line 5) if (f.Yume_Voice[cp] > 0)
+    # (Line 17) if (f.Yume_Voice[cp] > 0)
     if EUDIf()(f.Yume_Voice[cp] <= 0, neg=True):
-        # (Line 6) {
-        # (Line 7) switch (f.Yume_Voice[cp])
-        EUDSwitch(f.Yume_Voice[cp])
-        # (Line 8) {
-        # (Line 9) case 1:
-        _t2 = EUDSwitchCase()
-        # (Line 10) PlayWAV("Yume_Unique.ogg");
-        if _t2(1):
-            # (Line 11) f.stb.print("\x13\x1BTsubakuro Yume\n");
-            DoActions(PlayWAV("Yume_Unique.ogg"))
-            f.stb.print("\x13\x1BTsubakuro Yume\n")
-            # (Line 12) f.stb.print("\x13\x04시간이 없으니까 이제... 끝낼게!\x04\n");
-            f.stb.print("\x13\x04시간이 없으니까 이제... 끝낼게!\x04\n")
-            # (Line 13) break;
-            EUDBreak()
-            # (Line 14) case 2:
-        _t3 = EUDSwitchCase()
-        # (Line 15) PlayWAV("Yume_01.ogg");
-        if _t3(2):
-            # (Line 16) f.stb.print("\x13\x1BTsubakuro Yume\n");
-            DoActions(PlayWAV("Yume_01.ogg"))
-            f.stb.print("\x13\x1BTsubakuro Yume\n")
-            # (Line 17) f.stb.print("\x13\x04그렇게 나와야지, 그렇지 않으면 내가 굉장하다는 걸 보여줄 수 없잖아\x04\n");
-            f.stb.print("\x13\x04그렇게 나와야지, 그렇지 않으면 내가 굉장하다는 걸 보여줄 수 없잖아\x04\n")
-            # (Line 18) break;
-            EUDBreak()
-            # (Line 19) case 3:
-        _t4 = EUDSwitchCase()
-        # (Line 20) PlayWAV("Yume_02.ogg");
-        if _t4(3):
-            # (Line 21) f.stb.print("\x13\x1BTsubakuro Yume\n");
-            DoActions(PlayWAV("Yume_02.ogg"))
-            f.stb.print("\x13\x1BTsubakuro Yume\n")
-            # (Line 22) f.stb.print("\x13\x04벌써 끝이야? 아직 아직, 이제부터지!\x04\n");
-            f.stb.print("\x13\x04벌써 끝이야? 아직 아직, 이제부터지!\x04\n")
-            # (Line 23) break;
-            EUDBreak()
-            # (Line 24) case 4:
-        _t5 = EUDSwitchCase()
-        # (Line 25) PlayWAV("Yume_03.ogg");
-        if _t5(4):
-            # (Line 26) f.stb.print("\x13\x1BTsubakuro Yume\n");
-            DoActions(PlayWAV("Yume_03.ogg"))
-            f.stb.print("\x13\x1BTsubakuro Yume\n")
-            # (Line 27) f.stb.print("\x13\x04어이쿠~ 라거나!\x04\n");
-            f.stb.print("\x13\x04어이쿠~ 라거나!\x04\n")
-            # (Line 28) break;
-            EUDBreak()
-            # (Line 29) case 5:
-        _t6 = EUDSwitchCase()
-        # (Line 30) PlayWAV("Yume_Ult.ogg");
-        if _t6(5):
-            # (Line 31) break;
-            DoActions(PlayWAV("Yume_Ult.ogg"))
-            EUDBreak()
-            # (Line 32) case 6:
-        _t7 = EUDSwitchCase()
-        # (Line 33) f.stb.print("\x13\x1BTsubakuro Yume\n");
-        if _t7(6):
-            f.stb.print("\x13\x1BTsubakuro Yume\n")
-            # (Line 34) f.stb.print("\x13\x04아아~ 쓸 데 없는 시간 써버렸다\x04\n");
-            f.stb.print("\x13\x04아아~ 쓸 데 없는 시간 써버렸다\x04\n")
-            # (Line 35) break;
-            EUDBreak()
-            # (Line 36) case 7:
-        _t8 = EUDSwitchCase()
-        # (Line 37) PlayWAV("Yume_04.ogg");
-        if _t8(7):
-            # (Line 38) f.stb.print("\x13\x1BTsubakuro Yume\n");
-            DoActions(PlayWAV("Yume_04.ogg"))
-            f.stb.print("\x13\x1BTsubakuro Yume\n")
-            # (Line 39) f.stb.print("\x13\x04닛카리 아오에\x04\n");
-            f.stb.print("\x13\x04닛카리 아오에\x04\n")
-            # (Line 40) break;
-            EUDBreak()
-            # (Line 41) case 8:
-        _t9 = EUDSwitchCase()
-        # (Line 42) PlayWAV("Yume_05.ogg");
-        if _t9(8):
-            # (Line 43) break;
-            DoActions(PlayWAV("Yume_05.ogg"))
-            EUDBreak()
-            # (Line 45) }
-        # (Line 46) f.Yume_Voice[cp] = 0;
-        EUDEndSwitch()
+        # (Line 18) {
+        # (Line 19) Text(f.Yume_Voice[cp]);
+        Text(f.Yume_Voice[cp])
+        # (Line 20) looker[cp] = f.Yume_Voice[cp];
+        _ARRW(looker, cp) << (f.Yume_Voice[cp])
+        # (Line 21) f.Yume_Voice[cp] = 0;
         _ARRW(f.Yume_Voice, cp) << (0)
-        # (Line 47) }
-        # (Line 48) }
+        # (Line 22) }
+        # (Line 23) }
     EUDEndIf()
+    # (Line 25) function Text(num)
+
+# (Line 26) {
+@EUDFunc
+def Text(num):
+    # (Line 27) switch (num)
+    EUDSwitch(num)
+    # (Line 28) {
+    # (Line 29) case 1:
+    _t1 = EUDSwitchCase()
+    # (Line 30) PlayWAV("Yume_Unique.ogg");
+    if _t1(1):
+        # (Line 31) f.stb.print("\x13\x1BTsubakuro Yume\n");
+        DoActions(PlayWAV("Yume_Unique.ogg"))
+        f.stb.print("\x13\x1BTsubakuro Yume\n")
+        # (Line 32) f.stb.print("\x13\x04시간이 없으니까 이제... 끝낼게!\x04\n");
+        f.stb.print("\x13\x04시간이 없으니까 이제... 끝낼게!\x04\n")
+        # (Line 33) break;
+        EUDBreak()
+        # (Line 34) case 2:
+    _t2 = EUDSwitchCase()
+    # (Line 35) PlayWAV("Yume_01.ogg");
+    if _t2(2):
+        # (Line 36) f.stb.print("\x13\x1BTsubakuro Yume\n");
+        DoActions(PlayWAV("Yume_01.ogg"))
+        f.stb.print("\x13\x1BTsubakuro Yume\n")
+        # (Line 37) f.stb.print("\x13\x04그렇게 나와야지, 그렇지 않으면 내가 굉장하다는 걸 보여줄 수 없잖아\x04\n");
+        f.stb.print("\x13\x04그렇게 나와야지, 그렇지 않으면 내가 굉장하다는 걸 보여줄 수 없잖아\x04\n")
+        # (Line 38) break;
+        EUDBreak()
+        # (Line 39) case 3:
+    _t3 = EUDSwitchCase()
+    # (Line 40) PlayWAV("Yume_02.ogg");
+    if _t3(3):
+        # (Line 41) f.stb.print("\x13\x1BTsubakuro Yume\n");
+        DoActions(PlayWAV("Yume_02.ogg"))
+        f.stb.print("\x13\x1BTsubakuro Yume\n")
+        # (Line 42) f.stb.print("\x13\x04벌써 끝이야? 아직 아직, 이제부터지!\x04\n");
+        f.stb.print("\x13\x04벌써 끝이야? 아직 아직, 이제부터지!\x04\n")
+        # (Line 43) break;
+        EUDBreak()
+        # (Line 44) case 4:
+    _t4 = EUDSwitchCase()
+    # (Line 45) PlayWAV("Yume_03.ogg");
+    if _t4(4):
+        # (Line 46) f.stb.print("\x13\x1BTsubakuro Yume\n");
+        DoActions(PlayWAV("Yume_03.ogg"))
+        f.stb.print("\x13\x1BTsubakuro Yume\n")
+        # (Line 47) f.stb.print("\x13\x04어이쿠~ 라거나!\x04\n");
+        f.stb.print("\x13\x04어이쿠~ 라거나!\x04\n")
+        # (Line 48) break;
+        EUDBreak()
+        # (Line 49) case 5:
+    _t5 = EUDSwitchCase()
+    # (Line 50) PlayWAV("Yume_Ult.ogg");
+    if _t5(5):
+        # (Line 51) break;
+        DoActions(PlayWAV("Yume_Ult.ogg"))
+        EUDBreak()
+        # (Line 52) case 6:
+    _t6 = EUDSwitchCase()
+    # (Line 53) f.stb.print("\x13\x1BTsubakuro Yume\n");
+    if _t6(6):
+        f.stb.print("\x13\x1BTsubakuro Yume\n")
+        # (Line 54) f.stb.print("\x13\x04아아~ 쓸 데 없는 시간 써버렸다\x04\n");
+        f.stb.print("\x13\x04아아~ 쓸 데 없는 시간 써버렸다\x04\n")
+        # (Line 55) break;
+        EUDBreak()
+        # (Line 56) case 7:
+    _t7 = EUDSwitchCase()
+    # (Line 57) PlayWAV("Yume_04.ogg");
+    if _t7(7):
+        # (Line 58) f.stb.print("\x13\x1BTsubakuro Yume\n");
+        DoActions(PlayWAV("Yume_04.ogg"))
+        f.stb.print("\x13\x1BTsubakuro Yume\n")
+        # (Line 59) f.stb.print("\x13\x04닛카리 아오에\x04\n");
+        f.stb.print("\x13\x04닛카리 아오에\x04\n")
+        # (Line 60) break;
+        EUDBreak()
+        # (Line 61) case 8:
+    _t8 = EUDSwitchCase()
+    # (Line 62) PlayWAV("Yume_05.ogg");
+    if _t8(8):
+        # (Line 63) break;
+        DoActions(PlayWAV("Yume_05.ogg"))
+        EUDBreak()
+        # (Line 64) }
+    # (Line 65) }
+    EUDEndSwitch()

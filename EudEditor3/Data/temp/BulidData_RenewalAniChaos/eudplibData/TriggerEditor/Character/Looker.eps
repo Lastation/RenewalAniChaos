@@ -9,12 +9,15 @@ import Character.Yume.Text 			as T_yume;
 
 function main(cp)
 {
-	T_rusaruka.Looker();
-	T_yuuna.Looker();
-	T_mayuri.Looker();
-	T_nanami.Looker();
-	T_milim.Looker();
-	T_yume.Looker();
+	if (getuserplayerid() >= 128)
+	{
+		T_rusaruka.Looker();
+		T_yuuna.Looker();
+		T_mayuri.Looker();
+		T_nanami.Looker();
+		T_milim.Looker();
+		T_yume.Looker();
 	
-	s.Marge(cp);
+		s.MargeSound(getuserplayerid() - 120);
+	}
 }

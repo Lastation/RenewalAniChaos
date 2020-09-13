@@ -141,33 +141,33 @@ def NormalText(cp):
     _t1 = EUDSwitchCase()
     # (Line 9) PlayWAV("Cecillia_01.ogg");
     if _t1(1000):
-        # (Line 10) v.Sound_Text2[cp] = 0;
+        # (Line 10) f.stb.print("\n\x13\x17Cecillia\n\x13\x04「　간다, \x17파동각!　\x04」\n");
         DoActions(PlayWAV("Cecillia_01.ogg"))
-        _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 11) f.stb.print("\n\x13\x17Cecillia\n\x13\x04「　간다, \x17파동각!　\x04」\n");
         f.stb.print("\n\x13\x17Cecillia\n\x13\x04「　간다, \x17파동각!　\x04」\n")
+        # (Line 11) v.Sound_Text2[cp] = 0;
+        _ARRW(v.Sound_Text2, cp) << (0)
         # (Line 12) break;
         EUDBreak()
         # (Line 13) case 1010:
     _t2 = EUDSwitchCase()
     # (Line 14) PlayWAV("Cecillia_02.ogg");
     if _t2(1010):
-        # (Line 15) v.Sound_Text2[cp] = 0;
+        # (Line 15) f.stb.print("\n\x13\x17Cecillia\n\x13\x04「　받아라! \x17천추각!　\x04」\n");
         DoActions(PlayWAV("Cecillia_02.ogg"))
-        _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 16) f.stb.print("\n\x13\x17Cecillia\n\x13\x04「　받아라! \x17천추각!　\x04」\n");
         f.stb.print("\n\x13\x17Cecillia\n\x13\x04「　받아라! \x17천추각!　\x04」\n")
+        # (Line 16) v.Sound_Text2[cp] = 0;
+        _ARRW(v.Sound_Text2, cp) << (0)
         # (Line 17) break;
         EUDBreak()
         # (Line 18) case 1020:
     _t3 = EUDSwitchCase()
     # (Line 19) PlayWAV("Cecillia_03.ogg");
     if _t3(1020):
-        # (Line 20) v.Sound_Text2[cp] = 0;
+        # (Line 20) f.stb.print("\n\x13\x17Cecillia\n\x13\x04「　부셔져라, \x06폭렬각!!!　\x04」\n");
         DoActions(PlayWAV("Cecillia_03.ogg"))
-        _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 21) f.stb.print("\n\x13\x17Cecillia\n\x13\x04「　부셔져라, \x06폭렬각!!!　\x04」\n");
         f.stb.print("\n\x13\x17Cecillia\n\x13\x04「　부셔져라, \x06폭렬각!!!　\x04」\n")
+        # (Line 21) v.Sound_Text2[cp] = 0;
+        _ARRW(v.Sound_Text2, cp) << (0)
         # (Line 22) break;
         EUDBreak()
         # (Line 23) }
@@ -185,11 +185,11 @@ def UiltimateText(cp):
     _t1 = EUDSwitchCase()
     # (Line 31) PlayWAV("Cecillia_Uiltimate.ogg");
     if _t1(7000):
-        # (Line 32) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 32) f.stb.printAt(3,"\x13\x17Cecillia\n\n\x13\x04「　하아앗.. \x06필살 유성각!　\x04」");
         DoActions(PlayWAV("Cecillia_Uiltimate.ogg"))
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 33) f.stb.printAt(3,"\x13\x17Cecillia\n\n\x13\x04「　하아앗.. \x06필살 유성각!　\x04」");
         f.stb.printAt(3, "\x13\x17Cecillia\n\n\x13\x04「　하아앗.. \x06필살 유성각!　\x04」")
+        # (Line 33) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 34) break;
         EUDBreak()
         # (Line 35) }
@@ -207,11 +207,11 @@ def UniqueText(cp):
     _t1 = EUDSwitchCase()
     # (Line 43) PlayWAV("Cecillia_Unique.ogg");
     if _t1(7000):
-        # (Line 44) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 44) f.stb.printAt(3,"\x13\x17Cecillia\n\x13\x04「　괴로워도 포기하면 거기서 끝이라고? 용기란 포기하지 않는 걸 말하는거라고　\x04」");
         DoActions(PlayWAV("Cecillia_Unique.ogg"))
-        _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 45) f.stb.printAt(3,"\x13\x17Cecillia\n\x13\x04「　괴로워도 포기하면 거기서 끝이라고? 용기란 포기하지 않는 걸 말하는거라고　\x04」");
         f.stb.printAt(3, "\x13\x17Cecillia\n\x13\x04「　괴로워도 포기하면 거기서 끝이라고? 용기란 포기하지 않는 걸 말하는거라고　\x04」")
+        # (Line 45) v.Sound_Text_Uniq[cp] = 0;
+        _ARRW(v.Sound_Text_Uniq, cp) << (0)
         # (Line 46) break;
         EUDBreak()
         # (Line 47) }

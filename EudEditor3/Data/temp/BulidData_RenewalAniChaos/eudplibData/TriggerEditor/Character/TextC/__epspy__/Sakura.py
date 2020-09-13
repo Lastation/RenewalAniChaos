@@ -236,17 +236,18 @@ def UiltimateText(cp):
 # (Line 55) {
 @EUDFunc
 def UniqueText(cp):
-    # (Line 56) switch (v.Sound_Text_Uniq[cp]) {
+    # (Line 56) switch (v.Sound_Text_Uniq[cp])
     EUDSwitch(v.Sound_Text_Uniq[cp])
-    # (Line 57) case 13000:
+    # (Line 57) {
+    # (Line 58) case 13000:
     _t1 = EUDSwitchCase()
-    # (Line 58) PlayWAV("sakura_06.ogg");
+    # (Line 59) PlayWAV("sakura_06.ogg");
     if _t1(13000):
-        # (Line 59) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 60) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("sakura_06.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 60) break;
+        # (Line 61) break;
         EUDBreak()
-        # (Line 61) }
-    # (Line 62) }
+        # (Line 62) }
+    # (Line 63) }
     EUDEndSwitch()

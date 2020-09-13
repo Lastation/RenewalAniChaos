@@ -1,56 +1,65 @@
+import Variable as v;
 import Function as f;
 
-function NormalText(num)
+function NormalText(cp)
 {
-	switch (num)
+	switch (v.Sound_Text4[cp])
 	{
 	case 3000:
 		PlayWAV("Magellan_02.ogg");
 		f.stb.print("\n\n\x13\x19Magellan\n\x13\x04업데이트 완료\n\n");
+		v.Sound_Text4[cp] = 0;
 		break;
 	case 3001:
 		PlayWAV("Magellan_01.ogg");
 		f.stb.print("\n\n\x13\x19Magellan\n\x13\x04효율 개선!\n\n");
+		v.Sound_Text4[cp] = 0;
 		break;
 	case 3002:
 		PlayWAV("Magellan_03.ogg");
 		f.stb.print("\n\n\x13\x19Magellan\n\x13\x04일 시작!\n\n");
+		v.Sound_Text4[cp] = 0;
 		break;
 	case 3003:
 		PlayWAV("Magellan_04.ogg");
 		f.stb.print("\n\n\x13\x19Magellan\n\x13\x04시스템 올 그린!\n\n");
+		v.Sound_Text4[cp] = 0;
 		break;
 	case 3004:
 		PlayWAV("Magellan_05.ogg");
 		f.stb.print("\n\n\x13\x19Magellan\n\x13\x04가라! 눈의 반사로 눈속임이야!\n\n");
+		v.Sound_Text4[cp] = 0;
 		break;
 		
 	}
 	
 }
 
-function UniqueText(num)
+function UniqueText(cp)
 {
-	switch (num)
+	switch (v.Sound_Text_Uniq[cp])
 	{
 	case 21000:
 		f.stb.print("\n\n\x13\x19Magellan\n\x13\x04좋아, 드론 기동!\n\n");
 		PlayWAV("Magellan_O.ogg");
+		v.Sound_Text_Uniq[cp] = 0;
 		break;
 	}
 }
 
-function UiltimateText(num)
+function UiltimateText(cp)
 {
-	switch (num)
+	switch (v.Sound_Text_Uilti[cp])
 	{
 	case 21000:
 		f.stb.print("\n\n\x13\x19Magellan\n\x13\x043... 2... 1...! 가라!\n\n");
 		PlayWAV("Magellan_Ult.ogg");
+		v.Sound_Text_Uilti[cp] = 0;
 		break;
 	case 21001:
 		f.stb.print("\n\n\x13\x19Magellan\n\x13\x04꽃들아, 피어나라!\n\n");
 		PlayWAV("Magellan_Ult2.ogg");
+		v.Sound_Text_Uilti[cp] = 0;
 		break;
 		
 	}

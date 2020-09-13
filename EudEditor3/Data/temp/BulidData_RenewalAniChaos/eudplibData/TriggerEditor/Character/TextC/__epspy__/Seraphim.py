@@ -141,44 +141,44 @@ def NormalText(cp):
     _t1 = EUDSwitchCase()
     # (Line 9) PlayWAV("Seraphim_SSS.ogg");
     if _t1(4000):
-        # (Line 10) v.Sound_Text3[cp] = 0;
+        # (Line 10) f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04역시 그런가, 조금도 신선한게 없네\n\n");
         DoActions(PlayWAV("Seraphim_SSS.ogg"))
-        _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 11) f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04역시 그런가, 조금도 신선한게 없네\n\n");
         f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04역시 그런가, 조금도 신선한게 없네\n\n")
+        # (Line 11) v.Sound_Text3[cp] = 0;
+        _ARRW(v.Sound_Text3, cp) << (0)
         # (Line 12) break;
         EUDBreak()
         # (Line 13) case 4001:
     _t2 = EUDSwitchCase()
     # (Line 14) PlayWAV("Seraphim_AAC.ogg");
     if _t2(4001):
-        # (Line 15) v.Sound_Text3[cp] = 0;
+        # (Line 15) f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04이제 됐어\n\x13\x04네가 그렇게 결정했다면, 이루어주지\n\n");
         DoActions(PlayWAV("Seraphim_AAC.ogg"))
-        _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 16) f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04이제 됐어\n\x13\x04네가 그렇게 결정했다면, 이루어주지\n\n");
         f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04이제 됐어\n\x13\x04네가 그렇게 결정했다면, 이루어주지\n\n")
+        # (Line 16) v.Sound_Text3[cp] = 0;
+        _ARRW(v.Sound_Text3, cp) << (0)
         # (Line 17) break;
         EUDBreak()
         # (Line 18) case 4002:
     _t3 = EUDSwitchCase()
     # (Line 19) PlayWAV("Seraphim_CC.ogg");
     if _t3(4002):
-        # (Line 20) v.Sound_Text3[cp] = 0;
+        # (Line 20) f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04불쌍한 녀석이야\n\n");
         DoActions(PlayWAV("Seraphim_CC.ogg"))
-        _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 21) f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04불쌍한 녀석이야\n\n");
         f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04불쌍한 녀석이야\n\n")
+        # (Line 21) v.Sound_Text3[cp] = 0;
+        _ARRW(v.Sound_Text3, cp) << (0)
         # (Line 22) break;
         EUDBreak()
         # (Line 23) case 4003:
     _t4 = EUDSwitchCase()
     # (Line 24) PlayWAV("Seraphim_CCAA.ogg");
     if _t4(4003):
-        # (Line 25) v.Sound_Text3[cp] = 0;
+        # (Line 25) f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04소원을 이루기 위해 진실에서 눈을 돌려버리고 말았어\n\n");
         DoActions(PlayWAV("Seraphim_CCAA.ogg"))
-        _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 26) f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04소원을 이루기 위해 진실에서 눈을 돌려버리고 말았어\n\n");
         f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04소원을 이루기 위해 진실에서 눈을 돌려버리고 말았어\n\n")
+        # (Line 26) v.Sound_Text3[cp] = 0;
+        _ARRW(v.Sound_Text3, cp) << (0)
         # (Line 27) break;
         EUDBreak()
         # (Line 28) }
@@ -196,11 +196,11 @@ def UiltimateText(cp):
     _t1 = EUDSwitchCase()
     # (Line 36) PlayWAV("Seraphim_AAAA.ogg");
     if _t1(16000):
-        # (Line 37) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 37) f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04하지만...\n\n");
         DoActions(PlayWAV("Seraphim_AAAA.ogg"))
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 38) f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04하지만...\n\n");
         f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04하지만...\n\n")
+        # (Line 38) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 39) break;
         EUDBreak()
         # (Line 40) case 16001:

@@ -141,60 +141,60 @@ def NormalText(cp):
     _t1 = EUDSwitchCase()
     # (Line 9) PlayWAV("Ryuzu_00.ogg");
     if _t1(6000):
-        # (Line 10) v.Sound_Text2[cp] = 0;
+        # (Line 10) f.stb.print("\n\x13\x1CRyuzu\n\x13\x04과연…\n");
         DoActions(PlayWAV("Ryuzu_00.ogg"))
-        _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 11) f.stb.print("\n\x13\x1CRyuzu\n\x13\x04과연…\n");
         f.stb.print("\n\x13\x1CRyuzu\n\x13\x04과연…\n")
+        # (Line 11) v.Sound_Text2[cp] = 0;
+        _ARRW(v.Sound_Text2, cp) << (0)
         # (Line 12) break;
         EUDBreak()
         # (Line 13) case 6001:
     _t2 = EUDSwitchCase()
-    # (Line 14) v.Sound_Text2[cp] = 0;
+    # (Line 14) f.stb.print("\n\x13\x1CRyuzu\n\x13\x05감히 어느 분께 살의를 향하고 계시는지?\n");
     if _t2(6001):
-        _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 15) f.stb.print("\n\x13\x1CRyuzu\n\x13\x05감히 어느 분께 살의를 향하고 계시는지?\n");
         f.stb.print("\n\x13\x1CRyuzu\n\x13\x05감히 어느 분께 살의를 향하고 계시는지?\n")
+        # (Line 15) v.Sound_Text2[cp] = 0;
+        _ARRW(v.Sound_Text2, cp) << (0)
         # (Line 16) break;
         EUDBreak()
         # (Line 17) case 6002:
     _t3 = EUDSwitchCase()
     # (Line 18) PlayWAV("Ryuzu_01.ogg");
     if _t3(6002):
-        # (Line 19) v.Sound_Text2[cp] = 0;
+        # (Line 19) f.stb.print("\n\x13\x1CRyuzu\n\x13\x04감히 나오토 님께 그런 장난감을\n\x13\x04들이밀어도 될 거라 생각하시는 거라면\n");
         DoActions(PlayWAV("Ryuzu_01.ogg"))
-        _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 20) f.stb.print("\n\x13\x1CRyuzu\n\x13\x04감히 나오토 님께 그런 장난감을\n\x13\x04들이밀어도 될 거라 생각하시는 거라면\n");
         f.stb.print("\n\x13\x1CRyuzu\n\x13\x04감히 나오토 님께 그런 장난감을\n\x13\x04들이밀어도 될 거라 생각하시는 거라면\n")
+        # (Line 20) v.Sound_Text2[cp] = 0;
+        _ARRW(v.Sound_Text2, cp) << (0)
         # (Line 21) break;
         EUDBreak()
         # (Line 22) case 6003:
     _t4 = EUDSwitchCase()
-    # (Line 23) v.Sound_Text2[cp] = 0;
+    # (Line 23) f.stb.print("\n\x13\x1CRyuzu\n\x13\x05두 분 모두 사이좋게\n\x13\x05잘게 썰어드리겠습니다만\n");
     if _t4(6003):
-        _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 24) f.stb.print("\n\x13\x1CRyuzu\n\x13\x05두 분 모두 사이좋게\n\x13\x05잘게 썰어드리겠습니다만\n");
         f.stb.print("\n\x13\x1CRyuzu\n\x13\x05두 분 모두 사이좋게\n\x13\x05잘게 썰어드리겠습니다만\n")
+        # (Line 24) v.Sound_Text2[cp] = 0;
+        _ARRW(v.Sound_Text2, cp) << (0)
         # (Line 25) break;
         EUDBreak()
         # (Line 26) case 6010:
     _t5 = EUDSwitchCase()
     # (Line 27) PlayWAV("Ryuzu_02.ogg");
     if _t5(6010):
-        # (Line 28) v.Sound_Text2[cp] = 0;
+        # (Line 28) f.stb.print("\n\x13\x1CRyuzu\n\x13\x04마음껏 덤벼와보시죠, 「앙클」\n");
         DoActions(PlayWAV("Ryuzu_02.ogg"))
-        _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 29) f.stb.print("\n\x13\x1CRyuzu\n\x13\x04마음껏 덤벼와보시죠, 「앙클」\n");
         f.stb.print("\n\x13\x1CRyuzu\n\x13\x04마음껏 덤벼와보시죠, 「앙클」\n")
+        # (Line 29) v.Sound_Text2[cp] = 0;
+        _ARRW(v.Sound_Text2, cp) << (0)
         # (Line 30) break;
         EUDBreak()
         # (Line 31) case 6011:
     _t6 = EUDSwitchCase()
-    # (Line 32) v.Sound_Text2[cp] = 0;
+    # (Line 32) f.stb.print("\n\x13\x1CRyuzu\n\x13\x04언니된 몸으로서의 위엄을\n\x13\x04그 몸에 새겨드리겠어요\n");
     if _t6(6011):
-        _ARRW(v.Sound_Text2, cp) << (0)
-        # (Line 33) f.stb.print("\n\x13\x1CRyuzu\n\x13\x04언니된 몸으로서의 위엄을\n\x13\x04그 몸에 새겨드리겠어요\n");
         f.stb.print("\n\x13\x1CRyuzu\n\x13\x04언니된 몸으로서의 위엄을\n\x13\x04그 몸에 새겨드리겠어요\n")
+        # (Line 33) v.Sound_Text2[cp] = 0;
+        _ARRW(v.Sound_Text2, cp) << (0)
         # (Line 34) break;
         EUDBreak()
         # (Line 35) }
@@ -212,157 +212,157 @@ def UiltimateText(cp):
     _t1 = EUDSwitchCase()
     # (Line 43) PlayWAV("Ryuzu_Uil.ogg");
     if _t1(12001):
-        # (Line 44) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 44) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04배제하겠습니다.");
         DoActions(PlayWAV("Ryuzu_Uil.ogg"))
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 45) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04배제하겠습니다.");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\n\x13\x04배제하겠습니다.")
+        # (Line 45) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 46) break;
         EUDBreak()
         # (Line 47) case 12002:
     _t2 = EUDSwitchCase()
-    # (Line 48) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 48) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04저런 차마 쳐다보기도 역겨운\n\x13\x04잡동사니 집단은");
     if _t2(12002):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 49) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04저런 차마 쳐다보기도 역겨운\n\x13\x04잡동사니 집단은");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\n\x13\x04저런 차마 쳐다보기도 역겨운\n\x13\x04잡동사니 집단은")
+        # (Line 49) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 50) break;
         EUDBreak()
         # (Line 51) case 12003:
     _t3 = EUDSwitchCase()
-    # (Line 52) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 52) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04나오토 님께 포구를 겨누었습니다.");
     if _t3(12003):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 53) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04나오토 님께 포구를 겨누었습니다.");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\n\x13\x04나오토 님께 포구를 겨누었습니다.")
+        # (Line 53) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 54) break;
         EUDBreak()
         # (Line 55) case 12004:
     _t4 = EUDSwitchCase()
-    # (Line 56) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 56) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04다시 말해,");
     if _t4(12004):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 57) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04다시 말해,");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\n\x13\x04다시 말해,")
+        # (Line 57) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 58) break;
         EUDBreak()
         # (Line 59) case 12005:
     _t5 = EUDSwitchCase()
-    # (Line 60) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 60) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04배제하여야 할 저의ㅡ");
     if _t5(12005):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 61) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04배제하여야 할 저의ㅡ");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\n\x13\x04배제하여야 할 저의ㅡ")
+        # (Line 61) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 62) break;
         EUDBreak()
         # (Line 63) case 12006:
     _t6 = EUDSwitchCase()
-    # (Line 64) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 64) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04적입니다");
     if _t6(12006):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 65) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04적입니다");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\n\x13\x04적입니다")
+        # (Line 65) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 66) break;
         EUDBreak()
         # (Line 67) case 12007:
     _t7 = EUDSwitchCase()
-    # (Line 68) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 68) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04저런 잡동사니를\n\x13\x04제아무리 늘어놓는다 한들");
     if _t7(12007):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 69) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04저런 잡동사니를\n\x13\x04제아무리 늘어놓는다 한들");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\n\x13\x04저런 잡동사니를\n\x13\x04제아무리 늘어놓는다 한들")
+        # (Line 69) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 70) break;
         EUDBreak()
         # (Line 71) case 12008:
     _t8 = EUDSwitchCase()
-    # (Line 72) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 72) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04자매들 중에서도 최약체인\n\x13\x04저에게조차 미치지 못합니다");
     if _t8(12008):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 73) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04자매들 중에서도 최약체인\n\x13\x04저에게조차 미치지 못합니다");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\n\x13\x04자매들 중에서도 최약체인\n\x13\x04저에게조차 미치지 못합니다")
+        # (Line 73) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 74) break;
         EUDBreak()
         # (Line 75) case 12009:
     _t9 = EUDSwitchCase()
-    # (Line 76) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 76) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04정의 선언──");
     if _t9(12009):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 77) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04정의 선언──");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\n\x13\x04정의 선언──")
+        # (Line 77) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 78) break;
         EUDBreak()
         # (Line 79) case 12010:
     _t10 = EUDSwitchCase()
-    # (Line 80) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 80) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04정의 선언──\n\x13\x04Initial-Y 시리즈 1번기");
     if _t10(12010):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 81) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04정의 선언──\n\x13\x04Initial-Y 시리즈 1번기");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\n\x13\x04정의 선언──\n\x13\x04Initial-Y 시리즈 1번기")
+        # (Line 81) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 82) break;
         EUDBreak()
         # (Line 83) case 12011:
     _t11 = EUDSwitchCase()
-    # (Line 84) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 84) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04복종하는자");
     if _t11(12011):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 85) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04복종하는자");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\n\x13\x04복종하는자")
+        # (Line 85) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 86) break;
         EUDBreak()
         # (Line 87) case 12012:
     _t12 = EUDSwitchCase()
-    # (Line 88) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 88) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04복종하는자\n\n\x13\x04류즈");
     if _t12(12012):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 89) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04복종하는자\n\n\x13\x04류즈");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\n\x13\x04복종하는자\n\n\x13\x04류즈")
+        # (Line 89) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 90) break;
         EUDBreak()
         # (Line 91) case 12013:
     _t13 = EUDSwitchCase()
-    # (Line 92) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 92) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04고유 기능──");
     if _t13(12013):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 93) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04고유 기능──");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\n\x13\x04고유 기능──")
+        # (Line 93) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 94) break;
         EUDBreak()
         # (Line 95) case 12014:
     _t14 = EUDSwitchCase()
-    # (Line 96) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 96) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04고유 기능──\n\x13\x04[ 허수 시간 ]");
     if _t14(12014):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 97) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04고유 기능──\n\x13\x04[ 허수 시간 ]");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\n\x13\x04고유 기능──\n\x13\x04[ 허수 시간 ]")
+        # (Line 97) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 98) break;
         EUDBreak()
         # (Line 99) case 12015:
     _t15 = EUDSwitchCase()
-    # (Line 100) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 100) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04기동 시퀀스를 개시하겠습니다");
     if _t15(12015):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 101) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04기동 시퀀스를 개시하겠습니다");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\n\x13\x04기동 시퀀스를 개시하겠습니다")
+        # (Line 101) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 102) break;
         EUDBreak()
         # (Line 103) case 12020:
     _t16 = EUDSwitchCase()
     # (Line 104) PlayWAV("Ryuzu_Uil2.ogg");
     if _t16(12020):
-        # (Line 105) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 105) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04상대 기동");
         DoActions(PlayWAV("Ryuzu_Uil2.ogg"))
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 106) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04상대 기동");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\n\x13\x04상대 기동")
+        # (Line 106) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 107) break;
         EUDBreak()
         # (Line 108) case 12021:
     _t17 = EUDSwitchCase()
-    # (Line 109) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 109) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04상대 기동\n\n\x13\x04『뮤트·스크림』\n\n");
     if _t17(12021):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 110) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04상대 기동\n\n\x13\x04『뮤트·스크림』\n\n");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\n\x13\x04상대 기동\n\n\x13\x04『뮤트·스크림』\n\n")
+        # (Line 110) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 111) break;
         EUDBreak()
         # (Line 112) }
@@ -380,65 +380,65 @@ def UniqueText(cp):
     _t1 = EUDSwitchCase()
     # (Line 120) PlayWAV("Ryuzu_Unq.ogg");
     if _t1(12000):
-        # (Line 121) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 121) f.stb.printAt(3,"\x13\x1CRyuzu\n\x13\x04시프트 개시\n");
         DoActions(PlayWAV("Ryuzu_Unq.ogg"))
-        _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 122) f.stb.printAt(3,"\x13\x1CRyuzu\n\x13\x04시프트 개시\n");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\x13\x04시프트 개시\n")
+        # (Line 122) v.Sound_Text_Uniq[cp] = 0;
+        _ARRW(v.Sound_Text_Uniq, cp) << (0)
         # (Line 123) break;
         EUDBreak()
         # (Line 124) case 12001:
     _t2 = EUDSwitchCase()
-    # (Line 125) v.Sound_Text_Uniq[cp] = 0;
+    # (Line 125) f.stb.printAt(3,"\x13\x1CRyuzu\n\x13\x04제 1시계");
     if _t2(12001):
-        _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 126) f.stb.printAt(3,"\x13\x1CRyuzu\n\x13\x04제 1시계");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\x13\x04제 1시계")
+        # (Line 126) v.Sound_Text_Uniq[cp] = 0;
+        _ARRW(v.Sound_Text_Uniq, cp) << (0)
         # (Line 127) break;
         EUDBreak()
         # (Line 128) case 12002:
     _t3 = EUDSwitchCase()
-    # (Line 129) v.Sound_Text_Uniq[cp] = 0;
+    # (Line 129) f.stb.printAt(3,"\x13\x1CRyuzu\n\x13\x05제 1시계\n\x13\x04『실수 시간』으로부터");
     if _t3(12002):
-        _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 130) f.stb.printAt(3,"\x13\x1CRyuzu\n\x13\x05제 1시계\n\x13\x04『실수 시간』으로부터");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\x13\x05제 1시계\n\x13\x04『실수 시간』으로부터")
+        # (Line 130) v.Sound_Text_Uniq[cp] = 0;
+        _ARRW(v.Sound_Text_Uniq, cp) << (0)
         # (Line 131) break;
         EUDBreak()
         # (Line 132) case 12003:
     _t4 = EUDSwitchCase()
-    # (Line 133) v.Sound_Text_Uniq[cp] = 0;
+    # (Line 133) f.stb.printAt(3,"\x13\x1CRyuzu\n\x13\x04제 2시계");
     if _t4(12003):
-        _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 134) f.stb.printAt(3,"\x13\x1CRyuzu\n\x13\x04제 2시계");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\x13\x04제 2시계")
+        # (Line 134) v.Sound_Text_Uniq[cp] = 0;
+        _ARRW(v.Sound_Text_Uniq, cp) << (0)
         # (Line 135) break;
         EUDBreak()
         # (Line 136) case 12004:
     _t5 = EUDSwitchCase()
-    # (Line 137) v.Sound_Text_Uniq[cp] = 0;
+    # (Line 137) f.stb.printAt(3,"\x13\x1CRyuzu\n\x13\x05제 2시계\n\x13\x04『허수 시간』으로");
     if _t5(12004):
-        _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 138) f.stb.printAt(3,"\x13\x1CRyuzu\n\x13\x05제 2시계\n\x13\x04『허수 시간』으로");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\x13\x05제 2시계\n\x13\x04『허수 시간』으로")
+        # (Line 138) v.Sound_Text_Uniq[cp] = 0;
+        _ARRW(v.Sound_Text_Uniq, cp) << (0)
         # (Line 139) break;
         EUDBreak()
         # (Line 140) case 12005:
     _t6 = EUDSwitchCase()
-    # (Line 141) v.Sound_Text_Uniq[cp] = 0;
+    # (Line 141) f.stb.printAt(3,"\x13\x1CRyuzu\n\x13\x04구동[크로노 훅]―");
     if _t6(12005):
-        _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 142) f.stb.printAt(3,"\x13\x1CRyuzu\n\x13\x04구동[크로노 훅]―");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\x13\x04구동[크로노 훅]―")
+        # (Line 142) v.Sound_Text_Uniq[cp] = 0;
+        _ARRW(v.Sound_Text_Uniq, cp) << (0)
         # (Line 143) break;
         EUDBreak()
         # (Line 144) case 12006:
     _t7 = EUDSwitchCase()
-    # (Line 145) v.Sound_Text_Uniq[cp] = 0;
+    # (Line 145) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04통상 운동으로부터 \n\x13\x04허수 운동을 향해 점프하겠습니다");
     if _t7(12006):
-        _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 146) f.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04통상 운동으로부터 \n\x13\x04허수 운동을 향해 점프하겠습니다");
         f.stb.printAt(3, "\x13\x1CRyuzu\n\n\x13\x04통상 운동으로부터 \n\x13\x04허수 운동을 향해 점프하겠습니다")
+        # (Line 146) v.Sound_Text_Uniq[cp] = 0;
+        _ARRW(v.Sound_Text_Uniq, cp) << (0)
         # (Line 147) break;
         EUDBreak()
         # (Line 148) }

@@ -141,40 +141,40 @@ def NormalText(cp):
     _t1 = EUDSwitchCase()
     # (Line 9) PlayWAV("Chtholly_EX01.ogg");
     if _t1(2000):
-        # (Line 10) v.Sound_Text1[cp] = 0;
+        # (Line 10) f.stb.print("\x13\x1CChtholly Nota Seniorious\r\n\x13\x04언제까지고 함께 있어주겠다고 맹세했지");
         DoActions(PlayWAV("Chtholly_EX01.ogg"))
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 11) f.stb.print("\x13\x1CChtholly Nota Seniorious\r\n\x13\x04언제까지고 함께 있어주겠다고 맹세했지");
         f.stb.print("\x13\x1CChtholly Nota Seniorious\r\n\x13\x04언제까지고 함께 있어주겠다고 맹세했지")
+        # (Line 11) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 12) break;
         EUDBreak()
         # (Line 13) case 2001:
     _t2 = EUDSwitchCase()
-    # (Line 14) v.Sound_Text1[cp] = 0;
+    # (Line 14) f.stb.print("\x13\x1BCh\x1Ctholly Nota Seniorious\r\n\x13\x04맹세할 수 있었단 사실이 너무도 행복했어");
     if _t2(2001):
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 15) f.stb.print("\x13\x1BCh\x1Ctholly Nota Seniorious\r\n\x13\x04맹세할 수 있었단 사실이 너무도 행복했어");
         f.stb.print("\x13\x1BCh\x1Ctholly Nota Seniorious\r\n\x13\x04맹세할 수 있었단 사실이 너무도 행복했어")
+        # (Line 15) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 16) break;
         EUDBreak()
         # (Line 17) case 2002:
     _t3 = EUDSwitchCase()
     # (Line 18) PlayWAV("Chtholly_EX02.ogg");
     if _t3(2002):
-        # (Line 19) v.Sound_Text1[cp] = 0;
+        # (Line 19) f.stb.print("\x13\x06Ch\x1Btho\x1Clly Nota Seniorious\r\n\x13\x04이 사람을 좋아하는 거구나 싶었지");
         DoActions(PlayWAV("Chtholly_EX02.ogg"))
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 20) f.stb.print("\x13\x06Ch\x1Btho\x1Clly Nota Seniorious\r\n\x13\x04이 사람을 좋아하는 거구나 싶었지");
         f.stb.print("\x13\x06Ch\x1Btho\x1Clly Nota Seniorious\r\n\x13\x04이 사람을 좋아하는 거구나 싶었지")
+        # (Line 20) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 21) break;
         EUDBreak()
         # (Line 22) case 2003:
     _t4 = EUDSwitchCase()
-    # (Line 23) v.Sound_Text1[cp] = 0;
+    # (Line 23) f.stb.print("\x13\x06Chtho\x1Blly \x1CNota Seniorious\r\n\x13\x04이렇게 생각할 수 있었던 사실이 행복했어");
     if _t4(2003):
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 24) f.stb.print("\x13\x06Chtho\x1Blly \x1CNota Seniorious\r\n\x13\x04이렇게 생각할 수 있었던 사실이 행복했어");
         f.stb.print("\x13\x06Chtho\x1Blly \x1CNota Seniorious\r\n\x13\x04이렇게 생각할 수 있었던 사실이 행복했어")
+        # (Line 24) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 25) break;
         EUDBreak()
         # (Line 26) case 2004:
@@ -188,51 +188,51 @@ def NormalText(cp):
         EUDBreak()
         # (Line 30) case 2005:
     _t6 = EUDSwitchCase()
-    # (Line 31) v.Sound_Text1[cp] = 0;
+    # (Line 31) f.stb.print("\x13\x06Chtholly \x1BNo\x1Cta Seniorious\r\n\x13\x04행복하게 만들어주겠다고 내게 말해주었어");
     if _t6(2005):
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 32) f.stb.print("\x13\x06Chtholly \x1BNo\x1Cta Seniorious\r\n\x13\x04행복하게 만들어주겠다고 내게 말해주었어");
         f.stb.print("\x13\x06Chtholly \x1BNo\x1Cta Seniorious\r\n\x13\x04행복하게 만들어주겠다고 내게 말해주었어")
+        # (Line 32) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 33) break;
         EUDBreak()
         # (Line 34) case 2006:
     _t7 = EUDSwitchCase()
-    # (Line 35) v.Sound_Text1[cp] = 0;
+    # (Line 35) f.stb.print("\x13\x06Chtholly No\x1Bta Se\x1Cniorious\r\n\x13\x04내게 그런 말을 해준 것이 행복했어");
     if _t7(2006):
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 36) f.stb.print("\x13\x06Chtholly No\x1Bta Se\x1Cniorious\r\n\x13\x04내게 그런 말을 해준 것이 행복했어");
         f.stb.print("\x13\x06Chtholly No\x1Bta Se\x1Cniorious\r\n\x13\x04내게 그런 말을 해준 것이 행복했어")
+        # (Line 36) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 37) break;
         EUDBreak()
         # (Line 38) case 2007:
     _t8 = EUDSwitchCase()
-    # (Line 39) v.Sound_Text1[cp] = 0;
+    # (Line 39) f.stb.print("\x13\x06Chtholly Nota Se\x1Bnior\x1Cious\r\n\x13\x04이렇게나 많은 행복함을 그 사람에게 나눠받았어 ");
     if _t8(2007):
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 40) f.stb.print("\x13\x06Chtholly Nota Se\x1Bnior\x1Cious\r\n\x13\x04이렇게나 많은 행복함을 그 사람에게 나눠받았어 ");
         f.stb.print("\x13\x06Chtholly Nota Se\x1Bnior\x1Cious\r\n\x13\x04이렇게나 많은 행복함을 그 사람에게 나눠받았어 ")
+        # (Line 40) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 41) break;
         EUDBreak()
         # (Line 42) case 2100:
     _t9 = EUDSwitchCase()
     # (Line 43) PlayWAV("Chtholly_00.ogg");
     if _t9(2100):
-        # (Line 44) v.Sound_Text1[cp] = 0;
+        # (Line 44) f.stb.print("\x13\x1CChtholly Nota Seniorious\r\n\x13\x04어쩔수없구나, \x05정말...");
         DoActions(PlayWAV("Chtholly_00.ogg"))
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 45) f.stb.print("\x13\x1CChtholly Nota Seniorious\r\n\x13\x04어쩔수없구나, \x05정말...");
         f.stb.print("\x13\x1CChtholly Nota Seniorious\r\n\x13\x04어쩔수없구나, \x05정말...")
+        # (Line 45) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 46) break;
         EUDBreak()
         # (Line 47) case 2999:
     _t10 = EUDSwitchCase()
     # (Line 48) PlayWAV("Chtholly_Dead.ogg");
     if _t10(2999):
-        # (Line 49) v.Sound_Text1[cp] = 0;
+        # (Line 49) f.stb.printAt(3, "\x13\x06Chtholly Nota Seniorious\r\n\x13\x05빌렘... 고마..워...");
         DoActions(PlayWAV("Chtholly_Dead.ogg"))
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 50) f.stb.printAt(3, "\x13\x06Chtholly Nota Seniorious\r\n\x13\x05빌렘... 고마..워...");
         f.stb.printAt(3, "\x13\x06Chtholly Nota Seniorious\r\n\x13\x05빌렘... 고마..워...")
+        # (Line 50) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 51) break;
         EUDBreak()
         # (Line 52) }
@@ -257,20 +257,20 @@ def UiltimateText(cp):
         EUDBreak()
         # (Line 63) case 2009:
     _t2 = EUDSwitchCase()
-    # (Line 64) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 64) f.stb.printAt(4, "\x13\x06Chtholly Nota Senior\x1Bio\x1Cus\r\n\x13\x04그러니까\n\n\n");
     if _t2(2009):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 65) f.stb.printAt(4, "\x13\x06Chtholly Nota Senior\x1Bio\x1Cus\r\n\x13\x04그러니까\n\n\n");
         f.stb.printAt(4, "\x13\x06Chtholly Nota Senior\x1Bio\x1Cus\r\n\x13\x04그러니까\n\n\n")
+        # (Line 65) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 66) break;
         EUDBreak()
         # (Line 67) case 2010:
     _t3 = EUDSwitchCase()
-    # (Line 68) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 68) f.stb.printAt(4, "\x13\x06Chtholly Nota Seniorio\x1Bu\x1Cs\r\n\x13\x04분명\n\n\n");
     if _t3(2010):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 69) f.stb.printAt(4, "\x13\x06Chtholly Nota Seniorio\x1Bu\x1Cs\r\n\x13\x04분명\n\n\n");
         f.stb.printAt(4, "\x13\x06Chtholly Nota Seniorio\x1Bu\x1Cs\r\n\x13\x04분명\n\n\n")
+        # (Line 69) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 70) break;
         EUDBreak()
         # (Line 71) }
@@ -286,11 +286,11 @@ def UniqueText(cp):
     # (Line 77) {
     # (Line 78) case 2000:
     _t1 = EUDSwitchCase()
-    # (Line 79) v.Sound_Text_Uniq[cp] = 0;
+    # (Line 79) f.stb.printAt(1, "\x13\x06Chtholly Nota Seniorious\n\x13\x04지금의 나는\n\x13\x04누가 뭐라 할지라도\n\n\x13\x04세상에서 제일 \x06행복한 여자아이\x04인 거야");
     if _t1(2000):
-        _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 80) f.stb.printAt(1, "\x13\x06Chtholly Nota Seniorious\n\x13\x04지금의 나는\n\x13\x04누가 뭐라 할지라도\n\n\x13\x04세상에서 제일 \x06행복한 여자아이\x04인 거야");
         f.stb.printAt(1, "\x13\x06Chtholly Nota Seniorious\n\x13\x04지금의 나는\n\x13\x04누가 뭐라 할지라도\n\n\x13\x04세상에서 제일 \x06행복한 여자아이\x04인 거야")
+        # (Line 80) v.Sound_Text_Uniq[cp] = 0;
+        _ARRW(v.Sound_Text_Uniq, cp) << (0)
         # (Line 81) break;
         EUDBreak()
         # (Line 82) }

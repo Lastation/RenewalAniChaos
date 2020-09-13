@@ -16,6 +16,7 @@ import Character.Announce 		as announce;			// 상태창 텍스트
 import Function 					as f;						// 상태창 텍스트
 import Character.Looker 			as looker;				// 관전자 텍스트
 
+const curpl = PVariable();
 
 function onPluginStart() 	// 초기화 함수
 {
@@ -70,14 +71,6 @@ function MainLoop(cp)
       	 { v.Hero_Num[cp] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)); }
 }
 
-function LookerMain(cp)
-{
-	SetMemory(0x6509B0, SetTo, 128 + cp);
-	MuteUnitSpeech();
-	looker.main(getuserplayerid() - 120);
-	SetMemory(0x6509B0, SetTo, cp);
-}
-
 function beforeTriggerExec() 
 {
 	randomize();
@@ -87,7 +80,11 @@ function beforeTriggerExec()
 		setcurpl(cp);
 		
 		MainLoop(cp);
-		LookerMain(cp);
+		
+		SetMemory(0x6509B0, SetTo, 128 + cp);
+		MuteUnitSpeech();
+		looker.main(cp);
+		SetMemory(0x6509B0, SetTo, cp);
 	}
 }
 

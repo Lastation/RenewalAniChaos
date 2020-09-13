@@ -141,51 +141,51 @@ def NormalText(cp):
     _t1 = EUDSwitchCase()
     # (Line 9) PlayWAV("staredit\\wav\\Miyuki_01.ogg");
     if _t1(5000):
-        # (Line 10) v.Sound_Text1[cp] = 0;
+        # (Line 10) f.stb.print("\n\x13\x1CSone \x04Miyoki\n\x13\x04어디로 도망치는 거야?\n");
         DoActions(PlayWAV("staredit\\wav\\Miyuki_01.ogg"))
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 11) f.stb.print("\n\x13\x1CSone \x04Miyoki\n\x13\x04어디로 도망치는 거야?\n");
         f.stb.print("\n\x13\x1CSone \x04Miyoki\n\x13\x04어디로 도망치는 거야?\n")
+        # (Line 11) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 12) break;
         EUDBreak()
         # (Line 13) case 5001:
     _t2 = EUDSwitchCase()
-    # (Line 14) v.Sound_Text1[cp] = 0;
+    # (Line 14) f.stb.print("\n\x13\x1CSone \x04Miyoki\n\x13\x04도망갈 장소라니, 어디에도 없는데\n");
     if _t2(5001):
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 15) f.stb.print("\n\x13\x1CSone \x04Miyoki\n\x13\x04도망갈 장소라니, 어디에도 없는데\n");
         f.stb.print("\n\x13\x1CSone \x04Miyoki\n\x13\x04도망갈 장소라니, 어디에도 없는데\n")
+        # (Line 15) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 16) break;
         EUDBreak()
         # (Line 17) case 5300:
     _t3 = EUDSwitchCase()
     # (Line 18) PlayWAV("staredit\\wav\\Miyuki_02.ogg");
     if _t3(5300):
-        # (Line 19) v.Sound_Text1[cp] = 0;
+        # (Line 19) f.stb.print("\n\x13\x1CSone \x04Miyoki\n\x13\x19영원한 사랑\x04을 맹세한 상대에게 배신당하는 \x06고통-\n");
         DoActions(PlayWAV("staredit\\wav\\Miyuki_02.ogg"))
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 20) f.stb.print("\n\x13\x1CSone \x04Miyoki\n\x13\x19영원한 사랑\x04을 맹세한 상대에게 배신당하는 \x06고통-\n");
         f.stb.print("\n\x13\x1CSone \x04Miyoki\n\x13\x19영원한 사랑\x04을 맹세한 상대에게 배신당하는 \x06고통-\n")
+        # (Line 20) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 21) break;
         EUDBreak()
         # (Line 22) case 5301:
     _t4 = EUDSwitchCase()
-    # (Line 23) v.Sound_Text1[cp] = 0;
+    # (Line 23) f.stb.print("\n\x13\x1CSone \x04Miyoki\n\x13\x04당신도 알게 되었을까?\n");
     if _t4(5301):
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 24) f.stb.print("\n\x13\x1CSone \x04Miyoki\n\x13\x04당신도 알게 되었을까?\n");
         f.stb.print("\n\x13\x1CSone \x04Miyoki\n\x13\x04당신도 알게 되었을까?\n")
+        # (Line 24) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 25) break;
         EUDBreak()
         # (Line 26) case 5400:
     _t5 = EUDSwitchCase()
     # (Line 27) PlayWAV("staredit\\wav\\Miyuki_00.ogg");
     if _t5(5400):
-        # (Line 28) v.Sound_Text1[cp] = 0;
+        # (Line 28) f.stb.print("\n\x13\x1CSone \x04Miyoki\n\x13\x04지금부터, 듬뿍, \x06복수\x04해 주겠어\n");
         DoActions(PlayWAV("staredit\\wav\\Miyuki_00.ogg"))
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 29) f.stb.print("\n\x13\x1CSone \x04Miyoki\n\x13\x04지금부터, 듬뿍, \x06복수\x04해 주겠어\n");
         f.stb.print("\n\x13\x1CSone \x04Miyoki\n\x13\x04지금부터, 듬뿍, \x06복수\x04해 주겠어\n")
+        # (Line 29) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 30) break;
         EUDBreak()
         # (Line 31) }
@@ -203,40 +203,40 @@ def UiltimateText(cp):
     _t1 = EUDSwitchCase()
     # (Line 39) PlayWAV("staredit\\wav\\Miyuki_Ultimate.ogg");
     if _t1(5100):
-        # (Line 40) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 40) f.stb.printAt(3, "\x13\x1CSone \x04Miyoki\n\n\x13\x04이것으로, 세계는 업데이트 된다");
         DoActions(PlayWAV("staredit\\wav\\Miyuki_Ultimate.ogg"))
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 41) f.stb.printAt(3, "\x13\x1CSone \x04Miyoki\n\n\x13\x04이것으로, 세계는 업데이트 된다");
         f.stb.printAt(3, "\x13\x1CSone \x04Miyoki\n\n\x13\x04이것으로, 세계는 업데이트 된다")
+        # (Line 41) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 42) break;
         EUDBreak()
         # (Line 43) case 5101:
     _t2 = EUDSwitchCase()
-    # (Line 44) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 44) f.stb.printAt(3, "\x13\x1CSone \x04Miyoki\n\n\x13\x04당신은 허구의 존재가 되는거야");
     if _t2(5101):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 45) f.stb.printAt(3, "\x13\x1CSone \x04Miyoki\n\n\x13\x04당신은 허구의 존재가 되는거야");
         f.stb.printAt(3, "\x13\x1CSone \x04Miyoki\n\n\x13\x04당신은 허구의 존재가 되는거야")
+        # (Line 45) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 46) break;
         EUDBreak()
         # (Line 47) case 5200:
     _t3 = EUDSwitchCase()
     # (Line 48) PlayWAV("staredit\\wav\\Miyuki_Ultimate2.ogg");
     if _t3(5200):
-        # (Line 49) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 49) f.stb.printAt(3, "\x13\x1CSone \x04Miyoki\n\n\x13\x06미안해, \x04그렇지만 ――");
         DoActions(PlayWAV("staredit\\wav\\Miyuki_Ultimate2.ogg"))
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 50) f.stb.printAt(3, "\x13\x1CSone \x04Miyoki\n\n\x13\x06미안해, \x04그렇지만 ――");
         f.stb.printAt(3, "\x13\x1CSone \x04Miyoki\n\n\x13\x06미안해, \x04그렇지만 ――")
+        # (Line 50) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 51) break;
         EUDBreak()
         # (Line 52) case 5201:
     _t4 = EUDSwitchCase()
-    # (Line 53) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 53) f.stb.printAt(3, "\x13\x1CSone \x04Miyoki\n\n\x13\x06이제, 이것 밖에, 방법이 없는거야...");
     if _t4(5201):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 54) f.stb.printAt(3, "\x13\x1CSone \x04Miyoki\n\n\x13\x06이제, 이것 밖에, 방법이 없는거야...");
         f.stb.printAt(3, "\x13\x1CSone \x04Miyoki\n\n\x13\x06이제, 이것 밖에, 방법이 없는거야...")
+        # (Line 54) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 55) break;
         EUDBreak()
         # (Line 56) }
@@ -254,22 +254,22 @@ def UniqueText(cp):
     _t1 = EUDSwitchCase()
     # (Line 64) PlayWAV("Miyuki_Unique01.ogg");
     if _t1(5000):
-        # (Line 65) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 65) f.stb.printAt(3, "\x13\x1CSone \x04Miyoki\n\x13\x04나를... \x06속였었네,");
         DoActions(PlayWAV("Miyuki_Unique01.ogg"))
-        _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 66) f.stb.printAt(3, "\x13\x1CSone \x04Miyoki\n\x13\x04나를... \x06속였었네,");
         f.stb.printAt(3, "\x13\x1CSone \x04Miyoki\n\x13\x04나를... \x06속였었네,")
+        # (Line 66) v.Sound_Text_Uniq[cp] = 0;
+        _ARRW(v.Sound_Text_Uniq, cp) << (0)
         # (Line 67) break;
         EUDBreak()
         # (Line 68) case 5001:
     _t2 = EUDSwitchCase()
     # (Line 69) PlayWAV("Miyuki_Unique02.ogg");
     if _t2(5001):
-        # (Line 70) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 70) f.stb.printAt(3, "\x13\x1CSone \x04Miyoki\n\x13\x04속였으니 \x06벌\x04을 주지 않으면 안되겠네.");
         DoActions(PlayWAV("Miyuki_Unique02.ogg"))
-        _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 71) f.stb.printAt(3, "\x13\x1CSone \x04Miyoki\n\x13\x04속였으니 \x06벌\x04을 주지 않으면 안되겠네.");
         f.stb.printAt(3, "\x13\x1CSone \x04Miyoki\n\x13\x04속였으니 \x06벌\x04을 주지 않으면 안되겠네.")
+        # (Line 71) v.Sound_Text_Uniq[cp] = 0;
+        _ARRW(v.Sound_Text_Uniq, cp) << (0)
         # (Line 72) break;
         EUDBreak()
         # (Line 73) }

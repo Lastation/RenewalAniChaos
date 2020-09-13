@@ -141,11 +141,11 @@ def NormalText(cp):
     _t1 = EUDSwitchCase()
     # (Line 9) PlayWAV("yashiro_ssf.stb.ogg");
     if _t1(2000):
-        # (Line 10) v.Sound_Text3[cp] = 0;
+        # (Line 10) f.stb.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그것은 분에 넘치는 소망이다\n\n");
         DoActions(PlayWAV("yashiro_ssf.stb.ogg"))
-        _ARRW(v.Sound_Text3, cp) << (0)
-        # (Line 11) f.stb.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그것은 분에 넘치는 소망이다\n\n");
         f.stb.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04그것은 분에 넘치는 소망이다\n\n")
+        # (Line 11) v.Sound_Text3[cp] = 0;
+        _ARRW(v.Sound_Text3, cp) << (0)
         # (Line 12) break;
         EUDBreak()
         # (Line 13) case 2002:
@@ -153,11 +153,11 @@ def NormalText(cp):
     # (Line 14) f.stb.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04네가 손에 넣는 것은 이 마을의 평화다\n\x13\x04네가 원한 것은 바로 그거잖아?\n\n");
     if _t2(2002):
         f.stb.print("\n\n\x13\x02Yashiro Gaku\n\x13\x04네가 손에 넣는 것은 이 마을의 평화다\n\x13\x04네가 원한 것은 바로 그거잖아?\n\n")
-        # (Line 15) PlayWAV("yashiro_ccaa.ogg");
-        # (Line 16) v.Sound_Text3[cp] = 0;
-        DoActions(PlayWAV("yashiro_ccaa.ogg"))
+        # (Line 15) v.Sound_Text3[cp] = 0;
         _ARRW(v.Sound_Text3, cp) << (0)
+        # (Line 16) PlayWAV("yashiro_ccaa.ogg");
         # (Line 17) break;
+        DoActions(PlayWAV("yashiro_ccaa.ogg"))
         EUDBreak()
         # (Line 18) case 2003:
     _t3 = EUDSwitchCase()

@@ -167,11 +167,11 @@ def f_main(cp):
             # (Line 25) else if (Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))
         if EUDElseIf()(Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill")):
             # (Line 26) {
-            # (Line 27) f.step[cp] = 300;
-            _ARRW(f.step, cp) << (300)
-            # (Line 28) KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
-            # (Line 29) }
+            # (Line 27) KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
+            # (Line 28) f.step[cp] = 300;
             DoActions(KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp))
+            _ARRW(f.step, cp) << (300)
+            # (Line 29) }
             # (Line 31) else if (Bring(cp, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))
         if EUDElseIf()(Bring(cp, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill")):
             # (Line 32) {

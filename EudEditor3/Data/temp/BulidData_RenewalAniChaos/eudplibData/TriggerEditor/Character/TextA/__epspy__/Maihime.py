@@ -141,62 +141,62 @@ def NormalText(cp):
     _t1 = EUDSwitchCase()
     # (Line 9) PlayWAV("staredit\\wav\\Hime_1.ogg");
     if _t1(3000):
-        # (Line 10) v.Sound_Text1[cp] = 0;
+        # (Line 10) f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04있잖아, 힘에는 책임이 따르고 파워에는 책임이 따른다구?\n");
         DoActions(PlayWAV("staredit\\wav\\Hime_1.ogg"))
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 11) f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04있잖아, 힘에는 책임이 따르고 파워에는 책임이 따른다구?\n");
         f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04있잖아, 힘에는 책임이 따르고 파워에는 책임이 따른다구?\n")
+        # (Line 11) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 12) break;
         EUDBreak()
         # (Line 13) case 3001:
     _t2 = EUDSwitchCase()
     # (Line 14) PlayWAV("staredit\\wav\\Hime_2.ogg");
     if _t2(3001):
-        # (Line 15) v.Sound_Text1[cp] = 0;
+        # (Line 15) f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04즉 힘이야말로 책임이며 책임이야말로 파워!\n");
         DoActions(PlayWAV("staredit\\wav\\Hime_2.ogg"))
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 16) f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04즉 힘이야말로 책임이며 책임이야말로 파워!\n");
         f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04즉 힘이야말로 책임이며 책임이야말로 파워!\n")
+        # (Line 16) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 17) break;
         EUDBreak()
         # (Line 18) case 3002:
     _t3 = EUDSwitchCase()
-    # (Line 19) v.Sound_Text1[cp] = 0;
+    # (Line 19) f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04따라서 힘이야말로 파워!\n");
     if _t3(3002):
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 20) f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04따라서 힘이야말로 파워!\n");
         f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04따라서 힘이야말로 파워!\n")
+        # (Line 20) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 21) break;
         EUDBreak()
         # (Line 22) case 3100:
     _t4 = EUDSwitchCase()
     # (Line 23) PlayWAV("staredit\\wav\\Hime_3.ogg");
     if _t4(3100):
-        # (Line 24) v.Sound_Text1[cp] = 0;
+        # (Line 24) f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04여기는 나의 영역이다\n");
         DoActions(PlayWAV("staredit\\wav\\Hime_3.ogg"))
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 25) f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04여기는 나의 영역이다\n");
         f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04여기는 나의 영역이다\n")
+        # (Line 25) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 26) break;
         EUDBreak()
         # (Line 27) case 3101:
     _t5 = EUDSwitchCase()
-    # (Line 28) v.Sound_Text1[cp] = 0;
+    # (Line 28) f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\n\x13\x04내 \x07세계\x04에\n\x13\x04네놈들이 들어올 자리는 없어!!!\n");
     if _t5(3101):
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 29) f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\n\x13\x04내 \x07세계\x04에\n\x13\x04네놈들이 들어올 자리는 없어!!!\n");
         f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\n\x13\x04내 \x07세계\x04에\n\x13\x04네놈들이 들어올 자리는 없어!!!\n")
+        # (Line 29) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 30) break;
         EUDBreak()
         # (Line 31) case 3300:
     _t6 = EUDSwitchCase()
     # (Line 32) PlayWAV("staredit\\wav\\Hime_0.ogg");
     if _t6(3300):
-        # (Line 33) v.Sound_Text1[cp] = 0;
+        # (Line 33) f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04강하닷―――!!\n");
         DoActions(PlayWAV("staredit\\wav\\Hime_0.ogg"))
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 34) f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04강하닷―――!!\n");
         f.stb.print("\n\x13\x04Tenkawa \x07MaiHime\n\x13\x04강하닷―――!!\n")
+        # (Line 34) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 35) break;
         EUDBreak()
         # (Line 36) }
@@ -214,22 +214,22 @@ def UiltimateText(cp):
     _t1 = EUDSwitchCase()
     # (Line 44) PlayWAV("staredit\\wav\\Hime_EX01.ogg");
     if _t1(3200):
-        # (Line 45) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 45) f.stb.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n\x13\x04이정도 힘으로 나에게 \x06싸움\x04을 걸었던거야?");
         DoActions(PlayWAV("staredit\\wav\\Hime_EX01.ogg"))
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 46) f.stb.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n\x13\x04이정도 힘으로 나에게 \x06싸움\x04을 걸었던거야?");
         f.stb.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n\x13\x04이정도 힘으로 나에게 \x06싸움\x04을 걸었던거야?")
+        # (Line 46) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 47) break;
         EUDBreak()
         # (Line 48) case 3201:
     _t2 = EUDSwitchCase()
     # (Line 49) PlayWAV("staredit\\wav\\Hime_EX02.ogg");
     if _t2(3201):
-        # (Line 50) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 50) f.stb.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n\x13\x04이정도 힘으로 모두를 \x08죽이려고했던거야?");
         DoActions(PlayWAV("staredit\\wav\\Hime_EX02.ogg"))
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 51) f.stb.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n\x13\x04이정도 힘으로 모두를 \x08죽이려고했던거야?");
         f.stb.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n\x13\x04이정도 힘으로 모두를 \x08죽이려고했던거야?")
+        # (Line 51) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 52) break;
         EUDBreak()
         # (Line 53) }
@@ -247,11 +247,11 @@ def UniqueText(cp):
     _t1 = EUDSwitchCase()
     # (Line 61) PlayWAV("staredit\\wav\\Hime_Unique01.ogg");
     if _t1(3000):
-        # (Line 62) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 62) f.stb.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n\x13\x04제군 ! \x07광연\x04의 시간이다!");
         DoActions(PlayWAV("staredit\\wav\\Hime_Unique01.ogg"))
-        _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 63) f.stb.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n\x13\x04제군 ! \x07광연\x04의 시간이다!");
         f.stb.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n\x13\x04제군 ! \x07광연\x04의 시간이다!")
+        # (Line 63) v.Sound_Text_Uniq[cp] = 0;
+        _ARRW(v.Sound_Text_Uniq, cp) << (0)
         # (Line 64) break;
         EUDBreak()
         # (Line 65) }

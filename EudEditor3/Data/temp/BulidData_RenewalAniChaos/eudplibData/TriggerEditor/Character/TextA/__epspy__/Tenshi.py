@@ -141,44 +141,44 @@ def NormalText(cp):
     _t1 = EUDSwitchCase()
     # (Line 9) PlayWAV("Tenshi_01.ogg");
     if _t1(4000):
-        # (Line 10) v.Sound_Text1[cp] = 0;
+        # (Line 10) f.stb.print("\n\x13\x1FTenshi Hinanai\n\x13\x1F하늘\x04로서 \x1B대지\x04를 지배하고\n");
         DoActions(PlayWAV("Tenshi_01.ogg"))
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 11) f.stb.print("\n\x13\x1FTenshi Hinanai\n\x13\x1F하늘\x04로서 \x1B대지\x04를 지배하고\n");
         f.stb.print("\n\x13\x1FTenshi Hinanai\n\x13\x1F하늘\x04로서 \x1B대지\x04를 지배하고\n")
+        # (Line 11) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 12) break;
         EUDBreak()
         # (Line 13) case 4001:
     _t2 = EUDSwitchCase()
     # (Line 14) PlayWAV("Tenshi_02.ogg");
     if _t2(4001):
-        # (Line 15) v.Sound_Text1[cp] = 0;
+        # (Line 15) f.stb.print("\n\x13\x1FTenshi Hinanai\n\x13\x15땅\x04으로서 \x1B요석\x04을 빼내어,\n");
         DoActions(PlayWAV("Tenshi_02.ogg"))
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 16) f.stb.print("\n\x13\x1FTenshi Hinanai\n\x13\x15땅\x04으로서 \x1B요석\x04을 빼내어,\n");
         f.stb.print("\n\x13\x1FTenshi Hinanai\n\x13\x15땅\x04으로서 \x1B요석\x04을 빼내어,\n")
+        # (Line 16) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 17) break;
         EUDBreak()
         # (Line 18) case 4002:
     _t3 = EUDSwitchCase()
     # (Line 19) PlayWAV("Tenshi_03.ogg");
     if _t3(4002):
-        # (Line 20) v.Sound_Text1[cp] = 0;
+        # (Line 20) f.stb.print("\n\x13\x1FTenshi Hinanai\n\x13\x1B사람\x04의 \x11주홍색\x1B마음\x04을 비춰라 !\n");
         DoActions(PlayWAV("Tenshi_03.ogg"))
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 21) f.stb.print("\n\x13\x1FTenshi Hinanai\n\x13\x1B사람\x04의 \x11주홍색\x1B마음\x04을 비춰라 !\n");
         f.stb.print("\n\x13\x1FTenshi Hinanai\n\x13\x1B사람\x04의 \x11주홍색\x1B마음\x04을 비춰라 !\n")
+        # (Line 21) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 22) break;
         EUDBreak()
         # (Line 23) case 4003:
     _t4 = EUDSwitchCase()
     # (Line 24) PlayWAV("Tenshi_04.ogg");
     if _t4(4003):
-        # (Line 25) v.Sound_Text1[cp] = 0;
+        # (Line 25) f.stb.print("\n\x13\x1FTenshi Hinanai\n\x13\x15대지\x04여!\n");
         DoActions(PlayWAV("Tenshi_04.ogg"))
-        _ARRW(v.Sound_Text1, cp) << (0)
-        # (Line 26) f.stb.print("\n\x13\x1FTenshi Hinanai\n\x13\x15대지\x04여!\n");
         f.stb.print("\n\x13\x1FTenshi Hinanai\n\x13\x15대지\x04여!\n")
+        # (Line 26) v.Sound_Text1[cp] = 0;
+        _ARRW(v.Sound_Text1, cp) << (0)
         # (Line 27) break;
         EUDBreak()
         # (Line 28) }
@@ -196,49 +196,49 @@ def UiltimateText(cp):
     _t1 = EUDSwitchCase()
     # (Line 36) PlayWAV("Tenshi_05.ogg");
     if _t1(4000):
-        # (Line 37) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 37) f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x04피할 수 있을까 ?");
         DoActions(PlayWAV("Tenshi_05.ogg"))
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 38) f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x04피할 수 있을까 ?");
         f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x04피할 수 있을까 ?")
+        # (Line 38) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 39) break;
         EUDBreak()
         # (Line 40) case 4001:
     _t2 = EUDSwitchCase()
-    # (Line 41) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 41) f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x04요석\x06「천지개벽 프레스」");
     if _t2(4001):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 42) f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x04요석\x06「천지개벽 프레스」");
         f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x04요석\x06「천지개벽 프레스」")
+        # (Line 42) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 43) break;
         EUDBreak()
         # (Line 44) case 4010:
     _t3 = EUDSwitchCase()
     # (Line 45) PlayWAV("Tenshi_Uiltimate.ogg");
     if _t3(4010):
-        # (Line 46) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 46) f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x04단숨에 끝내주겠어");
         DoActions(PlayWAV("Tenshi_Uiltimate.ogg"))
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 47) f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x04단숨에 끝내주겠어");
         f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x04단숨에 끝내주겠어")
+        # (Line 47) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 48) break;
         EUDBreak()
         # (Line 49) case 4011:
     _t4 = EUDSwitchCase()
-    # (Line 50) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 50) f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x17끝이야");
     if _t4(4011):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 51) f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x17끝이야");
         f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x17끝이야")
+        # (Line 51) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 52) break;
         EUDBreak()
         # (Line 53) case 4012:
     _t5 = EUDSwitchCase()
-    # (Line 54) v.Sound_Text_Uilti[cp] = 0;
+    # (Line 54) f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x17「전 인류의 비상천」\n\x13\x17「全人類の緋想天」");
     if _t5(4012):
-        _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 55) f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x17「전 인류의 비상천」\n\x13\x17「全人類の緋想天」");
         f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\n\x13\x17「전 인류의 비상천」\n\x13\x17「全人類の緋想天」")
+        # (Line 55) v.Sound_Text_Uilti[cp] = 0;
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 56) break;
         EUDBreak()
         # (Line 57) }
@@ -256,11 +256,11 @@ def UniqueText(cp):
     _t1 = EUDSwitchCase()
     # (Line 65) PlayWAV("Tenshi_Unique.ogg");
     if _t1(4000):
-        # (Line 66) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 66) f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\x13\x04기부「무념무상의 경지」");
         DoActions(PlayWAV("Tenshi_Unique.ogg"))
-        _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 67) f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\x13\x04기부「무념무상의 경지」");
         f.stb.printAt(3, "\x13\x1FTenshi Hinanai\n\x13\x04기부「무념무상의 경지」")
+        # (Line 67) v.Sound_Text_Uniq[cp] = 0;
+        _ARRW(v.Sound_Text_Uniq, cp) << (0)
         # (Line 68) break;
         EUDBreak()
         # (Line 69) }

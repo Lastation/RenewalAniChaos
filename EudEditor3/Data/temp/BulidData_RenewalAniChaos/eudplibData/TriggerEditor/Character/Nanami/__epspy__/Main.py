@@ -148,10 +148,10 @@ from Character.Nanami import Skill_CCA as CCA
 from Character.Nanami import Skill_CCAAA as CCAAA
 # (Line 12) import Character.Nanami.Skill_CCAAAAA as CCAAAAA;
 from Character.Nanami import Skill_CCAAAAA as CCAAAAA
-# (Line 13) import Character.Nanami.Skill_Ult1 as Ult1;
-from Character.Nanami import Skill_Ult1 as Ult1
-# (Line 14) import Character.Nanami.Skill_Ult2 as Ult2;
-from Character.Nanami import Skill_Ult2 as Ult2
+# (Line 13) import Character.Nanami.Skill_UltA as UltA;
+from Character.Nanami import Skill_UltA as UltA
+# (Line 14) import Character.Nanami.Skill_UltB as UltB;
+from Character.Nanami import Skill_UltB as UltB
 # (Line 16) import Character.Nanami.Text as text;
 from Character.Nanami import Text as text
 # (Line 17) import Character.Nanami.Commend as commend;
@@ -251,16 +251,16 @@ def f_main(cp):
             EUDBreak()
             # (Line 66) case 260:
         _t12 = EUDSwitchCase()
-        # (Line 67) Ult1.main(cp);
+        # (Line 67) UltA.main(cp);
         if _t12(260):
-            Ult1.f_main(cp)
+            UltA.f_main(cp)
             # (Line 68) break;
             EUDBreak()
             # (Line 69) case 310:
         _t13 = EUDSwitchCase()
-        # (Line 70) Ult2.main(cp);
+        # (Line 70) UltB.main(cp);
         if _t13(310):
-            Ult2.f_main(cp)
+            UltB.f_main(cp)
             # (Line 71) break;
             EUDBreak()
             # (Line 72) }

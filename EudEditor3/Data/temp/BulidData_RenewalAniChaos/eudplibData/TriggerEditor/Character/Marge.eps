@@ -57,41 +57,44 @@ function main(cp)
 
 function SetVoice(cp)
 {
-	if (Deaths(cp, AtLeast, 1, (186)))
+	if (cp < 6)
 	{
-		v.Sound_Text1[cp] = dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * cp));
-		if (cp < 4) { v.Sound_Text1[cp + 8] = v.Sound_Text1[cp]; }		// 관전자
-		SetDeaths(cp, SetTo, 0, (186));
-	}
-	if (Deaths(cp, AtLeast, 1, (174)))
-	{
-		v.Sound_Text2[cp] = dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * cp));
-		if (cp < 4) { v.Sound_Text2[cp + 8] =  v.Sound_Text2[cp]; }		// 관전자
-		SetDeaths(cp, SetTo, 0, (174));
-	}
-	if (Deaths(cp, AtLeast, 1, (117)))
-	{
-		v.Sound_Text3[cp] = dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * cp));
-		if (cp < 4) { v.Sound_Text3[cp + 8] =  v.Sound_Text3[cp]; }		// 관전자
-		SetDeaths(cp, SetTo, 0, (117));
-	}
-	if (Deaths(cp, AtLeast, 1, (157)))
-	{
-		v.Sound_Text4[cp] = dwread_epd(EPD(0x58A364 + 48 * 157 + 4 * cp));
-		if (cp < 4) { v.Sound_Text4[cp + 8] = v.Sound_Text4[cp]; }		// 관전자
-		SetDeaths(cp, SetTo, 0, (157));
-	}
-	if (Deaths(cp, AtLeast, 1, (222)))
-	{
-		v.Sound_Text_Uilti[cp] = dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * cp));
-		if (cp < 4) { v.Sound_Text_Uilti[cp + 8] =  v.Sound_Text_Uilti[cp]; }		// 관전자
-		SetDeaths(cp, SetTo, 0, (222));
-	}
-	if (Deaths(cp, AtLeast, 1, (188)))
-	{
-		v.Sound_Text_Uniq[cp] = dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * cp));
-		if (cp < 4) { v.Sound_Text_Uniq[cp + 8] =  v.Sound_Text_Uniq[cp]; }		// 관전자
-		SetDeaths(cp, SetTo, 0, (188));
+		if (Deaths(cp, AtLeast, 1, (186)))
+		{
+			v.Sound_Text1[cp] = dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * cp));
+			v.Sound_Text1[8 + cp] = v.Sound_Text1[cp];
+			SetDeaths(cp, SetTo, 0, (186));
+		}
+		if (Deaths(cp, AtLeast, 1, (174)))
+		{
+			v.Sound_Text2[cp] = dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * cp));
+			v.Sound_Text2[8 + cp] = v.Sound_Text2[cp];
+			SetDeaths(cp, SetTo, 0, (174));
+		}
+		if (Deaths(cp, AtLeast, 1, (117)))
+		{
+			v.Sound_Text3[cp] = dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * cp));
+			v.Sound_Text3[8 + cp] = v.Sound_Text3[cp];
+			SetDeaths(cp, SetTo, 0, (117));
+		}
+		if (Deaths(cp, AtLeast, 1, (157)))
+		{
+			v.Sound_Text4[cp] = dwread_epd(EPD(0x58A364 + 48 * 157 + 4 * cp));
+			v.Sound_Text4[8 + cp] = v.Sound_Text4[cp];
+			SetDeaths(cp, SetTo, 0, (157));
+		}
+		if (Deaths(cp, AtLeast, 1, (222)))
+		{
+			v.Sound_Text_Uilti[cp] = dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * cp));
+			v.Sound_Text_Uilti[8 + cp] = v.Sound_Text_Uilti[cp];
+			SetDeaths(cp, SetTo, 0, (222));
+		}
+		if (Deaths(cp, AtLeast, 1, (188)))
+		{
+			v.Sound_Text_Uniq[cp] = dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * cp));
+			v.Sound_Text_Uniq[8 + cp] = v.Sound_Text_Uniq[cp];
+			SetDeaths(cp, SetTo, 0, (188));
+		}
 	}
 }
 

@@ -141,31 +141,31 @@ def NormalText(cp):
     _t1 = EUDSwitchCase()
     # (Line 9) PlayWAV("margot_ssf.stb.ogg");
     if _t1(1000):
-        # (Line 10) v.Sound_Text4[cp] = 0;
+        # (Line 10) f.stb.print("\n\n\x13\x19Margot Naito\n\x13\x04Herrichㅡ!!\n\n");
         DoActions(PlayWAV("margot_ssf.stb.ogg"))
-        _ARRW(v.Sound_Text4, cp) << (0)
-        # (Line 11) f.stb.print("\n\n\x13\x19Margot Naito\n\x13\x04Herrichㅡ!!\n\n");
         f.stb.print("\n\n\x13\x19Margot Naito\n\x13\x04Herrichㅡ!!\n\n")
+        # (Line 11) v.Sound_Text4[cp] = 0;
+        _ARRW(v.Sound_Text4, cp) << (0)
         # (Line 12) break;
         EUDBreak()
         # (Line 13) case 1001:
     _t2 = EUDSwitchCase()
     # (Line 14) PlayWAV("margot_aac.ogg");
     if _t2(1001):
-        # (Line 15) v.Sound_Text4[cp] = 0;
+        # (Line 15) f.stb.print("\n\n\x13\x19Margot Naito\n\x13\x04가속력을 이용해서 내부폭발시키고\n\x13\x04그걸 더욱 재가속한 준대함용 마술포!\n\n");
         DoActions(PlayWAV("margot_aac.ogg"))
-        _ARRW(v.Sound_Text4, cp) << (0)
-        # (Line 16) f.stb.print("\n\n\x13\x19Margot Naito\n\x13\x04가속력을 이용해서 내부폭발시키고\n\x13\x04그걸 더욱 재가속한 준대함용 마술포!\n\n");
         f.stb.print("\n\n\x13\x19Margot Naito\n\x13\x04가속력을 이용해서 내부폭발시키고\n\x13\x04그걸 더욱 재가속한 준대함용 마술포!\n\n")
+        # (Line 16) v.Sound_Text4[cp] = 0;
+        _ARRW(v.Sound_Text4, cp) << (0)
         # (Line 17) break;
         EUDBreak()
         # (Line 18) case 1002:
     _t3 = EUDSwitchCase()
-    # (Line 19) v.Sound_Text4[cp] = 0;
+    # (Line 19) f.stb.print("\n\n\x13\x19Margot Naito\n\x13\x04Herrichㅡ!!\n\n");
     if _t3(1002):
-        _ARRW(v.Sound_Text4, cp) << (0)
-        # (Line 20) f.stb.print("\n\n\x13\x19Margot Naito\n\x13\x04Herrichㅡ!!\n\n");
         f.stb.print("\n\n\x13\x19Margot Naito\n\x13\x04Herrichㅡ!!\n\n")
+        # (Line 20) v.Sound_Text4[cp] = 0;
+        _ARRW(v.Sound_Text4, cp) << (0)
         # (Line 21) break;
         EUDBreak()
         # (Line 22) case 1003:

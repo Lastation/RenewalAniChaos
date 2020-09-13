@@ -128,104 +128,132 @@ def _LSH(l, r):
 
 # (Line 1) import Function as f;
 import Function as f
-# (Line 3) function main(cp)
-# (Line 4) {
+# (Line 3) const looker = PVariable();
+looker = _CGFW(lambda: [PVariable()], 1)[0]
+# (Line 5) function Text(num);
+# (Line 6) function Looker()
+# (Line 7) {
+@EUDFunc
+def Looker():
+    # (Line 8) if (looker[getuserplayerid() - 128] > 0)
+    if EUDIf()(looker[f_getuserplayerid() - 128] <= 0, neg=True):
+        # (Line 9) {
+        # (Line 10) Text(looker[getuserplayerid() - 128]);
+        Text(looker[f_getuserplayerid() - 128])
+        # (Line 11) looker[getuserplayerid() - 128] = 0;
+        _ARRW(looker, f_getuserplayerid() - 128) << (0)
+        # (Line 12) }
+        # (Line 13) }
+    EUDEndIf()
+    # (Line 15) function main(cp)
+
+# (Line 16) {
 @EUDFunc
 def f_main(cp):
-    # (Line 5) if (f.Milim_Voice[cp] > 0)
+    # (Line 17) if (f.Milim_Voice[cp] > 0)
     if EUDIf()(f.Milim_Voice[cp] <= 0, neg=True):
-        # (Line 6) {
-        # (Line 7) switch (f.Milim_Voice[cp])
-        EUDSwitch(f.Milim_Voice[cp])
-        # (Line 8) {
-        # (Line 9) case 1:
-        _t2 = EUDSwitchCase()
-        # (Line 10) PlayWAV("Milim_01.ogg");
-        if _t2(1):
-            # (Line 11) f.stb.print("\x13\x1BMilim Nava\n");
-            DoActions(PlayWAV("Milim_01.ogg"))
-            f.stb.print("\x13\x1BMilim Nava\n")
-            # (Line 12) f.stb.print("\x13\x04재미있어~ 재미있는 거다!\x04\n");
-            f.stb.print("\x13\x04재미있어~ 재미있는 거다!\x04\n")
-            # (Line 13) break;
-            EUDBreak()
-            # (Line 14) case 2:
-        _t3 = EUDSwitchCase()
-        # (Line 15) PlayWAV("Milim_Unique01.ogg");
-        if _t3(2):
-            # (Line 16) break;
-            DoActions(PlayWAV("Milim_Unique01.ogg"))
-            EUDBreak()
-            # (Line 17) case 3:
-        _t4 = EUDSwitchCase()
-        # (Line 18) PlayWAV("Milim_Unique02.ogg");
-        if _t4(3):
-            # (Line 19) break;
-            DoActions(PlayWAV("Milim_Unique02.ogg"))
-            EUDBreak()
-            # (Line 20) case 4:
-        _t5 = EUDSwitchCase()
-        # (Line 21) PlayWAV("Milim_Unique03.ogg");
-        if _t5(4):
-            # (Line 22) f.stb.print("\x13\x1BMilim Nava\n");
-            DoActions(PlayWAV("Milim_Unique03.ogg"))
-            f.stb.print("\x13\x1BMilim Nava\n")
-            # (Line 23) f.stb.print("\x13\x04만나서 반갑다!\x04\n");
-            f.stb.print("\x13\x04만나서 반갑다!\x04\n")
-            # (Line 24) f.stb.print("\x13\x04나는 단 한 명 남은 드라고노이드이자, 디스트로이의 이명을 가진\x04\n");
-            f.stb.print("\x13\x04나는 단 한 명 남은 드라고노이드이자, 디스트로이의 이명을 가진\x04\n")
-            # (Line 25) f.stb.print("\x13\x04마왕, 밀림 나바다!\x04\n");
-            f.stb.print("\x13\x04마왕, 밀림 나바다!\x04\n")
-            # (Line 26) break;
-            EUDBreak()
-            # (Line 27) case 5:
-        _t6 = EUDSwitchCase()
-        # (Line 28) PlayWAV("Milim_04.ogg");
-        if _t6(5):
-            # (Line 29) f.stb.print("\x13\x1BMilim Nava\n");
-            DoActions(PlayWAV("Milim_04.ogg"))
-            f.stb.print("\x13\x1BMilim Nava\n")
-            # (Line 30) f.stb.print("\x13\x04그 기술은 이미 봤다\x04\n");
-            f.stb.print("\x13\x04그 기술은 이미 봤다\x04\n")
-            # (Line 31) f.stb.print("\x13\x04이번엔 내가 보여주마\x04\n");
-            f.stb.print("\x13\x04이번엔 내가 보여주마\x04\n")
-            # (Line 32) break;
-            EUDBreak()
-            # (Line 33) case 6:
-        _t7 = EUDSwitchCase()
-        # (Line 34) PlayWAV("Milim_05.ogg");
-        if _t7(6):
-            # (Line 35) f.stb.print("\x13\x1BMilim Nava\n");
-            DoActions(PlayWAV("Milim_05.ogg"))
-            f.stb.print("\x13\x1BMilim Nava\n")
-            # (Line 36) f.stb.print("\x13\x04좋다! 재미있어 보이는구나!\x04\n");
-            f.stb.print("\x13\x04좋다! 재미있어 보이는구나!\x04\n")
-            # (Line 37) break;
-            EUDBreak()
-            # (Line 38) case 7:
-        _t8 = EUDSwitchCase()
-        # (Line 39) PlayWAV("Milim_Ult.ogg");
-        if _t8(7):
-            # (Line 40) f.stb.print("\x13\x1BMilim Nava\n");
-            DoActions(PlayWAV("Milim_Ult.ogg"))
-            f.stb.print("\x13\x1BMilim Nava\n")
-            # (Line 41) f.stb.print("\x13\x04이것이, 힘조절이라는 것이다ㅡ!!\x04\n");
-            f.stb.print("\x13\x04이것이, 힘조절이라는 것이다ㅡ!!\x04\n")
-            # (Line 42) break;
-            EUDBreak()
-            # (Line 43) case 8:
-        _t9 = EUDSwitchCase()
-        # (Line 44) f.stb.print("\x13\x1BMilim Nava\n");
-        if _t9(8):
-            f.stb.print("\x13\x1BMilim Nava\n")
-            # (Line 45) f.stb.print("\x13\x04드래곤 버스트!\x04\n");
-            f.stb.print("\x13\x04드래곤 버스트!\x04\n")
-            # (Line 46) break;
-            EUDBreak()
-            # (Line 47) }
-        # (Line 48) f.Milim_Voice[cp] = 0;
-        EUDEndSwitch()
+        # (Line 18) {
+        # (Line 19) Text(f.Milim_Voice[cp]);
+        Text(f.Milim_Voice[cp])
+        # (Line 20) looker[cp] = f.Milim_Voice[cp];
+        _ARRW(looker, cp) << (f.Milim_Voice[cp])
+        # (Line 21) f.Milim_Voice[cp] = 0;
         _ARRW(f.Milim_Voice, cp) << (0)
-        # (Line 49) }
-        # (Line 50) }
+        # (Line 22) }
+        # (Line 23) }
     EUDEndIf()
+    # (Line 25) function Text(num)
+
+# (Line 26) {
+@EUDFunc
+def Text(num):
+    # (Line 27) switch (num)
+    EUDSwitch(num)
+    # (Line 28) {
+    # (Line 29) case 1:
+    _t1 = EUDSwitchCase()
+    # (Line 30) PlayWAV("Milim_01.ogg");
+    if _t1(1):
+        # (Line 31) f.stb.print("\x13\x1BMilim Nava\n");
+        DoActions(PlayWAV("Milim_01.ogg"))
+        f.stb.print("\x13\x1BMilim Nava\n")
+        # (Line 32) f.stb.print("\x13\x04재미있어~ 재미있는 거다!\x04\n");
+        f.stb.print("\x13\x04재미있어~ 재미있는 거다!\x04\n")
+        # (Line 33) break;
+        EUDBreak()
+        # (Line 34) case 2:
+    _t2 = EUDSwitchCase()
+    # (Line 35) PlayWAV("Milim_Unique01.ogg");
+    if _t2(2):
+        # (Line 36) break;
+        DoActions(PlayWAV("Milim_Unique01.ogg"))
+        EUDBreak()
+        # (Line 37) case 3:
+    _t3 = EUDSwitchCase()
+    # (Line 38) PlayWAV("Milim_Unique02.ogg");
+    if _t3(3):
+        # (Line 39) break;
+        DoActions(PlayWAV("Milim_Unique02.ogg"))
+        EUDBreak()
+        # (Line 40) case 4:
+    _t4 = EUDSwitchCase()
+    # (Line 41) PlayWAV("Milim_Unique03.ogg");
+    if _t4(4):
+        # (Line 42) f.stb.print("\x13\x1BMilim Nava\n");
+        DoActions(PlayWAV("Milim_Unique03.ogg"))
+        f.stb.print("\x13\x1BMilim Nava\n")
+        # (Line 43) f.stb.print("\x13\x04만나서 반갑다!\x04\n");
+        f.stb.print("\x13\x04만나서 반갑다!\x04\n")
+        # (Line 44) f.stb.print("\x13\x04나는 단 한 명 남은 드라고노이드이자, 디스트로이의 이명을 가진\x04\n");
+        f.stb.print("\x13\x04나는 단 한 명 남은 드라고노이드이자, 디스트로이의 이명을 가진\x04\n")
+        # (Line 45) f.stb.print("\x13\x04마왕, 밀림 나바다!\x04\n");
+        f.stb.print("\x13\x04마왕, 밀림 나바다!\x04\n")
+        # (Line 46) break;
+        EUDBreak()
+        # (Line 47) case 5:
+    _t5 = EUDSwitchCase()
+    # (Line 48) PlayWAV("Milim_04.ogg");
+    if _t5(5):
+        # (Line 49) f.stb.print("\x13\x1BMilim Nava\n");
+        DoActions(PlayWAV("Milim_04.ogg"))
+        f.stb.print("\x13\x1BMilim Nava\n")
+        # (Line 50) f.stb.print("\x13\x04그 기술은 이미 봤다\x04\n");
+        f.stb.print("\x13\x04그 기술은 이미 봤다\x04\n")
+        # (Line 51) f.stb.print("\x13\x04이번엔 내가 보여주마\x04\n");
+        f.stb.print("\x13\x04이번엔 내가 보여주마\x04\n")
+        # (Line 52) break;
+        EUDBreak()
+        # (Line 53) case 6:
+    _t6 = EUDSwitchCase()
+    # (Line 54) PlayWAV("Milim_05.ogg");
+    if _t6(6):
+        # (Line 55) f.stb.print("\x13\x1BMilim Nava\n");
+        DoActions(PlayWAV("Milim_05.ogg"))
+        f.stb.print("\x13\x1BMilim Nava\n")
+        # (Line 56) f.stb.print("\x13\x04좋다! 재미있어 보이는구나!\x04\n");
+        f.stb.print("\x13\x04좋다! 재미있어 보이는구나!\x04\n")
+        # (Line 57) break;
+        EUDBreak()
+        # (Line 58) case 7:
+    _t7 = EUDSwitchCase()
+    # (Line 59) PlayWAV("Milim_Ult.ogg");
+    if _t7(7):
+        # (Line 60) f.stb.print("\x13\x1BMilim Nava\n");
+        DoActions(PlayWAV("Milim_Ult.ogg"))
+        f.stb.print("\x13\x1BMilim Nava\n")
+        # (Line 61) f.stb.print("\x13\x04이것이, 힘조절이라는 것이다ㅡ!!\x04\n");
+        f.stb.print("\x13\x04이것이, 힘조절이라는 것이다ㅡ!!\x04\n")
+        # (Line 62) break;
+        EUDBreak()
+        # (Line 63) case 8:
+    _t8 = EUDSwitchCase()
+    # (Line 64) f.stb.print("\x13\x1BMilim Nava\n");
+    if _t8(8):
+        f.stb.print("\x13\x1BMilim Nava\n")
+        # (Line 65) f.stb.print("\x13\x04드래곤 버스트!\x04\n");
+        f.stb.print("\x13\x04드래곤 버스트!\x04\n")
+        # (Line 66) break;
+        EUDBreak()
+        # (Line 67) }
+    # (Line 68) }
+    EUDEndSwitch()
