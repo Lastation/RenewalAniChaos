@@ -263,8 +263,8 @@ def SkillVoice(cp):
 # (Line 78) {
 @EUDFunc
 def SkillList(cp):
-    # (Line 79) if(f.INSERT_KEY[cp] == 1) 	// Insert key Pressed
-    if EUDIf()(f.INSERT_KEY[cp] == 1):
+    # (Line 79) if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
+    if EUDIf()(Memory(0x00596A44, Exactly, 256)):
         # (Line 80) {
         # (Line 81) f.stb.printAt(0, "\n");
         f.stb.printAt(0, "\n")
@@ -287,9 +287,7 @@ def SkillList(cp):
         # (Line 90) f.stb.printAt(9, "\n");
         f.stb.printAt(9, "\n")
         # (Line 91) PlayWAV("sound\\Bullet\\LaserHit.wav");
-        # (Line 92) f.INSERT_KEY[cp] = 0;
+        # (Line 92) }
         DoActions(PlayWAV("sound\\Bullet\\LaserHit.wav"))
-        _ARRW(f.INSERT_KEY, cp) << (0)
         # (Line 93) }
-        # (Line 94) }
     EUDEndIf()

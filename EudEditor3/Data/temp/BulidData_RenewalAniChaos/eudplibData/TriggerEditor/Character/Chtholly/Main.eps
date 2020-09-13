@@ -51,7 +51,7 @@ function SkillVoice(cp)
 
 function SkillList(cp)
 {
-	if(Deaths(cp, Exactly, 2, "Terran SCV")) 	// Insert key Pressed
+	if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
 	{
 		f.stb.printAt(0, "\n");
 		f.stb.printAt(1, "\x1F　＃\x04- 크톨리 \x1B노타 세니오리스　\x04[ 종말에 뭐 하세요? 바쁘세요? 구해 주실 수 있나요? ]");

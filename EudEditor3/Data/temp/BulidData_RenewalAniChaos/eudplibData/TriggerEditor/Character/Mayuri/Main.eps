@@ -82,7 +82,7 @@ function SkillVoice(cp)
 
 function SkillList(cp)
 {
-	if(f.INSERT_KEY[cp] == 1) 	// Insert key Pressed
+	if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
 	{
 		f.stb.printAt(0, "\n");
 		f.stb.printAt(1, "\x1F　＃\x1A- 시이나 마유리　\x04[ 슈타인즈 게이트 ]");
@@ -96,6 +96,5 @@ function SkillList(cp)
 		f.stb.printAt(9, "　　　\x04+ \x08AA \x04슈타인즈 게이트 \x19[ 공성 / 자리고정 ] \x05", f.UltimateB[cp]);
 		f.stb.printAt(10, "\n");
 		PlayWAV("sound\\Bullet\\LaserHit.wav");
-		f.INSERT_KEY[cp] = 0;
 	}
 }

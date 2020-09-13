@@ -203,8 +203,8 @@ def SkillVoice(cp):
 # (Line 53) {
 @EUDFunc
 def SkillList(cp):
-    # (Line 54) if(Deaths(cp, Exactly, 2, "Terran SCV")) 	// Insert key Pressed
-    if EUDIf()(Deaths(cp, Exactly, 2, "Terran SCV")):
+    # (Line 54) if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
+    if EUDIf()(Memory(0x00596A44, Exactly, 256)):
         # (Line 55) {
         # (Line 56) f.stb.printAt(0, "\n");
         f.stb.printAt(0, "\n")

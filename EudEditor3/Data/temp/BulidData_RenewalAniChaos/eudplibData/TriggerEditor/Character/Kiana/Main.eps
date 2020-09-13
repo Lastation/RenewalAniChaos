@@ -51,7 +51,7 @@ function SkillVoice(cp)
 
 function SkillList(cp)
 {
-	if(Deaths(cp, Exactly, 2, "Terran SCV")) 	// Insert key Pressed
+	if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
 	{
 		f.stb.printAt(0, "\n");
 		f.stb.printAt(1, "\x1F　＃\x04- \x17키아나 카스라나　\x04[ 붕괴3 ]");
