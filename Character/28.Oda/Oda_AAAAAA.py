@@ -16,42 +16,11 @@ function main(cp)
    {
       if (f.count[cp] == 0)
       {
-         if (f.loop[cp] == 8)
-         {
-            v = 1;
-
-            f.DotShape(cp, 1, "60 + 1n Danimoth", 200, 0);
-            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
-            f.DotShape(cp, 1, " Unit. Schnee", 200, 0);
-         }
-         if (f.loop[cp] == 28)
-         {
-            v = 2;
-         }
-
-         f.SkillWait(cp, 160);
-
-         f.loop[cp] += 1;
-
-         if (f.loop[cp] == 65)
-         {
-            v = 3;
-
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
-         }
-      }
-      else if (f.count[cp] == 1)
-      {
          if (f.loop[cp] == 0)
          {
-            SetSwitch("Recall - Oda", Set);
+            v = 3;
          }
-         else if (f.loop[cp] == 1)
-         {
-            KillUnitAt(All, " Unit. Schnee", "Anywhere", cp);
-         }
-
+         
          f.SkillWait(cp, 160);
 
          f.loop[cp] += 1;
@@ -64,29 +33,13 @@ function main(cp)
             f.loop[cp] = 0;         
          }
       }
-      else if (f.count[cp] == 2)
+      else if (f.count[cp] == 1)
       {
-         if (f.loop[cp] < 5)
+         if (f.loop[cp] == 0)
          {
-            f.EdgeShape(cp, 1, " Unit. Hoffnung 25000", 45, 3 + 2 * f.loop[cp], 75 * (f.loop[cp] + 1));
+            SetSwitch("Recall - Oda", Set);
          }
-         KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
 
-         if (f.loop[cp] == 5)
-         {
-            f.NxNSquareShape(cp, 1, " Unit. Hoffnung 25000", 11, 75);
-            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
-
-            var i = 0;
-
-            for (; i < 5; i++)
-            {
-               f.EdgeShapeBurrowed(cp, 1, "40 + 1n Lurker", 45, 3 + i, 75 + 75 * i);
-            }
-
-            v = 5;
-
-         }
          if (f.loop[cp] == 15)
          {
             v = 5;
@@ -104,10 +57,8 @@ function main(cp)
             f.loop[cp] = 0;         
          }
       }
-      else if (f.count[cp] == 3)
+      else if (f.count[cp] == 2)
       {
-
-
          f.EdgeShape(cp, 1, " Unit. Hoffnung 25000", 45, 3, 50);
          KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
 
@@ -121,35 +72,36 @@ function main(cp)
             f.loop[cp] = 0;         
          }
       }
-      else if (f.count[cp] == 4)
+      else if (f.count[cp] == 3)
       {
          if (f.loop[cp] == 0)
          {
-            f.NxNSquareShape(cp, 1, "40 + 1n Wraith", 6, 50);
-            f.NxNSquareShape(cp, 1, " Unit. Hoffnung 25000", 6, 50);
+            f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 6, 50);
          }
          else if (f.loop[cp] == 2)
          {
-            RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
-
-            f.NxNSquareShape(cp, 1, "40 + 1n Wraith", 11, 50);
-            f.NxNSquareShape(cp, 1, " Unit. Hoffnung 25000", 11, 50);
+            f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 11, 50);
          }
          else if (f.loop[cp] == 4)
+         {
+            f.NxNSquareShape(cp, 1, "40 + 1n Wraith", 11, 75);
+            f.NxNSquareShape(cp, 1, " Unit. Hoffnung 25000", 11, 75);
+
+            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
+         }
+         else if (f.loop[cp] == 6)
          {
             RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
 
             f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 11, 75);
-            f.NxNSquareShape(cp, 1, " Unit. Hoffnung 25000", 11, 75);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
          }
 
-         MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-         Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
-
          KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
 
          f.SkillWait(cp, 160);
 
@@ -161,15 +113,15 @@ function main(cp)
             f.loop[cp] = 0;         
          }
       }
-      else if (f.count[cp] == 5)
+      else if (f.count[cp] == 4)
       {
-         CreateUnit(16, "80 + 1n Guardian", dwrand() % 8 + 33, cp);
-         CreateUnit(4, "40 + 1n Guardian", dwrand() % 8 + 33, cp);
+         CreateUnit(24, "80 + 1n Guardian", dwrand() % 8 + 33, cp);
+         CreateUnit(6, "40 + 1n Guardian", dwrand() % 8 + 33, cp);
          SetInvincibility(Enable, "Any unit", cp, "[Skill]Unit_Wait_ALL");
 
          var i = 0;
 
-         for (; i < 4; i++)
+         for (; i < 6; i++)
          {
             if (Bring(cp, AtLeast, 1, "50 + 1n Battlecruiser", "Anywhere"))
             {
@@ -198,13 +150,13 @@ function main(cp)
 
          f.loop[cp] += 1;
 
-         if (f.loop[cp] == 32)
+         if (f.loop[cp] == 25)
          {
             f.count[cp] += 1;
             f.loop[cp] = 0;         
          }
       }
-      else if (f.count[cp] == 6)
+      else if (f.count[cp] == 5)
       {
          if (f.loop[cp] % 3 == 0)
          {
@@ -280,14 +232,14 @@ function main(cp)
             f.loop[cp] = 0;         
          }
       }
-      else if (f.count[cp] == 7)
+      else if (f.count[cp] == 6)
       {
          f.SkillWait(cp, 3200);
 
          f.count[cp] += 1;
          f.loop[cp] = 0;  
       }
-      else if (f.count[cp] == 8)
+      else if (f.count[cp] == 7)
       {
          KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
          KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
