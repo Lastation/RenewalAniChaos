@@ -158,44 +158,53 @@ def BuildingText(cp):
     # (Line 18) v.Unit_HP[cp] = dwread_epd(v.Unit_NowIndex[cp] + 0x008 / 4) / 256;
     if _t3(79):
         _ARRW(v.Unit_HP, cp) << (f_dwread_epd(v.Unit_NowIndex[cp] + 0x008 // 4) // 256)
-        # (Line 19) f.stb.printAt(0, "\x13\x19[ \x1BS\x04chnee \x19]\n\x13\x04제거시 \x1B신전 \x04의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 110000");
-        f.stb.printAt(0, "\x13\x19[ \x1BS\x04chnee \x19]\n\x13\x04제거시 \x1B신전 \x04의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 110000")
+        # (Line 19) f.stb.printAt(0, "\x13\x19[ \x1BS\x04chnee \x19]\n\x13\x04제거시 \x1B신전 \x04의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 70000");
+        f.stb.printAt(0, "\x13\x19[ \x1BS\x04chnee \x19]\n\x13\x04제거시 \x1B신전 \x04의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 70000")
         # (Line 20) break;
         EUDBreak()
-        # (Line 21) case 168:
+        # (Line 21) case 160:
     _t4 = EUDSwitchCase()
     # (Line 22) v.Unit_HP[cp] = dwread_epd(v.Unit_NowIndex[cp] + 0x008 / 4) / 256;
-    if _t4(168):
+    if _t4(160):
         _ARRW(v.Unit_HP, cp) << (f_dwread_epd(v.Unit_NowIndex[cp] + 0x008 // 4) // 256)
-        # (Line 23) f.stb.printAt(0, "\x13\x19[ \x1BB\x04runnen \x19]\n\x13\x04모두 제거시 \x1BS\x04chnee [수호자] 의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 50000");
-        f.stb.printAt(0, "\x13\x19[ \x1BB\x04runnen \x19]\n\x13\x04모두 제거시 \x1BS\x04chnee [수호자] 의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 50000")
+        # (Line 23) f.stb.printAt(0, "\x13\x19[ \x1BT\x04raum \x19]\n\x13\x04제거시 해당라인의 \x1BC\x04reep 이 더이상 생성되지 않습니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 30000");
+        f.stb.printAt(0, "\x13\x19[ \x1BT\x04raum \x19]\n\x13\x04제거시 해당라인의 \x1BC\x04reep 이 더이상 생성되지 않습니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 30000")
         # (Line 24) break;
         EUDBreak()
-        # (Line 25) case 175:
+        # (Line 25) case 168:
     _t5 = EUDSwitchCase()
     # (Line 26) v.Unit_HP[cp] = dwread_epd(v.Unit_NowIndex[cp] + 0x008 / 4) / 256;
-    if _t5(175):
+    if _t5(168):
         _ARRW(v.Unit_HP, cp) << (f_dwread_epd(v.Unit_NowIndex[cp] + 0x008 // 4) // 256)
-        # (Line 27) f.stb.printAt(0, "\x13\x19[ \x1BM\x04ond \x19]\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 200000");
-        f.stb.printAt(0, "\x13\x19[ \x1BM\x04ond \x19]\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 200000")
+        # (Line 27) f.stb.printAt(0, "\x13\x19[ \x1BB\x04runnen \x19]\n\x13\x04모두 제거시 \x1BS\x04chnee [수호자] 의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 50000");
+        f.stb.printAt(0, "\x13\x19[ \x1BB\x04runnen \x19]\n\x13\x04모두 제거시 \x1BS\x04chnee [수호자] 의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 50000")
         # (Line 28) break;
         EUDBreak()
-        # (Line 29) case 189:
+        # (Line 29) case 175:
     _t6 = EUDSwitchCase()
-    # (Line 30) f.stb.printAt(0, "\x13\x19[ \x1BP\x04ortal \x19]\n\n\x13\x04상점에 들어가거나 원하는 라인으로 이동 해주는 건물입니다.");
-    if _t6(189):
-        f.stb.printAt(0, "\x13\x19[ \x1BP\x04ortal \x19]\n\n\x13\x04상점에 들어가거나 원하는 라인으로 이동 해주는 건물입니다.")
-        # (Line 31) break;
-        EUDBreak()
-        # (Line 32) case 200:
-    _t7 = EUDSwitchCase()
-    # (Line 33) v.Unit_HP[cp] = dwread_epd(v.Unit_NowIndex[cp] + 0x008 / 4) / 256;
-    if _t7(200):
+    # (Line 30) v.Unit_HP[cp] = dwread_epd(v.Unit_NowIndex[cp] + 0x008 / 4) / 256;
+    if _t6(175):
         _ARRW(v.Unit_HP, cp) << (f_dwread_epd(v.Unit_NowIndex[cp] + 0x008 // 4) // 256)
-        # (Line 34) f.stb.printAt(0, "\x13\x19[ \x1BW\x04ald \x19]\n\x13\x04제거시 \x1B방어건물 \x04의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 70000");
-        f.stb.printAt(0, "\x13\x19[ \x1BW\x04ald \x19]\n\x13\x04제거시 \x1B방어건물 \x04의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 70000")
+        # (Line 31) f.stb.printAt(0, "\x13\x19[ \x1BM\x04ond \x19]\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 200000");
+        f.stb.printAt(0, "\x13\x19[ \x1BM\x04ond \x19]\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 200000")
+        # (Line 32) break;
+        EUDBreak()
+        # (Line 33) case 189:
+    _t7 = EUDSwitchCase()
+    # (Line 34) f.stb.printAt(0, "\x13\x19[ \x1BP\x04ortal \x19]\n\n\x13\x04상점에 들어가거나 원하는 라인으로 이동 해주는 건물입니다.");
+    if _t7(189):
+        f.stb.printAt(0, "\x13\x19[ \x1BP\x04ortal \x19]\n\n\x13\x04상점에 들어가거나 원하는 라인으로 이동 해주는 건물입니다.")
         # (Line 35) break;
         EUDBreak()
-        # (Line 36) }
-    # (Line 38) }
+        # (Line 36) case 200:
+    _t8 = EUDSwitchCase()
+    # (Line 37) v.Unit_HP[cp] = dwread_epd(v.Unit_NowIndex[cp] + 0x008 / 4) / 256;
+    if _t8(200):
+        _ARRW(v.Unit_HP, cp) << (f_dwread_epd(v.Unit_NowIndex[cp] + 0x008 // 4) // 256)
+        # (Line 38) f.stb.printAt(0, "\x13\x19[ \x1BW\x04ald \x19]\n\x13\x04제거시 \x1B방어건물 \x04의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 70000");
+        f.stb.printAt(0, "\x13\x19[ \x1BW\x04ald \x19]\n\x13\x04제거시 \x1B방어건물 \x04의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", v.Unit_HP[cp], " / 70000")
+        # (Line 39) break;
+        EUDBreak()
+        # (Line 40) }
+    # (Line 42) }
     EUDEndSwitch()

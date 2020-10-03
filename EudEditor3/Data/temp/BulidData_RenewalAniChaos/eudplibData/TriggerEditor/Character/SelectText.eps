@@ -50,6 +50,7 @@ function CharacterTextNum(cp)
 		if 		(v.PlayerID[cp] == 8 		|| v.Unit_Death[cp] == 1000) { v.Hero_Text[cp] = 14; }	// Yashiro
 		else if 	(v.PlayerID[cp] == 9 		|| v.Unit_Death[cp] == 2000) { v.Hero_Text[cp] = 18; }	// Tenkai
 		else if 	(v.PlayerID[cp] == 10 	|| v.Unit_Death[cp] == 3000) { v.Hero_Text[cp] = 20; }	// EmetSelch
+		else if 	(v.PlayerID[cp] == 11 	|| v.Unit_Death[cp] == 4000) { v.Hero_Text[cp] = 28; }	// Oda
 		 v.Unit_ID[cp] = 0;
 		break;
 	case 64:
@@ -325,6 +326,16 @@ function CharacterText(cp)
 		f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04결계 \x1F#\x04조작보통");
 		f.stb.printAt(7, "\n");
 		break;
+	case 28:
+		f.stb.printAt(1, "\x13\x04- \x17문호 스트레이독스 \x04-");
+		f.stb.printAt(2, "\n");
+		f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
+		f.stb.printAt(4, "\x13\x04모든 플레이어에게 추천합니다.");
+		f.stb.printAt(5, "\n");
+		f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04영구각성 \x1F#\x04조작쉬움");
+		f.stb.printAt(7, "\n");
+		break;
+		
 	}
 	
 	if (cp >=0 && cp <= 2 && Switch((249), (2)))

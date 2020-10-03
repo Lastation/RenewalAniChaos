@@ -383,38 +383,30 @@ def Announce_Marge(cp):
             _ARRW(v.AnnounceList, cp) << (0)
             # (Line 135) }
         EUDEndIf()
-        # (Line 136) else if (Deaths(CurrentPlayer, Exactly, 2, "Terran SCV"))
-    if EUDElseIf()(Deaths(CurrentPlayer, Exactly, 2, "Terran SCV")):
-        # (Line 137) {
-        # (Line 138) SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV");
-        # (Line 139) f.INSERT_KEY[cp] = 1;
-        DoActions(SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV"))
-        _ARRW(f.INSERT_KEY, cp) << (1)
-        # (Line 140) }
-        # (Line 143) switch(v.AnnounceList[cp])
+        # (Line 138) switch(v.AnnounceList[cp])
     EUDEndIf()
     EUDSwitch(v.AnnounceList[cp])
-    # (Line 144) {
-    # (Line 145) case 0:
-    _t4 = EUDSwitchCase()
-    # (Line 146) if (Switch(255, Set))		Announce_Ingame(cp);
-    if _t4(0):
+    # (Line 139) {
+    # (Line 140) case 0:
+    _t3 = EUDSwitchCase()
+    # (Line 141) if (Switch(255, Set))		Announce_Ingame(cp);
+    if _t3(0):
         if EUDIf()(Switch(255, Set)):
             Announce_Ingame(cp)
-            # (Line 147) if (Switch(255, Cleared))	Announce_Init();
+            # (Line 142) if (Switch(255, Cleared))	Announce_Init();
         EUDEndIf()
         if EUDIf()(Switch(255, Cleared)):
             Announce_Init()
-            # (Line 148) break;
+            # (Line 143) break;
         EUDEndIf()
         EUDBreak()
-        # (Line 149) case 1:
-    _t7 = EUDSwitchCase()
-    # (Line 150) Announce_Character(cp);
-    if _t7(1):
+        # (Line 144) case 1:
+    _t6 = EUDSwitchCase()
+    # (Line 145) Announce_Character(cp);
+    if _t6(1):
         Announce_Character(cp)
-        # (Line 151) break;
+        # (Line 146) break;
         EUDBreak()
-        # (Line 152) }
-    # (Line 153) }
+        # (Line 147) }
+    # (Line 148) }
     EUDEndSwitch()

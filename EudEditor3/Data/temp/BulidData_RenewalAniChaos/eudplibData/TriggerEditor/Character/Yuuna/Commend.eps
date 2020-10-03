@@ -7,7 +7,7 @@ function main(cp)
 		if (Bring(cp, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill")
 		&& Deaths(CurrentPlayer, Exactly, 0, " `UniqueCoolTime")
 		&& Deaths(CurrentPlayer, AtMost, 2, " `UniqueSkill")
-		&& (bread(0x58D2B0 + 0 + 46 * cp) > 4)
+		&& (bread(0x58D2B0 + 0 + 46 * cp) - 3 * dwread_epd(204 * 12 + cp) > 4)
 		&& Deaths(CurrentPlayer, AtLeast, 1, " `O Skill Condition"))
 		{
 			f.Voice_Routine(cp, 14);

@@ -161,8 +161,8 @@ def f_main(cp):
     _ARRW(f.location, cp) << (190)
     # (Line 22) f.heroID[cp] = 74;
     _ARRW(f.heroID, cp) << (74)
-    # (Line 24) f.UltimateA[cp] = 450;
-    _ARRW(f.UltimateA, cp) << (450)
+    # (Line 24) f.UltimateA[cp] = 500;
+    _ARRW(f.UltimateA, cp) << (500)
     # (Line 26) SkillList(cp);
     SkillList(cp)
     # (Line 27) commend.main(cp);

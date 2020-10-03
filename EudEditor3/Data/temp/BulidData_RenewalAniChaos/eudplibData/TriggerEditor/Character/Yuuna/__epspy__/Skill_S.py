@@ -128,128 +128,138 @@ def _LSH(l, r):
 
 # (Line 1) import Function as f;
 import Function as f
-# (Line 3) function main(cp)
-# (Line 4) {
+# (Line 3) const s = StringBuffer();
+s = _CGFW(lambda: [StringBuffer()], 1)[0]
+# (Line 5) function main(cp)
+# (Line 6) {
 @EUDFunc
 def f_main(cp):
-    # (Line 5) if (f.delay[cp] == 0)
+    # (Line 7) if (f.delay[cp] == 0)
     if EUDIf()(f.delay[cp] == 0):
-        # (Line 6) {
-        # (Line 7) if (f.count[cp] < 6)
-        if EUDIf()(f.count[cp] >= 6, neg=True):
-            # (Line 8) {
-            # (Line 9) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-            # (Line 11) f.distance[cp] = 50;
+        # (Line 8) {
+        # (Line 9) if (f.count[cp] < 4)
+        if EUDIf()(f.count[cp] >= 4, neg=True):
+            # (Line 10) {
+            # (Line 11) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+            # (Line 13) f.distance[cp] = 50;
             DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
             _ARRW(f.distance, cp) << (50)
-            # (Line 13) f.Table_Cos(cp, 45 * f.count[cp], f.distance[cp]);
+            # (Line 15) f.Table_Cos(cp, 45 * f.count[cp], f.distance[cp]);
             f.Table_Cos(cp, 45 * f.count[cp], f.distance[cp])
-            # (Line 14) f.Table_Sin(cp, 45 * f.count[cp], f.distance[cp]);
+            # (Line 16) f.Table_Sin(cp, 45 * f.count[cp], f.distance[cp]);
             f.Table_Sin(cp, 45 * f.count[cp], f.distance[cp])
-            # (Line 16) f.SquareShape(cp, 1, "Protoss Dark Templar", f.CosAngle[cp], f.SinAngle[cp]);
+            # (Line 18) f.SquareShape(cp, 1, "Protoss Dark Templar", f.CosAngle[cp], f.SinAngle[cp]);
             f.SquareShape(cp, 1, "Protoss Dark Templar", f.CosAngle[cp], f.SinAngle[cp])
-            # (Line 17) f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
+            # (Line 19) f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
             f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp])
-            # (Line 18) f.SkillUnit(cp, 1, "40 + 1n Mojo");
-            f.SkillUnit(cp, 1, "40 + 1n Mojo")
-            # (Line 19) f.MoveLoc(f.heroID[cp], cp, -f.CosAngle[cp], -f.SinAngle[cp]);
-            f.MoveLoc(f.heroID[cp], cp, -f.CosAngle[cp], -f.SinAngle[cp])
             # (Line 20) f.SkillUnit(cp, 1, "40 + 1n Mojo");
             f.SkillUnit(cp, 1, "40 + 1n Mojo")
-            # (Line 22) KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp);
-            # (Line 23) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            # (Line 21) f.MoveLoc(f.heroID[cp], cp, -f.CosAngle[cp], -f.SinAngle[cp]);
+            f.MoveLoc(f.heroID[cp], cp, -f.CosAngle[cp], -f.SinAngle[cp])
+            # (Line 22) f.SkillUnit(cp, 1, "40 + 1n Mojo");
+            f.SkillUnit(cp, 1, "40 + 1n Mojo")
+            # (Line 24) KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp);
+            # (Line 25) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             DoActions(KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp))
-            # (Line 24) Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+            # (Line 26) Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
             DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-            # (Line 26) f.SkillWait(cp, 50);
+            # (Line 28) f.SkillWait(cp, 160);
             DoActions(Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]))
-            f.SkillWait(cp, 50)
-            # (Line 27) f.count[cp] += 1;
+            f.SkillWait(cp, 160)
+            # (Line 29) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
-            # (Line 28) }
-            # (Line 29) else if (f.count[cp] == 6)
-        if EUDElseIf()(f.count[cp] == 6):
-            # (Line 30) {
-            # (Line 31) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-            # (Line 33) f.Table_Cos(cp, 0, f.distance[cp]);
+            # (Line 30) }
+            # (Line 31) else if (f.count[cp] == 4)
+        if EUDElseIf()(f.count[cp] == 4):
+            # (Line 32) {
+            # (Line 33) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+            # (Line 35) f.Table_Cos(cp, 0, f.distance[cp]);
             DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
             f.Table_Cos(cp, 0, f.distance[cp])
-            # (Line 34) f.Table_Sin(cp, 0, f.distance[cp]);
+            # (Line 36) f.Table_Sin(cp, 0, f.distance[cp]);
             f.Table_Sin(cp, 0, f.distance[cp])
-            # (Line 36) f.SquareShape(cp, 1, "Kakaru (Twilight)", f.CosAngle[cp], f.SinAngle[cp]);
+            # (Line 38) f.SquareShape(cp, 1, "Kakaru (Twilight)", f.CosAngle[cp], f.SinAngle[cp]);
             f.SquareShape(cp, 1, "Kakaru (Twilight)", f.CosAngle[cp], f.SinAngle[cp])
-            # (Line 38) f.Table_Cos(cp, 45, f.distance[cp]);
+            # (Line 40) f.Table_Cos(cp, 45, f.distance[cp]);
             f.Table_Cos(cp, 45, f.distance[cp])
-            # (Line 39) f.Table_Sin(cp, 45, f.distance[cp]);
+            # (Line 41) f.Table_Sin(cp, 45, f.distance[cp]);
             f.Table_Sin(cp, 45, f.distance[cp])
-            # (Line 41) f.SquareShape(cp, 1, "Kakaru (Twilight)", f.CosAngle[cp], f.SinAngle[cp]);
+            # (Line 43) f.SquareShape(cp, 1, "Kakaru (Twilight)", f.CosAngle[cp], f.SinAngle[cp]);
             f.SquareShape(cp, 1, "Kakaru (Twilight)", f.CosAngle[cp], f.SinAngle[cp])
-            # (Line 43) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
-            # (Line 45) f.SkillWait(cp, 50);
+            # (Line 45) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
+            # (Line 47) f.SkillWait(cp, 50);
             DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp))
             f.SkillWait(cp, 50)
-            # (Line 46) f.count[cp] += 1;
+            # (Line 48) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
-            # (Line 47) }
-            # (Line 48) else if (f.count[cp] == 7)
-        if EUDElseIf()(f.count[cp] == 7):
-            # (Line 49) {
-            # (Line 50) f.distance[cp] = 75;
+            # (Line 49) }
+            # (Line 50) else if (f.count[cp] == 5)
+        if EUDElseIf()(f.count[cp] == 5):
+            # (Line 51) {
+            # (Line 52) f.distance[cp] = 75;
             _ARRW(f.distance, cp) << (75)
-            # (Line 52) f.Table_Cos(cp, 0, f.distance[cp]);
+            # (Line 54) f.Table_Cos(cp, 0, f.distance[cp]);
             f.Table_Cos(cp, 0, f.distance[cp])
-            # (Line 53) f.Table_Sin(cp, 0, f.distance[cp]);
+            # (Line 55) f.Table_Sin(cp, 0, f.distance[cp]);
             f.Table_Sin(cp, 0, f.distance[cp])
-            # (Line 55) f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp]);
+            # (Line 57) f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp]);
             f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp])
-            # (Line 57) f.Table_Cos(cp, 45, f.distance[cp]);
+            # (Line 59) f.Table_Cos(cp, 45, f.distance[cp]);
             f.Table_Cos(cp, 45, f.distance[cp])
-            # (Line 58) f.Table_Sin(cp, 45, f.distance[cp]);
+            # (Line 60) f.Table_Sin(cp, 45, f.distance[cp]);
             f.Table_Sin(cp, 45, f.distance[cp])
-            # (Line 60) f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp]);
+            # (Line 62) f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp]);
             f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp])
-            # (Line 62) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-            # (Line 64) f.SkillWait(cp, 50);
+            # (Line 64) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+            # (Line 66) f.SkillWait(cp, 50);
             DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp))
             f.SkillWait(cp, 50)
-            # (Line 65) f.count[cp] += 1;
+            # (Line 67) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
-            # (Line 66) }
-            # (Line 67) else if (f.count[cp] == 8)
-        if EUDElseIf()(f.count[cp] == 8):
-            # (Line 68) {
-            # (Line 69) f.distance[cp] = 50;
+            # (Line 68) }
+            # (Line 69) else if (f.count[cp] == 6)
+        if EUDElseIf()(f.count[cp] == 6):
+            # (Line 70) {
+            # (Line 71) f.distance[cp] = 50;
             _ARRW(f.distance, cp) << (50)
-            # (Line 70) f.Table_Cos(cp, 0, f.distance[cp]);
+            # (Line 72) f.Table_Cos(cp, 0, f.distance[cp]);
             f.Table_Cos(cp, 0, f.distance[cp])
-            # (Line 71) f.Table_Sin(cp, 0, f.distance[cp]);
+            # (Line 73) f.Table_Sin(cp, 0, f.distance[cp]);
             f.Table_Sin(cp, 0, f.distance[cp])
-            # (Line 73) f.SquareShape(cp, 1, "40 + 1n Mojo", f.CosAngle[cp], f.SinAngle[cp]);
+            # (Line 75) f.SquareShape(cp, 1, "40 + 1n Mojo", f.CosAngle[cp], f.SinAngle[cp]);
             f.SquareShape(cp, 1, "40 + 1n Mojo", f.CosAngle[cp], f.SinAngle[cp])
-            # (Line 75) f.Table_Cos(cp, 45, f.distance[cp]);
+            # (Line 77) f.Table_Cos(cp, 45, f.distance[cp]);
             f.Table_Cos(cp, 45, f.distance[cp])
-            # (Line 76) f.Table_Sin(cp, 45, f.distance[cp]);
+            # (Line 78) f.Table_Sin(cp, 45, f.distance[cp]);
             f.Table_Sin(cp, 45, f.distance[cp])
-            # (Line 78) f.SquareShape(cp, 1, "40 + 1n Mojo", f.CosAngle[cp], f.SinAngle[cp]);
+            # (Line 80) f.SquareShape(cp, 1, "40 + 1n Mojo", f.CosAngle[cp], f.SinAngle[cp]);
             f.SquareShape(cp, 1, "40 + 1n Mojo", f.CosAngle[cp], f.SinAngle[cp])
-            # (Line 80) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            # (Line 81) Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+            # (Line 82) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            # (Line 83) Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
             DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-            # (Line 83) f.SkillWait(cp, 50);
+            # (Line 85) f.SkillWait(cp, 160);
             DoActions(Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]))
-            f.SkillWait(cp, 50)
-            # (Line 84) f.count[cp] += 1;
+            f.SkillWait(cp, 160)
+            # (Line 86) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
-            # (Line 85) }
-            # (Line 86) else if (f.count[cp] == 9)
-        if EUDElseIf()(f.count[cp] == 9):
-            # (Line 87) {
-            # (Line 88) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-            # (Line 89) f.SkillEnd(cp);
+            # (Line 87) }
+            # (Line 88) else if (f.count[cp] == 7)
+        if EUDElseIf()(f.count[cp] == 7):
+            # (Line 89) {
+            # (Line 90) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+            # (Line 92) f.SkillWait(cp, 80);
             DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
+            f.SkillWait(cp, 80)
+            # (Line 93) f.count[cp] += 1;
+            _ARRW(f.count, cp).__iadd__(1)
+            # (Line 94) }
+            # (Line 95) else if (f.count[cp] == 8)
+        if EUDElseIf()(f.count[cp] == 8):
+            # (Line 96) {
+            # (Line 97) f.SkillEnd(cp);
             f.SkillEnd(cp)
-            # (Line 90) }
-            # (Line 91) }
+            # (Line 98) }
+            # (Line 99) }
         EUDEndIf()
-        # (Line 92) }
+        # (Line 100) }
     EUDEndIf()

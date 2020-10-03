@@ -133,11 +133,6 @@ function Announce_Marge(cp)
 		if (v.AnnounceList[cp] < 1) 	{ v.AnnounceList[cp] += 1; }
 		else 						{ v.AnnounceList[cp] 	= 0; }
 	}
-	else if (Deaths(CurrentPlayer, Exactly, 2, "Terran SCV"))
-	{
-		SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV");
-		f.INSERT_KEY[cp] = 1;
-	}
 	
 	
 	switch(v.AnnounceList[cp])

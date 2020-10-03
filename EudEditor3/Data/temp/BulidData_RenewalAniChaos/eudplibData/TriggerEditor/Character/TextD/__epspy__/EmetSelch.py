@@ -278,27 +278,29 @@ def UiltimateText(cp):
     _t1 = EUDSwitchCase()
     # (Line 79) PlayWAV("EmetSelch_AACC.ogg");
     if _t1(20000):
-        # (Line 80) break;
+        # (Line 80) v.Sound_Text_Uilti[cp] = 0;
         DoActions(PlayWAV("EmetSelch_AACC.ogg"))
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
+        # (Line 81) break;
         EUDBreak()
-        # (Line 81) case 20001:
+        # (Line 82) case 20001:
     _t2 = EUDSwitchCase()
-    # (Line 82) f.stb.print("\n\n\x13\x19Emet Selch\n\x13\x04종말의 재앙... 우리 시대의 끝이자, 내 집념의 시작...\n\n");
+    # (Line 83) f.stb.print("\n\n\x13\x19Emet Selch\n\x13\x04종말의 재앙... 우리 시대의 끝이자, 내 집념의 시작...\n\n");
     if _t2(20001):
         f.stb.print("\n\n\x13\x19Emet Selch\n\x13\x04종말의 재앙... 우리 시대의 끝이자, 내 집념의 시작...\n\n")
-        # (Line 83) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 84) v.Sound_Text_Uilti[cp] = 0;
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 84) break;
+        # (Line 85) break;
         EUDBreak()
-        # (Line 85) case 20002:
+        # (Line 86) case 20002:
     _t3 = EUDSwitchCase()
-    # (Line 86) f.stb.print("\n\n\x13\x19Emet Selch\n\x13\x04너희를 판정하기 위해, 또 한 차례 재연해 보이겠다.\n\n");
+    # (Line 87) f.stb.print("\n\n\x13\x19Emet Selch\n\x13\x04너희를 판정하기 위해, 또 한 차례 재연해 보이겠다.\n\n");
     if _t3(20002):
         f.stb.print("\n\n\x13\x19Emet Selch\n\x13\x04너희를 판정하기 위해, 또 한 차례 재연해 보이겠다.\n\n")
-        # (Line 87) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 88) v.Sound_Text_Uilti[cp] = 0;
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 88) break;
+        # (Line 89) break;
         EUDBreak()
-        # (Line 89) }
-    # (Line 91) }
+        # (Line 90) }
+    # (Line 92) }
     EUDEndSwitch()

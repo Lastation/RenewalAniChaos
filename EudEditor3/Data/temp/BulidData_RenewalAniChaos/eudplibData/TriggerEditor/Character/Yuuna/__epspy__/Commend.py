@@ -139,9 +139,9 @@ def f_main(cp):
         _t2 = EUDIf()
         # (Line 8) && Deaths(CurrentPlayer, Exactly, 0, " `UniqueCoolTime")
         # (Line 9) && Deaths(CurrentPlayer, AtMost, 2, " `UniqueSkill")
-        # (Line 10) && (bread(0x58D2B0 + 0 + 46 * cp) > 4)
+        # (Line 10) && (bread(0x58D2B0 + 0 + 46 * cp) - 3 * dwread_epd(204 * 12 + cp) > 4)
         # (Line 11) && Deaths(CurrentPlayer, AtLeast, 1, " `O Skill Condition"))
-        if _t2(EUDSCAnd()(Bring(cp, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill"))(Deaths(CurrentPlayer, Exactly, 0, " `UniqueCoolTime"))(Deaths(CurrentPlayer, AtMost, 2, " `UniqueSkill"))((EUDNot(f_bread(0x58D2B0 + 0 + 46 * cp) <= 4)))(Deaths(CurrentPlayer, AtLeast, 1, " `O Skill Condition"))()):
+        if _t2(EUDSCAnd()(Bring(cp, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill"))(Deaths(CurrentPlayer, Exactly, 0, " `UniqueCoolTime"))(Deaths(CurrentPlayer, AtMost, 2, " `UniqueSkill"))((EUDNot(f_bread(0x58D2B0 + 0 + 46 * cp) - 3 * f_dwread_epd(204 * 12 + cp) <= 4)))(Deaths(CurrentPlayer, AtLeast, 1, " `O Skill Condition"))()):
             # (Line 12) {
             # (Line 13) f.Voice_Routine(cp, 14);
             f.Voice_Routine(cp, 14)

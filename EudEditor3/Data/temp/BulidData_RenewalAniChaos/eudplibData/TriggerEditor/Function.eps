@@ -42,6 +42,8 @@ const Mayuri_Voice 		= PVariable();	// 23
 const Nanami_Voice 		= PVariable();	// 24
 const Milim_Voice 		= PVariable();	// 25
 const Yume_Voice 		= PVariable();	// 26
+const Magane_Voice 	= PVariable();	// 27
+const Oda_Voice 		= PVariable();	// 28
 
 function Table_Sin(cp, degree, distance);
 function Table_Cos(cp, degree, distance);
@@ -106,6 +108,23 @@ function Voice_Routine(cp, num)
 		Yume_Voice[4] = num;
 		Yume_Voice[5] = num;
 		break;	
+	case 27:
+		Magane_Voice[0] = num;
+		Magane_Voice[1] = num;
+		Magane_Voice[2] = num;
+		Magane_Voice[3] = num;
+		Magane_Voice[4] = num;
+		Magane_Voice[5] = num;
+		break;	
+	case 28:
+		Oda_Voice[0] = num;
+		Oda_Voice[1] = num;
+		Oda_Voice[2] = num;
+		Oda_Voice[3] = num;
+		Oda_Voice[4] = num;
+		Oda_Voice[5] = num;
+		break;	
+		
 	}
 }
 
@@ -183,6 +202,13 @@ function MoveLoc(Unit : TrgUnit, cp : TrgPlayer, x, y)
 	addloc(location[cp], x, y);
 }
 
+function SkillUnitBurrowed(cp : TrgPlayer, count, Unit : TrgUnit)
+{
+	CreateUnitWithProperties(count, Unit, dwrand() % 8 + 33, cp, UnitProperty(burrowed=True));
+	SetInvincibility(Enable, Unit, cp, "[Skill]Unit_Wait_ALL");
+	MoveUnit(count, Unit, cp, "[Skill]Unit_Wait_ALL", location[cp]);
+}
+
 function SkillUnit(cp : TrgPlayer, count, Unit : TrgUnit)
 {
 	CreateUnit(count, Unit, dwrand() % 8 + 33, cp);
@@ -206,6 +232,12 @@ function Slow(cp)
    MoveLocation(HoldLocation[cp], heroID[cp], cp, "Anywhere");
    SkillUnit(cp, 1, "Zerg Devourer");
    RemoveUnitAt(1, "Zerg Devourer", "Anywhere", cp);
+}
+
+function DotShapeBurrowed(cp : TrgPlayer, count, Unit : TrgUnit, x, y)
+{
+	MoveLoc(heroID[cp], cp, x, y);
+	SkillUnitBurrowed(cp, count, Unit);
 }
 
 function DotShape(cp : TrgPlayer, count, Unit : TrgUnit, x, y)
@@ -242,6 +274,18 @@ function DoubleShape(cp : TrgPlayer, count, Unit : TrgUnit, x, y)
 	SkillUnit(cp, count, Unit);
 }
 
+function SquareShapeBurrowed(cp : TrgPlayer, count, Unit : TrgUnit, x, y)
+{
+	MoveLoc(heroID[cp], cp, x, y);
+	SkillUnitBurrowed(cp, count, Unit);
+	MoveLoc(heroID[cp], cp, -y, x);
+	SkillUnitBurrowed(cp, count, Unit);
+	MoveLoc(heroID[cp], cp, -x, -y);
+	SkillUnitBurrowed(cp, count, Unit);
+	MoveLoc(heroID[cp], cp, y, -x);
+	SkillUnitBurrowed(cp, count, Unit);
+}
+
 function SquareShape(cp : TrgPlayer, count, Unit : TrgUnit, x, y)
 {
 	MoveLoc(heroID[cp], cp, x, y);
@@ -253,6 +297,19 @@ function SquareShape(cp : TrgPlayer, count, Unit : TrgUnit, x, y)
 	MoveLoc(heroID[cp], cp, y, -x);
 	SkillUnit(cp, count, Unit);
 }
+
+function SquareShapeAtBurrowed(cp : TrgPlayer, count, Unit : TrgUnit, x, y, distanceX, distanceY)
+{
+	MoveLoc(heroID[cp], cp, x + distanceX, y + distanceY);
+	SkillUnitBurrowed(cp, count, Unit);
+	MoveLoc(heroID[cp], cp, -y + distanceX, x + distanceY);
+	SkillUnitBurrowed(cp, count, Unit);
+	MoveLoc(heroID[cp], cp, -x + distanceX, -y + distanceY);
+	SkillUnitBurrowed(cp, count, Unit);
+	MoveLoc(heroID[cp], cp, y + distanceX, -x + distanceY);
+	SkillUnitBurrowed(cp, count, Unit);
+}
+
 
 function SquareShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, x, y, distanceX, distanceY)
 {
@@ -393,7 +450,7 @@ function LineShape(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, d
 	var x_initial = CosAngle[cp];
 	var y_initial = SinAngle[cp];
 	
-	if (n / 2 == 0)
+	if (n % 2 == 0)
 	{
 		Table_Sin(cp, degree, interval * (n / 2) - interval / 2);
 		Table_Cos(cp, degree, interval * (n / 2) - interval / 2);
@@ -427,15 +484,15 @@ function LineShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval,
 	Table_Sin(cp, degree, distance);
 	Table_Cos(cp, degree, distance);
 	
-	var gradientX = CosAngle[cp] / 2;
-	var gradientY = SinAngle[cp] / 2;
+	var gradientX = CosAngle[cp];
+	var gradientY = SinAngle[cp] ;
 	
 	var Angle_X, Angle_Y;
 	
 	Table_Sin(cp, degree, interval);
 	Table_Cos(cp, degree, interval);
 	
-	for (; i < n; i++)
+	for (; i <= n / 2; i++)
 	{
 		Angle_X = CosAngle[cp] * i;
 		Angle_Y = SinAngle[cp] * i;
@@ -461,6 +518,7 @@ function LineShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval,
 				MoveLoc(heroID[cp], cp, Angle_X + distanceX, -Angle_Y + distanceY);
 				SkillUnit(cp, count, Unit);
 			}
+
 		}
 	}
 	
@@ -538,6 +596,38 @@ function Table_Cos(cp, degree, distance)
 		CosAngle[cp] = (CosAngle[cp] * distance) / 100;
 	}
 }
+
+function EdgeShapeBurrowed(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval)
+{
+   var i = 0;
+
+   Table_Sin(cp, degree, interval * 14 / 10);
+   Table_Cos(cp, degree, interval * 14 / 10);
+
+   var x_o = CosAngle[cp];
+   var y_o = SinAngle[cp];
+
+   var distance = (interval * 2) / (n - 1);
+
+   Table_Sin(cp, degree + 45, distance);
+   Table_Cos(cp, degree + 45, distance);
+
+   var distance_x = CosAngle[cp];
+   var distance_y = SinAngle[cp];
+   
+   if (n == 1)
+   {
+      DotShapeBurrowed(cp, 1, Unit, 0, 0);
+   }
+   else if (n > 1)
+   {
+      for (; i < n - 1; i++)
+      {
+         SquareShapeBurrowed(cp, 1, Unit, x_o - (distance_x * i), y_o - (distance_y * i));
+      }
+   }
+}
+
 function EdgeShape(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval)
 {
    var i = 0;
@@ -565,6 +655,67 @@ function EdgeShape(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval)
       for (; i < n - 1; i++)
       {
          SquareShape(cp, 1, Unit, x_o - (distance_x * i), y_o - (distance_y * i));
+      }
+   }
+}
+function EdgeShapeAtBurrowed(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, x, y)
+{
+   var i = 0;
+
+   Table_Sin(cp, degree, interval * 14 / 10);
+   Table_Cos(cp, degree, interval * 14 / 10);
+
+   var x_o = CosAngle[cp];
+   var y_o = SinAngle[cp];
+
+   var distance = (interval * 2) / (n - 1);
+
+   Table_Sin(cp, degree + 45, distance);
+   Table_Cos(cp, degree + 45, distance);
+
+   var distance_x = CosAngle[cp];
+   var distance_y = SinAngle[cp];
+   
+   if (n == 1)
+   {
+      DotShapeBurrowed(cp, 1, Unit, x, y);
+   }
+   else if (n > 1)
+   {
+      for (; i < n - 1; i++)
+      {
+         SquareShapeAtBurrowed(cp, 1, Unit, x_o - (distance_x * i), y_o - (distance_y * i), x, y);
+      }
+   }
+}
+
+function EdgeShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, x, y)
+{
+   var i = 0;
+
+   Table_Sin(cp, degree, interval * 14 / 10);
+   Table_Cos(cp, degree, interval * 14 / 10);
+
+   var x_o = CosAngle[cp];
+   var y_o = SinAngle[cp];
+
+   var distance = (interval * 2) / (n - 1);
+
+   Table_Sin(cp, degree + 45, distance);
+   Table_Cos(cp, degree + 45, distance);
+
+   var distance_x = CosAngle[cp];
+   var distance_y = SinAngle[cp];
+   
+   if (n == 1)
+   {
+      DotShape(cp, 1, Unit, x, y);
+   }
+   else if (n > 1)
+   {
+      for (; i < n - 1; i++)
+      {
+         SquareShapeAt(cp, 1, Unit, x_o - (distance_x * i), y_o - (distance_y * i), x, y);
       }
    }
 }

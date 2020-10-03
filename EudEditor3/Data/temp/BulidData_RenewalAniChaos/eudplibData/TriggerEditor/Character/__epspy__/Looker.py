@@ -140,27 +140,35 @@ from Character.Nanami import Text as T_nanami
 from Character.Milim import Text as T_milim
 # (Line 8) import Character.Yume.Text 			as T_yume;
 from Character.Yume import Text as T_yume
-# (Line 10) function main(cp)
-# (Line 11) {
+# (Line 9) import Character.Magane.Text 		as T_magane;
+from Character.Magane import Text as T_magane
+# (Line 10) import Character.Oda.Text 			as T_oda;
+from Character.Oda import Text as T_oda
+# (Line 13) function main(cp)
+# (Line 14) {
 @EUDFunc
 def f_main(cp):
-    # (Line 12) if (getuserplayerid() >= 128)
+    # (Line 15) if (getuserplayerid() >= 128)
     if EUDIf()(f_getuserplayerid() >= 128):
-        # (Line 13) {
-        # (Line 14) T_rusaruka.Looker();
+        # (Line 16) {
+        # (Line 17) T_rusaruka.Looker();
         T_rusaruka.Looker()
-        # (Line 15) T_yuuna.Looker();
+        # (Line 18) T_yuuna.Looker();
         T_yuuna.Looker()
-        # (Line 16) T_mayuri.Looker();
+        # (Line 19) T_mayuri.Looker();
         T_mayuri.Looker()
-        # (Line 17) T_nanami.Looker();
+        # (Line 20) T_nanami.Looker();
         T_nanami.Looker()
-        # (Line 18) T_milim.Looker();
+        # (Line 21) T_milim.Looker();
         T_milim.Looker()
-        # (Line 19) T_yume.Looker();
+        # (Line 22) T_yume.Looker();
         T_yume.Looker()
-        # (Line 21) s.MargeSound(getuserplayerid() - 120);
+        # (Line 23) T_magane.Looker();
+        T_magane.Looker()
+        # (Line 24) T_oda.Looker();
+        T_oda.Looker()
+        # (Line 26) s.MargeSound(getuserplayerid() - 120);
         s.MargeSound(f_getuserplayerid() - 120)
-        # (Line 22) }
-        # (Line 23) }
+        # (Line 27) }
+        # (Line 28) }
     EUDEndIf()

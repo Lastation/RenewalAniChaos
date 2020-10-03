@@ -132,323 +132,321 @@ import Function as f
 # (Line 4) {
 @EUDFunc
 def f_main(cp):
-    # (Line 5) f.HoldPosition(cp);
-    f.HoldPosition(cp)
-    # (Line 6) ModifyUnitShields(All, f.heroID[cp], cp, "Anywhere", 1);
-    # (Line 8) if (f.delay[cp] == 0)
+    # (Line 5) ModifyUnitShields(All, f.heroID[cp], cp, "Anywhere", 1);
+    # (Line 7) if (f.delay[cp] == 0)
     DoActions(ModifyUnitShields(All, f.heroID[cp], cp, "Anywhere", 1))
     if EUDIf()(f.delay[cp] == 0):
-        # (Line 9) {
-        # (Line 10) if (f.count[cp] == 0)
+        # (Line 8) {
+        # (Line 9) if (f.count[cp] == 0)
         if EUDIf()(f.count[cp] == 0):
-            # (Line 11) {
-            # (Line 12) if (f.loop[cp] < 8)
+            # (Line 10) {
+            # (Line 11) if (f.loop[cp] < 8)
             if EUDIf()(f.loop[cp] >= 8, neg=True):
-                # (Line 13) {
-                # (Line 14) SetDeaths(cp, SetTo, 1, " `ShieldRecharge");
-                # (Line 16) if (f.loop[cp] % 2 == 0)
+                # (Line 12) {
+                # (Line 13) SetDeaths(cp, SetTo, 1, " `ShieldRecharge");
+                # (Line 15) if (f.loop[cp] % 2 == 0)
                 DoActions(SetDeaths(cp, SetTo, 1, " `ShieldRecharge"))
                 if EUDIf()(f.loop[cp] % 2 == 0):
-                    # (Line 17) {
-                    # (Line 18) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
-                    # (Line 19) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+                    # (Line 16) {
+                    # (Line 17) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
+                    # (Line 18) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
                     DoActions(KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp))
-                    # (Line 21) f.Table_Sin(cp, (45 * f.loop[cp] + 22), 100);
+                    # (Line 20) f.Table_Sin(cp, (45 * f.loop[cp] + 22), 100);
                     DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
                     f.Table_Sin(cp, (45 * f.loop[cp] + 22), 100)
-                    # (Line 22) f.Table_Cos(cp, (45 * f.loop[cp] + 22), 100);
+                    # (Line 21) f.Table_Cos(cp, (45 * f.loop[cp] + 22), 100);
                     f.Table_Cos(cp, (45 * f.loop[cp] + 22), 100)
-                    # (Line 24) f.DotShape(cp, 1, "40 + 1n Wraith", f.CosAngle[cp], f.SinAngle[cp]);
+                    # (Line 23) f.DotShape(cp, 1, "40 + 1n Wraith", f.CosAngle[cp], f.SinAngle[cp]);
                     f.DotShape(cp, 1, "40 + 1n Wraith", f.CosAngle[cp], f.SinAngle[cp])
-                    # (Line 25) f.DotShape(cp, 1, "40 + 1n Wraith", -f.CosAngle[cp], -f.SinAngle[cp]);
+                    # (Line 24) f.DotShape(cp, 1, "40 + 1n Wraith", -f.CosAngle[cp], -f.SinAngle[cp]);
                     f.DotShape(cp, 1, "40 + 1n Wraith", -f.CosAngle[cp], -f.SinAngle[cp])
-                    # (Line 26) f.DotShape(cp, 1, "40 + 1n Zealot", f.CosAngle[cp], f.SinAngle[cp]);
+                    # (Line 25) f.DotShape(cp, 1, "40 + 1n Zealot", f.CosAngle[cp], f.SinAngle[cp]);
                     f.DotShape(cp, 1, "40 + 1n Zealot", f.CosAngle[cp], f.SinAngle[cp])
-                    # (Line 27) f.DotShape(cp, 1, "40 + 1n Zealot", -f.CosAngle[cp], -f.SinAngle[cp]);
+                    # (Line 26) f.DotShape(cp, 1, "40 + 1n Zealot", -f.CosAngle[cp], -f.SinAngle[cp]);
                     f.DotShape(cp, 1, "40 + 1n Zealot", -f.CosAngle[cp], -f.SinAngle[cp])
-                    # (Line 28) f.DotShape(cp, 1, "Target", -f.SinAngle[cp], f.CosAngle[cp]);
+                    # (Line 27) f.DotShape(cp, 1, "Target", -f.SinAngle[cp], f.CosAngle[cp]);
                     f.DotShape(cp, 1, "Target", -f.SinAngle[cp], f.CosAngle[cp])
-                    # (Line 29) f.DotShape(cp, 1, "Target", f.SinAngle[cp], -f.CosAngle[cp]);
+                    # (Line 28) f.DotShape(cp, 1, "Target", f.SinAngle[cp], -f.CosAngle[cp]);
                     f.DotShape(cp, 1, "Target", f.SinAngle[cp], -f.CosAngle[cp])
-                    # (Line 30) f.DotShape(cp, 1, " Creep. Dunkelheit", -f.SinAngle[cp], f.CosAngle[cp]);
+                    # (Line 29) f.DotShape(cp, 1, " Creep. Dunkelheit", -f.SinAngle[cp], f.CosAngle[cp]);
                     f.DotShape(cp, 1, " Creep. Dunkelheit", -f.SinAngle[cp], f.CosAngle[cp])
-                    # (Line 31) f.DotShape(cp, 1, " Creep. Dunkelheit", f.SinAngle[cp], -f.CosAngle[cp]);
+                    # (Line 30) f.DotShape(cp, 1, " Creep. Dunkelheit", f.SinAngle[cp], -f.CosAngle[cp]);
                     f.DotShape(cp, 1, " Creep. Dunkelheit", f.SinAngle[cp], -f.CosAngle[cp])
-                    # (Line 33) f.EdgeShape(cp, 1, "60 + 1n High Templar", 0, 7, 150);
+                    # (Line 32) f.EdgeShape(cp, 1, "60 + 1n High Templar", 0, 7, 150);
                     f.EdgeShape(cp, 1, "60 + 1n High Templar", 0, 7, 150)
-                    # (Line 34) KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
-                    # (Line 36) f.Table_Sin(cp, (22 * f.loop[cp] + 22), 50 * (f.loop[cp] / 2) + 50);
+                    # (Line 33) KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
+                    # (Line 35) f.Table_Sin(cp, (22 * f.loop[cp] + 22), 50 * (f.loop[cp] / 2) + 50);
                     DoActions(KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp))
                     f.Table_Sin(cp, (22 * f.loop[cp] + 22), 50 * (f.loop[cp] // 2) + 50)
-                    # (Line 37) f.Table_Cos(cp, (22 * f.loop[cp] + 22), 50 * (f.loop[cp] / 2) + 50);
+                    # (Line 36) f.Table_Cos(cp, (22 * f.loop[cp] + 22), 50 * (f.loop[cp] / 2) + 50);
                     f.Table_Cos(cp, (22 * f.loop[cp] + 22), 50 * (f.loop[cp] // 2) + 50)
-                    # (Line 39) f.SquareShape(cp, 1, "60 + 1n Siege", f.CosAngle[cp], f.SinAngle[cp]);
+                    # (Line 38) f.SquareShape(cp, 1, "60 + 1n Siege", f.CosAngle[cp], f.SinAngle[cp]);
                     f.SquareShape(cp, 1, "60 + 1n Siege", f.CosAngle[cp], f.SinAngle[cp])
-                    # (Line 40) f.SquareShape(cp, 1, "40 + 1n Gantrithor", f.CosAngle[cp], f.SinAngle[cp]);
+                    # (Line 39) f.SquareShape(cp, 1, "40 + 1n Gantrithor", f.CosAngle[cp], f.SinAngle[cp]);
                     f.SquareShape(cp, 1, "40 + 1n Gantrithor", f.CosAngle[cp], f.SinAngle[cp])
-                    # (Line 42) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
-                    # (Line 43) KillUnitAt(All, "40 + 1n Zealot", "Anywhere", cp);
+                    # (Line 41) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
+                    # (Line 42) KillUnitAt(All, "40 + 1n Zealot", "Anywhere", cp);
                     DoActions(KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp))
-                    # (Line 44) KillUnitAt(All, "Target", "Anywhere", cp);
+                    # (Line 43) KillUnitAt(All, "Target", "Anywhere", cp);
                     DoActions(KillUnitAt(All, "40 + 1n Zealot", "Anywhere", cp))
-                    # (Line 46) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                    # (Line 45) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                     DoActions(KillUnitAt(All, "Target", "Anywhere", cp))
-                    # (Line 47) MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+                    # (Line 46) MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
                     DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                    # (Line 48) Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
+                    # (Line 47) Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
                     DoActions(MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
-                    # (Line 49) Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
+                    # (Line 48) Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
                     DoActions(Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]))
-                    # (Line 51) }
+                    # (Line 50) }
                     DoActions(Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]))
-                    # (Line 52) else
-                    # (Line 53) {
+                    # (Line 51) else
+                    # (Line 52) {
                 if EUDElse()():
-                    # (Line 54) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
-                    # (Line 55) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+                    # (Line 53) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
+                    # (Line 54) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
                     DoActions(KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp))
-                    # (Line 57) f.Table_Sin(cp, (45 * f.loop[cp] + 112), 100);
+                    # (Line 56) f.Table_Sin(cp, (45 * f.loop[cp] + 112), 100);
                     DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp))
                     f.Table_Sin(cp, (45 * f.loop[cp] + 112), 100)
-                    # (Line 58) f.Table_Cos(cp, (45 * f.loop[cp] + 112), 100);
+                    # (Line 57) f.Table_Cos(cp, (45 * f.loop[cp] + 112), 100);
                     f.Table_Cos(cp, (45 * f.loop[cp] + 112), 100)
-                    # (Line 60) f.DotShape(cp, 1, "40 + 1n Mojo", f.CosAngle[cp], f.SinAngle[cp]);
+                    # (Line 59) f.DotShape(cp, 1, "40 + 1n Mojo", f.CosAngle[cp], f.SinAngle[cp]);
                     f.DotShape(cp, 1, "40 + 1n Mojo", f.CosAngle[cp], f.SinAngle[cp])
-                    # (Line 61) f.DotShape(cp, 1, "40 + 1n Mojo", -f.CosAngle[cp], -f.SinAngle[cp]);
+                    # (Line 60) f.DotShape(cp, 1, "40 + 1n Mojo", -f.CosAngle[cp], -f.SinAngle[cp]);
                     f.DotShape(cp, 1, "40 + 1n Mojo", -f.CosAngle[cp], -f.SinAngle[cp])
-                    # (Line 62) f.DotShape(cp, 1, "Protoss Dark Archon", f.CosAngle[cp], f.SinAngle[cp]);
+                    # (Line 61) f.DotShape(cp, 1, "Protoss Dark Archon", f.CosAngle[cp], f.SinAngle[cp]);
                     f.DotShape(cp, 1, "Protoss Dark Archon", f.CosAngle[cp], f.SinAngle[cp])
-                    # (Line 63) f.DotShape(cp, 1, "Protoss Dark Archon", -f.CosAngle[cp], -f.SinAngle[cp]);
+                    # (Line 62) f.DotShape(cp, 1, "Protoss Dark Archon", -f.CosAngle[cp], -f.SinAngle[cp]);
                     f.DotShape(cp, 1, "Protoss Dark Archon", -f.CosAngle[cp], -f.SinAngle[cp])
-                    # (Line 64) f.DotShape(cp, 1, "Target", -f.SinAngle[cp], f.CosAngle[cp]);
+                    # (Line 63) f.DotShape(cp, 1, "Target", -f.SinAngle[cp], f.CosAngle[cp]);
                     f.DotShape(cp, 1, "Target", -f.SinAngle[cp], f.CosAngle[cp])
-                    # (Line 65) f.DotShape(cp, 1, "Target", f.SinAngle[cp], -f.CosAngle[cp]);
+                    # (Line 64) f.DotShape(cp, 1, "Target", f.SinAngle[cp], -f.CosAngle[cp]);
                     f.DotShape(cp, 1, "Target", f.SinAngle[cp], -f.CosAngle[cp])
-                    # (Line 66) f.DotShape(cp, 1, " Creep. Dunkelheit", -f.SinAngle[cp], f.CosAngle[cp]);
+                    # (Line 65) f.DotShape(cp, 1, " Creep. Dunkelheit", -f.SinAngle[cp], f.CosAngle[cp]);
                     f.DotShape(cp, 1, " Creep. Dunkelheit", -f.SinAngle[cp], f.CosAngle[cp])
-                    # (Line 67) f.DotShape(cp, 1, " Creep. Dunkelheit", f.SinAngle[cp], -f.CosAngle[cp]);
+                    # (Line 66) f.DotShape(cp, 1, " Creep. Dunkelheit", f.SinAngle[cp], -f.CosAngle[cp]);
                     f.DotShape(cp, 1, " Creep. Dunkelheit", f.SinAngle[cp], -f.CosAngle[cp])
-                    # (Line 69) f.EdgeShape(cp, 1, "60 + 1n High Templar", 45, 7, 150);
+                    # (Line 68) f.EdgeShape(cp, 1, "60 + 1n High Templar", 45, 7, 150);
                     f.EdgeShape(cp, 1, "60 + 1n High Templar", 45, 7, 150)
-                    # (Line 70) KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
-                    # (Line 72) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+                    # (Line 69) KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
+                    # (Line 71) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
                     DoActions(KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp))
-                    # (Line 73) KillUnitAt(All, "Target", "Anywhere", cp);
+                    # (Line 72) KillUnitAt(All, "Target", "Anywhere", cp);
                     DoActions(KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp))
-                    # (Line 75) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                    # (Line 74) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                     DoActions(KillUnitAt(All, "Target", "Anywhere", cp))
-                    # (Line 76) MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+                    # (Line 75) MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
                     DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                    # (Line 77) Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
+                    # (Line 76) Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
                     DoActions(MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
-                    # (Line 78) Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+                    # (Line 77) Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
                     DoActions(Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]))
-                    # (Line 79) }
+                    # (Line 78) }
                     DoActions(Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]))
-                    # (Line 81) f.SkillWait(cp, 240);
+                    # (Line 80) f.SkillWait(cp, 240);
                 EUDEndIf()
                 f.SkillWait(cp, 240)
-                # (Line 83) f.loop[cp] += 1;
+                # (Line 82) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 84) }
-                # (Line 85) else if (f.loop[cp] < 16)
+                # (Line 83) }
+                # (Line 84) else if (f.loop[cp] < 16)
             if EUDElseIf()(f.loop[cp] >= 16, neg=True):
-                # (Line 86) {
-                # (Line 87) if (f.loop[cp] % 2 == 0)
+                # (Line 85) {
+                # (Line 86) if (f.loop[cp] % 2 == 0)
                 if EUDIf()(f.loop[cp] % 2 == 0):
-                    # (Line 88) {
-                    # (Line 89) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
-                    # (Line 90) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+                    # (Line 87) {
+                    # (Line 88) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
+                    # (Line 89) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
                     DoActions(KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp))
-                    # (Line 92) f.Table_Sin(cp, (45 * f.loop[cp] + 22), 100);
+                    # (Line 91) f.Table_Sin(cp, (45 * f.loop[cp] + 22), 100);
                     DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
                     f.Table_Sin(cp, (45 * f.loop[cp] + 22), 100)
-                    # (Line 93) f.Table_Cos(cp, (45 * f.loop[cp] + 22), 100);
+                    # (Line 92) f.Table_Cos(cp, (45 * f.loop[cp] + 22), 100);
                     f.Table_Cos(cp, (45 * f.loop[cp] + 22), 100)
-                    # (Line 95) f.DotShape(cp, 1, "40 + 1n Wraith", f.CosAngle[cp], f.SinAngle[cp]);
+                    # (Line 94) f.DotShape(cp, 1, "40 + 1n Wraith", f.CosAngle[cp], f.SinAngle[cp]);
                     f.DotShape(cp, 1, "40 + 1n Wraith", f.CosAngle[cp], f.SinAngle[cp])
-                    # (Line 96) f.DotShape(cp, 1, "40 + 1n Wraith", -f.CosAngle[cp], -f.SinAngle[cp]);
+                    # (Line 95) f.DotShape(cp, 1, "40 + 1n Wraith", -f.CosAngle[cp], -f.SinAngle[cp]);
                     f.DotShape(cp, 1, "40 + 1n Wraith", -f.CosAngle[cp], -f.SinAngle[cp])
-                    # (Line 97) f.DotShape(cp, 1, "40 + 1n Zealot", f.CosAngle[cp], f.SinAngle[cp]);
+                    # (Line 96) f.DotShape(cp, 1, "40 + 1n Zealot", f.CosAngle[cp], f.SinAngle[cp]);
                     f.DotShape(cp, 1, "40 + 1n Zealot", f.CosAngle[cp], f.SinAngle[cp])
-                    # (Line 98) f.DotShape(cp, 1, "40 + 1n Zealot", -f.CosAngle[cp], -f.SinAngle[cp]);
+                    # (Line 97) f.DotShape(cp, 1, "40 + 1n Zealot", -f.CosAngle[cp], -f.SinAngle[cp]);
                     f.DotShape(cp, 1, "40 + 1n Zealot", -f.CosAngle[cp], -f.SinAngle[cp])
-                    # (Line 99) f.DotShape(cp, 1, "Target", -f.SinAngle[cp], f.CosAngle[cp]);
+                    # (Line 98) f.DotShape(cp, 1, "Target", -f.SinAngle[cp], f.CosAngle[cp]);
                     f.DotShape(cp, 1, "Target", -f.SinAngle[cp], f.CosAngle[cp])
-                    # (Line 100) f.DotShape(cp, 1, "Target", f.SinAngle[cp], -f.CosAngle[cp]);
+                    # (Line 99) f.DotShape(cp, 1, "Target", f.SinAngle[cp], -f.CosAngle[cp]);
                     f.DotShape(cp, 1, "Target", f.SinAngle[cp], -f.CosAngle[cp])
-                    # (Line 101) f.DotShape(cp, 1, " Creep. Dunkelheit", -f.SinAngle[cp], f.CosAngle[cp]);
+                    # (Line 100) f.DotShape(cp, 1, " Creep. Dunkelheit", -f.SinAngle[cp], f.CosAngle[cp]);
                     f.DotShape(cp, 1, " Creep. Dunkelheit", -f.SinAngle[cp], f.CosAngle[cp])
-                    # (Line 102) f.DotShape(cp, 1, " Creep. Dunkelheit", f.SinAngle[cp], -f.CosAngle[cp]);
+                    # (Line 101) f.DotShape(cp, 1, " Creep. Dunkelheit", f.SinAngle[cp], -f.CosAngle[cp]);
                     f.DotShape(cp, 1, " Creep. Dunkelheit", f.SinAngle[cp], -f.CosAngle[cp])
-                    # (Line 104) f.EdgeShape(cp, 1, "60 + 1n High Templar", 0, 7, 150);
+                    # (Line 103) f.EdgeShape(cp, 1, "60 + 1n High Templar", 0, 7, 150);
                     f.EdgeShape(cp, 1, "60 + 1n High Templar", 0, 7, 150)
-                    # (Line 105) KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
-                    # (Line 107) f.Table_Sin(cp, (22 * f.loop[cp] + 112), 50 * (f.loop[cp] / 2 - 4) + 50);
+                    # (Line 104) KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
+                    # (Line 106) f.Table_Sin(cp, (22 * f.loop[cp] + 112), 50 * (f.loop[cp] / 2 - 4) + 50);
                     DoActions(KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp))
                     f.Table_Sin(cp, (22 * f.loop[cp] + 112), 50 * (f.loop[cp] // 2 - 4) + 50)
-                    # (Line 108) f.Table_Cos(cp, (22 * f.loop[cp] + 112), 50 * (f.loop[cp] / 2 - 4) + 50);
+                    # (Line 107) f.Table_Cos(cp, (22 * f.loop[cp] + 112), 50 * (f.loop[cp] / 2 - 4) + 50);
                     f.Table_Cos(cp, (22 * f.loop[cp] + 112), 50 * (f.loop[cp] // 2 - 4) + 50)
-                    # (Line 110) f.SquareShape(cp, 1, "60 + 1n Siege", f.CosAngle[cp], f.SinAngle[cp]);
+                    # (Line 109) f.SquareShape(cp, 1, "60 + 1n Siege", f.CosAngle[cp], f.SinAngle[cp]);
                     f.SquareShape(cp, 1, "60 + 1n Siege", f.CosAngle[cp], f.SinAngle[cp])
-                    # (Line 111) f.SquareShape(cp, 1, "40 + 1n Gantrithor", f.CosAngle[cp], f.SinAngle[cp]);
+                    # (Line 110) f.SquareShape(cp, 1, "40 + 1n Gantrithor", f.CosAngle[cp], f.SinAngle[cp]);
                     f.SquareShape(cp, 1, "40 + 1n Gantrithor", f.CosAngle[cp], f.SinAngle[cp])
-                    # (Line 113) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
-                    # (Line 114) KillUnitAt(All, "40 + 1n Zealot", "Anywhere", cp);
+                    # (Line 112) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
+                    # (Line 113) KillUnitAt(All, "40 + 1n Zealot", "Anywhere", cp);
                     DoActions(KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp))
-                    # (Line 115) KillUnitAt(All, "Target", "Anywhere", cp);
+                    # (Line 114) KillUnitAt(All, "Target", "Anywhere", cp);
                     DoActions(KillUnitAt(All, "40 + 1n Zealot", "Anywhere", cp))
-                    # (Line 117) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                    # (Line 116) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                     DoActions(KillUnitAt(All, "Target", "Anywhere", cp))
-                    # (Line 118) MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+                    # (Line 117) MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
                     DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                    # (Line 119) Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
+                    # (Line 118) Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
                     DoActions(MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
-                    # (Line 120) Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
+                    # (Line 119) Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
                     DoActions(Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]))
-                    # (Line 121) }
+                    # (Line 120) }
                     DoActions(Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]))
-                    # (Line 122) else
-                    # (Line 123) {
+                    # (Line 121) else
+                    # (Line 122) {
                 if EUDElse()():
-                    # (Line 124) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
-                    # (Line 125) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+                    # (Line 123) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
+                    # (Line 124) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
                     DoActions(KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp))
-                    # (Line 127) f.Table_Sin(cp, (45 * f.loop[cp] + 112), 100);
+                    # (Line 126) f.Table_Sin(cp, (45 * f.loop[cp] + 112), 100);
                     DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp))
                     f.Table_Sin(cp, (45 * f.loop[cp] + 112), 100)
-                    # (Line 128) f.Table_Cos(cp, (45 * f.loop[cp] + 112), 100);
+                    # (Line 127) f.Table_Cos(cp, (45 * f.loop[cp] + 112), 100);
                     f.Table_Cos(cp, (45 * f.loop[cp] + 112), 100)
-                    # (Line 130) f.DotShape(cp, 1, "40 + 1n Mojo", f.CosAngle[cp], f.SinAngle[cp]);
+                    # (Line 129) f.DotShape(cp, 1, "40 + 1n Mojo", f.CosAngle[cp], f.SinAngle[cp]);
                     f.DotShape(cp, 1, "40 + 1n Mojo", f.CosAngle[cp], f.SinAngle[cp])
-                    # (Line 131) f.DotShape(cp, 1, "40 + 1n Mojo", -f.CosAngle[cp], -f.SinAngle[cp]);
+                    # (Line 130) f.DotShape(cp, 1, "40 + 1n Mojo", -f.CosAngle[cp], -f.SinAngle[cp]);
                     f.DotShape(cp, 1, "40 + 1n Mojo", -f.CosAngle[cp], -f.SinAngle[cp])
-                    # (Line 132) f.DotShape(cp, 1, "Protoss Dark Archon", f.CosAngle[cp], f.SinAngle[cp]);
+                    # (Line 131) f.DotShape(cp, 1, "Protoss Dark Archon", f.CosAngle[cp], f.SinAngle[cp]);
                     f.DotShape(cp, 1, "Protoss Dark Archon", f.CosAngle[cp], f.SinAngle[cp])
-                    # (Line 133) f.DotShape(cp, 1, "Protoss Dark Archon", -f.CosAngle[cp], -f.SinAngle[cp]);
+                    # (Line 132) f.DotShape(cp, 1, "Protoss Dark Archon", -f.CosAngle[cp], -f.SinAngle[cp]);
                     f.DotShape(cp, 1, "Protoss Dark Archon", -f.CosAngle[cp], -f.SinAngle[cp])
-                    # (Line 134) f.DotShape(cp, 1, "Target", -f.SinAngle[cp], f.CosAngle[cp]);
+                    # (Line 133) f.DotShape(cp, 1, "Target", -f.SinAngle[cp], f.CosAngle[cp]);
                     f.DotShape(cp, 1, "Target", -f.SinAngle[cp], f.CosAngle[cp])
-                    # (Line 135) f.DotShape(cp, 1, "Target", f.SinAngle[cp], -f.CosAngle[cp]);
+                    # (Line 134) f.DotShape(cp, 1, "Target", f.SinAngle[cp], -f.CosAngle[cp]);
                     f.DotShape(cp, 1, "Target", f.SinAngle[cp], -f.CosAngle[cp])
-                    # (Line 136) f.DotShape(cp, 1, " Creep. Dunkelheit", -f.SinAngle[cp], f.CosAngle[cp]);
+                    # (Line 135) f.DotShape(cp, 1, " Creep. Dunkelheit", -f.SinAngle[cp], f.CosAngle[cp]);
                     f.DotShape(cp, 1, " Creep. Dunkelheit", -f.SinAngle[cp], f.CosAngle[cp])
-                    # (Line 137) f.DotShape(cp, 1, " Creep. Dunkelheit", f.SinAngle[cp], -f.CosAngle[cp]);
+                    # (Line 136) f.DotShape(cp, 1, " Creep. Dunkelheit", f.SinAngle[cp], -f.CosAngle[cp]);
                     f.DotShape(cp, 1, " Creep. Dunkelheit", f.SinAngle[cp], -f.CosAngle[cp])
-                    # (Line 139) f.EdgeShape(cp, 1, "60 + 1n High Templar", 45, 7, 150);
+                    # (Line 138) f.EdgeShape(cp, 1, "60 + 1n High Templar", 45, 7, 150);
                     f.EdgeShape(cp, 1, "60 + 1n High Templar", 45, 7, 150)
-                    # (Line 140) KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
-                    # (Line 142) KillUnitAt(All, "Target", "Anywhere", cp);
+                    # (Line 139) KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
+                    # (Line 141) KillUnitAt(All, "Target", "Anywhere", cp);
                     DoActions(KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp))
-                    # (Line 143) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+                    # (Line 142) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
                     DoActions(KillUnitAt(All, "Target", "Anywhere", cp))
-                    # (Line 145) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                    # (Line 144) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                     DoActions(KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp))
-                    # (Line 146) MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+                    # (Line 145) MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
                     DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                    # (Line 147) Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
+                    # (Line 146) Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
                     DoActions(MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
-                    # (Line 148) Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+                    # (Line 147) Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
                     DoActions(Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]))
-                    # (Line 149) }
+                    # (Line 148) }
                     DoActions(Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]))
-                    # (Line 151) f.SkillWait(cp, 240);
+                    # (Line 150) f.SkillWait(cp, 240);
                 EUDEndIf()
                 f.SkillWait(cp, 240)
-                # (Line 153) f.loop[cp] += 1;
+                # (Line 152) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 154) }
-                # (Line 155) else if (f.loop[cp] == 16)
+                # (Line 153) }
+                # (Line 154) else if (f.loop[cp] == 16)
             if EUDElseIf()(f.loop[cp] == 16):
-                # (Line 156) {
-                # (Line 157) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-                # (Line 158) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
+                # (Line 155) {
+                # (Line 156) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+                # (Line 157) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
                 DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
-                # (Line 160) f.Voice_Routine(cp, 9);
+                # (Line 159) f.Voice_Routine(cp, 9);
                 DoActions(KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp))
                 f.Voice_Routine(cp, 9)
-                # (Line 162) f.SkillWait(cp, 80);
+                # (Line 161) f.SkillWait(cp, 80);
                 f.SkillWait(cp, 80)
-                # (Line 164) f.count[cp] += 1;
+                # (Line 163) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 165) f.loop[cp] = 0;
+                # (Line 164) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
+                # (Line 165) }
                 # (Line 166) }
-                # (Line 167) }
             EUDEndIf()
-            # (Line 168) else if (f.count[cp] == 1)
+            # (Line 167) else if (f.count[cp] == 1)
         if EUDElseIf()(f.count[cp] == 1):
-            # (Line 169) {
-            # (Line 170) if (f.loop[cp] == 0)
+            # (Line 168) {
+            # (Line 169) if (f.loop[cp] == 0)
             if EUDIf()(f.loop[cp] == 0):
-                # (Line 171) {
-                # (Line 172) f.EdgeShape(cp, 1, " Unit. Hoffnung 25000", 0, 5, 150);
+                # (Line 170) {
+                # (Line 171) f.EdgeShape(cp, 1, " Unit. Hoffnung 25000", 0, 5, 150);
                 f.EdgeShape(cp, 1, " Unit. Hoffnung 25000", 0, 5, 150)
-                # (Line 173) f.EdgeShape(cp, 1, " Unit. Hoffnung 25000", 45, 5, 150);
+                # (Line 172) f.EdgeShape(cp, 1, " Unit. Hoffnung 25000", 45, 5, 150);
                 f.EdgeShape(cp, 1, " Unit. Hoffnung 25000", 45, 5, 150)
-                # (Line 174) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
-                # (Line 176) f.SkillWait(cp, 960);
+                # (Line 173) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+                # (Line 175) f.SkillWait(cp, 960);
                 DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
                 f.SkillWait(cp, 960)
-                # (Line 177) f.loop[cp] += 1;
+                # (Line 176) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 178) }
-                # (Line 179) else if (f.loop[cp] < 5)
+                # (Line 177) }
+                # (Line 178) else if (f.loop[cp] < 5)
             if EUDElseIf()(f.loop[cp] >= 5, neg=True):
-                # (Line 180) {
-                # (Line 181) if (f.loop[cp] % 2 == 1)
+                # (Line 179) {
+                # (Line 180) if (f.loop[cp] % 2 == 1)
                 if EUDIf()(f.loop[cp] % 2 == 1):
-                    # (Line 182) {
-                    # (Line 183) f.EdgeShape(cp, 1, " Creep. Dunkelheit", 0, 4, 100);
+                    # (Line 181) {
+                    # (Line 182) f.EdgeShape(cp, 1, " Creep. Dunkelheit", 0, 4, 100);
                     f.EdgeShape(cp, 1, " Creep. Dunkelheit", 0, 4, 100)
-                    # (Line 184) f.EdgeShape(cp, 1, " Creep. Dunkelheit", 0, 2, 50);
+                    # (Line 183) f.EdgeShape(cp, 1, " Creep. Dunkelheit", 0, 2, 50);
                     f.EdgeShape(cp, 1, " Creep. Dunkelheit", 0, 2, 50)
-                    # (Line 186) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                    # (Line 187) Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
+                    # (Line 185) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                    # (Line 186) Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
                     DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                    # (Line 188) }
+                    # (Line 187) }
                     DoActions(Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]))
-                    # (Line 189) else
-                    # (Line 190) {
+                    # (Line 188) else
+                    # (Line 189) {
                 if EUDElse()():
-                    # (Line 191) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
-                    # (Line 192) }
+                    # (Line 190) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
+                    # (Line 191) }
                     DoActions(KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp))
-                    # (Line 194) f.SkillWait(cp, 160);
+                    # (Line 193) f.SkillWait(cp, 160);
                 EUDEndIf()
                 f.SkillWait(cp, 160)
-                # (Line 196) f.loop[cp] += 1;
+                # (Line 195) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 197) }
-                # (Line 198) else if (f.loop[cp] == 5)
+                # (Line 196) }
+                # (Line 197) else if (f.loop[cp] == 5)
             if EUDElseIf()(f.loop[cp] == 5):
-                # (Line 199) {
-                # (Line 200) f.EdgeShape(cp, 1, " Unit. Hoffnung 25000", 0, 5, 150);
+                # (Line 198) {
+                # (Line 199) f.EdgeShape(cp, 1, " Unit. Hoffnung 25000", 0, 5, 150);
                 f.EdgeShape(cp, 1, " Unit. Hoffnung 25000", 0, 5, 150)
-                # (Line 201) f.EdgeShape(cp, 1, " Unit. Hoffnung 25000", 45, 5, 150);
+                # (Line 200) f.EdgeShape(cp, 1, " Unit. Hoffnung 25000", 45, 5, 150);
                 f.EdgeShape(cp, 1, " Unit. Hoffnung 25000", 45, 5, 150)
-                # (Line 202) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
-                # (Line 204) f.SkillWait(cp, 480);
+                # (Line 201) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+                # (Line 203) f.SkillWait(cp, 480);
                 DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
                 f.SkillWait(cp, 480)
-                # (Line 206) f.count[cp] += 1;
+                # (Line 205) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 207) f.loop[cp] = 0;
+                # (Line 206) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
+                # (Line 207) }
                 # (Line 208) }
-                # (Line 209) }
             EUDEndIf()
-            # (Line 210) else if (f.count[cp] == 2)
+            # (Line 209) else if (f.count[cp] == 2)
         if EUDElseIf()(f.count[cp] == 2):
-            # (Line 211) {
-            # (Line 212) SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
-            # (Line 213) KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp);
+            # (Line 210) {
+            # (Line 211) SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
+            # (Line 212) KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp);
             DoActions(SetDeaths(cp, SetTo, 0, " `ShieldRecharge"))
-            # (Line 214) f.SkillEnd(cp);
+            # (Line 213) f.SkillEnd(cp);
             DoActions(KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp))
             f.SkillEnd(cp)
+            # (Line 214) }
             # (Line 215) }
-            # (Line 216) }
         EUDEndIf()
-        # (Line 217) }
+        # (Line 216) }
     EUDEndIf()

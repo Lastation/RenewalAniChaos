@@ -41,7 +41,6 @@ def onPluginStart():
         SetMemory(0x662450, Add, 151040),# units:Hit Points  index:64    from 476160 To 627200
         SetMemory(0x662478, Add, 151040),# units:Hit Points  index:74    from 476160 To 627200
         SetMemory(0x662484, Add, 151040),# units:Hit Points  index:77    from 476160 To 627200
-        SetMemory(0x66248C, Add, 10240000),# units:Hit Points  index:79    from 17920000 To 28160000
         SetMemory(0x6624DC, Add, 166400),# units:Hit Points  index:99    from 460800 To 627200
         SetMemory(0x662504, Add, 25472000),# units:Hit Points  index:109    from 51200 To 25523200
         SetMemory(0x66251C, Add, -25600),# units:Hit Points  index:115    from 128000 To 102400
@@ -758,7 +757,6 @@ def onPluginStart():
         SetMemory(0x6573C4, Add, -64),# weapons:Label  index:114    from 293 To 229
         SetMemory(0x6573C4, Add, -4259840),# weapons:Label  index:115    from 294 To 229
         SetMemory(0x6573C8, Add, -2),# weapons:Label  index:116    from 231 To 229
-        SetMemory(0x656E78, Add, 15),# weapons:Graphics  index:116    from 143 To 158
         SetMemory(0x657A00, Add, 2),# weapons:Target Flags  index:52    from 1 To 3
         SetMemory(0x657A14, Add, 0),# weapons:Target Flags  index:62    from 2 To 2
         SetMemory(0x656A84, Add, -64),# weapons:Minimum Range  index:27    from 64 To 0
@@ -873,21 +871,16 @@ def onPluginStart():
         SetMemory(0x6566A0, Add, -6),# weapons:Weapon Behavior  index:48    from 7 To 1
         SetMemory(0x6566A0, Add, -1536),# weapons:Weapon Behavior  index:49    from 7 To 1
         SetMemory(0x6566A8, Add, -65536),# weapons:Weapon Behavior  index:58    from 1 To 0
-        SetMemory(0x6566E4, Add, -2),# weapons:Weapon Behavior  index:116    from 2 To 0
         SetMemory(0x656710, Add, -512),# weapons:Explosion Type  index:25    from 3 To 1
         SetMemory(0x656710, Add, 16777216),# weapons:Explosion Type  index:27    from 2 To 3
         SetMemory(0x656714, Add, 1),# weapons:Explosion Type  index:28    from 2 To 3
         SetMemory(0x656728, Add, -33554432),# weapons:Explosion Type  index:51    from 2 To 0
-        SetMemory(0x65676C, Add, 2),# weapons:Explosion Type  index:116    from 1 To 3
         SetMemory(0x6568B8, Add, -983040),# weapons:Inner Splash Range  index:25    from 15 To 0
         SetMemory(0x6568EC, Add, -655360),# weapons:Inner Splash Range  index:51    from 10 To 0
-        SetMemory(0x656970, Add, 32),# weapons:Inner Splash Range  index:116    from 0 To 32
         SetMemory(0x6570F8, Add, -1310720),# weapons:Medium Splash Range  index:25    from 20 To 0
         SetMemory(0x65712C, Add, -1310720),# weapons:Medium Splash Range  index:51    from 20 To 0
-        SetMemory(0x6571B0, Add, 64),# weapons:Medium Splash Range  index:116    from 0 To 64
         SetMemory(0x6577B0, Add, -1638400),# weapons:Outer Splash Range  index:25    from 25 To 0
         SetMemory(0x6577E4, Add, -1966080),# weapons:Outer Splash Range  index:51    from 30 To 0
-        SetMemory(0x657868, Add, 128),# weapons:Outer Splash Range  index:116    from 0 To 128
         SetMemory(0x656F14, Add, 4587520),# weapons:Damage Amount  index:51    from 10 To 80
         SetMemory(0x656F38, Add, 55),# weapons:Damage Amount  index:68    from 5 To 60
         SetMemory(0x656F40, Add, 2097152),# weapons:Damage Amount  index:73    from 8 To 40
@@ -936,7 +929,7 @@ def onPluginStart():
         SetMemory(0x656A00, Add, 7340032),# weapons:Attack Angle  index:114    from 16 To 128
         SetMemory(0x656A04, Add, 111),# weapons:Attack Angle  index:116    from 16 To 127
         SetMemory(0x6C9EF8, Add, 1706),# flingy:Speed  index:0    from 1707 To 3413
-        SetMemory(0x6C9F18, Add, 1279),# flingy:Speed  index:8    from 1 To 1280
+        SetMemory(0x6C9F18, Add, 829),# flingy:Speed  index:8    from 1 To 830
         SetMemory(0x6C9F1C, Add, 1279),# flingy:Speed  index:9    from 1 To 1280
         SetMemory(0x6C9F34, Add, 829),# flingy:Speed  index:15    from 1 To 830
         SetMemory(0x6C9F94, Add, 427),# flingy:Speed  index:39    from 853 To 1280
@@ -949,7 +942,7 @@ def onPluginStart():
         SetMemory(0x6CA02C, Add, 1279),# flingy:Speed  index:77    from 1 To 1280
         SetMemory(0x6CA058, Add, -683),# flingy:Speed  index:88    from 1707 To 1024
         SetMemory(0x6CA170, Add, -4533),# flingy:Speed  index:158    from 8533 To 4000
-        SetMemory(0x6C9C88, Add, 1279),# flingy:Acceleration  index:8    from 1 To 1280
+        SetMemory(0x6C9C88, Add, 829),# flingy:Acceleration  index:8    from 1 To 830
         SetMemory(0x6C9C88, Add, 83820544),# flingy:Acceleration  index:9    from 1 To 1280
         SetMemory(0x6C9C94, Add, 54329344),# flingy:Acceleration  index:15    from 1 To 830
         SetMemory(0x6C9CC4, Add, 393216),# flingy:Acceleration  index:39    from 27 To 33

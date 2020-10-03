@@ -218,112 +218,114 @@ def UiltimateText(cp):
     _t1 = EUDSwitchCase()
     # (Line 46) PlayWAV("Rin_Ult.ogg");
     if _t1(15000):
-        # (Line 47) break;
+        # (Line 47) v.Sound_Text_Uilti[cp] = 0;
         DoActions(PlayWAV("Rin_Ult.ogg"))
+        _ARRW(v.Sound_Text_Uilti, cp) << (0)
+        # (Line 48) break;
         EUDBreak()
-        # (Line 48) case 15001:
+        # (Line 49) case 15001:
     _t2 = EUDSwitchCase()
-    # (Line 49) f.stb.printAt(3,"\x13\x1BRin\n\x13\x04추억이, 슬픈 것이었다고 해도");
+    # (Line 50) f.stb.printAt(3,"\x13\x1BRin\n\x13\x04추억이, 슬픈 것이었다고 해도");
     if _t2(15001):
         f.stb.printAt(3, "\x13\x1BRin\n\x13\x04추억이, 슬픈 것이었다고 해도")
-        # (Line 50) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 51) v.Sound_Text_Uilti[cp] = 0;
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 51) break;
+        # (Line 52) break;
         EUDBreak()
-        # (Line 52) case 15002:
+        # (Line 53) case 15002:
     _t3 = EUDSwitchCase()
-    # (Line 53) f.stb.printAt(3,"\x13\x1BRin\n\x13\x04미래를 믿으며 나아가는 거야");
+    # (Line 54) f.stb.printAt(3,"\x13\x1BRin\n\x13\x04미래를 믿으며 나아가는 거야");
     if _t3(15002):
         f.stb.printAt(3, "\x13\x1BRin\n\x13\x04미래를 믿으며 나아가는 거야")
-        # (Line 54) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 55) v.Sound_Text_Uilti[cp] = 0;
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 55) break;
+        # (Line 56) break;
         EUDBreak()
-        # (Line 56) case 15003:
+        # (Line 57) case 15003:
     _t4 = EUDSwitchCase()
-    # (Line 57) f.stb.printAt(3,"\x13\x1BRin\n\x13\x04외로움을 깨달아서");
+    # (Line 58) f.stb.printAt(3,"\x13\x1BRin\n\x13\x04외로움을 깨달아서");
     if _t4(15003):
         f.stb.printAt(3, "\x13\x1BRin\n\x13\x04외로움을 깨달아서")
-        # (Line 58) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 59) v.Sound_Text_Uilti[cp] = 0;
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 59) break;
+        # (Line 60) break;
         EUDBreak()
-        # (Line 60) case 15004:
+        # (Line 61) case 15004:
     _t5 = EUDSwitchCase()
-    # (Line 61) f.stb.printAt(3,"\x13\x1BRin\n\x13\x04좌절하고 싶어져도");
+    # (Line 62) f.stb.printAt(3,"\x13\x1BRin\n\x13\x04좌절하고 싶어져도");
     if _t5(15004):
         f.stb.printAt(3, "\x13\x1BRin\n\x13\x04좌절하고 싶어져도")
-        # (Line 62) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 63) v.Sound_Text_Uilti[cp] = 0;
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 63) break;
+        # (Line 64) break;
         EUDBreak()
-        # (Line 64) case 15005:
+        # (Line 65) case 15005:
     _t6 = EUDSwitchCase()
-    # (Line 65) f.stb.printAt(3,"\x13\x1BRin\n\x13\x04당신 덕분에");
+    # (Line 66) f.stb.printAt(3,"\x13\x1BRin\n\x13\x04당신 덕분에");
     if _t6(15005):
         f.stb.printAt(3, "\x13\x1BRin\n\x13\x04당신 덕분에")
-        # (Line 66) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 67) v.Sound_Text_Uilti[cp] = 0;
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 67) break;
+        # (Line 68) break;
         EUDBreak()
-        # (Line 68) case 15006:
+        # (Line 69) case 15006:
     _t7 = EUDSwitchCase()
-    # (Line 69) f.stb.printAt(3,"\x13\x1BRin\n\x13\x04기억해내서");
+    # (Line 70) f.stb.printAt(3,"\x13\x1BRin\n\x13\x04기억해내서");
     if _t7(15006):
         f.stb.printAt(3, "\x13\x1BRin\n\x13\x04기억해내서")
-        # (Line 70) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 71) v.Sound_Text_Uilti[cp] = 0;
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 71) break;
+        # (Line 72) break;
         EUDBreak()
-        # (Line 72) case 15007:
+        # (Line 73) case 15007:
     _t8 = EUDSwitchCase()
-    # (Line 73) f.stb.printAt(3,"\x13\x1BRin\n\x13\x04강해질 수 있는 거야");
+    # (Line 74) f.stb.printAt(3,"\x13\x1BRin\n\x13\x04강해질 수 있는 거야");
     if _t8(15007):
         f.stb.printAt(3, "\x13\x1BRin\n\x13\x04강해질 수 있는 거야")
-        # (Line 74) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 75) v.Sound_Text_Uilti[cp] = 0;
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 75) break;
+        # (Line 76) break;
         EUDBreak()
-        # (Line 76) case 15008:
+        # (Line 77) case 15008:
     _t9 = EUDSwitchCase()
-    # (Line 77) f.stb.printAt(3,"\x13\x1BRin\n\x13\x04혼자가 아니라고...");
+    # (Line 78) f.stb.printAt(3,"\x13\x1BRin\n\x13\x04혼자가 아니라고...");
     if _t9(15008):
         f.stb.printAt(3, "\x13\x1BRin\n\x13\x04혼자가 아니라고...")
-        # (Line 78) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 79) v.Sound_Text_Uilti[cp] = 0;
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 79) break;
+        # (Line 80) break;
         EUDBreak()
-        # (Line 80) case 15009:
+        # (Line 81) case 15009:
     _t10 = EUDSwitchCase()
-    # (Line 81) f.stb.printAt(3,"\x13\x1BRin\n\x13\x04당신 덕분에...");
+    # (Line 82) f.stb.printAt(3,"\x13\x1BRin\n\x13\x04당신 덕분에...");
     if _t10(15009):
         f.stb.printAt(3, "\x13\x1BRin\n\x13\x04당신 덕분에...")
-        # (Line 82) v.Sound_Text_Uilti[cp] = 0;
+        # (Line 83) v.Sound_Text_Uilti[cp] = 0;
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
-        # (Line 83) break;
+        # (Line 84) break;
         EUDBreak()
-        # (Line 84) }
-    # (Line 85) }
+        # (Line 85) }
+    # (Line 86) }
     EUDEndSwitch()
-    # (Line 87) function UniqueText(cp)
+    # (Line 88) function UniqueText(cp)
 
-# (Line 88) {
+# (Line 89) {
 @EUDFunc
 def UniqueText(cp):
-    # (Line 89) switch (v.Sound_Text_Uniq[cp])
+    # (Line 90) switch (v.Sound_Text_Uniq[cp])
     EUDSwitch(v.Sound_Text_Uniq[cp])
-    # (Line 90) {
-    # (Line 91) case 15000:
+    # (Line 91) {
+    # (Line 92) case 15000:
     _t1 = EUDSwitchCase()
-    # (Line 92) f.stb.print("\n\n\x13\x1BRin\n\x13\x04고마워요...\n\n");
+    # (Line 93) f.stb.print("\n\n\x13\x1BRin\n\x13\x04고마워요...\n\n");
     if _t1(15000):
         f.stb.print("\n\n\x13\x1BRin\n\x13\x04고마워요...\n\n")
-        # (Line 93) PlayWAV("Rin_Unique.ogg");
-        # (Line 94) v.Sound_Text_Uniq[cp] = 0;
+        # (Line 94) PlayWAV("Rin_Unique.ogg");
+        # (Line 95) v.Sound_Text_Uniq[cp] = 0;
         DoActions(PlayWAV("Rin_Unique.ogg"))
         _ARRW(v.Sound_Text_Uniq, cp) << (0)
-        # (Line 95) break;
+        # (Line 96) break;
         EUDBreak()
-        # (Line 96) }
-    # (Line 97) }
+        # (Line 97) }
+    # (Line 98) }
     EUDEndSwitch()

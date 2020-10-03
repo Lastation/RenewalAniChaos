@@ -142,9 +142,9 @@ def NormalText(cp):
     # (Line 9) f.stb.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04하항, 풋내나는구만 정말이지\n\n");
     if _t1(6000):
         f.stb.print("\n\n\x13\x02Iwahune Tenkei\n\x13\x04하항, 풋내나는구만 정말이지\n\n")
-        # (Line 10) PlayWAV("iwa_ssf.stb.ogg");
+        # (Line 10) PlayWAV("iwa_sss.ogg");
         # (Line 11) v.Sound_Text3[cp] = 0;
-        DoActions(PlayWAV("iwa_ssf.stb.ogg"))
+        DoActions(PlayWAV("iwa_sss.ogg"))
         _ARRW(v.Sound_Text3, cp) << (0)
         # (Line 12) break;
         EUDBreak()
@@ -212,10 +212,10 @@ def UiltimateText(cp):
         EUDBreak()
         # (Line 43) case 18010:
     _t3 = EUDSwitchCase()
-    # (Line 44) PlayWAV("iwa_acf.stb.ogg");
+    # (Line 44) PlayWAV("iwa_acs.ogg");
     if _t3(18010):
         # (Line 45) v.Sound_Text_Uilti[cp] = 0;
-        DoActions(PlayWAV("iwa_acf.stb.ogg"))
+        DoActions(PlayWAV("iwa_acs.ogg"))
         _ARRW(v.Sound_Text_Uilti, cp) << (0)
         # (Line 46) break;
         EUDBreak()
