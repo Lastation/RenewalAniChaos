@@ -4,10 +4,16 @@ var v = 0;
 
 function main(cp)
 {
-   f.HoldPosition(cp);
+   if (f.count[cp] >= 3)
+   {
+      f.HoldPosition(cp);
+   }
+
    f.BanReturn(cp);
 
    MoveUnit(All, " Unit. Schnee", cp, "Anywhere", "[Skill]HoldPosition");
+
+   ModifyUnitShields(All, f.heroID[cp], cp, "Anywhere", 1);
 
    if (v != 0)
       f.Voice_Routine(cp, 7 + v);
@@ -19,6 +25,8 @@ function main(cp)
          if (f.loop[cp] == 0)
          {
             v = 3;
+
+            SetDeaths(cp, SetTo, 1, " `ShieldRecharge");            
          }
          
          f.SkillWait(cp, 160);
@@ -248,6 +256,7 @@ function main(cp)
 
          SetSwitch("UiltimateSwitch", Clear);
          SetSwitch("Recall - Oda", Clear);
+         SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
 
          f.SkillEnd(cp);
       }

@@ -8,12 +8,16 @@ function main(cp)
    MoveUnit(All, "40 + 1n Goliath", cp, "Anywhere", "[Skill]HoldPosition");
    MoveUnit(All, "50 + 1n Tank", cp, "Anywhere", "[Skill]HoldPosition");
 
+   ModifyUnitShields(All, f.heroID[cp], cp, "Anywhere", 1);
+
    if (f.delay[cp] == 0)
    {
       if (f.count[cp] == 0)
       {
          if (f.loop[cp] > 0)
          {
+            SetDeaths(cp, SetTo, 1, " `ShieldRecharge");
+
             f.EdgeShape(cp, 1, "60 + 1n High Templar", 45, 3, 75);
          }
          if (f.loop[cp] > 1)
@@ -178,31 +182,43 @@ function main(cp)
          {
             f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 3, 75);
             f.EdgeShape(cp, 1, "80 + 1n Tank", 45, 3, 75);
+
+            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
          }
          else if (f.loop[cp] == 1)
          {
             f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 5, 150);
             f.EdgeShape(cp, 1, "80 + 1n Tank", 45, 5, 150);
+
+            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
          }
          else if (f.loop[cp] == 2)
          {
             f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 7, 225);
             f.EdgeShape(cp, 1, "80 + 1n Tank", 45, 7, 225);
+
+            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
          }
          else if (f.loop[cp] == 3)
          {
             f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 9, 300);
             f.EdgeShape(cp, 1, "80 + 1n Tank", 45, 9, 300);
+
+            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);            
          }
          else if (f.loop[cp] == 4)
          {
             f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 11, 375);
             f.EdgeShape(cp, 1, "80 + 1n Tank", 45, 11, 375);
+
+            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);            
          }
          KillUnitAt(All, "80 + 1n Tank", "Anywhere", cp);
-
-         MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-         Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
 
          f.SkillWait(cp, 160);
 
@@ -229,6 +245,8 @@ function main(cp)
       }
       else if (f.count[cp] == 5)
       {
+         SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
+
          f.SkillEnd(cp);
       }
    }

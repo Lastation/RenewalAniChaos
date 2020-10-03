@@ -17,7 +17,8 @@ Trigger { -- Skill : Ultimate
       MoveLocation("21. Magellan", " * Probe", CurrentPlayer, "Anywhere");
       MoveUnit(1, "Target", CurrentPlayer, "[Skill]Unit_Wait_ALL", "21. Magellan");
       RemoveUnitAt(All, "Target", "Anywhere", CurrentPlayer);
-      Order(" * Probe", CurrentPlayer, "Anywhere", Move, "21. Magellan");      
+      Order(" * Probe", CurrentPlayer, "Anywhere", Move, "21. Magellan");   
+      ModifyUnitShields(All, " * Probe", CurrentPlayer, "Anywhere", 1);
    },
 }
 

@@ -20,6 +20,8 @@ Trigger { -- Skill : Ultimate
       KillUnitAt(All, "40 + 1n Firebat", "Anywhere", CurrentPlayer);
       KillUnitAt(All, "Target", "Anywhere", CurrentPlayer);
       KillUnitAt(All, "Zerg Defiler", "Anywhere", CurrentPlayer);
+      SetSwitch("Ult - M&N", Clear);
+      SetSwitch("Ult2 - M&N", Clear);
       SetAllianceStatus(P8, Enemy);
       SetDeaths(CurrentPlayer, SetTo, 12, " `SkillWait");
    },
@@ -47,6 +49,8 @@ Trigger { -- Skill : Ultimate
       KillUnitAt(All, "40 + 1n Firebat", "Anywhere", CurrentPlayer);
       KillUnitAt(All, "Target", "Anywhere", CurrentPlayer);
       KillUnitAt(All, "Zerg Defiler", "Anywhere", CurrentPlayer);
+      SetSwitch("Ult - M&N", Clear);
+      SetSwitch("Ult2 - M&N", Clear);
       SetAllianceStatus(P7, Enemy);
       SetDeaths(CurrentPlayer, SetTo, 12, " `SkillWait");
    },

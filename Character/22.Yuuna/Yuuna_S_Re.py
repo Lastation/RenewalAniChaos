@@ -6,7 +6,7 @@ function main(cp)
 {
    if (f.delay[cp] == 0)
    {
-      if (f.count[cp] < 8)
+      if (f.count[cp] < 4)
       {
          KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
    
@@ -25,10 +25,10 @@ function main(cp)
          MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
          Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
          
-         f.SkillWait(cp, 50);
+         f.SkillWait(cp, 160);
          f.count[cp] += 1;
       }
-      else if (f.count[cp] == 8)
+      else if (f.count[cp] == 4)
       {
          KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
 
@@ -47,7 +47,7 @@ function main(cp)
          f.SkillWait(cp, 50);
          f.count[cp] += 1;
       }
-      else if (f.count[cp] == 9)
+      else if (f.count[cp] == 5)
       {
          f.distance[cp] = 75;
 
@@ -66,7 +66,7 @@ function main(cp)
          f.SkillWait(cp, 50);
          f.count[cp] += 1;
       }
-      else if (f.count[cp] == 10)
+      else if (f.count[cp] == 6)
       {
          f.distance[cp] = 50;
          f.Table_Cos(cp, 0, f.distance[cp]);
@@ -82,12 +82,18 @@ function main(cp)
          MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
          Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
 
-         f.SkillWait(cp, 50);
+         f.SkillWait(cp, 160);
          f.count[cp] += 1;
       }
-      else if (f.count[cp] == 11)
+      else if (f.count[cp] == 7)
       {
          KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+
+         f.SkillWait(cp, 80);
+         f.count[cp] += 1;
+      }
+      else if (f.count[cp] == 8)
+      {
          f.SkillEnd(cp);
       }
    }

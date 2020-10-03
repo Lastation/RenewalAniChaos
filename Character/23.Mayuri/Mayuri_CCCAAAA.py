@@ -4,7 +4,6 @@ const s = StringBuffer();
 
 function main(cp)
 {
-   f.HoldPosition(cp);
    ModifyUnitShields(All, f.heroID[cp], cp, "Anywhere", 1);
 
    if (f.delay[cp] == 0)

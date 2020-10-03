@@ -167,12 +167,7 @@ function main(cp)
 
          if (f.loop[cp] == 9)
          {
-            f.SquareShape(cp, 1, "40 + 1n Wraith", 150, 150);
-            f.SquareShape(cp, 1, "40 + 1n Wraith", 100, 150);
-            f.SquareShape(cp, 1, "40 + 1n Wraith", 150, 100);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
          }
          else if (f.loop[cp] == 11)
          {
@@ -242,11 +237,11 @@ function main(cp)
          else if (f.loop[cp] == 9)
          {
             f.SquareShape(cp, 1, "60 + 1n Archon", 160, 0);
-            f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 160, 0);
+            f.SquareShape(cp, 1, "60 + 1n Danimoth", 160, 0);
             KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
+            Order("60 + 1n Danimoth", cp, "Anywhere", Attack, f.location[cp]);
          }
 
          f.SkillWait(cp, 80);
@@ -296,11 +291,11 @@ function main(cp)
          else if (f.loop[cp] == 9)
          {
             f.SquareShape(cp, 1, "60 + 1n Archon", 120, 120);
-            f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 120, 120);
+            f.SquareShape(cp, 1, "60 + 1n Danimoth", 120, 120);
             KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
+            Order("60 + 1n Danimoth", cp, "Anywhere", Attack, f.location[cp]);
          }
 
          f.SkillWait(cp, 80);
@@ -361,7 +356,8 @@ function main(cp)
 
          if (f.loop[cp] == 0)
          {
-            f.EdgeShape(cp, 1, "60 + 1n Dragoon", 45, 3, 75);
+            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
+
             f.EdgeShape(cp, 1, "40 + 1n Mojo", 45, 3, 75);
             KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
 
@@ -371,7 +367,6 @@ function main(cp)
          }
          else if (f.loop[cp] == 2)
          {
-            f.EdgeShape(cp, 1, "50 + 1n Tank", 45, 5, 150);
             f.EdgeShape(cp, 1, "40 + 1n Mojo", 45, 5, 150);
             KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
 
@@ -443,8 +438,6 @@ function main(cp)
             KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
          }
 
-
-
          f.SkillWait(cp, 80);
 
          f.loop[cp] += 1;
@@ -455,7 +448,6 @@ function main(cp)
             f.loop[cp] = 0;         
          }
       }
-
 
       else if (f.count[cp] == 7)
       {
