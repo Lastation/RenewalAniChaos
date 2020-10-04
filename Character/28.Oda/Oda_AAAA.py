@@ -75,23 +75,23 @@ function main(cp)
 
          if (f.loop[cp] == 1)
          {
-            f.EdgeShapeBurrowed(cp, 1, "40 + 1n Lurker", 45, 3, 75);
+            f.EdgeShapeWithProperty(cp, 1, "40 + 1n Lurker", 45, 3, 75, 0);
          }
          else if (f.loop[cp] == 2)
          {
-            f.EdgeShapeBurrowed(cp, 1, "40 + 1n Lurker", 45, 5, 150);
+            f.EdgeShapeWithProperty(cp, 1, "40 + 1n Lurker", 45, 5, 150, 0);
          }
          else if (f.loop[cp] == 3)
          {
-            f.EdgeShapeBurrowed(cp, 1, "40 + 1n Lurker", 45, 7, 225);
+            f.EdgeShapeWithProperty(cp, 1, "40 + 1n Lurker", 45, 7, 225, 0);
          }
          else if (f.loop[cp] == 4)
          {
-            f.EdgeShapeBurrowed(cp, 1, "40 + 1n Lurker", 45, 9, 300);
+            f.EdgeShapeWithProperty(cp, 1, "40 + 1n Lurker", 45, 9, 300, 0);
          }
          else if (f.loop[cp] == 5)
          {
-            f.EdgeShapeBurrowed(cp, 1, "40 + 1n Lurker", 45, 11, 375);
+            f.EdgeShapeWithProperty(cp, 1, "40 + 1n Lurker", 45, 11, 375, 0);
          }
 
          KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
@@ -168,8 +168,6 @@ function main(cp)
 
          if (f.loop[cp] == 22)
          {
-            KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp);
-
             f.Voice_Routine(cp, 5);
 
             f.count[cp] += 1;
@@ -227,8 +225,6 @@ function main(cp)
          if (f.loop[cp] == 24)
          {
             f.Voice_Routine(cp, 6);
-
-            KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
          }
 
          if (f.loop[cp] == 48)

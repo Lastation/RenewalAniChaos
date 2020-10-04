@@ -4,6 +4,8 @@ function EdgeShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval,
 
 function main(cp)
 {
+   ModifyUnitShields(All, f.heroID[cp], cp, "Anywhere", 1);
+
    if (f.delay[cp] == 0)
    {
       if (f.count[cp] == 0)
@@ -14,7 +16,11 @@ function main(cp)
          {
             RemoveUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
 
-            f.SquareShape(cp, 1, "40 + 1n Guardian", 150, 150);
+            if ((f.loop[cp] % 8) / 4 == 0)
+               f.SquareShape(cp, 1, "40 + 1n Guardian", 150, 150);
+            else
+               f.SquareShapeWithProperty(cp, 1, "40 + 1n Guardian", 150, 150, 1);
+
             f.SquareShape(cp, 1, "60 + 1n Archon", 150, 150);
             KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
 
@@ -42,17 +48,16 @@ function main(cp)
          }
          else if (f.loop[cp] == 4)
          {
-            f.SquareShape(cp, 1, " Unit. Hoffnung 25000", 96, 96);
+            f.SquareShape(cp, 1, "40 + 1n Ghost", 96, 96);
             f.SquareShape(cp, 1, "Target", 96, 96);
             KillUnitAt(All, "Target", "Anywhere", cp);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, "40 + 1n Drone", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-            Order("40 + 1n Drone", cp, "Anywhere", Attack, f.location[cp]);
+            MoveUnit(All, "40 + 1n Ghost", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+            Order("40 + 1n Ghost", cp, "Anywhere", Attack, f.location[cp]);
          }
          else if (f.loop[cp] == 6)
          {
-            f.SquareShape(cp, 1, "40 + 1n Drone", 32, 32);
             f.SquareShape(cp, 1, "Target", 32, 32);
             KillUnitAt(All, "Target", "Anywhere", cp);
 
@@ -61,8 +66,8 @@ function main(cp)
             KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, "40 + 1n Drone", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-            Order("40 + 1n Drone", cp, "Anywhere", Attack, f.location[cp]);
+            MoveUnit(All, "40 + 1n Ghost", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+            Order("40 + 1n Ghost", cp, "Anywhere", Attack, f.location[cp]);
          }
 
          f.SkillWait(cp, 80);
@@ -83,7 +88,11 @@ function main(cp)
          {
             RemoveUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
 
-            f.SquareShape(cp, 1, "40 + 1n Guardian", 150, 150);
+            if ((f.loop[cp] % 8) / 4 == 0)
+               f.SquareShape(cp, 1, "40 + 1n Guardian", 150, 150);
+            else
+               f.SquareShapeWithProperty(cp, 1, "40 + 1n Guardian", 150, 150, 1);
+
             f.SquareShape(cp, 1, "60 + 1n Archon", 150, 150);
             KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
 
@@ -111,17 +120,16 @@ function main(cp)
          }
          else if (f.loop[cp] == 4)
          {
-            f.SquareShape(cp, 1, "40 + 1n Drone", 128, 0);
+            f.SquareShape(cp, 1, "40 + 1n Ghost", 128, 0);
             f.SquareShape(cp, 1, "Target", 128, 0);
             KillUnitAt(All, "Target", "Anywhere", cp);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, "40 + 1n Drone", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-            Order("40 + 1n Drone", cp, "Anywhere", Attack, f.location[cp]);
+            MoveUnit(All, "40 + 1n Ghost", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+            Order("40 + 1n Ghost", cp, "Anywhere", Attack, f.location[cp]);
          }
          else if (f.loop[cp] == 6)
          {
-            f.SquareShape(cp, 1, "40 + 1n Drone", 40, 0);
             f.SquareShape(cp, 1, "Target", 40, 0);
             KillUnitAt(All, "Target", "Anywhere", cp);
 
@@ -130,8 +138,8 @@ function main(cp)
             KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, "40 + 1n Drone", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-            Order("40 + 1n Drone", cp, "Anywhere", Attack, f.location[cp]);
+            MoveUnit(All, "40 + 1n Ghost", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+            Order("40 + 1n Ghost", cp, "Anywhere", Attack, f.location[cp]);
          }
 
          f.SkillWait(cp, 80);
@@ -148,9 +156,15 @@ function main(cp)
       {
          if (f.loop[cp] % 2 == 0)
          {
+            SetDeaths(cp, SetTo, 1, " `ShieldRecharge");
+
             RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
 
-            f.EdgeShape(cp, 1, "40 + 1n Mutalisk", 45, 3, 50);
+            if ((f.loop[cp] % 4) / 2 == 0)
+               f.EdgeShape(cp, 1, "40 + 1n Mutalisk", 45, 3, 50);
+            else
+               f.EdgeShapeWithProperty(cp, 1, "40 + 1n Mutalisk", 45, 3, 50, 1);
+
             f.EdgeShape(cp, 1, "Rhynadon (Badlands)", 45, 3, 50);
             KillUnitAt(All, "Rhynadon (Badlands)", "Anywhere", cp);
 
@@ -181,7 +195,11 @@ function main(cp)
          {
             RemoveUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
 
-            f.SquareShape(cp, 1, "40 + 1n Guardian", 150, 150);
+            if ((f.loop[cp] % 8) / 4 == 0)
+               f.SquareShape(cp, 1, "40 + 1n Guardian", 150, 150);
+            else
+               f.SquareShapeWithProperty(cp, 1, "40 + 1n Guardian", 150, 150, 1);
+
             f.SquareShape(cp, 1, "60 + 1n Archon", 150, 150);
             KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
 
@@ -288,9 +306,11 @@ function main(cp)
       }
       else if (f.count[cp] == 4)
       {
+         SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
+
          KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
          KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp);
-         KillUnitAt(All, "40 + 1n Drone", "Anywhere", cp);
+         KillUnitAt(All, "40 + 1n Ghost", "Anywhere", cp);
 
          f.SkillEnd(cp);
       }

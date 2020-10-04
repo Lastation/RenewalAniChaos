@@ -48,7 +48,7 @@ function main(cp)
             KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
             KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
 
-            f.SkillWait(cp, 160);
+            f.SkillWait(cp, 80);
 
             f.loop[cp] += 1;
          }
@@ -94,7 +94,7 @@ function main(cp)
             KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
             KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
 
-            f.SkillWait(cp, 160);
+            f.SkillWait(cp, 80);
 
             f.count[cp] += 1;
             f.loop[cp] = 0;
@@ -116,7 +116,7 @@ function main(cp)
             f.SquareShape(cp, 1, " Unit. Hoffnung 25000", f.CosAngle[cp], f.SinAngle[cp]);
             KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
 
-            f.SkillWait(cp, 160);
+            f.SkillWait(cp, 80);
             f.loop[cp] += 1;
          }
          else if (f.loop[cp] == 2)
@@ -134,7 +134,7 @@ function main(cp)
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
 
-            f.SkillWait(cp, 320);
+            f.SkillWait(cp, 160);
 
             f.loop[cp] += 1;
          }
@@ -188,20 +188,15 @@ function main(cp)
 
             f.SkillWait(cp, 80);
 
-            f.loop[cp] += 1;
-         }
-         else if (f.loop[cp] == 7)
-         {         
-            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-
-            f.SkillWait(cp, 80);
-
             f.count[cp] += 1;
             f.loop[cp] = 0;
          }
       }
       else if (f.count[cp] == 2)
       {
+         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+
+
          f.SkillEnd(cp);
       }
    }

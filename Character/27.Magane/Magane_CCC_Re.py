@@ -86,7 +86,6 @@ function main(cp)
          {
             f.EdgeShape(cp, 1, "Target", 0, 3, 75);
             f.EdgeShape(cp, 1, "60 + 1n Archon", 0, 3, 75);
-            f.EdgeShape(cp, 1, "40 + 1n Drone", 0, 2, 75);
             KillUnitAt(All, "Target", "Anywhere", cp);
             KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
 

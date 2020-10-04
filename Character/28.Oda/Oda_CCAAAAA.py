@@ -207,12 +207,23 @@ function main(cp)
          {
             r = 67;
             d = 250;
+         }
+         else if (f.loop[cp] == 8)
+         {
+            r = 22;
+            d = 150;
+         }
+         else if (f.loop[cp] == 9)
+         {
+            r = 22;
+            d = 250;
 
             SetSwitch("Recall - Oda", Set);
          }
+
          KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
 
-         if (f.loop[cp] >= 3 && f.loop[cp] < 8)
+         if (f.loop[cp] >= 3 && f.loop[cp] < 10)
          {
             f.Table_Sin(cp, r, d);
             f.Table_Cos(cp, r, d);
@@ -243,10 +254,7 @@ function main(cp)
 
             if (f.loop[cp] == 3)
             {
-               f.DotShape(cp, 1, "40 + 1n Goliath", x, y);
-               f.DotShape(cp, 1, "40 + 1n Goliath", -x, -y);
-               f.DotShape(cp, 1, "40 + 1n Goliath", -y, x);
-               f.DotShape(cp, 1, "40 + 1n Goliath", y, -x);
+               f.SquareShape(cp, 1, "40 + 1n Goliath", x, y);
 
                MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                MoveUnit(All, "40 + 1n Goliath", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
@@ -254,10 +262,7 @@ function main(cp)
             }
             if (f.loop[cp] == 4)
             {
-               f.DotShape(cp, 1, "40 + 1n Drone", x, y);
-               f.DotShape(cp, 1, "40 + 1n Drone", -x, -y);
-               f.DotShape(cp, 1, "40 + 1n Drone", -y, x);
-               f.DotShape(cp, 1, "40 + 1n Drone", y, -x);
+               f.SquareShape(cp, 1, "40 + 1n Drone", x, y);
 
                MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                MoveUnit(All, "40 + 1n Drone", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
@@ -265,10 +270,7 @@ function main(cp)
             }
             if (f.loop[cp] == 5)
             {
-               f.DotShape(cp, 1, "50 + 1n Tank", x, y);
-               f.DotShape(cp, 1, "50 + 1n Tank", -x, -y);
-               f.DotShape(cp, 1, "50 + 1n Tank", -y, x);
-               f.DotShape(cp, 1, "50 + 1n Tank", y, -x);
+               f.SquareShape(cp, 1, "50 + 1n Tank", x, y);
 
                MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                MoveUnit(All, "50 + 1n Tank", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
@@ -276,10 +278,7 @@ function main(cp)
             }
             if (f.loop[cp] == 6)
             {
-               f.DotShape(cp, 1, "40 + 1n Drone", x, y);
-               f.DotShape(cp, 1, "40 + 1n Drone", -x, -y);
-               f.DotShape(cp, 1, "40 + 1n Drone", -y, x);
-               f.DotShape(cp, 1, "40 + 1n Drone", y, -x);
+               f.SquareShape(cp, 1, "40 + 1n Drone", x, y);
 
                MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                MoveUnit(All, "40 + 1n Drone", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
@@ -287,16 +286,28 @@ function main(cp)
             }
             if (f.loop[cp] == 7)
             {
-               f.DotShape(cp, 1, "60 + 1n Dragoon", x, y);
-               f.DotShape(cp, 1, "60 + 1n Dragoon", -x, -y);
-               f.DotShape(cp, 1, "60 + 1n Dragoon", -y, x);
-               f.DotShape(cp, 1, "60 + 1n Dragoon", y, -x);
+               f.SquareShape(cp, 1, "60 + 1n Dragoon", x, y);
 
                MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                MoveUnit(All, "60 + 1n Dragoon", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
                Order("60 + 1n Dragoon", cp, "Anywhere", Attack, f.location[cp]);
             }
+            if (f.loop[cp] == 8)
+            {
+               f.SquareShape(cp, 1, "40 + 1n Firebat", x, y);
 
+               MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+               MoveUnit(All, "40 + 1n Firebat", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+               Order("40 + 1n Firebat", cp, "Anywhere", Attack, f.location[cp]);
+            }
+            if (f.loop[cp] == 9)
+            {
+               f.SquareShape(cp, 1, "40 + 1n Drone", x, y);
+
+               MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+               MoveUnit(All, "40 + 1n Drone", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+               Order("40 + 1n Drone", cp, "Anywhere", Attack, f.location[cp]);
+            }
          }
 
          f.SkillWait(cp, 80);
@@ -326,6 +337,7 @@ function main(cp)
             KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
             KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp);
             KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Firebat", "Anywhere", cp);
 
             SetSwitch("Recall - Oda", Clear);
          }

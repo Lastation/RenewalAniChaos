@@ -217,7 +217,7 @@ function main(cp)
             f.SquareShape(cp, 1, "40 + 1n Wraith", 40 + 40 * (f.loop[cp] / 2), 0);
             f.SquareShape(cp, 1, "40 + 1n Zealot", 40 + 40 * (f.loop[cp] / 2), 0);
 
-            f.SquareShapeBurrowed(cp, 1, "Zerg Defiler", 40 + 40 * (f.loop[cp] / 2), 0);
+            f.SquareShapeWithProperty(cp, 1, "Zerg Defiler", 40 + 40 * (f.loop[cp] / 2), 0, 0);
 
             KillUnitAt(All, "40 + 1n Zealot", "Anywhere", cp);
 
@@ -271,7 +271,7 @@ function main(cp)
             f.SquareShape(cp, 1, "40 + 1n Wraith", 30 + 30 * (f.loop[cp] / 2), 30 + 30 * (f.loop[cp] / 2));
             f.SquareShape(cp, 1, "40 + 1n Zealot", 30 + 30 * (f.loop[cp] / 2), 30 + 30 * (f.loop[cp] / 2));
 
-            f.SquareShapeBurrowed(cp, 1, "Zerg Defiler", 30 + 30 * (f.loop[cp] / 2), 30 + 30 * (f.loop[cp] / 2));
+            f.SquareShapeWithProperty(cp, 1, "Zerg Defiler", 30 + 30 * (f.loop[cp] / 2), 30 + 30 * (f.loop[cp] / 2), 0);
 
             KillUnitAt(All, "40 + 1n Zealot", "Anywhere", cp);
 
@@ -317,7 +317,8 @@ function main(cp)
             for (; i < 4; i++)
             {
                CreateUnit(4, "60 + 3n Siege", dwrand() % 8 + 33, cp);
-               CreateUnitWithProperties(1, "40 + 1n Drone", dwrand() % 8 + 33, cp, UnitProperty(hallucinated=True));               SetInvincibility(Enable, "Any unit", cp, "[Skill]Unit_Wait_ALL");
+               CreateUnit(1, "40 + 1n Drone", dwrand() % 8 + 33, cp);
+               SetInvincibility(Enable, "Any unit", cp, "[Skill]Unit_Wait_ALL");
                MoveLocation(f.location[cp], "Zerg Defiler", cp, "Anywhere");
                RemoveUnitAt(1, "Zerg Defiler", "Anywhere", cp);
                MoveUnit(All, "40 + 1n Drone", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
@@ -358,6 +359,7 @@ function main(cp)
          {
             KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
 
+            f.EdgeShape(cp, 1, "60 + 1n Dragoon", 45, 3, 75);
             f.EdgeShape(cp, 1, "40 + 1n Mojo", 45, 3, 75);
             KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
 
@@ -367,6 +369,7 @@ function main(cp)
          }
          else if (f.loop[cp] == 2)
          {
+            f.EdgeShape(cp, 1, "50 + 1n Tank", 45, 5, 150);
             f.EdgeShape(cp, 1, "40 + 1n Mojo", 45, 5, 150);
             KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
 
