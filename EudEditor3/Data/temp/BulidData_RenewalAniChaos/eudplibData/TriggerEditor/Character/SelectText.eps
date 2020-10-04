@@ -320,10 +320,10 @@ function CharacterText(cp)
 	case 27:
 		f.stb.printAt(1, "\x13\x04- \x17Re : CREATORS \x04-");
 		f.stb.printAt(2, "\n");
-		f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
+		f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
 		f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
 		f.stb.printAt(5, "\n");
-		f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04결계 \x1F#\x04조작보통");
+		f.stb.printAt(6, "\x13\x1F#\x04대인 \x1F#\x04무효화 \x1F#\x04조작보통");
 		f.stb.printAt(7, "\n");
 		break;
 	case 28:
@@ -346,7 +346,9 @@ function CharacterText(cp)
 		|| v.Hero_Text[cp] == 12 
 		|| v.Hero_Text[cp] == 18
 		|| v.Hero_Text[cp] == 23
-		|| v.Hero_Text[cp] == 26)
+		|| v.Hero_Text[cp] == 26
+		|| v.Hero_Text[cp] == 27
+		)
 		{ f.stb.printAt(8, "\x13\x04선택할수 없습니다."); }
 		else {  f.stb.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요."); }
 	}
@@ -358,7 +360,9 @@ function CharacterText(cp)
 		|| v.Hero_Text[cp] == 12
 		|| v.Hero_Text[cp] == 18
 		|| v.Hero_Text[cp] == 23
-		|| v.Hero_Text[cp] == 26)
+		|| v.Hero_Text[cp] == 26
+		|| v.Hero_Text[cp] == 27
+		)
 		{  f.stb.printAt(8, "\x13\x04선택할수 없습니다."); }
 		else {  f.stb.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요."); }
 	}

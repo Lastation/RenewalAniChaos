@@ -212,8 +212,6 @@ function main(cp)
       {
          if (f.loop[cp] == 0)
          {
-            KillUnitAt(All, "40 + 1n Drone", "Anywhere", cp);
-
             f.SquareShape(cp, 1, "40 + 1n Gantrithor", 50, 50);
             f.SquareShape(cp, 1, "60 + 1n Dragoon", 50, 50);
 
@@ -256,7 +254,6 @@ function main(cp)
 
          if (f.loop[cp] == 0)
          {
-            KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", cp);
             f.EdgeShape(cp, 1, "40 + 1n Mojo", 45, 3, 75);
             KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
          }
@@ -346,6 +343,7 @@ function main(cp)
          KillUnitAt(All, "40 + 1n Drone", "Anywhere", cp);
          KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
          KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp);
+         KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", cp);
 
          f.SkillEnd(cp);
       }

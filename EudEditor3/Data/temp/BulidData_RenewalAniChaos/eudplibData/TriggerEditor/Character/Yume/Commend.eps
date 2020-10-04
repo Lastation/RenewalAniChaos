@@ -24,7 +24,7 @@ function main(cp)
 		}
 		else if (Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))
 		{
-			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
+			RemoveUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
 			f.step[cp] = 300;
 		}
 		

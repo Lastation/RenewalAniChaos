@@ -257,210 +257,208 @@ def f_main(cp):
                 f.EdgeShape(cp, 1, "Target", 0, 3, 75)
                 # (Line 88) f.EdgeShape(cp, 1, "60 + 1n Archon", 0, 3, 75);
                 f.EdgeShape(cp, 1, "60 + 1n Archon", 0, 3, 75)
-                # (Line 89) f.EdgeShape(cp, 1, "40 + 1n Drone", 0, 2, 75);
-                f.EdgeShape(cp, 1, "40 + 1n Drone", 0, 2, 75)
-                # (Line 90) KillUnitAt(All, "Target", "Anywhere", cp);
-                # (Line 91) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+                # (Line 89) KillUnitAt(All, "Target", "Anywhere", cp);
+                # (Line 90) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
                 DoActions(KillUnitAt(All, "Target", "Anywhere", cp))
-                # (Line 93) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 92) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
-                # (Line 94) MoveUnit(All, "40 + 1n Drone", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+                # (Line 93) MoveUnit(All, "40 + 1n Drone", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 95) Order("40 + 1n Drone", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 94) Order("40 + 1n Drone", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveUnit(All, "40 + 1n Drone", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
-                # (Line 96) }
+                # (Line 95) }
                 DoActions(Order("40 + 1n Drone", cp, "Anywhere", Attack, f.location[cp]))
-                # (Line 97) else if (f.loop[cp] == 2)
+                # (Line 96) else if (f.loop[cp] == 2)
             if EUDElseIf()(f.loop[cp] == 2):
-                # (Line 98) {
-                # (Line 99) f.EdgeShape(cp, 1, "Target", 45, 3, 100);
+                # (Line 97) {
+                # (Line 98) f.EdgeShape(cp, 1, "Target", 45, 3, 100);
                 f.EdgeShape(cp, 1, "Target", 45, 3, 100)
-                # (Line 100) f.EdgeShape(cp, 1, "60 + 1n Archon", 45, 3, 100);
+                # (Line 99) f.EdgeShape(cp, 1, "60 + 1n Archon", 45, 3, 100);
                 f.EdgeShape(cp, 1, "60 + 1n Archon", 45, 3, 100)
-                # (Line 101) f.EdgeShape(cp, 1, "40 + 1n Drone", 45, 2, 100);
+                # (Line 100) f.EdgeShape(cp, 1, "40 + 1n Drone", 45, 2, 100);
                 f.EdgeShape(cp, 1, "40 + 1n Drone", 45, 2, 100)
-                # (Line 102) KillUnitAt(All, "Target", "Anywhere", cp);
-                # (Line 103) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+                # (Line 101) KillUnitAt(All, "Target", "Anywhere", cp);
+                # (Line 102) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
                 DoActions(KillUnitAt(All, "Target", "Anywhere", cp))
-                # (Line 105) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 104) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
-                # (Line 106) MoveUnit(All, "40 + 1n Drone", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+                # (Line 105) MoveUnit(All, "40 + 1n Drone", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 107) Order("40 + 1n Drone", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 106) Order("40 + 1n Drone", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveUnit(All, "40 + 1n Drone", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
-                # (Line 108) }
+                # (Line 107) }
                 DoActions(Order("40 + 1n Drone", cp, "Anywhere", Attack, f.location[cp]))
-                # (Line 109) else if (f.loop[cp] == 4)
+                # (Line 108) else if (f.loop[cp] == 4)
             if EUDElseIf()(f.loop[cp] == 4):
-                # (Line 110) {
-                # (Line 111) f.EdgeShape(cp, 1, "40 + 1n Drone", 45, 2, 150);
+                # (Line 109) {
+                # (Line 110) f.EdgeShape(cp, 1, "40 + 1n Drone", 45, 2, 150);
                 f.EdgeShape(cp, 1, "40 + 1n Drone", 45, 2, 150)
-                # (Line 112) f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 2, 150);
+                # (Line 111) f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 2, 150);
                 f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 2, 150)
-                # (Line 113) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-                # (Line 115) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 112) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+                # (Line 114) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
-                # (Line 116) MoveUnit(All, "40 + 1n Drone", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+                # (Line 115) MoveUnit(All, "40 + 1n Drone", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 117) Order("40 + 1n Drone", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 116) Order("40 + 1n Drone", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveUnit(All, "40 + 1n Drone", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
-                # (Line 118) }
+                # (Line 117) }
                 DoActions(Order("40 + 1n Drone", cp, "Anywhere", Attack, f.location[cp]))
-                # (Line 120) f.SkillWait(cp, 80);
+                # (Line 119) f.SkillWait(cp, 80);
             EUDEndIf()
             f.SkillWait(cp, 80)
-            # (Line 122) f.loop[cp] += 1;
+            # (Line 121) f.loop[cp] += 1;
             _ARRW(f.loop, cp).__iadd__(1)
-            # (Line 124) if (f.loop[cp] == 5)
+            # (Line 123) if (f.loop[cp] == 5)
             if EUDIf()(f.loop[cp] == 5):
-                # (Line 125) {
-                # (Line 126) f.count[cp] += 1;
+                # (Line 124) {
+                # (Line 125) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 127) f.loop[cp] = 0;
+                # (Line 126) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
+                # (Line 127) }
                 # (Line 128) }
-                # (Line 129) }
             EUDEndIf()
-            # (Line 130) else if (f.count[cp] == 3)
+            # (Line 129) else if (f.count[cp] == 3)
         if EUDElseIf()(f.count[cp] == 3):
-            # (Line 131) {
-            # (Line 132) if (f.loop[cp] < 4)
+            # (Line 130) {
+            # (Line 131) if (f.loop[cp] < 4)
             if EUDIf()(f.loop[cp] >= 4, neg=True):
-                # (Line 133) {
-                # (Line 134) f.SquareShape(cp, 1, "40 + 1n Gantrithor", 75 * f.loop[cp], 225 - 75 * f.loop[cp]);
+                # (Line 132) {
+                # (Line 133) f.SquareShape(cp, 1, "40 + 1n Gantrithor", 75 * f.loop[cp], 225 - 75 * f.loop[cp]);
                 f.SquareShape(cp, 1, "40 + 1n Gantrithor", 75 * f.loop[cp], 225 - 75 * f.loop[cp])
-                # (Line 135) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
-                # (Line 137) if ((f.loop[cp] % 2) == 0)
+                # (Line 134) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
+                # (Line 136) if ((f.loop[cp] % 2) == 0)
                 DoActions(KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp))
                 if EUDIf()((f.loop[cp] % 2) == 0):
-                    # (Line 138) {
-                    # (Line 139) f.DoubleShape(cp, 1, "Protoss Dark Archon", 100 - 100 * (f.loop[cp] % 2), 100 * (f.loop[cp] % 2));
+                    # (Line 137) {
+                    # (Line 138) f.DoubleShape(cp, 1, "Protoss Dark Archon", 100 - 100 * (f.loop[cp] % 2), 100 * (f.loop[cp] % 2));
                     f.DoubleShape(cp, 1, "Protoss Dark Archon", 100 - 100 * (f.loop[cp] % 2), 100 * (f.loop[cp] % 2))
-                    # (Line 140) f.DoubleShape(cp, 1, "40 + 1n Mutalisk", 100 - 100 * (f.loop[cp] % 2), 100 * (f.loop[cp] % 2));
+                    # (Line 139) f.DoubleShape(cp, 1, "40 + 1n Mutalisk", 100 - 100 * (f.loop[cp] % 2), 100 * (f.loop[cp] % 2));
                     f.DoubleShape(cp, 1, "40 + 1n Mutalisk", 100 - 100 * (f.loop[cp] % 2), 100 * (f.loop[cp] % 2))
-                    # (Line 141) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
-                    # (Line 143) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                    # (Line 140) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+                    # (Line 142) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                     DoActions(KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp))
-                    # (Line 144) Order("40 + 1n Mutalisk", cp, "Anywhere", Attack, f.location[cp]);
+                    # (Line 143) Order("40 + 1n Mutalisk", cp, "Anywhere", Attack, f.location[cp]);
                     DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                    # (Line 145) }
+                    # (Line 144) }
                     DoActions(Order("40 + 1n Mutalisk", cp, "Anywhere", Attack, f.location[cp]))
-                    # (Line 146) else if ((f.loop[cp] % 2) == 1)
+                    # (Line 145) else if ((f.loop[cp] % 2) == 1)
                 if EUDElseIf()((f.loop[cp] % 2) == 1):
-                    # (Line 147) {
-                    # (Line 148) f.DoubleShape(cp, 1, "Protoss Dark Archon", 0 - 100 * (f.loop[cp] % 2), 100 * (f.loop[cp] % 2));
+                    # (Line 146) {
+                    # (Line 147) f.DoubleShape(cp, 1, "Protoss Dark Archon", 0 - 100 * (f.loop[cp] % 2), 100 * (f.loop[cp] % 2));
                     f.DoubleShape(cp, 1, "Protoss Dark Archon", 0 - 100 * (f.loop[cp] % 2), 100 * (f.loop[cp] % 2))
-                    # (Line 149) f.DoubleShape(cp, 1, "40 + 1n Mutalisk", 0 - 100 * (f.loop[cp] % 2), 100 * (f.loop[cp] % 2));
+                    # (Line 148) f.DoubleShape(cp, 1, "40 + 1n Mutalisk", 0 - 100 * (f.loop[cp] % 2), 100 * (f.loop[cp] % 2));
                     f.DoubleShape(cp, 1, "40 + 1n Mutalisk", 0 - 100 * (f.loop[cp] % 2), 100 * (f.loop[cp] % 2))
-                    # (Line 150) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
-                    # (Line 152) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                    # (Line 149) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+                    # (Line 151) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                     DoActions(KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp))
-                    # (Line 153) Order("40 + 1n Mutalisk", cp, "Anywhere", Attack, f.location[cp]);
+                    # (Line 152) Order("40 + 1n Mutalisk", cp, "Anywhere", Attack, f.location[cp]);
                     DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                    # (Line 154) }
+                    # (Line 153) }
                     DoActions(Order("40 + 1n Mutalisk", cp, "Anywhere", Attack, f.location[cp]))
-                    # (Line 155) }
+                    # (Line 154) }
                 EUDEndIf()
-                # (Line 157) f.SkillWait(cp, 80);
+                # (Line 156) f.SkillWait(cp, 80);
             EUDEndIf()
             f.SkillWait(cp, 80)
-            # (Line 159) f.loop[cp] += 1;
+            # (Line 158) f.loop[cp] += 1;
             _ARRW(f.loop, cp).__iadd__(1)
-            # (Line 161) if (f.loop[cp] == 5)
+            # (Line 160) if (f.loop[cp] == 5)
             if EUDIf()(f.loop[cp] == 5):
-                # (Line 162) {
-                # (Line 163) f.count[cp] += 1;
+                # (Line 161) {
+                # (Line 162) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 164) f.loop[cp] = 0;
+                # (Line 163) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
+                # (Line 164) }
                 # (Line 165) }
-                # (Line 166) }
             EUDEndIf()
-            # (Line 167) else if (f.count[cp] == 4)
+            # (Line 166) else if (f.count[cp] == 4)
         if EUDElseIf()(f.count[cp] == 4):
-            # (Line 168) {
-            # (Line 169) var x = 0;
+            # (Line 167) {
+            # (Line 168) var x = 0;
             x = EUDVariable()
             x << (0)
-            # (Line 170) var y = 0;
+            # (Line 169) var y = 0;
             y = EUDVariable()
             y << (0)
-            # (Line 172) if (f.loop[cp] == 0)
+            # (Line 171) if (f.loop[cp] == 0)
             if EUDIf()(f.loop[cp] == 0):
-                # (Line 173) {
-                # (Line 174) x = 150;
+                # (Line 172) {
+                # (Line 173) x = 150;
                 x << (150)
-                # (Line 175) y = 0;
+                # (Line 174) y = 0;
                 y << (0)
-                # (Line 177) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", -y, x);
+                # (Line 176) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", -y, x);
                 f.SquareShape(cp, 1, "50 + 1n Battlecruiser", -y, x)
-                # (Line 178) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-                # (Line 180) f.SquareShape(cp, 1, "40 + 1n Guardian", x, y);
+                # (Line 177) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+                # (Line 179) f.SquareShape(cp, 1, "40 + 1n Guardian", x, y);
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
                 f.SquareShape(cp, 1, "40 + 1n Guardian", x, y)
-                # (Line 181) f.SquareShape(cp, 1, "60 + 1n Archon", x, y);
+                # (Line 180) f.SquareShape(cp, 1, "60 + 1n Archon", x, y);
                 f.SquareShape(cp, 1, "60 + 1n Archon", x, y)
-                # (Line 182) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
-                # (Line 184) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 181) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+                # (Line 183) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
-                # (Line 185) Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 184) Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 186) }
+                # (Line 185) }
                 DoActions(Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]))
-                # (Line 187) else if (f.loop[cp] == 2)
+                # (Line 186) else if (f.loop[cp] == 2)
             if EUDElseIf()(f.loop[cp] == 2):
-                # (Line 188) {
-                # (Line 189) x = 150;
+                # (Line 187) {
+                # (Line 188) x = 150;
                 x << (150)
-                # (Line 190) y = 150;
+                # (Line 189) y = 150;
                 y << (150)
-                # (Line 192) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", -y, x);
+                # (Line 191) f.SquareShape(cp, 1, "50 + 1n Battlecruiser", -y, x);
                 f.SquareShape(cp, 1, "50 + 1n Battlecruiser", -y, x)
-                # (Line 193) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-                # (Line 195) f.SquareShape(cp, 1, "40 + 1n Guardian", x, y);
+                # (Line 192) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+                # (Line 194) f.SquareShape(cp, 1, "40 + 1n Guardian", x, y);
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
                 f.SquareShape(cp, 1, "40 + 1n Guardian", x, y)
-                # (Line 196) f.SquareShape(cp, 1, "60 + 1n Archon", x, y);
+                # (Line 195) f.SquareShape(cp, 1, "60 + 1n Archon", x, y);
                 f.SquareShape(cp, 1, "60 + 1n Archon", x, y)
-                # (Line 197) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
-                # (Line 199) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 196) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+                # (Line 198) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
-                # (Line 200) Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 199) Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 201) }
+                # (Line 200) }
                 DoActions(Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]))
-                # (Line 203) f.SkillWait(cp, 80);
+                # (Line 202) f.SkillWait(cp, 80);
             EUDEndIf()
             f.SkillWait(cp, 80)
-            # (Line 205) f.loop[cp] += 1;
+            # (Line 204) f.loop[cp] += 1;
             _ARRW(f.loop, cp).__iadd__(1)
-            # (Line 207) if (f.loop[cp] == 24)
+            # (Line 206) if (f.loop[cp] == 24)
             if EUDIf()(f.loop[cp] == 24):
-                # (Line 208) {
-                # (Line 209) f.count[cp] += 1;
+                # (Line 207) {
+                # (Line 208) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 210) f.loop[cp] = 0;
+                # (Line 209) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
+                # (Line 210) }
                 # (Line 211) }
-                # (Line 212) }
             EUDEndIf()
-            # (Line 213) else if (f.count[cp] == 5)
+            # (Line 212) else if (f.count[cp] == 5)
         if EUDElseIf()(f.count[cp] == 5):
-            # (Line 214) {
-            # (Line 215) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-            # (Line 216) KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
+            # (Line 213) {
+            # (Line 214) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+            # (Line 215) KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp))
-            # (Line 217) KillUnitAt(All, "40 + 1n Drone", "Anywhere", cp);
+            # (Line 216) KillUnitAt(All, "40 + 1n Drone", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp))
-            # (Line 218) KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp);
+            # (Line 217) KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Drone", "Anywhere", cp))
-            # (Line 219) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
+            # (Line 218) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
             DoActions(KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp))
-            # (Line 221) f.SkillEnd(cp);
+            # (Line 220) f.SkillEnd(cp);
             DoActions(KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp))
             f.SkillEnd(cp)
+            # (Line 221) }
             # (Line 222) }
-            # (Line 223) }
         EUDEndIf()
-        # (Line 224) }
+        # (Line 223) }
     EUDEndIf()

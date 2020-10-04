@@ -335,14 +335,14 @@ def SkillList(cp):
         f.stb.printAt(2, "　　\x1FA\x04ction List")
         # (Line 115) f.stb.printAt(3, "　　　\x18O \x04천의무봉 \x19[ 5초 전의 장소로 이동 ] \x053분");
         f.stb.printAt(3, "　　　\x18O \x04천의무봉 \x19[ 5초 전의 장소로 이동 ] \x053분")
-        # (Line 116) f.stb.printAt(4, "　　　\x04\x1FSSS + CC + AA \x04꿈 \x19[ 공성 / CC - 자리고정 ]");
-        f.stb.printAt(4, "　　　\x04\x1FSSS + CC + AA \x04꿈 \x19[ 공성 / CC - 자리고정 ]")
-        # (Line 117) f.stb.printAt(5, "　　　\x04\x1FCC + A + AA + AA \x04실의 \x19[ 공성 / 자리고정 / 각성시 사용 가능 ]");
-        f.stb.printAt(5, "　　　\x04\x1FCC + A + AA + AA \x04실의 \x19[ 공성 / 자리고정 / 각성시 사용 가능 ]")
-        # (Line 118) f.stb.printAt(6, "　　　\x04\x1FAA \x04전투술 \x19[ 대인 / 순간딜 / 각성시 사용 가능 ]");
-        f.stb.printAt(6, "　　　\x04\x1FAA \x04전투술 \x19[ 대인 / 순간딜 / 각성시 사용 가능 ]")
-        # (Line 119) f.stb.printAt(7, "　　　\x08AO \x04킬러 \x04 \x19[ 절망 사용시 사용 가능 / 영구 각성 / 자리고정 / 30초 ]");
-        f.stb.printAt(7, "　　　\x08AO \x04킬러 \x04 \x19[ 절망 사용시 사용 가능 / 영구 각성 / 자리고정 / 30초 ]")
+        # (Line 116) f.stb.printAt(4, "　　　\x18AO \x04킬러 \x04 \x19[ 영구 각성 / 자리고정 / 30초 ]");
+        f.stb.printAt(4, "　　　\x18AO \x04킬러 \x04 \x19[ 영구 각성 / 자리고정 / 30초 ]")
+        # (Line 117) f.stb.printAt(5, "　　　\x04\x1FSSS + CC + AA \x04꿈 \x19[ 공성 / CC - 자리고정 ]");
+        f.stb.printAt(5, "　　　\x04\x1FSSS + CC + AA \x04꿈 \x19[ 공성 / CC - 자리고정 ]")
+        # (Line 118) f.stb.printAt(6, "　　　\x04\x1FCC + A + CC + AA \x04실의 \x19[ 공성 / 자리고정 / 각성시 사용 가능 ]");
+        f.stb.printAt(6, "　　　\x04\x1FCC + A + CC + AA \x04실의 \x19[ 공성 / 자리고정 / 각성시 사용 가능 ]")
+        # (Line 119) f.stb.printAt(7, "　　　\x04\x1FAA \x04전투술 \x19[ 대인 / 순간딜 / 각성시 사용 가능 ]");
+        f.stb.printAt(7, "　　　\x04\x1FAA \x04전투술 \x19[ 대인 / 순간딜 / 각성시 사용 가능 ]")
         # (Line 120) f.stb.printAt(8, "　　　\x08ACCC \x04절규 \x19[ 공성 / 자리고정 ] \x05", f.UltimateA[cp]);
         f.stb.printAt(8, "　　　\x08ACCC \x04절규 \x19[ 공성 / 자리고정 ] \x05", f.UltimateA[cp])
         # (Line 121) f.stb.printAt(9, "　　　\x08 + AA \x04절망 \x19[ 공성 / 선딜 10초 / 선딜 후 자리고정 ] \x05", f.UltimateB[cp]);

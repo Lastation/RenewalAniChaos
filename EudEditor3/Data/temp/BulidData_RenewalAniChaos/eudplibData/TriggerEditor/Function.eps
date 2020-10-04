@@ -45,6 +45,9 @@ const Yume_Voice 		= PVariable();	// 26
 const Magane_Voice 	= PVariable();	// 27
 const Oda_Voice 		= PVariable();	// 28
 
+const p_burrowed = UnitProperty(burrowed = true);
+const p_hallucinated = UnitProperty(hallucinated = true);
+
 function Table_Sin(cp, degree, distance);
 function Table_Cos(cp, degree, distance);
 
@@ -202,9 +205,18 @@ function MoveLoc(Unit : TrgUnit, cp : TrgPlayer, x, y)
 	addloc(location[cp], x, y);
 }
 
-function SkillUnitBurrowed(cp : TrgPlayer, count, Unit : TrgUnit)
+function SkillUnitWithProperty(cp : TrgPlayer, count, Unit : TrgUnit, property)
 {
-	CreateUnitWithProperties(count, Unit, dwrand() % 8 + 33, cp, UnitProperty(burrowed=True));
+	switch (property)
+	{
+		case 0:
+			CreateUnitWithProperties(count, Unit, dwrand() % 8 + 33, cp, UnitProperty(burrowed = true));
+			break;
+		case 1:
+			CreateUnitWithProperties(count, Unit, dwrand() % 8 + 33, cp, UnitProperty(hallucinated = true));
+			break;
+	}
+	
 	SetInvincibility(Enable, Unit, cp, "[Skill]Unit_Wait_ALL");
 	MoveUnit(count, Unit, cp, "[Skill]Unit_Wait_ALL", location[cp]);
 }
@@ -234,10 +246,10 @@ function Slow(cp)
    RemoveUnitAt(1, "Zerg Devourer", "Anywhere", cp);
 }
 
-function DotShapeBurrowed(cp : TrgPlayer, count, Unit : TrgUnit, x, y)
+function DotShapeWithProperty(cp : TrgPlayer, count, Unit : TrgUnit, x, y, property)
 {
 	MoveLoc(heroID[cp], cp, x, y);
-	SkillUnitBurrowed(cp, count, Unit);
+	SkillUnitWithProperty(cp, count, Unit, property);
 }
 
 function DotShape(cp : TrgPlayer, count, Unit : TrgUnit, x, y)
@@ -274,16 +286,16 @@ function DoubleShape(cp : TrgPlayer, count, Unit : TrgUnit, x, y)
 	SkillUnit(cp, count, Unit);
 }
 
-function SquareShapeBurrowed(cp : TrgPlayer, count, Unit : TrgUnit, x, y)
+function SquareShapeWithProperty(cp : TrgPlayer, count, Unit : TrgUnit, x, y, property)
 {
 	MoveLoc(heroID[cp], cp, x, y);
-	SkillUnitBurrowed(cp, count, Unit);
+	SkillUnitWithProperty(cp, count, Unit, property);
 	MoveLoc(heroID[cp], cp, -y, x);
-	SkillUnitBurrowed(cp, count, Unit);
+	SkillUnitWithProperty(cp, count, Unit, property);
 	MoveLoc(heroID[cp], cp, -x, -y);
-	SkillUnitBurrowed(cp, count, Unit);
+	SkillUnitWithProperty(cp, count, Unit, property);
 	MoveLoc(heroID[cp], cp, y, -x);
-	SkillUnitBurrowed(cp, count, Unit);
+	SkillUnitWithProperty(cp, count, Unit, property);
 }
 
 function SquareShape(cp : TrgPlayer, count, Unit : TrgUnit, x, y)
@@ -298,16 +310,16 @@ function SquareShape(cp : TrgPlayer, count, Unit : TrgUnit, x, y)
 	SkillUnit(cp, count, Unit);
 }
 
-function SquareShapeAtBurrowed(cp : TrgPlayer, count, Unit : TrgUnit, x, y, distanceX, distanceY)
+function SquareShapeAtWithProperty(cp : TrgPlayer, count, Unit : TrgUnit, x, y, distanceX, distanceY, property)
 {
 	MoveLoc(heroID[cp], cp, x + distanceX, y + distanceY);
-	SkillUnitBurrowed(cp, count, Unit);
+	SkillUnitWithProperty(cp, count, Unit, property);
 	MoveLoc(heroID[cp], cp, -y + distanceX, x + distanceY);
-	SkillUnitBurrowed(cp, count, Unit);
+	SkillUnitWithProperty(cp, count, Unit, property);
 	MoveLoc(heroID[cp], cp, -x + distanceX, -y + distanceY);
-	SkillUnitBurrowed(cp, count, Unit);
+	SkillUnitWithProperty(cp, count, Unit, property);
 	MoveLoc(heroID[cp], cp, y + distanceX, -x + distanceY);
-	SkillUnitBurrowed(cp, count, Unit);
+	SkillUnitWithProperty(cp, count, Unit, property);
 }
 
 
@@ -597,7 +609,7 @@ function Table_Cos(cp, degree, distance)
 	}
 }
 
-function EdgeShapeBurrowed(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval)
+function EdgeShapeWithProperty(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, property)
 {
    var i = 0;
 
@@ -617,13 +629,13 @@ function EdgeShapeBurrowed(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, int
    
    if (n == 1)
    {
-      DotShapeBurrowed(cp, 1, Unit, 0, 0);
+      DotShapeWithProperty(cp, 1, Unit, 0, 0, property);
    }
    else if (n > 1)
    {
       for (; i < n - 1; i++)
       {
-         SquareShapeBurrowed(cp, 1, Unit, x_o - (distance_x * i), y_o - (distance_y * i));
+         SquareShapeWithProperty(cp, 1, Unit, x_o - (distance_x * i), y_o - (distance_y * i), property);
       }
    }
 }
@@ -658,7 +670,7 @@ function EdgeShape(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval)
       }
    }
 }
-function EdgeShapeAtBurrowed(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, x, y)
+function EdgeShapeAtWithProperty(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, x, y, property)
 {
    var i = 0;
 
@@ -678,13 +690,13 @@ function EdgeShapeAtBurrowed(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, i
    
    if (n == 1)
    {
-      DotShapeBurrowed(cp, 1, Unit, x, y);
+      DotShapeWithProperty(cp, 1, Unit, x, y, property);
    }
    else if (n > 1)
    {
       for (; i < n - 1; i++)
       {
-         SquareShapeAtBurrowed(cp, 1, Unit, x_o - (distance_x * i), y_o - (distance_y * i), x, y);
+         SquareShapeAtWithProperty(cp, 1, Unit, x_o - (distance_x * i), y_o - (distance_y * i), x, y, property);
       }
    }
 }

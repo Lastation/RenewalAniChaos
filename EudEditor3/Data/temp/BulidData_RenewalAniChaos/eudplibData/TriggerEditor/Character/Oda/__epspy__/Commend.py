@@ -272,8 +272,8 @@ def f_main(cp):
             # (Line 89) KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
             # (Line 90) }
             DoActions(KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp))
-            # (Line 91) else if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") && f.step[cp] == 220)
-        if EUDElseIf()(EUDSCAnd()(Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill"))(f.step[cp] == 220)()):
+            # (Line 91) else if (Bring(cp, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") && f.step[cp] == 220)
+        if EUDElseIf()(EUDSCAnd()(Bring(cp, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill"))(f.step[cp] == 220)()):
             # (Line 92) {
             # (Line 93) f.Voice_Routine(cp, 20);
             f.Voice_Routine(cp, 20)
@@ -285,9 +285,9 @@ def f_main(cp):
             _ARRW(f.loop, cp) << (0)
             # (Line 97) f.step[cp] = 230;
             _ARRW(f.step, cp) << (230)
-            # (Line 98) KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
+            # (Line 98) KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp);
             # (Line 99) }
-            DoActions(KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp))
+            DoActions(KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp))
             # (Line 100) else if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") && f.step[cp] == 230)
         if EUDElseIf()(EUDSCAnd()(Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill"))(f.step[cp] == 230)()):
             # (Line 101) {
@@ -392,10 +392,10 @@ def f_main(cp):
             # (Line 160) else if (Bring(cp, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill")
         _t19 = EUDElseIf()
         # (Line 161) && f.step[cp] == 300
-        # (Line 162) && Switch("Reinforce - Oda", Cleared)
-        # (Line 163) && Switch("Ult - Oda", Set)
+        # (Line 162) && Deaths(CurrentPlayer, AtLeast, 1, " `O Skill Condition")
+        # (Line 163) && Switch("Reinforce - Oda", Cleared)
         # (Line 164) )
-        if _t19(EUDSCAnd()(Bring(cp, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill"))(f.step[cp] == 300)(Switch("Reinforce - Oda", Cleared))(Switch("Ult - Oda", Set))()):
+        if _t19(EUDSCAnd()(Bring(cp, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill"))(f.step[cp] == 300)(Deaths(CurrentPlayer, AtLeast, 1, " `O Skill Condition"))(Switch("Reinforce - Oda", Cleared))()):
             # (Line 165) {
             # (Line 166) f.Voice_Routine(cp, 28);
             f.Voice_Routine(cp, 28)

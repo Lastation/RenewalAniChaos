@@ -88,14 +88,14 @@ function main(cp)
 			f.step[cp] = 220;
 			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
 		}
-		else if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") && f.step[cp] == 220)
+		else if (Bring(cp, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") && f.step[cp] == 220)
 		{
 			f.Voice_Routine(cp, 20);
 			f.wait[cp] = 0;
 			f.count[cp] = 0;
 			f.loop[cp] = 0;
 			f.step[cp] = 230;
-			KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
+			KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp);
 		}
 		else if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") && f.step[cp] == 230)
 		{
@@ -159,8 +159,8 @@ function main(cp)
 		}
 		else if (Bring(cp, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill") 
 		&& f.step[cp] == 300
+		&& Deaths(CurrentPlayer, AtLeast, 1, " `O Skill Condition")
 		&& Switch("Reinforce - Oda", Cleared)
-		&& Switch("Ult - Oda", Set)
 		)
 		{
 			f.Voice_Routine(cp, 28);

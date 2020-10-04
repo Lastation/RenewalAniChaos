@@ -192,9 +192,9 @@ def f_main(cp):
                 # (Line 48) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
                 # (Line 49) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp))
-                # (Line 51) f.SkillWait(cp, 160);
+                # (Line 51) f.SkillWait(cp, 80);
                 DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
-                f.SkillWait(cp, 160)
+                f.SkillWait(cp, 80)
                 # (Line 53) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
                 # (Line 54) }
@@ -252,9 +252,9 @@ def f_main(cp):
                 # (Line 94) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
                 # (Line 95) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp))
-                # (Line 97) f.SkillWait(cp, 160);
+                # (Line 97) f.SkillWait(cp, 80);
                 DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
-                f.SkillWait(cp, 160)
+                f.SkillWait(cp, 80)
                 # (Line 99) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
                 # (Line 100) f.loop[cp] = 0;
@@ -283,9 +283,9 @@ def f_main(cp):
                 # (Line 116) f.SquareShape(cp, 1, " Unit. Hoffnung 25000", f.CosAngle[cp], f.SinAngle[cp]);
                 f.SquareShape(cp, 1, " Unit. Hoffnung 25000", f.CosAngle[cp], f.SinAngle[cp])
                 # (Line 117) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
-                # (Line 119) f.SkillWait(cp, 160);
+                # (Line 119) f.SkillWait(cp, 80);
                 DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
-                f.SkillWait(cp, 160)
+                f.SkillWait(cp, 80)
                 # (Line 120) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
                 # (Line 121) }
@@ -307,9 +307,9 @@ def f_main(cp):
                 # (Line 134) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                 # (Line 135) Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 137) f.SkillWait(cp, 320);
+                # (Line 137) f.SkillWait(cp, 160);
                 DoActions(Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]))
-                f.SkillWait(cp, 320)
+                f.SkillWait(cp, 160)
                 # (Line 139) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
                 # (Line 140) }
@@ -386,30 +386,22 @@ def f_main(cp):
                 # (Line 189) f.SkillWait(cp, 80);
                 DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
                 f.SkillWait(cp, 80)
-                # (Line 191) f.loop[cp] += 1;
-                _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 192) }
-                # (Line 193) else if (f.loop[cp] == 7)
-            if EUDElseIf()(f.loop[cp] == 7):
-                # (Line 194) {
-                # (Line 195) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-                # (Line 197) f.SkillWait(cp, 80);
-                DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp))
-                f.SkillWait(cp, 80)
-                # (Line 199) f.count[cp] += 1;
+                # (Line 191) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 200) f.loop[cp] = 0;
+                # (Line 192) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
-                # (Line 201) }
-                # (Line 202) }
+                # (Line 193) }
+                # (Line 194) }
             EUDEndIf()
-            # (Line 203) else if (f.count[cp] == 2)
+            # (Line 195) else if (f.count[cp] == 2)
         if EUDElseIf()(f.count[cp] == 2):
-            # (Line 204) {
-            # (Line 205) f.SkillEnd(cp);
+            # (Line 196) {
+            # (Line 197) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+            # (Line 200) f.SkillEnd(cp);
+            DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp))
             f.SkillEnd(cp)
-            # (Line 206) }
-            # (Line 207) }
+            # (Line 201) }
+            # (Line 202) }
         EUDEndIf()
-        # (Line 208) }
+        # (Line 203) }
     EUDEndIf()

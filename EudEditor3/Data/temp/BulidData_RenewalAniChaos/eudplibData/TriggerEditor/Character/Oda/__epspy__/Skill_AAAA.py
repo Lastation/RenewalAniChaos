@@ -244,32 +244,32 @@ def f_main(cp):
             EUDEndIf()
             if EUDIf()(f.loop[cp] == 1):
                 # (Line 77) {
-                # (Line 78) f.EdgeShapeBurrowed(cp, 1, "40 + 1n Lurker", 45, 3, 75);
-                f.EdgeShapeBurrowed(cp, 1, "40 + 1n Lurker", 45, 3, 75)
+                # (Line 78) f.EdgeShapeWithProperty(cp, 1, "40 + 1n Lurker", 45, 3, 75, 0);
+                f.EdgeShapeWithProperty(cp, 1, "40 + 1n Lurker", 45, 3, 75, 0)
                 # (Line 79) }
                 # (Line 80) else if (f.loop[cp] == 2)
             if EUDElseIf()(f.loop[cp] == 2):
                 # (Line 81) {
-                # (Line 82) f.EdgeShapeBurrowed(cp, 1, "40 + 1n Lurker", 45, 5, 150);
-                f.EdgeShapeBurrowed(cp, 1, "40 + 1n Lurker", 45, 5, 150)
+                # (Line 82) f.EdgeShapeWithProperty(cp, 1, "40 + 1n Lurker", 45, 5, 150, 0);
+                f.EdgeShapeWithProperty(cp, 1, "40 + 1n Lurker", 45, 5, 150, 0)
                 # (Line 83) }
                 # (Line 84) else if (f.loop[cp] == 3)
             if EUDElseIf()(f.loop[cp] == 3):
                 # (Line 85) {
-                # (Line 86) f.EdgeShapeBurrowed(cp, 1, "40 + 1n Lurker", 45, 7, 225);
-                f.EdgeShapeBurrowed(cp, 1, "40 + 1n Lurker", 45, 7, 225)
+                # (Line 86) f.EdgeShapeWithProperty(cp, 1, "40 + 1n Lurker", 45, 7, 225, 0);
+                f.EdgeShapeWithProperty(cp, 1, "40 + 1n Lurker", 45, 7, 225, 0)
                 # (Line 87) }
                 # (Line 88) else if (f.loop[cp] == 4)
             if EUDElseIf()(f.loop[cp] == 4):
                 # (Line 89) {
-                # (Line 90) f.EdgeShapeBurrowed(cp, 1, "40 + 1n Lurker", 45, 9, 300);
-                f.EdgeShapeBurrowed(cp, 1, "40 + 1n Lurker", 45, 9, 300)
+                # (Line 90) f.EdgeShapeWithProperty(cp, 1, "40 + 1n Lurker", 45, 9, 300, 0);
+                f.EdgeShapeWithProperty(cp, 1, "40 + 1n Lurker", 45, 9, 300, 0)
                 # (Line 91) }
                 # (Line 92) else if (f.loop[cp] == 5)
             if EUDElseIf()(f.loop[cp] == 5):
                 # (Line 93) {
-                # (Line 94) f.EdgeShapeBurrowed(cp, 1, "40 + 1n Lurker", 45, 11, 375);
-                f.EdgeShapeBurrowed(cp, 1, "40 + 1n Lurker", 45, 11, 375)
+                # (Line 94) f.EdgeShapeWithProperty(cp, 1, "40 + 1n Lurker", 45, 11, 375, 0);
+                f.EdgeShapeWithProperty(cp, 1, "40 + 1n Lurker", 45, 11, 375, 0)
                 # (Line 95) }
                 # (Line 97) KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
             EUDEndIf()
@@ -375,125 +375,121 @@ def f_main(cp):
             # (Line 169) if (f.loop[cp] == 22)
             if EUDIf()(f.loop[cp] == 22):
                 # (Line 170) {
-                # (Line 171) KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp);
-                # (Line 173) f.Voice_Routine(cp, 5);
-                DoActions(KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp))
+                # (Line 171) f.Voice_Routine(cp, 5);
                 f.Voice_Routine(cp, 5)
-                # (Line 175) f.count[cp] += 1;
+                # (Line 173) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 176) f.loop[cp] = 0;
+                # (Line 174) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
-                # (Line 177) }
-                # (Line 178) }
+                # (Line 175) }
+                # (Line 176) }
             EUDEndIf()
-            # (Line 179) else if (f.count[cp] == 4)
+            # (Line 177) else if (f.count[cp] == 4)
         if EUDElseIf()(f.count[cp] == 4):
-            # (Line 180) {
-            # (Line 181) if (f.loop[cp] == 0)
+            # (Line 178) {
+            # (Line 179) if (f.loop[cp] == 0)
             if EUDIf()(f.loop[cp] == 0):
-                # (Line 182) {
-                # (Line 183) f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 3, 75);
+                # (Line 180) {
+                # (Line 181) f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 3, 75);
                 f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 3, 75)
-                # (Line 184) f.EdgeShape(cp, 1, "80 + 1n Tank", 45, 3, 75);
+                # (Line 182) f.EdgeShape(cp, 1, "80 + 1n Tank", 45, 3, 75);
                 f.EdgeShape(cp, 1, "80 + 1n Tank", 45, 3, 75)
-                # (Line 186) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                # (Line 187) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 184) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 185) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 188) }
+                # (Line 186) }
                 DoActions(Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]))
-                # (Line 189) else if (f.loop[cp] == 1)
+                # (Line 187) else if (f.loop[cp] == 1)
             if EUDElseIf()(f.loop[cp] == 1):
-                # (Line 190) {
-                # (Line 191) f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 5, 150);
+                # (Line 188) {
+                # (Line 189) f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 5, 150);
                 f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 5, 150)
-                # (Line 192) f.EdgeShape(cp, 1, "80 + 1n Tank", 45, 5, 150);
+                # (Line 190) f.EdgeShape(cp, 1, "80 + 1n Tank", 45, 5, 150);
                 f.EdgeShape(cp, 1, "80 + 1n Tank", 45, 5, 150)
-                # (Line 194) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                # (Line 195) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 192) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 193) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 196) }
+                # (Line 194) }
                 DoActions(Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]))
-                # (Line 197) else if (f.loop[cp] == 2)
+                # (Line 195) else if (f.loop[cp] == 2)
             if EUDElseIf()(f.loop[cp] == 2):
-                # (Line 198) {
-                # (Line 199) f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 7, 225);
+                # (Line 196) {
+                # (Line 197) f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 7, 225);
                 f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 7, 225)
-                # (Line 200) f.EdgeShape(cp, 1, "80 + 1n Tank", 45, 7, 225);
+                # (Line 198) f.EdgeShape(cp, 1, "80 + 1n Tank", 45, 7, 225);
                 f.EdgeShape(cp, 1, "80 + 1n Tank", 45, 7, 225)
-                # (Line 202) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                # (Line 203) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 200) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 201) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 204) }
+                # (Line 202) }
                 DoActions(Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]))
-                # (Line 205) else if (f.loop[cp] == 3)
+                # (Line 203) else if (f.loop[cp] == 3)
             if EUDElseIf()(f.loop[cp] == 3):
-                # (Line 206) {
-                # (Line 207) f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 9, 300);
+                # (Line 204) {
+                # (Line 205) f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 9, 300);
                 f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 9, 300)
-                # (Line 208) f.EdgeShape(cp, 1, "80 + 1n Tank", 45, 9, 300);
+                # (Line 206) f.EdgeShape(cp, 1, "80 + 1n Tank", 45, 9, 300);
                 f.EdgeShape(cp, 1, "80 + 1n Tank", 45, 9, 300)
-                # (Line 210) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                # (Line 211) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 208) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 209) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 212) }
+                # (Line 210) }
                 DoActions(Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]))
-                # (Line 213) else if (f.loop[cp] == 4)
+                # (Line 211) else if (f.loop[cp] == 4)
             if EUDElseIf()(f.loop[cp] == 4):
-                # (Line 214) {
-                # (Line 215) f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 11, 375);
+                # (Line 212) {
+                # (Line 213) f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 11, 375);
                 f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 45, 11, 375)
-                # (Line 216) f.EdgeShape(cp, 1, "80 + 1n Tank", 45, 11, 375);
+                # (Line 214) f.EdgeShape(cp, 1, "80 + 1n Tank", 45, 11, 375);
                 f.EdgeShape(cp, 1, "80 + 1n Tank", 45, 11, 375)
-                # (Line 218) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                # (Line 219) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 216) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 217) Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 220) }
+                # (Line 218) }
                 DoActions(Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]))
-                # (Line 221) KillUnitAt(All, "80 + 1n Tank", "Anywhere", cp);
+                # (Line 219) KillUnitAt(All, "80 + 1n Tank", "Anywhere", cp);
             EUDEndIf()
-            # (Line 223) f.SkillWait(cp, 160);
+            # (Line 221) f.SkillWait(cp, 160);
             DoActions(KillUnitAt(All, "80 + 1n Tank", "Anywhere", cp))
             f.SkillWait(cp, 160)
-            # (Line 225) f.loop[cp] += 1;
+            # (Line 223) f.loop[cp] += 1;
             _ARRW(f.loop, cp).__iadd__(1)
-            # (Line 227) if (f.loop[cp] == 24)
+            # (Line 225) if (f.loop[cp] == 24)
             if EUDIf()(f.loop[cp] == 24):
-                # (Line 228) {
-                # (Line 229) f.Voice_Routine(cp, 6);
+                # (Line 226) {
+                # (Line 227) f.Voice_Routine(cp, 6);
                 f.Voice_Routine(cp, 6)
-                # (Line 231) KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
-                # (Line 232) }
-                DoActions(KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp))
-                # (Line 234) if (f.loop[cp] == 48)
+                # (Line 228) }
+                # (Line 230) if (f.loop[cp] == 48)
             EUDEndIf()
             if EUDIf()(f.loop[cp] == 48):
-                # (Line 235) {
-                # (Line 236) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-                # (Line 237) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
+                # (Line 231) {
+                # (Line 232) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+                # (Line 233) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp))
-                # (Line 238) KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
+                # (Line 234) KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
                 DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp))
-                # (Line 239) KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp);
+                # (Line 235) KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp);
                 DoActions(KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp))
-                # (Line 240) SetSwitch("UiltimateSwitch", Clear);
+                # (Line 236) SetSwitch("UiltimateSwitch", Clear);
                 DoActions(KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp))
-                # (Line 242) f.count[cp] += 1;
+                # (Line 238) f.count[cp] += 1;
                 DoActions(SetSwitch("UiltimateSwitch", Clear))
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 243) f.loop[cp] = 0;
+                # (Line 239) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
-                # (Line 244) }
-                # (Line 245) }
+                # (Line 240) }
+                # (Line 241) }
             EUDEndIf()
-            # (Line 246) else if (f.count[cp] == 5)
+            # (Line 242) else if (f.count[cp] == 5)
         if EUDElseIf()(f.count[cp] == 5):
-            # (Line 247) {
-            # (Line 248) SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
-            # (Line 250) f.SkillEnd(cp);
+            # (Line 243) {
+            # (Line 244) SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
+            # (Line 246) f.SkillEnd(cp);
             DoActions(SetDeaths(cp, SetTo, 0, " `ShieldRecharge"))
             f.SkillEnd(cp)
-            # (Line 251) }
-            # (Line 252) }
+            # (Line 247) }
+            # (Line 248) }
         EUDEndIf()
-        # (Line 253) }
+        # (Line 249) }
     EUDEndIf()

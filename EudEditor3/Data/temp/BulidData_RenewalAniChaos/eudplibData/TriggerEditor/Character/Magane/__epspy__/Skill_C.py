@@ -221,9 +221,9 @@ def f_main(cp):
                 # (Line 70) f.SquareShape(cp, 1, " Unit. Hoffnung 25000", f.CosAngle[cp], f.SinAngle[cp]);
                 f.SquareShape(cp, 1, " Unit. Hoffnung 25000", f.CosAngle[cp], f.SinAngle[cp])
                 # (Line 71) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
-                # (Line 73) f.SkillWait(cp, 160);
+                # (Line 73) f.SkillWait(cp, 80);
                 DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
-                f.SkillWait(cp, 160)
+                f.SkillWait(cp, 80)
                 # (Line 74) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
                 # (Line 75) }
@@ -245,9 +245,9 @@ def f_main(cp):
                 # (Line 88) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                 # (Line 89) Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 91) f.SkillWait(cp, 480);
+                # (Line 91) f.SkillWait(cp, 240);
                 DoActions(Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]))
-                f.SkillWait(cp, 480)
+                f.SkillWait(cp, 240)
                 # (Line 93) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
                 # (Line 94) }
@@ -255,9 +255,9 @@ def f_main(cp):
             if EUDElseIf()(f.loop[cp] == 3):
                 # (Line 96) {
                 # (Line 97) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-                # (Line 99) f.SkillWait(cp, 160);
+                # (Line 99) f.SkillWait(cp, 80);
                 DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp))
-                f.SkillWait(cp, 160)
+                f.SkillWait(cp, 80)
                 # (Line 101) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
                 # (Line 102) }
@@ -279,33 +279,25 @@ def f_main(cp):
                 # (Line 115) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                 # (Line 116) Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 118) f.SkillWait(cp, 480);
+                # (Line 118) f.SkillWait(cp, 240);
                 DoActions(Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]))
-                f.SkillWait(cp, 480)
-                # (Line 120) f.loop[cp] += 1;
-                _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 121) }
-                # (Line 122) else if (f.loop[cp] == 5)
-            if EUDElseIf()(f.loop[cp] == 5):
-                # (Line 123) {
-                # (Line 124) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-                # (Line 126) f.SkillWait(cp, 80);
-                DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp))
-                f.SkillWait(cp, 80)
-                # (Line 128) f.count[cp] += 1;
+                f.SkillWait(cp, 240)
+                # (Line 120) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 129) f.loop[cp] = 0;
+                # (Line 121) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
-                # (Line 130) }
-                # (Line 131) }
+                # (Line 122) }
+                # (Line 123) }
             EUDEndIf()
-            # (Line 132) else if (f.count[cp] == 2)
+            # (Line 124) else if (f.count[cp] == 2)
         if EUDElseIf()(f.count[cp] == 2):
-            # (Line 133) {
-            # (Line 134) f.SkillEnd(cp);
+            # (Line 125) {
+            # (Line 126) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+            # (Line 128) f.SkillEnd(cp);
+            DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp))
             f.SkillEnd(cp)
-            # (Line 135) }
-            # (Line 136) }
+            # (Line 129) }
+            # (Line 130) }
         EUDEndIf()
-        # (Line 137) }
+        # (Line 131) }
     EUDEndIf()
