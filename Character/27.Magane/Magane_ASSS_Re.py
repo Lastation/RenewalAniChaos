@@ -222,6 +222,9 @@ function main(cp)
 
          if (f.loop[cp] == 11)
          {
+            KillUnitAt(All, "40 + 1n Ghost", "Anywhere", cp);
+
+
             f.count[cp] += 1;
             f.loop[cp] = 0;
          }
@@ -259,12 +262,14 @@ function main(cp)
          {
             RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
 
-            f.SquareShape(cp, 1, "40 + 1n Guardian", x, y);
+            f.SquareShape(cp, 1, "80 + 1n Guardian", x, y);
             EdgeShapeAt(cp, 1, "Bengalaas (Jungle)", 0, 2, 25, x, y);
 
-            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+            KillUnitAt(All, "80 + 1n Guardian", "Anywhere", cp);
             KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", cp);
          }
+
+
          if (f.loop[cp] == 8)
          {
             f.SquareShape(cp, 1, "40 + 1n Guardian", 160, 0);
@@ -273,16 +278,24 @@ function main(cp)
             f.SquareShape(cp, 1, "40 + 1n Guardian", 40, 120);
             f.SquareShape(cp, 1, "40 + 1n Guardian", 80, 0);
 
-            f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, 150, 150);
-            f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, -150, -150);
-            f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, -150, 150);
-            f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, 150, -150);
-
             f.SquareShape(cp, 1, " Unit. Hoffnung 25000", 160, 0);
             f.SquareShape(cp, 1, " Unit. Hoffnung 25000", 120, 40);
             f.SquareShape(cp, 1, " Unit. Hoffnung 25000", 80, 80);
             f.SquareShape(cp, 1, " Unit. Hoffnung 25000", 40, 120);
             f.SquareShape(cp, 1, " Unit. Hoffnung 25000", 80, 0);
+
+            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+
+            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
+         }
+
+         if (f.loop[cp] == 12)
+         {
+            f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, 150, 150);
+            f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, -150, -150);
+            f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, -150, 150);
+            f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, 150, -150);
 
             f.SquareShapeAt(cp, 1, " Unit. Hoffnung 25000", 25, 25, 150, 150);
             f.SquareShapeAt(cp, 1, " Unit. Hoffnung 25000", 25, 25, -150, -150);
@@ -294,11 +307,12 @@ function main(cp)
             Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
          }
 
+
          f.SkillWait(cp, 80);
 
          f.loop[cp] += 1;
 
-         if (f.loop[cp] == 14)
+         if (f.loop[cp] == 16)
          {
             f.count[cp] += 1;
             f.loop[cp] = 0;         
