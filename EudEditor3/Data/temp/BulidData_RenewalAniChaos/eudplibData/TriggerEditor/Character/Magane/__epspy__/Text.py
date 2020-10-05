@@ -281,33 +281,6 @@ def Text(num):
         f.stb.print("\x13\x04거짓말의 거짓말\x04")
         # (Line 78) break;
         EUDBreak()
-        # (Line 79) case 12:
-    _t12 = EUDSwitchCase()
-    # (Line 80) PlayWAV("Yuuna_Ult02.ogg");
-    if _t12(12):
-        # (Line 81) break;
-        DoActions(PlayWAV("Yuuna_Ult02.ogg"))
-        EUDBreak()
-        # (Line 82) case 13:
-    _t13 = EUDSwitchCase()
-    # (Line 83) f.stb.printAt(3, "\x13\x1BYuuki Yuuna\n");
-    if _t13(13):
-        f.stb.printAt(3, "\x13\x1BYuuki Yuuna\n")
-        # (Line 84) f.stb.printAt(5, "\x13\x08용사──── 펀치─────!!\x04");
-        f.stb.printAt(5, "\x13\x08용사──── 펀치─────!!\x04")
-        # (Line 85) break;
-        EUDBreak()
-        # (Line 86) case 14:
-    _t14 = EUDSwitchCase()
-    # (Line 87) PlayWAV("Yuuna_06.ogg");
-    if _t14(14):
-        # (Line 88) f.stb.printAt(3, "\x13\x1BYuuki Yuuna\n");
-        DoActions(PlayWAV("Yuuna_06.ogg"))
-        f.stb.printAt(3, "\x13\x1BYuuki Yuuna\n")
-        # (Line 89) f.stb.printAt(5, "\x13\x04만개!\x04");
-        f.stb.printAt(5, "\x13\x04만개!\x04")
-        # (Line 90) break;
-        EUDBreak()
-        # (Line 91) }
-    # (Line 92) }
+        # (Line 79) }
+    # (Line 80) }
     EUDEndSwitch()

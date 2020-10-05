@@ -168,8 +168,8 @@ def f_main(cp):
         # (Line 27) if (Bring(cp, AtLeast, 2, "Protoss Scout", "[Skill]UseSkill") &&  f.step[cp] == 100)
         if EUDIf()(EUDSCAnd()(Bring(cp, AtLeast, 2, "Protoss Scout", "[Skill]UseSkill"))(f.step[cp] == 100)()):
             # (Line 28) {
-            # (Line 29) f.Voice_Routine(cp, 4);
-            f.Voice_Routine(cp, 4)
+            # (Line 29) f.Voice_Routine(cp, 1);
+            f.Voice_Routine(cp, 1)
             # (Line 30) f.wait[cp] = 0;
             _ARRW(f.wait, cp) << (0)
             # (Line 31) f.step[cp] = 110;

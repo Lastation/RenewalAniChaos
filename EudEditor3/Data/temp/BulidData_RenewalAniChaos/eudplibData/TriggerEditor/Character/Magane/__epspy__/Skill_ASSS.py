@@ -457,165 +457,178 @@ def f_main(cp):
             # (Line 223) if (f.loop[cp] == 11)
             if EUDIf()(f.loop[cp] == 11):
                 # (Line 224) {
-                # (Line 225) f.count[cp] += 1;
+                # (Line 225) KillUnitAt(All, "40 + 1n Ghost", "Anywhere", cp);
+                # (Line 227) f.count[cp] += 1;
+                DoActions(KillUnitAt(All, "40 + 1n Ghost", "Anywhere", cp))
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 226) f.loop[cp] = 0;
+                # (Line 228) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
-                # (Line 227) }
-                # (Line 228) }
+                # (Line 229) }
+                # (Line 230) }
             EUDEndIf()
-            # (Line 229) else if (f.count[cp] == 3)
+            # (Line 231) else if (f.count[cp] == 3)
         if EUDElseIf()(f.count[cp] == 3):
-            # (Line 230) {
-            # (Line 231) var i = 0;
+            # (Line 232) {
+            # (Line 233) var i = 0;
             i = EUDVariable()
             i << (0)
-            # (Line 232) var x = 0;
+            # (Line 234) var x = 0;
             x = EUDVariable()
             x << (0)
-            # (Line 233) var y = 0;
+            # (Line 235) var y = 0;
             y = EUDVariable()
             y << (0)
-            # (Line 235) if (f.loop[cp] < 4)
+            # (Line 237) if (f.loop[cp] < 4)
             if EUDIf()(f.loop[cp] >= 4, neg=True):
-                # (Line 236) {
-                # (Line 237) i = f.loop[cp];
+                # (Line 238) {
+                # (Line 239) i = f.loop[cp];
                 i << (f.loop[cp])
-                # (Line 239) x = 120 - 40 * i;
+                # (Line 241) x = 120 - 40 * i;
                 x << (120 - 40 * i)
-                # (Line 240) y = 40 + 40 * i;
+                # (Line 242) y = 40 + 40 * i;
                 y << (40 + 40 * i)
-                # (Line 241) }
-                # (Line 242) else if (f.loop[cp] == 4)
+                # (Line 243) }
+                # (Line 244) else if (f.loop[cp] == 4)
             if EUDElseIf()(f.loop[cp] == 4):
-                # (Line 243) {
-                # (Line 244) x = 80;
+                # (Line 245) {
+                # (Line 246) x = 80;
                 x << (80)
-                # (Line 245) y = 0;
+                # (Line 247) y = 0;
                 y << (0)
-                # (Line 246) }
-                # (Line 247) else if (f.loop[cp] == 5)
+                # (Line 248) }
+                # (Line 249) else if (f.loop[cp] == 5)
             if EUDElseIf()(f.loop[cp] == 5):
-                # (Line 248) {
-                # (Line 249) x = 80;
+                # (Line 250) {
+                # (Line 251) x = 80;
                 x << (80)
-                # (Line 250) y = 80;
+                # (Line 252) y = 80;
                 y << (80)
-                # (Line 251) }
-                # (Line 252) else if (f.loop[cp] == 6 || f.loop[cp] == 7)
+                # (Line 253) }
+                # (Line 254) else if (f.loop[cp] == 6 || f.loop[cp] == 7)
             if EUDElseIf()(EUDSCOr()(f.loop[cp] == 6)(f.loop[cp] == 7)()):
-                # (Line 253) {
-                # (Line 254) x = 150;
+                # (Line 255) {
+                # (Line 256) x = 150;
                 x << (150)
-                # (Line 255) y = 150;
+                # (Line 257) y = 150;
                 y << (150)
-                # (Line 256) }
-                # (Line 258) if (f.loop[cp] < 8)
+                # (Line 258) }
+                # (Line 260) if (f.loop[cp] < 8)
             EUDEndIf()
             if EUDIf()(f.loop[cp] >= 8, neg=True):
-                # (Line 259) {
-                # (Line 260) RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
-                # (Line 262) f.SquareShape(cp, 1, "40 + 1n Guardian", x, y);
+                # (Line 261) {
+                # (Line 262) RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
+                # (Line 264) f.SquareShape(cp, 1, "80 + 1n Guardian", x, y);
                 DoActions(RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp))
-                f.SquareShape(cp, 1, "40 + 1n Guardian", x, y)
-                # (Line 263) EdgeShapeAt(cp, 1, "Bengalaas (Jungle)", 0, 2, 25, x, y);
+                f.SquareShape(cp, 1, "80 + 1n Guardian", x, y)
+                # (Line 265) EdgeShapeAt(cp, 1, "Bengalaas (Jungle)", 0, 2, 25, x, y);
                 EdgeShapeAt(cp, 1, "Bengalaas (Jungle)", 0, 2, 25, x, y)
-                # (Line 265) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-                # (Line 266) KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", cp);
-                DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp))
-                # (Line 267) }
+                # (Line 267) KillUnitAt(All, "80 + 1n Guardian", "Anywhere", cp);
+                # (Line 268) KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", cp);
+                DoActions(KillUnitAt(All, "80 + 1n Guardian", "Anywhere", cp))
+                # (Line 269) }
                 DoActions(KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", cp))
-                # (Line 268) if (f.loop[cp] == 8)
+                # (Line 272) if (f.loop[cp] == 8)
             EUDEndIf()
             if EUDIf()(f.loop[cp] == 8):
-                # (Line 269) {
-                # (Line 270) f.SquareShape(cp, 1, "40 + 1n Guardian", 160, 0);
+                # (Line 273) {
+                # (Line 274) f.SquareShape(cp, 1, "40 + 1n Guardian", 160, 0);
                 f.SquareShape(cp, 1, "40 + 1n Guardian", 160, 0)
-                # (Line 271) f.SquareShape(cp, 1, "40 + 1n Guardian", 120, 40);
+                # (Line 275) f.SquareShape(cp, 1, "40 + 1n Guardian", 120, 40);
                 f.SquareShape(cp, 1, "40 + 1n Guardian", 120, 40)
-                # (Line 272) f.SquareShape(cp, 1, "40 + 1n Guardian", 80, 80);
+                # (Line 276) f.SquareShape(cp, 1, "40 + 1n Guardian", 80, 80);
                 f.SquareShape(cp, 1, "40 + 1n Guardian", 80, 80)
-                # (Line 273) f.SquareShape(cp, 1, "40 + 1n Guardian", 40, 120);
+                # (Line 277) f.SquareShape(cp, 1, "40 + 1n Guardian", 40, 120);
                 f.SquareShape(cp, 1, "40 + 1n Guardian", 40, 120)
-                # (Line 274) f.SquareShape(cp, 1, "40 + 1n Guardian", 80, 0);
+                # (Line 278) f.SquareShape(cp, 1, "40 + 1n Guardian", 80, 0);
                 f.SquareShape(cp, 1, "40 + 1n Guardian", 80, 0)
-                # (Line 276) f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, 150, 150);
-                f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, 150, 150)
-                # (Line 277) f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, -150, -150);
-                f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, -150, -150)
-                # (Line 278) f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, -150, 150);
-                f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, -150, 150)
-                # (Line 279) f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, 150, -150);
-                f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, 150, -150)
-                # (Line 281) f.SquareShape(cp, 1, " Unit. Hoffnung 25000", 160, 0);
+                # (Line 280) f.SquareShape(cp, 1, " Unit. Hoffnung 25000", 160, 0);
                 f.SquareShape(cp, 1, " Unit. Hoffnung 25000", 160, 0)
-                # (Line 282) f.SquareShape(cp, 1, " Unit. Hoffnung 25000", 120, 40);
+                # (Line 281) f.SquareShape(cp, 1, " Unit. Hoffnung 25000", 120, 40);
                 f.SquareShape(cp, 1, " Unit. Hoffnung 25000", 120, 40)
-                # (Line 283) f.SquareShape(cp, 1, " Unit. Hoffnung 25000", 80, 80);
+                # (Line 282) f.SquareShape(cp, 1, " Unit. Hoffnung 25000", 80, 80);
                 f.SquareShape(cp, 1, " Unit. Hoffnung 25000", 80, 80)
-                # (Line 284) f.SquareShape(cp, 1, " Unit. Hoffnung 25000", 40, 120);
+                # (Line 283) f.SquareShape(cp, 1, " Unit. Hoffnung 25000", 40, 120);
                 f.SquareShape(cp, 1, " Unit. Hoffnung 25000", 40, 120)
-                # (Line 285) f.SquareShape(cp, 1, " Unit. Hoffnung 25000", 80, 0);
+                # (Line 284) f.SquareShape(cp, 1, " Unit. Hoffnung 25000", 80, 0);
                 f.SquareShape(cp, 1, " Unit. Hoffnung 25000", 80, 0)
-                # (Line 287) f.SquareShapeAt(cp, 1, " Unit. Hoffnung 25000", 25, 25, 150, 150);
-                f.SquareShapeAt(cp, 1, " Unit. Hoffnung 25000", 25, 25, 150, 150)
-                # (Line 288) f.SquareShapeAt(cp, 1, " Unit. Hoffnung 25000", 25, 25, -150, -150);
-                f.SquareShapeAt(cp, 1, " Unit. Hoffnung 25000", 25, 25, -150, -150)
-                # (Line 289) f.SquareShapeAt(cp, 1, " Unit. Hoffnung 25000", 25, 25, -150, 150);
-                f.SquareShapeAt(cp, 1, " Unit. Hoffnung 25000", 25, 25, -150, 150)
-                # (Line 290) f.SquareShapeAt(cp, 1, " Unit. Hoffnung 25000", 25, 25, 150, -150);
-                f.SquareShapeAt(cp, 1, " Unit. Hoffnung 25000", 25, 25, 150, -150)
-                # (Line 291) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
-                # (Line 293) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 286) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+                # (Line 288) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                 DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
-                # (Line 294) Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 289) Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 295) }
+                # (Line 290) }
                 DoActions(Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]))
-                # (Line 297) f.SkillWait(cp, 80);
+                # (Line 292) if (f.loop[cp] == 12)
+            EUDEndIf()
+            if EUDIf()(f.loop[cp] == 12):
+                # (Line 293) {
+                # (Line 294) f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, 150, 150);
+                f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, 150, 150)
+                # (Line 295) f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, -150, -150);
+                f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, -150, -150)
+                # (Line 296) f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, -150, 150);
+                f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, -150, 150)
+                # (Line 297) f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, 150, -150);
+                f.SquareShapeAt(cp, 1, "40 + 1n Guardian", 25, 25, 150, -150)
+                # (Line 299) f.SquareShapeAt(cp, 1, " Unit. Hoffnung 25000", 25, 25, 150, 150);
+                f.SquareShapeAt(cp, 1, " Unit. Hoffnung 25000", 25, 25, 150, 150)
+                # (Line 300) f.SquareShapeAt(cp, 1, " Unit. Hoffnung 25000", 25, 25, -150, -150);
+                f.SquareShapeAt(cp, 1, " Unit. Hoffnung 25000", 25, 25, -150, -150)
+                # (Line 301) f.SquareShapeAt(cp, 1, " Unit. Hoffnung 25000", 25, 25, -150, 150);
+                f.SquareShapeAt(cp, 1, " Unit. Hoffnung 25000", 25, 25, -150, 150)
+                # (Line 302) f.SquareShapeAt(cp, 1, " Unit. Hoffnung 25000", 25, 25, 150, -150);
+                f.SquareShapeAt(cp, 1, " Unit. Hoffnung 25000", 25, 25, 150, -150)
+                # (Line 303) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+                # (Line 305) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
+                # (Line 306) Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
+                DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
+                # (Line 307) }
+                DoActions(Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]))
+                # (Line 310) f.SkillWait(cp, 80);
             EUDEndIf()
             f.SkillWait(cp, 80)
-            # (Line 299) f.loop[cp] += 1;
+            # (Line 312) f.loop[cp] += 1;
             _ARRW(f.loop, cp).__iadd__(1)
-            # (Line 301) if (f.loop[cp] == 14)
-            if EUDIf()(f.loop[cp] == 14):
-                # (Line 302) {
-                # (Line 303) f.count[cp] += 1;
+            # (Line 314) if (f.loop[cp] == 16)
+            if EUDIf()(f.loop[cp] == 16):
+                # (Line 315) {
+                # (Line 316) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 304) f.loop[cp] = 0;
+                # (Line 317) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
-                # (Line 305) }
-                # (Line 306) }
+                # (Line 318) }
+                # (Line 319) }
             EUDEndIf()
-            # (Line 307) else if (f.count[cp] == 4)
+            # (Line 320) else if (f.count[cp] == 4)
         if EUDElseIf()(f.count[cp] == 4):
-            # (Line 308) {
-            # (Line 309) SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
-            # (Line 311) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+            # (Line 321) {
+            # (Line 322) SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
+            # (Line 324) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
             DoActions(SetDeaths(cp, SetTo, 0, " `ShieldRecharge"))
-            # (Line 312) KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp);
+            # (Line 325) KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp))
-            # (Line 313) KillUnitAt(All, "40 + 1n Ghost", "Anywhere", cp);
+            # (Line 326) KillUnitAt(All, "40 + 1n Ghost", "Anywhere", cp);
             DoActions(KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp))
-            # (Line 315) f.SkillEnd(cp);
+            # (Line 328) f.SkillEnd(cp);
             DoActions(KillUnitAt(All, "40 + 1n Ghost", "Anywhere", cp))
             f.SkillEnd(cp)
-            # (Line 316) }
-            # (Line 317) }
+            # (Line 329) }
+            # (Line 330) }
         EUDEndIf()
-        # (Line 318) }
+        # (Line 331) }
     EUDEndIf()
-    # (Line 320) function EdgeShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, x, y)
+    # (Line 333) function EdgeShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, x, y)
 
-# (Line 321) {
+# (Line 334) {
 @EUDTypedFunc([TrgPlayer, None, TrgUnit, None, None, None, None, None])
 def EdgeShapeAt(cp, count, Unit, degree, n, interval, x, y):
-    # (Line 322) f.EdgeShapeAt(cp, count, Unit, degree, n, interval, x, y);
+    # (Line 335) f.EdgeShapeAt(cp, count, Unit, degree, n, interval, x, y);
     f.EdgeShapeAt(cp, count, Unit, degree, n, interval, x, y)
-    # (Line 323) f.EdgeShapeAt(cp, count, Unit, degree, n, interval, -x, -y);
+    # (Line 336) f.EdgeShapeAt(cp, count, Unit, degree, n, interval, -x, -y);
     f.EdgeShapeAt(cp, count, Unit, degree, n, interval, -x, -y)
-    # (Line 324) f.EdgeShapeAt(cp, count, Unit, degree, n, interval, -y, x);
+    # (Line 337) f.EdgeShapeAt(cp, count, Unit, degree, n, interval, -y, x);
     f.EdgeShapeAt(cp, count, Unit, degree, n, interval, -y, x)
-    # (Line 325) f.EdgeShapeAt(cp, count, Unit, degree, n, interval, y, -x);
+    # (Line 338) f.EdgeShapeAt(cp, count, Unit, degree, n, interval, y, -x);
     f.EdgeShapeAt(cp, count, Unit, degree, n, interval, y, -x)
-    # (Line 326) }
+    # (Line 339) }

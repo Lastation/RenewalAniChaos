@@ -1,0 +1,90 @@
+import Function as f;
+
+function main(cp)
+{
+	if (f.delay[cp] == 0)
+	{
+		if (f.count[cp] == 0)
+		{
+			f.DotShape(cp, 1, "50 + 1n Tank", 112, -48);
+			f.DotShape(cp, 1, "50 + 1n Tank", -112, -48);
+			f.DotShape(cp, 1, "50 + 1n Tank", -48, -144);
+			f.DotShape(cp, 1, "50 + 1n Tank", 48, -144);
+			
+			f.SquareShape(cp, 1, "50 + 1n Tank", 16, 16);
+			
+			f.DotShape(cp, 1, "50 + 1n Tank", -48, 16);
+			f.DotShape(cp, 1, "50 + 1n Tank", 48, 16);
+			f.DotShape(cp, 1, "50 + 1n Tank", -16, 48);
+			f.DotShape(cp, 1, "50 + 1n Tank", 16, -48);
+			
+			MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+			Order("50 + 1n Tank", cp, "Anywhere", Attack, f.location[cp]);
+			
+			f.SkillWait(cp, 0);
+			f.count[cp] += 1;
+		}
+		else if (f.count[cp] >= 1 && f.count[cp] <= 12)
+		{
+			f.DotShape(cp, 1, "Zerg Devourer", -32, -160);
+			f.DotShape(cp, 1, "Zerg Devourer", 0, -160);
+			f.DotShape(cp, 1, "Zerg Devourer", 32, -160);
+			f.DotShape(cp, 1, "Zerg Devourer", -32, -128);
+			f.DotShape(cp, 1, "Zerg Devourer", 0, -128);
+			f.DotShape(cp, 1, "Zerg Devourer", 32, -128);
+			
+			f.DotShape(cp, 1, "Zerg Devourer", -128, -96);
+			f.DotShape(cp, 1, "Zerg Devourer", -96, -96);
+			f.DotShape(cp, 1, "Zerg Devourer", -128, -64);
+			f.DotShape(cp, 1, "Zerg Devourer", -96, -64);
+			
+			f.DotShape(cp, 1, "Zerg Devourer", 128, -96);
+			f.DotShape(cp, 1, "Zerg Devourer", 96, -96);
+			f.DotShape(cp, 1, "Zerg Devourer", 128, -64);
+			f.DotShape(cp, 1, "Zerg Devourer", 96, -64);
+			
+			f.DotShape(cp, 1, "Zerg Devourer", 0, -64);
+			f.DotShape(cp, 1, "Zerg Devourer", 0, 64);
+			f.DotShape(cp, 1, "Zerg Devourer", -32, 64);
+			f.DotShape(cp, 1, "Zerg Devourer", 32, 64);
+			
+			f.DotShape(cp, 1, "Zerg Devourer", 64, 0);
+			f.DotShape(cp, 1, "Zerg Devourer", 64, 32);
+			f.DotShape(cp, 1, "Zerg Devourer", -64, 0);
+			f.DotShape(cp, 1, "Zerg Devourer", -64, 32);
+			
+			f.NxNSquareShape(cp, 1, "Zerg Devourer", 3, 32);
+			
+			KillUnitAt(All, "Zerg Devourer", "Anywhere", cp);
+			
+			f.SkillWait(cp, 0);
+			f.count[cp] += 1;
+		}
+		else if (f.count[cp] == 13)
+		{
+			KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
+			f.DotShape(cp, 1, "60 + 1n Danimoth", 112, -48);
+			f.DotShape(cp, 1, "60 + 1n Danimoth", -112, -48);
+			f.DotShape(cp, 1, "60 + 1n Danimoth", -48, -144);
+			f.DotShape(cp, 1, "60 + 1n Danimoth", 48, -144);
+			
+			f.SquareShape(cp, 1, "60 + 1n Danimoth", 16, 16);
+			
+			f.DotShape(cp, 1, "60 + 1n Danimoth", -48, 16);
+			f.DotShape(cp, 1, "60 + 1n Danimoth", 48, 16);
+			f.DotShape(cp, 1, "60 + 1n Danimoth", -16, 48);
+			f.DotShape(cp, 1, "60 + 1n Danimoth", 16, -48);
+			
+			MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+			Order("60 + 1n Danimoth", cp, "Anywhere", Attack, f.location[cp]);
+			
+			f.SkillWait(cp, 130);
+			f.count[cp] += 1;
+		}
+		else if (f.count[cp] == 14)
+		{
+			RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
+			f.SkillEnd(cp);
+		}
+	}
+}

@@ -193,170 +193,172 @@ from Character.TextD import Magellan as magellan
 def f_main(cp):
     # (Line 41) rusarukaMain.SkillVoice(cp);
     rusarukaMain.SkillVoice(cp)
-    # (Line 42) yuunaMain.SkillVoice(cp);
+    # (Line 42) kianaMain.SkillVoice(cp);
+    kianaMain.SkillVoice(cp)
+    # (Line 43) yuunaMain.SkillVoice(cp);
     yuunaMain.SkillVoice(cp)
-    # (Line 43) mayuriMain.SkillVoice(cp);
+    # (Line 44) mayuriMain.SkillVoice(cp);
     mayuriMain.SkillVoice(cp)
-    # (Line 44) nanamiMain.SkillVoice(cp);
+    # (Line 45) nanamiMain.SkillVoice(cp);
     nanamiMain.SkillVoice(cp)
-    # (Line 45) milimMain.SkillVoice(cp);
+    # (Line 46) milimMain.SkillVoice(cp);
     milimMain.SkillVoice(cp)
-    # (Line 46) yumeMain.SkillVoice(cp);
+    # (Line 47) yumeMain.SkillVoice(cp);
     yumeMain.SkillVoice(cp)
-    # (Line 47) maganeMain.SkillVoice(cp);
+    # (Line 48) maganeMain.SkillVoice(cp);
     maganeMain.SkillVoice(cp)
-    # (Line 48) odaMain.SkillVoice(cp);
+    # (Line 49) odaMain.SkillVoice(cp);
     odaMain.SkillVoice(cp)
-    # (Line 50) MargeSound(cp);
+    # (Line 51) MargeSound(cp);
     MargeSound(cp)
-    # (Line 51) }
-    # (Line 53) function MargeSound(cp)
+    # (Line 52) }
+    # (Line 54) function MargeSound(cp)
 
-# (Line 54) {
+# (Line 55) {
 @EUDFunc
 def MargeSound(cp):
-    # (Line 56) if (getuserplayerid() >= 128)
+    # (Line 57) if (getuserplayerid() >= 128)
     if EUDIf()(f_getuserplayerid() >= 128):
-        # (Line 57) {
-        # (Line 62) }
-        # (Line 66) if (v.Sound_Text1[cp] > 0)
+        # (Line 58) {
+        # (Line 63) }
+        # (Line 67) if (v.Sound_Text1[cp] > 0)
         pass
     EUDEndIf()
     if EUDIf()(v.Sound_Text1[cp] <= 0, neg=True):
-        # (Line 67) {
-        # (Line 68) chtholly.NormalText(cp);
+        # (Line 68) {
+        # (Line 69) chtholly.NormalText(cp);
         chtholly.NormalText(cp)
-        # (Line 69) maihime.NormalText(cp);
+        # (Line 70) maihime.NormalText(cp);
         maihime.NormalText(cp)
-        # (Line 70) tenshi.NormalText(cp);
+        # (Line 71) tenshi.NormalText(cp);
         tenshi.NormalText(cp)
-        # (Line 71) miyuki.NormalText(cp);
+        # (Line 72) miyuki.NormalText(cp);
         miyuki.NormalText(cp)
-        # (Line 72) negev.NormalText(cp);
+        # (Line 73) negev.NormalText(cp);
         negev.NormalText(cp)
-        # (Line 73) }
-        # (Line 75) if (v.Sound_Text2[cp] > 0)
+        # (Line 74) }
+        # (Line 76) if (v.Sound_Text2[cp] > 0)
     EUDEndIf()
     if EUDIf()(v.Sound_Text2[cp] <= 0, neg=True):
-        # (Line 76) {
-        # (Line 77) cecillia.NormalText(cp);
+        # (Line 77) {
+        # (Line 78) cecillia.NormalText(cp);
         cecillia.NormalText(cp)
-        # (Line 78) anzu.NormalText(cp);
+        # (Line 79) anzu.NormalText(cp);
         anzu.NormalText(cp)
-        # (Line 79) hotomoka.NormalText(cp);
+        # (Line 80) hotomoka.NormalText(cp);
         hotomoka.NormalText(cp)
-        # (Line 80) alterego.NormalText(cp);
+        # (Line 81) alterego.NormalText(cp);
         alterego.NormalText(cp)
-        # (Line 82) ryuzu.NormalText(cp);
+        # (Line 83) ryuzu.NormalText(cp);
         ryuzu.NormalText(cp)
-        # (Line 83) }
-        # (Line 86) if (v.Sound_Text3[cp] > 0)
+        # (Line 84) }
+        # (Line 87) if (v.Sound_Text3[cp] > 0)
     EUDEndIf()
     if EUDIf()(v.Sound_Text3[cp] <= 0, neg=True):
-        # (Line 87) {
-        # (Line 88) sakura.NormalText(cp);
+        # (Line 88) {
+        # (Line 89) sakura.NormalText(cp);
         sakura.NormalText(cp)
-        # (Line 89) yashiro.NormalText(cp);
+        # (Line 90) yashiro.NormalText(cp);
         yashiro.NormalText(cp)
-        # (Line 90) rin.NormalText(cp);
+        # (Line 91) rin.NormalText(cp);
         rin.NormalText(cp)
-        # (Line 91) seraphim.NormalText(cp);
+        # (Line 92) seraphim.NormalText(cp);
         seraphim.NormalText(cp)
-        # (Line 92) tenkei.NormalText(cp);
+        # (Line 93) tenkei.NormalText(cp);
         tenkei.NormalText(cp)
-        # (Line 93) }
-        # (Line 96) if (v.Sound_Text4[cp] > 0)
+        # (Line 94) }
+        # (Line 97) if (v.Sound_Text4[cp] > 0)
     EUDEndIf()
     if EUDIf()(v.Sound_Text4[cp] <= 0, neg=True):
-        # (Line 97) {
-        # (Line 98) mn.NormalText(cp);
+        # (Line 98) {
+        # (Line 99) mn.NormalText(cp);
         mn.NormalText(cp)
-        # (Line 99) emet.NormalText(cp);
+        # (Line 100) emet.NormalText(cp);
         emet.NormalText(cp)
-        # (Line 100) magellan.NormalText(cp);
+        # (Line 101) magellan.NormalText(cp);
         magellan.NormalText(cp)
-        # (Line 101) }
-        # (Line 103) if (v.Sound_Text_Uilti[cp] > 0)
+        # (Line 102) }
+        # (Line 104) if (v.Sound_Text_Uilti[cp] > 0)
     EUDEndIf()
     if EUDIf()(v.Sound_Text_Uilti[cp] <= 0, neg=True):
-        # (Line 104) {
-        # (Line 106) chtholly.UiltimateText(cp);
+        # (Line 105) {
+        # (Line 107) chtholly.UiltimateText(cp);
         chtholly.UiltimateText(cp)
-        # (Line 107) maihime.UiltimateText(cp);
+        # (Line 108) maihime.UiltimateText(cp);
         maihime.UiltimateText(cp)
-        # (Line 108) tenshi.UiltimateText(cp);
+        # (Line 109) tenshi.UiltimateText(cp);
         tenshi.UiltimateText(cp)
-        # (Line 109) miyuki.UiltimateText(cp);
+        # (Line 110) miyuki.UiltimateText(cp);
         miyuki.UiltimateText(cp)
-        # (Line 110) negev.UiltimateText(cp);
+        # (Line 111) negev.UiltimateText(cp);
         negev.UiltimateText(cp)
-        # (Line 113) cecillia.UiltimateText(cp);
+        # (Line 114) cecillia.UiltimateText(cp);
         cecillia.UiltimateText(cp)
-        # (Line 114) anzu.UiltimateText(cp);
+        # (Line 115) anzu.UiltimateText(cp);
         anzu.UiltimateText(cp)
-        # (Line 115) hotomoka.UiltimateText(cp);
+        # (Line 116) hotomoka.UiltimateText(cp);
         hotomoka.UiltimateText(cp)
-        # (Line 116) alterego.UiltimateText(cp);
+        # (Line 117) alterego.UiltimateText(cp);
         alterego.UiltimateText(cp)
-        # (Line 118) ryuzu.UiltimateText(cp);
+        # (Line 119) ryuzu.UiltimateText(cp);
         ryuzu.UiltimateText(cp)
-        # (Line 121) sakura.UiltimateText(cp);
+        # (Line 122) sakura.UiltimateText(cp);
         sakura.UiltimateText(cp)
-        # (Line 122) yashiro.UiltimateText(cp);
+        # (Line 123) yashiro.UiltimateText(cp);
         yashiro.UiltimateText(cp)
-        # (Line 123) rin.UiltimateText(cp);
+        # (Line 124) rin.UiltimateText(cp);
         rin.UiltimateText(cp)
-        # (Line 124) seraphim.UiltimateText(cp);
+        # (Line 125) seraphim.UiltimateText(cp);
         seraphim.UiltimateText(cp)
-        # (Line 125) tenkei.UiltimateText(cp);
+        # (Line 126) tenkei.UiltimateText(cp);
         tenkei.UiltimateText(cp)
-        # (Line 128) mn.UiltimateText(cp);
+        # (Line 129) mn.UiltimateText(cp);
         mn.UiltimateText(cp)
-        # (Line 129) emet.UiltimateText(cp);
+        # (Line 130) emet.UiltimateText(cp);
         emet.UiltimateText(cp)
-        # (Line 130) magellan.UiltimateText(cp);
+        # (Line 131) magellan.UiltimateText(cp);
         magellan.UiltimateText(cp)
-        # (Line 131) }
-        # (Line 133) if (v.Sound_Text_Uniq[cp] > 0)
+        # (Line 132) }
+        # (Line 134) if (v.Sound_Text_Uniq[cp] > 0)
     EUDEndIf()
     if EUDIf()(v.Sound_Text_Uniq[cp] <= 0, neg=True):
-        # (Line 134) {
-        # (Line 136) chtholly.UniqueText(cp);
+        # (Line 135) {
+        # (Line 137) chtholly.UniqueText(cp);
         chtholly.UniqueText(cp)
-        # (Line 137) maihime.UniqueText(cp);
+        # (Line 138) maihime.UniqueText(cp);
         maihime.UniqueText(cp)
-        # (Line 138) tenshi.UniqueText(cp);
+        # (Line 139) tenshi.UniqueText(cp);
         tenshi.UniqueText(cp)
-        # (Line 139) miyuki.UniqueText(cp);
+        # (Line 140) miyuki.UniqueText(cp);
         miyuki.UniqueText(cp)
-        # (Line 140) negev.UniqueText(cp);
+        # (Line 141) negev.UniqueText(cp);
         negev.UniqueText(cp)
-        # (Line 143) cecillia.UniqueText(cp);
+        # (Line 144) cecillia.UniqueText(cp);
         cecillia.UniqueText(cp)
-        # (Line 144) anzu.UniqueText(cp);
+        # (Line 145) anzu.UniqueText(cp);
         anzu.UniqueText(cp)
-        # (Line 145) hotomoka.UniqueText(cp);
+        # (Line 146) hotomoka.UniqueText(cp);
         hotomoka.UniqueText(cp)
-        # (Line 146) alterego.UniqueText(cp);
+        # (Line 147) alterego.UniqueText(cp);
         alterego.UniqueText(cp)
-        # (Line 148) ryuzu.UniqueText(cp);
+        # (Line 149) ryuzu.UniqueText(cp);
         ryuzu.UniqueText(cp)
-        # (Line 151) sakura.UniqueText(cp);
+        # (Line 152) sakura.UniqueText(cp);
         sakura.UniqueText(cp)
-        # (Line 152) yashiro.UniqueText(cp);
+        # (Line 153) yashiro.UniqueText(cp);
         yashiro.UniqueText(cp)
-        # (Line 153) rin.UniqueText(cp);
+        # (Line 154) rin.UniqueText(cp);
         rin.UniqueText(cp)
-        # (Line 154) seraphim.UniqueText(cp);
+        # (Line 155) seraphim.UniqueText(cp);
         seraphim.UniqueText(cp)
-        # (Line 155) tenkei.UniqueText(cp);
+        # (Line 156) tenkei.UniqueText(cp);
         tenkei.UniqueText(cp)
-        # (Line 158) mn.UniqueText(cp);
+        # (Line 159) mn.UniqueText(cp);
         mn.UniqueText(cp)
-        # (Line 159) emet.UniqueText(cp);
+        # (Line 160) emet.UniqueText(cp);
         emet.UniqueText(cp)
-        # (Line 160) magellan.UniqueText(cp);
+        # (Line 161) magellan.UniqueText(cp);
         magellan.UniqueText(cp)
-        # (Line 161) }
         # (Line 162) }
+        # (Line 163) }
     EUDEndIf()

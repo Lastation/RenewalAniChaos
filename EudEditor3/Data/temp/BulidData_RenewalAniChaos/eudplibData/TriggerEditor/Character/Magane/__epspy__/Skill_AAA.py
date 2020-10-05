@@ -510,15 +510,15 @@ def f_main(cp):
             DoActions(RemoveUnitAt(All, "80 + 1n Vulture", "Anywhere", cp))
             r = EUDVariable()
             r << (67)
-            # (Line 208) var n = 18;
+            # (Line 208) var n = 12;
             n = EUDVariable()
-            n << (18)
-            # (Line 209) var interval = 32;
+            n << (12)
+            # (Line 209) var interval = 50;
             interval = EUDVariable()
-            interval << (32)
-            # (Line 210) var d1 = 50 + 25 * f.loop[cp];
+            interval << (50)
+            # (Line 210) var d1 = 50 + 50 * f.loop[cp];
             d1 = EUDVariable()
-            d1 << (50 + 25 * f.loop[cp])
+            d1 << (50 + 50 * f.loop[cp])
             # (Line 212) LineShape(cp, 1, "80 + 1n Vulture", r, n, interval, d1);
             LineShape(cp, 1, "80 + 1n Vulture", r, n, interval, d1)
             # (Line 213) LineShape(cp, 1, "60 + 1n High Templar", r, n, interval, d1);
@@ -528,13 +528,13 @@ def f_main(cp):
             DoActions(KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp))
             # (Line 217) Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]);
             DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-            # (Line 219) f.SkillWait(cp, 80);
+            # (Line 219) f.SkillWait(cp, 160);
             DoActions(Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]))
-            f.SkillWait(cp, 80)
+            f.SkillWait(cp, 160)
             # (Line 221) f.loop[cp] += 1;
             _ARRW(f.loop, cp).__iadd__(1)
-            # (Line 223) if (f.loop[cp] == 6)
-            if EUDIf()(f.loop[cp] == 6):
+            # (Line 223) if (f.loop[cp] == 3)
+            if EUDIf()(f.loop[cp] == 3):
                 # (Line 224) {
                 # (Line 225) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
@@ -551,18 +551,18 @@ def f_main(cp):
             DoActions(RemoveUnitAt(All, "80 + 1n Vulture", "Anywhere", cp))
             r = EUDVariable()
             r << (67)
-            # (Line 234) var n = 18;
+            # (Line 234) var n = 12;
             n = EUDVariable()
-            n << (18)
-            # (Line 235) var interval = 32;
+            n << (12)
+            # (Line 235) var interval = 50;
             interval = EUDVariable()
-            interval << (32)
+            interval << (50)
             # (Line 236) var d1 = 200;
             d1 = EUDVariable()
             d1 << (200)
-            # (Line 237) var d2 = 175 - 25 * f.loop[cp];
+            # (Line 237) var d2 = 175 - 50 * f.loop[cp];
             d2 = EUDVariable()
-            d2 << (175 - 25 * f.loop[cp])
+            d2 << (175 - 50 * f.loop[cp])
             # (Line 239) if (f.loop[cp] == 0)
             if EUDIf()(f.loop[cp] == 0):
                 # (Line 240) {
@@ -585,13 +585,13 @@ def f_main(cp):
             DoActions(KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp))
             # (Line 252) Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]);
             DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-            # (Line 254) f.SkillWait(cp, 80);
+            # (Line 254) f.SkillWait(cp, 160);
             DoActions(Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]))
-            f.SkillWait(cp, 80)
+            f.SkillWait(cp, 160)
             # (Line 256) f.loop[cp] += 1;
             _ARRW(f.loop, cp).__iadd__(1)
-            # (Line 258) if (f.loop[cp] == 6)
-            if EUDIf()(f.loop[cp] == 6):
+            # (Line 258) if (f.loop[cp] == 3)
+            if EUDIf()(f.loop[cp] == 3):
                 # (Line 259) {
                 # (Line 260) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
@@ -608,12 +608,12 @@ def f_main(cp):
             DoActions(RemoveUnitAt(All, "80 + 1n Vulture", "Anywhere", cp))
             r = EUDVariable()
             r << (67)
-            # (Line 270) var n = 18;
+            # (Line 270) var n = 12;
             n = EUDVariable()
-            n << (18)
-            # (Line 271) var interval = 32;
+            n << (12)
+            # (Line 271) var interval = 50;
             interval = EUDVariable()
-            interval << (32)
+            interval << (50)
             # (Line 272) var d1 = 200;
             d1 = EUDVariable()
             d1 << (200)
@@ -642,9 +642,9 @@ def f_main(cp):
             DoActions(KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp))
             # (Line 288) Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]);
             DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-            # (Line 290) f.SkillWait(cp, 80);
+            # (Line 290) f.SkillWait(cp, 160);
             DoActions(Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]))
-            f.SkillWait(cp, 80)
+            f.SkillWait(cp, 160)
             # (Line 292) f.loop[cp] += 1;
             _ARRW(f.loop, cp).__iadd__(1)
             # (Line 294) if (f.loop[cp] == 6)
@@ -663,16 +663,16 @@ def f_main(cp):
         if EUDElseIf()(f.count[cp] == 4):
             # (Line 303) {
             # (Line 304) RemoveUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
-            # (Line 306) var r = 67 + 6 * f.loop[cp];
+            # (Line 306) var r = 67 + 12 * f.loop[cp];
             DoActions(RemoveUnitAt(All, "80 + 1n Vulture", "Anywhere", cp))
             r = EUDVariable()
-            r << (67 + 6 * f.loop[cp])
-            # (Line 307) var n = 18;
+            r << (67 + 12 * f.loop[cp])
+            # (Line 307) var n = 12;
             n = EUDVariable()
-            n << (18)
-            # (Line 308) var interval = 32;
+            n << (12)
+            # (Line 308) var interval = 50;
             interval = EUDVariable()
-            interval << (32)
+            interval << (50)
             # (Line 309) var d1 = 200;
             d1 = EUDVariable()
             d1 << (200)
@@ -692,13 +692,13 @@ def f_main(cp):
             DoActions(KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp))
             # (Line 319) Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]);
             DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-            # (Line 321) f.SkillWait(cp, 80);
+            # (Line 321) f.SkillWait(cp, 160);
             DoActions(Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]))
-            f.SkillWait(cp, 80)
+            f.SkillWait(cp, 160)
             # (Line 323) f.loop[cp] += 1;
             _ARRW(f.loop, cp).__iadd__(1)
-            # (Line 325) if (f.loop[cp] == 26)
-            if EUDIf()(f.loop[cp] == 26):
+            # (Line 325) if (f.loop[cp] == 13)
+            if EUDIf()(f.loop[cp] == 13):
                 # (Line 326) {
                 # (Line 327) f.Voice_Routine(cp, 7);
                 f.Voice_Routine(cp, 7)

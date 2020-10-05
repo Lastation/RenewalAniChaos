@@ -132,102 +132,111 @@ import Function as f
 from Character.Kiana import Skill_S as S
 # (Line 5) import Character.Kiana.Skill_C as C;
 from Character.Kiana import Skill_C as C
-# (Line 8) import Character.Kiana.Text as text;
+# (Line 8) import Character.Kiana.Skill_SSS as SSS;
+from Character.Kiana import Skill_SSS as SSS
+# (Line 10) import Character.Kiana.Text as text;
 from Character.Kiana import Text as text
-# (Line 9) import Character.Kiana.Commend as commend;
+# (Line 11) import Character.Kiana.Commend as commend;
 from Character.Kiana import Commend as commend
-# (Line 11) function SkillList(cp);
-# (Line 13) function main(cp)
-# (Line 14) {
+# (Line 13) function SkillList(cp);
+# (Line 15) function main(cp)
+# (Line 16) {
 @EUDFunc
 def f_main(cp):
-    # (Line 15) f.location[cp] = 170;
+    # (Line 17) f.location[cp] = 170;
     _ARRW(f.location, cp) << (170)
-    # (Line 16) f.heroID[cp] = 77;
+    # (Line 18) f.heroID[cp] = 77;
     _ARRW(f.heroID, cp) << (77)
-    # (Line 18) f.UltimateA[cp] = 700;
+    # (Line 20) f.UltimateA[cp] = 700;
     _ARRW(f.UltimateA, cp) << (700)
-    # (Line 19) f.UltimateB[cp] = 700;
+    # (Line 21) f.UltimateB[cp] = 700;
     _ARRW(f.UltimateB, cp) << (700)
-    # (Line 22) commend.main(cp);
+    # (Line 24) commend.main(cp);
     commend.f_main(cp)
-    # (Line 23) SkillList(cp);
+    # (Line 25) SkillList(cp);
     SkillList(cp)
-    # (Line 25) if (f.wait[cp] == 0)
+    # (Line 27) if (f.wait[cp] == 0)
     if EUDIf()(f.wait[cp] == 0):
-        # (Line 26) {
-        # (Line 27) switch(f.step[cp])
-        EUDSwitch(f.step[cp])
         # (Line 28) {
-        # (Line 29) case 1:
+        # (Line 29) switch(f.step[cp])
+        EUDSwitch(f.step[cp])
+        # (Line 30) {
+        # (Line 31) case 1:
         _t2 = EUDSwitchCase()
-        # (Line 31) break;
+        # (Line 33) break;
         if _t2(1):
             EUDBreak()
-            # (Line 32) case 100:
+            # (Line 34) case 100:
         _t3 = EUDSwitchCase()
-        # (Line 33) S.main(cp);
+        # (Line 35) S.main(cp);
         if _t3(100):
             S.f_main(cp)
-            # (Line 34) break;
+            # (Line 36) break;
             EUDBreak()
-            # (Line 35) case 200:
+            # (Line 37) case 110:
         _t4 = EUDSwitchCase()
-        # (Line 36) C.main(cp);
-        if _t4(200):
-            C.f_main(cp)
-            # (Line 37) break;
+        # (Line 38) SSS.main(cp);
+        if _t4(110):
+            SSS.f_main(cp)
+            # (Line 39) break;
             EUDBreak()
-            # (Line 38) case 300:
+            # (Line 40) case 200:
         _t5 = EUDSwitchCase()
-        # (Line 40) break;
-        if _t5(300):
+        # (Line 41) C.main(cp);
+        if _t5(200):
+            C.f_main(cp)
+            # (Line 42) break;
             EUDBreak()
-            # (Line 41) }
-        # (Line 42) }
+            # (Line 43) case 300:
+        _t6 = EUDSwitchCase()
+        # (Line 45) break;
+        if _t6(300):
+            EUDBreak()
+            # (Line 46) }
+        # (Line 47) }
         EUDEndSwitch()
-        # (Line 44) }
+        # (Line 49) }
     EUDEndIf()
-    # (Line 47) function SkillVoice(cp)
-
-# (Line 48) {
-@EUDFunc
-def SkillVoice(cp):
-    # (Line 49) if (f.Kiana_Voice[cp] != 0) { text.main(cp); }
-    if EUDIf()(f.Kiana_Voice[cp] == 0, neg=True):
-        text.f_main(cp)
-        # (Line 50) }
-    EUDEndIf()
-    # (Line 52) function SkillList(cp)
+    # (Line 52) function SkillVoice(cp)
 
 # (Line 53) {
 @EUDFunc
+def SkillVoice(cp):
+    # (Line 54) if (f.Kiana_Voice[cp] != 0) { text.main(cp); }
+    if EUDIf()(f.Kiana_Voice[cp] == 0, neg=True):
+        text.f_main(cp)
+        # (Line 55) }
+    EUDEndIf()
+    # (Line 57) function SkillList(cp)
+
+# (Line 58) {
+@EUDFunc
 def SkillList(cp):
-    # (Line 54) if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
+    # (Line 59) if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
     if EUDIf()(Memory(0x00596A44, Exactly, 256)):
-        # (Line 55) {
-        # (Line 56) f.stb.printAt(0, "\n");
+        # (Line 60) {
+        # (Line 61) f.stb.printAt(0, "\n");
         f.stb.printAt(0, "\n")
-        # (Line 57) f.stb.printAt(1, "\x1F　＃\x04- \x17키아나 카스라나　\x04[ 붕괴3 ]");
+        # (Line 62) f.stb.printAt(1, "\x1F　＃\x04- \x17키아나 카스라나　\x04[ 붕괴3 ]");
         f.stb.printAt(1, "\x1F　＃\x04- \x17키아나 카스라나　\x04[ 붕괴3 ]")
-        # (Line 58) f.stb.printAt(2, "　　\x1FA\x04ction List");
+        # (Line 63) f.stb.printAt(2, "　　\x1FA\x04ction List");
         f.stb.printAt(2, "　　\x1FA\x04ction List")
-        # (Line 59) f.stb.printAt(3, "　　　\x18 O \x04  \x19[  ] \x053분");
+        # (Line 64) f.stb.printAt(3, "　　　\x18 O \x04  \x19[  ] \x053분");
         f.stb.printAt(3, "　　　\x18 O \x04  \x19[  ] \x053분")
-        # (Line 60) f.stb.printAt(4, "　　　\x1F SSS \x04 네코참! \x19[ 공성 ]");
+        # (Line 65) f.stb.printAt(4, "　　　\x1F SSS \x04 네코참! \x19[ 공성 ]");
         f.stb.printAt(4, "　　　\x1F SSS \x04 네코참! \x19[ 공성 ]")
-        # (Line 61) f.stb.printAt(5, "　　　\x1F ??? \x04  \x19[  ]");
+        # (Line 66) f.stb.printAt(5, "　　　\x1F ??? \x04  \x19[  ]");
         f.stb.printAt(5, "　　　\x1F ??? \x04  \x19[  ]")
-        # (Line 62) f.stb.printAt(6, "\n");
+        # (Line 67) f.stb.printAt(6, "\n");
         f.stb.printAt(6, "\n")
-        # (Line 63) f.stb.printAt(7, "　　　\x08AAAA \x04 \x19[  ] \x05", f.UltimateA[cp]);
+        # (Line 68) f.stb.printAt(7, "　　　\x08AAAA \x04 \x19[  ] \x05", f.UltimateA[cp]);
         f.stb.printAt(7, "　　　\x08AAAA \x04 \x19[  ] \x05", f.UltimateA[cp])
-        # (Line 64) f.stb.printAt(8, "\n");
+        # (Line 69) f.stb.printAt(8, "\n");
         f.stb.printAt(8, "\n")
-        # (Line 65) f.stb.printAt(9, "\n");
+        # (Line 70) f.stb.printAt(9, "\n");
         f.stb.printAt(9, "\n")
-        # (Line 66) PlayWAV("sound\\Bullet\\LaserHit.wav");
-        # (Line 67) }
+        # (Line 71) PlayWAV("sound\\Bullet\\LaserHit.wav");
+        # (Line 72) }
         DoActions(PlayWAV("sound\\Bullet\\LaserHit.wav"))
-        # (Line 68) }
+        # (Line 73) }
     EUDEndIf()

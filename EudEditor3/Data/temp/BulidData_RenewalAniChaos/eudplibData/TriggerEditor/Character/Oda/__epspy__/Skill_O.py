@@ -128,99 +128,128 @@ def _LSH(l, r):
 
 # (Line 1) import Function as f;
 import Function as f
-# (Line 3) const posX = PVariable();
-posX = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 5) const posY = PVariable();
-posY = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 7) var max_n = 5;
+# (Line 3) const posX1 = PVariable();
+posX1 = _CGFW(lambda: [PVariable()], 1)[0]
+# (Line 4) const posX2 = PVariable();
+posX2 = _CGFW(lambda: [PVariable()], 1)[0]
+# (Line 6) const posY1 = PVariable();
+posY1 = _CGFW(lambda: [PVariable()], 1)[0]
+# (Line 7) const posY2 = PVariable();
+posY2 = _CGFW(lambda: [PVariable()], 1)[0]
+# (Line 9) var n = 0;
+n = EUDCreateVariables(1)
+_IGVA([n], lambda: [0])
+# (Line 10) var max_n = 5;
 max_n = EUDCreateVariables(1)
 _IGVA([max_n], lambda: [5])
-# (Line 9) function savePosRoutine(cp)
-# (Line 10) {
+# (Line 12) function savePosRoutine(cp)
+# (Line 13) {
 @EUDFunc
 def f_savePosRoutine(cp):
-    # (Line 11) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-    # (Line 13) for (var i = 5; i > 0; i--)
+    # (Line 14) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+    # (Line 16) var i = n;
     DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
     i = EUDVariable()
-    i << (5)
+    i << (n)
+    # (Line 18) for (; i > 0; i--)
     if EUDWhile()(i <= 0, neg=True):
         def _t2():
             i.__isub__(1)
-        # (Line 14) {
-        # (Line 15) posX[i] = posX[i - 1];
-        _ARRW(posX, i) << (posX[i - 1])
-        # (Line 16) posY[i] = posY[i - 1];
-        _ARRW(posY, i) << (posY[i - 1])
-        # (Line 17) }
-        # (Line 19) const location = EPD(0x58DC4C) + f.location[cp] * 5;
+        # (Line 19) {
+        # (Line 20) posX1[i] = posX1[i - 1];
+        _ARRW(posX1, i) << (posX1[i - 1])
+        # (Line 21) posX2[i] = posX2[i - 1];
+        _ARRW(posX2, i) << (posX2[i - 1])
+        # (Line 22) posY1[i] = posY1[i - 1];
+        _ARRW(posY1, i) << (posY1[i - 1])
+        # (Line 23) posY2[i] = posY2[i - 1];
+        _ARRW(posY2, i) << (posY2[i - 1])
+        # (Line 24) }
+        # (Line 26) posX1[0] = dwread_epd(EPD(0x58DC60 + (f.location[cp] - 1) * 20));
         EUDSetContinuePoint()
         _t2()
     EUDEndWhile()
-    location = EPD(0x58DC4C) + f.location[cp] * 5
-    # (Line 21) posX[0] = dwread_epd(location + 1);
-    _ARRW(posX, 0) << (f_dwread_epd(location + 1))
-    # (Line 22) posY[0] = dwread_epd(location + 2);
-    _ARRW(posY, 0) << (f_dwread_epd(location + 2))
-    # (Line 23) }
-    # (Line 25) function main(cp)
+    _ARRW(posX1, 0) << (f_dwread_epd(EPD(0x58DC60 + (f.location[cp] - 1) * 20)))
+    # (Line 27) posX2[0] = dwread_epd(EPD(0x58DC60 + (f.location[cp] - 1) * 20 + 8));
+    _ARRW(posX2, 0) << (f_dwread_epd(EPD(0x58DC60 + (f.location[cp] - 1) * 20 + 8)))
+    # (Line 28) posY1[0] = dwread_epd(EPD(0x58DC60 + (f.location[cp] - 1) * 20 + 4));
+    _ARRW(posY1, 0) << (f_dwread_epd(EPD(0x58DC60 + (f.location[cp] - 1) * 20 + 4)))
+    # (Line 29) posY2[0] = dwread_epd(EPD(0x58DC60 + (f.location[cp] - 1) * 20 + 12));
+    _ARRW(posY2, 0) << (f_dwread_epd(EPD(0x58DC60 + (f.location[cp] - 1) * 20 + 12)))
+    # (Line 31) if (n < max_n) n++;
+    if EUDIf()(n >= max_n, neg=True):
+        n.__iadd__(1)
+        # (Line 32) }
+    EUDEndIf()
+    # (Line 34) function main(cp)
 
-# (Line 26) {
+# (Line 35) {
 @EUDFunc
 def f_main(cp):
-    # (Line 27) if (f.delay[cp] == 0)
+    # (Line 36) if (f.delay[cp] == 0)
     if EUDIf()(f.delay[cp] == 0):
-        # (Line 28) {
-        # (Line 29) if (f.count[cp] == 0)
+        # (Line 37) {
+        # (Line 38) if (f.count[cp] == 0)
         if EUDIf()(f.count[cp] == 0):
-            # (Line 30) {
-            # (Line 31) if (f.loop[cp] == 0)
+            # (Line 39) {
+            # (Line 40) if (f.loop[cp] == 0)
             if EUDIf()(f.loop[cp] == 0):
-                # (Line 32) {
-                # (Line 33) SetSwitch("Recall - Oda", Set);
-                # (Line 34) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 41) {
+                # (Line 42) SetSwitch("Recall - Oda", Set);
+                # (Line 43) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
                 DoActions(SetSwitch("Recall - Oda", Set))
-                # (Line 35) }
+                # (Line 44) }
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 37) if (f.loop[cp] == 1)
+                # (Line 46) if (f.loop[cp] == 1)
             EUDEndIf()
             if EUDIf()(f.loop[cp] == 1):
-                # (Line 38) {
-                # (Line 39) f.MoveLoc(f.heroID[cp], cp, posX[max_n] + 32, posY[max_n] + 32);
-                f.MoveLoc(f.heroID[cp], cp, posX[max_n] + 32, posY[max_n] + 32)
-                # (Line 41) MoveUnit(All, f.heroID[cp], cp, "Anywhere", f.location[cp]);
-                # (Line 42) CenterView(f.location[cp]);
-                DoActions(MoveUnit(All, f.heroID[cp], cp, "Anywhere", f.location[cp]))
-                # (Line 43) }
-                DoActions(CenterView(f.location[cp]))
-                # (Line 45) f.SkillWait(cp, 80);
+                # (Line 47) {
+                # (Line 48) if (n == max_n)
+                if EUDIf()(n == max_n):
+                    # (Line 49) {
+                    # (Line 50) dwwrite_epd(EPD(0x58DC60 + (f.location[cp] - 1) * 20), posX1[max_n]);
+                    f_dwwrite_epd(EPD(0x58DC60 + (f.location[cp] - 1) * 20), posX1[max_n])
+                    # (Line 51) dwwrite_epd(EPD(0x58DC60 + (f.location[cp] - 1) * 20 + 8), posX2[max_n]);
+                    f_dwwrite_epd(EPD(0x58DC60 + (f.location[cp] - 1) * 20 + 8), posX2[max_n])
+                    # (Line 52) dwwrite_epd(EPD(0x58DC60 + (f.location[cp] - 1) * 20 + 4), posY1[max_n]);
+                    f_dwwrite_epd(EPD(0x58DC60 + (f.location[cp] - 1) * 20 + 4), posY1[max_n])
+                    # (Line 53) dwwrite_epd(EPD(0x58DC60 + (f.location[cp] - 1) * 20 + 12), posY2[max_n]);
+                    f_dwwrite_epd(EPD(0x58DC60 + (f.location[cp] - 1) * 20 + 12), posY2[max_n])
+                    # (Line 55) MoveUnit(All, f.heroID[cp], cp, "Anywhere", f.location[cp]);
+                    # (Line 56) CenterView(f.location[cp]);
+                    DoActions(MoveUnit(All, f.heroID[cp], cp, "Anywhere", f.location[cp]))
+                    # (Line 57) }
+                    DoActions(CenterView(f.location[cp]))
+                    # (Line 58) }
+                EUDEndIf()
+                # (Line 60) f.SkillWait(cp, 80);
             EUDEndIf()
             f.SkillWait(cp, 80)
-            # (Line 47) f.loop[cp] += 1;
+            # (Line 62) f.loop[cp] += 1;
             _ARRW(f.loop, cp).__iadd__(1)
-            # (Line 49) if (f.loop[cp] == 2)
+            # (Line 64) if (f.loop[cp] == 2)
             if EUDIf()(f.loop[cp] == 2):
-                # (Line 50) {
-                # (Line 51) f.count[cp] += 1;
+                # (Line 65) {
+                # (Line 66) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 52) f.loop[cp] = 0;
+                # (Line 67) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
-                # (Line 53) }
-                # (Line 54) }
+                # (Line 68) }
+                # (Line 69) }
             EUDEndIf()
-            # (Line 55) else if (f.count[cp] == 1)
+            # (Line 70) else if (f.count[cp] == 1)
         if EUDElseIf()(f.count[cp] == 1):
-            # (Line 56) {
-            # (Line 57) SetSwitch("Recall - Oda", Clear);
-            # (Line 58) SetDeaths(cp, SetTo, 2160, " `UniqueCoolTime");
+            # (Line 71) {
+            # (Line 72) SetSwitch("Recall - Oda", Clear);
+            # (Line 73) SetDeaths(cp, SetTo, 2160, " `UniqueCoolTime");
             DoActions(SetSwitch("Recall - Oda", Clear))
-            # (Line 59) f.SkillEnd(cp);
+            # (Line 74) f.SkillEnd(cp);
             DoActions(SetDeaths(cp, SetTo, 2160, " `UniqueCoolTime"))
             f.SkillEnd(cp)
-            # (Line 60) }
-            # (Line 61) }
+            # (Line 75) }
+            # (Line 76) }
         EUDEndIf()
-        # (Line 62) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+        # (Line 77) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
     EUDEndIf()
-    # (Line 64) }
+    # (Line 79) }
     DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))

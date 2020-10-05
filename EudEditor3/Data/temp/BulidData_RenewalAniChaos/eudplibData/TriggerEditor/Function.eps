@@ -45,6 +45,9 @@ const Yume_Voice 		= PVariable();	// 26
 const Magane_Voice 	= PVariable();	// 27
 const Oda_Voice 		= PVariable();	// 28
 
+const p_burrowed = UnitProperty(burrowed = true);
+const p_hallucinated = UnitProperty(hallucinated = true);
+
 function Table_Sin(cp, degree, distance);
 function Table_Cos(cp, degree, distance);
 
@@ -67,6 +70,14 @@ function Voice_Routine(cp, num)
 		Chtholly_Voice[3] = num;
 		Chtholly_Voice[4] = num;
 		Chtholly_Voice[5] = num;
+		break;
+	case 17:
+		Kiana_Voice[0] = num;
+		Kiana_Voice[1] = num;
+		Kiana_Voice[2] = num;
+		Kiana_Voice[3] = num;
+		Kiana_Voice[4] = num;
+		Kiana_Voice[5] = num;
 		break;
 	case 22:
 		Yuuna_Voice[0] = num;

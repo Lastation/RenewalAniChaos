@@ -205,9 +205,9 @@ function main(cp)
          RemoveUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
 
          var r = 67;
-         var n = 18;
-         var interval = 32;
-         var d1 = 50 + 25 * f.loop[cp];
+         var n = 12;
+         var interval = 50;
+         var d1 = 50 + 50 * f.loop[cp];
 
          LineShape(cp, 1, "80 + 1n Vulture", r, n, interval, d1);
          LineShape(cp, 1, "60 + 1n High Templar", r, n, interval, d1);
@@ -216,11 +216,11 @@ function main(cp)
          MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
          Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]);
 
-         f.SkillWait(cp, 80);
+         f.SkillWait(cp, 160);
 
          f.loop[cp] += 1;
 
-         if (f.loop[cp] == 6)
+         if (f.loop[cp] == 3)
          {
             f.count[cp] += 1;
             f.loop[cp] = 0;         
@@ -231,10 +231,10 @@ function main(cp)
          RemoveUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
 
          var r = 67;
-         var n = 18;
-         var interval = 32;
+         var n = 12;
+         var interval = 50;
          var d1 = 200;
-         var d2 = 175 - 25 * f.loop[cp];
+         var d2 = 175 - 50 * f.loop[cp];
 
          if (f.loop[cp] == 0)
          {
@@ -251,11 +251,11 @@ function main(cp)
          MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
          Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]);
 
-         f.SkillWait(cp, 80);
+         f.SkillWait(cp, 160);
 
          f.loop[cp] += 1;
 
-         if (f.loop[cp] == 6)
+         if (f.loop[cp] == 3)
          {
             f.count[cp] += 1;
             f.loop[cp] = 0;         
@@ -267,8 +267,8 @@ function main(cp)
          RemoveUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
 
          var r = 67;
-         var n = 18;
-         var interval = 32;
+         var n = 12;
+         var interval = 50;
          var d1 = 200;
          var d2 = 50;
 
@@ -287,7 +287,7 @@ function main(cp)
          MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
          Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]);
 
-         f.SkillWait(cp, 80);
+         f.SkillWait(cp, 160);
 
          f.loop[cp] += 1;
 
@@ -303,9 +303,9 @@ function main(cp)
       {
          RemoveUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
 
-         var r = 67 + 6 * f.loop[cp];
-         var n = 18;
-         var interval = 32;
+         var r = 67 + 12 * f.loop[cp];
+         var n = 12;
+         var interval = 50;
          var d1 = 200;
          var d2 = 50;
 
@@ -318,11 +318,11 @@ function main(cp)
          MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
          Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]);
 
-         f.SkillWait(cp, 80);
+         f.SkillWait(cp, 160);
 
          f.loop[cp] += 1;
 
-         if (f.loop[cp] == 26)
+         if (f.loop[cp] == 13)
          {
             f.Voice_Routine(cp, 7);
 
