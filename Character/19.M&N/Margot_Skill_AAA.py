@@ -232,6 +232,34 @@ Trigger { -- Skill : Ultimate
       MoveLocation("19.M&N_Bozo2", " * Probe", CurrentPlayer, "Anywhere");
    },
 }
+Trigger { -- Skill : Ultimate
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, AtLeast, 1000, " * Hunter Killer");
+      Deaths(CurrentPlayer, AtLeast, 1, " `NarugeTarget");
+      Switch("Ult - M&N", Set);
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      MoveLocation("19.M&N_Bozo2", " * Hunter Killer", CurrentPlayer, "Anywhere");
+   },
+}
+Trigger { -- Skill : Ultimate
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, AtLeast, 1000, " * High Templar");
+      Deaths(CurrentPlayer, AtLeast, 1, " `NarugeTarget");
+      Switch("Ult - M&N", Set);
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      MoveLocation("19.M&N_Bozo2", " * High Templar", CurrentPlayer, "Anywhere");
+   },
+}
+
+
 
 Trigger { -- Skill : S
    players = {Force1, Force2},
