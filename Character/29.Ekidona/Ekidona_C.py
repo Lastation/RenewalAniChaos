@@ -11,11 +11,18 @@ function main(cp)
             f.SquareShape(cp, 1, "60 + 1n Danimoth", 50, 50);
             f.SquareShape(cp, 1, "60 + 1n Archon", 50, 50);
             f.SquareShape(cp, 1, "60 + 1n Danimoth", 100, 100);
-            f.SquareShape(cp, 1, "60 + 1n Archon", 100, 100);            
+            f.SquareShape(cp, 1, "60 + 1n Archon", 100, 100);
+
+            f.SquareShape(cp, 1, "60 + 1n Archon", 100, 0);
             KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             Order("60 + 1n Danimoth", cp, "Anywhere", Attack, f.location[cp]);
+         }
+         else if (f.loop[cp] == 2)
+         {
+            f.SquareShape(cp, 1, "60 + 1n Archon", 50, 0);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
          }
          else if (f.loop[cp] == 4)
          {
@@ -24,16 +31,34 @@ function main(cp)
             f.SquareShape(cp, 1, "60 + 1n Danimoth", 50, 0);
             f.SquareShape(cp, 1, "60 + 1n Archon", 50, 0);
             f.SquareShape(cp, 1, "60 + 1n Danimoth", 100, 0);
-            f.SquareShape(cp, 1, "60 + 1n Archon", 100, 0);            
+            f.SquareShape(cp, 1, "60 + 1n Archon", 100, 0);   
+
+            f.SquareShape(cp, 1, "60 + 1n Archon", 50, 50);
             KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             Order("60 + 1n Danimoth", cp, "Anywhere", Attack, f.location[cp]);
-
+         }
+         else if (f.loop[cp] == 6)
+         {
+            f.SquareShape(cp, 1, "60 + 1n Archon", 100, 100);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
          }
          else if (f.loop[cp] == 8)
          {
             RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
+         }
+         else if (f.loop[cp] == 10)
+         {
+            f.DotShape(cp, 1, "40 + 1n Mojo", 0, 0);
+            f.SquareShape(cp, 1, "40 + 1n Mojo", 50, 0);
+            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+         }
+         else if (f.loop[cp] == 11)
+         {
+            f.SquareShape(cp, 1, "40 + 1n Mojo", 50, 50);
+            f.SquareShape(cp, 1, "40 + 1n Mojo", 100, 0);
+            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
          }
 
 
@@ -51,13 +76,13 @@ function main(cp)
       {
          if (f.loop[cp] == 0)
          {
-            f.DotShape(cp, 1, "40 + 1n Mojo", 0, 0);
-            f.SquareShape(cp, 1, "40 + 1n Mojo", 50, 0);
-            f.SquareShape(cp, 1, "40 + 1n Mojo", 50, 50);
-            f.SquareShape(cp, 1, "40 + 1n Mojo", 100, 0);
+            f.DotShape(cp, 1, "Kakaru (Twilight)", 0, 0);
+            f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 0);
+            f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 50);
+            f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 0);
             f.SquareShape(cp, 1, "60 + 1n High Templar", 50, 50);
             f.SquareShape(cp, 1, "60 + 1n High Templar", 100, 0);
-            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             MoveUnit(All, "60 + 1n High Templar", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
