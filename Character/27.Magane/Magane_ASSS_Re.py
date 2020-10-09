@@ -224,7 +224,6 @@ function main(cp)
          {
             KillUnitAt(All, "40 + 1n Ghost", "Anywhere", cp);
 
-
             f.count[cp] += 1;
             f.loop[cp] = 0;
          }
