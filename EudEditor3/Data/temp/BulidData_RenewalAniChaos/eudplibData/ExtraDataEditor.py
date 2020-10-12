@@ -50,10 +50,6 @@ def onPluginStart():
         SetMemory(0x518AE8, SetTo, 8),
     ])
     DoActions([
-        SetMemory(0x518C00, SetTo, 5340016),
-        SetMemory(0x518BFC, SetTo, 8),
-    ])
-    DoActions([
         SetMemory(0x518CC0, SetTo, btnptr103),
         SetMemory(0x518CBC, SetTo, 5),
     ])

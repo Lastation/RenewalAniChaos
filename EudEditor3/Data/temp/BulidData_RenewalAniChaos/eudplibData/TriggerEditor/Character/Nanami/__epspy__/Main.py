@@ -140,10 +140,10 @@ from Character.Nanami import Skill_A as A
 from Character.Nanami import Skill_SSS as SSS
 # (Line 8) import Character.Nanami.Skill_CCC as CCC;
 from Character.Nanami import Skill_CCC as CCC
-# (Line 9) import Character.Nanami.Skill_CCA as CCA;
-from Character.Nanami import Skill_CCA as CCA
-# (Line 10) import Character.Nanami.Skill_CCCAA as CCCAA;
+# (Line 9) import Character.Nanami.Skill_CCCAA as CCCAA;
 from Character.Nanami import Skill_CCCAA as CCCAA
+# (Line 10) import Character.Nanami.Skill_CCA as CCA;
+from Character.Nanami import Skill_CCA as CCA
 # (Line 11) import Character.Nanami.Skill_CCAAA as CCAAA;
 from Character.Nanami import Skill_CCAAA as CCAAA
 # (Line 12) import Character.Nanami.Skill_CCAAAAA as CCAAAAA;

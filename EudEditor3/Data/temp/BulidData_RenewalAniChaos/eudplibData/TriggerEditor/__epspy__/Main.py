@@ -148,117 +148,113 @@ from Character import DeathText as deathText
 from Character import Marge as marge
 # (Line 14) import Character.Announce 		as announce;			// 상태창 텍스트
 from Character import Announce as announce
-# (Line 16) import Function 					as f;						// 함수
+# (Line 16) import Function 					as f;						// 상태창 텍스트
 import Function as f
 # (Line 17) import Character.Looker 			as looker;				// 관전자 텍스트
 from Character import Looker as looker
-# (Line 18) import Status					as s;					// 버프 & 디버프
-import Status as s
-# (Line 20) const curpl = PVariable();
+# (Line 19) const curpl = PVariable();
 curpl = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 22) function onPluginStart() 	// 초기화 함수
-# (Line 23) {
+# (Line 21) function onPluginStart() 	// 초기화 함수
+# (Line 22) {
 @EUDFunc
 def onPluginStart():
-    # (Line 24) EUDPlayerLoop()();
+    # (Line 23) EUDPlayerLoop()();
     EUDPlayerLoop()()
-    # (Line 25) EUDEndPlayerLoop();
+    # (Line 24) EUDEndPlayerLoop();
     EUDEndPlayerLoop()
-    # (Line 26) }
-    # (Line 28) function MainLoop(cp)
+    # (Line 25) }
+    # (Line 27) function MainLoop(cp)
 
-# (Line 29) {
+# (Line 28) {
 @EUDFunc
 def MainLoop(cp):
-    # (Line 30) unitID.Get_UnitID(cp);
+    # (Line 29) unitID.Get_UnitID(cp);
     unitID.Get_UnitID(cp)
-    # (Line 32) announce.Announce_Marge(cp);	// 상태창 텍스트
+    # (Line 31) announce.Announce_Marge(cp);	// 상태창 텍스트
     announce.Announce_Marge(cp)
-    # (Line 34) if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
+    # (Line 33) if(Switch((255), (3)))	// Switch - StartSwich Close 일경우
     if EUDIf()(Switch((255), (3))):
-        # (Line 35) {
-        # (Line 36) selectText.CharacterTextNum(cp);		// 캐릭터 클릭 인식
+        # (Line 34) {
+        # (Line 35) selectText.CharacterTextNum(cp);		// 캐릭터 클릭 인식
         selectText.CharacterTextNum(cp)
-        # (Line 38) ppty.PropertyText();					// 특성 텍스트
+        # (Line 37) ppty.PropertyText();					// 특성 텍스트
         ppty.PropertyText()
-        # (Line 40) f.SetHeroID(cp);
+        # (Line 39) f.SetHeroID(cp);
         f.SetHeroID(cp)
-        # (Line 42) if (Switch((253), (2)))					// TestMode
+        # (Line 41) if (Switch((253), (2)))					// TestMode
         if EUDIf()(Switch((253), (2))):
-            # (Line 43) {
-            # (Line 44) testmode.TestMode();
+            # (Line 42) {
+            # (Line 43) testmode.TestMode();
             testmode.TestMode()
+            # (Line 44) }
             # (Line 45) }
-            # (Line 46) }
         EUDEndIf()
-        # (Line 48) if(Switch((255), (2)))	// Switch - StartSwich Set 일경우
+        # (Line 47) if(Switch((255), (2)))	// Switch - StartSwich Set 일경우
     EUDEndIf()
     if EUDIf()(Switch((255), (2))):
-        # (Line 49) {
-        # (Line 50) buildText.BuildingText(cp);			// 건물 텍스트
+        # (Line 48) {
+        # (Line 49) buildText.BuildingText(cp);			// 건물 텍스트
         buildText.BuildingText(cp)
-        # (Line 51) shopText.ShopText(cp);				// 상점 텍스트
+        # (Line 50) shopText.ShopText(cp);				// 상점 텍스트
         shopText.ShopText(cp)
-        # (Line 53) deathText.SetKillScore(cp);			// 킬 스코어
+        # (Line 52) deathText.SetKillScore(cp);			// 킬 스코어
         deathText.SetKillScore(cp)
-        # (Line 54) deathText.SetDeathValue(cp);			// 사망 트리거
+        # (Line 53) deathText.SetDeathValue(cp);			// 사망 트리거
         deathText.SetDeathValue(cp)
-        # (Line 55) deathText.DeathText(cp);				// 사망 텍스트
+        # (Line 54) deathText.DeathText(cp);				// 사망 텍스트
         deathText.DeathText(cp)
-        # (Line 57) init.SetBuildingHP(cp);				// 건물 체력 관련
+        # (Line 56) init.SetBuildingHP(cp);				// 건물 체력 관련
         init.SetBuildingHP(cp)
-        # (Line 58) init.SetVariable(cp);					// 기본 변수 설정
+        # (Line 57) init.SetVariable(cp);					// 기본 변수 설정
         init.SetVariable(cp)
-        # (Line 60) ppty.Property(cp);					// S,C,A 특성
+        # (Line 59) ppty.Property(cp);					// S,C,A 특성
         ppty.Property(cp)
-        # (Line 62) marge.main(cp);						// 캐릭터 스킬 사운드 & 스킬 텍스트
+        # (Line 61) marge.main(cp);						// 캐릭터 스킬 사운드 & 스킬 텍스트
         marge.f_main(cp)
-        # (Line 64) s.StatusCountDown(cp);
-        s.StatusCountDown(cp)
-        # (Line 65) }
-        # (Line 68) if (Deaths(CurrentPlayer, Exactly, 1000, 175)) 	// 점수창
+        # (Line 62) }
+        # (Line 65) if (Deaths(CurrentPlayer, Exactly, 1000, 175)) 	// 점수창
     EUDEndIf()
     if EUDIf()(Deaths(CurrentPlayer, Exactly, 1000, 175)):
-        # (Line 69) {
-        # (Line 70) SetSwitch(255, Clear);
-        # (Line 71) }
+        # (Line 66) {
+        # (Line 67) SetSwitch(255, Clear);
+        # (Line 68) }
         DoActions(SetSwitch(255, Clear))
-        # (Line 73) if (v.Hero_Num[cp] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)))
+        # (Line 70) if (v.Hero_Num[cp] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)))
     EUDEndIf()
     if EUDIf()(v.Hero_Num[cp] == f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)), neg=True):
-        # (Line 74) { v.Hero_Num[cp] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)); }
+        # (Line 71) { v.Hero_Num[cp] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)); }
         _ARRW(v.Hero_Num, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * cp)))
-        # (Line 75) }
+        # (Line 72) }
     EUDEndIf()
-    # (Line 77) function beforeTriggerExec()
+    # (Line 74) function beforeTriggerExec()
 
-# (Line 78) {
+# (Line 75) {
 @EUDFunc
 def beforeTriggerExec():
-    # (Line 79) randomize();
+    # (Line 76) randomize();
     f_randomize()
-    # (Line 81) foreach(cp : EUDLoopPlayer())
+    # (Line 78) foreach(cp : EUDLoopPlayer())
     for cp in EUDLoopPlayer():
-        # (Line 82) {
-        # (Line 83) setcurpl(cp);
+        # (Line 79) {
+        # (Line 80) setcurpl(cp);
         f_setcurpl(cp)
-        # (Line 85) MainLoop(cp);
+        # (Line 82) MainLoop(cp);
         MainLoop(cp)
-        # (Line 87) SetMemory(0x6509B0, SetTo, 128 + cp);
-        # (Line 88) MuteUnitSpeech();
+        # (Line 84) SetMemory(0x6509B0, SetTo, 128 + cp);
+        # (Line 85) MuteUnitSpeech();
         DoActions(SetMemory(0x6509B0, SetTo, 128 + cp))
-        # (Line 89) looker.main(cp);
+        # (Line 86) looker.main(cp);
         DoActions(MuteUnitSpeech())
         looker.f_main(cp)
-        # (Line 90) SetMemory(0x6509B0, SetTo, cp);
-        # (Line 91) }
+        # (Line 87) SetMemory(0x6509B0, SetTo, cp);
+        # (Line 88) }
         DoActions(SetMemory(0x6509B0, SetTo, cp))
-        # (Line 92) }
+        # (Line 89) }
 
-    # (Line 94) function afterTriggerExec()
+    # (Line 91) function afterTriggerExec()
 
-# (Line 95) {
+# (Line 92) {
 @EUDFunc
 def afterTriggerExec():
-    # (Line 96) }
+    # (Line 93) }
     pass
