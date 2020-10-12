@@ -44,6 +44,9 @@ const Milim_Voice 		= PVariable();	// 25
 const Yume_Voice 		= PVariable();	// 26
 const Magane_Voice 	= PVariable();	// 27
 const Oda_Voice 		= PVariable();	// 28
+const Ekidona_Voice 		= PVariable();	// 29
+const Niwa_Voice 		= PVariable();	// 30
+const Violet_Voice           = PVariable();     // 31
 
 const p_burrowed = UnitProperty(burrowed = true);
 const p_hallucinated = UnitProperty(hallucinated = true);
@@ -134,6 +137,31 @@ function Voice_Routine(cp, num)
 		Oda_Voice[3] = num;
 		Oda_Voice[4] = num;
 		Oda_Voice[5] = num;
+		break;	
+	case 29:
+		Ekidona_Voice[0] = num;
+		Ekidona_Voice[1] = num;
+		Ekidona_Voice[2] = num;
+		Ekidona_Voice[3] = num;
+		Ekidona_Voice[4] = num;
+		Ekidona_Voice[5] = num;
+		break;	
+	case 30:
+		Niwa_Voice[0] = num;
+		Niwa_Voice[1] = num;
+		Niwa_Voice[2] = num;
+		Niwa_Voice[3] = num;
+		Niwa_Voice[4] = num;
+		Niwa_Voice[5] = num;
+		break;
+		
+	case 31:
+		Violet_Voice[0] = num;
+		Violet_Voice[1] = num;
+		Violet_Voice[2] = num;
+		Violet_Voice[3] = num;
+		Violet_Voice[4] = num;
+		Violet_Voice[5] = num;
 		break;	
 		
 	}
