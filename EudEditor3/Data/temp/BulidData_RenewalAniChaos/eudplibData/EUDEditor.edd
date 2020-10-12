@@ -2,7 +2,7 @@
 
 [main]
 input: ..\..\..\..\..\NEW!6.scx
-output: ..\..\..\..\..\..\StarCraft\Maps\RAC_TEST\RenewalAniChaos_TEST.scx
+output: ..\..\..\..\..\..\..\Starcraft\Maps\RenewalAniChaos\RenewalAniChaos_T.scx
 [unlimiter]
 [noAirCollision]
 [DataEditor.py]
