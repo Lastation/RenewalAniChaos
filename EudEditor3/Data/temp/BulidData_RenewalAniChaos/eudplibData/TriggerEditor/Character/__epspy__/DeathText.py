@@ -316,5 +316,10 @@ def SetKillScore(cp):
     if EUDIf()(Kills(CurrentPlayer, AtLeast, 1, 53)):
         _ARRW(v.Kill_Score, cp).__iadd__(1)
         DoActions(SetKills(CurrentPlayer, Subtract, 1, 53))
-        # (Line 93) }
+        # (Line 93) if (Kills(CurrentPlayer, AtLeast, 1, 87))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 87); }
+    EUDEndIf()
+    if EUDIf()(Kills(CurrentPlayer, AtLeast, 1, 87)):
+        _ARRW(v.Kill_Score, cp).__iadd__(1)
+        DoActions(SetKills(CurrentPlayer, Subtract, 1, 87))
+        # (Line 94) }
     EUDEndIf()

@@ -13,8 +13,9 @@ import Character.DeathText 		as deathText;			// 사망 텍스트
 import Character.Marge 			as marge;				// 유닛 스킬 텍스트
 import Character.Announce 		as announce;			// 상태창 텍스트
 
-import Function 					as f;						// 상태창 텍스트
+import Function 					as f;						// 함수
 import Character.Looker 			as looker;				// 관전자 텍스트
+import Status					as s;					// 버프 & 디버프
 
 const curpl = PVariable();
 
@@ -59,6 +60,8 @@ function MainLoop(cp)
 		ppty.Property(cp);					// S,C,A 특성
 		
 		marge.main(cp);						// 캐릭터 스킬 사운드 & 스킬 텍스트
+		
+		s.StatusCountDown(cp);
 	}
 	
 	// 점수 설정

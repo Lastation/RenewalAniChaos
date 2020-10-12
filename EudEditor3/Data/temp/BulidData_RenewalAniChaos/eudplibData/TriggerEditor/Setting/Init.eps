@@ -1,4 +1,5 @@
 import Variable as v;
+import Status as s;
 
 function SetBuildingHP(cp) 
 {
@@ -45,12 +46,18 @@ function SetVariable(cp)
   	case 22:
       		v.Atk[cp] += 3 * dwread_epd(204 * 12 + cp);
      		break;
+     	case 30:
+     		if (Deaths(cp, AtLeast, 1, " `UniqueSkill"))
+	     		v.Atk[cp] += 10;
+     		break;
 	}
 	if (cp < 3 && Switch("Passive - Nanami1", Set) && Bring(cp, AtLeast, 1, "Any unit", "24.Nanami_Bozo")) { v.Atk[cp] += 5; v.Dfs[cp] += 5; }
 	else if (cp >= 3 && Switch("Passive - Nanami2", Set) && Bring(cp, AtLeast, 1, "Any unit", "24.Nanami_Bozo")) { v.Atk[cp] += 5; v.Dfs[cp] += 5; }
 
 	if (cp < 3 && Switch("Unique - Nanami1", Set)) { v.Atk[cp] += 5; v.Dfs[cp] += 5; }
 	else if (cp >= 3 && Switch("Unique - Nanami2", Set)) { v.Atk[cp] += 5; v.Dfs[cp] += 5; }
+
+	if (s.ekidonaDebuff[cp] >= 1) v.Atk[cp] -= 5 * s.ekidonaDebuff[cp];
 
 	bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (cp) * (46 - 31 * ((2) / 46)) + ((2) % 46), v.Dfs[cp]); 	//방어력 최종 적용
 	bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (cp) * (46 - 31 * ((9) / 46)) + ((9) % 46), v.Atk[cp]);	//공격력 최종 적용
