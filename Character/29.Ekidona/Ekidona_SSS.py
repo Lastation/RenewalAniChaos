@@ -136,6 +136,8 @@ function main(cp)
       {
          KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
          KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
+         f.DotShape(cp, 1, "50 + 1n Battlecruiser", 0, 0);
+         KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
 
          f.SkillEnd(cp);
       }

@@ -8,15 +8,41 @@ function main(cp)
       {
          if (f.loop[cp] == 0)
          {
-            f.EdgeShape(cp, 1, "40 + 1n Gantrithor", 45, 2, 75);
-            f.EdgeShape(cp, 1, "60 + 1n Dragoon", 45, 2, 75);
-            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
+            f.NxNSquareShape(cp, 1, "40 + 1n Mojo", 3, 50);
+            Order("40 + 1n Mojo", cp, "Anywhere", Attack, "Anywhere");
+
+            f.EdgeShapeWithProperty(cp, 1, "60 + 1n Archon", 45, 5, 100, 1);
+            f.EdgeShape(cp, 1, "60 + 1n Archon", 45, 3, 50);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
          }
          if (f.loop[cp] == 4)
          {
-            f.EdgeShape(cp, 1, "40 + 1n Gantrithor", 45, 4, 150);
-            f.EdgeShape(cp, 1, "60 + 1n Dragoon", 45, 4, 150);
-            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+         }
+
+         var i = f.loop[cp] / 2;
+         var x = 50 - 50 * i;
+         var y = 100;
+
+         if (f.loop[cp] < 8 && f.loop[cp] % 2 == 0)
+         {
+            RemoveUnitAt(All, "80 + 1n Artanis", "Anywhere", cp);
+
+            if (i % 2 == 0)
+            {
+               f.SquareShapeWithProperty(cp, 1, "80 + 1n Artanis", x, y, 1);
+               f.SquareShape(cp, 1, "Protoss Dark Templar", x, y);
+               KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp);
+            }
+            else
+            {
+               f.SquareShape(cp, 1, "80 + 1n Artanis", x, y);
+               f.SquareShape(cp, 1, "60 + 1n High Templar", x, y);
+               KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
+            }
+
+            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            Order("80 + 1n Artanis", cp, "Anywhere", Attack, f.location[cp]);
          }
 
          f.SkillWait(cp, 80);
@@ -33,41 +59,28 @@ function main(cp)
       {
          if (f.loop[cp] == 0)
          {
-            f.SquareShape(cp, 1, "40 + 1n Mojo", 100, 0);
+            RemoveUnitAt(All, "80 + 1n Artanis", "Anywhere", cp);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+            f.EdgeShape(cp, 1, "40 + 1n Mojo", 45, 5, 100);
+            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
          }
          if (f.loop[cp] == 2)
          {
-            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+            f.EdgeShape(cp, 1, "Kakaru (Twilight)", 45, 5, 100);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
 
-            f.SquareShape(cp, 1, "40 + 1n Mojo", 100, 100);
+            f.NxNSquareShape(cp, 1, "40 + 1n Mojo", 3, 50);
+            Order("40 + 1n Mojo", cp, "Anywhere", Attack, "Anywhere");
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+            f.EdgeShape(cp, 1, "60 + 1n Archon", 45, 3, 50);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
          }
-         if (f.loop[cp] == 4)
-         {
-            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-         }
-         if (f.loop[cp] == 6)
-         {
-            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-
-            f.SquareShape(cp, 1, "60 + 1n Danimoth", 50, 50);
-            f.SquareShape(cp, 1, "60 + 1n Danimoth", 50, 0);
-
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("60 + 1n Danimoth", cp, "Anywhere", Attack, f.location[cp]);
-         }
-
 
          f.SkillWait(cp, 80);
 
          f.loop[cp] += 1;
 
-         if (f.loop[cp] == 8)
+         if (f.loop[cp] == 6)
          {
             f.count[cp] += 1;
             f.loop[cp] = 0;         
@@ -75,8 +88,7 @@ function main(cp)
       }
       else if (f.count[cp] == 2)
       {
-         KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
-         KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", cp);
+         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
 
          f.SkillEnd(cp);
       }
