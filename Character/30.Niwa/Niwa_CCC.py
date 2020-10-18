@@ -113,11 +113,6 @@ function main(cp)
             f.EdgeShape(cp, 1, "Protoss Dark Templar", 45, 3, 150);
             f.EdgeShape(cp, 1, "Protoss Dark Templar", 45, 5, 200);
 
-            f.EdgeShapeWithProperty(cp, 1, "40 + 3n Zeratul", 45, 4, 50, 1);
-            f.EdgeShapeWithProperty(cp, 1, "40 + 3n Zeratul", 45, 7, 100, 1);
-            f.EdgeShapeWithProperty(cp, 1, "40 + 3n Zeratul", 45, 9, 150, 1);
-            f.EdgeShapeWithProperty(cp, 1, "40 + 3n Zeratul", 45, 11, 200, 1);
-
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             Order("Protoss Dark Templar", cp, "Anywhere", Attack, f.location[cp]);
             Order("40 + 3n Zeratul", cp, "Anywhere", Attack, f.location[cp]);
@@ -178,8 +173,7 @@ function main(cp)
       }
       else if (f.count[cp] == 4)
       {
-         if (Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill")
-         && Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill")
+         if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill")
             )
          {
             f.Voice_Routine(cp, 9);
@@ -187,8 +181,7 @@ function main(cp)
             f.count[cp] = 0;
             f.loop[cp] = 0;
             f.step[cp] = 230;
-            KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
-            KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp);
+            KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
          }
          else
          {

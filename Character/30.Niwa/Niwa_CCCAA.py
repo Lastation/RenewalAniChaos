@@ -125,6 +125,17 @@ function main(cp)
             f.MoveLoc("Protoss Dark Templar", cp, 0, 0);
             RemoveUnitAt(1, "Protoss Dark Templar", "Anywhere", cp);
             f.SkillUnit(cp, 1, "40 + 1n Drone");
+            if (f.loop[cp] % 2 == 0)
+            {
+               f.SkillUnit(cp, 1, " Unit. Hoffnung 25000");
+               f.SkillUnit(cp, 1, "40 + 1n Guardian");
+            }
+            if (f.loop[cp] % 2 == 1)
+            {
+               f.SkillUnit(cp, 1, "Kakaru (Twilight)");
+               f.SkillUnit(cp, 1, "40 + 1n Zealot");
+            }
+
             f.SkillUnitWithProperty(cp, 1, "40 + 1n Lurker", 0);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
@@ -132,26 +143,7 @@ function main(cp)
             MoveUnit(All, "40 + 1n Lurker", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
             Order("40 + 1n Drone", cp, "Anywhere", Attack, f.location[cp]);
          }
-
-         if (Bring(cp, AtLeast, 1, "40 + 3n Zeratul", "Anywhere"))
-         {
-            f.MoveLoc("40 + 3n Zeratul", cp, 0, 0);
-            RemoveUnitAt(2, "40 + 3n Zeratul", "Anywhere", cp);
-            f.SkillUnit(cp, 1, "40 + 1n Guardian");
-
-            f.MoveLoc("40 + 3n Zeratul", cp, 0, 0);
-            RemoveUnitAt(2, "40 + 3n Zeratul", "Anywhere", cp);
-            f.SkillUnit(cp, 1, " Unit. Hoffnung 25000");
-
-            f.MoveLoc("40 + 3n Zeratul", cp, 0, 0);
-            RemoveUnitAt(2, "40 + 3n Zeratul", "Anywhere", cp);
-            f.SkillUnit(cp, 1, "Kakaru (Twilight)");
-
-            f.MoveLoc("40 + 3n Zeratul", cp, 0, 0);
-            RemoveUnitAt(2, "40 + 3n Zeratul", "Anywhere", cp);
-            f.SkillUnit(cp, 1, "40 + 1n Zealot");
-         }
-
+         
          KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
          KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
          KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
