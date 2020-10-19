@@ -8,7 +8,9 @@ function main(cp)
       {
          if (f.loop[cp] == 0)
          {
-            f.SquareShape(cp, 1, "40 + 1n Wraith", 64, 64);
+            f.SquareShape(cp, 1, "50 + 1n Tank", 100, 0);
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
+            f.SquareShape(cp, 1, "40 + 1n Wraith", 100, 100);
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
          }
@@ -16,7 +18,9 @@ function main(cp)
          {
             KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
 
-            f.SquareShape(cp, 1, "40 + 1n Wraith", 64, 0);
+            f.SquareShape(cp, 1, "50 + 1n Tank", 100, 100);
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
+            f.SquareShape(cp, 1, "40 + 1n Wraith", 100, 0);
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
          }
@@ -24,7 +28,9 @@ function main(cp)
          {
             KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
 
-            f.SquareShape(cp, 1, "40 + 1n Wraith", 32, 32);
+            f.SquareShape(cp, 1, "50 + 1n Tank", 50, 0);
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
+            f.SquareShape(cp, 1, "40 + 1n Wraith", 50, 50);
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
          }
@@ -32,7 +38,9 @@ function main(cp)
          {
             KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
 
-            f.SquareShape(cp, 1, "40 + 1n Wraith", 32, 0);
+            f.SquareShape(cp, 1, "50 + 1n Tank", 50, 50);
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
+            f.SquareShape(cp, 1, "40 + 1n Wraith", 50, 0);
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
          }
