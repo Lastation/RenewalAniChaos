@@ -139,10 +139,10 @@ def NormalText(cp):
     # (Line 7) {
     # (Line 8) case 1000:
     _t1 = EUDSwitchCase()
-    # (Line 9) PlayWAV("margot_ssf.stb.ogg");
+    # (Line 9) PlayWAV("margot_sss.ogg");
     if _t1(1000):
         # (Line 10) f.stb.print("\n\n\x13\x19Margot Naito\n\x13\x04Herrichㅡ!!\n\n");
-        DoActions(PlayWAV("margot_ssf.stb.ogg"))
+        DoActions(PlayWAV("margot_sss.ogg"))
         f.stb.print("\n\n\x13\x19Margot Naito\n\x13\x04Herrichㅡ!!\n\n")
         # (Line 11) v.Sound_Text4[cp] = 0;
         _ARRW(v.Sound_Text4, cp) << (0)

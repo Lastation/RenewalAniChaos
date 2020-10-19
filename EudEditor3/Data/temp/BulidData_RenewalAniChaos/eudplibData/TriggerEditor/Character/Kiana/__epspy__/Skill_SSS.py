@@ -165,8 +165,8 @@ def f_main(cp):
             # (Line 25) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
             # (Line 26) }
-            # (Line 27) else if (f.count[cp] >= 1 && f.count[cp] <= 12)
-        if EUDElseIf()(EUDSCAnd()(f.count[cp] >= 1)(f.count[cp] <= 12)()):
+            # (Line 27) else if (f.count[cp] >= 1 && f.count[cp] <= 18)
+        if EUDElseIf()(EUDSCAnd()(f.count[cp] >= 1)(f.count[cp] <= 18)()):
             # (Line 28) {
             # (Line 29) f.DotShape(cp, 1, "Zerg Devourer", -32, -160);
             f.DotShape(cp, 1, "Zerg Devourer", -32, -160)
@@ -221,8 +221,8 @@ def f_main(cp):
             # (Line 61) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
             # (Line 62) }
-            # (Line 63) else if (f.count[cp] == 13)
-        if EUDElseIf()(f.count[cp] == 13):
+            # (Line 63) else if (f.count[cp] == 19)
+        if EUDElseIf()(f.count[cp] == 19):
             # (Line 64) {
             # (Line 65) KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
             # (Line 66) f.DotShape(cp, 1, "60 + 1n Danimoth", 112, -48);
@@ -253,8 +253,8 @@ def f_main(cp):
             # (Line 82) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
             # (Line 83) }
-            # (Line 84) else if (f.count[cp] == 14)
-        if EUDElseIf()(f.count[cp] == 14):
+            # (Line 84) else if (f.count[cp] == 20)
+        if EUDElseIf()(f.count[cp] == 20):
             # (Line 85) {
             # (Line 86) RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
             # (Line 87) f.SkillEnd(cp);

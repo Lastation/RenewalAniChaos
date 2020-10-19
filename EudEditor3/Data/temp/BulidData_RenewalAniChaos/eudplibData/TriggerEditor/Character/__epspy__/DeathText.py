@@ -183,12 +183,8 @@ def SetDeathValue(cp):
                 # (Line 32) if (Deaths(cp, 10, 22, 172)) SetDeaths(cp, SetTo, 0, " `UniqueSkill");
             EUDEndIf()
             if EUDIf()(Deaths(cp, 10, 22, 172)):
-                # (Line 33) if (Bring((6), (1), 6, (162), (153))) { SetScore((7), (8), 5, (7)); }
-                DoActions(SetDeaths(cp, SetTo, 0, " `UniqueSkill"))
-            EUDEndIf()
-            if EUDIf()(Bring((6), (1), 6, (162), (153))):
-                DoActions(SetScore((7), (8), 5, (7)))
                 # (Line 34) SetResources((3), (8), v.DeathOre[cp], (0));
+                DoActions(SetDeaths(cp, SetTo, 0, " `UniqueSkill"))
             EUDEndIf()
             # (Line 35) SetResources((4), (8), v.DeathOre[cp], (0));
             DoActions(SetResources((3), (8), v.DeathOre[cp], (0)))
@@ -229,12 +225,8 @@ def SetDeathValue(cp):
                 # (Line 53) if (Deaths(cp, 10, 22, 172)) SetDeaths(cp, SetTo, 0, " `UniqueSkill");
             EUDEndIf()
             if EUDIf()(Deaths(cp, 10, 22, 172)):
-                # (Line 54) if (Bring((7), (1), 6, (162), (153))) { SetScore((6), (8), 5, (7)); }
-                DoActions(SetDeaths(cp, SetTo, 0, " `UniqueSkill"))
-            EUDEndIf()
-            if EUDIf()(Bring((7), (1), 6, (162), (153))):
-                DoActions(SetScore((6), (8), 5, (7)))
                 # (Line 55) SetResources((0), (8), v.DeathOre[cp], (0));
+                DoActions(SetDeaths(cp, SetTo, 0, " `UniqueSkill"))
             EUDEndIf()
             # (Line 56) SetResources((1), (8), v.DeathOre[cp], (0));
             DoActions(SetResources((0), (8), v.DeathOre[cp], (0)))
@@ -316,5 +308,15 @@ def SetKillScore(cp):
     if EUDIf()(Kills(CurrentPlayer, AtLeast, 1, 53)):
         _ARRW(v.Kill_Score, cp).__iadd__(1)
         DoActions(SetKills(CurrentPlayer, Subtract, 1, 53))
-        # (Line 93) }
+        # (Line 93) if (Kills(CurrentPlayer, AtLeast, 1, 34))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 34); }
+    EUDEndIf()
+    if EUDIf()(Kills(CurrentPlayer, AtLeast, 1, 34)):
+        _ARRW(v.Kill_Score, cp).__iadd__(1)
+        DoActions(SetKills(CurrentPlayer, Subtract, 1, 34))
+        # (Line 94) if (Kills(CurrentPlayer, AtLeast, 1, 10))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 10); }
+    EUDEndIf()
+    if EUDIf()(Kills(CurrentPlayer, AtLeast, 1, 10)):
+        _ARRW(v.Kill_Score, cp).__iadd__(1)
+        DoActions(SetKills(CurrentPlayer, Subtract, 1, 10))
+        # (Line 95) }
     EUDEndIf()

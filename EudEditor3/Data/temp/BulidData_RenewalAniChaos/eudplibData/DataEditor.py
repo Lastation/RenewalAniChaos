@@ -4,6 +4,7 @@
 def onPluginStart():
     DoActions([  # Basic DatFile Actions
         SetMemory(0x664500, Add, -33554432),# units:Graphics  index:11    from 72 To 70
+        SetMemory(0x664518, Add, -9437184),# units:Graphics  index:34    from 189 To 45
         SetMemory(0x664520, Add, 768),# units:Graphics  index:41    from 5 To 8
         SetMemory(0x664534, Add, -9437184),# units:Graphics  index:62    from 185 To 41
         SetMemory(0x66453C, Add, -1280),# units:Graphics  index:69    from 44 To 39
@@ -19,6 +20,7 @@ def onPluginStart():
         SetMemory(0x6647B0, Add, 256),# units:Shield Enable  index:1    from 0 To 1
         SetMemory(0x6647B0, Add, 65536),# units:Shield Enable  index:2    from 0 To 1
         SetMemory(0x6647C0, Add, 1),# units:Shield Enable  index:16    from 0 To 1
+        SetMemory(0x6647D0, Add, 65536),# units:Shield Enable  index:34    from 0 To 1
         SetMemory(0x6647D8, Add, 1),# units:Shield Enable  index:40    from 0 To 1
         SetMemory(0x6647E0, Add, 16777216),# units:Shield Enable  index:51    from 0 To 1
         SetMemory(0x6647E4, Add, 256),# units:Shield Enable  index:53    from 0 To 1
@@ -29,11 +31,14 @@ def onPluginStart():
         SetMemory(0x664858, Add, 1),# units:Shield Enable  index:168    from 0 To 1
         SetMemory(0x66485C, Add, 16777216),# units:Shield Enable  index:175    from 0 To 1
         SetMemory(0x664878, Add, 1),# units:Shield Enable  index:200    from 0 To 1
+        SetMemory(0x660E44, Add, 0),# units:Shield Amount  index:34    from 100 To 100
+        SetMemory(0x660EAC, Add, 635699200),# units:Shield Amount  index:87    from 300 To 10000
         SetMemory(0x660EE4, Add, 19660800),# units:Shield Amount  index:115    from 100 To 400
         SetMemory(0x662354, Add, 615680),# units:Hit Points  index:1    from 11520 To 627200
         SetMemory(0x662358, Add, -5120),# units:Hit Points  index:2    from 71680 To 66560
         SetMemory(0x662390, Add, 151040),# units:Hit Points  index:16    from 476160 To 627200
         SetMemory(0x6623A4, Add, 499200),# units:Hit Points  index:21    from 128000 To 627200
+        SetMemory(0x6623D8, Add, 611840),# units:Hit Points  index:34    from 15360 To 627200
         SetMemory(0x6623F0, Add, -5120),# units:Hit Points  index:40    from 81920 To 76800
         SetMemory(0x66241C, Add, 151040),# units:Hit Points  index:51    from 476160 To 627200
         SetMemory(0x662424, Add, 151040),# units:Hit Points  index:53    from 476160 To 627200
@@ -41,6 +46,7 @@ def onPluginStart():
         SetMemory(0x662450, Add, 151040),# units:Hit Points  index:64    from 476160 To 627200
         SetMemory(0x662478, Add, 151040),# units:Hit Points  index:74    from 476160 To 627200
         SetMemory(0x662484, Add, 151040),# units:Hit Points  index:77    from 476160 To 627200
+        SetMemory(0x6624AC, Add, 17899520),# units:Hit Points  index:87    from 20480 To 17920000
         SetMemory(0x6624DC, Add, 166400),# units:Hit Points  index:99    from 460800 To 627200
         SetMemory(0x662504, Add, 25472000),# units:Hit Points  index:109    from 51200 To 25523200
         SetMemory(0x66251C, Add, -25600),# units:Hit Points  index:115    from 128000 To 102400
@@ -69,6 +75,7 @@ def onPluginStart():
         SetMemory(0x663DEC, Add, -4864),# units:Rank/Sublabel  index:29    from 21 To 2
         SetMemory(0x663DEC, Add, -393216),# units:Rank/Sublabel  index:30    from 8 To 2
         SetMemory(0x663DF0, Add, -2),# units:Rank/Sublabel  index:32    from 4 To 2
+        SetMemory(0x663DF0, Add, 851968),# units:Rank/Sublabel  index:34    from 3 To 16
         SetMemory(0x663DF4, Add, -768),# units:Rank/Sublabel  index:37    from 5 To 2
         SetMemory(0x663DF4, Add, -458752),# units:Rank/Sublabel  index:38    from 9 To 2
         SetMemory(0x663DF4, Add, -184549376),# units:Rank/Sublabel  index:39    from 14 To 3
@@ -88,6 +95,7 @@ def onPluginStart():
         SetMemory(0x663E14, Add, -7),# units:Rank/Sublabel  index:68    from 9 To 2
         SetMemory(0x663E18, Add, 256),# units:Rank/Sublabel  index:73    from 1 To 2
         SetMemory(0x663E18, Add, -720896),# units:Rank/Sublabel  index:74    from 12 To 1
+        SetMemory(0x663E18, Add, -218103808),# units:Rank/Sublabel  index:75    from 15 To 2
         SetMemory(0x663E1C, Add, -3072),# units:Rank/Sublabel  index:77    from 13 To 1
         SetMemory(0x663E1C, Add, -218103808),# units:Rank/Sublabel  index:79    from 16 To 3
         SetMemory(0x663E20, Add, -10),# units:Rank/Sublabel  index:80    from 12 To 2
@@ -102,6 +110,7 @@ def onPluginStart():
         SetMemory(0x663E70, Add, 196608),# units:Rank/Sublabel  index:162    from 0 To 3
         SetMemory(0x663E7C, Add, 512),# units:Rank/Sublabel  index:173    from 0 To 2
         SetMemory(0x662EB0, Add, 55),# units:Comp AI Idle  index:16    from 2 To 57
+        SetMemory(0x662EC0, Add, -7733248),# units:Comp AI Idle  index:34    from 175 To 57
         SetMemory(0x662ECC, Add, 1761607680),# units:Comp AI Idle  index:47    from 2 To 107
         SetMemory(0x662ED0, Add, 922746880),# units:Comp AI Idle  index:51    from 2 To 57
         SetMemory(0x662ED4, Add, 14080),# units:Comp AI Idle  index:53    from 2 To 57
@@ -110,6 +119,7 @@ def onPluginStart():
         SetMemory(0x662EE8, Add, 3604480),# units:Comp AI Idle  index:74    from 2 To 57
         SetMemory(0x662EEC, Add, 14080),# units:Comp AI Idle  index:77    from 2 To 57
         SetMemory(0x662EF4, Add, -8388608),# units:Comp AI Idle  index:86    from 130 To 2
+        SetMemory(0x662EF4, Add, 922746880),# units:Comp AI Idle  index:87    from 2 To 57
         SetMemory(0x662F00, Add, 922746880),# units:Comp AI Idle  index:99    from 2 To 57
         SetMemory(0x662F0C, Add, -15104),# units:Comp AI Idle  index:109    from 156 To 97
         SetMemory(0x662F10, Add, -2583691264),# units:Comp AI Idle  index:115    from 156 To 2
@@ -118,6 +128,7 @@ def onPluginStart():
         SetMemory(0x662F20, Add, -18944),# units:Comp AI Idle  index:129    from 97 To 23
         SetMemory(0x662F30, Add, -83),# units:Comp AI Idle  index:144    from 101 To 18
         SetMemory(0x662278, Add, 55),# units:Human AI Idle  index:16    from 2 To 57
+        SetMemory(0x662288, Add, -7733248),# units:Human AI Idle  index:34    from 175 To 57
         SetMemory(0x662294, Add, 1761607680),# units:Human AI Idle  index:47    from 2 To 107
         SetMemory(0x662298, Add, 922746880),# units:Human AI Idle  index:51    from 2 To 57
         SetMemory(0x66229C, Add, 14080),# units:Human AI Idle  index:53    from 2 To 57
@@ -126,12 +137,14 @@ def onPluginStart():
         SetMemory(0x6622B0, Add, 3604480),# units:Human AI Idle  index:74    from 2 To 57
         SetMemory(0x6622B4, Add, 14080),# units:Human AI Idle  index:77    from 2 To 57
         SetMemory(0x6622BC, Add, -8388608),# units:Human AI Idle  index:86    from 130 To 2
+        SetMemory(0x6622BC, Add, 922746880),# units:Human AI Idle  index:87    from 2 To 57
         SetMemory(0x6622C8, Add, 922746880),# units:Human AI Idle  index:99    from 2 To 57
         SetMemory(0x6622D4, Add, 18944),# units:Human AI Idle  index:109    from 23 To 97
         SetMemory(0x6622D8, Add, -352321536),# units:Human AI Idle  index:115    from 23 To 2
         SetMemory(0x6622E8, Add, -18944),# units:Human AI Idle  index:129    from 97 To 23
         SetMemory(0x6622F8, Add, -83),# units:Human AI Idle  index:144    from 101 To 18
         SetMemory(0x6648A8, Add, 55),# units:Return to Idle  index:16    from 2 To 57
+        SetMemory(0x6648B8, Add, -7733248),# units:Return to Idle  index:34    from 175 To 57
         SetMemory(0x6648C4, Add, 1761607680),# units:Return to Idle  index:47    from 2 To 107
         SetMemory(0x6648C8, Add, 922746880),# units:Return to Idle  index:51    from 2 To 57
         SetMemory(0x6648CC, Add, 14080),# units:Return to Idle  index:53    from 2 To 57
@@ -139,19 +152,24 @@ def onPluginStart():
         SetMemory(0x6648D8, Add, 55),# units:Return to Idle  index:64    from 2 To 57
         SetMemory(0x6648E0, Add, 3604480),# units:Return to Idle  index:74    from 2 To 57
         SetMemory(0x6648E4, Add, 14080),# units:Return to Idle  index:77    from 2 To 57
+        SetMemory(0x6648EC, Add, 922746880),# units:Return to Idle  index:87    from 2 To 57
         SetMemory(0x6648F8, Add, 922746880),# units:Return to Idle  index:99    from 2 To 57
         SetMemory(0x664904, Add, 18944),# units:Return to Idle  index:109    from 23 To 97
         SetMemory(0x664908, Add, -352321536),# units:Return to Idle  index:115    from 23 To 2
         SetMemory(0x664918, Add, -18944),# units:Return to Idle  index:129    from 97 To 23
+        SetMemory(0x663340, Add, -10813440),# units:Attack Unit  index:34    from 175 To 10
         SetMemory(0x663390, Add, -218103808),# units:Attack Unit  index:115    from 23 To 10
+        SetMemory(0x663A70, Add, -11337728),# units:Attack Move  index:34    from 175 To 2
         SetMemory(0x663AC0, Add, -352321536),# units:Attack Move  index:115    from 23 To 2
         SetMemory(0x6636D0, Add, 16777216),# units:Ground Weapon  index:27    from 21 To 22
         SetMemory(0x6636D4, Add, 768),# units:Ground Weapon  index:29    from 21 To 24
+        SetMemory(0x6636D8, Add, -8323072),# units:Ground Weapon  index:34    from 130 To 3
         SetMemory(0x6636E4, Add, -5177344),# units:Ground Weapon  index:46    from 130 To 51
         SetMemory(0x6636F8, Add, -1040187392),# units:Ground Weapon  index:67    from 130 To 68
         SetMemory(0x663718, Add, -3473408),# units:Ground Weapon  index:98    from 130 To 77
         SetMemory(0x663728, Add, -956301312),# units:Ground Weapon  index:115    from 130 To 73
         SetMemory(0x663748, Add, -78),# units:Ground Weapon  index:144    from 130 To 52
+        SetMemory(0x664600, Add, 65536),# units:Max Ground Hits  index:34    from 0 To 1
         SetMemory(0x664640, Add, 65536),# units:Max Ground Hits  index:98    from 0 To 1
         SetMemory(0x664650, Add, 16777216),# units:Max Ground Hits  index:115    from 0 To 1
         SetMemory(0x6616E4, Add, 122),# units:Air Weapon  index:4    from 8 To 130
@@ -161,6 +179,7 @@ def onPluginStart():
         SetMemory(0x6616F8, Add, 1811939328),# units:Air Weapon  index:27    from 22 To 130
         SetMemory(0x6616FC, Add, 106),# units:Air Weapon  index:28    from 24 To 130
         SetMemory(0x6616FC, Add, 27648),# units:Air Weapon  index:29    from 22 To 130
+        SetMemory(0x661700, Add, -8323072),# units:Air Weapon  index:34    from 130 To 3
         SetMemory(0x66170C, Add, 1258291200),# units:Air Weapon  index:47    from 55 To 130
         SetMemory(0x66171C, Add, 1703936),# units:Air Weapon  index:62    from 104 To 130
         SetMemory(0x661730, Add, -1),# units:Air Weapon  index:80    from 76 To 75
@@ -172,17 +191,21 @@ def onPluginStart():
         SetMemory(0x65FC34, Add, -256),# units:Max Air Hits  index:29    from 1 To 0
         SetMemory(0x65FC54, Add, -65536),# units:Max Air Hits  index:62    from 1 To 0
         SetMemory(0x65FC88, Add, 16777216),# units:Max Air Hits  index:115    from 0 To 1
+        SetMemory(0x660198, Add, 196608),# units:AI Internal  index:34    from 0 To 3
         SetMemory(0x6601A0, Add, -768),# units:AI Internal  index:41    from 3 To 0
+        SetMemory(0x664094, Add, 4),# units:Special Ability Flags  index:5    from 1509949440 To 1509949444
         SetMemory(0x6640C0, Add, -2163072),# units:Special Ability Flags  index:16    from 404816448 To 402653376
         SetMemory(0x6640CC, Add, 4),# units:Special Ability Flags  index:19    from 1476395072 To 1476395076
         SetMemory(0x6640E4, Add, 4),# units:Special Ability Flags  index:25    from 1107296320 To 1107296324
         SetMemory(0x6640F8, Add, 4),# units:Special Ability Flags  index:30    from 1107296256 To 1107296260
+        SetMemory(0x664108, Add, 192),# units:Special Ability Flags  index:34    from 404815872 To 404816064
         SetMemory(0x664124, Add, -8),# units:Special Ability Flags  index:41    from 403767432 To 403767424
         SetMemory(0x664138, Add, 4),# units:Special Ability Flags  index:46    from 439419008 To 439419012
         SetMemory(0x66414C, Add, -2163200),# units:Special Ability Flags  index:51    from 404816576 To 402653376
         SetMemory(0x664150, Add, 4),# units:Special Ability Flags  index:52    from 439419072 To 439419076
         SetMemory(0x664154, Add, -1114112),# units:Special Ability Flags  index:53    from 403767488 To 402653376
         SetMemory(0x664158, Add, -1115136),# units:Special Ability Flags  index:54    from 403768512 To 402653376
+        SetMemory(0x664174, Add, 4),# units:Special Ability Flags  index:61    from 406913024 To 406913028
         SetMemory(0x66417C, Add, 4),# units:Special Ability Flags  index:63    from 471859456 To 471859460
         SetMemory(0x664180, Add, -1073758024),# units:Special Ability Flags  index:64    from 1476411400 To 402653376
         SetMemory(0x664188, Add, 4),# units:Special Ability Flags  index:66    from 1509949440 To 1509949444
@@ -192,6 +215,7 @@ def onPluginStart():
         SetMemory(0x6641B0, Add, 4),# units:Special Ability Flags  index:76    from 469762368 To 469762372
         SetMemory(0x6641B4, Add, -65408),# units:Special Ability Flags  index:77    from 402718784 To 402653376
         SetMemory(0x6641B8, Add, 4),# units:Special Ability Flags  index:78    from 1509949504 To 1509949508
+        SetMemory(0x6641DC, Add, 128),# units:Special Ability Flags  index:87    from 404815936 To 404816064
         SetMemory(0x664208, Add, -64),# units:Special Ability Flags  index:98    from 1512046660 To 1512046596
         SetMemory(0x66420C, Add, -2163072),# units:Special Ability Flags  index:99    from 404816448 To 402653376
         SetMemory(0x664234, Add, -603977729),# units:Special Ability Flags  index:109    from 1140850689 To 536872960
@@ -205,6 +229,7 @@ def onPluginStart():
         SetMemory(0x664334, Add, -67106817),# units:Special Ability Flags  index:173    from 603979777 To 536872960
         SetMemory(0x66433C, Add, 268435456),# units:Special Ability Flags  index:175    from 67108865 To 335544321
         SetMemory(0x662DB8, Add, 256),# units:Target Acquisition Range  index:1    from 7 To 8
+        SetMemory(0x662DD8, Add, -196608),# units:Target Acquisition Range  index:34    from 9 To 6
         SetMemory(0x662DDC, Add, 256),# units:Target Acquisition Range  index:37    from 3 To 4
         SetMemory(0x662DE0, Add, 768),# units:Target Acquisition Range  index:41    from 1 To 4
         SetMemory(0x662DF8, Add, 262144),# units:Target Acquisition Range  index:66    from 4 To 8
@@ -216,12 +241,14 @@ def onPluginStart():
         SetMemory(0x662E1C, Add, 2),# units:Target Acquisition Range  index:100    from 6 To 8
         SetMemory(0x662E20, Add, 2),# units:Target Acquisition Range  index:104    from 6 To 8
         SetMemory(0x662E28, Add, 100663296),# units:Target Acquisition Range  index:115    from 0 To 6
+        SetMemory(0x663258, Add, 131072),# units:Sight Range  index:34    from 9 To 11
         SetMemory(0x66325C, Add, 256),# units:Sight Range  index:37    from 5 To 6
         SetMemory(0x663260, Add, -256),# units:Sight Range  index:41    from 7 To 6
         SetMemory(0x663280, Add, 50331648),# units:Sight Range  index:75    from 7 To 10
         SetMemory(0x6632A4, Add, -768),# units:Sight Range  index:109    from 8 To 5
         SetMemory(0x6632A8, Add, 33554432),# units:Sight Range  index:115    from 8 To 10
         SetMemory(0x6635E0, Add, 2),# units:Armor Upgrade  index:16    from 0 To 2
+        SetMemory(0x6635F0, Add, 131072),# units:Armor Upgrade  index:34    from 0 To 2
         SetMemory(0x6635FC, Add, 939524096),# units:Armor Upgrade  index:47    from 4 To 60
         SetMemory(0x663600, Add, -16777216),# units:Armor Upgrade  index:51    from 3 To 2
         SetMemory(0x663604, Add, -256),# units:Armor Upgrade  index:53    from 3 To 2
@@ -229,6 +256,7 @@ def onPluginStart():
         SetMemory(0x663610, Add, -3),# units:Armor Upgrade  index:64    from 5 To 2
         SetMemory(0x663618, Add, -196608),# units:Armor Upgrade  index:74    from 5 To 2
         SetMemory(0x66361C, Add, -768),# units:Armor Upgrade  index:77    from 5 To 2
+        SetMemory(0x663624, Add, -50331648),# units:Armor Upgrade  index:87    from 5 To 2
         SetMemory(0x663630, Add, 33554432),# units:Armor Upgrade  index:99    from 0 To 2
         SetMemory(0x663640, Add, -905969664),# units:Armor Upgrade  index:115    from 60 To 6
         SetMemory(0x6621B4, Add, -256),# units:Unit Size  index:53    from 2 To 1
@@ -236,23 +264,34 @@ def onPluginStart():
         SetMemory(0x6621E0, Add, 65536),# units:Unit Size  index:98    from 2 To 3
         SetMemory(0x6621EC, Add, -768),# units:Unit Size  index:109    from 3 To 0
         SetMemory(0x65FEDC, Add, 4096),# units:Armor  index:21    from 4 To 20
+        SetMemory(0x65FEE8, Add, 1245184),# units:Armor  index:34    from 1 To 20
+        SetMemory(0x65FF1C, Add, 973078528),# units:Armor  index:87    from 2 To 60
         SetMemory(0x65FF34, Add, -256),# units:Armor  index:109    from 1 To 0
         SetMemory(0x65FF38, Add, 33554432),# units:Armor  index:115    from 1 To 3
+        SetMemory(0x6620B8, Add, -65536),# units:Right-click Action  index:34    from 2 To 1
         SetMemory(0x6620C0, Add, -768),# units:Right-click Action  index:41    from 4 To 1
         SetMemory(0x6620C4, Add, 83886080),# units:Right-click Action  index:47    from 1 To 6
         SetMemory(0x6620D8, Add, -3),# units:Right-click Action  index:64    from 4 To 1
+        SetMemory(0x6620EC, Add, 0),# units:Right-click Action  index:87    from 1 To 1
         SetMemory(0x662108, Add, 16777216),# units:Right-click Action  index:115    from 0 To 1
         SetMemory(0x662118, Add, 262144),# units:Right-click Action  index:130    from 2 To 6
+        SetMemory(0x662004, Add, -999),# units:Ready Sound  index:34    from 999 To 0
         SetMemory(0x662084, Add, -492),# units:Ready Sound  index:98    from 1041 To 549
+        SetMemory(0x65FFF4, Add, -1001),# units:What Sound Start  index:34    from 1001 To 0
         SetMemory(0x660074, Add, -485),# units:What Sound Start  index:98    from 1044 To 559
         SetMemory(0x660088, Add, -25034752),# units:What Sound Start  index:109    from 397 To 15
         SetMemory(0x660094, Add, 9895936),# units:What Sound Start  index:115    from 389 To 540
+        SetMemory(0x662C34, Add, -1004),# units:What Sound End  index:34    from 1004 To 0
         SetMemory(0x662CB4, Add, -485),# units:What Sound End  index:98    from 1047 To 562
         SetMemory(0x662CC8, Add, -25034752),# units:What Sound End  index:109    from 397 To 15
         SetMemory(0x662CD4, Add, 10092544),# units:What Sound End  index:115    from 389 To 543
+        SetMemory(0x663B7C, Add, -1009),# units:Piss Sound Start  index:34    from 1009 To 0
         SetMemory(0x663BFC, Add, -498),# units:Piss Sound Start  index:98    from 1052 To 554
+        SetMemory(0x661F2C, Add, -1015),# units:Piss Sound End  index:34    from 1015 To 0
         SetMemory(0x661FAC, Add, -500),# units:Piss Sound End  index:98    from 1058 To 558
+        SetMemory(0x663C54, Add, -1005),# units:Yes Sound Start  index:34    from 1005 To 0
         SetMemory(0x663CD4, Add, -485),# units:Yes Sound Start  index:98    from 1048 To 563
+        SetMemory(0x661484, Add, -1008),# units:Yes Sound End  index:34    from 1008 To 0
         SetMemory(0x661504, Add, -486),# units:Yes Sound End  index:98    from 1051 To 565
         SetMemory(0x662864, Add, 2),# units:StarEdit Placement Box Width  index:1    from 15 To 17
         SetMemory(0x662868, Add, -15),# units:StarEdit Placement Box Width  index:2    from 32 To 17
@@ -275,10 +314,12 @@ def onPluginStart():
         SetMemory(0x6628D4, Add, -66),# units:StarEdit Placement Box Width  index:29    from 75 To 9
         SetMemory(0x6628D8, Add, -7),# units:StarEdit Placement Box Width  index:30    from 32 To 25
         SetMemory(0x6628E0, Add, -6),# units:StarEdit Placement Box Width  index:32    from 23 To 17
+        SetMemory(0x6628E8, Add, 7),# units:StarEdit Placement Box Width  index:34    from 17 To 24
         SetMemory(0x66290C, Add, -35),# units:StarEdit Placement Box Width  index:43    from 44 To 9
         SetMemory(0x662910, Add, -35),# units:StarEdit Placement Box Width  index:44    from 44 To 9
         SetMemory(0x66291C, Add, -15),# units:StarEdit Placement Box Width  index:47    from 24 To 9
         SetMemory(0x66292C, Add, 2),# units:StarEdit Placement Box Width  index:51    from 15 To 17
+        SetMemory(0x662930, Add, -12),# units:StarEdit Placement Box Width  index:52    from 29 To 17
         SetMemory(0x662934, Add, -4),# units:StarEdit Placement Box Width  index:53    from 21 To 17
         SetMemory(0x662938, Add, 1),# units:StarEdit Placement Box Width  index:54    from 16 To 17
         SetMemory(0x66293C, Add, -35),# units:StarEdit Placement Box Width  index:55    from 44 To 9
@@ -335,10 +376,12 @@ def onPluginStart():
         SetMemory(0x6628D4, Add, -3276800),# units:StarEdit Placement Box Height  index:29    from 59 To 9
         SetMemory(0x6628D8, Add, -458752),# units:StarEdit Placement Box Height  index:30    from 32 To 25
         SetMemory(0x6628E0, Add, -720896),# units:StarEdit Placement Box Height  index:32    from 28 To 17
+        SetMemory(0x6628E8, Add, 524288),# units:StarEdit Placement Box Height  index:34    from 20 To 28
         SetMemory(0x66290C, Add, -2293760),# units:StarEdit Placement Box Height  index:43    from 44 To 9
         SetMemory(0x662910, Add, -2293760),# units:StarEdit Placement Box Height  index:44    from 44 To 9
         SetMemory(0x66291C, Add, -983040),# units:StarEdit Placement Box Height  index:47    from 24 To 9
         SetMemory(0x66292C, Add, -327680),# units:StarEdit Placement Box Height  index:51    from 22 To 17
+        SetMemory(0x662930, Add, -786432),# units:StarEdit Placement Box Height  index:52    from 29 To 17
         SetMemory(0x662934, Add, -393216),# units:StarEdit Placement Box Height  index:53    from 23 To 17
         SetMemory(0x662938, Add, 65536),# units:StarEdit Placement Box Height  index:54    from 16 To 17
         SetMemory(0x66293C, Add, -2293760),# units:StarEdit Placement Box Height  index:55    from 44 To 9
@@ -399,6 +442,7 @@ def onPluginStart():
         SetMemory(0x6618B0, Add, -33),# units:Unit Size Left  index:29    from 37 To 4
         SetMemory(0x6618B8, Add, -4),# units:Unit Size Left  index:30    from 16 To 12
         SetMemory(0x6618C8, Add, -3),# units:Unit Size Left  index:32    from 11 To 8
+        SetMemory(0x6618D8, Add, 4),# units:Unit Size Left  index:34    from 8 To 12
         SetMemory(0x661920, Add, -18),# units:Unit Size Left  index:43    from 22 To 4
         SetMemory(0x661928, Add, -18),# units:Unit Size Left  index:44    from 22 To 4
         SetMemory(0x661940, Add, -8),# units:Unit Size Left  index:47    from 12 To 4
@@ -415,7 +459,7 @@ def onPluginStart():
         SetMemory(0x661A00, Add, -14),# units:Unit Size Left  index:71    from 22 To 8
         SetMemory(0x661A08, Add, -24),# units:Unit Size Left  index:72    from 32 To 8
         SetMemory(0x661A18, Add, -4),# units:Unit Size Left  index:74    from 12 To 8
-        SetMemory(0x661A20, Add, -8),# units:Unit Size Left  index:75    from 12 To 4
+        SetMemory(0x661A20, Add, -10),# units:Unit Size Left  index:75    from 12 To 2
         SetMemory(0x661A28, Add, -8),# units:Unit Size Left  index:76    from 16 To 8
         SetMemory(0x661A30, Add, -3),# units:Unit Size Left  index:77    from 11 To 8
         SetMemory(0x661A48, Add, -14),# units:Unit Size Left  index:80    from 18 To 4
@@ -423,6 +467,7 @@ def onPluginStart():
         SetMemory(0x661A60, Add, -8),# units:Unit Size Left  index:83    from 16 To 8
         SetMemory(0x661A78, Add, -18),# units:Unit Size Left  index:86    from 22 To 4
         SetMemory(0x661A88, Add, -14),# units:Unit Size Left  index:88    from 18 To 4
+        SetMemory(0x661AB8, Add, -12),# units:Unit Size Left  index:94    from 16 To 4
         SetMemory(0x661AD8, Add, -20),# units:Unit Size Left  index:98    from 24 To 4
         SetMemory(0x661AE0, Add, 1),# units:Unit Size Left  index:99    from 7 To 8
         SetMemory(0x661AF8, Add, -33),# units:Unit Size Left  index:102    from 37 To 4
@@ -458,6 +503,7 @@ def onPluginStart():
         SetMemory(0x6618B0, Add, -1638400),# units:Unit Size Up  index:29    from 29 To 4
         SetMemory(0x6618B8, Add, -262144),# units:Unit Size Up  index:30    from 16 To 12
         SetMemory(0x6618C8, Add, 65536),# units:Unit Size Up  index:32    from 7 To 8
+        SetMemory(0x6618D8, Add, 327680),# units:Unit Size Up  index:34    from 9 To 14
         SetMemory(0x661920, Add, -1179648),# units:Unit Size Up  index:43    from 22 To 4
         SetMemory(0x661928, Add, -1179648),# units:Unit Size Up  index:44    from 22 To 4
         SetMemory(0x661940, Add, -524288),# units:Unit Size Up  index:47    from 12 To 4
@@ -475,7 +521,7 @@ def onPluginStart():
         SetMemory(0x661A00, Add, -917504),# units:Unit Size Up  index:71    from 22 To 8
         SetMemory(0x661A08, Add, -1572864),# units:Unit Size Up  index:72    from 32 To 8
         SetMemory(0x661A18, Add, 131072),# units:Unit Size Up  index:74    from 6 To 8
-        SetMemory(0x661A20, Add, -131072),# units:Unit Size Up  index:75    from 6 To 4
+        SetMemory(0x661A20, Add, -262144),# units:Unit Size Up  index:75    from 6 To 2
         SetMemory(0x661A28, Add, -524288),# units:Unit Size Up  index:76    from 16 To 8
         SetMemory(0x661A30, Add, 196608),# units:Unit Size Up  index:77    from 5 To 8
         SetMemory(0x661A48, Add, -786432),# units:Unit Size Up  index:80    from 16 To 4
@@ -483,6 +529,7 @@ def onPluginStart():
         SetMemory(0x661A60, Add, -524288),# units:Unit Size Up  index:83    from 16 To 8
         SetMemory(0x661A78, Add, -1179648),# units:Unit Size Up  index:86    from 22 To 4
         SetMemory(0x661A88, Add, -786432),# units:Unit Size Up  index:88    from 16 To 4
+        SetMemory(0x661AB8, Add, -786432),# units:Unit Size Up  index:94    from 16 To 4
         SetMemory(0x661AD8, Add, -786432),# units:Unit Size Up  index:98    from 16 To 4
         SetMemory(0x661AE0, Add, -131072),# units:Unit Size Up  index:99    from 10 To 8
         SetMemory(0x661AF8, Add, -1638400),# units:Unit Size Up  index:102    from 29 To 4
@@ -516,6 +563,7 @@ def onPluginStart():
         SetMemory(0x6618B4, Add, -33),# units:Unit Size Right  index:29    from 37 To 4
         SetMemory(0x6618BC, Add, -3),# units:Unit Size Right  index:30    from 15 To 12
         SetMemory(0x6618CC, Add, -3),# units:Unit Size Right  index:32    from 11 To 8
+        SetMemory(0x6618DC, Add, 3),# units:Unit Size Right  index:34    from 8 To 11
         SetMemory(0x661924, Add, -17),# units:Unit Size Right  index:43    from 21 To 4
         SetMemory(0x66192C, Add, -17),# units:Unit Size Right  index:44    from 21 To 4
         SetMemory(0x661944, Add, -7),# units:Unit Size Right  index:47    from 11 To 4
@@ -533,7 +581,7 @@ def onPluginStart():
         SetMemory(0x661A04, Add, -13),# units:Unit Size Right  index:71    from 21 To 8
         SetMemory(0x661A0C, Add, -23),# units:Unit Size Right  index:72    from 31 To 8
         SetMemory(0x661A1C, Add, -3),# units:Unit Size Right  index:74    from 11 To 8
-        SetMemory(0x661A24, Add, -7),# units:Unit Size Right  index:75    from 11 To 4
+        SetMemory(0x661A24, Add, -9),# units:Unit Size Right  index:75    from 11 To 2
         SetMemory(0x661A2C, Add, -7),# units:Unit Size Right  index:76    from 15 To 8
         SetMemory(0x661A34, Add, -3),# units:Unit Size Right  index:77    from 11 To 8
         SetMemory(0x661A4C, Add, -13),# units:Unit Size Right  index:80    from 17 To 4
@@ -541,6 +589,7 @@ def onPluginStart():
         SetMemory(0x661A64, Add, -7),# units:Unit Size Right  index:83    from 15 To 8
         SetMemory(0x661A7C, Add, -17),# units:Unit Size Right  index:86    from 21 To 4
         SetMemory(0x661A8C, Add, -13),# units:Unit Size Right  index:88    from 17 To 4
+        SetMemory(0x661ABC, Add, -11),# units:Unit Size Right  index:94    from 15 To 4
         SetMemory(0x661ADC, Add, -20),# units:Unit Size Right  index:98    from 24 To 4
         SetMemory(0x661AE4, Add, 1),# units:Unit Size Right  index:99    from 7 To 8
         SetMemory(0x661AFC, Add, -33),# units:Unit Size Right  index:102    from 37 To 4
@@ -576,6 +625,7 @@ def onPluginStart():
         SetMemory(0x6618B4, Add, -1638400),# units:Unit Size Down  index:29    from 29 To 4
         SetMemory(0x6618BC, Add, -196608),# units:Unit Size Down  index:30    from 15 To 12
         SetMemory(0x6618CC, Add, -393216),# units:Unit Size Down  index:32    from 14 To 8
+        SetMemory(0x6618DC, Add, 196608),# units:Unit Size Down  index:34    from 10 To 13
         SetMemory(0x661924, Add, -1114112),# units:Unit Size Down  index:43    from 21 To 4
         SetMemory(0x66192C, Add, -1114112),# units:Unit Size Down  index:44    from 21 To 4
         SetMemory(0x661944, Add, -458752),# units:Unit Size Down  index:47    from 11 To 4
@@ -593,7 +643,7 @@ def onPluginStart():
         SetMemory(0x661A04, Add, -851968),# units:Unit Size Down  index:71    from 21 To 8
         SetMemory(0x661A0C, Add, -1507328),# units:Unit Size Down  index:72    from 31 To 8
         SetMemory(0x661A1C, Add, -720896),# units:Unit Size Down  index:74    from 19 To 8
-        SetMemory(0x661A24, Add, -983040),# units:Unit Size Down  index:75    from 19 To 4
+        SetMemory(0x661A24, Add, -1114112),# units:Unit Size Down  index:75    from 19 To 2
         SetMemory(0x661A2C, Add, -458752),# units:Unit Size Down  index:76    from 15 To 8
         SetMemory(0x661A34, Add, -327680),# units:Unit Size Down  index:77    from 13 To 8
         SetMemory(0x661A4C, Add, -720896),# units:Unit Size Down  index:80    from 15 To 4
@@ -601,6 +651,7 @@ def onPluginStart():
         SetMemory(0x661A64, Add, -458752),# units:Unit Size Down  index:83    from 15 To 8
         SetMemory(0x661A7C, Add, -1114112),# units:Unit Size Down  index:86    from 21 To 4
         SetMemory(0x661A8C, Add, -720896),# units:Unit Size Down  index:88    from 15 To 4
+        SetMemory(0x661ABC, Add, -720896),# units:Unit Size Down  index:94    from 15 To 4
         SetMemory(0x661ADC, Add, -1048576),# units:Unit Size Down  index:98    from 20 To 4
         SetMemory(0x661AE4, Add, -196608),# units:Unit Size Down  index:99    from 11 To 8
         SetMemory(0x661AFC, Add, -1638400),# units:Unit Size Down  index:102    from 29 To 4
@@ -614,17 +665,22 @@ def onPluginStart():
         SetMemory(0x661C4C, Add, -983040),# units:Unit Size Down  index:144    from 23 To 8
         SetMemory(0x661D34, Add, -2097152),# units:Unit Size Down  index:173    from 47 To 15
         SetMemory(0x661D44, Add, -1179648),# units:Unit Size Down  index:175    from 63 To 45
+        SetMemory(0x662FCC, Add, -48),# units:Portrait  index:34    from 90 To 42
         SetMemory(0x66304C, Add, -50),# units:Portrait  index:98    from 96 To 46
         SetMemory(0x663060, Add, 4259840),# units:Portrait  index:109    from 17 To 82
         SetMemory(0x66306C, Add, 1835008),# units:Portrait  index:115    from 17 To 45
+        SetMemory(0x6638CC, Add, 50),# units:Mineral Cost  index:34    from 50 To 100
         SetMemory(0x663960, Add, -6488064),# units:Mineral Cost  index:109    from 100 To 1
         SetMemory(0x66396C, Add, 36044800),# units:Mineral Cost  index:115    from 50 To 600
+        SetMemory(0x65FD44, Add, 275),# units:Vespene Cost  index:34    from 25 To 300
         SetMemory(0x65FDC4, Add, 300),# units:Vespene Cost  index:98    from 0 To 300
         SetMemory(0x65FDD8, Add, 65536),# units:Vespene Cost  index:109    from 0 To 1
         SetMemory(0x65FDE4, Add, 16384000),# units:Vespene Cost  index:115    from 50 To 300
+        SetMemory(0x66046C, Add, 1050),# units:Build Time  index:34    from 450 To 1500
         SetMemory(0x6604EC, Add, 1),# units:Build Time  index:98    from 0 To 1
         SetMemory(0x660500, Add, -39256064),# units:Build Time  index:109    from 600 To 1
         SetMemory(0x66050C, Add, 117964800),# units:Build Time  index:115    from 600 To 2400
+        SetMemory(0x6637C0, Add, 131072),# units:Staredit Group Flags  index:34    from 10 To 12
         SetMemory(0x6637C4, Add, 256),# units:Staredit Group Flags  index:37    from 9 To 10
         SetMemory(0x6637C4, Add, 65536),# units:Staredit Group Flags  index:38    from 9 To 10
         SetMemory(0x6637C4, Add, 16777216),# units:Staredit Group Flags  index:39    from 9 To 10
@@ -658,6 +714,7 @@ def onPluginStart():
         SetMemory(0x663CE8, Add, -262144),# units:Supply Required  index:2    from 4 To 0
         SetMemory(0x663CF0, Add, -4),# units:Supply Required  index:8    from 4 To 0
         SetMemory(0x663CF4, Add, -12),# units:Supply Required  index:12    from 12 To 0
+        SetMemory(0x663D08, Add, -131072),# units:Supply Required  index:34    from 2 To 0
         SetMemory(0x663D24, Add, -4),# units:Supply Required  index:60    from 4 To 0
         SetMemory(0x663D2C, Add, -1024),# units:Supply Required  index:69    from 4 To 0
         SetMemory(0x663D2C, Add, -393216),# units:Supply Required  index:70    from 6 To 0
@@ -665,10 +722,13 @@ def onPluginStart():
         SetMemory(0x663D30, Add, -12),# units:Supply Required  index:72    from 12 To 0
         SetMemory(0x663D38, Add, -134217728),# units:Supply Required  index:83    from 8 To 0
         SetMemory(0x663D3C, Add, -2),# units:Supply Required  index:84    from 2 To 0
+        SetMemory(0x664430, Add, 65536),# units:Space Required  index:34    from 1 To 2
+        SetMemory(0x66344C, Add, -125),# units:Build Score  index:34    from 125 To 0
         SetMemory(0x6634CC, Add, 1025),# units:Build Score  index:98    from 0 To 1025
         SetMemory(0x6634E0, Add, -3276800),# units:Build Score  index:109    from 50 To 0
         SetMemory(0x6634EC, Add, -6553600),# units:Build Score  index:115    from 100 To 0
         SetMemory(0x663EBC, Add, 9850),# units:Destroy Score  index:2    from 150 To 10000
+        SetMemory(0x663EFC, Add, 1150),# units:Destroy Score  index:34    from 250 To 1400
         SetMemory(0x663F04, Add, 570163200),# units:Destroy Score  index:39    from 1300 To 10000
         SetMemory(0x663F08, Add, 9975),# units:Destroy Score  index:40    from 25 To 10000
         SetMemory(0x663F1C, Add, -262144000),# units:Destroy Score  index:51    from 4000 To 0
@@ -677,7 +737,10 @@ def onPluginStart():
         SetMemory(0x663F9C, Add, 150732800),# units:Destroy Score  index:115    from 300 To 2600
         SetMemory(0x663FDC, Add, -240),# units:Destroy Score  index:146    from 240 To 0
         SetMemory(0x663FFC, Add, -300),# units:Destroy Score  index:162    from 300 To 0
+        SetMemory(0x6606F8, Add, -65536),# units:Broodwar Unit Flag  index:34    from 1 To 0
         SetMemory(0x66154C, Add, 29556736),# units:Staredit Availability Flags  index:27    from 4 To 455
+        SetMemory(0x66155C, Add, -512),# units:Staredit Availability Flags  index:34    from 975 To 463
+        SetMemory(0x6615C4, Add, 30081024),# units:Staredit Availability Flags  index:87    from 4 To 463
         SetMemory(0x6615DC, Add, 459),# units:Staredit Availability Flags  index:98    from 4 To 463
         SetMemory(0x6615F0, Add, -7864320),# units:Staredit Availability Flags  index:109    from 463 To 343
         SetMemory(0x6615FC, Add, -524288),# units:Staredit Availability Flags  index:115    from 463 To 455
@@ -788,6 +851,7 @@ def onPluginStart():
         SetMemory(0x6575A4, Add, 160),# weapons:Maximum Range  index:77    from 160 To 320
         SetMemory(0x6575C4, Add, 305),# weapons:Maximum Range  index:85    from 15 To 320
         SetMemory(0x6575C8, Add, 17),# weapons:Maximum Range  index:86    from 15 To 32
+        SetMemory(0x65762C, Add, 49),# weapons:Maximum Range  index:111    from 15 To 64
         SetMemory(0x657634, Add, 64),# weapons:Maximum Range  index:113    from 192 To 256
         SetMemory(0x657640, Add, 64),# weapons:Maximum Range  index:116    from 192 To 256
         SetMemory(0x6571D0, Add, 2),# weapons:Damage Upgrade  index:0    from 7 To 9
@@ -883,6 +947,7 @@ def onPluginStart():
         SetMemory(0x6577E4, Add, -1966080),# weapons:Outer Splash Range  index:51    from 30 To 0
         SetMemory(0x656F14, Add, 4587520),# weapons:Damage Amount  index:51    from 10 To 80
         SetMemory(0x656F38, Add, 55),# weapons:Damage Amount  index:68    from 5 To 60
+        SetMemory(0x656F38, Add, 0),# weapons:Damage Amount  index:69    from 350 To 350
         SetMemory(0x656F40, Add, 2097152),# weapons:Damage Amount  index:73    from 8 To 40
         SetMemory(0x656FD0, Add, 2048),# weapons:Weapon Cooldown  index:25    from 22 To 30
         SetMemory(0x656FD8, Add, 234881024),# weapons:Weapon Cooldown  index:35    from 8 To 22
@@ -924,6 +989,7 @@ def onPluginStart():
         SetMemory(0x6569DC, Add, 28672),# weapons:Attack Angle  index:77    from 16 To 128
         SetMemory(0x6569DC, Add, 7340032),# weapons:Attack Angle  index:78    from 16 To 128
         SetMemory(0x6569E4, Add, 7340032),# weapons:Attack Angle  index:86    from 16 To 128
+        SetMemory(0x6569FC, Add, 1879048192),# weapons:Attack Angle  index:111    from 16 To 128
         SetMemory(0x656A00, Add, 112),# weapons:Attack Angle  index:112    from 16 To 128
         SetMemory(0x656A00, Add, 28672),# weapons:Attack Angle  index:113    from 16 To 128
         SetMemory(0x656A00, Add, 7340032),# weapons:Attack Angle  index:114    from 16 To 128
@@ -934,7 +1000,7 @@ def onPluginStart():
         SetMemory(0x6C9F34, Add, 829),# flingy:Speed  index:15    from 1 To 830
         SetMemory(0x6C9F94, Add, 427),# flingy:Speed  index:39    from 853 To 1280
         SetMemory(0x6C9FA4, Add, -1024),# flingy:Speed  index:43    from 1280 To 256
-        SetMemory(0x6C9FAC, Add, 171),# flingy:Speed  index:45    from 853 To 1024
+        SetMemory(0x6C9FAC, Add, 427),# flingy:Speed  index:45    from 853 To 1280
         SetMemory(0x6C9FB0, Add, 427),# flingy:Speed  index:46    from 853 To 1280
         SetMemory(0x6C9FBC, Add, 829),# flingy:Speed  index:49    from 1 To 830
         SetMemory(0x6CA010, Add, 384),# flingy:Speed  index:70    from 640 To 1024
@@ -942,18 +1008,20 @@ def onPluginStart():
         SetMemory(0x6CA02C, Add, 1279),# flingy:Speed  index:77    from 1 To 1280
         SetMemory(0x6CA058, Add, -683),# flingy:Speed  index:88    from 1707 To 1024
         SetMemory(0x6CA170, Add, -4533),# flingy:Speed  index:158    from 8533 To 4000
+        SetMemory(0x6CA1EC, Add, 1279),# flingy:Speed  index:189    from 1 To 1280
         SetMemory(0x6C9C88, Add, 829),# flingy:Acceleration  index:8    from 1 To 830
         SetMemory(0x6C9C88, Add, 83820544),# flingy:Acceleration  index:9    from 1 To 1280
         SetMemory(0x6C9C94, Add, 54329344),# flingy:Acceleration  index:15    from 1 To 830
         SetMemory(0x6C9CC4, Add, 393216),# flingy:Acceleration  index:39    from 27 To 33
         SetMemory(0x6C9CCC, Add, -1048576),# flingy:Acceleration  index:43    from 48 To 32
-        SetMemory(0x6C9CD0, Add, 65339392),# flingy:Acceleration  index:45    from 27 To 1024
+        SetMemory(0x6C9CD0, Add, 82116608),# flingy:Acceleration  index:45    from 27 To 1280
         SetMemory(0x6C9CD4, Add, 1253),# flingy:Acceleration  index:46    from 27 To 1280
         SetMemory(0x6C9CD8, Add, 54329344),# flingy:Acceleration  index:49    from 1 To 830
         SetMemory(0x6C9D04, Add, 6),# flingy:Acceleration  index:70    from 27 To 33
         SetMemory(0x6C9D0C, Add, 1279),# flingy:Acceleration  index:74    from 1 To 1280
         SetMemory(0x6C9D10, Add, 83820544),# flingy:Acceleration  index:77    from 1 To 1280
         SetMemory(0x6C9DB4, Add, -4533),# flingy:Acceleration  index:158    from 8533 To 4000
+        SetMemory(0x6C9DF0, Add, 83820544),# flingy:Acceleration  index:189    from 1 To 1280
         SetMemory(0x6C9E04, Add, 3145728),# flingy:Acceleration  index:199    from 16 To 64
         SetMemory(0x6C9950, Add, -1),# flingy:Halt Distance  index:8    from 1 To 0
         SetMemory(0x6C9954, Add, -1),# flingy:Halt Distance  index:9    from 1 To 0
@@ -967,12 +1035,14 @@ def onPluginStart():
         SetMemory(0x6C9A64, Add, -1),# flingy:Halt Distance  index:77    from 1 To 0
         SetMemory(0x6C9A90, Add, -14569),# flingy:Halt Distance  index:88    from 14569 To 0
         SetMemory(0x6C9BA8, Add, -2267),# flingy:Halt Distance  index:158    from 4267 To 2000
+        SetMemory(0x6C9C24, Add, -1),# flingy:Halt Distance  index:189    from 1 To 0
         SetMemory(0x6C9E28, Add, -3328),# flingy:Turn Radius  index:9    from 40 To 27
         SetMemory(0x6C9E44, Add, 335544320),# flingy:Turn Radius  index:39    from 20 To 40
         SetMemory(0x6C9E4C, Add, -851968),# flingy:Turn Radius  index:46    from 40 To 27
         SetMemory(0x6C9E50, Add, -1536),# flingy:Turn Radius  index:49    from 40 To 34
         SetMemory(0x6C9E64, Add, 1310720),# flingy:Turn Radius  index:70    from 20 To 40
         SetMemory(0x6C9E68, Add, -851968),# flingy:Turn Radius  index:74    from 40 To 27
+        SetMemory(0x6C9EDC, Add, -3328),# flingy:Turn Radius  index:189    from 40 To 27
         SetMemory(0x6C9860, Add, -2),# flingy:Movement Control  index:8    from 2 To 0
         SetMemory(0x6C9860, Add, -512),# flingy:Movement Control  index:9    from 2 To 0
         SetMemory(0x6C9864, Add, -33554432),# flingy:Movement Control  index:15    from 2 To 0
@@ -981,6 +1051,7 @@ def onPluginStart():
         SetMemory(0x6C9888, Add, -512),# flingy:Movement Control  index:49    from 2 To 0
         SetMemory(0x6C98A0, Add, -131072),# flingy:Movement Control  index:74    from 2 To 0
         SetMemory(0x6C98A4, Add, -512),# flingy:Movement Control  index:77    from 2 To 0
+        SetMemory(0x6C9914, Add, -512),# flingy:Movement Control  index:189    from 2 To 0
         SetMemory(0x666364, Add, 184),# sprites:Image File  index:258    from 293 To 477
         SetMemory(0x666368, Add, 12582912),# sprites:Image File  index:261    from 301 To 493
         SetMemory(0x6663A4, Add, -1900544),# sprites:Image File  index:291    from 396 To 367

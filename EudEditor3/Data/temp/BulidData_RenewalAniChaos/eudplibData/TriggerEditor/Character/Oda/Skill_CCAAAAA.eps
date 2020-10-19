@@ -221,7 +221,6 @@ function main(cp)
             SetSwitch("Recall - Oda", Set);
          }
 
-         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
 
          if (f.loop[cp] >= 3 && f.loop[cp] < 10)
          {
@@ -231,9 +230,8 @@ function main(cp)
             x = f.CosAngle[cp];
             y = f.SinAngle[cp];
 
-            EdgeShapeAt(cp, 1, "40 + 1n Mojo", 22, 3, 32, x, y);
-            EdgeShapeAt(cp, 1, " Unit. Hoffnung 25000", 22, 3, 32, x, y);
-            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+            EdgeShapeAt(cp, 1, "40 + 1n Mojo", 22, 2, 50, x, y);
+            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
 
             f.Table_Sin(cp, r + 90, d);
             f.Table_Cos(cp, r + 90, d);
@@ -242,7 +240,7 @@ function main(cp)
             y = f.SinAngle[cp];
 
             EdgeShapeAt(cp, 1, "Target", 22, 3, 32, x, y);
-            EdgeShapeAt(cp, 1, "60 + 1n Archon", 22, 3, 32, x, y);
+            EdgeShapeAt(cp, 1, "60 + 1n Archon", 22, 2, 50, x, y);
             KillUnitAt(All, "Target", "Anywhere", cp);
             KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
 

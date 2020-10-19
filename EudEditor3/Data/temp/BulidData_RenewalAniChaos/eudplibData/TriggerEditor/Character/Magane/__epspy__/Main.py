@@ -265,14 +265,14 @@ def SkillList(cp):
         f.stb.printAt(1, "\x1F　＃\x1B- 치쿠조인 마가네　\x04[ Re : CREATORS ]")
         # (Line 83) f.stb.printAt(2, "　　\x1FA\x04ction List");
         f.stb.printAt(2, "　　\x1FA\x04ction List")
-        # (Line 84) f.stb.printAt(3, "　　　\x18O \x04어휘 무한의 속임수 \x19[ 적 스킬 유닛 무효화 / 테러궁 취급 ] \x051분 30초");
-        f.stb.printAt(3, "　　　\x18O \x04어휘 무한의 속임수 \x19[ 적 스킬 유닛 무효화 / 테러궁 취급 ] \x051분 30초")
+        # (Line 84) f.stb.printAt(3, "　　　\x18O \x04어휘 무한의 속임수 \x19[ 적 스킬 유닛 무효화 / 테러궁시 취소 ] \x051분 30초");
+        f.stb.printAt(3, "　　　\x18O \x04어휘 무한의 속임수 \x19[ 적 스킬 유닛 무효화 / 테러궁시 취소 ] \x051분 30초")
         # (Line 85) f.stb.printAt(4, "　　　\x04\x1FSSS \x04거짓말 \x19[ 공성 ]");
         f.stb.printAt(4, "　　　\x04\x1FSSS \x04거짓말 \x19[ 공성 ]")
         # (Line 86) f.stb.printAt(5, "　　　\x04\x1FCCA + AA \x04악역 \x19[ 대인 ]");
         f.stb.printAt(5, "　　　\x04\x1FCCA + AA \x04악역 \x19[ 대인 ]")
-        # (Line 87) f.stb.printAt(6, "　　　\x04\x1FAAC \x04천재 \x19[ 대인 ]");
-        f.stb.printAt(6, "　　　\x04\x1FAAC \x04천재 \x19[ 대인 ]")
+        # (Line 87) f.stb.printAt(6, "　　　\x04\x1FACC \x04천재 \x19[ 대인 ]");
+        f.stb.printAt(6, "　　　\x04\x1FACC \x04천재 \x19[ 대인 ]")
         # (Line 88) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
         # (Line 89) f.stb.printAt(8, "　　　\x08AAA \x04틴달로스의 사냥개 \x19[ 대인 ] \x05", f.UltimateA[cp]);

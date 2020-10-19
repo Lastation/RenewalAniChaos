@@ -727,74 +727,72 @@ def f_main(cp):
                 # (Line 343) {
                 # (Line 344) f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 11, 75);
                 f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 11, 75)
-                # (Line 345) f.NxNSquareShape(cp, 1, "60 + 3n Ghost", 11, 75);
-                f.NxNSquareShape(cp, 1, "60 + 3n Ghost", 11, 75)
-                # (Line 347) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                # (Line 348) Order("60 + 3n Ghost", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 346) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 347) Order("60 + 3n Ghost", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 349) }
+                # (Line 348) }
                 DoActions(Order("60 + 3n Ghost", cp, "Anywhere", Attack, f.location[cp]))
-                # (Line 351) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+                # (Line 350) KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
             EUDEndIf()
-            # (Line 352) KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
+            # (Line 351) KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
             DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp))
-            # (Line 353) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+            # (Line 352) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
             DoActions(KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp))
-            # (Line 355) f.SkillWait(cp, 80);
+            # (Line 354) f.SkillWait(cp, 80);
             DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp))
             f.SkillWait(cp, 80)
-            # (Line 357) f.loop[cp] += 1;
+            # (Line 356) f.loop[cp] += 1;
             _ARRW(f.loop, cp).__iadd__(1)
-            # (Line 359) if (f.loop[cp] == 9)
+            # (Line 358) if (f.loop[cp] == 9)
             if EUDIf()(f.loop[cp] == 9):
-                # (Line 360) {
-                # (Line 361) f.count[cp] += 1;
+                # (Line 359) {
+                # (Line 360) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 362) f.loop[cp] = 0;
+                # (Line 361) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
+                # (Line 362) }
                 # (Line 363) }
-                # (Line 364) }
             EUDEndIf()
-            # (Line 365) else if (f.count[cp] == 6)
+            # (Line 364) else if (f.count[cp] == 6)
         if EUDElseIf()(f.count[cp] == 6):
-            # (Line 366) {
-            # (Line 367) SetSwitch("ComputerAlliy", Clear);
-            # (Line 369) if (cp < 3)
+            # (Line 365) {
+            # (Line 366) SetSwitch("ComputerAlliy", Clear);
+            # (Line 368) if (cp < 3)
             DoActions(SetSwitch("ComputerAlliy", Clear))
             if EUDIf()(cp >= 3, neg=True):
-                # (Line 370) {
-                # (Line 371) SetAllianceStatus(P8, Enemy);
-                # (Line 372) }
+                # (Line 369) {
+                # (Line 370) SetAllianceStatus(P8, Enemy);
+                # (Line 371) }
                 DoActions(SetAllianceStatus(P8, Enemy))
-                # (Line 373) else
-                # (Line 374) {
+                # (Line 372) else
+                # (Line 373) {
             if EUDElse()():
-                # (Line 375) SetAllianceStatus(P7, Enemy);
-                # (Line 376) }
+                # (Line 374) SetAllianceStatus(P7, Enemy);
+                # (Line 375) }
                 DoActions(SetAllianceStatus(P7, Enemy))
-                # (Line 378) KillUnitAt(All, "60 + 3n Ghost", "Anywhere", cp);
+                # (Line 377) KillUnitAt(All, "60 + 3n Ghost", "Anywhere", cp);
             EUDEndIf()
-            # (Line 379) SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
+            # (Line 378) SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
             DoActions(KillUnitAt(All, "60 + 3n Ghost", "Anywhere", cp))
-            # (Line 381) f.SkillEnd(cp);
+            # (Line 380) f.SkillEnd(cp);
             DoActions(SetDeaths(cp, SetTo, 0, " `ShieldRecharge"))
             f.SkillEnd(cp)
+            # (Line 381) }
             # (Line 382) }
-            # (Line 383) }
         EUDEndIf()
-        # (Line 384) }
+        # (Line 383) }
     EUDEndIf()
-    # (Line 386) function LineShape(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, distance)
+    # (Line 385) function LineShape(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, distance)
 
-# (Line 387) {
+# (Line 386) {
 @EUDTypedFunc([TrgPlayer, None, TrgUnit, None, None, None, None])
 def LineShape(cp, count, Unit, degree, n, interval, distance):
-    # (Line 388) f.LineShape(cp, count, Unit, degree, n, interval, distance);
+    # (Line 387) f.LineShape(cp, count, Unit, degree, n, interval, distance);
     f.LineShape(cp, count, Unit, degree, n, interval, distance)
-    # (Line 389) f.LineShape(cp, count, Unit, degree + 90, n, interval, distance);
+    # (Line 388) f.LineShape(cp, count, Unit, degree + 90, n, interval, distance);
     f.LineShape(cp, count, Unit, degree + 90, n, interval, distance)
-    # (Line 390) f.LineShape(cp, count, Unit, degree + 180, n, interval, distance);
+    # (Line 389) f.LineShape(cp, count, Unit, degree + 180, n, interval, distance);
     f.LineShape(cp, count, Unit, degree + 180, n, interval, distance)
-    # (Line 391) f.LineShape(cp, count, Unit, degree + 270, n, interval, distance);
+    # (Line 390) f.LineShape(cp, count, Unit, degree + 270, n, interval, distance);
     f.LineShape(cp, count, Unit, degree + 270, n, interval, distance)
-    # (Line 392) }
+    # (Line 391) }

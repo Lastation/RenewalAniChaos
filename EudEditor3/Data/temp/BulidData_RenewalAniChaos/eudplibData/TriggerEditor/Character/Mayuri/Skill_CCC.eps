@@ -1,5 +1,7 @@
 import Function as f;
 
+const s = StringBuffer();
+
 function main(cp)
 {
    f.HoldPosition(cp);
@@ -119,7 +121,8 @@ function main(cp)
       }
       else if (f.count[cp] == 2)
       {
-         if (Bring(cp, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") 
+         if (Bring(cp, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill") 
+         && Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill")
          && f.step[cp] == 210)
          {
             f.Voice_Routine(cp, 7);
@@ -127,7 +130,8 @@ function main(cp)
             f.count[cp] = 0;
             f.loop[cp] = 0;
             f.step[cp] = 220;
-            KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp);
+            KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
+            KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", cp);
          }
          else 
          {

@@ -42,8 +42,10 @@ function main(cp)
             deg = (dwrand() % 16) * 22;
             distance = (dwrand() % 3 + 7) * 10;
 
-            f.LineShape(cp, 1, "Kakaru (Twilight)", deg, 9, 75, distance);
-            f.LineShape(cp, 1, " Unit. Hoffnung 25000", deg, 9, 75, distance);
+            if (f.loop[cp] % 2 == 0)
+               f.LineShape(cp, 1, "Kakaru (Twilight)", deg, 9, 75, distance);
+            else if (f.loop[cp] % 2 == 1)
+               f.LineShape(cp, 1, " Unit. Hoffnung 25000", deg, 9, 75, distance);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);

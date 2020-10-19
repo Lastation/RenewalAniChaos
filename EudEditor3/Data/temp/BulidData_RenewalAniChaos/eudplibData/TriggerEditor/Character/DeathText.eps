@@ -30,7 +30,7 @@ function SetDeathValue(cp)
 			}
 			else { SetDeaths(CurrentPlayer, SetTo, 120 + v.Level[cp] * 12, (210)); }
 			if (Deaths(cp, 10, 22, 172)) SetDeaths(cp, SetTo, 0, " `UniqueSkill");
-			if (Bring((6), (1), 6, (162), (153))) { SetScore((7), (8), 5, (7)); }
+			//if (Bring((6), (1), 6, (162), (153))) { SetScore((7), (8), 5, (7)); }
 			SetResources((3), (8), v.DeathOre[cp], (0));
 			SetResources((4), (8), v.DeathOre[cp], (0));
 			SetResources((5), (8), v.DeathOre[cp], (0));
@@ -51,7 +51,7 @@ function SetDeathValue(cp)
 			}
 			else { SetDeaths(CurrentPlayer, SetTo, 120 + v.Level[cp] * 12, (210)); }
 			if (Deaths(cp, 10, 22, 172)) SetDeaths(cp, SetTo, 0, " `UniqueSkill");
-			if (Bring((7), (1), 6, (162), (153))) { SetScore((6), (8), 5, (7)); }
+			//if (Bring((7), (1), 6, (162), (153))) { SetScore((6), (8), 5, (7)); }
 			SetResources((0), (8), v.DeathOre[cp], (0));
 			SetResources((1), (8), v.DeathOre[cp], (0));
 			SetResources((2), (8), v.DeathOre[cp], (0));
@@ -90,4 +90,6 @@ function SetKillScore(cp)
 	if (Kills(CurrentPlayer, AtLeast, 1, 99))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 99); }
 	if (Kills(CurrentPlayer, AtLeast, 1, 64))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 64); }
 	if (Kills(CurrentPlayer, AtLeast, 1, 53))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 53); }
+	if (Kills(CurrentPlayer, AtLeast, 1, 34))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 34); }
+	if (Kills(CurrentPlayer, AtLeast, 1, 10))	{ v.Kill_Score[cp] += 1; SetKills(CurrentPlayer, Subtract, 1, 10); }
 }

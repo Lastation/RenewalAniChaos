@@ -287,8 +287,8 @@ def SkillList(cp):
         f.stb.printAt(3, "　　　\x18O \x04무한원점의 알타이르 \x19[ 15초 동안 팀 전체 마나 회복 + 20 ] \x051분 30초")
         # (Line 91) f.stb.printAt(4, "　　　\x04\x1FSSS \x04뚯뚜루~ \x19[ 대인 / 순간딜 ]");
         f.stb.printAt(4, "　　　\x04\x1FSSS \x04뚯뚜루~ \x19[ 대인 / 순간딜 ]")
-        # (Line 92) f.stb.printAt(5, "　　　\x04\x1FCCA + CC + AS \x04비익연리의 달링 \x19[ 대인 / 지속딜 / CCA + CC - 자리고정 / 쉴드고정 1 ]");
-        f.stb.printAt(5, "　　　\x04\x1FCCA + CC + AS \x04비익연리의 달링 \x19[ 대인 / 지속딜 / CCA + CC - 자리고정 / 쉴드고정 1 ]")
+        # (Line 92) f.stb.printAt(5, "　　　\x04\x1FCCC + AS + CC \x04비익연리의 달링 \x19[ 대인 / 지속딜 / CCC + AS - 자리고정 / 쉴드고정 1 ]");
+        f.stb.printAt(5, "　　　\x04\x1FCCC + AS + CC \x04비익연리의 달링 \x19[ 대인 / 지속딜 / CCC + AS - 자리고정 / 쉴드고정 1 ]")
         # (Line 93) f.stb.printAt(6, "　　　\x04\x1FAA \x04무한원점의 아크라이트 \x19[ 대인 / 순간딜 / 쉴드고정 1 ]");
         f.stb.printAt(6, "　　　\x04\x1FAA \x04무한원점의 아크라이트 \x19[ 대인 / 순간딜 / 쉴드고정 1 ]")
         # (Line 94) f.stb.printAt(7, "\n");

@@ -12,7 +12,9 @@ import Character.Milim.Main 		as milimMain;
 import Character.Yume.Main 		as yumeMain;
 import Character.Magane.Main 		as maganeMain;
 import Character.Oda.Main 			as odaMain;
-
+import Character.Ekidona.Main 		as ekidonaMain;
+import Character.Niwa.Main 			as niwaMain;
+import Character.Park.Main 			as parkMain;
 const bgmWait		= PVariable();			
 
 function SetVoice(cp);
@@ -52,8 +54,15 @@ function main(cp)
 	case 28:
 		odaMain.main(cp);
 		break;
-
-		
+	case 29:
+		ekidonaMain.main(cp);
+		break;
+	case 30:
+		niwaMain.main(cp);
+		break;
+	case 31:
+		parkMain.main(cp);
+		break;
 	}
 	
 	SkillWait(cp);
@@ -113,19 +122,9 @@ function BGMRoutine(cp)
 	{
 		if (bgmWait[cp] == 0)
 		{
-			
-			if (Bring(P7, AtLeast, 1, 200, "Anywhere") && Bring(P8, AtLeast, 1, 200, "Anywhere"))			// 초반 인식
-			{
-				f.stb.print("　　\x04\x1F# N\x04ow \x04Playing... ' \x10RE/ /MEMBER \x04' by \x19S\x04awano \x19H\x04iroyuki \x04");
-				PlayWAV("BGM1.ogg");
-				bgmWait[cp] = 3708;
-			}
-			else if (Bring(P7, AtLeast, 1, 79, "Anywhere") && Bring(P8, AtLeast, 1, 79, "Anywhere")) 		// 중반 인식
-			{
-				f.stb.print("　　\x04N\x02ow \x04P\x02laying... ' \x1FS\x04h0ut [\x1BR\x04e : \x19C\x04REATORS] \x02by \x04S\x02awano \x04H\x02iroyuki \x04'");
-				PlayWAV("BGM2.ogg");
-				bgmWait[cp] = 2916;
-			}
+			f.stb.print("　　\x04\x1F# N\x04ow \x04Playing... ' \x08化\x02身の\x04獣 [ \x19십\x04이대전 ed ]\x04");
+			PlayWAV("BGM.ogg");
+			bgmWait[cp] = 2424;
 		}
 	}
 	

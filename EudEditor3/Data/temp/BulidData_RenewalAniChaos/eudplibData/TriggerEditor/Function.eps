@@ -44,6 +44,9 @@ const Milim_Voice 		= PVariable();	// 25
 const Yume_Voice 		= PVariable();	// 26
 const Magane_Voice 	= PVariable();	// 27
 const Oda_Voice 		= PVariable();	// 28
+const Ekidona_Voice 		= PVariable();	// 29
+const Niwa_Voice 		= PVariable();	// 30
+const Park_Voice 		= PVariable();	// 31
 
 const p_burrowed = UnitProperty(burrowed = true);
 const p_hallucinated = UnitProperty(hallucinated = true);
@@ -134,6 +137,30 @@ function Voice_Routine(cp, num)
 		Oda_Voice[3] = num;
 		Oda_Voice[4] = num;
 		Oda_Voice[5] = num;
+		break;	
+	case 29:
+		Ekidona_Voice[0] = num;
+		Ekidona_Voice[1] = num;
+		Ekidona_Voice[2] = num;
+		Ekidona_Voice[3] = num;
+		Ekidona_Voice[4] = num;
+		Ekidona_Voice[5] = num;
+		break;	
+	case 30:
+		Niwa_Voice[0] = num;
+		Niwa_Voice[1] = num;
+		Niwa_Voice[2] = num;
+		Niwa_Voice[3] = num;
+		Niwa_Voice[4] = num;
+		Niwa_Voice[5] = num;
+		break;	
+	case 31:
+		Park_Voice[0] = num;
+		Park_Voice[1] = num;
+		Park_Voice[2] = num;
+		Park_Voice[3] = num;
+		Park_Voice[4] = num;
+		Park_Voice[5] = num;
 		break;	
 		
 	}
@@ -284,6 +311,14 @@ function SkillWaitC(cp, count)
 function SkillEnd(cp)
 {
 	count[cp] = 999;
+}
+
+function DoubleShapeWithProperty(cp : TrgPlayer, count, Unit : TrgUnit, x, y, property)
+{
+	MoveLoc(heroID[cp], cp, x, y);
+	SkillUnitWithProperty(cp, count, Unit, property);
+	MoveLoc(heroID[cp], cp, -x, -y);
+	SkillUnitWithProperty(cp, count, Unit, property);
 }
 
 function DoubleShape(cp : TrgPlayer, count, Unit : TrgUnit, x, y)
