@@ -414,76 +414,80 @@ def Text(num):
         EUDBreak()
         # (Line 137) case 27:
     _t27 = EUDSwitchCase()
-    # (Line 138) PlayWAV("Oda_Unique.ogg");
+    # (Line 138) PlayWAV("Park_unique.ogg_");
     if _t27(27):
-        # (Line 139) break;
-        DoActions(PlayWAV("Oda_Unique.ogg"))
+        # (Line 139) f.stb.print("\x13\x1BPark ilpyou\n");
+        DoActions(PlayWAV("Park_unique.ogg_"))
+        f.stb.print("\x13\x1BPark ilpyou\n")
+        # (Line 140) f.stb.print("\x13\x04택견 - 무음신속\x04");
+        f.stb.print("\x13\x04택견 - 무음신속\x04")
+        # (Line 141) break;
         EUDBreak()
-        # (Line 140) case 28:
+        # (Line 142) case 28:
     _t28 = EUDSwitchCase()
-    # (Line 141) PlayWAV("Oda_Ult03.ogg");
+    # (Line 143) PlayWAV("Oda_Ult03.ogg");
     if _t28(28):
-        # (Line 142) f.stb.print("\x13\x1BOda Sakunosuke\n");
+        # (Line 144) f.stb.print("\x13\x1BOda Sakunosuke\n");
         DoActions(PlayWAV("Oda_Ult03.ogg"))
         f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 143) f.stb.print("\x13\x04잘자라, 코스케\x04");
+        # (Line 145) f.stb.print("\x13\x04잘자라, 코스케\x04");
         f.stb.print("\x13\x04잘자라, 코스케\x04")
-        # (Line 144) break;
+        # (Line 146) break;
         EUDBreak()
-        # (Line 145) case 29:
+        # (Line 147) case 29:
     _t29 = EUDSwitchCase()
-    # (Line 146) f.stb.print("\x13\x1BOda Sakunosuke\n");
+    # (Line 148) f.stb.print("\x13\x1BOda Sakunosuke\n");
     if _t29(29):
         f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 147) f.stb.print("\x13\x04잘자라, 카츠미\x04");
+        # (Line 149) f.stb.print("\x13\x04잘자라, 카츠미\x04");
         f.stb.print("\x13\x04잘자라, 카츠미\x04")
-        # (Line 148) break;
+        # (Line 150) break;
         EUDBreak()
-        # (Line 149) case 30:
+        # (Line 151) case 30:
     _t30 = EUDSwitchCase()
-    # (Line 150) f.stb.print("\x13\x1BOda Sakunosuke\n");
+    # (Line 152) f.stb.print("\x13\x1BOda Sakunosuke\n");
     if _t30(30):
         f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 151) f.stb.print("\x13\x04잘자라, 유우\x04");
+        # (Line 153) f.stb.print("\x13\x04잘자라, 유우\x04");
         f.stb.print("\x13\x04잘자라, 유우\x04")
-        # (Line 152) break;
+        # (Line 154) break;
         EUDBreak()
-        # (Line 153) case 31:
+        # (Line 155) case 31:
     _t31 = EUDSwitchCase()
-    # (Line 154) f.stb.print("\x13\x1BOda Sakunosuke\n");
+    # (Line 156) f.stb.print("\x13\x1BOda Sakunosuke\n");
     if _t31(31):
         f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 155) f.stb.print("\x13\x04잘자라, 신지\x04");
+        # (Line 157) f.stb.print("\x13\x04잘자라, 신지\x04");
         f.stb.print("\x13\x04잘자라, 신지\x04")
-        # (Line 156) break;
+        # (Line 158) break;
         EUDBreak()
-        # (Line 157) case 32:
+        # (Line 159) case 32:
     _t32 = EUDSwitchCase()
-    # (Line 158) f.stb.print("\x13\x1BOda Sakunosuke\n");
+    # (Line 160) f.stb.print("\x13\x1BOda Sakunosuke\n");
     if _t32(32):
         f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 159) f.stb.print("\x13\x04잘자라, 사쿠라\x04");
+        # (Line 161) f.stb.print("\x13\x04잘자라, 사쿠라\x04");
         f.stb.print("\x13\x04잘자라, 사쿠라\x04")
-        # (Line 160) break;
+        # (Line 162) break;
         EUDBreak()
-        # (Line 161) case 33:
+        # (Line 163) case 33:
     _t33 = EUDSwitchCase()
-    # (Line 162) f.stb.print("\x13\x1BOda Sakunosuke\n");
+    # (Line 164) f.stb.print("\x13\x1BOda Sakunosuke\n");
     if _t33(33):
         f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 163) f.stb.print("\x13\x04평안히 잠들어라\x04");
+        # (Line 165) f.stb.print("\x13\x04평안히 잠들어라\x04");
         f.stb.print("\x13\x04평안히 잠들어라\x04")
-        # (Line 164) break;
+        # (Line 166) break;
         EUDBreak()
-        # (Line 165) case 34:
+        # (Line 167) case 34:
     _t34 = EUDSwitchCase()
-    # (Line 166) f.stb.print("\x13\x1BOda Sakunosuke\n");
+    # (Line 168) f.stb.print("\x13\x1BOda Sakunosuke\n");
     if _t34(34):
         f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 167) f.stb.print("\x13\x04다녀오마");
+        # (Line 169) f.stb.print("\x13\x04다녀오마");
         f.stb.print("\x13\x04다녀오마")
-        # (Line 168) break;
+        # (Line 170) break;
         EUDBreak()
-        # (Line 169) }
-    # (Line 170) }
+        # (Line 171) }
+    # (Line 172) }
     EUDEndSwitch()
