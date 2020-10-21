@@ -193,43 +193,41 @@ def f_main(cp):
                 # (Line 37) f.SquareShape(cp, 1, "40 + 1n Wraith", 50, 50);
                 f.SquareShape(cp, 1, "40 + 1n Wraith", 50, 50)
                 # (Line 38) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                # (Line 39) Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 39) }
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 40) }
-                DoActions(Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]))
-                # (Line 41) if (f.loop[cp] < 7)
+                # (Line 40) if (f.loop[cp] < 7)
             EUDEndIf()
             if EUDIf()(f.loop[cp] >= 7, neg=True):
-                # (Line 42) {
-                # (Line 43) f.SquareShape(cp, 1, "Protoss Dark Archon", -100, 100 - 50 * f.loop[cp]);
+                # (Line 41) {
+                # (Line 42) f.SquareShape(cp, 1, "Protoss Dark Archon", -100, 100 - 50 * f.loop[cp]);
                 f.SquareShape(cp, 1, "Protoss Dark Archon", -100, 100 - 50 * f.loop[cp])
-                # (Line 44) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                # (Line 45) }
+                # (Line 43) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                # (Line 44) }
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 47) f.SkillWait(cp, 80);
+                # (Line 46) f.SkillWait(cp, 80);
             EUDEndIf()
             f.SkillWait(cp, 80)
-            # (Line 49) f.loop[cp] += 1;
+            # (Line 48) f.loop[cp] += 1;
             _ARRW(f.loop, cp).__iadd__(1)
-            # (Line 51) if (f.loop[cp] == 8)
+            # (Line 50) if (f.loop[cp] == 8)
             if EUDIf()(f.loop[cp] == 8):
-                # (Line 52) {
-                # (Line 53) f.count[cp] += 1;
+                # (Line 51) {
+                # (Line 52) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 54) f.loop[cp] = 0;
+                # (Line 53) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
+                # (Line 54) }
                 # (Line 55) }
-                # (Line 56) }
             EUDEndIf()
-            # (Line 58) else if (f.count[cp] == 1)
+            # (Line 57) else if (f.count[cp] == 1)
         if EUDElseIf()(f.count[cp] == 1):
-            # (Line 59) {
-            # (Line 60) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
-            # (Line 61) f.SkillEnd(cp);
+            # (Line 58) {
+            # (Line 59) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+            # (Line 60) f.SkillEnd(cp);
             DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp))
             f.SkillEnd(cp)
+            # (Line 61) }
             # (Line 62) }
-            # (Line 63) }
         EUDEndIf()
-        # (Line 64) }
+        # (Line 63) }
     EUDEndIf()

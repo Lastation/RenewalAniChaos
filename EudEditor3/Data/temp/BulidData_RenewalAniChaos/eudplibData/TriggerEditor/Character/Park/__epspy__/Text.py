@@ -172,322 +172,97 @@ def Text(num):
     # (Line 28) {
     # (Line 29) case 1:
     _t1 = EUDSwitchCase()
-    # (Line 30) PlayWAV("Oda_Ult01.ogg");
+    # (Line 30) PlayWAV("Park_Ult01.ogg");
     if _t1(1):
-        # (Line 31) break;
-        DoActions(PlayWAV("Oda_Ult01.ogg"))
+        # (Line 31) f.stb.print("\x13\x1BPark il pyou\n");
+        DoActions(PlayWAV("Park_Ult01.ogg"))
+        f.stb.print("\x13\x1BPark il pyou\n")
+        # (Line 32) f.stb.print("\x13\x04택견 - 업화염인\x04");
+        f.stb.print("\x13\x04택견 - 업화염인\x04")
+        # (Line 33) break;
         EUDBreak()
-        # (Line 32) case 2:
+        # (Line 34) case 2:
     _t2 = EUDSwitchCase()
-    # (Line 33) f.stb.print("\x13\x1BOda Sakunosuke\n");
+    # (Line 35) f.stb.print("\x13\x1BPark il pyou\n");
     if _t2(2):
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 34) f.stb.print("\x13\x04목이 아팠다\x04");
-        f.stb.print("\x13\x04목이 아팠다\x04")
-        # (Line 35) break;
+        f.stb.print("\x13\x1BPark il pyou\n")
+        # (Line 36) f.stb.print("\x13\x04택견 - 업화염인\x04");
+        f.stb.print("\x13\x04택견 - 업화염인\x04")
+        # (Line 37) break;
         EUDBreak()
-        # (Line 36) case 3:
+        # (Line 38) case 3:
     _t3 = EUDSwitchCase()
-    # (Line 37) f.stb.print("\x13\x1BOda Sakunosuke\n");
+    # (Line 39) PlayWAV("Park_Ult02.ogg");
     if _t3(3):
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 38) f.stb.print("\x13\x04숨을 쉴 수가 없었다\x04");
-        f.stb.print("\x13\x04숨을 쉴 수가 없었다\x04")
-        # (Line 39) break;
+        # (Line 40) break;
+        DoActions(PlayWAV("Park_Ult02.ogg"))
         EUDBreak()
-        # (Line 40) case 4:
+        # (Line 41) case 4:
     _t4 = EUDSwitchCase()
-    # (Line 41) f.stb.print("\x13\x1BOda Sakunosuke\n");
+    # (Line 42) PlayWAV("Park_01.ogg");
     if _t4(4):
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 42) f.stb.print("\x13\x04누군가의 절규가 들려왔다\x04");
-        f.stb.print("\x13\x04누군가의 절규가 들려왔다\x04")
-        # (Line 43) break;
+        # (Line 43) f.stb.print("\x13\x1BPark il pyo\n");
+        DoActions(PlayWAV("Park_01.ogg"))
+        f.stb.print("\x13\x1BPark il pyo\n")
+        # (Line 44) f.stb.print("\x13\x04소용 없습니다!\x04");
+        f.stb.print("\x13\x04소용 없습니다!\x04")
+        # (Line 45) break;
         EUDBreak()
-        # (Line 44) case 5:
+        # (Line 46) case 5:
     _t5 = EUDSwitchCase()
-    # (Line 45) f.stb.print("\x13\x1BOda Sakunosuke\n");
+    # (Line 47) PlayWAV("Park_02.ogg");
     if _t5(5):
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 46) f.stb.print("\x13\x04목이 너무 아팠기에 그제야 깨달았다\x04");
-        f.stb.print("\x13\x04목이 너무 아팠기에 그제야 깨달았다\x04")
-        # (Line 47) break;
+        # (Line 48) f.stb.print("\x13\x1BPark il pyou\n");
+        DoActions(PlayWAV("Park_02.ogg"))
+        f.stb.print("\x13\x1BPark il pyou\n")
+        # (Line 49) f.stb.print("\x13\x04그런 실력으로는 아무것도 이루지 못합니다!\x04");
+        f.stb.print("\x13\x04그런 실력으로는 아무것도 이루지 못합니다!\x04")
+        # (Line 50) break;
         EUDBreak()
-        # (Line 48) case 6:
+        # (Line 51) case 6:
     _t6 = EUDSwitchCase()
-    # (Line 49) f.stb.print("\x13\x1BOda Sakunosuke\n");
+    # (Line 52) PlayWAV("Park_03.ogg");
     if _t6(6):
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 50) f.stb.print("\x13\x04절규하고 있는 게 나라는 걸\x04");
-        f.stb.print("\x13\x04절규하고 있는 게 나라는 걸\x04")
-        # (Line 51) break;
+        # (Line 53) f.stb.print("\x13\x1BPark il pyou\n");
+        DoActions(PlayWAV("Park_03.ogg"))
+        f.stb.print("\x13\x1BPark il pyou\n")
+        # (Line 54) f.stb.print("\x13\x04당신의 약점 첫번째, 접근전에 약하다\x04");
+        f.stb.print("\x13\x04당신의 약점 첫번째, 접근전에 약하다\x04")
+        # (Line 55) break;
         EUDBreak()
-        # (Line 52) case 7:
+        # (Line 56) case 7:
     _t7 = EUDSwitchCase()
-    # (Line 53) PlayWAV("Oda_Ult02.ogg");
+    # (Line 57) PlayWAV("Park_04.ogg");
     if _t7(7):
-        # (Line 54) break;
-        DoActions(PlayWAV("Oda_Ult02.ogg"))
-        EUDBreak()
-        # (Line 55) case 8:
-    _t8 = EUDSwitchCase()
-    # (Line 56) f.stb.printAt(4, "\n\x13\x04그럼 네가 써라");
-    if _t8(8):
-        f.stb.printAt(4, "\n\x13\x04그럼 네가 써라")
-        # (Line 57) break;
-        EUDBreak()
-        # (Line 58) case 9:
-    _t9 = EUDSwitchCase()
-    # (Line 59) f.stb.printAt(4, "\n\x13\x04그게 그 소설을 완벽하게 간직할 유일한 방법이다");
-    if _t9(9):
-        f.stb.printAt(4, "\n\x13\x04그게 그 소설을 완벽하게 간직할 유일한 방법이다")
+        # (Line 58) f.stb.print("\x13\x1BPark il pyou\n");
+        DoActions(PlayWAV("Park_04.ogg"))
+        f.stb.print("\x13\x1BPark il pyou\n")
+        # (Line 59) f.stb.print("\x13\x04약점 두번째, 기술의 준비 동작이 커서 읽기 쉽다\x04");
+        f.stb.print("\x13\x04약점 두번째, 기술의 준비 동작이 커서 읽기 쉽다\x04")
         # (Line 60) break;
         EUDBreak()
-        # (Line 61) case 10:
-    _t10 = EUDSwitchCase()
-    # (Line 62) f.stb.printAt(3, "\x13\x1BOda Sakunosuke\n");
-    if _t10(10):
-        f.stb.printAt(3, "\x13\x1BOda Sakunosuke\n")
-        # (Line 63) f.stb.printAt(5, "\x13\x04이젠 쓸 수 없어\x04");
-        f.stb.printAt(5, "\x13\x04이젠 쓸 수 없어\x04")
-        # (Line 64) break;
+        # (Line 61) case 8:
+    _t8 = EUDSwitchCase()
+    # (Line 62) PlayWAV("Park_05.ogg");
+    if _t8(8):
+        # (Line 63) f.stb.print("\x13\x1BPark il pyou\n");
+        DoActions(PlayWAV("Park_05.ogg"))
+        f.stb.print("\x13\x1BPark il pyou\n")
+        # (Line 64) f.stb.print("\x13\x04약점 세번째, 당신의 기술은 몸에 가하는 부담이 크다\x04");
+        f.stb.print("\x13\x04약점 세번째, 당신의 기술은 몸에 가하는 부담이 크다\x04")
+        # (Line 65) break;
         EUDBreak()
-        # (Line 65) case 11:
-    _t11 = EUDSwitchCase()
-    # (Line 66) f.stb.printAt(3, "\x13\x1BOda Sakunosuke\n");
-    if _t11(11):
-        f.stb.printAt(3, "\x13\x1BOda Sakunosuke\n")
-        # (Line 67) f.stb.printAt(5, "\x13\x04난 이제\x04");
-        f.stb.printAt(5, "\x13\x04난 이제\x04")
-        # (Line 68) break;
-        EUDBreak()
-        # (Line 69) case 12:
-    _t12 = EUDSwitchCase()
-    # (Line 70) f.stb.printAt(3, "\x13\x1BOda Sakunosuke\n");
-    if _t12(12):
-        f.stb.printAt(3, "\x13\x1BOda Sakunosuke\n")
-        # (Line 71) f.stb.printAt(5, "\x13\x04소설 같은 건 쓸 수 없어\x04");
-        f.stb.printAt(5, "\x13\x04소설 같은 건 쓸 수 없어\x04")
-        # (Line 72) break;
-        EUDBreak()
-        # (Line 73) case 13:
-    _t13 = EUDSwitchCase()
-    # (Line 74) PlayWAV("Oda_01.ogg");
-    if _t13(13):
-        # (Line 75) f.stb.print("\x13\x1BOda Sakunosuke\n");
-        DoActions(PlayWAV("Oda_01.ogg"))
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 76) f.stb.print("\x13\x04나에게는 살인을 하지 않는 이유가 있다\x04");
-        f.stb.print("\x13\x04나에게는 살인을 하지 않는 이유가 있다\x04")
-        # (Line 77) break;
-        EUDBreak()
-        # (Line 78) case 14:
-    _t14 = EUDSwitchCase()
-    # (Line 79) PlayWAV("Oda_02.ogg");
-    if _t14(14):
-        # (Line 80) f.stb.print("\x13\x1BOda Sakunosuke\n");
-        DoActions(PlayWAV("Oda_02.ogg"))
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 81) f.stb.print("\x13\x04내가 너의 소원을 들어줄 수 없는 건, 꿈이 있기 때문이다\x04");
-        f.stb.print("\x13\x04내가 너의 소원을 들어줄 수 없는 건, 꿈이 있기 때문이다\x04")
-        # (Line 82) break;
-        EUDBreak()
-        # (Line 83) case 15:
-    _t15 = EUDSwitchCase()
-    # (Line 84) PlayWAV("Oda_03.ogg");
-    if _t15(15):
-        # (Line 85) f.stb.print("\x13\x1BOda Sakunosuke\n");
-        DoActions(PlayWAV("Oda_03.ogg"))
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 86) f.stb.print("\x13\x04어떤 사람이 소설을 쓰는 건 인간을 쓰는 거라고 하더군\x04");
-        f.stb.print("\x13\x04어떤 사람이 소설을 쓰는 건 인간을 쓰는 거라고 하더군\x04")
-        # (Line 87) break;
-        EUDBreak()
-        # (Line 88) case 16:
-    _t16 = EUDSwitchCase()
-    # (Line 89) f.stb.print("\x13\x1BOda Sakunosuke\n");
-    if _t16(16):
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 90) f.stb.print("\x13\x04남의 목숨을 빼앗는 자가 인생을 쓸 수는 없지\x04");
-        f.stb.print("\x13\x04남의 목숨을 빼앗는 자가 인생을 쓸 수는 없지\x04")
-        # (Line 91) break;
-        EUDBreak()
-        # (Line 92) case 17:
-    _t17 = EUDSwitchCase()
-    # (Line 93) f.stb.print("\x13\x1BOda Sakunosuke\n");
-    if _t17(17):
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 94) f.stb.print("\x13\x04그래서 살인하지 않는 거다\x04");
-        f.stb.print("\x13\x04그래서 살인하지 않는 거다\x04")
-        # (Line 95) break;
-        EUDBreak()
-        # (Line 96) case 18:
-    _t18 = EUDSwitchCase()
-    # (Line 97) PlayWAV("Oda_04.ogg");
-    if _t18(18):
-        # (Line 98) f.stb.print("\x13\x1BOda Sakunosuke\n");
-        DoActions(PlayWAV("Oda_04.ogg"))
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 99) f.stb.print("\x13\x04이제 다 끝났어\x04");
-        f.stb.print("\x13\x04이제 다 끝났어\x04")
-        # (Line 100) break;
-        EUDBreak()
-        # (Line 101) case 19:
-    _t19 = EUDSwitchCase()
-    # (Line 102) PlayWAV("Oda_05.ogg");
-    if _t19(19):
-        # (Line 103) f.stb.print("\x13\x1BOda Sakunosuke\n");
-        DoActions(PlayWAV("Oda_05.ogg"))
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 104) f.stb.print("\x13\x04나는 소설가가 되고 싶었어\x04");
-        f.stb.print("\x13\x04나는 소설가가 되고 싶었어\x04")
-        # (Line 105) break;
-        EUDBreak()
-        # (Line 106) case 20:
-    _t20 = EUDSwitchCase()
-    # (Line 107) PlayWAV("Oda_06.ogg");
-    if _t20(20):
-        # (Line 108) f.stb.print("\x13\x1BOda Sakunosuke\n");
-        DoActions(PlayWAV("Oda_06.ogg"))
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 109) f.stb.print("\x13\x04또다시 사람을 죽였다간 그럴 자격이 없어질 것 같아서\x04");
-        f.stb.print("\x13\x04또다시 사람을 죽였다간 그럴 자격이 없어질 것 같아서\x04")
-        # (Line 110) break;
-        EUDBreak()
-        # (Line 111) case 21:
-    _t21 = EUDSwitchCase()
-    # (Line 112) f.stb.print("\x13\x1BOda Sakunosuke\n");
-    if _t21(21):
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 113) f.stb.print("\x13\x04그래서 살인을 관뒀다\x04");
-        f.stb.print("\x13\x04그래서 살인을 관뒀다\x04")
-        # (Line 114) break;
-        EUDBreak()
-        # (Line 115) case 22:
-    _t22 = EUDSwitchCase()
-    # (Line 116) PlayWAV("Oda_07.ogg");
-    if _t22(22):
-        # (Line 117) f.stb.print("\x13\x1BOda Sakunosuke\n");
-        DoActions(PlayWAV("Oda_07.ogg"))
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 118) f.stb.print("\x13\x04하지만 그것도 다 끝났어\x04");
-        f.stb.print("\x13\x04하지만 그것도 다 끝났어\x04")
-        # (Line 119) break;
-        EUDBreak()
-        # (Line 120) case 23:
-    _t23 = EUDSwitchCase()
-    # (Line 121) f.stb.print("\x13\x1BOda Sakunosuke\n");
-    if _t23(23):
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 122) f.stb.print("\x13\x04내가 원하는 건 하나뿐이야\x04");
-        f.stb.print("\x13\x04내가 원하는 건 하나뿐이야\x04")
-        # (Line 123) break;
-        EUDBreak()
-        # (Line 124) case 24:
-    _t24 = EUDSwitchCase()
-    # (Line 125) PlayWAV("Oda_08.ogg");
-    if _t24(24):
-        # (Line 126) break;
-        DoActions(PlayWAV("Oda_08.ogg"))
-        EUDBreak()
-        # (Line 127) case 25:
-    _t25 = EUDSwitchCase()
-    # (Line 128) PlayWAV("Oda_09.ogg");
-    if _t25(25):
-        # (Line 129) f.stb.print("\x13\x1BOda Sakunosuke\n");
-        DoActions(PlayWAV("Oda_09.ogg"))
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 130) f.stb.print("\x13\x04그런 것 같군\x04");
-        f.stb.print("\x13\x04그런 것 같군\x04")
-        # (Line 131) break;
-        EUDBreak()
-        # (Line 132) case 26:
-    _t26 = EUDSwitchCase()
-    # (Line 133) PlayWAV("Oda_10.ogg");
-    if _t26(26):
-        # (Line 134) f.stb.print("\x13\x1BOda Sakunosuke\n");
-        DoActions(PlayWAV("Oda_10.ogg"))
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 135) f.stb.print("\x13\x04그렇다면 미래 예측을 쓰지 않고 싸울 뿐이다\x04");
-        f.stb.print("\x13\x04그렇다면 미래 예측을 쓰지 않고 싸울 뿐이다\x04")
-        # (Line 136) break;
-        EUDBreak()
-        # (Line 137) case 27:
-    _t27 = EUDSwitchCase()
-    # (Line 138) PlayWAV("Park_unique.ogg_");
-    if _t27(27):
-        # (Line 139) f.stb.print("\x13\x1BPark ilpyou\n");
+        # (Line 66) case 9:
+    _t9 = EUDSwitchCase()
+    # (Line 67) PlayWAV("Park_unique.ogg_");
+    if _t9(9):
+        # (Line 68) f.stb.print("\x13\x1BPark il pyou\n");
         DoActions(PlayWAV("Park_unique.ogg_"))
-        f.stb.print("\x13\x1BPark ilpyou\n")
-        # (Line 140) f.stb.print("\x13\x04택견 - 무음신속\x04");
+        f.stb.print("\x13\x1BPark il pyou\n")
+        # (Line 69) f.stb.print("\x13\x04택견 - 무음신속\x04");
         f.stb.print("\x13\x04택견 - 무음신속\x04")
-        # (Line 141) break;
+        # (Line 70) break;
         EUDBreak()
-        # (Line 142) case 28:
-    _t28 = EUDSwitchCase()
-    # (Line 143) PlayWAV("Oda_Ult03.ogg");
-    if _t28(28):
-        # (Line 144) f.stb.print("\x13\x1BOda Sakunosuke\n");
-        DoActions(PlayWAV("Oda_Ult03.ogg"))
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 145) f.stb.print("\x13\x04잘자라, 코스케\x04");
-        f.stb.print("\x13\x04잘자라, 코스케\x04")
-        # (Line 146) break;
-        EUDBreak()
-        # (Line 147) case 29:
-    _t29 = EUDSwitchCase()
-    # (Line 148) f.stb.print("\x13\x1BOda Sakunosuke\n");
-    if _t29(29):
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 149) f.stb.print("\x13\x04잘자라, 카츠미\x04");
-        f.stb.print("\x13\x04잘자라, 카츠미\x04")
-        # (Line 150) break;
-        EUDBreak()
-        # (Line 151) case 30:
-    _t30 = EUDSwitchCase()
-    # (Line 152) f.stb.print("\x13\x1BOda Sakunosuke\n");
-    if _t30(30):
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 153) f.stb.print("\x13\x04잘자라, 유우\x04");
-        f.stb.print("\x13\x04잘자라, 유우\x04")
-        # (Line 154) break;
-        EUDBreak()
-        # (Line 155) case 31:
-    _t31 = EUDSwitchCase()
-    # (Line 156) f.stb.print("\x13\x1BOda Sakunosuke\n");
-    if _t31(31):
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 157) f.stb.print("\x13\x04잘자라, 신지\x04");
-        f.stb.print("\x13\x04잘자라, 신지\x04")
-        # (Line 158) break;
-        EUDBreak()
-        # (Line 159) case 32:
-    _t32 = EUDSwitchCase()
-    # (Line 160) f.stb.print("\x13\x1BOda Sakunosuke\n");
-    if _t32(32):
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 161) f.stb.print("\x13\x04잘자라, 사쿠라\x04");
-        f.stb.print("\x13\x04잘자라, 사쿠라\x04")
-        # (Line 162) break;
-        EUDBreak()
-        # (Line 163) case 33:
-    _t33 = EUDSwitchCase()
-    # (Line 164) f.stb.print("\x13\x1BOda Sakunosuke\n");
-    if _t33(33):
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 165) f.stb.print("\x13\x04평안히 잠들어라\x04");
-        f.stb.print("\x13\x04평안히 잠들어라\x04")
-        # (Line 166) break;
-        EUDBreak()
-        # (Line 167) case 34:
-    _t34 = EUDSwitchCase()
-    # (Line 168) f.stb.print("\x13\x1BOda Sakunosuke\n");
-    if _t34(34):
-        f.stb.print("\x13\x1BOda Sakunosuke\n")
-        # (Line 169) f.stb.print("\x13\x04다녀오마");
-        f.stb.print("\x13\x04다녀오마")
-        # (Line 170) break;
-        EUDBreak()
-        # (Line 171) }
-    # (Line 172) }
+        # (Line 71) }
+    # (Line 72) }
     EUDEndSwitch()

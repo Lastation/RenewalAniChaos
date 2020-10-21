@@ -136,109 +136,170 @@ from Character.Park import Skill_C as C
 from Character.Park import Skill_A as A
 # (Line 6) import Character.Park.Skill_O as O;
 from Character.Park import Skill_O as O
-# (Line 8) import Character.Park.Text as text;
+# (Line 8) import Character.Park.Skill_SSS as SSS;
+from Character.Park import Skill_SSS as SSS
+# (Line 9) import Character.Park.Skill_ACC as ACC;
+from Character.Park import Skill_ACC as ACC
+# (Line 11) import Character.Park.Skill_CCC as CCC;
+from Character.Park import Skill_CCC as CCC
+# (Line 12) import Character.Park.Skill_CCCAC as CCCAC;
+from Character.Park import Skill_CCCAC as CCCAC
+# (Line 13) import Character.Park.Skill_CCCACCC as CCCACCC;
+from Character.Park import Skill_CCCACCC as CCCACCC
+# (Line 15) import Character.Park.Skill_AAA as AAA;
+from Character.Park import Skill_AAA as AAA
+# (Line 16) import Character.Park.Skill_AAAAA as AAAAA;
+from Character.Park import Skill_AAAAA as AAAAA
+# (Line 18) import Character.Park.Text as text;
 from Character.Park import Text as text
-# (Line 9) import Character.Park.Commend as commend;
+# (Line 19) import Character.Park.Commend as commend;
 from Character.Park import Commend as commend
-# (Line 11) var loop  = 0;
+# (Line 21) var loop  = 0;
 loop = EUDCreateVariables(1)
 _IGVA([loop], lambda: [0])
-# (Line 13) function SkillList(cp);
-# (Line 15) function main(cp)
-# (Line 16) {
+# (Line 23) function SkillList(cp);
+# (Line 25) function main(cp)
+# (Line 26) {
 @EUDFunc
 def f_main(cp):
-    # (Line 17) f.location[cp] = 199;
+    # (Line 27) f.location[cp] = 199;
     _ARRW(f.location, cp) << (199)
-    # (Line 18) f.heroID[cp] = 10;
+    # (Line 28) f.heroID[cp] = 10;
     _ARRW(f.heroID, cp) << (10)
-    # (Line 20) f.UltimateA[cp] = 500;
+    # (Line 30) f.UltimateA[cp] = 500;
     _ARRW(f.UltimateA, cp) << (500)
-    # (Line 22) SkillList(cp);
+    # (Line 32) SkillList(cp);
     SkillList(cp)
-    # (Line 23) commend.main(cp);
+    # (Line 33) commend.main(cp);
     commend.f_main(cp)
-    # (Line 25) if (f.wait[cp] == 0)
+    # (Line 35) if (f.wait[cp] == 0)
     if EUDIf()(f.wait[cp] == 0):
-        # (Line 26) {
-        # (Line 27) switch(f.step[cp])
+        # (Line 36) {
+        # (Line 37) switch(f.step[cp])
         EUDSwitch(f.step[cp])
-        # (Line 28) {
-        # (Line 29) case 1:
+        # (Line 38) {
+        # (Line 39) case 1:
         _t2 = EUDSwitchCase()
-        # (Line 30) O.main(cp);
+        # (Line 40) O.main(cp);
         if _t2(1):
             O.f_main(cp)
-            # (Line 31) break;
+            # (Line 41) break;
             EUDBreak()
-            # (Line 32) case 100:
+            # (Line 42) case 100:
         _t3 = EUDSwitchCase()
-        # (Line 33) S.main(cp);
+        # (Line 43) S.main(cp);
         if _t3(100):
             S.f_main(cp)
-            # (Line 34) break;
+            # (Line 44) break;
             EUDBreak()
-            # (Line 35) case 200:
+            # (Line 45) case 200:
         _t4 = EUDSwitchCase()
-        # (Line 36) C.main(cp);
+        # (Line 46) C.main(cp);
         if _t4(200):
             C.f_main(cp)
-            # (Line 37) break;
+            # (Line 47) break;
             EUDBreak()
-            # (Line 38) case 300:
+            # (Line 48) case 300:
         _t5 = EUDSwitchCase()
-        # (Line 39) A.main(cp);
+        # (Line 49) A.main(cp);
         if _t5(300):
             A.f_main(cp)
-            # (Line 40) break;
+            # (Line 50) break;
             EUDBreak()
-            # (Line 41) }
-        # (Line 42) }
+            # (Line 51) case 110:
+        _t6 = EUDSwitchCase()
+        # (Line 52) SSS.main(cp);
+        if _t6(110):
+            SSS.f_main(cp)
+            # (Line 53) break;
+            EUDBreak()
+            # (Line 54) case 210:
+        _t7 = EUDSwitchCase()
+        # (Line 55) CCC.main(cp);
+        if _t7(210):
+            CCC.f_main(cp)
+            # (Line 56) break;
+            EUDBreak()
+            # (Line 57) case 220:
+        _t8 = EUDSwitchCase()
+        # (Line 58) CCCAC.main(cp);
+        if _t8(220):
+            CCCAC.f_main(cp)
+            # (Line 59) break;
+            EUDBreak()
+            # (Line 60) case 230:
+        _t9 = EUDSwitchCase()
+        # (Line 61) CCCACCC.main(cp);
+        if _t9(230):
+            CCCACCC.f_main(cp)
+            # (Line 62) break;
+            EUDBreak()
+            # (Line 63) case 310:
+        _t10 = EUDSwitchCase()
+        # (Line 64) ACC.main(cp);
+        if _t10(310):
+            ACC.f_main(cp)
+            # (Line 65) break;
+            EUDBreak()
+            # (Line 66) case 320:
+        _t11 = EUDSwitchCase()
+        # (Line 67) AAA.main(cp);
+        if _t11(320):
+            AAA.f_main(cp)
+            # (Line 68) break;
+            EUDBreak()
+            # (Line 69) case 330:
+        _t12 = EUDSwitchCase()
+        # (Line 70) AAAAA.main(cp);
+        if _t12(330):
+            AAAAA.f_main(cp)
+            # (Line 71) break;
+            EUDBreak()
+            # (Line 72) }
+        # (Line 73) }
         EUDEndSwitch()
-        # (Line 45) }
+        # (Line 76) }
     EUDEndIf()
-    # (Line 48) function SkillVoice(cp)
+    # (Line 79) function SkillVoice(cp)
 
-# (Line 49) {
+# (Line 80) {
 @EUDFunc
 def SkillVoice(cp):
-    # (Line 50) if (f.Park_Voice[cp] != 0) { text.main(cp); }
+    # (Line 81) if (f.Park_Voice[cp] != 0) { text.main(cp); }
     if EUDIf()(f.Park_Voice[cp] == 0, neg=True):
         text.f_main(cp)
-        # (Line 51) }
+        # (Line 82) }
     EUDEndIf()
-    # (Line 53) function SkillList(cp)
+    # (Line 84) function SkillList(cp)
 
-# (Line 54) {
+# (Line 85) {
 @EUDFunc
 def SkillList(cp):
-    # (Line 55) if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
+    # (Line 86) if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
     if EUDIf()(Memory(0x00596A44, Exactly, 256)):
-        # (Line 56) {
-        # (Line 57) f.stb.printAt(0, "\n");
+        # (Line 87) {
+        # (Line 88) f.stb.printAt(0, "\n");
         f.stb.printAt(0, "\n")
-        # (Line 58) f.stb.printAt(1, "\x1F　＃\x1B- 박 일표　\x04[ 갓 오브 하이스쿨 ]");
+        # (Line 89) f.stb.printAt(1, "\x1F　＃\x1B- 박 일표　\x04[ 갓 오브 하이스쿨 ]");
         f.stb.printAt(1, "\x1F　＃\x1B- 박 일표　\x04[ 갓 오브 하이스쿨 ]")
-        # (Line 59) f.stb.printAt(2, "　　\x1FA\x04ction List");
+        # (Line 90) f.stb.printAt(2, "　　\x1FA\x04ction List");
         f.stb.printAt(2, "　　\x1FA\x04ction List")
-        # (Line 60) f.stb.printAt(3, "　　　\x18O \x04택견 - 무음신속 \x19[ 5초 간 스킬 사용시 적에게 돌진 ] \x053분");
-        f.stb.printAt(3, "　　　\x18O \x04택견 - 무음신속 \x19[ 5초 간 스킬 사용시 적에게 돌진 ] \x053분")
-        # (Line 61) f.stb.printAt(4, "　　　\x18AO \x04킬러 \x04 \x19[ 영구 각성 / 자리고정 / 30초 ]");
-        f.stb.printAt(4, "　　　\x18AO \x04킬러 \x04 \x19[ 영구 각성 / 자리고정 / 30초 ]")
-        # (Line 62) f.stb.printAt(5, "　　　\x04\x1FSSS + CC + AA \x04꿈 \x19[ 공성 / CC - 자리고정 ]");
-        f.stb.printAt(5, "　　　\x04\x1FSSS + CC + AA \x04꿈 \x19[ 공성 / CC - 자리고정 ]")
-        # (Line 63) f.stb.printAt(6, "　　　\x04\x1FCC + A + CC + AA \x04실의 \x19[ 공성 / 자리고정 / 각성시 사용 가능 ]");
-        f.stb.printAt(6, "　　　\x04\x1FCC + A + CC + AA \x04실의 \x19[ 공성 / 자리고정 / 각성시 사용 가능 ]")
-        # (Line 64) f.stb.printAt(7, "　　　\x04\x1FAA \x04전투술 \x19[ 대인 / 순간딜 / 각성시 사용 가능 ]");
-        f.stb.printAt(7, "　　　\x04\x1FAA \x04전투술 \x19[ 대인 / 순간딜 / 각성시 사용 가능 ]")
-        # (Line 65) f.stb.printAt(8, "　　　\x08ACCC \x04절규 \x19[ 공성 / 자리고정 ] \x05", f.UltimateA[cp]);
-        f.stb.printAt(8, "　　　\x08ACCC \x04절규 \x19[ 공성 / 자리고정 ] \x05", f.UltimateA[cp])
-        # (Line 66) f.stb.printAt(9, "　　　\x08 + AA \x04절망 \x19[ 공성 / 선딜 10초 / 선딜 후 자리고정 ] \x05", f.UltimateB[cp]);
-        f.stb.printAt(9, "　　　\x08 + AA \x04절망 \x19[ 공성 / 선딜 10초 / 선딜 후 자리고정 ] \x05", f.UltimateB[cp])
-        # (Line 67) f.stb.printAt(10, "\n");
-        f.stb.printAt(10, "\n")
-        # (Line 68) PlayWAV("sound\\Bullet\\LaserHit.wav");
-        # (Line 69) }
+        # (Line 91) f.stb.printAt(3, "　　　\x18O \x04택견 - 무음신속 \x19[ 10초 간 첫 스킬에 한해 스킬 사용시 적에게 돌진 ] \x051분 30초");
+        f.stb.printAt(3, "　　　\x18O \x04택견 - 무음신속 \x19[ 10초 간 첫 스킬에 한해 스킬 사용시 적에게 돌진 ] \x051분 30초")
+        # (Line 92) f.stb.printAt(4, "　　　\x04\x1FSSS 소용 [ 대인 / 순간딜 ]");
+        f.stb.printAt(4, "　　　\x04\x1FSSS 소용 [ 대인 / 순간딜 ]")
+        # (Line 93) f.stb.printAt(5, "　　　\x04\x1FCCC + AC + CC 약점 [ 대인 / 순간딜 ]");
+        f.stb.printAt(5, "　　　\x04\x1FCCC + AC + CC 약점 [ 대인 / 순간딜 ]")
+        # (Line 94) f.stb.printAt(6, "　　　\x04\x1FACC \x04도발 \x19[ 대인 / 순간딜 ]");
+        f.stb.printAt(6, "　　　\x04\x1FACC \x04도발 \x19[ 대인 / 순간딜 ]")
+        # (Line 95) f.stb.printAt(7, "　　　\x08AAA \x04택견 오의 - 화축 \x19[ 대인 ] \x05", f.UltimateA[cp]);
+        f.stb.printAt(7, "　　　\x08AAA \x04택견 오의 - 화축 \x19[ 대인 ] \x05", f.UltimateA[cp])
+        # (Line 96) f.stb.printAt(8, "　　　\x08 + AA \x04 최종 오의 - 삼염멸도각 \x19[ 공성 ] \x05", f.UltimateB[cp]);
+        f.stb.printAt(8, "　　　\x08 + AA \x04 최종 오의 - 삼염멸도각 \x19[ 공성 ] \x05", f.UltimateB[cp])
+        # (Line 97) f.stb.printAt(9, "\n");
+        f.stb.printAt(9, "\n")
+        # (Line 98) PlayWAV("sound\\Bullet\\LaserHit.wav");
+        # (Line 99) }
         DoActions(PlayWAV("sound\\Bullet\\LaserHit.wav"))
-        # (Line 70) }
+        # (Line 100) }
     EUDEndIf()

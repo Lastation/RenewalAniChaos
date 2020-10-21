@@ -167,8 +167,8 @@ def f_main(cp):
             # (Line 27) if (f.loop[cp] < 12 )
             if EUDIf()(f.loop[cp] >= 12, neg=True):
                 # (Line 28) {
-                # (Line 29) f.SquareShape(cp, 1, "Bengalaas (Jungle)", 64, 0);
-                f.SquareShape(cp, 1, "Bengalaas (Jungle)", 64, 0)
+                # (Line 29) f.SquareShape(cp, 1, "Bengalaas (Jungle)", 64, 64);
+                f.SquareShape(cp, 1, "Bengalaas (Jungle)", 64, 64)
                 # (Line 30) f.SquareShape(cp, 1, "Protoss Dark Archon", 64, 0);
                 f.SquareShape(cp, 1, "Protoss Dark Archon", 64, 0)
                 # (Line 31) KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", cp);
@@ -194,8 +194,8 @@ def f_main(cp):
             # (Line 46) else if (f.count[cp] == 2)
         if EUDElseIf()(f.count[cp] == 2):
             # (Line 47) {
-            # (Line 48) if (f.loop[cp] == 10 )
-            if EUDIf()(f.loop[cp] == 10):
+            # (Line 48) if (f.loop[cp] == 8 )
+            if EUDIf()(f.loop[cp] == 8):
                 # (Line 49) {
                 # (Line 50) f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 100);
                 f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 100)
@@ -211,8 +211,8 @@ def f_main(cp):
             f.SkillWait(cp, 80)
             # (Line 57) f.loop[cp] += 1;
             _ARRW(f.loop, cp).__iadd__(1)
-            # (Line 59) if (f.loop[cp] == 12)
-            if EUDIf()(f.loop[cp] == 12):
+            # (Line 59) if (f.loop[cp] == 10)
+            if EUDIf()(f.loop[cp] == 10):
                 # (Line 60) {
                 # (Line 61) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
@@ -225,10 +225,10 @@ def f_main(cp):
         if EUDElseIf()(f.count[cp] == 3):
             # (Line 67) {
             # (Line 68) SetDeaths(cp, SetTo, 1080, " `UniqueCoolTime");
-            # (Line 69) SetDeaths(cp, SetTo, 60, " `UniqueSkill");
+            # (Line 69) SetDeaths(cp, SetTo, 120, " `UniqueSkill");
             DoActions(SetDeaths(cp, SetTo, 1080, " `UniqueCoolTime"))
             # (Line 70) f.SkillEnd(cp);
-            DoActions(SetDeaths(cp, SetTo, 60, " `UniqueSkill"))
+            DoActions(SetDeaths(cp, SetTo, 120, " `UniqueSkill"))
             f.SkillEnd(cp)
             # (Line 71) }
             # (Line 72) }

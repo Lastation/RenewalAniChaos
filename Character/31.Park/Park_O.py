@@ -26,7 +26,7 @@ function main(cp)
       {
          if (f.loop[cp] < 12 )
          {
-            f.SquareShape(cp, 1, "Bengalaas (Jungle)", 64, 0);
+            f.SquareShape(cp, 1, "Bengalaas (Jungle)", 64, 64);
             f.SquareShape(cp, 1, "Protoss Dark Archon", 64, 0);
             KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", cp);
             KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
@@ -45,7 +45,7 @@ function main(cp)
 
       else if (f.count[cp] == 2)
       {
-         if (f.loop[cp] == 10 )
+         if (f.loop[cp] == 8 )
          {
             f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 100);
             f.NxNSquareShape(cp, 1, "Protoss Dark Archon", 3, 50);
@@ -56,7 +56,7 @@ function main(cp)
 
          f.loop[cp] += 1;
 
-         if (f.loop[cp] == 12)
+         if (f.loop[cp] == 10)
          {
             f.count[cp] += 1;
             f.loop[cp] = 0;         
@@ -66,7 +66,7 @@ function main(cp)
       else if (f.count[cp] == 3)
       {
          SetDeaths(cp, SetTo, 1080, " `UniqueCoolTime");
-         SetDeaths(cp, SetTo, 60, " `UniqueSkill");
+         SetDeaths(cp, SetTo, 120, " `UniqueSkill");
          f.SkillEnd(cp);
       }
    }
