@@ -10,43 +10,43 @@ function main(cp)
          {
             SetDeaths(cp, SetTo, 0, " `UniqueSkill");
             SetDeaths(cp, SetTo, 1, " `ShieldRecharge");
-            f.SquareShape(cp, 1, "80 + 1n Vulture", 75, 25);
-            f.SquareShape(cp, 1, "80 + 1n Vulture", 25, 75);
+            f.SquareShape(cp, 1, " Creep. Dunkelheit", 75, 25);
+            f.SquareShape(cp, 1, " Creep. Dunkelheit", 25, 75);
             f.SquareShape(cp, 1, "50 + 1n Tank", 75, 25);
             f.SquareShape(cp, 1, "50 + 1n Tank", 25, 75);
             f.SquareShape(cp, 1, "Terran Science Vessel", 50, 0);
             KillUnitAt(All, "Terran Science Vessel", "Anywhere", cp);
             Order("50 + 1n Tank", cp, "Anywhere", Attack, f.location[cp]); 
-            Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]); 
+            Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]); 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
          }
          if (f.loop[cp] == 6)
          {
-            KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
+            KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
             f.SquareShape(cp, 1, "50 + 1n Tank", 75, 0);
             f.SquareShape(cp, 1, "50 + 1n Tank", 50, 50);
             f.SquareShape(cp, 1, "50 + 1n Tank", 100, 100);
-            f.SquareShape(cp, 1, "80 + 1n Vulture", 75, 25);
-            f.SquareShape(cp, 1, "80 + 1n Vulture", 25, 75);
+            f.SquareShape(cp, 1, " Creep. Dunkelheit", 75, 25);
+            f.SquareShape(cp, 1, " Creep. Dunkelheit", 25, 75);
             f.SquareShape(cp, 1, "Terran Science Vessel", 50, 50);
             f.SquareShape(cp, 1, "Terran Science Vessel", 50, 0);
-            Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]); 
+            Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]); 
             Order("50 + 1n Tank", cp, "Anywhere", Attack, f.location[cp]); 
             KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
          }
          if (f.loop[cp] == 12)
          {
-            KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
+            KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
             f.SquareShape(cp, 1, "50 + 1n Tank", 125, 0);
-            f.SquareShape(cp, 1, "80 + 1n Vulture", 75, 25);
-            f.SquareShape(cp, 1, "80 + 1n Vulture", 25, 75);
+            f.SquareShape(cp, 1, " Creep. Dunkelheit", 75, 25);
+            f.SquareShape(cp, 1, " Creep. Dunkelheit", 25, 75);
             f.SquareShape(cp, 1, "Terran Science Vessel", 75, 0);
             f.SquareShape(cp, 1, "Terran Science Vessel", 50, 50);
             f.SquareShape(cp, 1, "Terran Science Vessel", 100, 100);
             KillUnitAt(All, "Terran Science Vessel", "Anywhere", cp);
             Order("50 + 1n Tank", cp, "Anywhere", Attack, f.location[cp]); 
-            Order("80 + 1n Vulture", cp, "Anywhere", Attack, f.location[cp]); 
+            Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]); 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
          }
          f.SkillWait(cp, 80);
@@ -65,7 +65,7 @@ function main(cp)
       {
          if (f.loop[cp] == 0)
          {
-         KillUnitAt(All, "80 + 1n Vulture", "Anywhere", cp);
+         KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
          f.DoubleShape(cp, 1, "40 + 1n Guardian", 125, 0);
          f.EdgeShape(cp, 1, "40 + 1n Ghost", 45,2, 32);
          f.EdgeShape(cp, 1, "40 + 1n Mutalisk", 45,3, 32);
@@ -107,7 +107,7 @@ function main(cp)
          KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
          KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
          }
-         if (f.loop[cp] == 6 )
+         if (f.loop[cp] == 13 )
          {
             f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75);
             f.EdgeShape(cp, 1, "40 + 1n Goliath", 45,3, 32);
@@ -122,7 +122,7 @@ function main(cp)
 
          f.loop[cp] += 1;
 
-         if (f.loop[cp] == 12)
+         if (f.loop[cp] == 16)
          {
             KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
             KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
@@ -137,7 +137,7 @@ function main(cp)
          KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
          KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
          }
-         if (f.loop[cp] == 8 )
+         if (f.loop[cp] == 10 )
          {
             f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75);
             f.EdgeShape(cp, 1, "40 + 1n Goliath", 45,3, 32);
@@ -152,7 +152,7 @@ function main(cp)
 
          f.loop[cp] += 1;
 
-         if (f.loop[cp] == 12)
+         if (f.loop[cp] == 14)
          {
             KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
             KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);

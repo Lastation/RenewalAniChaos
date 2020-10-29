@@ -65,7 +65,7 @@ function main(cp)
 
       else if (f.count[cp] == 3)
       {
-         SetDeaths(cp, SetTo, 1080, " `UniqueCoolTime");
+         SetDeaths(cp, SetTo, 1200, " `UniqueCoolTime");
          SetDeaths(cp, SetTo, 120, " `UniqueSkill");
          f.SkillEnd(cp);
       }

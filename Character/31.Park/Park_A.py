@@ -20,7 +20,6 @@ function main(cp)
             f.SquareShape(cp, 1, "40 + 1n Wraith", 50, 0);
             f.SquareShape(cp, 1, "40 + 1n Wraith", 50, 50);
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]); 
          }
          if (f.loop[cp] == 4)
          {

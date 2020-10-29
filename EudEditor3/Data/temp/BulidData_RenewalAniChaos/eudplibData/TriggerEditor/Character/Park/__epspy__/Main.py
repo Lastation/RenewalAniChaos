@@ -286,14 +286,14 @@ def SkillList(cp):
         f.stb.printAt(1, "\x1F　＃\x1B- 박 일표　\x04[ 갓 오브 하이스쿨 ]")
         # (Line 91) f.stb.printAt(2, "　　\x1FA\x04ction List");
         f.stb.printAt(2, "　　\x1FA\x04ction List")
-        # (Line 92) f.stb.printAt(3, "　　　\x18O \x04택견 - 무음신속 \x19[ 10초 간 첫 스킬에 한해 스킬 사용시 적에게 돌진 ] \x051분 30초");
-        f.stb.printAt(3, "　　　\x18O \x04택견 - 무음신속 \x19[ 10초 간 첫 스킬에 한해 스킬 사용시 적에게 돌진 ] \x051분 30초")
-        # (Line 93) f.stb.printAt(4, "　　　\x04\x1FSSS\x04/x1 소용 \x19[ 대인 / 순간딜 ]");
-        f.stb.printAt(4, "　　　\x04\x1FSSS\x04/x1 소용 \x19[ 대인 / 순간딜 ]")
-        # (Line 94) f.stb.printAt(5, "　　　\x04\x1FCCC + AC + CC\x04/x1 약점 \x19[ 대인 / 순간딜 ]");
-        f.stb.printAt(5, "　　　\x04\x1FCCC + AC + CC\x04/x1 약점 \x19[ 대인 / 순간딜 ]")
-        # (Line 95) f.stb.printAt(6, "　　　\x04\x1FACC \x04도발 \x19[ 대인 / 순간딜 ]");
-        f.stb.printAt(6, "　　　\x04\x1FACC \x04도발 \x19[ 대인 / 순간딜 ]")
+        # (Line 92) f.stb.printAt(3, "　　　\x18O \x04택견 - 무음신속 \x19[ 10초 간 첫 스킬에 한해 스킬 사용시 적에게 돌진 ] \x052분");
+        f.stb.printAt(3, "　　　\x18O \x04택견 - 무음신속 \x19[ 10초 간 첫 스킬에 한해 스킬 사용시 적에게 돌진 ] \x052분")
+        # (Line 93) f.stb.printAt(4, "　　　\x04\x1FSSS\x04 소용 \x19[ 대인 / 순간딜 ]");
+        f.stb.printAt(4, "　　　\x04\x1FSSS\x04 소용 \x19[ 대인 / 순간딜 ]")
+        # (Line 94) f.stb.printAt(5, "　　　\x04\x1FCCA + AC + CC\x04 약점 \x19[ 대인 / 순간딜 ]");
+        f.stb.printAt(5, "　　　\x04\x1FCCA + AC + CC\x04 약점 \x19[ 대인 / 순간딜 ]")
+        # (Line 95) f.stb.printAt(6, "　　　\x04\x1FAAC \x04도발 \x19[ 대인 / 순간딜 ]");
+        f.stb.printAt(6, "　　　\x04\x1FAAC \x04도발 \x19[ 대인 / 순간딜 ]")
         # (Line 96) f.stb.printAt(7, "　　　\x08AAA \x04택견 오의 - 화축 \x19[ 대인 ] \x05", f.UltimateA[cp]);
         f.stb.printAt(7, "　　　\x08AAA \x04택견 오의 - 화축 \x19[ 대인 ] \x05", f.UltimateA[cp])
         # (Line 97) f.stb.printAt(8, "　　　\x08 + AA \x04 최종 오의 - 삼염멸도각 \x19[ 공성 ] \x05", f.UltimateB[cp]);

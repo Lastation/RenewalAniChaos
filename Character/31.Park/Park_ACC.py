@@ -46,7 +46,6 @@ function main(cp)
          if (f.loop[cp] == 0)
          {
             SetDeaths(cp, SetTo, 0, " `UniqueSkill");
-            SetDeaths(cp, SetTo, 1, " `ShieldRecharge");
             f.SquareShape(cp, 1, "40 + 1n Guardian", 75, 25);
             f.SquareShape(cp, 1, "40 + 1n Guardian", 25, 75);
             f.SquareShape(cp, 1, "40 + 1n Goliath", 75, 25);
@@ -105,6 +104,10 @@ function main(cp)
       {
          if (f.loop[cp] == 0)
          {
+         SetDeaths(cp, SetTo, 1, " `ShieldRecharge");
+         }
+         if (f.loop[cp] == 6)
+         {
          KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
          f.DoubleShape(cp, 1, "40 + 1n Guardian", 125, 0);
          f.SquareShape(cp, 1, "40 + 1n Mutalisk", 75, 0);
@@ -115,32 +118,6 @@ function main(cp)
          MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
          Order("40 + 1n Mutalisk", cp, "Anywhere", Attack, f.location[cp]);
          Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);      
-         }
-         if (f.loop[cp] == 3 )
-         {
-            KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
-            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-            f.DoubleShape(cp, 1, "40 + 1n Guardian", 0, 125);
-            f.NxNSquareShape(cp, 1, "40 + 1n Mutalisk", 3, 75);
-            f.NxNSquareShape(cp, 1, "Protoss Dark Archon", 3, 75);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Mutalisk", cp, "Anywhere", Attack, f.location[cp]);  
-            Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);   
-         }
-         if (f.loop[cp] == 6 )
-         {
-            KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
-            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-            f.DoubleShape(cp, 1, "40 + 1n Guardian", 125, 0);
-            f.SquareShape(cp, 1, "40 + 1n Mutalisk", 75, 0);
-            f.SquareShape(cp, 1, "40 + 1n Mutalisk", 75, 75);
-            f.SquareShape(cp, 1, "Protoss Dark Archon", 75, 0);
-            f.SquareShape(cp, 1, "Protoss Dark Archon", 0, 75);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Mutalisk", cp, "Anywhere", Attack, f.location[cp]); 
-            Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);    
          }
          if (f.loop[cp] == 9 )
          {
@@ -154,11 +131,37 @@ function main(cp)
             Order("40 + 1n Mutalisk", cp, "Anywhere", Attack, f.location[cp]);  
             Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);   
          }
+         if (f.loop[cp] == 12 )
+         {
+            KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+            f.DoubleShape(cp, 1, "40 + 1n Guardian", 125, 0);
+            f.SquareShape(cp, 1, "40 + 1n Mutalisk", 75, 0);
+            f.SquareShape(cp, 1, "40 + 1n Mutalisk", 75, 75);
+            f.SquareShape(cp, 1, "Protoss Dark Archon", 75, 0);
+            f.SquareShape(cp, 1, "Protoss Dark Archon", 0, 75);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            Order("40 + 1n Mutalisk", cp, "Anywhere", Attack, f.location[cp]); 
+            Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);    
+         }
+         if (f.loop[cp] == 15 )
+         {
+            KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+            f.DoubleShape(cp, 1, "40 + 1n Guardian", 0, 125);
+            f.NxNSquareShape(cp, 1, "40 + 1n Mutalisk", 3, 75);
+            f.NxNSquareShape(cp, 1, "Protoss Dark Archon", 3, 75);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            Order("40 + 1n Mutalisk", cp, "Anywhere", Attack, f.location[cp]);  
+            Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);   
+         }
        f.SkillWait(cp, 80);
 
          f.loop[cp] += 1;
 
-         if (f.loop[cp] == 12)
+         if (f.loop[cp] == 18)
          {
             f.count[cp] += 1;
             f.loop[cp] = 0;         
@@ -166,10 +169,22 @@ function main(cp)
       }
       else if (f.count[cp] == 2)
       {
-         if (f.loop[cp] == 0)
+         if (f.loop[cp] == 0 )
          {
-         KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
-         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+            f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75);
+            f.EdgeShape(cp, 1, "40 + 1n Goliath", 45,3, 32);
+            f.EdgeShape(cp, 1, "50 + 1n Tank", 45,3, 32);
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
+            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);     
+            Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);     
+         }
+         if (f.loop[cp] == 4)
+         {
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
          }
          if (f.loop[cp] == 6 )
          {
@@ -181,22 +196,12 @@ function main(cp)
             Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);     
             Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);     
          }
-         if (f.loop[cp] == 10 )
-         {
-            f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75);
-            f.EdgeShape(cp, 1, "40 + 1n Goliath", 45,3, 32);
-            f.EdgeShape(cp, 1, "50 + 1n Tank", 45,3, 32);
-            KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);     
-            Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);     
-         }
 
        f.SkillWait(cp, 80);
 
          f.loop[cp] += 1;
 
-         if (f.loop[cp] == 12)
+         if (f.loop[cp] == 10)
          {
             KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
             KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);

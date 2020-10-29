@@ -224,9 +224,9 @@ def f_main(cp):
             # (Line 66) else if (f.count[cp] == 3)
         if EUDElseIf()(f.count[cp] == 3):
             # (Line 67) {
-            # (Line 68) SetDeaths(cp, SetTo, 1080, " `UniqueCoolTime");
+            # (Line 68) SetDeaths(cp, SetTo, 1200, " `UniqueCoolTime");
             # (Line 69) SetDeaths(cp, SetTo, 120, " `UniqueSkill");
-            DoActions(SetDeaths(cp, SetTo, 1080, " `UniqueCoolTime"))
+            DoActions(SetDeaths(cp, SetTo, 1200, " `UniqueCoolTime"))
             # (Line 70) f.SkillEnd(cp);
             DoActions(SetDeaths(cp, SetTo, 120, " `UniqueSkill"))
             f.SkillEnd(cp)
