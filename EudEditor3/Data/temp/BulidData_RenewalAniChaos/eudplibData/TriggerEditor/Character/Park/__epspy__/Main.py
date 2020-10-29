@@ -168,138 +168,140 @@ def f_main(cp):
     _ARRW(f.heroID, cp) << (10)
     # (Line 30) f.UltimateA[cp] = 500;
     _ARRW(f.UltimateA, cp) << (500)
-    # (Line 32) SkillList(cp);
+    # (Line 31) f.UltimateB[cp] = 250;
+    _ARRW(f.UltimateB, cp) << (250)
+    # (Line 33) SkillList(cp);
     SkillList(cp)
-    # (Line 33) commend.main(cp);
+    # (Line 34) commend.main(cp);
     commend.f_main(cp)
-    # (Line 35) if (f.wait[cp] == 0)
+    # (Line 36) if (f.wait[cp] == 0)
     if EUDIf()(f.wait[cp] == 0):
-        # (Line 36) {
-        # (Line 37) switch(f.step[cp])
+        # (Line 37) {
+        # (Line 38) switch(f.step[cp])
         EUDSwitch(f.step[cp])
-        # (Line 38) {
-        # (Line 39) case 1:
+        # (Line 39) {
+        # (Line 40) case 1:
         _t2 = EUDSwitchCase()
-        # (Line 40) O.main(cp);
+        # (Line 41) O.main(cp);
         if _t2(1):
             O.f_main(cp)
-            # (Line 41) break;
+            # (Line 42) break;
             EUDBreak()
-            # (Line 42) case 100:
+            # (Line 43) case 100:
         _t3 = EUDSwitchCase()
-        # (Line 43) S.main(cp);
+        # (Line 44) S.main(cp);
         if _t3(100):
             S.f_main(cp)
-            # (Line 44) break;
+            # (Line 45) break;
             EUDBreak()
-            # (Line 45) case 200:
+            # (Line 46) case 200:
         _t4 = EUDSwitchCase()
-        # (Line 46) C.main(cp);
+        # (Line 47) C.main(cp);
         if _t4(200):
             C.f_main(cp)
-            # (Line 47) break;
+            # (Line 48) break;
             EUDBreak()
-            # (Line 48) case 300:
+            # (Line 49) case 300:
         _t5 = EUDSwitchCase()
-        # (Line 49) A.main(cp);
+        # (Line 50) A.main(cp);
         if _t5(300):
             A.f_main(cp)
-            # (Line 50) break;
+            # (Line 51) break;
             EUDBreak()
-            # (Line 51) case 110:
+            # (Line 52) case 110:
         _t6 = EUDSwitchCase()
-        # (Line 52) SSS.main(cp);
+        # (Line 53) SSS.main(cp);
         if _t6(110):
             SSS.f_main(cp)
-            # (Line 53) break;
+            # (Line 54) break;
             EUDBreak()
-            # (Line 54) case 210:
+            # (Line 55) case 210:
         _t7 = EUDSwitchCase()
-        # (Line 55) CCC.main(cp);
+        # (Line 56) CCC.main(cp);
         if _t7(210):
             CCC.f_main(cp)
-            # (Line 56) break;
+            # (Line 57) break;
             EUDBreak()
-            # (Line 57) case 220:
+            # (Line 58) case 220:
         _t8 = EUDSwitchCase()
-        # (Line 58) CCCAC.main(cp);
+        # (Line 59) CCCAC.main(cp);
         if _t8(220):
             CCCAC.f_main(cp)
-            # (Line 59) break;
+            # (Line 60) break;
             EUDBreak()
-            # (Line 60) case 230:
+            # (Line 61) case 230:
         _t9 = EUDSwitchCase()
-        # (Line 61) CCCACCC.main(cp);
+        # (Line 62) CCCACCC.main(cp);
         if _t9(230):
             CCCACCC.f_main(cp)
-            # (Line 62) break;
+            # (Line 63) break;
             EUDBreak()
-            # (Line 63) case 310:
+            # (Line 64) case 310:
         _t10 = EUDSwitchCase()
-        # (Line 64) ACC.main(cp);
+        # (Line 65) ACC.main(cp);
         if _t10(310):
             ACC.f_main(cp)
-            # (Line 65) break;
+            # (Line 66) break;
             EUDBreak()
-            # (Line 66) case 320:
+            # (Line 67) case 320:
         _t11 = EUDSwitchCase()
-        # (Line 67) AAA.main(cp);
+        # (Line 68) AAA.main(cp);
         if _t11(320):
             AAA.f_main(cp)
-            # (Line 68) break;
+            # (Line 69) break;
             EUDBreak()
-            # (Line 69) case 330:
+            # (Line 70) case 330:
         _t12 = EUDSwitchCase()
-        # (Line 70) AAAAA.main(cp);
+        # (Line 71) AAAAA.main(cp);
         if _t12(330):
             AAAAA.f_main(cp)
-            # (Line 71) break;
+            # (Line 72) break;
             EUDBreak()
-            # (Line 72) }
-        # (Line 73) }
+            # (Line 73) }
+        # (Line 74) }
         EUDEndSwitch()
-        # (Line 76) }
+        # (Line 77) }
     EUDEndIf()
-    # (Line 79) function SkillVoice(cp)
+    # (Line 80) function SkillVoice(cp)
 
-# (Line 80) {
+# (Line 81) {
 @EUDFunc
 def SkillVoice(cp):
-    # (Line 81) if (f.Park_Voice[cp] != 0) { text.main(cp); }
+    # (Line 82) if (f.Park_Voice[cp] != 0) { text.main(cp); }
     if EUDIf()(f.Park_Voice[cp] == 0, neg=True):
         text.f_main(cp)
-        # (Line 82) }
+        # (Line 83) }
     EUDEndIf()
-    # (Line 84) function SkillList(cp)
+    # (Line 85) function SkillList(cp)
 
-# (Line 85) {
+# (Line 86) {
 @EUDFunc
 def SkillList(cp):
-    # (Line 86) if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
+    # (Line 87) if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
     if EUDIf()(Memory(0x00596A44, Exactly, 256)):
-        # (Line 87) {
-        # (Line 88) f.stb.printAt(0, "\n");
+        # (Line 88) {
+        # (Line 89) f.stb.printAt(0, "\n");
         f.stb.printAt(0, "\n")
-        # (Line 89) f.stb.printAt(1, "\x1F　＃\x1B- 박 일표　\x04[ 갓 오브 하이스쿨 ]");
+        # (Line 90) f.stb.printAt(1, "\x1F　＃\x1B- 박 일표　\x04[ 갓 오브 하이스쿨 ]");
         f.stb.printAt(1, "\x1F　＃\x1B- 박 일표　\x04[ 갓 오브 하이스쿨 ]")
-        # (Line 90) f.stb.printAt(2, "　　\x1FA\x04ction List");
+        # (Line 91) f.stb.printAt(2, "　　\x1FA\x04ction List");
         f.stb.printAt(2, "　　\x1FA\x04ction List")
-        # (Line 91) f.stb.printAt(3, "　　　\x18O \x04택견 - 무음신속 \x19[ 10초 간 첫 스킬에 한해 스킬 사용시 적에게 돌진 ] \x051분 30초");
+        # (Line 92) f.stb.printAt(3, "　　　\x18O \x04택견 - 무음신속 \x19[ 10초 간 첫 스킬에 한해 스킬 사용시 적에게 돌진 ] \x051분 30초");
         f.stb.printAt(3, "　　　\x18O \x04택견 - 무음신속 \x19[ 10초 간 첫 스킬에 한해 스킬 사용시 적에게 돌진 ] \x051분 30초")
-        # (Line 92) f.stb.printAt(4, "　　　\x04\x1FSSS 소용 [ 대인 / 순간딜 ]");
-        f.stb.printAt(4, "　　　\x04\x1FSSS 소용 [ 대인 / 순간딜 ]")
-        # (Line 93) f.stb.printAt(5, "　　　\x04\x1FCCC + AC + CC 약점 [ 대인 / 순간딜 ]");
-        f.stb.printAt(5, "　　　\x04\x1FCCC + AC + CC 약점 [ 대인 / 순간딜 ]")
-        # (Line 94) f.stb.printAt(6, "　　　\x04\x1FACC \x04도발 \x19[ 대인 / 순간딜 ]");
+        # (Line 93) f.stb.printAt(4, "　　　\x04\x1FSSS\x04/x1 소용 \x19[ 대인 / 순간딜 ]");
+        f.stb.printAt(4, "　　　\x04\x1FSSS\x04/x1 소용 \x19[ 대인 / 순간딜 ]")
+        # (Line 94) f.stb.printAt(5, "　　　\x04\x1FCCC + AC + CC\x04/x1 약점 \x19[ 대인 / 순간딜 ]");
+        f.stb.printAt(5, "　　　\x04\x1FCCC + AC + CC\x04/x1 약점 \x19[ 대인 / 순간딜 ]")
+        # (Line 95) f.stb.printAt(6, "　　　\x04\x1FACC \x04도발 \x19[ 대인 / 순간딜 ]");
         f.stb.printAt(6, "　　　\x04\x1FACC \x04도발 \x19[ 대인 / 순간딜 ]")
-        # (Line 95) f.stb.printAt(7, "　　　\x08AAA \x04택견 오의 - 화축 \x19[ 대인 ] \x05", f.UltimateA[cp]);
+        # (Line 96) f.stb.printAt(7, "　　　\x08AAA \x04택견 오의 - 화축 \x19[ 대인 ] \x05", f.UltimateA[cp]);
         f.stb.printAt(7, "　　　\x08AAA \x04택견 오의 - 화축 \x19[ 대인 ] \x05", f.UltimateA[cp])
-        # (Line 96) f.stb.printAt(8, "　　　\x08 + AA \x04 최종 오의 - 삼염멸도각 \x19[ 공성 ] \x05", f.UltimateB[cp]);
+        # (Line 97) f.stb.printAt(8, "　　　\x08 + AA \x04 최종 오의 - 삼염멸도각 \x19[ 공성 ] \x05", f.UltimateB[cp]);
         f.stb.printAt(8, "　　　\x08 + AA \x04 최종 오의 - 삼염멸도각 \x19[ 공성 ] \x05", f.UltimateB[cp])
-        # (Line 97) f.stb.printAt(9, "\n");
+        # (Line 98) f.stb.printAt(9, "\n");
         f.stb.printAt(9, "\n")
-        # (Line 98) PlayWAV("sound\\Bullet\\LaserHit.wav");
-        # (Line 99) }
-        DoActions(PlayWAV("sound\\Bullet\\LaserHit.wav"))
+        # (Line 99) PlayWAV("sound\\Bullet\\LaserHit.wav");
         # (Line 100) }
+        DoActions(PlayWAV("sound\\Bullet\\LaserHit.wav"))
+        # (Line 101) }
     EUDEndIf()

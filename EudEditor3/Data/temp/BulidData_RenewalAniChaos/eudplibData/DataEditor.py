@@ -19,6 +19,7 @@ def onPluginStart():
         SetMemory(0x66065C, Add, 2048),# units:Unit Direction  index:109    from 0 To 8
         SetMemory(0x6647B0, Add, 256),# units:Shield Enable  index:1    from 0 To 1
         SetMemory(0x6647B0, Add, 65536),# units:Shield Enable  index:2    from 0 To 1
+        SetMemory(0x6647B8, Add, 0),# units:Shield Enable  index:10    from 0 To 0
         SetMemory(0x6647C0, Add, 1),# units:Shield Enable  index:16    from 0 To 1
         SetMemory(0x6647D0, Add, 65536),# units:Shield Enable  index:34    from 0 To 1
         SetMemory(0x6647D8, Add, 1),# units:Shield Enable  index:40    from 0 To 1
@@ -1004,6 +1005,7 @@ def onPluginStart():
         SetMemory(0x6C9FB0, Add, 427),# flingy:Speed  index:46    from 853 To 1280
         SetMemory(0x6C9FBC, Add, 829),# flingy:Speed  index:49    from 1 To 830
         SetMemory(0x6CA010, Add, 384),# flingy:Speed  index:70    from 640 To 1024
+        SetMemory(0x6CA01C, Add, 1279),# flingy:Speed  index:73    from 1 To 1280
         SetMemory(0x6CA020, Add, 1279),# flingy:Speed  index:74    from 1 To 1280
         SetMemory(0x6CA02C, Add, 1279),# flingy:Speed  index:77    from 1 To 1280
         SetMemory(0x6CA058, Add, -683),# flingy:Speed  index:88    from 1707 To 1024
@@ -1018,6 +1020,7 @@ def onPluginStart():
         SetMemory(0x6C9CD4, Add, 1253),# flingy:Acceleration  index:46    from 27 To 1280
         SetMemory(0x6C9CD8, Add, 54329344),# flingy:Acceleration  index:49    from 1 To 830
         SetMemory(0x6C9D04, Add, 6),# flingy:Acceleration  index:70    from 27 To 33
+        SetMemory(0x6C9D08, Add, 83820544),# flingy:Acceleration  index:73    from 1 To 1280
         SetMemory(0x6C9D0C, Add, 1279),# flingy:Acceleration  index:74    from 1 To 1280
         SetMemory(0x6C9D10, Add, 83820544),# flingy:Acceleration  index:77    from 1 To 1280
         SetMemory(0x6C9DB4, Add, -4533),# flingy:Acceleration  index:158    from 8533 To 4000
@@ -1031,6 +1034,7 @@ def onPluginStart():
         SetMemory(0x6C99E8, Add, -13474),# flingy:Halt Distance  index:46    from 13474 To 0
         SetMemory(0x6C99F4, Add, -1),# flingy:Halt Distance  index:49    from 1 To 0
         SetMemory(0x6C9A48, Add, 17239),# flingy:Halt Distance  index:70    from 7585 To 24824
+        SetMemory(0x6C9A54, Add, -1),# flingy:Halt Distance  index:73    from 1 To 0
         SetMemory(0x6C9A58, Add, -1),# flingy:Halt Distance  index:74    from 1 To 0
         SetMemory(0x6C9A64, Add, -1),# flingy:Halt Distance  index:77    from 1 To 0
         SetMemory(0x6C9A90, Add, -14569),# flingy:Halt Distance  index:88    from 14569 To 0
@@ -1049,6 +1053,7 @@ def onPluginStart():
         SetMemory(0x6C9884, Add, -256),# flingy:Movement Control  index:45    from 1 To 0
         SetMemory(0x6C9884, Add, -131072),# flingy:Movement Control  index:46    from 2 To 0
         SetMemory(0x6C9888, Add, -512),# flingy:Movement Control  index:49    from 2 To 0
+        SetMemory(0x6C98A0, Add, -512),# flingy:Movement Control  index:73    from 2 To 0
         SetMemory(0x6C98A0, Add, -131072),# flingy:Movement Control  index:74    from 2 To 0
         SetMemory(0x6C98A4, Add, -512),# flingy:Movement Control  index:77    from 2 To 0
         SetMemory(0x6C9914, Add, -512),# flingy:Movement Control  index:189    from 2 To 0

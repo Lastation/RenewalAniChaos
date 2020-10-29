@@ -18,17 +18,16 @@ function main(cp)
 			SetResources(CurrentPlayer, Add, 60, Gas);
 			KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", cp);
 		}
-		else if (Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))
-		{
-			f.step[cp] = 200;
-			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp);
-		}
 		else if (Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))
 		{
 			f.step[cp] = 300;
 			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
 		}
-		
+		else if (Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))
+		{
+			f.step[cp] = 200;
+			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp);
+		}
 		else if (Bring(cp, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))
 		{
 			f.step[cp] = 100;
@@ -102,18 +101,29 @@ function main(cp)
 			KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
 		}
 		
-		else if (Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill") 
+		else if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") 
 		&& f.step[cp] == 320
 		&& Deaths(cp, AtLeast, f.UltimateA[cp], " `UltimateCoolTime"))
 		{
-			SetSwitch("UiltimateSwitch", Set);
-			f.Voice_Routine(cp, 3);
-			f.wait[cp] = 0;
-			f.step[cp] = 330;
-			SetDeaths(cp, Subtract, f.UltimateA[cp], " `UltimateCoolTime");
-			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
+			if (Switch("UiltimateSwitch", Cleared))
+			{
+				SetSwitch("UiltimateSwitch", Set);
+				CreateUnit(1, " Item. Flag", "[Uiltimate]Flag", CurrentPlayer);
+				f.Voice_Routine(cp, 3);
+				f.wait[cp] = 0;
+				f.step[cp] = 330;
+				SetDeaths(cp, Subtract, f.UltimateA[cp], " `UltimateCoolTime");
+				KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
+			}
+			
+			else
+			{
+				SetResources(CurrentPlayer, Add, 900, Gas);
+				KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", cp);
+				SetDeaths(CurrentPlayer, SetTo, 999, " `SYSTEMTEXT");
+			}
 		}
-		
+	
 
 	}
 }
