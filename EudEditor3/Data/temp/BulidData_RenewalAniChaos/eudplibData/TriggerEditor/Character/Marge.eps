@@ -4,6 +4,7 @@ import Function as f;
 import Character.Sound as s;
 
 import Character.Rusaruka.Main 		as rusarukaMain;
+import Character.Chtholly.Main 		as chthollyMain;
 import Character.Kiana.Main 			as kianaMain;
 import Character.Yuuna.Main 		as yuunaMain;
 import Character.Mayuri.Main 		as mayuriMain;
@@ -15,6 +16,7 @@ import Character.Oda.Main 			as odaMain;
 import Character.Ekidona.Main 		as ekidonaMain;
 import Character.Niwa.Main 			as niwaMain;
 import Character.Park.Main 			as parkMain;
+
 const bgmWait		= PVariable();			
 
 function SetVoice(cp);
@@ -29,6 +31,9 @@ function main(cp)
 	{
 	case 1:
 		rusarukaMain.main(cp);
+		break;
+	case 2:
+		chthollyMain.main(cp);
 		break;
 	case 17:
 		kianaMain.main(cp);

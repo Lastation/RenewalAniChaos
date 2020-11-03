@@ -248,6 +248,7 @@ def onPluginStart():
         SetMemory(0x663280, Add, 50331648),# units:Sight Range  index:75    from 7 To 10
         SetMemory(0x6632A4, Add, -768),# units:Sight Range  index:109    from 8 To 5
         SetMemory(0x6632A8, Add, 33554432),# units:Sight Range  index:115    from 8 To 10
+        SetMemory(0x6635D8, Add, 131072),# units:Armor Upgrade  index:10    from 0 To 2
         SetMemory(0x6635E0, Add, 2),# units:Armor Upgrade  index:16    from 0 To 2
         SetMemory(0x6635F0, Add, 131072),# units:Armor Upgrade  index:34    from 0 To 2
         SetMemory(0x6635FC, Add, 939524096),# units:Armor Upgrade  index:47    from 4 To 60
@@ -926,12 +927,15 @@ def onPluginStart():
         SetMemory(0x657240, Add, -327680),# weapons:Damage Upgrade  index:114    from 14 To 9
         SetMemory(0x657240, Add, -83886080),# weapons:Damage Upgrade  index:115    from 14 To 9
         SetMemory(0x657244, Add, 2),# weapons:Damage Upgrade  index:116    from 7 To 9
+        SetMemory(0x657258, Add, 16777216),# weapons:Weapon Type  index:3    from 2 To 3
         SetMemory(0x657270, Add, -256),# weapons:Weapon Type  index:25    from 2 To 1
-        SetMemory(0x657270, Add, -65536),# weapons:Weapon Type  index:26    from 2 To 1
+        SetMemory(0x657270, Add, 65536),# weapons:Weapon Type  index:26    from 2 To 3
+        SetMemory(0x65727C, Add, 33554432),# weapons:Weapon Type  index:39    from 1 To 3
         SetMemory(0x657288, Add, -16777216),# weapons:Weapon Type  index:51    from 2 To 1
         SetMemory(0x65728C, Add, 512),# weapons:Weapon Type  index:53    from 1 To 3
         SetMemory(0x65729C, Add, -2),# weapons:Weapon Type  index:68    from 3 To 1
         SetMemory(0x6572A0, Add, -256),# weapons:Weapon Type  index:73    from 3 To 2
+        SetMemory(0x6572C8, Add, 1),# weapons:Weapon Type  index:112    from 2 To 3
         SetMemory(0x6572CC, Add, 1),# weapons:Weapon Type  index:116    from 2 To 3
         SetMemory(0x6566A0, Add, -6),# weapons:Weapon Behavior  index:48    from 7 To 1
         SetMemory(0x6566A0, Add, -1536),# weapons:Weapon Behavior  index:49    from 7 To 1
@@ -950,6 +954,7 @@ def onPluginStart():
         SetMemory(0x656F38, Add, 55),# weapons:Damage Amount  index:68    from 5 To 60
         SetMemory(0x656F38, Add, 0),# weapons:Damage Amount  index:69    from 350 To 350
         SetMemory(0x656F40, Add, 2097152),# weapons:Damage Amount  index:73    from 8 To 40
+        SetMemory(0x6576AC, Add, -1),# weapons:Damage Bonus  index:26    from 1 To 0
         SetMemory(0x656FD0, Add, 2048),# weapons:Weapon Cooldown  index:25    from 22 To 30
         SetMemory(0x656FD8, Add, 234881024),# weapons:Weapon Cooldown  index:35    from 8 To 22
         SetMemory(0x656FDC, Add, 14),# weapons:Weapon Cooldown  index:36    from 8 To 22

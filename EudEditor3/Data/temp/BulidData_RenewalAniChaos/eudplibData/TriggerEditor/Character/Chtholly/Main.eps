@@ -1,9 +1,11 @@
 import Function as f;
 
-import Character.Chtholly.Skill_O as O;
+//import Character.Chtholly.Skill_O as O;
 import Character.Chtholly.Skill_S as S;
 import Character.Chtholly.Skill_C as C;
 import Character.Chtholly.Skill_A as A;
+
+import Character.Chtholly.Skill_SSS as SSS;
 
 import Character.Chtholly.Text as text;
 import Character.Chtholly.Commend as commend;
@@ -27,10 +29,13 @@ function main(cp)
 		switch(f.step[cp])
 		{
 		case 1:
-			O.main(cp);
+			//O.main(cp);
 			break;
 		case 100:
 			S.main(cp);
+			break;
+		case 110:
+			SSS.main(cp);
 			break;
 		case 200:
 			C.main(cp);
