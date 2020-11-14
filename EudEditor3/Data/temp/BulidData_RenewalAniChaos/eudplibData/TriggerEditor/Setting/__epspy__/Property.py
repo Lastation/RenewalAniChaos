@@ -178,99 +178,109 @@ def Property(cp):
 # (Line 32) {
 @EUDFunc
 def Property_S(cp):
-    # (Line 33) if (cp >= 0 && cp <= 2 &&  bread(0x58D088 + 0x21F0 * ((0) / 46) + cp * (46 - 31 * ((0) / 46)) + ((0) % 46)) == 60)
+    # (Line 34) if (cp >= 0 && cp <= 2 &&  bread(0x58D088 + 0x21F0 * ((0) / 46) + cp * (46 - 31 * ((0) / 46)) + ((0) % 46)) == 60)
     if EUDIf()(EUDSCAnd()(cp >= 0)(cp <= 2)(f_bread(0x58D088 + 0x21F0 * ((0) // 46) + cp * (46 - 31 * ((0) // 46)) + ((0) % 46)) == 60)()):
-        # (Line 34) {
-        # (Line 35) if (Deaths((0), (10), 1000, (223)) || Deaths((1), (10), 1000, (223)) || Deaths((2), (10), 1000, (223)))
+        # (Line 35) {
+        # (Line 36) if (Deaths((0), (10), 1000, (223)) || Deaths((1), (10), 1000, (223)) || Deaths((2), (10), 1000, (223)))
         if EUDIf()(EUDSCOr()(Deaths((0), (10), 1000, (223)))(Deaths((1), (10), 1000, (223)))(Deaths((2), (10), 1000, (223)))()):
-            # (Line 36) {
-            # (Line 37) bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (0) * (46 - 31 * ((7) / 46)) + ((7) % 46), 84);
+            # (Line 37) {
+            # (Line 38) bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (0) * (46 - 31 * ((7) / 46)) + ((7) % 46), 84);
             f_bwrite(0x58D088 + 0x21F0 * ((7) // 46) + (0) * (46 - 31 * ((7) // 46)) + ((7) % 46), 84)
-            # (Line 38) bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (1) * (46 - 31 * ((7) / 46)) + ((7) % 46), 84);
+            # (Line 39) bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (1) * (46 - 31 * ((7) / 46)) + ((7) % 46), 84);
             f_bwrite(0x58D088 + 0x21F0 * ((7) // 46) + (1) * (46 - 31 * ((7) // 46)) + ((7) % 46), 84)
-            # (Line 39) bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (2) * (46 - 31 * ((7) / 46)) + ((7) % 46), 84);
+            # (Line 40) bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (2) * (46 - 31 * ((7) / 46)) + ((7) % 46), 84);
             f_bwrite(0x58D088 + 0x21F0 * ((7) // 46) + (2) * (46 - 31 * ((7) // 46)) + ((7) % 46), 84)
-            # (Line 40) bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (0) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+            # (Line 41) bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (0) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
             f_bwrite(0x58D088 + 0x21F0 * ((0) // 46) + (0) * (46 - 31 * ((0) // 46)) + ((0) % 46), 61)
-            # (Line 41) bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (1) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+            # (Line 42) bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (1) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
             f_bwrite(0x58D088 + 0x21F0 * ((0) // 46) + (1) * (46 - 31 * ((0) // 46)) + ((0) % 46), 61)
-            # (Line 42) bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (2) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+            # (Line 43) bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (2) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
             f_bwrite(0x58D088 + 0x21F0 * ((0) // 46) + (2) * (46 - 31 * ((0) // 46)) + ((0) % 46), 61)
-            # (Line 43) bwrite(0x58D2B0 + 0x207C * ((0) / 46) + (cp) * (46 - 31 * ((0) / 46)) + ((0) % 46), 10);
-            f_bwrite(0x58D2B0 + 0x207C * ((0) // 46) + (cp) * (46 - 31 * ((0) // 46)) + ((0) % 46), 10)
-            # (Line 44) bwrite(0x58D2B0 + 0x207C * ((0) / 46) + (cp) * (46 - 31 * ((0) / 46)) + ((0) % 46), 10);
-            f_bwrite(0x58D2B0 + 0x207C * ((0) // 46) + (cp) * (46 - 31 * ((0) // 46)) + ((0) % 46), 10)
-            # (Line 45) }
-            # (Line 46) }
+            # (Line 44) }
+            # (Line 46) if (Deaths(cp, 10, 1000, 223))
         EUDEndIf()
-        # (Line 47) if (cp >= 3 && cp <= 5 &&  bread(0x58D088 + 0x21F0 * ((0) / 46) + cp * (46 - 31 * ((0) / 46)) + ((0) % 46)) == 60)
+        if EUDIf()(Deaths(cp, 10, 1000, 223)):
+            # (Line 47) {
+            # (Line 48) bwrite(0x58D2B0 + 0x207C * (7 / 46) + (cp) * (46 - 31 * (7 / 46)) + (7 % 46), 10);
+            f_bwrite(0x58D2B0 + 0x207C * (7 // 46) + (cp) * (46 - 31 * (7 // 46)) + (7 % 46), 10)
+            # (Line 49) bwrite(0x58D2B0 + 0x207C * (0 / 46) + (cp) * (46 - 31 * (0 / 46)) + (0 % 46), 10);
+            f_bwrite(0x58D2B0 + 0x207C * (0 // 46) + (cp) * (46 - 31 * (0 // 46)) + (0 % 46), 10)
+            # (Line 50) }
+            # (Line 51) }
+        EUDEndIf()
+        # (Line 52) if (cp >= 3 && cp <= 5 &&  bread(0x58D088 + 0x21F0 * ((0) / 46) + cp * (46 - 31 * ((0) / 46)) + ((0) % 46)) == 60)
     EUDEndIf()
     if EUDIf()(EUDSCAnd()(cp >= 3)(cp <= 5)(f_bread(0x58D088 + 0x21F0 * ((0) // 46) + cp * (46 - 31 * ((0) // 46)) + ((0) % 46)) == 60)()):
-        # (Line 48) {
-        # (Line 49) if (Deaths((3), (10), 1000, (223)) || Deaths((4), (10), 1000, (223)) || Deaths((5), (10), 1000, (223)))
+        # (Line 53) {
+        # (Line 54) if (Deaths((3), (10), 1000, (223)) || Deaths((4), (10), 1000, (223)) || Deaths((5), (10), 1000, (223)))
         if EUDIf()(EUDSCOr()(Deaths((3), (10), 1000, (223)))(Deaths((4), (10), 1000, (223)))(Deaths((5), (10), 1000, (223)))()):
-            # (Line 50) {
-            # (Line 51) bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (3) * (46 - 31 * ((7) / 46)) + ((7) % 46), 84);
+            # (Line 55) {
+            # (Line 56) bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (3) * (46 - 31 * ((7) / 46)) + ((7) % 46), 84);
             f_bwrite(0x58D088 + 0x21F0 * ((7) // 46) + (3) * (46 - 31 * ((7) // 46)) + ((7) % 46), 84)
-            # (Line 52) bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (4) * (46 - 31 * ((7) / 46)) + ((7) % 46), 84);
+            # (Line 57) bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (4) * (46 - 31 * ((7) / 46)) + ((7) % 46), 84);
             f_bwrite(0x58D088 + 0x21F0 * ((7) // 46) + (4) * (46 - 31 * ((7) // 46)) + ((7) % 46), 84)
-            # (Line 53) bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (5) * (46 - 31 * ((7) / 46)) + ((7) % 46), 84);
+            # (Line 58) bwrite(0x58D088 + 0x21F0 * ((7) / 46) + (5) * (46 - 31 * ((7) / 46)) + ((7) % 46), 84);
             f_bwrite(0x58D088 + 0x21F0 * ((7) // 46) + (5) * (46 - 31 * ((7) // 46)) + ((7) % 46), 84)
-            # (Line 54) bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (3) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+            # (Line 59) bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (3) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
             f_bwrite(0x58D088 + 0x21F0 * ((0) // 46) + (3) * (46 - 31 * ((0) // 46)) + ((0) % 46), 61)
-            # (Line 55) bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (4) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+            # (Line 60) bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (4) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
             f_bwrite(0x58D088 + 0x21F0 * ((0) // 46) + (4) * (46 - 31 * ((0) // 46)) + ((0) % 46), 61)
-            # (Line 56) bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (5) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+            # (Line 61) bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (5) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
             f_bwrite(0x58D088 + 0x21F0 * ((0) // 46) + (5) * (46 - 31 * ((0) // 46)) + ((0) % 46), 61)
-            # (Line 57) bwrite(0x58D2B0 + 0x207C * ((0) / 46) + (cp) * (46 - 31 * ((0) / 46)) + ((0) % 46), 10);
-            f_bwrite(0x58D2B0 + 0x207C * ((0) // 46) + (cp) * (46 - 31 * ((0) // 46)) + ((0) % 46), 10)
-            # (Line 58) bwrite(0x58D2B0 + 0x207C * ((0) / 46) + (cp) * (46 - 31 * ((0) / 46)) + ((0) % 46), 10);
-            f_bwrite(0x58D2B0 + 0x207C * ((0) // 46) + (cp) * (46 - 31 * ((0) // 46)) + ((0) % 46), 10)
-            # (Line 59) }
-            # (Line 60) }
+            # (Line 62) }
+            # (Line 64) if (Deaths(cp, 10, 1000, 223))
         EUDEndIf()
-        # (Line 62) v.Level[cp] = dwread_epd(EPD(0x5822F4 + 4 * cp));
+        if EUDIf()(Deaths(cp, 10, 1000, 223)):
+            # (Line 65) {
+            # (Line 66) bwrite(0x58D2B0 + 0x207C * (7 / 46) + (cp) * (46 - 31 * (7 / 46)) + (7 % 46), 10);
+            f_bwrite(0x58D2B0 + 0x207C * (7 // 46) + (cp) * (46 - 31 * (7 // 46)) + (7 % 46), 10)
+            # (Line 67) bwrite(0x58D2B0 + 0x207C * (0 / 46) + (cp) * (46 - 31 * (0 / 46)) + (0 % 46), 10);
+            f_bwrite(0x58D2B0 + 0x207C * (0 // 46) + (cp) * (46 - 31 * (0 // 46)) + (0 % 46), 10)
+            # (Line 68) }
+            # (Line 69) }
+        EUDEndIf()
+        # (Line 71) v.Level[cp] = dwread_epd(EPD(0x5822F4 + 4 * cp));
     EUDEndIf()
     _ARRW(v.Level, cp) << (f_dwread_epd(EPD(0x5822F4 + 4 * cp)))
-    # (Line 63) }
-    # (Line 65) function Property_C(cp)
+    # (Line 72) }
+    # (Line 74) function Property_C(cp)
 
-# (Line 66) {
+# (Line 75) {
 @EUDFunc
 def Property_C(cp):
-    # (Line 68) if (cp < 3 && Deaths(cp, AtLeast, 13, " Item. Mana Disk 1000 / 2000") && (Deaths(P1, Exactly, 2000, " `Property")
+    # (Line 77) if (cp < 3 && Deaths(cp, AtLeast, 13, " Item. Mana Disk 1000 / 2000") && (Deaths(P1, Exactly, 2000, " `Property")
     _t1 = EUDIf()
-    # (Line 69) || Deaths(P2, Exactly, 2000, " `Property") || Deaths(P3, Exactly, 2000, " `Property")))
+    # (Line 78) || Deaths(P2, Exactly, 2000, " `Property") || Deaths(P3, Exactly, 2000, " `Property")))
     if _t1(EUDSCAnd()(cp >= 3, neg=True)(Deaths(cp, AtLeast, 13, " Item. Mana Disk 1000 / 2000"))((EUDSCOr()(Deaths(P1, Exactly, 2000, " `Property"))(Deaths(P2, Exactly, 2000, " `Property"))(Deaths(P3, Exactly, 2000, " `Property"))()))()):
-        # (Line 70) {
-        # (Line 71) SetResources(cp, Add, 5, Gas);
-        # (Line 72) }
+        # (Line 79) {
+        # (Line 80) SetResources(cp, Add, 5, Gas);
+        # (Line 81) }
         DoActions(SetResources(cp, Add, 5, Gas))
-        # (Line 73) if (cp >= 3 &&  cp < 6 && Deaths(cp, AtLeast, 13, " Item. Mana Disk 1000 / 2000") && (Deaths(P4, Exactly, 2000, " `Property")
+        # (Line 82) if (cp >= 3 &&  cp < 6 && Deaths(cp, AtLeast, 13, " Item. Mana Disk 1000 / 2000") && (Deaths(P4, Exactly, 2000, " `Property")
     EUDEndIf()
     _t2 = EUDIf()
-    # (Line 74) || Deaths(P5, Exactly, 2000, " `Property") || Deaths(P6, Exactly, 2000, " `Property")))
+    # (Line 83) || Deaths(P5, Exactly, 2000, " `Property") || Deaths(P6, Exactly, 2000, " `Property")))
     if _t2(EUDSCAnd()(cp >= 3)(cp >= 6, neg=True)(Deaths(cp, AtLeast, 13, " Item. Mana Disk 1000 / 2000"))((EUDSCOr()(Deaths(P4, Exactly, 2000, " `Property"))(Deaths(P5, Exactly, 2000, " `Property"))(Deaths(P6, Exactly, 2000, " `Property"))()))()):
-        # (Line 75) {
-        # (Line 76) SetResources(cp, Add, 5, Gas);
-        # (Line 77) }
+        # (Line 84) {
+        # (Line 85) SetResources(cp, Add, 5, Gas);
+        # (Line 86) }
         DoActions(SetResources(cp, Add, 5, Gas))
-        # (Line 78) }
+        # (Line 87) }
     EUDEndIf()
-    # (Line 80) function Property_A()
+    # (Line 89) function Property_A()
 
-# (Line 81) {
+# (Line 90) {
 @EUDFunc
 def Property_A():
-    # (Line 82) if (Deaths((13), (10), 3720, (223)))
+    # (Line 91) if (Deaths((13), (10), 3720, (223)))
     if EUDIf()(Deaths((13), (10), 3720, (223))):
-        # (Line 83) {
-        # (Line 84) SetDeaths((13), (8), 10, (205));
-        # (Line 85) SetDeaths((13), (7), 3000, (223));
+        # (Line 92) {
+        # (Line 93) SetDeaths((13), (8), 10, (205));
+        # (Line 94) SetDeaths((13), (7), 3000, (223));
         DoActions(SetDeaths((13), (8), 10, (205)))
-        # (Line 86) f.stb.print("\x13\x19A 특성 \x04효과 +10 \x1FShield");
+        # (Line 95) f.stb.print("\x13\x19A 특성 \x04효과 +10 \x1FShield");
         DoActions(SetDeaths((13), (7), 3000, (223)))
         f.stb.print("\x13\x19A 특성 \x04효과 +10 \x1FShield")
-        # (Line 87) }
-        # (Line 88) }
+        # (Line 96) }
+        # (Line 97) }
     EUDEndIf()

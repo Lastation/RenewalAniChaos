@@ -19,7 +19,7 @@ def onPluginStart():
         SetMemory(0x66065C, Add, 2048),# units:Unit Direction  index:109    from 0 To 8
         SetMemory(0x6647B0, Add, 256),# units:Shield Enable  index:1    from 0 To 1
         SetMemory(0x6647B0, Add, 65536),# units:Shield Enable  index:2    from 0 To 1
-        SetMemory(0x6647B8, Add, 0),# units:Shield Enable  index:10    from 0 To 0
+        SetMemory(0x6647B8, Add, 65536),# units:Shield Enable  index:10    from 0 To 1
         SetMemory(0x6647C0, Add, 1),# units:Shield Enable  index:16    from 0 To 1
         SetMemory(0x6647D0, Add, 65536),# units:Shield Enable  index:34    from 0 To 1
         SetMemory(0x6647D8, Add, 1),# units:Shield Enable  index:40    from 0 To 1
