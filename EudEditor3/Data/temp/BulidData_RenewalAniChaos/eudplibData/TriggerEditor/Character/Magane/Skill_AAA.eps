@@ -342,7 +342,6 @@ function main(cp)
          else if (f.loop[cp] == 5)
          {
             f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 11, 75);
-            f.NxNSquareShape(cp, 1, "60 + 3n Ghost", 11, 75);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             Order("60 + 3n Ghost", cp, "Anywhere", Attack, f.location[cp]);

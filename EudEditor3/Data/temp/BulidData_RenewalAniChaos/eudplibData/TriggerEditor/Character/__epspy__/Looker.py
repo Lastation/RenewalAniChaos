@@ -144,31 +144,43 @@ from Character.Yume import Text as T_yume
 from Character.Magane import Text as T_magane
 # (Line 10) import Character.Oda.Text 			as T_oda;
 from Character.Oda import Text as T_oda
-# (Line 13) function main(cp)
-# (Line 14) {
+# (Line 11) import Character.Ekidona.Text 		as T_ekidona;
+from Character.Ekidona import Text as T_ekidona
+# (Line 12) import Character.Niwa.Text 			as T_niwa;
+from Character.Niwa import Text as T_niwa
+# (Line 13) import Character.Park.Text			as T_park;
+from Character.Park import Text as T_park
+# (Line 14) function main(cp)
+# (Line 15) {
 @EUDFunc
 def f_main(cp):
-    # (Line 15) if (getuserplayerid() >= 128)
+    # (Line 16) if (getuserplayerid() >= 128)
     if EUDIf()(f_getuserplayerid() >= 128):
-        # (Line 16) {
-        # (Line 17) T_rusaruka.Looker();
+        # (Line 17) {
+        # (Line 18) T_rusaruka.Looker();
         T_rusaruka.Looker()
-        # (Line 18) T_yuuna.Looker();
+        # (Line 19) T_yuuna.Looker();
         T_yuuna.Looker()
-        # (Line 19) T_mayuri.Looker();
+        # (Line 20) T_mayuri.Looker();
         T_mayuri.Looker()
-        # (Line 20) T_nanami.Looker();
+        # (Line 21) T_nanami.Looker();
         T_nanami.Looker()
-        # (Line 21) T_milim.Looker();
+        # (Line 22) T_milim.Looker();
         T_milim.Looker()
-        # (Line 22) T_yume.Looker();
+        # (Line 23) T_yume.Looker();
         T_yume.Looker()
-        # (Line 23) T_magane.Looker();
+        # (Line 24) T_magane.Looker();
         T_magane.Looker()
-        # (Line 24) T_oda.Looker();
+        # (Line 25) T_oda.Looker();
         T_oda.Looker()
-        # (Line 26) s.MargeSound(getuserplayerid() - 120);
+        # (Line 26) T_ekidona.Looker();
+        T_ekidona.Looker()
+        # (Line 27) T_niwa.Looker();
+        T_niwa.Looker()
+        # (Line 28) T_park.Looker();
+        T_park.Looker()
+        # (Line 30) s.MargeSound(getuserplayerid() - 120);
         s.MargeSound(f_getuserplayerid() - 120)
-        # (Line 27) }
-        # (Line 28) }
+        # (Line 31) }
+        # (Line 32) }
     EUDEndIf()

@@ -136,293 +136,314 @@ import Function as f
 from Character import Sound as s
 # (Line 6) import Character.Rusaruka.Main 		as rusarukaMain;
 from Character.Rusaruka import Main as rusarukaMain
-# (Line 7) import Character.Kiana.Main 			as kianaMain;
+# (Line 7) import Character.Chtholly.Main 		as chthollyMain;
+from Character.Chtholly import Main as chthollyMain
+# (Line 8) import Character.Kiana.Main 			as kianaMain;
 from Character.Kiana import Main as kianaMain
-# (Line 8) import Character.Yuuna.Main 		as yuunaMain;
+# (Line 9) import Character.Yuuna.Main 		as yuunaMain;
 from Character.Yuuna import Main as yuunaMain
-# (Line 9) import Character.Mayuri.Main 		as mayuriMain;
+# (Line 10) import Character.Mayuri.Main 		as mayuriMain;
 from Character.Mayuri import Main as mayuriMain
-# (Line 10) import Character.Nanami.Main 		as nanamiMain;
+# (Line 11) import Character.Nanami.Main 		as nanamiMain;
 from Character.Nanami import Main as nanamiMain
-# (Line 11) import Character.Milim.Main 		as milimMain;
+# (Line 12) import Character.Milim.Main 		as milimMain;
 from Character.Milim import Main as milimMain
-# (Line 12) import Character.Yume.Main 		as yumeMain;
+# (Line 13) import Character.Yume.Main 		as yumeMain;
 from Character.Yume import Main as yumeMain
-# (Line 13) import Character.Magane.Main 		as maganeMain;
+# (Line 14) import Character.Magane.Main 		as maganeMain;
 from Character.Magane import Main as maganeMain
-# (Line 14) import Character.Oda.Main 			as odaMain;
+# (Line 15) import Character.Oda.Main 			as odaMain;
 from Character.Oda import Main as odaMain
-# (Line 16) const bgmWait		= PVariable();
+# (Line 16) import Character.Ekidona.Main 		as ekidonaMain;
+from Character.Ekidona import Main as ekidonaMain
+# (Line 17) import Character.Niwa.Main 			as niwaMain;
+from Character.Niwa import Main as niwaMain
+# (Line 18) import Character.Park.Main 			as parkMain;
+from Character.Park import Main as parkMain
+# (Line 20) const bgmWait		= PVariable();
 bgmWait = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 18) function SetVoice(cp);
-# (Line 19) function MargeSound(cp);
-# (Line 20) function SkillWait(cp);
-# (Line 21) function SkillDelay(cp);
-# (Line 22) function BGMRoutine(cp);
-# (Line 24) function main(cp)
-# (Line 25) {
+# (Line 22) function SetVoice(cp);
+# (Line 23) function MargeSound(cp);
+# (Line 24) function SkillWait(cp);
+# (Line 25) function SkillDelay(cp);
+# (Line 26) function BGMRoutine(cp);
+# (Line 28) function main(cp)
+# (Line 29) {
 @EUDFunc
 def f_main(cp):
-    # (Line 26) switch(v.Hero_Num[cp])
+    # (Line 30) switch(v.Hero_Num[cp])
     EUDSwitch(v.Hero_Num[cp])
-    # (Line 27) {
-    # (Line 28) case 1:
+    # (Line 31) {
+    # (Line 32) case 1:
     _t1 = EUDSwitchCase()
-    # (Line 29) rusarukaMain.main(cp);
+    # (Line 33) rusarukaMain.main(cp);
     if _t1(1):
         rusarukaMain.f_main(cp)
-        # (Line 30) break;
+        # (Line 34) break;
         EUDBreak()
-        # (Line 31) case 17:
+        # (Line 35) case 2:
     _t2 = EUDSwitchCase()
-    # (Line 32) kianaMain.main(cp);
-    if _t2(17):
-        kianaMain.f_main(cp)
-        # (Line 33) break;
+    # (Line 36) chthollyMain.main(cp);
+    if _t2(2):
+        chthollyMain.f_main(cp)
+        # (Line 37) break;
         EUDBreak()
-        # (Line 34) case 22:
+        # (Line 38) case 17:
     _t3 = EUDSwitchCase()
-    # (Line 35) yuunaMain.main(cp);
-    if _t3(22):
-        yuunaMain.f_main(cp)
-        # (Line 36) break;
+    # (Line 39) kianaMain.main(cp);
+    if _t3(17):
+        kianaMain.f_main(cp)
+        # (Line 40) break;
         EUDBreak()
-        # (Line 37) case 23:
+        # (Line 41) case 22:
     _t4 = EUDSwitchCase()
-    # (Line 38) mayuriMain.main(cp);
-    if _t4(23):
-        mayuriMain.f_main(cp)
-        # (Line 39) break;
+    # (Line 42) yuunaMain.main(cp);
+    if _t4(22):
+        yuunaMain.f_main(cp)
+        # (Line 43) break;
         EUDBreak()
-        # (Line 40) case 24:
+        # (Line 44) case 23:
     _t5 = EUDSwitchCase()
-    # (Line 41) nanamiMain.main(cp);
-    if _t5(24):
-        nanamiMain.f_main(cp)
-        # (Line 42) break;
+    # (Line 45) mayuriMain.main(cp);
+    if _t5(23):
+        mayuriMain.f_main(cp)
+        # (Line 46) break;
         EUDBreak()
-        # (Line 43) case 25:
+        # (Line 47) case 24:
     _t6 = EUDSwitchCase()
-    # (Line 44) milimMain.main(cp);
-    if _t6(25):
-        milimMain.f_main(cp)
-        # (Line 45) break;
+    # (Line 48) nanamiMain.main(cp);
+    if _t6(24):
+        nanamiMain.f_main(cp)
+        # (Line 49) break;
         EUDBreak()
-        # (Line 46) case 26:
+        # (Line 50) case 25:
     _t7 = EUDSwitchCase()
-    # (Line 47) yumeMain.main(cp);
-    if _t7(26):
-        yumeMain.f_main(cp)
-        # (Line 48) break;
+    # (Line 51) milimMain.main(cp);
+    if _t7(25):
+        milimMain.f_main(cp)
+        # (Line 52) break;
         EUDBreak()
-        # (Line 49) case 27:
+        # (Line 53) case 26:
     _t8 = EUDSwitchCase()
-    # (Line 50) maganeMain.main(cp);
-    if _t8(27):
-        maganeMain.f_main(cp)
-        # (Line 51) break;
+    # (Line 54) yumeMain.main(cp);
+    if _t8(26):
+        yumeMain.f_main(cp)
+        # (Line 55) break;
         EUDBreak()
-        # (Line 52) case 28:
+        # (Line 56) case 27:
     _t9 = EUDSwitchCase()
-    # (Line 53) odaMain.main(cp);
-    if _t9(28):
-        odaMain.f_main(cp)
-        # (Line 54) break;
+    # (Line 57) maganeMain.main(cp);
+    if _t9(27):
+        maganeMain.f_main(cp)
+        # (Line 58) break;
         EUDBreak()
-        # (Line 57) }
-    # (Line 59) SkillWait(cp);
+        # (Line 59) case 28:
+    _t10 = EUDSwitchCase()
+    # (Line 60) odaMain.main(cp);
+    if _t10(28):
+        odaMain.f_main(cp)
+        # (Line 61) break;
+        EUDBreak()
+        # (Line 62) case 29:
+    _t11 = EUDSwitchCase()
+    # (Line 63) ekidonaMain.main(cp);
+    if _t11(29):
+        ekidonaMain.f_main(cp)
+        # (Line 64) break;
+        EUDBreak()
+        # (Line 65) case 30:
+    _t12 = EUDSwitchCase()
+    # (Line 66) niwaMain.main(cp);
+    if _t12(30):
+        niwaMain.f_main(cp)
+        # (Line 67) break;
+        EUDBreak()
+        # (Line 68) case 31:
+    _t13 = EUDSwitchCase()
+    # (Line 69) parkMain.main(cp);
+    if _t13(31):
+        parkMain.f_main(cp)
+        # (Line 70) break;
+        EUDBreak()
+        # (Line 71) }
+    # (Line 73) SkillWait(cp);
     EUDEndSwitch()
     SkillWait(cp)
-    # (Line 60) SkillDelay(cp);
+    # (Line 74) SkillDelay(cp);
     SkillDelay(cp)
-    # (Line 62) SetVoice(cp);
+    # (Line 76) SetVoice(cp);
     SetVoice(cp)
-    # (Line 63) s.main(cp);
+    # (Line 77) s.main(cp);
     s.f_main(cp)
-    # (Line 64) BGMRoutine(cp);
+    # (Line 78) BGMRoutine(cp);
     BGMRoutine(cp)
-    # (Line 65) }
-    # (Line 67) function SetVoice(cp)
+    # (Line 79) }
+    # (Line 81) function SetVoice(cp)
 
-# (Line 68) {
+# (Line 82) {
 @EUDFunc
 def SetVoice(cp):
-    # (Line 69) if (cp < 6)
+    # (Line 83) if (cp < 6)
     if EUDIf()(cp >= 6, neg=True):
-        # (Line 70) {
-        # (Line 71) if (Deaths(cp, AtLeast, 1, (186)))
+        # (Line 84) {
+        # (Line 85) if (Deaths(cp, AtLeast, 1, (186)))
         if EUDIf()(Deaths(cp, AtLeast, 1, (186))):
-            # (Line 72) {
-            # (Line 73) v.Sound_Text1[cp] = dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * cp));
+            # (Line 86) {
+            # (Line 87) v.Sound_Text1[cp] = dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * cp));
             _ARRW(v.Sound_Text1, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * cp)))
-            # (Line 74) v.Sound_Text1[8 + cp] = v.Sound_Text1[cp];
+            # (Line 88) v.Sound_Text1[8 + cp] = v.Sound_Text1[cp];
             _ARRW(v.Sound_Text1, 8 + cp) << (v.Sound_Text1[cp])
-            # (Line 75) SetDeaths(cp, SetTo, 0, (186));
-            # (Line 76) }
+            # (Line 89) SetDeaths(cp, SetTo, 0, (186));
+            # (Line 90) }
             DoActions(SetDeaths(cp, SetTo, 0, (186)))
-            # (Line 77) if (Deaths(cp, AtLeast, 1, (174)))
+            # (Line 91) if (Deaths(cp, AtLeast, 1, (174)))
         EUDEndIf()
         if EUDIf()(Deaths(cp, AtLeast, 1, (174))):
-            # (Line 78) {
-            # (Line 79) v.Sound_Text2[cp] = dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * cp));
+            # (Line 92) {
+            # (Line 93) v.Sound_Text2[cp] = dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * cp));
             _ARRW(v.Sound_Text2, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * cp)))
-            # (Line 80) v.Sound_Text2[8 + cp] = v.Sound_Text2[cp];
+            # (Line 94) v.Sound_Text2[8 + cp] = v.Sound_Text2[cp];
             _ARRW(v.Sound_Text2, 8 + cp) << (v.Sound_Text2[cp])
-            # (Line 81) SetDeaths(cp, SetTo, 0, (174));
-            # (Line 82) }
+            # (Line 95) SetDeaths(cp, SetTo, 0, (174));
+            # (Line 96) }
             DoActions(SetDeaths(cp, SetTo, 0, (174)))
-            # (Line 83) if (Deaths(cp, AtLeast, 1, (117)))
+            # (Line 97) if (Deaths(cp, AtLeast, 1, (117)))
         EUDEndIf()
         if EUDIf()(Deaths(cp, AtLeast, 1, (117))):
-            # (Line 84) {
-            # (Line 85) v.Sound_Text3[cp] = dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * cp));
+            # (Line 98) {
+            # (Line 99) v.Sound_Text3[cp] = dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * cp));
             _ARRW(v.Sound_Text3, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * cp)))
-            # (Line 86) v.Sound_Text3[8 + cp] = v.Sound_Text3[cp];
+            # (Line 100) v.Sound_Text3[8 + cp] = v.Sound_Text3[cp];
             _ARRW(v.Sound_Text3, 8 + cp) << (v.Sound_Text3[cp])
-            # (Line 87) SetDeaths(cp, SetTo, 0, (117));
-            # (Line 88) }
+            # (Line 101) SetDeaths(cp, SetTo, 0, (117));
+            # (Line 102) }
             DoActions(SetDeaths(cp, SetTo, 0, (117)))
-            # (Line 89) if (Deaths(cp, AtLeast, 1, (157)))
+            # (Line 103) if (Deaths(cp, AtLeast, 1, (157)))
         EUDEndIf()
         if EUDIf()(Deaths(cp, AtLeast, 1, (157))):
-            # (Line 90) {
-            # (Line 91) v.Sound_Text4[cp] = dwread_epd(EPD(0x58A364 + 48 * 157 + 4 * cp));
+            # (Line 104) {
+            # (Line 105) v.Sound_Text4[cp] = dwread_epd(EPD(0x58A364 + 48 * 157 + 4 * cp));
             _ARRW(v.Sound_Text4, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 157 + 4 * cp)))
-            # (Line 92) v.Sound_Text4[8 + cp] = v.Sound_Text4[cp];
+            # (Line 106) v.Sound_Text4[8 + cp] = v.Sound_Text4[cp];
             _ARRW(v.Sound_Text4, 8 + cp) << (v.Sound_Text4[cp])
-            # (Line 93) SetDeaths(cp, SetTo, 0, (157));
-            # (Line 94) }
+            # (Line 107) SetDeaths(cp, SetTo, 0, (157));
+            # (Line 108) }
             DoActions(SetDeaths(cp, SetTo, 0, (157)))
-            # (Line 95) if (Deaths(cp, AtLeast, 1, (222)))
+            # (Line 109) if (Deaths(cp, AtLeast, 1, (222)))
         EUDEndIf()
         if EUDIf()(Deaths(cp, AtLeast, 1, (222))):
-            # (Line 96) {
-            # (Line 97) v.Sound_Text_Uilti[cp] = dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * cp));
+            # (Line 110) {
+            # (Line 111) v.Sound_Text_Uilti[cp] = dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * cp));
             _ARRW(v.Sound_Text_Uilti, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * cp)))
-            # (Line 98) v.Sound_Text_Uilti[8 + cp] = v.Sound_Text_Uilti[cp];
+            # (Line 112) v.Sound_Text_Uilti[8 + cp] = v.Sound_Text_Uilti[cp];
             _ARRW(v.Sound_Text_Uilti, 8 + cp) << (v.Sound_Text_Uilti[cp])
-            # (Line 99) SetDeaths(cp, SetTo, 0, (222));
-            # (Line 100) }
+            # (Line 113) SetDeaths(cp, SetTo, 0, (222));
+            # (Line 114) }
             DoActions(SetDeaths(cp, SetTo, 0, (222)))
-            # (Line 101) if (Deaths(cp, AtLeast, 1, (188)))
+            # (Line 115) if (Deaths(cp, AtLeast, 1, (188)))
         EUDEndIf()
         if EUDIf()(Deaths(cp, AtLeast, 1, (188))):
-            # (Line 102) {
-            # (Line 103) v.Sound_Text_Uniq[cp] = dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * cp));
+            # (Line 116) {
+            # (Line 117) v.Sound_Text_Uniq[cp] = dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * cp));
             _ARRW(v.Sound_Text_Uniq, cp) << (f_dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * cp)))
-            # (Line 104) v.Sound_Text_Uniq[8 + cp] = v.Sound_Text_Uniq[cp];
+            # (Line 118) v.Sound_Text_Uniq[8 + cp] = v.Sound_Text_Uniq[cp];
             _ARRW(v.Sound_Text_Uniq, 8 + cp) << (v.Sound_Text_Uniq[cp])
-            # (Line 105) SetDeaths(cp, SetTo, 0, (188));
-            # (Line 106) }
+            # (Line 119) SetDeaths(cp, SetTo, 0, (188));
+            # (Line 120) }
             DoActions(SetDeaths(cp, SetTo, 0, (188)))
-            # (Line 107) }
+            # (Line 121) }
         EUDEndIf()
-        # (Line 108) }
+        # (Line 122) }
     EUDEndIf()
-    # (Line 110) function BGMRoutine(cp)
+    # (Line 124) function BGMRoutine(cp)
 
-# (Line 111) {
+# (Line 125) {
 @EUDFunc
 def BGMRoutine(cp):
-    # (Line 112) if (Bring(cp, AtLeast, 1, "Terran SCV", "[BGM]ON"))
+    # (Line 126) if (Bring(cp, AtLeast, 1, "Terran SCV", "[BGM]ON"))
     if EUDIf()(Bring(cp, AtLeast, 1, "Terran SCV", "[BGM]ON")):
-        # (Line 113) {
-        # (Line 114) if (bgmWait[cp] == 0)
+        # (Line 127) {
+        # (Line 128) if (bgmWait[cp] == 0)
         if EUDIf()(bgmWait[cp] == 0):
-            # (Line 115) {
-            # (Line 117) if (Bring(P7, AtLeast, 1, 200, "Anywhere") && Bring(P8, AtLeast, 1, 200, "Anywhere"))			// 초반 인식
-            if EUDIf()(EUDSCAnd()(Bring(P7, AtLeast, 1, 200, "Anywhere"))(Bring(P8, AtLeast, 1, 200, "Anywhere"))()):
-                # (Line 118) {
-                # (Line 119) f.stb.print("　　\x04\x1F# N\x04ow \x04Playing... ' \x10RE/ /MEMBER \x04' by \x19S\x04awano \x19H\x04iroyuki \x04");
-                f.stb.print("　　\x04\x1F# N\x04ow \x04Playing... ' \x10RE/ /MEMBER \x04' by \x19S\x04awano \x19H\x04iroyuki \x04")
-                # (Line 120) PlayWAV("BGM1.ogg");
-                # (Line 121) bgmWait[cp] = 3708;
-                DoActions(PlayWAV("BGM1.ogg"))
-                _ARRW(bgmWait, cp) << (3708)
-                # (Line 122) }
-                # (Line 123) else if (Bring(P7, AtLeast, 1, 79, "Anywhere") && Bring(P8, AtLeast, 1, 79, "Anywhere")) 		// 중반 인식
-            if EUDElseIf()(EUDSCAnd()(Bring(P7, AtLeast, 1, 79, "Anywhere"))(Bring(P8, AtLeast, 1, 79, "Anywhere"))()):
-                # (Line 124) {
-                # (Line 125) f.stb.print("　　\x04N\x02ow \x04P\x02laying... ' \x1FS\x04h0ut [\x1BR\x04e : \x19C\x04REATORS] \x02by \x04S\x02awano \x04H\x02iroyuki \x04'");
-                f.stb.print("　　\x04N\x02ow \x04P\x02laying... ' \x1FS\x04h0ut [\x1BR\x04e : \x19C\x04REATORS] \x02by \x04S\x02awano \x04H\x02iroyuki \x04'")
-                # (Line 126) PlayWAV("BGM2.ogg");
-                # (Line 127) bgmWait[cp] = 2916;
-                DoActions(PlayWAV("BGM2.ogg"))
-                _ARRW(bgmWait, cp) << (2916)
-                # (Line 128) }
-                # (Line 129) }
-            EUDEndIf()
-            # (Line 130) }
+            # (Line 129) {
+            # (Line 130) f.stb.print("　　\x04\x1F# N\x04ow \x04Playing... ' \x08化\x02身の\x04獣 [ \x19십\x04이대전 ed ]\x04");
+            f.stb.print("　　\x04\x1F# N\x04ow \x04Playing... ' \x08化\x02身の\x04獣 [ \x19십\x04이대전 ed ]\x04")
+            # (Line 131) PlayWAV("BGM.ogg");
+            # (Line 132) bgmWait[cp] = 2424;
+            DoActions(PlayWAV("BGM.ogg"))
+            _ARRW(bgmWait, cp) << (2424)
+            # (Line 133) }
+            # (Line 134) }
         EUDEndIf()
-        # (Line 132) if (bgmWait[cp] > 0)
+        # (Line 136) if (bgmWait[cp] > 0)
     EUDEndIf()
     if EUDIf()(bgmWait[cp] <= 0, neg=True):
-        # (Line 133) {
-        # (Line 134) bgmWait[cp] -= 1;
+        # (Line 137) {
+        # (Line 138) bgmWait[cp] -= 1;
         _ARRW(bgmWait, cp).__isub__(1)
-        # (Line 135) }
-        # (Line 136) }
+        # (Line 139) }
+        # (Line 140) }
     EUDEndIf()
-    # (Line 138) function SkillWait(cp)
+    # (Line 142) function SkillWait(cp)
 
-# (Line 139) {
+# (Line 143) {
 @EUDFunc
 def SkillWait(cp):
-    # (Line 140) if (f.delay[cp] == 0)
+    # (Line 144) if (f.delay[cp] == 0)
     if EUDIf()(f.delay[cp] == 0):
-        # (Line 141) {
-        # (Line 142) if (f.count[cp] == 999)
+        # (Line 145) {
+        # (Line 146) if (f.count[cp] == 999)
         if EUDIf()(f.count[cp] == 999):
-            # (Line 143) {
-            # (Line 144) f.SkillWait(cp, 500);
+            # (Line 147) {
+            # (Line 148) f.SkillWait(cp, 500);
             f.SkillWait(cp, 500)
-            # (Line 145) f.count[cp] = 1000;
+            # (Line 149) f.count[cp] = 1000;
             _ARRW(f.count, cp) << (1000)
-            # (Line 146) }
-            # (Line 147) else if (f.count[cp] == 1000)
+            # (Line 150) }
+            # (Line 151) else if (f.count[cp] == 1000)
         if EUDElseIf()(f.count[cp] == 1000):
-            # (Line 148) {
-            # (Line 149) f.count[cp] = 0;
+            # (Line 152) {
+            # (Line 153) f.count[cp] = 0;
             _ARRW(f.count, cp) << (0)
-            # (Line 150) f.loop[cp] = 0;
+            # (Line 154) f.loop[cp] = 0;
             _ARRW(f.loop, cp) << (0)
-            # (Line 151) f.wait[cp] = 12;
+            # (Line 155) f.wait[cp] = 12;
             _ARRW(f.wait, cp) << (12)
-            # (Line 152) }
-            # (Line 153) }
+            # (Line 156) }
+            # (Line 157) }
         EUDEndIf()
-        # (Line 155) if (f.wait[cp] >= 2)
+        # (Line 159) if (f.wait[cp] >= 2)
     EUDEndIf()
     if EUDIf()(f.wait[cp] >= 2):
-        # (Line 156) {
-        # (Line 157) f.wait[cp] -= 1;
-        _ARRW(f.wait, cp).__isub__(1)
-        # (Line 158) }
-        # (Line 159) else if (f.wait[cp] == 1)
-    if EUDElseIf()(f.wait[cp] == 1):
         # (Line 160) {
-        # (Line 161) f.wait[cp] = 0;
+        # (Line 161) f.wait[cp] -= 1;
+        _ARRW(f.wait, cp).__isub__(1)
+        # (Line 162) }
+        # (Line 163) else if (f.wait[cp] == 1)
+    if EUDElseIf()(f.wait[cp] == 1):
+        # (Line 164) {
+        # (Line 165) f.wait[cp] = 0;
         _ARRW(f.wait, cp) << (0)
-        # (Line 162) f.step[cp] = 0;
+        # (Line 166) f.step[cp] = 0;
         _ARRW(f.step, cp) << (0)
-        # (Line 163) }
-        # (Line 164) }
+        # (Line 167) }
+        # (Line 168) }
     EUDEndIf()
-    # (Line 166) function SkillDelay(cp)
+    # (Line 170) function SkillDelay(cp)
 
-# (Line 167) {
+# (Line 171) {
 @EUDFunc
 def SkillDelay(cp):
-    # (Line 168) if (f.delay[cp] >= 1) { f.delay[cp] -= 1; }
+    # (Line 172) if (f.delay[cp] >= 1) { f.delay[cp] -= 1; }
     if EUDIf()(f.delay[cp] >= 1):
         _ARRW(f.delay, cp).__isub__(1)
-        # (Line 169) if (f.delayB[cp] >= 1) { f.delayB[cp] -= 1; }
+        # (Line 173) if (f.delayB[cp] >= 1) { f.delayB[cp] -= 1; }
     EUDEndIf()
     if EUDIf()(f.delayB[cp] >= 1):
         _ARRW(f.delayB, cp).__isub__(1)
-        # (Line 170) if (f.delayC[cp] >= 1) { f.delayC[cp] -= 1; }
+        # (Line 174) if (f.delayC[cp] >= 1) { f.delayC[cp] -= 1; }
     EUDEndIf()
     if EUDIf()(f.delayC[cp] >= 1):
         _ARRW(f.delayC, cp).__isub__(1)
-        # (Line 171) }
+        # (Line 175) }
     EUDEndIf()

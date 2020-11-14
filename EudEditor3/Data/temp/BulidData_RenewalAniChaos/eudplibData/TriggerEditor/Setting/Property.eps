@@ -10,11 +10,11 @@ function PropertyText()
 	if (Deaths((13), (10), 10000, (223)))
 	{
 		f.stb.printAt(0, "\x13\x1F[S] : \x1B원거리에서 업그레이드\x04가 가능해집니다.");
-		f.stb.printAt(1, "\x13\x19레벨\x04당 영웅 방어력이 1 증가합니다.");
+		f.stb.printAt(1, "\x13\x04공격력과 방어력의 \x19초기 업그레이드\x04가 10씩 증가된 상태로 시작합니다..");
 		f.stb.printAt(2, "\x13\x19팀원포함 최대 업그레이드\x04가 공격력이 4, 방어력이 1 증가합니다. [\x17Max 1\x04]");
 		f.stb.printAt(3, "\n");
-		f.stb.printAt(4, "\x13\x1F[C] : \x1B마나디스크\x04를 하나 가지고 시작합니다.");
-		f.stb.printAt(5, "\x13\x1915 레벨 \x04이후 1분마다 마나가 \x17200/300/400 \x04회복됩니다.");
+		f.stb.printAt(4, "\x13\x1F[C] : \x04팀원 전체에 초당 \x1B마나재생 + 5\x04를 부여합니다.");
+		f.stb.printAt(5, "\x13\x1925 레벨 \x04달성시, 최대 마나가 \x17200 \x04증가합니다.");
 		f.stb.printAt(6, "\n");
 		f.stb.printAt(7, "\x13\x1F[A] : \x041분 마다 궁극기 게이지가 \x1910 \x04회복됩니다.");
 		f.stb.printAt(8, "\x13\x1915 레벨 \x04이후 \x19O Skill \x04사용이 가능해 집니다.");
@@ -30,6 +30,7 @@ function Property(cp)
 
 function Property_S(cp)
 {
+	
 	if (cp >= 0 && cp <= 2 &&  bread(0x58D088 + 0x21F0 * ((0) / 46) + cp * (46 - 31 * ((0) / 46)) + ((0) % 46)) == 60)
 	{
 		if (Deaths((0), (10), 1000, (223)) || Deaths((1), (10), 1000, (223)) || Deaths((2), (10), 1000, (223)))
@@ -40,6 +41,12 @@ function Property_S(cp)
 			bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (0) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
 			bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (1) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
 			bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (2) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
+		}
+		
+		if (Deaths(cp, 10, 1000, 223))
+		{
+			bwrite(0x58D2B0 + 0x207C * (7 / 46) + (cp) * (46 - 31 * (7 / 46)) + (7 % 46), 10);
+   		 	bwrite(0x58D2B0 + 0x207C * (0 / 46) + (cp) * (46 - 31 * (0 / 46)) + (0 % 46), 10);
 		}
 	}
 	if (cp >= 3 && cp <= 5 &&  bread(0x58D088 + 0x21F0 * ((0) / 46) + cp * (46 - 31 * ((0) / 46)) + ((0) % 46)) == 60)
@@ -53,52 +60,29 @@ function Property_S(cp)
 			bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (4) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
 			bwrite(0x58D088 + 0x21F0 * ((0) / 46) + (5) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
 		}
+		
+		if (Deaths(cp, 10, 1000, 223))
+		{
+			bwrite(0x58D2B0 + 0x207C * (7 / 46) + (cp) * (46 - 31 * (7 / 46)) + (7 % 46), 10);
+   		 	bwrite(0x58D2B0 + 0x207C * (0 / 46) + (cp) * (46 - 31 * (0 / 46)) + (0 % 46), 10);
+		}
 	}
 	
-	if (Deaths(cp, Exactly, 1000, (223)))
-	{
-		if (v.Level[cp] != dwread_epd(EPD(0x5822F4 + 4 * cp))) 
-		{
-			SetMemoryEPD(EPD(0x58D2B0 + 0x207C * ((0) / 46) + cp * (46 - 31 * ((0) / 46)) + ((0) % 46)), (8), bitlshift(1, 8 * (((cp) * (46 - 31 * ((0) / 46)) + ((0) % 46)) % 4)));
-			v.Level[cp] = dwread_epd(EPD(0x5822F4 + 4 * cp));
-		}
-		if (Deaths((13), (10), 0, (204)) && bread(0x58D2B0 + 0x207C * ((0) / 46) + (cp) * (46 - 31 * ((0) / 46)) + ((0) % 46)) >= 62) 
-		{
-			bwrite(0x58D2B0 + 0x207C * ((0) / 46) + (cp) * (46 - 31 * ((0) / 46)) + ((0) % 46), 61);
-		}
-	}
-	else
-	{
-		v.Level[cp] = dwread_epd(EPD(0x5822F4 + 4 * cp));
-	}
+	v.Level[cp] = dwread_epd(EPD(0x5822F4 + 4 * cp));
 }
 
 function Property_C(cp)
 {
-	if (Deaths((13), (10), 2720, (223)) && cp >= 0 && cp <= 2)
+
+	if (cp < 3 && Deaths(cp, AtLeast, 13, " Item. Mana Disk 1000 / 2000") && (Deaths(P1, Exactly, 2000, " `Property")
+	|| Deaths(P2, Exactly, 2000, " `Property") || Deaths(P3, Exactly, 2000, " `Property")))
 	{
-		v.Mana_Property[cp] = 100;
-
-		if (Deaths((0), (0), 2000, (223)) && Deaths((0), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
-		if (Deaths((1), (0), 2000, (223)) && Deaths((1), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
-		if (Deaths((2), (0), 2000, (223)) && Deaths((2), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
-
-		SetResources((13), (8), v.Mana_Property[cp], (1));
-		SetDeaths((13), (7), 2000, (223));
-		f.stb.print("\n\n\x13\x19C 특성 \x04효과 +", v.Mana_Property[cp], " \x07Gas\n\n");
+		SetResources(cp, Add, 5, Gas);
 	}
-	
-	if (Deaths((13), (10), 2720, (223)) && cp >= 3 && cp <= 5)
+	if (cp >= 3 &&  cp < 6 && Deaths(cp, AtLeast, 13, " Item. Mana Disk 1000 / 2000") && (Deaths(P4, Exactly, 2000, " `Property")
+	|| Deaths(P5, Exactly, 2000, " `Property") || Deaths(P6, Exactly, 2000, " `Property")))
 	{
-		v.Mana_Property[cp] = 100;
-
-		if (Deaths((3), (0), 2000, (223)) && Deaths((3), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
-		if (Deaths((4), (0), 2000, (223)) && Deaths((4), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
-		if (Deaths((5), (0), 2000, (223)) && Deaths((5), (1), 3999, (223))) { v.Mana_Property[cp] += 100; }
-		
-		SetResources((13), (8), v.Mana_Property[cp], (1));
-		SetDeaths((13), (7), 2000, (223));
-		f.stb.print("\n\n\x13\x19C 특성 \x04효과 +", v.Mana_Property[cp], " \x07Gas\n\n");
+		SetResources(cp, Add, 5, Gas);
 	}
 }
 

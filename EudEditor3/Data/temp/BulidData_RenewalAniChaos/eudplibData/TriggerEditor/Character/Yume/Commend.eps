@@ -58,7 +58,6 @@ function main(cp)
 			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp);
 		}
 		else if (Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill") 
-		&& Bring(cp, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill") 
 		&& f.step[cp] == 230)
 		{
 			f.Voice_Routine(cp, 8);
@@ -67,7 +66,6 @@ function main(cp)
 			f.loop[cp] = 0;
 			f.step[cp] = 240;
 			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
-			KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", cp);
 		}
 		else if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill")
 		&& Bring(cp, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill")

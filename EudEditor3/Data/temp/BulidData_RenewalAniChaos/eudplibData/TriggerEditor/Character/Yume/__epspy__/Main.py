@@ -274,10 +274,10 @@ def SkillList(cp):
         f.stb.printAt(2, "　　\x1FA\x04ction List")
         # (Line 84) f.stb.printAt(3, "　　　\x18O \x04기습 \x19[ 순간딜 / 25 x 25 적 영웅에게 이동 ] \x051분 30초");
         f.stb.printAt(3, "　　　\x18O \x04기습 \x19[ 순간딜 / 25 x 25 적 영웅에게 이동 ] \x051분 30초")
-        # (Line 85) f.stb.printAt(4, "　　　\x04\x1FSSS\x04여유 \x19[ 대인 ]");
-        f.stb.printAt(4, "　　　\x04\x1FSSS\x04여유 \x19[ 대인 ]")
-        # (Line 86) f.stb.printAt(5, "　　　\x04\x1FCC + AS\x04닛카리 아오에 \x19[ 대인 ]");
-        f.stb.printAt(5, "　　　\x04\x1FCC + AS\x04닛카리 아오에 \x19[ 대인 ]")
+        # (Line 85) f.stb.printAt(4, "　　　\x04\x1FSSS \x04여유 \x19[ 대인 ]");
+        f.stb.printAt(4, "　　　\x04\x1FSSS \x04여유 \x19[ 대인 ]")
+        # (Line 86) f.stb.printAt(5, "　　　\x04\x1FCC + A \x04닛카리 아오에 \x19[ 대인 ]");
+        f.stb.printAt(5, "　　　\x04\x1FCC + A \x04닛카리 아오에 \x19[ 대인 ]")
         # (Line 87) f.stb.printAt(6, "　　　\x04\x1FCAAS + AC \x04전투광 \x19[ 대인 / 쉴드고정 ]");
         f.stb.printAt(6, "　　　\x04\x1FCAAS + AC \x04전투광 \x19[ 대인 / 쉴드고정 ]")
         # (Line 88) f.stb.printAt(7, "\n");

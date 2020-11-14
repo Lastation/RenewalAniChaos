@@ -34,8 +34,8 @@ const HoldLocation = [97, 119, 122, 126, 134, 143, 0, 0];
 const CosTableArray = EUDArray(py_eval("[int(round(100*math.cos(math.radians(t)))) for t in range(361)]"));
 const SinTableArray 	= EUDArray(py_eval("[int(round(100*math.sin(math.radians(t)))) for t in range(361)]"));
 
-const Rusaruka_Voice 	= PVariable();
-const Chtholly_Voice 	= PVariable();
+const Rusaruka_Voice 	= PVariable();	// 1
+const Chtholly_Voice 	= PVariable();	// 2
 const Kiana_Voice 		= PVariable();	// 17
 const Yuuna_Voice 		= PVariable();	// 22
 const Mayuri_Voice 		= PVariable();	// 23
@@ -44,6 +44,9 @@ const Milim_Voice 		= PVariable();	// 25
 const Yume_Voice 		= PVariable();	// 26
 const Magane_Voice 	= PVariable();	// 27
 const Oda_Voice 		= PVariable();	// 28
+const Ekidona_Voice 	= PVariable();	// 29
+const Niwa_Voice 		= PVariable();	// 30
+const Park_Voice 		= PVariable();	// 31
 
 const p_burrowed = UnitProperty(burrowed = true);
 const p_hallucinated = UnitProperty(hallucinated = true);
@@ -135,6 +138,30 @@ function Voice_Routine(cp, num)
 		Oda_Voice[4] = num;
 		Oda_Voice[5] = num;
 		break;	
+	case 29:
+		Ekidona_Voice[0] = num;
+		Ekidona_Voice[1] = num;
+		Ekidona_Voice[2] = num;
+		Ekidona_Voice[3] = num;
+		Ekidona_Voice[4] = num;
+		Ekidona_Voice[5] = num;
+		break;	
+	case 30:
+		Niwa_Voice[0] = num;
+		Niwa_Voice[1] = num;
+		Niwa_Voice[2] = num;
+		Niwa_Voice[3] = num;
+		Niwa_Voice[4] = num;
+		Niwa_Voice[5] = num;
+		break;	
+	case 31:
+		Park_Voice[0] = num;
+		Park_Voice[1] = num;
+		Park_Voice[2] = num;
+		Park_Voice[3] = num;
+		Park_Voice[4] = num;
+		Park_Voice[5] = num;
+		break;	
 		
 	}
 }
@@ -143,9 +170,6 @@ function SetHeroID(cp)
 {
 	switch(v.Hero_Num[cp])
 	{
-		case 2:
-			heroID[cp] = 77;
-			break;
 		case 3:
 			heroID[cp] = 74;
 			break;
@@ -284,6 +308,14 @@ function SkillWaitC(cp, count)
 function SkillEnd(cp)
 {
 	count[cp] = 999;
+}
+
+function DoubleShapeWithProperty(cp : TrgPlayer, count, Unit : TrgUnit, x, y, property)
+{
+	MoveLoc(heroID[cp], cp, x, y);
+	SkillUnitWithProperty(cp, count, Unit, property);
+	MoveLoc(heroID[cp], cp, -x, -y);
+	SkillUnitWithProperty(cp, count, Unit, property);
 }
 
 function DoubleShape(cp : TrgPlayer, count, Unit : TrgUnit, x, y)

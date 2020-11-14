@@ -2,7 +2,6 @@ import Function as f;
 
 function main(cp)
 {
-
 	if (f.count[cp] < 2)
 	{
 		f.HoldPosition(cp);
@@ -101,4 +100,5 @@ function main(cp)
 			}
 		}
 	}
+	MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
 }

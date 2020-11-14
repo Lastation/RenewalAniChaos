@@ -1,0 +1,73 @@
+import Function as f;
+
+function main(cp)
+{
+	if (f.delay[cp] == 0)
+	{
+		if (f.count[cp] == 0)
+		{
+			f.SquareShape(cp, 1, "40 + 1n Goliath", 64, 0);
+			f.SquareShape(cp, 1, "60 + 1n Danimoth", 64, 0);
+			KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
+			f.MoveLoc(f.heroID[cp], cp, 0, 0);
+			Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);
+			f.SkillWait(cp, 200);
+			f.count[cp] += 1;
+		}
+		else if (f.count[cp] == 1)
+		{
+			RemoveUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
+		
+			f.SquareShape(cp, 1, "40 + 1n Goliath", 32, 0);
+			f.SquareShape(cp, 1, "60 + 1n Danimoth", 32, 0);
+			KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
+			f.MoveLoc(f.heroID[cp], cp, 0, 0);
+			Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);
+			f.SkillWait(cp, 200);
+			f.count[cp] += 1;
+		}
+		else if (f.count[cp] == 2)
+		{
+			RemoveUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
+			
+			f.SquareShape(cp, 1, "40 + 1n Marine", 64, 0);
+			f.SquareShape(cp, 1, "60 + 1n Danimoth", 64, 0);
+			KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
+			f.MoveLoc(f.heroID[cp], cp, 0, 0);
+			Order("40 + 1n Marine", cp, "Anywhere", Attack, f.location[cp]);
+			f.SkillWait(cp, 100);
+			f.count[cp] += 1;
+		}
+		else if (f.count[cp] == 3)
+		{
+			RemoveUnitAt(All, "40 + 1n Marine", "Anywhere", cp);
+			
+			f.SquareShape(cp, 1, "40 + 1n Marine", 32, 0);
+			f.SquareShape(cp, 1, "60 + 1n Danimoth", 32, 0);
+			KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
+			f.MoveLoc(f.heroID[cp], cp, 0, 0);
+			Order("40 + 1n Marine", cp, "Anywhere", Attack, f.location[cp]);
+			f.SkillWait(cp, 200);
+			f.count[cp] += 1;
+		}
+		else if (f.count[cp] == 4)
+		{
+			RemoveUnitAt(All, "40 + 1n Marine", "Anywhere", cp);
+			
+			f.SquareShape(cp, 1, "40 + 1n Mojo", 32, 32);
+			f.SquareShape(cp, 1, "40 + 1n Mojo", 64, 64);
+			f.SquareShape(cp, 1, "60 + 1n High Templar", 32, 32);
+			f.SquareShape(cp, 1, "60 + 1n High Templar", 64, 64);
+			KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
+			f.MoveLoc(f.heroID[cp], cp, 0, 0);
+			Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+			f.SkillWait(cp, 200);
+			f.count[cp] += 1;
+		}
+		else if (f.count[cp] == 5)
+		{
+			RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+			f.SkillEnd(cp);
+		}
+	}
+}

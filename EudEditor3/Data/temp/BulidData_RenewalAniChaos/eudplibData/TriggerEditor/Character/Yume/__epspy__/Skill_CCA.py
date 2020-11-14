@@ -188,58 +188,63 @@ def f_main(cp):
                 deg << ((f_dwrand() % 16) * 22)
                 # (Line 43) distance = (dwrand() % 3 + 7) * 10;
                 distance << ((f_dwrand() % 3 + 7) * 10)
-                # (Line 45) f.LineShape(cp, 1, "Kakaru (Twilight)", deg, 9, 75, distance);
-                f.LineShape(cp, 1, "Kakaru (Twilight)", deg, 9, 75, distance)
-                # (Line 46) f.LineShape(cp, 1, " Unit. Hoffnung 25000", deg, 9, 75, distance);
-                f.LineShape(cp, 1, " Unit. Hoffnung 25000", deg, 9, 75, distance)
-                # (Line 48) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-                # (Line 49) MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+                # (Line 45) if (f.loop[cp] % 2 == 0)
+                if EUDIf()(f.loop[cp] % 2 == 0):
+                    # (Line 46) f.LineShape(cp, 1, "Kakaru (Twilight)", deg, 9, 75, distance);
+                    f.LineShape(cp, 1, "Kakaru (Twilight)", deg, 9, 75, distance)
+                    # (Line 47) else if (f.loop[cp] % 2 == 1)
+                if EUDElseIf()(f.loop[cp] % 2 == 1):
+                    # (Line 48) f.LineShape(cp, 1, " Unit. Hoffnung 25000", deg, 9, 75, distance);
+                    f.LineShape(cp, 1, " Unit. Hoffnung 25000", deg, 9, 75, distance)
+                    # (Line 50) MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+                EUDEndIf()
+                # (Line 51) MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
                 DoActions(MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere"))
-                # (Line 50) Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 52) Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]))
-                # (Line 51) Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
+                # (Line 53) Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
                 DoActions(Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]))
-                # (Line 53) KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
+                # (Line 55) KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
                 DoActions(Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]))
-                # (Line 54) KillUnitAt(All, "Target", "Anywhere", cp);
+                # (Line 56) KillUnitAt(All, "Target", "Anywhere", cp);
                 DoActions(KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp))
-                # (Line 56) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
+                # (Line 58) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
                 DoActions(KillUnitAt(All, "Target", "Anywhere", cp))
-                # (Line 57) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+                # (Line 59) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp))
-                # (Line 59) f.SkillWait(cp, 160);
+                # (Line 61) f.SkillWait(cp, 160);
                 DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp))
                 f.SkillWait(cp, 160)
-                # (Line 61) f.loop[cp] += 1;
+                # (Line 63) f.loop[cp] += 1;
                 _ARRW(f.loop, cp).__iadd__(1)
-                # (Line 62) }
-                # (Line 63) else if (f.loop[cp] == 21)
+                # (Line 64) }
+                # (Line 65) else if (f.loop[cp] == 21)
             if EUDElseIf()(f.loop[cp] == 21):
-                # (Line 64) {
-                # (Line 65) RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
-                # (Line 66) RemoveUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
+                # (Line 66) {
+                # (Line 67) RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+                # (Line 68) RemoveUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
                 DoActions(RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", cp))
-                # (Line 68) f.SkillWait(cp, 80);
+                # (Line 70) f.SkillWait(cp, 80);
                 DoActions(RemoveUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp))
                 f.SkillWait(cp, 80)
-                # (Line 70) f.count[cp] += 1;
+                # (Line 72) f.count[cp] += 1;
                 _ARRW(f.count, cp).__iadd__(1)
-                # (Line 71) f.loop[cp] = 0;
+                # (Line 73) f.loop[cp] = 0;
                 _ARRW(f.loop, cp) << (0)
-                # (Line 72) }
-                # (Line 73) }
+                # (Line 74) }
+                # (Line 75) }
             EUDEndIf()
-            # (Line 74) else if (f.count[cp] == 1)
+            # (Line 76) else if (f.count[cp] == 1)
         if EUDElseIf()(f.count[cp] == 1):
-            # (Line 75) {
-            # (Line 76) SetSwitch("Recall - Yume", Clear);
-            # (Line 77) SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
+            # (Line 77) {
+            # (Line 78) SetSwitch("Recall - Yume", Clear);
+            # (Line 79) SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
             DoActions(SetSwitch("Recall - Yume", Clear))
-            # (Line 79) f.SkillEnd(cp);
+            # (Line 81) f.SkillEnd(cp);
             DoActions(SetDeaths(cp, SetTo, 0, " `ShieldRecharge"))
             f.SkillEnd(cp)
-            # (Line 80) }
-            # (Line 81) }
+            # (Line 82) }
+            # (Line 83) }
         EUDEndIf()
-        # (Line 82) }
+        # (Line 84) }
     EUDEndIf()
