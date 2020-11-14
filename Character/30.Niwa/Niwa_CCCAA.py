@@ -19,8 +19,6 @@ function main(cp)
       {
          if (f.loop[cp] == 0)
          {
-            CreateUnit(1, "40 + 3n Zeratul", "[Skill]Hallu_Bozo", cp);
-
             f.Table_Sin(cp, 22, d);
             f.Table_Cos(cp, 22, d);
 
