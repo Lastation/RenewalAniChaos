@@ -30,6 +30,7 @@ function main(cp)
             f.SquareShape(cp, 1, " Creep. Dunkelheit", 25, 75);
             f.SquareShape(cp, 1, "Terran Science Vessel", 50, 50);
             f.SquareShape(cp, 1, "Terran Science Vessel", 50, 0);
+            KillUnitAt(All, "Terran Science Vessel", "Anywhere", cp);
             Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]); 
             Order("50 + 1n Tank", cp, "Anywhere", Attack, f.location[cp]); 
             KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);

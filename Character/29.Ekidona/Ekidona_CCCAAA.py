@@ -8,6 +8,9 @@ var y = 0;
 
 function main(cp)
 {
+   f.BanReturn(cp);
+   f.HoldPosition(cp);
+
    MoveUnit(All, "40 + 1n Gantrithor", cp, "Anywhere", "[Skill]HoldPosition");
    MoveUnit(All, "50 + 1n Tank", cp, "Anywhere", "[Skill]HoldPosition");
    MoveUnit(All, "60 + 1n Dragoon", cp, "Anywhere", "[Skill]HoldPosition");
@@ -36,7 +39,7 @@ function main(cp)
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
             Order("60 + 1n Danimoth", cp, "Anywhere", Attack, f.location[cp]);
-            Order("40 + 1n Mojo", cp, "Anywhere", Attack, "Anywhere");
+            //Order("40 + 1n Mojo", cp, "Anywhere", Attack, "Anywhere");
          }
 
          if (f.loop[cp] >= 8 && f.loop[cp] < 14)    //0.64 - 1.12
@@ -57,7 +60,7 @@ function main(cp)
                KillUnitAt(All,  "60 + 1n Archon", "Anywhere", cp);
 
                MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-               Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+               //Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
             }
 
             if (i == 4)
@@ -71,7 +74,7 @@ function main(cp)
                f.SquareShape(cp, 1, "40 + 1n Gantrithor", x, y);
                f.SquareShape(cp, 1, "60 + 1n Siege", x, y);
 
-               ModifyUnitHangarCount(1, All, "40 + 1n Gantrithor", CurrentPlayer, "Anywhere");
+               KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
             }
          }
          if (f.loop[cp] >= 14 && f.loop[cp] < 20)   //1.12 - 1.60
@@ -92,7 +95,7 @@ function main(cp)
                KillUnitAt(All,  "60 + 1n Archon", "Anywhere", cp);
 
                MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-               Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+               //Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
             }
 
             if (i == 4)
@@ -106,7 +109,7 @@ function main(cp)
                f.SquareShape(cp, 1, "40 + 1n Gantrithor", x, y);
                f.SquareShape(cp, 1, "60 + 1n Siege", x, y);
 
-               ModifyUnitHangarCount(1, All, "40 + 1n Gantrithor", CurrentPlayer, "Anywhere");
+               KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
             }
          }
 
@@ -165,23 +168,22 @@ function main(cp)
 
             if (i % 6 == 0)
             {
-               KillUnitAt(All, "Protoss Reaver", "Anywhere", cp);
+               KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
 
-               f.SquareShape(cp, 1, "Protoss Reaver", x, y);
-               f.SquareShape(cp, 1, "50 + 1n Battlecruiser", x, y);
+               f.SquareShape(cp, 1, "50 + 1n Tank", x, y);
+               f.SquareShape(cp, 1, "60 + 1n Danimoth", x, y);
 
-               KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-
-               ModifyUnitHangarCount(1, All, "Protoss Reaver", CurrentPlayer, "Anywhere");
+               KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
 
                MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-               MoveUnit(All, "Protoss Reaver", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+               MoveUnit(All, "50 + 1n Tank", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+               Order("50 + 1n Tank", cp, "Anywhere", Attack, f.location[cp]);
 
             }
          }
          if (f.loop[cp] == 64)      //5.12
          {
-            KillUnitAt(All, "Protoss Reaver", "Anywhere", cp);
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
             KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
             KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", cp);
             KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
@@ -341,8 +343,6 @@ function main(cp)
 
          KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
 
-         ModifyUnitHangarCount(1, All, "Protoss Reaver", CurrentPlayer, "Anywhere");
-
          MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
          MoveUnit(All, "Protoss Reaver", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
 
@@ -353,7 +353,7 @@ function main(cp)
 
          f.loop[cp] += 1;
 
-         if (f.loop[cp] == 22)
+         if (f.loop[cp] == 20)
          {
             KillUnitAt(All, "Protoss Reaver", "Anywhere", cp);
             RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
@@ -368,7 +368,7 @@ function main(cp)
       {
          if (f.loop[cp] == 0)
          {
-            f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75);
+            f.NxNSquareShapeWithProperty(cp, 1, "50 + 1n Battlecruiser", 3, 75, 1);
 
             Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere");
          }
@@ -381,7 +381,7 @@ function main(cp)
          }
          if (f.loop[cp] == 6)
          {
-            f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 75);
+            f.NxNSquareShapeWithProperty(cp, 1, "50 + 1n Battlecruiser", 3, 75, 1);
 
             Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere");
          }
@@ -480,3 +480,5 @@ function NxNSquareShapeAtDouble(cp : TrgPlayer, count, Unit : TrgUnit, n, interv
    f.NxNSquareShapeAt(cp, count, Unit, n, interval, x, y);
    f.NxNSquareShapeAt(cp, count, Unit, n, interval, -x, -y);
 }
+
+

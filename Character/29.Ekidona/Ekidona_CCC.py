@@ -2,6 +2,9 @@ import Function as f;
 
 function main(cp)
 {
+   f.BanReturn(cp);
+   f.HoldPosition(cp);
+
    if (f.delay[cp] == 0)
    {
       if (f.count[cp] == 0)
@@ -142,15 +145,14 @@ function main(cp)
             var x = f.CosAngle[cp];
             var y = f.SinAngle[cp];
 
-            f.SquareShape(cp, 1, "50 + 1n Battlecruiser", x, y);
-            f.SquareShape(cp, 4, "Protoss Reaver", x, y);
+            f.SquareShape(cp, 1, "40 + 1n Gantrithor", x, y);
+            f.SquareShape(cp, 4, "50 + 1n Tank", x, y);
             KillUnitAt(All, "Target", "Anywhere", cp);
-            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-
-            ModifyUnitHangarCount(1, All, "Protoss Reaver", CurrentPlayer, "Anywhere");
+            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, "Protoss Reaver", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+            MoveUnit(All, "50 + 1n Tank", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+            Order("50 + 1n Tank", cp, "Anywhere", Attack, f.location[cp]);
          }
          if (f.loop[cp] == 7)
          {
@@ -160,12 +162,12 @@ function main(cp)
             var x = f.CosAngle[cp];
             var y = f.SinAngle[cp];
 
-            f.SquareShape(cp, 1, "40 + 1n Gantrithor", x, y);
-            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
+            f.SquareShape(cp, 1, "50 + 1n Battlecruiser", x, y);
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
          }
          if (f.loop[cp] == 11)
          {
-            KillUnitAt(All, "Protoss Reaver", "Anywhere", cp);
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
 
             f.Table_Sin(cp, 30, 100);
             f.Table_Cos(cp, 30, 100);
@@ -173,57 +175,55 @@ function main(cp)
             var x = f.CosAngle[cp];
             var y = f.SinAngle[cp];
 
-            f.SquareShape(cp, 1, "50 + 1n Battlecruiser", x, y);
-            f.SquareShape(cp, 4, "Protoss Reaver", x, y);
+            f.SquareShape(cp, 1, "40 + 1n Gantrithor", x, y);
+            f.SquareShape(cp, 4, "50 + 1n Tank", x, y);
             KillUnitAt(All, "Target", "Anywhere", cp);
-            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-
-            ModifyUnitHangarCount(1, All, "Protoss Reaver", CurrentPlayer, "Anywhere");
+            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
 
             MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, "Protoss Reaver", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+            MoveUnit(All, "50 + 1n Tank", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+            Order("50 + 1n Tank", cp, "Anywhere", Attack, f.location[cp]);
          }
          if (f.loop[cp] == 12)
          {
-            f.Table_Sin(cp, 0, 100);
-            f.Table_Cos(cp, 0, 100);
-
-            var x = f.CosAngle[cp];
-            var y = f.SinAngle[cp];
-
-            f.SquareShape(cp, 1, "40 + 1n Gantrithor", x, y);
-            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
-         }
-         if (f.loop[cp] == 16)
-         {
-            KillUnitAt(All, "Protoss Reaver", "Anywhere", cp);
-
-            f.Table_Sin(cp, 90, 100);
-            f.Table_Cos(cp, 90, 100);
+            f.Table_Sin(cp, 30, 100);
+            f.Table_Cos(cp, 30, 100);
 
             var x = f.CosAngle[cp];
             var y = f.SinAngle[cp];
 
             f.SquareShape(cp, 1, "50 + 1n Battlecruiser", x, y);
-            f.SquareShape(cp, 4, "Protoss Reaver", x, y);
-            KillUnitAt(All, "Target", "Anywhere", cp);
             KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-
-            ModifyUnitHangarCount(1, All, "Protoss Reaver", CurrentPlayer, "Anywhere");
-
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, "Protoss Reaver", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
          }
-         if (f.loop[cp] == 17)
+         if (f.loop[cp] == 16)
          {
-            f.Table_Sin(cp, 0, 100);
-            f.Table_Cos(cp, 0, 100);
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
+
+            f.Table_Sin(cp, 60, 100);
+            f.Table_Cos(cp, 60, 100);
 
             var x = f.CosAngle[cp];
             var y = f.SinAngle[cp];
 
             f.SquareShape(cp, 1, "40 + 1n Gantrithor", x, y);
+            f.SquareShape(cp, 4, "50 + 1n Tank", x, y);
+            KillUnitAt(All, "Target", "Anywhere", cp);
             KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
+
+            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            MoveUnit(All, "50 + 1n Tank", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+            Order("50 + 1n Tank", cp, "Anywhere", Attack, f.location[cp]);
+         }
+         if (f.loop[cp] == 17)
+         {
+            f.Table_Sin(cp, 60, 100);
+            f.Table_Cos(cp, 60, 100);
+
+            var x = f.CosAngle[cp];
+            var y = f.SinAngle[cp];
+
+            f.SquareShape(cp, 1, "50 + 1n Battlecruiser", x, y);
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
          }
 
          f.SkillWait(cp, 80);
@@ -240,7 +240,7 @@ function main(cp)
 
       else if (f.count[cp] == 4)
       {
-         KillUnitAt(All, "Protoss Reaver", "Anywhere", cp);
+         KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
          KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp);
          KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", cp);
 

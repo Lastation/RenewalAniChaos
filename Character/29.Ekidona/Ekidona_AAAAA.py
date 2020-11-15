@@ -8,6 +8,9 @@ var pre_flag = 0;
 
 function main(cp)
 {
+   MoveUnit(All, "50 + 1n Tank", cp, "Anywhere", "[Skill]HoldPosition");
+   MoveUnit(All, "60 + 1n Dragoon", cp, "Anywhere", "[Skill]HoldPosition");
+
    if (f.delay[cp] == 0)
    {
       if (f.count[cp] < 9)
@@ -31,6 +34,7 @@ function main(cp)
          if (f.loop[cp] == 0)
          {
             SetSwitch("JunkYardDog - Ekidona", Set);
+            f.ShieldFix(cp, 1);
          }
 
          f.SkillWait(cp, 80);

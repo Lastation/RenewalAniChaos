@@ -61,6 +61,8 @@ function main(cp)
             GiveUnits(All, "Zerg Devourer", P9, "Anywhere", cp);
             GiveUnits(All, "Zerg Devourer", P8, "Anywhere", cp);
             GiveUnits(All, "Zerg Devourer", P7, "Anywhere", cp);
+
+            f.ShieldFix(cp, 1);
          }
 
          f.SkillWait(cp, 80);

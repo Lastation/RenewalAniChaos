@@ -899,6 +899,23 @@ Trigger { -- Skill : S
    },
 }
 
+Trigger { -- Skill : S
+   players = {Force1, Force2},
+   conditions = {
+      Deaths(CurrentPlayer, Exactly, 3000, " * Samir Duran");
+      Bring(CurrentPlayer, AtLeast, 1, " * Samir Duran", "Anywhere");
+      Deaths(CurrentPlayer, Exactly, 310, " `SkillStep");
+      Deaths(CurrentPlayer, Exactly, 7, " `SkillCount");
+      Deaths(CurrentPlayer, Exactly, 36, " `SkillLoop4");
+   },
+   actions = {
+      Comment("Skill : Ultimate");
+      PreserveTrigger();
+      ModifyUnitHitPoints(All, "Any unit", CurrentPlayer, "Anywhere", 100);
+   },
+}
+
+
 
 Trigger { -- Skill : S
    players = {Force1, Force2},
@@ -916,7 +933,8 @@ Trigger { -- Skill : S
       Order(" Creep. Licht", CurrentPlayer, "Anywhere", Attack, "20.EmetSelch");
       Order(" Unit. Hoffnung 25000", CurrentPlayer, "Anywhere", Attack, "20.EmetSelch");
       Order("60 + 1n Hydralisk", CurrentPlayer, "Anywhere", Attack, "20.EmetSelch");
-      SetDeaths(CurrentPlayer, SetTo, 84, " `SkillLoop4");
+      ModifyUnitHitPoints(All, "Any unit", CurrentPlayer, "Anywhere", 100);
+      SetDeaths(CurrentPlayer, SetTo, 72, " `SkillLoop4");
    },
 }
 
