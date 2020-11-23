@@ -1,0 +1,32 @@
+import Character.Sound				as s;
+	
+import Character.Rusaruka.Text 		as T_rusaruka;
+import Character.Yuuna.Text 			as T_yuuna;
+import Character.Mayuri.Text 		as T_mayuri;
+import Character.Nanami.Text 		as T_nanami;
+import Character.Milim.Text 			as T_milim;
+import Character.Yume.Text 			as T_yume;
+import Character.Magane.Text 		as T_magane;
+import Character.Oda.Text 			as T_oda;
+import Character.Ekidona.Text 		as T_ekidona;
+import Character.Niwa.Text 			as T_niwa;
+import Character.Park.Text			as T_park;
+function main(cp)
+{
+	if (getuserplayerid() >= 128)
+	{
+		T_rusaruka.Looker();
+		T_yuuna.Looker();
+		T_mayuri.Looker();
+		T_nanami.Looker();
+		T_milim.Looker();
+		T_yume.Looker();
+		T_magane.Looker();
+		T_oda.Looker();
+		T_ekidona.Looker();
+		T_niwa.Looker();
+		T_park.Looker();
+		
+		s.MargeSound(getuserplayerid() - 120);
+	}
+}

@@ -1,0 +1,88 @@
+import Function as f;
+
+import Character.Rusaruka.Skill_O as O;
+import Character.Rusaruka.Skill_S as S;
+import Character.Rusaruka.Skill_C as C;
+import Character.Rusaruka.Skill_A as A;
+
+import Character.Rusaruka.Skill_SSS as SSS;
+import Character.Rusaruka.Skill_CCC as CCC;
+import Character.Rusaruka.Skill_CCCAA as CCCAA;
+import Character.Rusaruka.Skill_ACC as ACC;
+import Character.Rusaruka.Skill_AAAC as AAAC;
+
+import Character.Rusaruka.Text as text;
+import Character.Rusaruka.Commend as commend;
+
+function SkillList(cp);
+
+function main(cp)
+{
+	f.location[cp] = 32;
+	f.heroID[cp] = 51;
+	
+	f.UltimateA[cp] = 650;
+	
+	// Commed Setting
+	commend.main(cp);
+	SkillList(cp);
+	
+	if (f.wait[cp] == 0)
+	{
+		switch(f.step[cp])
+		{
+		case 1:
+			O.main(cp);
+			break;
+		case 100:
+			S.main(cp);
+			break;
+		case 200:
+			C.main(cp);
+			break;
+		case 300:
+			A.main(cp);
+			break;
+		case 110:
+			SSS.main(cp);
+			break;
+		case 210:
+			CCC.main(cp);
+			break;
+		case 220:
+			CCCAA.main(cp);
+			break;
+		case 310:
+			ACC.main(cp);
+			break;
+		case 320:
+			AAAC.main(cp);
+			break;
+		}
+	}
+	
+}
+
+// Character Voice
+function SkillVoice(cp)
+{
+	if (f.Rusaruka_Voice[cp] != 0) { text.main(cp); }
+}
+
+function SkillList(cp)
+{
+	if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
+	{
+		f.stb.printAt(0, "\n");
+		f.stb.printAt(1, "\x1F　＃\x04- 루살카 \x1B슈베게린　\x04[ 디에스 이래 ]");
+		f.stb.printAt(2, "　　\x1FA\x04ction List");
+		f.stb.printAt(3, "　　　\x18O \x04창조 \x19[ 15x15 / 적 5초마다 경직 / 파괴될시 5분후 재생 / 설치형 ]");
+		f.stb.printAt(4, "　　　\x04\x1FSSS \x04위협 \x19[ 대인 / 공성 ]");
+		f.stb.printAt(5, "　　　\x04\x1FCCC + AA \x04고문바퀴 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]");
+		f.stb.printAt(6, "　　　\x04\x1FACC \x04고문용 쇠사슬 \x19[ 대인 ]");
+		f.stb.printAt(7, "\n");
+		f.stb.printAt(8, "　　　\x08AAAC \x04갈망 \x19[ 공성 / 선딜없음 /  장판형 스킬 ] \x05", f.UltimateA[cp]);
+		f.stb.printAt(9, "\n");
+		PlayWAV("sound\\Bullet\\LaserHit.wav");
+	}
+}

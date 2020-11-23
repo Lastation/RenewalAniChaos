@@ -1,0 +1,175 @@
+import customText as ct;
+import Variable as v;
+import Function as f;
+import Character.Sound as s;
+
+import Character.Rusaruka.Main 		as rusarukaMain;
+import Character.Chtholly.Main 		as chthollyMain;
+import Character.Kiana.Main 			as kianaMain;
+import Character.Yuuna.Main 		as yuunaMain;
+import Character.Mayuri.Main 		as mayuriMain;
+import Character.Nanami.Main 		as nanamiMain;
+import Character.Milim.Main 		as milimMain;
+import Character.Yume.Main 		as yumeMain;
+import Character.Magane.Main 		as maganeMain;
+import Character.Oda.Main 			as odaMain;
+import Character.Ekidona.Main 		as ekidonaMain;
+import Character.Niwa.Main 			as niwaMain;
+import Character.Park.Main 			as parkMain;
+
+const bgmWait		= PVariable();			
+
+function SetVoice(cp);
+function MargeSound(cp);
+function SkillWait(cp);
+function SkillDelay(cp);
+function BGMRoutine(cp);
+
+function main(cp)
+{
+	switch(v.Hero_Num[cp])
+	{
+	case 1:
+		rusarukaMain.main(cp);
+		break;
+	case 2:
+		chthollyMain.main(cp);
+		break;
+	case 17:
+		kianaMain.main(cp);
+		break;
+	case 22:
+		yuunaMain.main(cp);
+		break;
+	case 23:
+		mayuriMain.main(cp);
+		break;
+	case 24:
+		nanamiMain.main(cp);
+		break;
+	case 25:
+		milimMain.main(cp);
+		break;
+	case 26:
+		yumeMain.main(cp);
+		break;
+	case 27:
+		maganeMain.main(cp);
+		break;
+	case 28:
+		odaMain.main(cp);
+		break;
+	case 29:
+		ekidonaMain.main(cp);
+		break;
+	case 30:
+		niwaMain.main(cp);
+		break;
+	case 31:
+		parkMain.main(cp);
+		break;
+	}
+	
+	SkillWait(cp);
+	SkillDelay(cp);
+	
+	SetVoice(cp);
+	s.main(cp);
+	BGMRoutine(cp);
+}
+
+function SetVoice(cp)
+{
+	if (cp < 6)
+	{
+		if (Deaths(cp, AtLeast, 1, (186)))
+		{
+			v.Sound_Text1[cp] = dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * cp));
+			v.Sound_Text1[8 + cp] = v.Sound_Text1[cp];
+			SetDeaths(cp, SetTo, 0, (186));
+		}
+		if (Deaths(cp, AtLeast, 1, (174)))
+		{
+			v.Sound_Text2[cp] = dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * cp));
+			v.Sound_Text2[8 + cp] = v.Sound_Text2[cp];
+			SetDeaths(cp, SetTo, 0, (174));
+		}
+		if (Deaths(cp, AtLeast, 1, (117)))
+		{
+			v.Sound_Text3[cp] = dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * cp));
+			v.Sound_Text3[8 + cp] = v.Sound_Text3[cp];
+			SetDeaths(cp, SetTo, 0, (117));
+		}
+		if (Deaths(cp, AtLeast, 1, (157)))
+		{
+			v.Sound_Text4[cp] = dwread_epd(EPD(0x58A364 + 48 * 157 + 4 * cp));
+			v.Sound_Text4[8 + cp] = v.Sound_Text4[cp];
+			SetDeaths(cp, SetTo, 0, (157));
+		}
+		if (Deaths(cp, AtLeast, 1, (222)))
+		{
+			v.Sound_Text_Uilti[cp] = dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * cp));
+			v.Sound_Text_Uilti[8 + cp] = v.Sound_Text_Uilti[cp];
+			SetDeaths(cp, SetTo, 0, (222));
+		}
+		if (Deaths(cp, AtLeast, 1, (188)))
+		{
+			v.Sound_Text_Uniq[cp] = dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * cp));
+			v.Sound_Text_Uniq[8 + cp] = v.Sound_Text_Uniq[cp];
+			SetDeaths(cp, SetTo, 0, (188));
+		}
+	}
+}
+
+function BGMRoutine(cp)
+{
+	if (Bring(cp, AtLeast, 1, "Terran SCV", "[BGM]ON"))
+	{
+		if (bgmWait[cp] == 0)
+		{
+			f.stb.print("　　\x04\x1F# N\x04ow \x04Playing... ' \x08化\x02身の\x04獣 [ \x19십\x04이대전 ed ]\x04");
+			PlayWAV("BGM.ogg");
+			bgmWait[cp] = 2424;
+		}
+	}
+	
+	if (bgmWait[cp] > 0)
+	{
+		bgmWait[cp] -= 1;
+	}
+}
+
+function SkillWait(cp)
+{
+	if (f.delay[cp] == 0)
+	{
+		if (f.count[cp] == 999)
+		{
+			f.SkillWait(cp, 500);
+			f.count[cp] = 1000;
+		}
+		else if (f.count[cp] == 1000)
+		{
+			f.count[cp] = 0;
+			f.loop[cp] = 0;
+			f.wait[cp] = 12;
+		}
+	}
+	
+	if (f.wait[cp] >= 2)
+	{
+		f.wait[cp] -= 1;
+	}
+	else if (f.wait[cp] == 1)
+	{
+		f.wait[cp] = 0;
+		f.step[cp] = 0;
+	}
+}
+
+function SkillDelay(cp)
+{
+	if (f.delay[cp] >= 1) { f.delay[cp] -= 1; }
+	if (f.delayB[cp] >= 1) { f.delayB[cp] -= 1; }
+	if (f.delayC[cp] >= 1) { f.delayC[cp] -= 1; }
+}

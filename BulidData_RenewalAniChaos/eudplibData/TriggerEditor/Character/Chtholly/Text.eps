@@ -1,0 +1,76 @@
+import Function as f;
+
+const looker = PVariable();
+
+function Text(num);
+function Looker()
+{
+	if (looker[getuserplayerid() - 128] > 0)
+	{
+		Text(looker[getuserplayerid() - 128]);
+		looker[getuserplayerid() - 128] = 0;
+	}
+}
+
+function main(cp)
+{
+	if (f.Chtholly_Voice[cp] > 0)
+	{
+		Text(f.Chtholly_Voice[cp]);
+		looker[cp] = f.Chtholly_Voice[cp];
+		f.Chtholly_Voice[cp] = 0;
+	}
+}
+
+function Text(num)
+{
+	switch (num) 
+	{
+	case 1:
+		PlayWAV("Chtholly_EX01.ogg");
+		f.stb.print("\x13\x1CChtholly Nota Seniorious\r\n\x13\x04언제까지고 함께 있어주겠다고 맹세했지");
+		break;
+	case 2:
+		f.stb.print("\x13\x1BCh\x1Ctholly Nota Seniorious\r\n\x13\x04맹세할 수 있었단 사실이 너무도 행복했어");
+		break;
+	case 3:
+		PlayWAV("Chtholly_EX02.ogg");
+		f.stb.print("\x13\x06Ch\x1Btho\x1Clly Nota Seniorious\r\n\x13\x04이 사람을 좋아하는 거구나 싶었지");
+		break;
+	case 4:
+		f.stb.print("\x13\x06Chtho\x1Blly \x1CNota Seniorious\r\n\x13\x04이렇게 생각할 수 있었던 사실이 행복했어");
+		break;
+	case 5:
+		PlayWAV("Chtholly_EX03.ogg");
+		break;
+	case 6:
+		f.stb.print("\x13\x06Chtholly \x1BNo\x1Cta Seniorious\r\n\x13\x04행복하게 만들어주겠다고 내게 말해주었어");
+		break;
+	case 7:
+		f.stb.print("\x13\x06Chtholly No\x1Bta Se\x1Cniorious\r\n\x13\x04내게 그런 말을 해준 것이 행복했어");
+		break;
+	case 8:
+		f.stb.print("\x13\x06Chtholly Nota Se\x1Bnior\x1Cious\r\n\x13\x04이렇게나 많은 행복함을 그 사람에게 나눠받았어 ");
+		break;
+	case 9:
+		PlayWAV("Chtholly_00.ogg");
+		f.stb.print("\x13\x1CChtholly Nota Seniorious\r\n\x13\x04어쩔수없구나, \x05정말...");
+		break;
+	case 10:
+		PlayWAV("Chtholly_Dead.ogg");
+		f.stb.printAt(3, "\x13\x06Chtholly Nota Seniorious\r\n\x13\x05빌렘... 고마..워...");
+		break;
+	case 11:
+		PlayWAV("Chtholly_EX04.ogg");
+		break;
+	case 12:
+		f.stb.printAt(4, "\x13\x06Chtholly Nota Senior\x1Bio\x1Cus\r\n\x13\x04그러니까\n\n\n");
+		break;
+	case 13:
+		f.stb.printAt(4, "\x13\x06Chtholly Nota Seniorio\x1Bu\x1Cs\r\n\x13\x04분명\n\n\n");
+		break;
+	case 14:
+		f.stb.printAt(1, "\x13\x06Chtholly Nota Seniorious\n\x13\x04지금의 나는\n\x13\x04누가 뭐라 할지라도\n\x13\x04세상에서 제일 \x06행복한 여자아이\x04인 거야");
+		break;
+	}
+}
