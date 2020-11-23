@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import Function as f;
 
 function main(cp)
@@ -104,7 +105,7 @@ function main(cp)
       {
          if (f.loop[cp] == 0)
          {
-         SetDeaths(cp, SetTo, 1, " `ShieldRecharge");
+            f.ShieldFix(cp, 1);
          }
          if (f.loop[cp] == 6)
          {

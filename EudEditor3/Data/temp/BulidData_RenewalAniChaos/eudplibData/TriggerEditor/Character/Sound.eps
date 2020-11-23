@@ -1,7 +1,9 @@
+import PluginVariables as msqcvar;
 import Variable 						as v;
 import Function 						as f;
 
 import Character.Rusaruka.Main 		as rusarukaMain;
+import Character.Chtholly.Main 		as chthollyMain;
 import Character.Kiana.Main 			as kianaMain;
 import Character.Yuuna.Main 		as yuunaMain;
 import Character.Mayuri.Main 		as mayuriMain;
@@ -14,7 +16,6 @@ import Character.Ekidona.Main 		as ekidonaMain;
 import Character.Niwa.Main 			as niwaMain;
 import Character.Park.Main 			as parkMain;
 
-import Character.TextA.Chtholly 		as chtholly;
 import Character.TextA.Maihime 		as maihime;
 import Character.TextA.Tenshi 		as tenshi;
 import Character.TextA.Miyuki 		as miyuki;
@@ -42,6 +43,7 @@ function MargeSound(cp);
 function main(cp)
 {
 	rusarukaMain.SkillVoice(cp);
+	chthollyMain.SkillVoice(cp);
 	kianaMain.SkillVoice(cp);
 	yuunaMain.SkillVoice(cp);
 	mayuriMain.SkillVoice(cp);
@@ -71,7 +73,6 @@ function MargeSound(cp)
 	// 1 ~ 6
 	if (v.Sound_Text1[cp] > 0)
 	{
-		chtholly.NormalText(cp);
 		maihime.NormalText(cp);
 		tenshi.NormalText(cp);
 		miyuki.NormalText(cp);
@@ -109,7 +110,6 @@ function MargeSound(cp)
 	if (v.Sound_Text_Uilti[cp] > 0)
 	{
 		// 1 ~ 6
-		chtholly.UiltimateText(cp);
 		maihime.UiltimateText(cp);
 		tenshi.UiltimateText(cp);
 		miyuki.UiltimateText(cp);
@@ -139,7 +139,6 @@ function MargeSound(cp)
 	if (v.Sound_Text_Uniq[cp] > 0)
 	{
 		// 1 ~ 6
-		chtholly.UniqueText(cp);
 		maihime.UniqueText(cp);
 		tenshi.UniqueText(cp);
 		miyuki.UniqueText(cp);

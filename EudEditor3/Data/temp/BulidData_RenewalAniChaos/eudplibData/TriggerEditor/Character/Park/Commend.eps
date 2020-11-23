@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import Function as f;
 
 function main(cp)
@@ -106,7 +107,7 @@ function main(cp)
 		
 		else if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") 
 		&& f.step[cp] == 320
-		&& Deaths(cp, AtLeast, f.UltimateA[cp], " `UltimateCoolTime"))
+		&& Deaths(cp, AtLeast, f.UltimateB[cp], " `UltimateCoolTime"))
 		{
 			if (Switch("UiltimateSwitch", Cleared))
 			{
@@ -115,7 +116,7 @@ function main(cp)
 				f.Voice_Routine(cp, 3);
 				f.wait[cp] = 0;
 				f.step[cp] = 330;
-				SetDeaths(cp, Subtract, f.UltimateA[cp], " `UltimateCoolTime");
+				SetDeaths(cp, Subtract, f.UltimateB[cp], " `UltimateCoolTime");
 				KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
 			}
 			

@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import Function as f;
 
 function main(cp)
@@ -61,8 +62,7 @@ function main(cp)
 			f.step[cp] = 310;
 			KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp);
 		}
-		else if (Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill") 
-		&& Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill") 
+		else if (Bring(cp, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") 
 		&& f.step[cp] == 200)
 		{
 			f.Voice_Routine(cp, 3);
@@ -70,8 +70,7 @@ function main(cp)
 			f.count[cp] = 0;
 			f.loop[cp] = 0;
 			f.step[cp] = 210;
-			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp);
-			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
+			KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp);
 		}
 		else if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") && f.step[cp] == 210)
 		{

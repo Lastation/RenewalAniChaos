@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import Function as f;
 
 function main(cp)
@@ -8,7 +9,7 @@ function main(cp)
       {
          if (f.loop[cp] == 0)
          {
-            SetDeaths(cp, SetTo, 1, " `ShieldRecharge");
+            f.ShieldFix(cp, 1);
             f.SquareShape(cp, 1, "40 + 1n Guardian", 75, 25);
             f.SquareShape(cp, 1, "40 + 1n Guardian", 25, 75);
             f.SquareShape(cp, 1, "50 + 1n Tank", 75, 25);

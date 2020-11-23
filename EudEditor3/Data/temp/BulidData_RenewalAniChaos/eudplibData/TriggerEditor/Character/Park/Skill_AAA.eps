@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import Function as f;
 
 function main(cp)
@@ -11,7 +12,7 @@ function main(cp)
             SetSwitch("ComputerAlliy", Set);
             SetAllianceStatus(P7, Ally);
             SetAllianceStatus(P8, Ally);
-            SetDeaths(cp, SetTo, 20, " `ShieldRecharge");
+            f.ShieldFix(cp, 1);
             f.NxNSquareShape(cp, 1, "130 + 1n Norad", 7, 75);
             f.NxNSquareShape(cp, 1, "80 + 1n Goliath", 7, 50);
             Order("130 + 1n Norad", cp, "Anywhere", Attack, f.location[cp]); 

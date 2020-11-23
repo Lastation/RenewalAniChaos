@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import Function as f;
 
 //import Character.Chtholly.Skill_O as O;
@@ -6,6 +7,8 @@ import Character.Chtholly.Skill_C as C;
 import Character.Chtholly.Skill_A as A;
 
 import Character.Chtholly.Skill_SSS as SSS;
+import Character.Chtholly.Skill_CCA as CCA;
+import Character.Chtholly.Skill_CCACA as CCACA;
 
 import Character.Chtholly.Text as text;
 import Character.Chtholly.Commend as commend;
@@ -39,6 +42,12 @@ function main(cp)
 			break;
 		case 200:
 			C.main(cp);
+			break;
+		case 210:
+			CCA.main(cp);
+			break;
+		case 220:
+			CCACA.main(cp);
 			break;
 		case 300:
 			A.main(cp);

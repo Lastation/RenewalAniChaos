@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import py_math;
 import Variable as v;
 
@@ -50,6 +51,8 @@ const Park_Voice 		= PVariable();	// 31
 
 const p_burrowed = UnitProperty(burrowed = true);
 const p_hallucinated = UnitProperty(hallucinated = true);
+
+const ally				= PVariable();
 
 function Table_Sin(cp, degree, distance);
 function Table_Cos(cp, degree, distance);
@@ -230,6 +233,19 @@ function SetHeroID(cp)
 	}
 }
 
+function ShieldFix(cp : TrgPlayer, amount)
+{
+	SetDeaths(cp, SetTo, 1, " `ShieldRecharge");
+	v.Shield[cp] = amount;
+}
+
+function ComputerAlly(cp : TrgPlayer)
+{
+	ally[cp] = 1;
+	SetSwitch("ComputerAlliy", Set);
+       SetAllianceStatus(P7, Ally);
+    	SetAllianceStatus(P8, Ally);
+}
 
 function MoveLoc(Unit : TrgUnit, cp : TrgPlayer, x, y)
 {
@@ -247,6 +263,10 @@ function SkillUnitWithProperty(cp : TrgPlayer, count, Unit : TrgUnit, property)
 		case 1:
 			CreateUnitWithProperties(count, Unit, dwrand() % 8 + 33, cp, UnitProperty(hallucinated = true));
 			break;
+		case 2:
+			CreateUnitWithProperties(count, Unit, dwrand() % 8 + 33, cp, UnitProperty(hallucinated = true, burrowed = true));
+			break;
+			
 	}
 	
 	SetInvincibility(Enable, Unit, cp, "[Skill]Unit_Wait_ALL");
@@ -308,6 +328,23 @@ function SkillWaitC(cp, count)
 function SkillEnd(cp)
 {
 	count[cp] = 999;
+	
+	v.Shield[cp] = 0;
+	SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
+	
+	if (ally[cp] == 1)
+	{
+	       SetSwitch("ComputerAlliy", Clear);
+	       if (cp < 3)
+	    	{
+			SetAllianceStatus(P8, Enemy);
+		}
+		else if (cp >= 3)
+		{
+			SetAllianceStatus(P7, Enemy);
+		}
+		ally[cp] = 0;
+	}
 }
 
 function DoubleShapeWithProperty(cp : TrgPlayer, count, Unit : TrgUnit, x, y, property)
@@ -373,6 +410,64 @@ function SquareShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, x, y, distanceX, d
 	SkillUnit(cp, count, Unit);
 	MoveLoc(heroID[cp], cp, y + distanceX, -x + distanceY);
 	SkillUnit(cp, count, Unit);
+}
+
+function NxNSquareShapeWithProperty(cp : TrgPlayer, count, Unit : TrgUnit, n, interval, property)
+{
+	var i = 0;
+	var destX, destY; 
+	var distance = interval / 2;
+	var size = n * n;
+
+	for (; i < size / 4; i++)
+	{
+		if (n == 1)
+		{
+			MoveLoc(heroID[cp] ,cp, 0, 0);
+			SkillUnitWithProperty(cp, count, Unit, property);
+		}
+		else if (n % 2 == 0)
+		{
+			destX = i % (n / 2) + 1;
+			destY = i / (n / 2) + 1;
+			if (destX == 1)
+			{
+				SquareShapeWithProperty(cp, count, Unit, distance, destY * interval - distance, property);
+			}
+			else if (destY == 1)
+			{
+				SquareShapeWithProperty(cp, count, Unit, destX * interval - distance, distance, property);
+			}
+			else
+			{
+				SquareShapeWithProperty(cp, count, Unit, destX * interval - distance, destY * interval - distance, property);
+			}
+		}
+		else if (n % 2 == 1)
+		{
+			destX = i % (n / 2);
+			destY = i / (n / 2);
+	
+			if (i == 0)
+			{
+				MoveLoc(heroID[cp] ,cp, 0, 0);
+				SkillUnitWithProperty(cp, count, Unit, property);
+			}
+			else if (destY == 0)
+			{
+				SquareShapeWithProperty(cp, count, Unit, destX * interval, 0, property);
+			}
+			else
+			{
+				SquareShapeWithProperty(cp, count, Unit, destX * interval + interval, destY * interval, property);
+			}
+			
+			if (i == size / 4 - 1)
+			{
+				SquareShapeWithProperty(cp, count, Unit, (n / 2) * interval, 0, property);
+			}
+		}
+	}
 }
 
 function NxNSquareShape(cp : TrgPlayer, count, Unit : TrgUnit, n, interval)

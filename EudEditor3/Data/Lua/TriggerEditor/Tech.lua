@@ -1,4 +1,26 @@
-function SetTech(Tech, Player, Modifier, Amount) -- Tech,TrgPlayer,TrgModifier,Number/[Player]의 [Tech]의 현재값을 [Amount]만큼 [Modifier]합니다.
+--[================================[
+@Language.ko-KR
+@Summary
+[Player]의 [Tech]의 현재값을 [Amount]만큼 [Modifier]합니다.
+@Group
+테크
+@param.Tech.Tech
+@param.Player.TrgPlayer
+@param.Modifier.TrgModifier
+@param.Amount.Number
+
+
+@Language.us-EN
+@Summary
+[Player]의 [Tech]의 현재값을 [Amount]만큼 [Modifier]합니다.
+@Group
+테크
+@param.Tech.Tech
+@param.Player.TrgPlayer
+@param.Modifier.TrgModifier
+@param.Amount.Number
+]================================]
+function SetTech(Tech, Player, Modifier, Amount) --테크/Tech,TrgPlayer,TrgModifier,Number/[Player]의 [Tech]의 현재값을 [Amount]만큼 [Modifier]합니다.
 	Tech = ParseTechdata(Tech)
 	Player = ParsePlayer(Player)
     Modifier = ParseModifier(Modifier)
@@ -39,7 +61,30 @@ function SetTech(Tech, Player, Modifier, Amount) -- Tech,TrgPlayer,TrgModifier,N
 	end
 	echo(rstr)
 end
-function CurrentTech(Tech, Player, Comparison, Amount) -- Tech,TrgPlayer,TrgComparison,Number/[Player]의 [Tech]의 현재값이 [Comparison] [Amount]인지 확인합니다.
+
+--[================================[
+@Language.ko-KR
+@Summary
+[Player]의 [Tech]의 현재값이 [Comparison] [Amount]인지 확인합니다.
+@Group
+테크
+@param.Tech.Tech
+@param.Player.TrgPlayer
+@param.Comparison.TrgComparison
+@param.Amount.Number
+
+
+@Language.us-EN
+@Summary
+[Player]의 [Tech]의 현재값이 [Comparison] [Amount]인지 확인합니다.
+@Group
+테크
+@param.Tech.Tech
+@param.Player.TrgPlayer
+@param.Comparison.TrgComparison
+@param.Amount.Number
+]================================]
+function CurrentTech(Tech, Player, Comparison, Amount) --테크/Tech,TrgPlayer,TrgComparison,Number/[Player]의 [Tech]의 현재값이 [Comparison] [Amount]인지 확인합니다.
 	Tech = ParseTechdata(Tech)
 	Player = ParsePlayer(Player)
     Comparison = ParseComparison(Comparison)
@@ -80,7 +125,26 @@ function CurrentTech(Tech, Player, Comparison, Amount) -- Tech,TrgPlayer,TrgComp
 	end
 	echo(rstr)
 end
-function GetTech(Tech, Player) -- Tech,TrgPlayer/[Player]의 [Tech]의 현재값을 반환합니다.
+
+--[================================[
+@Language.ko-KR
+@Summary
+[Player]의 [Tech]의 현재값을 반환합니다.
+@Group
+테크
+@param.Tech.Tech
+@param.Player.TrgPlayer
+
+
+@Language.us-EN
+@Summary
+[Player]의 [Tech]의 현재값을 반환합니다.
+@Group
+테크
+@param.Tech.Tech
+@param.Player.TrgPlayer
+]================================]
+function GetTech(Tech, Player) --테크/Tech,TrgPlayer/[Player]의 [Tech]의 현재값을 반환합니다.
 	Tech = ParseTechdata(Tech)
 	Player = ParsePlayer(Player)
 
@@ -93,9 +157,28 @@ function GetTech(Tech, Player) -- Tech,TrgPlayer/[Player]의 [Tech]의 현재값
 	end
 	echo(rstr)
 end
-function TechOffset(Tech, Player) -- Tech,TrgPlayer/[Player]의 [Tech]의 현재값 주소를 반환합니다.
-	-- 58D2B0 0 ~ 45
-	-- 58F32C 46
+
+--[================================[
+@Language.ko-KR
+@Summary
+[Player]의 [Tech]의 현재값 주소를 반환합니다.
+@Group
+테크
+@param.Tech.Tech
+@param.Player.TrgPlayer
+
+
+@Language.us-EN
+@Summary
+[Player]의 [Tech]의 현재값 주소를 반환합니다.
+@Group
+테크
+@param.Tech.Tech
+@param.Player.TrgPlayer
+]================================]
+function TechOffset(Tech, Player) --테크/Tech,TrgPlayer/[Player]의 [Tech]의 현재값 주소를 반환합니다.
+	--일반/58D2B0 0 ~ 45
+	--일반/58F32C 46
 	Tech = ParseTechdata(Tech) + 0 
 	Player = ParsePlayer(Player)
 
@@ -116,7 +199,29 @@ function TechOffset(Tech, Player) -- Tech,TrgPlayer/[Player]의 [Tech]의 현재
 	end
 end
 
-function SetTechMax(Tech, Player, Modifier, Amount) -- Tech,TrgPlayer,TrgModifier,Number/[Player]의 [Tech]의 최대값을 [Amount]만큼 [Modifier]합니다.
+--[================================[
+@Language.ko-KR
+@Summary
+[Player]의 [Tech]의 최대값을 [Amount]만큼 [Modifier]합니다.
+@Group
+테크
+@param.Tech.Tech
+@param.Player.TrgPlayer
+@param.Modifier.TrgModifier
+@param.Amount.Number
+
+
+@Language.us-EN
+@Summary
+[Player]의 [Tech]의 최대값을 [Amount]만큼 [Modifier]합니다.
+@Group
+테크
+@param.Tech.Tech
+@param.Player.TrgPlayer
+@param.Modifier.TrgModifier
+@param.Amount.Number
+]================================]
+function SetTechMax(Tech, Player, Modifier, Amount) --테크/Tech,TrgPlayer,TrgModifier,Number/[Player]의 [Tech]의 최대값을 [Amount]만큼 [Modifier]합니다.
 	Tech = ParseTechdata(Tech)
 	Player = ParsePlayer(Player)
     Modifier = ParseModifier(Modifier)
@@ -157,7 +262,30 @@ function SetTechMax(Tech, Player, Modifier, Amount) -- Tech,TrgPlayer,TrgModifie
 	end
 	echo(rstr)
 end
-function CurrentTechMax(Tech, Player, Comparison, Amount) -- Tech,TrgPlayer,TrgComparison,Number/[Player]의 [Tech]의 최대값이 [Comparison] [Amount]인지 확인합니다.
+
+--[================================[
+@Language.ko-KR
+@Summary
+[Player]의 [Tech]의 최대값이 [Comparison] [Amount]인지 확인합니다.
+@Group
+테크
+@param.Tech.Tech
+@param.Player.TrgPlayer
+@param.Comparison.TrgComparison
+@param.Amount.Number
+
+
+@Language.us-EN
+@Summary
+[Player]의 [Tech]의 최대값이 [Comparison] [Amount]인지 확인합니다.
+@Group
+테크
+@param.Tech.Tech
+@param.Player.TrgPlayer
+@param.Comparison.TrgComparison
+@param.Amount.Number
+]================================]
+function CurrentTechMax(Tech, Player, Comparison, Amount) --테크/Tech,TrgPlayer,TrgComparison,Number/[Player]의 [Tech]의 최대값이 [Comparison] [Amount]인지 확인합니다.
 	Tech = ParseTechdata(Tech)
 	Player = ParsePlayer(Player)
     Comparison = ParseComparison(Comparison)
@@ -198,7 +326,26 @@ function CurrentTechMax(Tech, Player, Comparison, Amount) -- Tech,TrgPlayer,TrgC
 	end
 	echo(rstr)
 end
-function GetTechMax(Tech, Player) -- Tech,TrgPlayer/[Player]의 [Tech]의 최대값을 반환합니다.
+
+--[================================[
+@Language.ko-KR
+@Summary
+[Player]의 [Tech]의 최대값을 반환합니다.
+@Group
+테크
+@param.Tech.Tech
+@param.Player.TrgPlayer
+
+
+@Language.us-EN
+@Summary
+[Player]의 [Tech]의 최대값을 반환합니다.
+@Group
+테크
+@param.Tech.Tech
+@param.Player.TrgPlayer
+]================================]
+function GetTechMax(Tech, Player) --테크/Tech,TrgPlayer/[Player]의 [Tech]의 최대값을 반환합니다.
 	Tech = ParseTechdata(Tech)
 	Player = ParsePlayer(Player)
 
@@ -211,9 +358,28 @@ function GetTechMax(Tech, Player) -- Tech,TrgPlayer/[Player]의 [Tech]의 최대
 	end
 	echo(rstr)
 end
-function TechOffsetMax(Tech, Player) -- Tech,TrgPlayer/[Player]의 [Tech]의 현재값 주소를 반환합니다.
-	-- 58D088 0 ~ 45
-	-- 58F278 46
+
+--[================================[
+@Language.ko-KR
+@Summary
+[Player]의 [Tech]의 현재값 주소를 반환합니다.
+@Group
+테크
+@param.Tech.Tech
+@param.Player.TrgPlayer
+
+
+@Language.us-EN
+@Summary
+[Player]의 [Tech]의 현재값 주소를 반환합니다.
+@Group
+테크
+@param.Tech.Tech
+@param.Player.TrgPlayer
+]================================]
+function TechOffsetMax(Tech, Player) --테크/Tech,TrgPlayer/[Player]의 [Tech]의 현재값 주소를 반환합니다.
+	--일반/58D088 0 ~ 45
+	--일반/58F278 46
 	Tech = ParseTechdata(Tech) + 0
 	Player = ParsePlayer(Player)
 

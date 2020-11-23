@@ -1,4 +1,24 @@
-function SetVision(Player, DestPlayer, State) -- TrgPlayer,TrgPlayer,TrgSwitchState/[Player]에게 [DestPlayer]의 시야를 [State]합니다.
+--[================================[
+@Language.ko-KR
+@Summary
+[Player]에게 [DestPlayer]의 시야를 [State]합니다.
+@Group
+시야
+@param.Player.TrgPlayer
+@param.DestPlayer.TrgPlayer
+@param.State.TrgSwitchState
+
+
+@Language.us-EN
+@Summary
+[Player]에게 [DestPlayer]의 시야를 [State]합니다.
+@Group
+시야
+@param.Player.TrgPlayer
+@param.DestPlayer.TrgPlayer
+@param.State.TrgSwitchState
+]================================]
+function SetVision(Player, DestPlayer, State) --시야/TrgPlayer,TrgPlayer,TrgSwitchState/[Player]에게 [DestPlayer]의 시야를 [State]합니다.
 	State = ParseSwitchState(State)
 	Player = ParsePlayer(Player)
 	DestPlayer = ParsePlayer(DestPlayer)
@@ -21,8 +41,26 @@ function SetVision(Player, DestPlayer, State) -- TrgPlayer,TrgPlayer,TrgSwitchSt
 
 	echo(rstr)
 end
-function GetVision(Player, DestPlayer) -- TrgPlayer,TrgPlayer/[Player]가 [DestPlayer]를 볼 수 있는지 확인합니다.
-	-- DestPlayer 오프셋 + Player의 값
+
+--[================================[
+@Language.ko-KR
+@Summary
+[Player]가 [DestPlayer]를 볼 수 있는지 확인합니다.
+@Group
+시야
+@param.Player.TrgPlayer
+@param.DestPlayer.TrgPlayer
+
+
+@Language.us-EN
+@Summary
+[Player]가 [DestPlayer]를 볼 수 있는지 확인합니다.
+@Group
+시야
+@param.Player.TrgPlayer
+@param.DestPlayer.TrgPlayer
+]================================]
+function GetVision(Player, DestPlayer) --시야/TrgPlayer,TrgPlayer/[Player]가 [DestPlayer]를 볼 수 있는지 확인합니다.
 	Player = ParsePlayer(Player)
 	DestPlayer = ParsePlayer(DestPlayer)
 	offsetEPD = VisionEPD(DestPlayer)
@@ -38,7 +76,24 @@ function GetVision(Player, DestPlayer) -- TrgPlayer,TrgPlayer/[Player]가 [DestP
 
 	echo(rstr)
 end
-function VisionEPD(Player) -- TrgPlayer/[Player]의 시야 오프셋을 반환합니다.
+
+--[================================[
+@Language.ko-KR
+@Summary
+[Player]의 시야 오프셋을 반환합니다.
+@Group
+시야
+@param.Player.TrgPlayer
+
+
+@Language.us-EN
+@Summary
+[Player]의 시야 오프셋을 반환합니다.
+@Group
+시야
+@param.Player.TrgPlayer
+]================================]
+function VisionEPD(Player) --시야/TrgPlayer/[Player]의 시야 오프셋을 반환합니다.
 	Player = ParsePlayer(Player)
 
 	if IsNumber(Player) then
