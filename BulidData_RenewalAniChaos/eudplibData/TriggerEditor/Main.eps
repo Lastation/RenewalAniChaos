@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import Variable as v;
 
 import CustomText.ShopText 	as shopText;				// 상점 텍스트
@@ -76,6 +77,7 @@ function MainLoop(cp)
 
 function beforeTriggerExec() 
 {
+
 	randomize();
 	
 	foreach(cp : EUDLoopPlayer())
@@ -93,4 +95,5 @@ function beforeTriggerExec()
 
 function afterTriggerExec()
 {
+
 }

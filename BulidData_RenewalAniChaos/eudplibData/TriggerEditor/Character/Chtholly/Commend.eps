@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import Function as f;
 
 function main(cp)
@@ -31,6 +32,7 @@ function main(cp)
 			f.step[cp] = 110;
 			KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", cp);
 		}
+		
 		else if (Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill") 
 		&& Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill") &&  f.step[cp] == 200)
 		{
@@ -55,6 +57,7 @@ function main(cp)
 				f.loopB[cp] = 1;
 				SetDeaths(cp, Subtract, f.UltimateB[cp], " `UltimateCoolTime");
 				KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", cp);
+				SetSwitch("Recall - Chtholly", Set);
 			}
 			else
 			{

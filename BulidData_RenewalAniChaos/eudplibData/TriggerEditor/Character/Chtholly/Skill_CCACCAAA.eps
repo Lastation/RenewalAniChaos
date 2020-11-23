@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import Function as f;
 
 function main(cp)
@@ -6,6 +7,11 @@ function main(cp)
 	if (f.count[cp] < 7)
 	{
 		f.HoldPosition(cp);
+	}
+	
+	if (f.count[cp] >= 6 &&f.count[cp] <= 7)
+	{
+		f.ShieldFix(cp, 1);
 	}
 
 	if (f.delay[cp] == 0)

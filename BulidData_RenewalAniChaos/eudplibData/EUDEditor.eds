@@ -1,7 +1,7 @@
 [TriggerEditor\Main.eps]
 
 [main]
-input: ..\..\NEW!6.scx
+input: ..\..\RenewalAniChaos_Original.scx
 output: ..\..\..\..\Starcraft\Maps\RenewalAniChaos\RenewalAniChaos_T.scx
 [DataEditor.py]
 [ExtraDataEditor.py]
@@ -11,10 +11,10 @@ output: ..\..\..\..\Starcraft\Maps\RenewalAniChaos\RenewalAniChaos_T.scx
 [MSQC]
 QCDebug : False
 ` : Terran SCV, 1
-INSERT : Terran SCV, 2
 
 [noAirCollision]
 [unlimiter]
 [freeze]
+SectorSize : 1
 
 
