@@ -1,119 +1,119 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
 function Shape(cp : TrgPlayer, x, y);
 
-function main(cp)
+function main(playerID)
 {
-   if (f.delay[cp] == 0)
+   if (v.P_Delay[playerID] == 0)
    {
-      if (f.count[cp] == 0)
+      if (v.P_CountMain[playerID] == 0)
       {
-         if (f.loop[cp] == 0) Shape(cp, 50, 50);
-         else if (f.loop[cp] == 1) Shape(cp, 0, 50);
-         else if (f.loop[cp] == 2) Shape(cp, -50, 50);
-         else if (f.loop[cp] == 3) Shape(cp, -50, 0);
+         if (v.P_LoopMain[playerID] == 0) Shape(playerID, 50, 50);
+         else if (v.P_LoopMain[playerID] == 1) Shape(playerID, 0, 50);
+         else if (v.P_LoopMain[playerID] == 2) Shape(playerID, -50, 50);
+         else if (v.P_LoopMain[playerID] == 3) Shape(playerID, -50, 0);
 
 
-         f.SkillWait(cp, 160);
+         s.SkillWait(160);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 4)
+         if (v.P_LoopMain[playerID] == 4)
          {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
          }
       }
-      else if (f.count[cp] == 1)
+      else if (v.P_CountMain[playerID] == 1)
       {
-         if (f.loop[cp] == 0)
+         if (v.P_LoopMain[playerID] == 0)
          {         
-            KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
+            KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", playerID);
 
-            f.EdgeShape(cp, 1, "60 + 1n Archon", 0, 5, 100);
-            KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+            s.EdgeShape(playerID, 1, "60 + 1n Archon", 0, 5, 100);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
 
-            f.SkillWait(cp, 160);
-            f.loop[cp] += 1;
+            s.SkillWait(160);
+            v.P_LoopMain[playerID] += 1;
          }
-         else if (f.loop[cp] == 1)
+         else if (v.P_LoopMain[playerID] == 1)
          {         
-            f.EdgeShape(cp, 1, "60 + 1n Danimoth", 0, 5, 100);
-            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
-            f.EdgeShape(cp, 1, "40 + 1n Goliath", 0, 3, 100);
+            s.EdgeShape(playerID, 1, "60 + 1n Danimoth", 0, 5, 100);
+            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+            s.EdgeShape(playerID, 1, "40 + 1n Goliath", 0, 3, 100);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, "40 + 1n Goliath", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-            Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "40 + 1n Goliath", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("40 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
-            f.SkillWait(cp, 160);
-            f.loop[cp] += 1;
+            s.SkillWait(160);
+            v.P_LoopMain[playerID] += 1;
          }
-         else if (f.loop[cp] == 2)
+         else if (v.P_LoopMain[playerID] == 2)
          {         
-            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
 
-            f.EdgeShape(cp, 1, "Kakaru (Twilight)", 0, 5, 100);
-            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
+            s.EdgeShape(playerID, 1, "Kakaru (Twilight)", 0, 5, 100);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
 
-            f.SkillWait(cp, 480);
-            f.loop[cp] += 1;
+            s.SkillWait(480);
+            v.P_LoopMain[playerID] += 1;
          }
-         else if (f.loop[cp] == 3)
+         else if (v.P_LoopMain[playerID] == 3)
          {         
-            f.EdgeShape(cp, 1, "60 + 1n Danimoth", 45, 5, 100);
-            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
-            f.EdgeShape(cp, 1, "40 + 1n Goliath", 45, 5, 100);
+            s.EdgeShape(playerID, 1, "60 + 1n Danimoth", 45, 5, 100);
+            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+            s.EdgeShape(playerID, 1, "40 + 1n Goliath", 45, 5, 100);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, "40 + 1n Goliath", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-            Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "40 + 1n Goliath", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("40 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
-            f.SkillWait(cp, 160);
-            f.loop[cp] += 1;
+            s.SkillWait(160);
+            v.P_LoopMain[playerID] += 1;
          }
-         else if (f.loop[cp] == 4)
+         else if (v.P_LoopMain[playerID] == 4)
          {         
-            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
 
-            f.EdgeShape(cp, 1, "40 + 1n Gantrithor", 45, 7, 150);
-            f.EdgeShape(cp, 1, "60 + 1n Archon", 45, 7, 150);
-            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
-            KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+            s.EdgeShape(playerID, 1, "40 + 1n Gantrithor", 45, 7, 150);
+            s.EdgeShape(playerID, 1, "60 + 1n Archon", 45, 7, 150);
+            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
 
-            f.EdgeShape(cp, 1, "Kakaru (Twilight)", 45, 5, 100);
-            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
+            s.EdgeShape(playerID, 1, "Kakaru (Twilight)", 45, 5, 100);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
 
-            f.SkillWait(cp, 80);
+            s.SkillWait(80);
             
-            f.count[cp] += 1;
-            f.loop[cp] = 0;
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
          }
       }
-      else if (f.count[cp] == 2)
+      else if (v.P_CountMain[playerID] == 2)
       {
-         KillUnitAt(All, "40 + 1n Ghost", "Anywhere", cp);
-         f.SkillEnd(cp);
+         KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
+         s.SkillEnd();
       }
    }
 }
 
 function Shape(cp : TrgPlayer, x, y)
 {
-   KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
-   f.DotShape(cp, 1, "Protoss Dark Templar", x, y);
-   f.DotShape(cp, 1, "Protoss Dark Templar", -x, -y);
-   f.DotShape(cp, 1, "40 + 1n Mojo", x, y);
-   f.DotShape(cp, 1, "40 + 1n Mojo", -x, -y);
-   f.DotShape(cp, 1, "Kakaru (Twilight)", -y, x);
-   f.DotShape(cp, 1, "Kakaru (Twilight)", y, -x);
-   f.DotShape(cp, 1, " Creep. Dunkelheit", -y, x);
-   f.DotShape(cp, 1, " Creep. Dunkelheit", y, -x);
-   KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-   KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp);
-   KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
-   MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-   MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-   Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
+   KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", playerID);
+   s.Shape_Dot(playerID, 1, "Protoss Dark Templar", x, y);
+   s.Shape_Dot(playerID, 1, "Protoss Dark Templar", -x, -y);
+   s.Shape_Dot(playerID, 1, "40 + 1n Mojo", x, y);
+   s.Shape_Dot(playerID, 1, "40 + 1n Mojo", -x, -y);
+   s.Shape_Dot(playerID, 1, "Kakaru (Twilight)", -y, x);
+   s.Shape_Dot(playerID, 1, "Kakaru (Twilight)", y, -x);
+   s.Shape_Dot(playerID, 1, " Creep. Dunkelheit", -y, x);
+   s.Shape_Dot(playerID, 1, " Creep. Dunkelheit", y, -x);
+   KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+   KillUnitAt(All, "Protoss Dark Templar", "Anywhere", playerID);
+   KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+   MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+   MoveUnit(All, " Creep. Dunkelheit", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+   Order(" Creep. Dunkelheit", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 }

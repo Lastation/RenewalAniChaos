@@ -1,21 +1,21 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
 function EdgeShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, x, y);
 
-function main(cp)
+function main(playerID)
 {
-   f.BanReturn(cp);
-   f.HoldPosition(cp);
-   ModifyUnitShields(All, f.heroID[cp], cp, "Anywhere", 1);
+   s.BanReturn(playerID);
+   s.HoldPosition(playerID);
+   ModifyUnitShields(All, v.P_CharacterID[playerID], playerID, "Anywhere", 1);
 
-   if (f.delay[cp] == 0)
+   if (v.P_Delay[playerID] == 0)
    {
-      if (f.count[cp] == 0)
+      if (v.P_CountMain[playerID] == 0)
       {
-         if (f.loop[cp] == 0)
+         if (v.P_LoopMain[playerID] == 0)
          {
-            SetDeaths(cp, SetTo, 1, " `ShieldRecharge");
+            SetDeaths(playerID, SetTo, 1, " `ShieldRecharge");
 
             SetSwitch("JunkYardDog - Niwa", Set);
             SetSwitch("Recall - Niwa", Set);
@@ -27,162 +27,162 @@ function main(cp)
          GiveUnits(All, "40 + 1n Wraith", P8, "Anywhere", P12);
          GiveUnits(All, "40 + 1n Mojo", P8, "Anywhere", P12);
          GiveUnits(All, "40 + 1n Mutalisk", P8, "Anywhere", P12);
-         if (f.loop[cp] < 56)
+         if (v.P_LoopMain[playerID] < 56)
          {
             GiveUnits(All, "Kakaru (Twilight)", P7, "Anywhere", P12);
             GiveUnits(All, "Kakaru (Twilight)", P8, "Anywhere", P12);  
          }
-         if (f.loop[cp] >= 56)
+         if (v.P_LoopMain[playerID] >= 56)
          {
-            GiveUnits(All, "Kakaru (Twilight)", P7, "Anywhere", cp);
-            GiveUnits(All, "Kakaru (Twilight)", P8, "Anywhere", cp);
-            GiveUnits(All, "Kakaru (Twilight)", P12, "Anywhere", cp);  
+            GiveUnits(All, "Kakaru (Twilight)", P7, "Anywhere", playerID);
+            GiveUnits(All, "Kakaru (Twilight)", P8, "Anywhere", playerID);
+            GiveUnits(All, "Kakaru (Twilight)", P12, "Anywhere", playerID);  
          }
 
-         if (Bring(cp, AtLeast, 1, "60 + 1n Siege", "Anywhere"))
+         if (Bring(playerID, AtLeast, 1, "60 + 1n Siege", "Anywhere"))
          {
             for (var i = 0; i < 3; i++)
             {
-               f.MoveLoc("60 + 1n Siege", cp, 0, 0);
-               RemoveUnitAt(1, "60 + 1n Siege", "Anywhere", cp);
+               s.MoveLoc("60 + 1n Siege", playerID, 0, 0);
+               RemoveUnitAt(1, "60 + 1n Siege", "Anywhere", playerID);
                if (i % 3 == 0) 
                {
-                  f.SkillUnit(cp, 1, "40 + 1n Wraith");
-                  f.SkillUnit(cp, 1, "Kakaru (Twilight)");
-                  f.SkillUnit(cp, 1, "50 + 1n Tank");
+                  s.SkillUnit(playerID, 1, "40 + 1n Wraith");
+                  s.SkillUnit(playerID, 1, "Kakaru (Twilight)");
+                  s.SkillUnit(playerID, 1, "50 + 1n Tank");
                }
                else if (i % 3 == 1)
                {
-                  f.SkillUnit(cp, 1, "40 + 1n Mutalisk");
-                  f.SkillUnit(cp, 1, "Kakaru (Twilight)");
-                  f.SkillUnit(cp, 1, " Unit. Hoffnung 25000");
+                  s.SkillUnit(playerID, 1, "40 + 1n Mutalisk");
+                  s.SkillUnit(playerID, 1, "Kakaru (Twilight)");
+                  s.SkillUnit(playerID, 1, " Unit. Hoffnung 25000");
                }
                else if (i % 3 == 2)
                {
-                  f.SkillUnit(cp, 1, "40 + 1n Mojo");
-                  f.SkillUnit(cp, 1, "Kakaru (Twilight)");
-                  f.SkillUnit(cp, 1, "60 + 1n Archon");
+                  s.SkillUnit(playerID, 1, "40 + 1n Mojo");
+                  s.SkillUnit(playerID, 1, "Kakaru (Twilight)");
+                  s.SkillUnit(playerID, 1, "60 + 1n Archon");
                }
 
             }
          }
-         if (Bring(cp, AtLeast, 1, "60 + 1n Hydralisk", "Anywhere"))
+         if (Bring(playerID, AtLeast, 1, "60 + 1n Hydralisk", "Anywhere"))
          {
             for (var i = 0; i < 3; i++)
             {
-               f.MoveLoc("60 + 1n Hydralisk", cp, 0, 0);
-               RemoveUnitAt(1, "60 + 1n Hydralisk", "Anywhere", cp);
+               s.MoveLoc("60 + 1n Hydralisk", playerID, 0, 0);
+               RemoveUnitAt(1, "60 + 1n Hydralisk", "Anywhere", playerID);
                if (i % 3 == 0) 
                {
-                  f.SkillUnit(cp, 1, "40 + 1n Wraith");
-                  f.SkillUnit(cp, 1, "50 + 1n Tank");
+                  s.SkillUnit(playerID, 1, "40 + 1n Wraith");
+                  s.SkillUnit(playerID, 1, "50 + 1n Tank");
                }
                else if (i % 3 == 1)
                {
-                  f.SkillUnit(cp, 1, "40 + 1n Mutalisk");
-                  f.SkillUnit(cp, 1, " Unit. Hoffnung 25000");
+                  s.SkillUnit(playerID, 1, "40 + 1n Mutalisk");
+                  s.SkillUnit(playerID, 1, " Unit. Hoffnung 25000");
                }
                else if (i % 3 == 2)
                {
-                  f.SkillUnit(cp, 1, "40 + 1n Mojo");
-                  f.SkillUnit(cp, 1, "60 + 1n Archon");
+                  s.SkillUnit(playerID, 1, "40 + 1n Mojo");
+                  s.SkillUnit(playerID, 1, "60 + 1n Archon");
                }
             }
          }
-         KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
-         KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
-         KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+         KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+         KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
+         KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
 
 
-         MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-         Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
-         Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
-         Order("40 + 1n Mutalisk", cp, "Anywhere", Attack, f.location[cp]);
-         Order("Kakaru (Twilight)", cp, "Anywhere", Move, f.location[cp]);
+         MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+         Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+         Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+         Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+         Order("Kakaru (Twilight)", playerID, "Anywhere", Move, v.P_LocationID[playerID]);
 
 
          if (cp < 3)
          {
-            GiveUnits(All, "40 + 1n Wraith", cp, f.location[cp], P7);
-            GiveUnits(All, "40 + 1n Mojo", cp, f.location[cp], P7);
-            GiveUnits(All, "40 + 1n Mutalisk", cp, f.location[cp], P7);
-            if (f.loop[cp] < 56)
-               GiveUnits(All, "Kakaru (Twilight)", cp, f.location[cp], P7);
+            GiveUnits(All, "40 + 1n Wraith", playerID, v.P_LocationID[playerID], P7);
+            GiveUnits(All, "40 + 1n Mojo", playerID, v.P_LocationID[playerID], P7);
+            GiveUnits(All, "40 + 1n Mutalisk", playerID, v.P_LocationID[playerID], P7);
+            if (v.P_LoopMain[playerID] < 56)
+               GiveUnits(All, "Kakaru (Twilight)", playerID, v.P_LocationID[playerID], P7);
 
             GiveUnits(All, "40 + 1n Wraith", P12, "Anywhere", P7);
             GiveUnits(All, "40 + 1n Mojo", P12, "Anywhere", P7);
             GiveUnits(All, "40 + 1n Mutalisk", P12, "Anywhere", P7);
-            if (f.loop[cp] < 56)
+            if (v.P_LoopMain[playerID] < 56)
                GiveUnits(All, "Kakaru (Twilight)", P12, "Anywhere", P7);
 
          }
          else if (cp >= 3)
          {
-            GiveUnits(All, "40 + 1n Wraith", cp, f.location[cp], P8);
-            GiveUnits(All, "40 + 1n Mojo", cp, f.location[cp], P8);
-            GiveUnits(All, "40 + 1n Mutalisk", cp, f.location[cp], P8);
-            if (f.loop[cp] < 56)
-               GiveUnits(All, "Kakaru (Twilight)", cp, f.location[cp], P8);
+            GiveUnits(All, "40 + 1n Wraith", playerID, v.P_LocationID[playerID], P8);
+            GiveUnits(All, "40 + 1n Mojo", playerID, v.P_LocationID[playerID], P8);
+            GiveUnits(All, "40 + 1n Mutalisk", playerID, v.P_LocationID[playerID], P8);
+            if (v.P_LoopMain[playerID] < 56)
+               GiveUnits(All, "Kakaru (Twilight)", playerID, v.P_LocationID[playerID], P8);
 
             GiveUnits(All, "40 + 1n Wraith", P12, "Anywhere", P8);
             GiveUnits(All, "40 + 1n Mojo", P12, "Anywhere", P8);
             GiveUnits(All, "40 + 1n Mutalisk", P12, "Anywhere", P8);
-            if (f.loop[cp] < 56)
+            if (v.P_LoopMain[playerID] < 56)
                GiveUnits(All, "Kakaru (Twilight)", P12, "Anywhere", P8);
          }
 
          for (var i = 0; i < 18; i++)
          {
-            f.Table_Sin(cp, 20 * i, 400);
-            f.Table_Cos(cp, 20 * i, 400);
+            s.Table_Sin(playerID, 20 * i, 400);
+            s.Table_Cos(playerID, 20 * i, 400);
 
-            MoveLocation("30.Niwa_Bozo", f.heroID[cp], cp, "Anywhere");
-            addloc("30.Niwa_Bozo", f.CosAngle[cp], f.SinAngle[cp]);
+            MoveLocation("30.Niwa_Bozo", v.P_CharacterID[playerID], playerID, "Anywhere");
+            addloc("30.Niwa_Bozo", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-            f.Table_Sin(cp, 20 * (i + 4), 430);
-            f.Table_Cos(cp, 20 * (i + 4), 430);
+            s.Table_Sin(playerID, 20 * (i + 4), 430);
+            s.Table_Cos(playerID, 20 * (i + 4), 430);
 
-            f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
-            Order("Kakaru (Twilight)", P7, "30.Niwa_Bozo", Move, f.location[cp]);
-            Order("Kakaru (Twilight)", P8, "30.Niwa_Bozo", Move, f.location[cp]);
+            s.MoveLoc(v.P_CharacterID[playerID], playerID, v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            Order("Kakaru (Twilight)", P7, "30.Niwa_Bozo", Move, v.P_LocationID[playerID]);
+            Order("Kakaru (Twilight)", P8, "30.Niwa_Bozo", Move, v.P_LocationID[playerID]);
 
-            f.Table_Sin(cp, 20 * (i + 4), 400);
-            f.Table_Cos(cp, 20 * (i + 4), 400);
+            s.Table_Sin(playerID, 20 * (i + 4), 400);
+            s.Table_Cos(playerID, 20 * (i + 4), 400);
 
-            f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
-            Order("40 + 1n Mutalisk", P8, "30.Niwa_Bozo", Move, f.location[cp]);
-            Order("40 + 1n Mutalisk", P7, "30.Niwa_Bozo", Move, f.location[cp]);
+            s.MoveLoc(v.P_CharacterID[playerID], playerID, v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            Order("40 + 1n Mutalisk", P8, "30.Niwa_Bozo", Move, v.P_LocationID[playerID]);
+            Order("40 + 1n Mutalisk", P7, "30.Niwa_Bozo", Move, v.P_LocationID[playerID]);
 
-            f.Table_Sin(cp, 20 * (i + 4), 370);
-            f.Table_Cos(cp, 20 * (i + 4), 370);
+            s.Table_Sin(playerID, 20 * (i + 4), 370);
+            s.Table_Cos(playerID, 20 * (i + 4), 370);
 
-            f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
-            Order("40 + 1n Wraith", P7, "30.Niwa_Bozo", Move, f.location[cp]);
-            Order("40 + 1n Wraith", P8, "30.Niwa_Bozo", Move, f.location[cp]);
+            s.MoveLoc(v.P_CharacterID[playerID], playerID, v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            Order("40 + 1n Wraith", P7, "30.Niwa_Bozo", Move, v.P_LocationID[playerID]);
+            Order("40 + 1n Wraith", P8, "30.Niwa_Bozo", Move, v.P_LocationID[playerID]);
 
-            f.Table_Sin(cp, 20 * (i + 4), 340);
-            f.Table_Cos(cp, 20 * (i + 4), 340);
+            s.Table_Sin(playerID, 20 * (i + 4), 340);
+            s.Table_Cos(playerID, 20 * (i + 4), 340);
 
-            f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
-            Order("40 + 1n Mojo", P7, "30.Niwa_Bozo", Move, f.location[cp]);
-            Order("40 + 1n Mojo", P8, "30.Niwa_Bozo", Move, f.location[cp]);
+            s.MoveLoc(v.P_CharacterID[playerID], playerID, v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            Order("40 + 1n Mojo", P7, "30.Niwa_Bozo", Move, v.P_LocationID[playerID]);
+            Order("40 + 1n Mojo", P8, "30.Niwa_Bozo", Move, v.P_LocationID[playerID]);
          }
 
-         f.SkillWait(cp, 80);
+         s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 79)
+         if (v.P_LoopMain[playerID] == 79)
          {
-            f.Voice_Routine(cp, 4);
+            s.Voice_Routine(playerID, 4);
 
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 1)
+      else if (v.P_CountMain[playerID] == 1)
       {
-         if (f.loop[cp] == 0)
+         if (v.P_LoopMain[playerID] == 0)
          {
             if (cp < 3)
             {
@@ -199,265 +199,265 @@ function main(cp)
 
             }
          }
-         if (f.loop[cp] == 10)
+         if (v.P_LoopMain[playerID] == 10)
          {
-            f.Voice_Routine(cp, 5);
+            s.Voice_Routine(playerID, 5);
          }
 
-         if (f.loop[cp] < 25)
+         if (v.P_LoopMain[playerID] < 25)
          {
 
             if (cp < 3)
             {
-               GiveUnits(All, "Kakaru (Twilight)", cp, f.location[cp], P7);
+               GiveUnits(All, "Kakaru (Twilight)", playerID, v.P_LocationID[playerID], P7);
             }
             else if (cp >= 3)
             {
-               GiveUnits(All, "Kakaru (Twilight)", cp, f.location[cp], P8);
+               GiveUnits(All, "Kakaru (Twilight)", playerID, v.P_LocationID[playerID], P8);
             }
          }
 
-         if (f.loop[cp] < 25)
+         if (v.P_LoopMain[playerID] < 25)
          {
             for (var i = 0; i < 18; i++)
             {
-               f.Table_Sin(cp, 20 * i, 400);
-               f.Table_Cos(cp, 20 * i, 400);
+               s.Table_Sin(playerID, 20 * i, 400);
+               s.Table_Cos(playerID, 20 * i, 400);
 
-               MoveLocation("30.Niwa_Bozo", f.heroID[cp], cp, "Anywhere");
-               addloc("30.Niwa_Bozo", f.CosAngle[cp], f.SinAngle[cp]);
+               MoveLocation("30.Niwa_Bozo", v.P_CharacterID[playerID], playerID, "Anywhere");
+               addloc("30.Niwa_Bozo", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-               f.Table_Sin(cp, 20 * (i + 4), 430);
-               f.Table_Cos(cp, 20 * (i + 4), 430);
+               s.Table_Sin(playerID, 20 * (i + 4), 430);
+               s.Table_Cos(playerID, 20 * (i + 4), 430);
 
-               f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
-               Order("Kakaru (Twilight)", P7, "30.Niwa_Bozo", Move, f.location[cp]);
-               Order("Kakaru (Twilight)", P8, "30.Niwa_Bozo", Move, f.location[cp]);
+               s.MoveLoc(v.P_CharacterID[playerID], playerID, v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+               Order("Kakaru (Twilight)", P7, "30.Niwa_Bozo", Move, v.P_LocationID[playerID]);
+               Order("Kakaru (Twilight)", P8, "30.Niwa_Bozo", Move, v.P_LocationID[playerID]);
 
-               f.Table_Sin(cp, 20 * (i + 4), 400);
-               f.Table_Cos(cp, 20 * (i + 4), 400);
+               s.Table_Sin(playerID, 20 * (i + 4), 400);
+               s.Table_Cos(playerID, 20 * (i + 4), 400);
 
-               f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
-               Order("40 + 1n Mutalisk", P8, "30.Niwa_Bozo", Move, f.location[cp]);
-               Order("40 + 1n Mutalisk", P7, "30.Niwa_Bozo", Move, f.location[cp]);
+               s.MoveLoc(v.P_CharacterID[playerID], playerID, v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+               Order("40 + 1n Mutalisk", P8, "30.Niwa_Bozo", Move, v.P_LocationID[playerID]);
+               Order("40 + 1n Mutalisk", P7, "30.Niwa_Bozo", Move, v.P_LocationID[playerID]);
 
-               f.Table_Sin(cp, 20 * (i + 4), 370);
-               f.Table_Cos(cp, 20 * (i + 4), 370);
+               s.Table_Sin(playerID, 20 * (i + 4), 370);
+               s.Table_Cos(playerID, 20 * (i + 4), 370);
 
-               f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
-               Order("40 + 1n Wraith", P7, "30.Niwa_Bozo", Move, f.location[cp]);
-               Order("40 + 1n Wraith", P8, "30.Niwa_Bozo", Move, f.location[cp]);
+               s.MoveLoc(v.P_CharacterID[playerID], playerID, v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+               Order("40 + 1n Wraith", P7, "30.Niwa_Bozo", Move, v.P_LocationID[playerID]);
+               Order("40 + 1n Wraith", P8, "30.Niwa_Bozo", Move, v.P_LocationID[playerID]);
 
-               f.Table_Sin(cp, 20 * (i + 4), 340);
-               f.Table_Cos(cp, 20 * (i + 4), 340);
+               s.Table_Sin(playerID, 20 * (i + 4), 340);
+               s.Table_Cos(playerID, 20 * (i + 4), 340);
 
-               f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
-               Order("40 + 1n Mojo", P7, "30.Niwa_Bozo", Move, f.location[cp]);
-               Order("40 + 1n Mojo", P8, "30.Niwa_Bozo", Move, f.location[cp]);
+               s.MoveLoc(v.P_CharacterID[playerID], playerID, v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+               Order("40 + 1n Mojo", P7, "30.Niwa_Bozo", Move, v.P_LocationID[playerID]);
+               Order("40 + 1n Mojo", P8, "30.Niwa_Bozo", Move, v.P_LocationID[playerID]);
             }
          }
-         if (f.loop[cp] == 25)
+         if (v.P_LoopMain[playerID] == 25)
          {
             for (var i = 0; i < 2; i++)
             {
-               f.Table_Sin(cp, 22 + 45 * i, 200);
-               f.Table_Cos(cp, 22 + 45 * i, 200);
+               s.Table_Sin(playerID, 22 + 45 * i, 200);
+               s.Table_Cos(playerID, 22 + 45 * i, 200);
 
-               var x = f.CosAngle[cp];
-               var y = f.SinAngle[cp];
+               var x = v.P_AngleCos[playerID];
+               var y = v.P_AngleSin[playerID];
 
-               EdgeShapeAt(cp, 1, "40 + 1n Gantrithor", 0, 2, 75, x, y);
-               EdgeShapeAt(cp, 1, "60 + 1n Archon", 0, 2, 75, x, y);
+               EdgeShapeAt(playerID, 1, "40 + 1n Gantrithor", 0, 2, 75, x, y);
+               EdgeShapeAt(playerID, 1, "60 + 1n Archon", 0, 2, 75, x, y);
             }
-            GiveUnits(All, "40 + 1n Mojo", P7, "Anywhere", cp);
-            GiveUnits(All, "40 + 1n Mojo", P8, "Anywhere", cp);
-            GiveUnits(All, "Kakaru (Twilight)", P7, "Anywhere", cp);
-            GiveUnits(All, "Kakaru (Twilight)", P8, "Anywhere", cp);
+            GiveUnits(All, "40 + 1n Mojo", P7, "Anywhere", playerID);
+            GiveUnits(All, "40 + 1n Mojo", P8, "Anywhere", playerID);
+            GiveUnits(All, "Kakaru (Twilight)", P7, "Anywhere", playerID);
+            GiveUnits(All, "Kakaru (Twilight)", P8, "Anywhere", playerID);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
          }
-         if (f.loop[cp] == 27)
+         if (v.P_LoopMain[playerID] == 27)
          {
-            GiveUnits(All, "40 + 1n Wraith", P7, "Anywhere", cp);
-            GiveUnits(All, "40 + 1n Wraith", P8, "Anywhere", cp);
+            GiveUnits(All, "40 + 1n Wraith", P7, "Anywhere", playerID);
+            GiveUnits(All, "40 + 1n Wraith", P8, "Anywhere", playerID);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
          }
-         if (f.loop[cp] == 29)
+         if (v.P_LoopMain[playerID] == 29)
          {
             for (var i = 0; i < 4; i++)
             {
-               f.Table_Sin(cp, 22 + 22 * i, 400);
-               f.Table_Cos(cp, 22 + 22 * i, 400);
+               s.Table_Sin(playerID, 22 + 22 * i, 400);
+               s.Table_Cos(playerID, 22 + 22 * i, 400);
 
-               var x = f.CosAngle[cp];
-               var y = f.SinAngle[cp];
+               var x = v.P_AngleCos[playerID];
+               var y = v.P_AngleSin[playerID];
 
-               EdgeShapeAt(cp, 1, "40 + 1n Gantrithor", 0, 2, 75, x, y);
-               EdgeShapeAt(cp, 1, "60 + 1n Archon", 0, 2, 75, x, y);
+               EdgeShapeAt(playerID, 1, "40 + 1n Gantrithor", 0, 2, 75, x, y);
+               EdgeShapeAt(playerID, 1, "60 + 1n Archon", 0, 2, 75, x, y);
             }
 
 
-            GiveUnits(All, "40 + 1n Mutalisk", P7, "Anywhere", cp);
-            GiveUnits(All, "40 + 1n Mutalisk", P8, "Anywhere", cp);
+            GiveUnits(All, "40 + 1n Mutalisk", P7, "Anywhere", playerID);
+            GiveUnits(All, "40 + 1n Mutalisk", P8, "Anywhere", playerID);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Mutalisk", cp, "Anywhere", Attack, f.location[cp]);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
          }
 
 
-         if (f.loop[cp] > 46)
+         if (v.P_LoopMain[playerID] > 46)
          {
-            if (Bring(cp, AtLeast, 1, "Kakaru (Twilight)", "Anywhere"))
+            if (Bring(playerID, AtLeast, 1, "Kakaru (Twilight)", "Anywhere"))
             {
                for (var i = 0; i < 6; i++)
                {
-                  f.MoveLoc("Kakaru (Twilight)", cp, 0, 0);
-                  RemoveUnitAt(1, "Kakaru (Twilight)", "Anywhere", cp);
+                  s.MoveLoc("Kakaru (Twilight)", playerID, 0, 0);
+                  RemoveUnitAt(1, "Kakaru (Twilight)", "Anywhere", playerID);
                   if (i % 3 == 0) 
                   {
-                     f.SkillUnit(cp, 1, "40 + 1n Drone");
-                     f.SkillUnit(cp, 1, "50 + 1n Tank");
+                     s.SkillUnit(playerID, 1, "40 + 1n Drone");
+                     s.SkillUnit(playerID, 1, "50 + 1n Tank");
                   }
                   else if (i % 3 == 1)
                   {
-                     f.SkillUnit(cp, 1, "40 + 1n Drone");
-                     f.SkillUnit(cp, 1, " Unit. Hoffnung 25000");
+                     s.SkillUnit(playerID, 1, "40 + 1n Drone");
+                     s.SkillUnit(playerID, 1, " Unit. Hoffnung 25000");
                   }
                   else if (i % 3 == 2)
                   {
-                     f.SkillUnit(cp, 1, "40 + 1n Drone");
-                     f.SkillUnit(cp, 1, "40 + 1n Guardian");
+                     s.SkillUnit(playerID, 1, "40 + 1n Drone");
+                     s.SkillUnit(playerID, 1, "40 + 1n Guardian");
                   }
                }
 
-               MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-               Order("40 + 1n Drone", cp, "Anywhere", Attack, f.location[cp]);
+               MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+               Order("40 + 1n Drone", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
             }
          }
-         KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
-         KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
-         KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
-         KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
-         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+         KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+         KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
+         KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+         KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
 
-         RemoveUnitAt(All, "40 + 1n Drone", "[Skill]Unit_Wait_ALL", cp);
+         RemoveUnitAt(All, "40 + 1n Drone", "[Skill]Unit_Wait_ALL", playerID);
 
-         f.SkillWait(cp, 80);
+         s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 81)
+         if (v.P_LoopMain[playerID] == 81)
          {
 
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 2)
+      else if (v.P_CountMain[playerID] == 2)
       {
-         if (Bring(cp, AtLeast, 1, "40 + 1n Wraith", "Anywhere"))
+         if (Bring(playerID, AtLeast, 1, "40 + 1n Wraith", "Anywhere"))
          {
             for (var i = 0; i < 2; i++)
             {
-               f.MoveLoc("40 + 1n Wraith", cp, 0, 0);
-               RemoveUnitAt(1, "40 + 1n Wraith", "Anywhere", cp);
-               f.SkillUnit(cp, 1, "80 + 1n Tom Kazansky");
-               f.SkillUnit(cp, 1, "50 + 1n Tank");
+               s.MoveLoc("40 + 1n Wraith", playerID, 0, 0);
+               RemoveUnitAt(1, "40 + 1n Wraith", "Anywhere", playerID);
+               s.SkillUnit(playerID, 1, "80 + 1n Tom Kazansky");
+               s.SkillUnit(playerID, 1, "50 + 1n Tank");
             }
          }
-         if (Bring(cp, AtLeast, 1, "40 + 1n Mojo", "Anywhere"))
+         if (Bring(playerID, AtLeast, 1, "40 + 1n Mojo", "Anywhere"))
          {
             for (var i = 0; i < 2; i++)
             {
-               f.MoveLoc("40 + 1n Mojo", cp, 0, 0);
-               RemoveUnitAt(1, "40 + 1n Mojo", "Anywhere", cp);
-               f.SkillUnit(cp, 1, "80 + 1n Artanis");
-               f.SkillUnit(cp, 1, "60 + 1n Archon");
+               s.MoveLoc("40 + 1n Mojo", playerID, 0, 0);
+               RemoveUnitAt(1, "40 + 1n Mojo", "Anywhere", playerID);
+               s.SkillUnit(playerID, 1, "80 + 1n Artanis");
+               s.SkillUnit(playerID, 1, "60 + 1n Archon");
             }
          }
-         if (Bring(cp, AtLeast, 1, "40 + 1n Mutalisk", "Anywhere"))
+         if (Bring(playerID, AtLeast, 1, "40 + 1n Mutalisk", "Anywhere"))
          {
             for (var i = 0; i < 2; i++)
             {
-               f.MoveLoc("40 + 1n Mutalisk", cp, 0, 0);
-               RemoveUnitAt(1, "40 + 1n Mutalisk", "Anywhere", cp);
-               f.SkillUnit(cp, 1, "80 + 1n Mutalisk");
-               f.SkillUnit(cp, 1, " Unit. Hoffnung 25000");
+               s.MoveLoc("40 + 1n Mutalisk", playerID, 0, 0);
+               RemoveUnitAt(1, "40 + 1n Mutalisk", "Anywhere", playerID);
+               s.SkillUnit(playerID, 1, "80 + 1n Mutalisk");
+               s.SkillUnit(playerID, 1, " Unit. Hoffnung 25000");
             }
          }
 
-         KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
-         KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
-         KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
-         KillUnitAt(All, "80 + 1n Artanis", "Anywhere", cp);
-         KillUnitAt(All, "80 + 1n Mutalisk", "Anywhere", cp);
-         KillUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", cp);
-         KillUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", cp);
+         KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+         KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
+         KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+         KillUnitAt(All, "80 + 1n Artanis", "Anywhere", playerID);
+         KillUnitAt(All, "80 + 1n Mutalisk", "Anywhere", playerID);
+         KillUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", playerID);
+         KillUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", playerID);
 
-         if (Bring(cp, AtLeast, 1, "Kakaru (Twilight)", "Anywhere"))
+         if (Bring(playerID, AtLeast, 1, "Kakaru (Twilight)", "Anywhere"))
          {
             for (var i = 0; i < 6; i++)
             {
-               f.MoveLoc("Kakaru (Twilight)", cp, 0, 0);
-               RemoveUnitAt(1, "Kakaru (Twilight)", "Anywhere", cp);
+               s.MoveLoc("Kakaru (Twilight)", playerID, 0, 0);
+               RemoveUnitAt(1, "Kakaru (Twilight)", "Anywhere", playerID);
                if (i % 3 == 0) 
                {
-                  f.SkillUnit(cp, 1, "40 + 1n Drone");
-                  f.SkillUnit(cp, 1, "50 + 1n Tank");
+                  s.SkillUnit(playerID, 1, "40 + 1n Drone");
+                  s.SkillUnit(playerID, 1, "50 + 1n Tank");
                }
                else if (i % 3 == 1)
                {
-                  f.SkillUnit(cp, 1, "40 + 1n Drone");
-                  f.SkillUnit(cp, 1, " Unit. Hoffnung 25000");
+                  s.SkillUnit(playerID, 1, "40 + 1n Drone");
+                  s.SkillUnit(playerID, 1, " Unit. Hoffnung 25000");
                }
                else if (i % 3 == 2)
                {
-                  f.SkillUnit(cp, 1, "40 + 1n Drone");
-                  f.SkillUnit(cp, 1, "40 + 1n Guardian");
+                  s.SkillUnit(playerID, 1, "40 + 1n Drone");
+                  s.SkillUnit(playerID, 1, "40 + 1n Guardian");
                }
 
             }
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Drone", cp, "Anywhere", Attack, f.location[cp]);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Drone", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
          }
-         RemoveUnitAt(All, "40 + 1n Drone", "[Skill]Unit_Wait_ALL", cp);
+         RemoveUnitAt(All, "40 + 1n Drone", "[Skill]Unit_Wait_ALL", playerID);
 
-         f.SkillWait(cp, 80);
+         s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 51)
+         if (v.P_LoopMain[playerID] == 51)
          {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 3)
+      else if (v.P_CountMain[playerID] == 3)
       {
-         KillUnitAt(All, "40 + 1n Drone", "Anywhere", cp);
+         KillUnitAt(All, "40 + 1n Drone", "Anywhere", playerID);
 
          SetSwitch("UiltimateSwitch", Clear);
          SetSwitch("Recall - Niwa", Clear);
          SetSwitch("JunkYardDog - Niwa", Clear);
-         SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
-         f.SkillEnd(cp);
+         SetDeaths(playerID, SetTo, 0, " `ShieldRecharge");
+         s.SkillEnd();
       }
    }
 
-   MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+   MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
 }
 
 function EdgeShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, x, y)
 {
-   f.EdgeShapeAt(cp, count, Unit, degree, n, interval, x, y);
-   f.EdgeShapeAt(cp, count, Unit, degree, n, interval, -x, -y);
-   f.EdgeShapeAt(cp, count, Unit, degree, n, interval, -y, x);
-   f.EdgeShapeAt(cp, count, Unit, degree, n, interval, y, -x);
+   s.EdgeShapeAt(playerID, count, Unit, degree, n, interval, x, y);
+   s.EdgeShapeAt(playerID, count, Unit, degree, n, interval, -x, -y);
+   s.EdgeShapeAt(playerID, count, Unit, degree, n, interval, -y, x);
+   s.EdgeShapeAt(playerID, count, Unit, degree, n, interval, y, -x);
 }
 

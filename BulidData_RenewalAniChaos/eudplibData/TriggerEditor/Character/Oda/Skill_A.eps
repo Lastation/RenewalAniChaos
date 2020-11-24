@@ -1,96 +1,96 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
-function main(cp)
+function main(playerID)
 {
-   if (f.delay[cp] == 0)
+   if (v.P_Delay[playerID] == 0)
    {
-      if (f.count[cp] == 0)
+      if (v.P_CountMain[playerID] == 0)
       {
-         RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+         RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
 
-         f.Table_Sin(cp, 22 + 45 * f.loop[cp], 100);
-         f.Table_Cos(cp, 22 + 45 * f.loop[cp], 100);
+         s.Table_Sin(playerID, 22 + 45 * v.P_LoopMain[playerID], 100);
+         s.Table_Cos(playerID, 22 + 45 * v.P_LoopMain[playerID], 100);
 
-         f.SquareShape(cp, 1, "Rhynadon (Badlands)", f.CosAngle[cp], f.SinAngle[cp]);
-         KillUnitAt(All, "Rhynadon (Badlands)", "Anywhere", cp);
+         s.Shape_Square(playerID, 1, "Rhynadon (Badlands)", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+         KillUnitAt(All, "Rhynadon (Badlands)", "Anywhere", playerID);
 
-         f.DotShape(cp, 1, "40 + 1n Wraith", 0, 0);
-         Order("40 + 1n Wraith", cp, "Anywhere", Attack, "Anywhere");
+         s.Shape_Dot(playerID, 1, "40 + 1n Wraith", 0, 0);
+         Order("40 + 1n Wraith", playerID, "Anywhere", Attack, "Anywhere");
 
-         f.SkillWait(cp, 160);
+         s.SkillWait(160);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 4)
+         if (v.P_LoopMain[playerID] == 4)
          {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 1)
+      else if (v.P_CountMain[playerID] == 1)
       {
-         if (f.loop[cp] == 0)
+         if (v.P_LoopMain[playerID] == 0)
          {
-            RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+            RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
 
-            f.EdgeShape(cp, 1, "50 + 1n Tank", 45, 5, 100);
-            KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
+            s.EdgeShape(playerID, 1, "50 + 1n Tank", 45, 5, 100);
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
          }
-         else if (f.loop[cp] == 1)
+         else if (v.P_LoopMain[playerID] == 1)
          {
-            f.EdgeShape(cp, 1, " Unit. Hoffnung 25000", 45, 5, 100);
-            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+            s.EdgeShape(playerID, 1, " Unit. Hoffnung 25000", 45, 5, 100);
+            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
 
-            f.NxNSquareShape(cp, 1, "40 + 1n Wraith", 3, 50);
-            Order("40 + 1n Wraith", cp, "Anywhere", Attack, "Anywhere");
+            s.Shape_NxNSquare(playerID, 1, "40 + 1n Wraith", 3, 50);
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, "Anywhere");
          }
-         else if (f.loop[cp] == 3)
+         else if (v.P_LoopMain[playerID] == 3)
          {
-            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
          }
-         else if (f.loop[cp] == 4)
+         else if (v.P_LoopMain[playerID] == 4)
          {
-            f.LineShapeAt(cp, 1, "40 + 1n Wraith", 135, 4, 50, 100, 50);
-            f.LineShapeAt(cp, 1, "40 + 1n Wraith", 135, 4, 50, -100, -50);
-            f.LineShapeAt(cp, 1, "50 + 1n Tank", 135, 4, 50, 100, 50);
-            f.LineShapeAt(cp, 1, "50 + 1n Tank", 135, 4, 50, -100, -50);
-            KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
+            s.LineShapeAt(playerID, 1, "40 + 1n Wraith", 135, 4, 50, 100, 50);
+            s.LineShapeAt(playerID, 1, "40 + 1n Wraith", 135, 4, 50, -100, -50);
+            s.LineShapeAt(playerID, 1, "50 + 1n Tank", 135, 4, 50, 100, 50);
+            s.LineShapeAt(playerID, 1, "50 + 1n Tank", 135, 4, 50, -100, -50);
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
          }
-         else if (f.loop[cp] == 5)
+         else if (v.P_LoopMain[playerID] == 5)
          {
-            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
 
-            f.LineShapeAt(cp, 1, "40 + 1n Wraith", 45, 4, 50, -50, 100);
-            f.LineShapeAt(cp, 1, "40 + 1n Wraith", 45, 4, 50, 50, -100);
-            f.LineShapeAt(cp, 1, "50 + 1n Tank", 45, 4, 50, -50, 100);
-            f.LineShapeAt(cp, 1, "50 + 1n Tank", 45, 4, 50, 50, -100);
-            KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
+            s.LineShapeAt(playerID, 1, "40 + 1n Wraith", 45, 4, 50, -50, 100);
+            s.LineShapeAt(playerID, 1, "40 + 1n Wraith", 45, 4, 50, 50, -100);
+            s.LineShapeAt(playerID, 1, "50 + 1n Tank", 45, 4, 50, -50, 100);
+            s.LineShapeAt(playerID, 1, "50 + 1n Tank", 45, 4, 50, 50, -100);
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
             
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
          }
-         else if (f.loop[cp] == 6)
+         else if (v.P_LoopMain[playerID] == 6)
          {
-            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
          }
 
-         f.SkillWait(cp, 160);
+         s.SkillWait(160);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 7)
+         if (v.P_LoopMain[playerID] == 7)
          {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 2)
+      else if (v.P_CountMain[playerID] == 2)
       {
-         f.SkillEnd(cp);
+         s.SkillEnd();
       }
    }
 }

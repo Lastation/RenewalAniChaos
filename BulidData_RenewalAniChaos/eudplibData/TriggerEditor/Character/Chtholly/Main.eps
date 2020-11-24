@@ -1,5 +1,5 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
 //import Character.Chtholly.Skill_O as O;
 import Character.Chtholly.Skill_S as S;
@@ -15,50 +15,50 @@ import Character.Chtholly.Skill_Uiltimate as Uiltimate;
 import Character.Chtholly.Text as text;
 import Character.Chtholly.Commend as commend;
 
-function SkillList(cp);
+function SkillList(playerID);
 
-function main(cp)
+function main(playerID)
 {
-	f.location[cp] = 117;
-	f.heroID[cp] = 77;
+	v.P_LocationID[playerID] = 117;
+	v.P_CharacterID[playerID] = 77;
 	
-	f.UltimateA[cp] = 700;
-	f.UltimateB[cp] = 700;
+	s.UltimateA[playerID] = 700;
+	s.UltimateB[playerID] = 700;
 	
 	// Commed Setting
-	commend.main(cp);
-	SkillList(cp);
+	commend.main(playerID);
+	SkillList(playerID);
 	
-	if (f.wait[cp] == 0)
+	if (s.wait[playerID] == 0)
 	{
-		switch(f.step[cp])
+		switch(s.step[playerID])
 		{
 		case 1:
-			//O.main(cp);
+			//O.main(playerID);
 			break;
 		case 100:
-			S.main(cp);
+			S.main(playerID);
 			break;
 		case 110:
-			SSS.main(cp);
+			SSS.main(playerID);
 			break;
 		case 200:
-			C.main(cp);
+			C.main(playerID);
 			break;
 		case 210:
-			CCA.main(cp);
+			CCA.main(playerID);
 			break;
 		case 220:
-			CCACC.main(cp);
+			CCACC.main(playerID);
 			break;
 		case 230:
-			CCACCAAA.main(cp);
+			CCACCAAA.main(playerID);
 			break;
 		case 240:
-			Uiltimate.main(cp);
+			Uiltimate.main(playerID);
 			break;
 		case 300:
-			A.main(cp);
+			A.main(playerID);
 			break;
 		}
 	}
@@ -66,25 +66,25 @@ function main(cp)
 }
 
 // Character Voice
-function SkillVoice(cp)
+function SkillVoice(playerID)
 {
-	if (f.Chtholly_Voice[cp] != 0) { text.main(cp); }
+	if (s.Chtholly_Voice[playerID] != 0) { text.main(playerID); }
 }
 
-function SkillList(cp)
+function SkillList(playerID)
 {
 	if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
 	{
-		f.stb.printAt(0, "\n");
-		f.stb.printAt(1, "\x1F　＃\x04- 크톨리 \x1B노타 세니오리스　\x04[ 종말에 뭐 하세요? 바쁘세요? 구해 주실 수 있나요? ]");
-		f.stb.printAt(2, "　　\x1FA\x04ction List\r\n　　　\x07O \x19 전투속행 ON/OFF [ 침식 도중 사망시 5초간 전투 속행 ] \x05개인쿨 4분");
-		f.stb.printAt(3, "　　　\x1FSSS \x04어쩔수 없지;; \x19[ 공성 ]");
-		f.stb.printAt(4, "　　　\x1FCCA + CC + AAA \x04침식 \x19[ 공성 / AAA - 자리고정 / 귀환봉인 ] \x1F[1]");
-		f.stb.printAt(5, "\n");
-		f.stb.printAt(6, "　　　\x1F[1] + \x08O \x04세상에서 가장 행복한 여자 \x19[ 공성 / 선딜 4.5초 / 장판형 / 쉴드 10고정 ] \x05", f.UltimateA[cp]);
-		f.stb.printAt(7, "　　　\x08AAAA \x04세상에서 가장 행복한 여자 \x19[ 공성 / 선딜 4.5초 / 장판형 / 쉴드 10고정 ] \x05", f.UltimateB[cp]);
-		f.stb.printAt(8, "　　　\x04 * \x19AAAA\x04사용시 \x19O\x04 사용시보다 데미지가 많이 약해집니다.");
-		f.stb.printAt(9, "\n");
+		s.stb.printAt(0, "\n");
+		s.stb.printAt(1, "\x1F　＃\x04- 크톨리 \x1B노타 세니오리스　\x04[ 종말에 뭐 하세요? 바쁘세요? 구해 주실 수 있나요? ]");
+		s.stb.printAt(2, "　　\x1FA\x04ction List\r\n　　　\x07O \x19 전투속행 ON/OFF [ 침식 도중 사망시 5초간 전투 속행 ] \x05개인쿨 4분");
+		s.stb.printAt(3, "　　　\x1FSSS \x04어쩔수 없지;; \x19[ 공성 ]");
+		s.stb.printAt(4, "　　　\x1FCCA + CC + AAA \x04침식 \x19[ 공성 / AAA - 자리고정 / 귀환봉인 ] \x1F[1]");
+		s.stb.printAt(5, "\n");
+		s.stb.printAt(6, "　　　\x1F[1] + \x08O \x04세상에서 가장 행복한 여자 \x19[ 공성 / 선딜 4.5초 / 장판형 / 쉴드 10고정 ] \x05", s.UltimateA[playerID]);
+		s.stb.printAt(7, "　　　\x08AAAA \x04세상에서 가장 행복한 여자 \x19[ 공성 / 선딜 4.5초 / 장판형 / 쉴드 10고정 ] \x05", s.UltimateB[playerID]);
+		s.stb.printAt(8, "　　　\x04 * \x19AAAA\x04사용시 \x19O\x04 사용시보다 데미지가 많이 약해집니다.");
+		s.stb.printAt(9, "\n");
 		PlayWAV("sound\\Bullet\\LaserHit.wav");
 	}
 }

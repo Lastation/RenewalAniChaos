@@ -38,131 +38,131 @@ import Character.TextD.MN 			as mn;
 import Character.TextD.EmetSelch 	as emet;
 import Character.TextD.Magellan 	as magellan;
 
-function MargeSound(cp);
+function MargeSound(playerID);
 
-function main(cp)
+function main(playerID)
 {
-	rusarukaMain.SkillVoice(cp);
-	chthollyMain.SkillVoice(cp);
-	kianaMain.SkillVoice(cp);
-	yuunaMain.SkillVoice(cp);
-	mayuriMain.SkillVoice(cp);
-	nanamiMain.SkillVoice(cp);
-	milimMain.SkillVoice(cp);
-	yumeMain.SkillVoice(cp);
-	maganeMain.SkillVoice(cp);
-	odaMain.SkillVoice(cp);
-	ekidonaMain.SkillVoice(cp);
-	niwaMain.SkillVoice(cp);
-	parkMain.SkillVoice(cp);
-	MargeSound(cp);
+	rusarukaMain.SkillVoice(playerID);
+	chthollyMain.SkillVoice(playerID);
+	kianaMain.SkillVoice(playerID);
+	yuunaMain.SkillVoice(playerID);
+	mayuriMain.SkillVoice(playerID);
+	nanamiMain.SkillVoice(playerID);
+	milimMain.SkillVoice(playerID);
+	yumeMain.SkillVoice(playerID);
+	maganeMain.SkillVoice(playerID);
+	odaMain.SkillVoice(playerID);
+	ekidonaMain.SkillVoice(playerID);
+	niwaMain.SkillVoice(playerID);
+	parkMain.SkillVoice(playerID);
+	MargeSound(playerID);
 }
 
-function MargeSound(cp)
+function MargeSound(playerID)
 {
 	
 	if (getuserplayerid() >= 128)
 	{
-		//f.stb.printAt(0, "\x04cp = ", cp, "  getuserplayerid() = ", getuserplayerid());
-		//f.stb.printAt(1, "\x04v.Sound_Text1[", cp, "] = ", v.Sound_Text1[cp], "  v.Sound_Text2[", cp, "] = ", v.Sound_Text2[cp]);
-		//f.stb.printAt(2, "\x04v.Sound_Text3[", cp, "] = ", v.Sound_Text3[cp], "  v.Sound_Text4[", cp, "] = ", v.Sound_Text4[cp]);
-		//f.stb.printAt(3, "\x04v.Sound_Text_Uilti[", cp, "] = ", v.Sound_Text_Uilti[cp], "  v.Sound_Text_Uniq[", cp, "] = ", v.Sound_Text_Uniq[cp]);
+		//s.stb.printAt(0, "\x04cp = ", playerID, "  getuserplayerid() = ", getuserplayerid());
+		//s.stb.printAt(1, "\x04v.Sound_Text1[", playerID, "] = ", v.Sound_Text1[playerID], "  v.Sound_Text2[", playerID, "] = ", v.Sound_Text2[playerID]);
+		//s.stb.printAt(2, "\x04v.Sound_Text3[", playerID, "] = ", v.Sound_Text3[playerID], "  v.Sound_Text4[", playerID, "] = ", v.Sound_Text4[playerID]);
+		//s.stb.printAt(3, "\x04v.Sound_Text_Uilti[", playerID, "] = ", v.Sound_Text_Uilti[playerID], "  v.Sound_Text_Uniq[", playerID, "] = ", v.Sound_Text_Uniq[playerID]);
 	}
 	
 	
 	// 1 ~ 6
-	if (v.Sound_Text1[cp] > 0)
+	if (v.Sound_Text1[playerID] > 0)
 	{
-		maihime.NormalText(cp);
-		tenshi.NormalText(cp);
-		miyuki.NormalText(cp);
-		negev.NormalText(cp);
+		maihime.NormalText(playerID);
+		tenshi.NormalText(playerID);
+		miyuki.NormalText(playerID);
+		negev.NormalText(playerID);
 	}
 	// 7 ~ 12
-	if (v.Sound_Text2[cp] > 0)
+	if (v.Sound_Text2[playerID] > 0)
 	{
-		cecillia.NormalText(cp);
-		anzu.NormalText(cp);
-		hotomoka.NormalText(cp);
-		alterego.NormalText(cp);
-		//kurumi.NormalText(cp);
-		ryuzu.NormalText(cp);
+		cecillia.NormalText(playerID);
+		anzu.NormalText(playerID);
+		hotomoka.NormalText(playerID);
+		alterego.NormalText(playerID);
+		//kurumi.NormalText(playerID);
+		ryuzu.NormalText(playerID);
 	}
 	
 	// 13 ~ 18
-	if (v.Sound_Text3[cp] > 0)
+	if (v.Sound_Text3[playerID] > 0)
 	{
-		sakura.NormalText(cp);
-		yashiro.NormalText(cp);
-		rin.NormalText(cp);
-		seraphim.NormalText(cp);
-		tenkei.NormalText(cp);
+		sakura.NormalText(playerID);
+		yashiro.NormalText(playerID);
+		rin.NormalText(playerID);
+		seraphim.NormalText(playerID);
+		tenkei.NormalText(playerID);
 	}
 		
 	// 19 ~ 24
-	if (v.Sound_Text4[cp] > 0)
+	if (v.Sound_Text4[playerID] > 0)
 	{
-		mn.NormalText(cp);
-		emet.NormalText(cp);
-		magellan.NormalText(cp);
+		mn.NormalText(playerID);
+		emet.NormalText(playerID);
+		magellan.NormalText(playerID);
 	}
 	
-	if (v.Sound_Text_Uilti[cp] > 0)
+	if (v.Sound_Text_Uilti[playerID] > 0)
 	{
 		// 1 ~ 6
-		maihime.UiltimateText(cp);
-		tenshi.UiltimateText(cp);
-		miyuki.UiltimateText(cp);
-		negev.UiltimateText(cp);
+		maihime.UiltimateText(playerID);
+		tenshi.UiltimateText(playerID);
+		miyuki.UiltimateText(playerID);
+		negev.UiltimateText(playerID);
 		
 		// 7 ~ 12
-		cecillia.UiltimateText(cp);
-		anzu.UiltimateText(cp);
-		hotomoka.UiltimateText(cp);
-		alterego.UiltimateText(cp);
-		//kurumi.UiltimateText(cp);
-		ryuzu.UiltimateText(cp);
+		cecillia.UiltimateText(playerID);
+		anzu.UiltimateText(playerID);
+		hotomoka.UiltimateText(playerID);
+		alterego.UiltimateText(playerID);
+		//kurumi.UiltimateText(playerID);
+		ryuzu.UiltimateText(playerID);
 		
 		// 13 ~ 18
-		sakura.UiltimateText(cp);
-		yashiro.UiltimateText(cp);
-		rin.UiltimateText(cp);
-		seraphim.UiltimateText(cp);
-		tenkei.UiltimateText(cp);
+		sakura.UiltimateText(playerID);
+		yashiro.UiltimateText(playerID);
+		rin.UiltimateText(playerID);
+		seraphim.UiltimateText(playerID);
+		tenkei.UiltimateText(playerID);
 		
 		// 19 ~ 24
-		mn.UiltimateText(cp);
-		emet.UiltimateText(cp);
-		magellan.UiltimateText(cp);
+		mn.UiltimateText(playerID);
+		emet.UiltimateText(playerID);
+		magellan.UiltimateText(playerID);
 	}
 	
-	if (v.Sound_Text_Uniq[cp] > 0)
+	if (v.Sound_Text_Uniq[playerID] > 0)
 	{
 		// 1 ~ 6
-		maihime.UniqueText(cp);
-		tenshi.UniqueText(cp);
-		miyuki.UniqueText(cp);
-		negev.UniqueText(cp);
+		maihime.UniqueText(playerID);
+		tenshi.UniqueText(playerID);
+		miyuki.UniqueText(playerID);
+		negev.UniqueText(playerID);
 		
 		// 7 ~ 12// 7 ~ 12
-		cecillia.UniqueText(cp);
-		anzu.UniqueText(cp);
-		hotomoka.UniqueText(cp);
-		alterego.UniqueText(cp);
-		//kurumi.UniqueText(cp);
-		ryuzu.UniqueText(cp);
+		cecillia.UniqueText(playerID);
+		anzu.UniqueText(playerID);
+		hotomoka.UniqueText(playerID);
+		alterego.UniqueText(playerID);
+		//kurumi.UniqueText(playerID);
+		ryuzu.UniqueText(playerID);
 		
 		// 13 ~ 18// 13 ~ 18
-		sakura.UniqueText(cp);
-		yashiro.UniqueText(cp);
-		rin.UniqueText(cp);
-		seraphim.UniqueText(cp);
-		tenkei.UniqueText(cp);
+		sakura.UniqueText(playerID);
+		yashiro.UniqueText(playerID);
+		rin.UniqueText(playerID);
+		seraphim.UniqueText(playerID);
+		tenkei.UniqueText(playerID);
 		
 		// 19 ~ 24// 13 ~ 18
-		mn.UniqueText(cp);
-		emet.UniqueText(cp);
-		magellan.UniqueText(cp);
+		mn.UniqueText(playerID);
+		emet.UniqueText(playerID);
+		magellan.UniqueText(playerID);
 	}
 }
 

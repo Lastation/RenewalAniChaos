@@ -2,8 +2,62 @@ import PluginVariables as msqcvar;
 import variable as v;
 import func.shape as s;
 
-function SkillList(cp);
+import Character.Group1.Rusaruka.Common.O as O;
+import Character.Group1.Rusaruka.Common.S as S;
+import Character.Group1.Rusaruka.Common.C as C;
+import Character.Group1.Rusaruka.Common.A as A;
 
-function main(cp)
+import Character.Group1.Rusaruka.Combo.Combo1 as SSS;
+import Character.Group1.Rusaruka.Combo.Combo2 as CCC;
+import Character.Group1.Rusaruka.Combo.Combo3 as CCCAA;
+import Character.Group1.Rusaruka.Combo.Combo4 as ACC;
+import Character.Group1.Rusaruka.Uiltimate.Uiltimate1 as AAAC;
+
+function SkillList(playerID);
+
+function main(playerID)
 {
+	v.P_CharacterID[playerID] = 32;
+	v.P_LocationID[playerID] = 51;
+	
+	v.P_Ultimate1[playerID] = 650;
+	
+	// Commed Setting
+	commend.main(playerID);
+	SkillList(playerID);
+	
+	if (v.P_Wait[playerID] == 0)
+	{
+		switch(v.P_Step[playerID])
+		{
+		case 1:
+			O.main(playerID);
+			break;
+		case 100:
+			S.main(playerID);
+			break;
+		case 200:
+			C.main(playerID);
+			break;
+		case 300:
+			A.main(playerID);
+			break;
+		case 110:
+			Combo1.main(playerID);
+			break;
+		case 210:
+			Combo2.main(playerID);
+			break;
+		case 220:
+			Combo3.main(playerID);
+			break;
+		case 310:
+			Combo4.main(playerID);
+			break;
+		case 320:
+			Uiltimate.main(playerID);
+			break;
+		}
+	}
+	
 }

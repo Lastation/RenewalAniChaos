@@ -1,80 +1,80 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
-function main(cp)
+function main(playerID)
 {
-   if (f.delay[cp] == 0)
+   if (v.P_Delay[playerID] == 0)
    {
-      if (f.count[cp] == 0)
+      if (v.P_CountMain[playerID] == 0)
       {
-         if (f.loop[cp] == 0)
+         if (v.P_LoopMain[playerID] == 0)
          {                        
-            f.NxNSquareShape(cp, 1, "40 + 1n Mojo", 3, 50);
-            f.SquareShape(cp, 1, "40 + 1n Marine", 50, 50);
-            f.SquareShape(cp, 1, "40 + 1n Marine", 0, 50);
+            s.Shape_NxNSquare(playerID, 1, "40 + 1n Mojo", 3, 50);
+            s.Shape_Square(playerID, 1, "40 + 1n Marine", 50, 50);
+            s.Shape_Square(playerID, 1, "40 + 1n Marine", 0, 50);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, "40 + 1n Marine", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-            Order("40 + 1n Marine", cp, "Anywhere", Attack, f.location[cp]);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "40 + 1n Marine", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("40 + 1n Marine", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
-            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
             
-            f.SkillWait(cp, 160);
-            f.count[cp] += 1;
-            f.loop[cp] = 0;
+            s.SkillWait(160);
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
          }
       }
-      else if (f.count[cp] == 1)
+      else if (v.P_CountMain[playerID] == 1)
       {
-         if (f.loop[cp] < 4)
+         if (v.P_LoopMain[playerID] < 4)
          {         
-            f.DotShape(cp, 1, "Protoss Dark Templar", 100 - 50 * f.loop[cp], 100);
-            f.DotShape(cp, 1, "Protoss Dark Templar", -100 + 50 * f.loop[cp], -100);
-            f.DotShape(cp, 1, "40 + 1n Zealot", -100, 100 - 50 * f.loop[cp]);
-            f.DotShape(cp, 1, "40 + 1n Zealot", 100, -100 + 50 * f.loop[cp]);
-            KillUnitAt(All, "40 + 1n Zealot", "Anywhere", cp);
-            KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp);
+            s.Shape_Dot(playerID, 1, "Protoss Dark Templar", 100 - 50 * v.P_LoopMain[playerID], 100);
+            s.Shape_Dot(playerID, 1, "Protoss Dark Templar", -100 + 50 * v.P_LoopMain[playerID], -100);
+            s.Shape_Dot(playerID, 1, "40 + 1n Zealot", -100, 100 - 50 * v.P_LoopMain[playerID]);
+            s.Shape_Dot(playerID, 1, "40 + 1n Zealot", 100, -100 + 50 * v.P_LoopMain[playerID]);
+            KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID);
+            KillUnitAt(All, "Protoss Dark Templar", "Anywhere", playerID);
 
-            f.SkillWait(cp, 80);
-            f.loop[cp] += 1;
+            s.SkillWait(80);
+            v.P_LoopMain[playerID] += 1;
          }
-         else if (f.loop[cp] == 4)
+         else if (v.P_LoopMain[playerID] == 4)
          {
-            KillUnitAt(All, "40 + 1n Marine", "Anywhere", cp);
-            f.NxNSquareShape(cp, 1, "Kakaru (Twilight)", 3, 50);
-            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
-            f.EdgeShape(cp, 1, "40 + 1n Ghost", 45, 3, 75);
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, "40 + 1n Ghost", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-            Order("40 + 1n Ghost", cp, "Anywhere", Attack, f.location[cp]);
+            KillUnitAt(All, "40 + 1n Marine", "Anywhere", playerID);
+            s.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 3, 50);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+            s.EdgeShape(playerID, 1, "40 + 1n Ghost", 45, 3, 75);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
-            f.SkillWait(cp, 320);
+            s.SkillWait(320);
 
-            f.loop[cp] += 1;
+            v.P_LoopMain[playerID] += 1;
          }
-         else if (f.loop[cp] == 5)
+         else if (v.P_LoopMain[playerID] == 5)
          {
-            KillUnitAt(All, "40 + 1n Ghost", "Anywhere", cp);
-            f.EdgeShape(cp, 1, "60 + 1n Danimoth", 45, 5, 100);
-            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
-            f.EdgeShape(cp, 1, "40 + 1n Ghost", 45, 3, 100);
-            f.EdgeShape(cp, 1, "60 + 1n Archon", 45, 4, 100);
-            KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
+            s.EdgeShape(playerID, 1, "60 + 1n Danimoth", 45, 5, 100);
+            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+            s.EdgeShape(playerID, 1, "40 + 1n Ghost", 45, 3, 100);
+            s.EdgeShape(playerID, 1, "60 + 1n Archon", 45, 4, 100);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, "40 + 1n Ghost", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-            Order("40 + 1n Ghost", cp, "Anywhere", Attack, f.location[cp]);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
-            f.SkillWait(cp, 320);
+            s.SkillWait(320);
 
-            f.count[cp] += 1;
-            f.loop[cp] = 0;
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
          }
       }
-      else if (f.count[cp] == 2)
+      else if (v.P_CountMain[playerID] == 2)
       {
-         KillUnitAt(All, "40 + 1n Ghost", "Anywhere", cp);
-         f.SkillEnd(cp);
+         KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
+         s.SkillEnd();
       }
    }
 }

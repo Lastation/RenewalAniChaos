@@ -1,53 +1,53 @@
 import PluginVariables as msqcvar;
 import Variable as v;
-import Function as f;
+import func.shape as s;
 
-function NormalText(cp)
+function NormalText(playerID)
 {
-	switch (v.Sound_Text1[cp])
+	switch (v.Sound_Text1[playerID])
 	{
 	case 6000:
 		PlayWAV("Negev_01.ogg");
-		f.stb.print("\n\x13\x06Negev\n\x13\x04「　사라져　」\n");
-		v.Sound_Text1[cp] = 0;
+		s.stb.print("\n\x13\x06Negev\n\x13\x04「　사라져　」\n");
+		v.Sound_Text1[playerID] = 0;
 		break;
 	case 6001:
 		PlayWAV("Negev_02.ogg");
-		f.stb.print("\n\x13\x06Negev\n\x13\x04「　\x06벌레\x04같은 녀석들이...　\x04」\n");
-		v.Sound_Text1[cp] = 0;
+		s.stb.print("\n\x13\x06Negev\n\x13\x04「　\x06벌레\x04같은 녀석들이...　\x04」\n");
+		v.Sound_Text1[playerID] = 0;
 		break;
 	case 6002:
-		f.stb.print("\n\x13\x06Negev\n\x13\x04「　\x06죽어!　\x04」\n");
-		v.Sound_Text1[cp] = 0;
+		s.stb.print("\n\x13\x06Negev\n\x13\x04「　\x06죽어!　\x04」\n");
+		v.Sound_Text1[playerID] = 0;
 		break;
 	case 6100:
 		PlayWAV("Negev_03.ogg");
-		f.stb.print("\n\x13\x06Negev\n\x13\x04「　\x06벌레\x04는 용서하지 않아, 최고의 얼굴로 \x06죽여주도록 할까　\x04」\n");
-		v.Sound_Text1[cp] = 0;
+		s.stb.print("\n\x13\x06Negev\n\x13\x04「　\x06벌레\x04는 용서하지 않아, 최고의 얼굴로 \x06죽여주도록 할까　\x04」\n");
+		v.Sound_Text1[playerID] = 0;
 		break;
 	}
 }
 
-function UiltimateText(cp)
+function UiltimateText(playerID)
 {
-	switch (v.Sound_Text_Uilti[cp]) 
+	switch (v.Sound_Text_Uilti[playerID]) 
 	{
 	case 6000:
 		PlayWAV("Negev_Uiltimate.ogg");
-		f.stb.printAt(3,"\x13\x06Negev\n\n\x13\x04「　우후훗… \x06아무도 날 쓰러뜨릴 수 없어!　\x04」");
-		v.Sound_Text_Uilti[cp] = 0;
+		s.stb.printAt(3,"\x13\x06Negev\n\n\x13\x04「　우후훗… \x06아무도 날 쓰러뜨릴 수 없어!　\x04」");
+		v.Sound_Text_Uilti[playerID] = 0;
 		break;
 	}
 }
 
-function UniqueText(cp)
+function UniqueText(playerID)
 {
-	switch (v.Sound_Text_Uniq[cp])
+	switch (v.Sound_Text_Uniq[playerID])
 	{
 	case 6000:
 		PlayWAV("Negev_Unique.ogg");
-		f.stb.printAt(3, "\x13\x06Negev\n\x13\x04「　후후, 햇병아리 자식들, 알았어 내가 지도해 주도록 하지.　」");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.printAt(3, "\x13\x06Negev\n\x13\x04「　후후, 햇병아리 자식들, 알았어 내가 지도해 주도록 하지.　」");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	}
 }

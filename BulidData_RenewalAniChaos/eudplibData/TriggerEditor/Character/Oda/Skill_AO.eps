@@ -1,92 +1,92 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
-function main(cp)
+function main(playerID)
 {
-   f.BanReturn(cp);
-   f.HoldPosition(cp);
+   s.BanReturn(playerID);
+   s.HoldPosition(playerID);
 
-   if (f.delay[cp] == 0)
+   if (v.P_Delay[playerID] == 0)
    {
-      if (f.count[cp] == 0)
+      if (v.P_CountMain[playerID] == 0)
       {
-         if (f.loop[cp] == 0)
+         if (v.P_LoopMain[playerID] == 0)
          {
             SetSwitch("Recall - Oda", Set);
          }
 
-         f.Table_Sin(cp, 22 * f.loop[cp], 200);
-         f.Table_Cos(cp, 22 * f.loop[cp], 200);
+         s.Table_Sin(playerID, 22 * v.P_LoopMain[playerID], 200);
+         s.Table_Cos(playerID, 22 * v.P_LoopMain[playerID], 200);
 
-         var x = f.CosAngle[cp];
-         var y = f.SinAngle[cp];
+         var x = v.P_AngleCos[playerID];
+         var y = v.P_AngleSin[playerID];
 
-         f.DoubleShape(cp, 1, "Bengalaas (Jungle)", x, y);
-         KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", cp);
+         s.DoubleShape(playerID, 1, "Bengalaas (Jungle)", x, y);
+         KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", playerID);
 
-         if (f.loop[cp] == 73)
+         if (v.P_LoopMain[playerID] == 73)
          {
-            f.Voice_Routine(cp, 29);
+            s.Voice_Routine(playerID, 29);
          }
-         if (f.loop[cp] == 144)
+         if (v.P_LoopMain[playerID] == 144)
          {
-            f.Voice_Routine(cp, 30);
+            s.Voice_Routine(playerID, 30);
          }
-         if (f.loop[cp] == 215)
+         if (v.P_LoopMain[playerID] == 215)
          {
-            f.Voice_Routine(cp, 31);
+            s.Voice_Routine(playerID, 31);
          }
-         if (f.loop[cp] == 279)
+         if (v.P_LoopMain[playerID] == 279)
          {
-            f.Voice_Routine(cp, 32);
+            s.Voice_Routine(playerID, 32);
          }
-         if (f.loop[cp] == 334)
+         if (v.P_LoopMain[playerID] == 334)
          {
-            f.Voice_Routine(cp, 33);
+            s.Voice_Routine(playerID, 33);
          }
 
-         f.SkillWait(cp, 80);
+         s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 398)
+         if (v.P_LoopMain[playerID] == 398)
          {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 1)
+      else if (v.P_CountMain[playerID] == 1)
       {
-         f.Table_Sin(cp, 0, 100);
-         f.Table_Cos(cp, 0, 100);
+         s.Table_Sin(playerID, 0, 100);
+         s.Table_Cos(playerID, 0, 100);
 
-         f.SquareShape(cp, 1, " Unit. Hoffnung 25000", f.CosAngle[cp], f.SinAngle[cp]);
+         s.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-         f.Table_Sin(cp, 45, 100);
-         f.Table_Cos(cp, 45, 100);
+         s.Table_Sin(playerID, 45, 100);
+         s.Table_Cos(playerID, 45, 100);
 
-         f.SquareShape(cp, 1, " Unit. Hoffnung 25000", f.CosAngle[cp], f.SinAngle[cp]);
+         s.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-         f.Table_Sin(cp, 0, 200);
-         f.Table_Cos(cp, 0, 200);
+         s.Table_Sin(playerID, 0, 200);
+         s.Table_Cos(playerID, 0, 200);
 
-         f.SquareShape(cp, 1, " Unit. Hoffnung 25000", f.CosAngle[cp], f.SinAngle[cp]);
+         s.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-         f.Table_Sin(cp, 45, 200);
-         f.Table_Cos(cp, 45, 200);
+         s.Table_Sin(playerID, 45, 200);
+         s.Table_Cos(playerID, 45, 200);
 
-         f.SquareShape(cp, 1, " Unit. Hoffnung 25000", f.CosAngle[cp], f.SinAngle[cp]);
+         s.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-         KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+         KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
 
-         f.Voice_Routine(cp, 34);
+         s.Voice_Routine(playerID, 34);
 
          SetSwitch("Recall - Oda", Clear);
          SetSwitch("Reinforce - Oda", Set);
 
-         f.SkillEnd(cp);
+         s.SkillEnd();
       }
    }
-   MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+   MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
 
 }

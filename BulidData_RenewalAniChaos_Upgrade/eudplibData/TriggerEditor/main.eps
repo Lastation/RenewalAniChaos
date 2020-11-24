@@ -2,12 +2,29 @@ import PluginVariables as msqcvar;
 import variable as v;
 import func.shape as s;
 
+import Character.Group1.Rusaruka.Common.Skill_O as O;
+
 const stb = StringBuffer();
 
 function onPluginStart() 	// 초기화 함수
 {
 	
 }
+
+function Skill_Variable(playerID)
+{
+	if (v.P_WaitMain[playerID] == 0)
+	{
+		if 		(v.P_CountMain[playerID] == 999)	{ v.P_CountMain[playerID] = 1000; s.Main_Wait(500); }
+		else if 	(v.P_CountMain[playerID] == 1000)	{ v.P_CountMain[playerID] = 0; v.P_LoopMain[playerID] = 0; v.P_SkillDelay[playerID] = 12; }
+	}
+	
+	if 		(v.P_SkillDelay[playerID] >= 2) 	{ v.P_SkillDelay[playerID] -= 1; }
+	else if 	(v.P_SkillDelay[playerID] == 1) 	{ v.P_SkillDelay[playerID] = 0; v.P_Step[playerID] = 0; }
+
+	if (v.P_WaitMain[playerID] >= 1) { v.P_WaitMain[playerID] -= 1; }
+}
+
 
 function beforeTriggerExec() 
 {
@@ -20,10 +37,13 @@ function beforeTriggerExec()
 		setcurpl(Player);
 		v.P_PlayerID[Player] = Player;
 		MuteUnitSpeech();
-		stb.print("Now Player = ", getuserplayerid(), "");
 		
-		s.Shape_NxNSquare(Player, 1, "50 + 1n Battlecruiser", 2, 64);
-		KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", Player);
+		v.P_CharacterID[Player] = 51;
+		v.P_LocationID[Player] = 32;
+		O.main(Player);
+		
+		Skill_Variable(Player);
+		
 	}
 	
 	// Observer Loop
@@ -31,6 +51,5 @@ function beforeTriggerExec()
 	{
 		setcurpl(Observer);
 		MuteUnitSpeech();
-		stb.print("Now Player = ", getuserplayerid(), "");
 	}
 }

@@ -1,198 +1,198 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
-function main(cp)
+function main(playerID)
 {
-   if (f.delay[cp] == 0)
+   if (v.P_Delay[playerID] == 0)
    {
-      if (f.count[cp] == 0)
+      if (v.P_CountMain[playerID] == 0)
       {
-         if (f.loop[cp] == 0)
+         if (v.P_LoopMain[playerID] == 0)
          {
-            f.ShieldFix(cp, 1);
-            f.SquareShape(cp, 1, "40 + 1n Guardian", 75, 25);
-            f.SquareShape(cp, 1, "40 + 1n Guardian", 25, 75);
-            f.SquareShape(cp, 1, "50 + 1n Tank", 75, 25);
-            f.SquareShape(cp, 1, "50 + 1n Tank", 25, 75);
-            KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
-            Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]); 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            s.ShieldFix(playerID, 1);
+            s.Shape_Square(playerID, 1, "40 + 1n Guardian", 75, 25);
+            s.Shape_Square(playerID, 1, "40 + 1n Guardian", 25, 75);
+            s.Shape_Square(playerID, 1, "50 + 1n Tank", 75, 25);
+            s.Shape_Square(playerID, 1, "50 + 1n Tank", 25, 75);
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
+            Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]); 
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
          }
-         if (f.loop[cp] == 2)
+         if (v.P_LoopMain[playerID] == 2)
          {
-         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
          }
 
-         if (f.loop[cp] == 4)
+         if (v.P_LoopMain[playerID] == 4)
          {
-            f.SquareShape(cp, 1, "40 + 1n Guardian", 75, 0);
-            f.SquareShape(cp, 1, "40 + 1n Guardian", 50, 50);
-            f.SquareShape(cp, 1, "40 + 1n Guardian", 100, 100);
-            f.SquareShape(cp, 1, "40 + 1n Mutalisk", 50, 25);
-            f.SquareShape(cp, 1, "40 + 1n Mutalisk", 25, 50);
-            Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]); 
-            KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            s.Shape_Square(playerID, 1, "40 + 1n Guardian", 75, 0);
+            s.Shape_Square(playerID, 1, "40 + 1n Guardian", 50, 50);
+            s.Shape_Square(playerID, 1, "40 + 1n Guardian", 100, 100);
+            s.Shape_Square(playerID, 1, "40 + 1n Mutalisk", 50, 25);
+            s.Shape_Square(playerID, 1, "40 + 1n Mutalisk", 25, 50);
+            Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]); 
+            KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
          }
-         if (f.loop[cp] == 10)
+         if (v.P_LoopMain[playerID] == 10)
          {
-            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-            f.SquareShape(cp, 1, "50 + 1n Tank", 75, 0);
-            f.SquareShape(cp, 1, "50 + 1n Tank", 50, 50);
-            f.SquareShape(cp, 1, "50 + 1n Tank", 100, 100);
-            f.SquareShape(cp, 1, "50 + 1n Tank", 125, 0);
-            f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 3, 75);
-            Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]); 
-            KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            s.Shape_Square(playerID, 1, "50 + 1n Tank", 75, 0);
+            s.Shape_Square(playerID, 1, "50 + 1n Tank", 50, 50);
+            s.Shape_Square(playerID, 1, "50 + 1n Tank", 100, 100);
+            s.Shape_Square(playerID, 1, "50 + 1n Tank", 125, 0);
+            s.Shape_NxNSquare(playerID, 1, "40 + 1n Guardian", 3, 75);
+            Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]); 
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
          }
-         f.SkillWait(cp, 80);
+         s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 12)
+         if (v.P_LoopMain[playerID] == 12)
          {
-         f.count[cp] += 1;
-         f.loop[cp] = 0;
+         v.P_CountMain[playerID] += 1;
+         v.P_LoopMain[playerID] = 0;
          }
 
       }
          
-      else if (f.count[cp] == 1)
+      else if (v.P_CountMain[playerID] == 1)
       {
-         if (f.loop[cp] == 0)
+         if (v.P_LoopMain[playerID] == 0)
          {
-         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-         f.DoubleShape(cp, 1, "50 + 1n Battlecruiser", 125, 0);
-         f.EdgeShape(cp, 1, "40 + 1n Goliath", 45,2, 32);
-         MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-         Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]); 
-         Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);     
+         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+         s.DoubleShape(playerID, 1, "50 + 1n Battlecruiser", 125, 0);
+         s.EdgeShape(playerID, 1, "40 + 1n Goliath", 45,2, 32);
+         MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+         Order("40 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]); 
+         Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);     
          }
-         if (f.loop[cp] == 4 )
+         if (v.P_LoopMain[playerID] == 4 )
          {
-         KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
-         KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
-         KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-         f.DotShape(cp, 1, "40 + 1n Mojo", 0, 0);
-         Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+         KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
+         KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+         KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+         s.Shape_Dot(playerID, 1, "40 + 1n Mojo", 0, 0);
+         Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
          }
-         if (f.loop[cp] == 6 )
+         if (v.P_LoopMain[playerID] == 6 )
          {
-         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-         f.DotShape(cp, 1, "40 + 1n Mojo", 0, 0);
-         Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+         s.Shape_Dot(playerID, 1, "40 + 1n Mojo", 0, 0);
+         Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
          }
-         if (f.loop[cp] == 8 )
+         if (v.P_LoopMain[playerID] == 8 )
          {
-         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-         f.DotShape(cp, 1, "40 + 1n Mojo", 0, 0);
-         Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+         s.Shape_Dot(playerID, 1, "40 + 1n Mojo", 0, 0);
+         Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
          }
-         if (f.loop[cp] == 10 )
+         if (v.P_LoopMain[playerID] == 10 )
          {
-         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-         f.DotShape(cp, 1, "40 + 1n Mojo", 0, 0);
-         Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+         s.Shape_Dot(playerID, 1, "40 + 1n Mojo", 0, 0);
+         Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
          }
-         if (f.loop[cp] == 12 )
+         if (v.P_LoopMain[playerID] == 12 )
          {
-         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-         f.DotShape(cp, 1, "40 + 1n Mojo", 0, 0);
-         Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+         s.Shape_Dot(playerID, 1, "40 + 1n Mojo", 0, 0);
+         Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
          }
-         if (f.loop[cp] == 14 )
+         if (v.P_LoopMain[playerID] == 14 )
          {
-         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-         f.SquareShape(cp, 1, "40 + 1n Mojo", 50, 50);
-         Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+         s.Shape_Square(playerID, 1, "40 + 1n Mojo", 50, 50);
+         Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
          }
-         if (f.loop[cp] == 16 )
+         if (v.P_LoopMain[playerID] == 16 )
          {
-         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-         f.SquareShape(cp, 1, "40 + 1n Mojo", 50, 50);
-         Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+         s.Shape_Square(playerID, 1, "40 + 1n Mojo", 50, 50);
+         Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
          }
          
-       f.SkillWait(cp, 80);
+       s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 18)
+         if (v.P_LoopMain[playerID] == 18)
          {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 2)
+      else if (v.P_CountMain[playerID] == 2)
       {
-         if (f.loop[cp] == 0)
+         if (v.P_LoopMain[playerID] == 0)
          {
-         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
          }
-         if (f.loop[cp] == 4 )
+         if (v.P_LoopMain[playerID] == 4 )
          {
-            f.NxNSquareShape(cp, 1, "40 + 1n Ghost", 3, 75);
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Ghost", cp, "Anywhere", Attack, f.location[cp]);    
-         }
-
-         if (f.loop[cp] == 6 )
-         {
-            KillUnitAt(All, "40 + 1n Ghost", "Anywhere", cp);
-            f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 3, 75);
-            f.SquareShape(cp, 1, "40 + 1n Guardian", 0, 150);
-            f.NxNSquareShape(cp, 1, "Terran Science Vessel", 3, 75);
-            f.SquareShape(cp, 1, "Terran Science Vessel", 0, 150);
-            KillUnitAt(All, "Terran Science Vessel", "Anywhere", cp);
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);    
+            s.Shape_NxNSquare(playerID, 1, "40 + 1n Ghost", 3, 75);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);    
          }
 
-
-       f.SkillWait(cp, 80);
-
-         f.loop[cp] += 1;
-
-         if (f.loop[cp] == 10)
+         if (v.P_LoopMain[playerID] == 6 )
          {
-            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
+            s.Shape_NxNSquare(playerID, 1, "40 + 1n Guardian", 3, 75);
+            s.Shape_Square(playerID, 1, "40 + 1n Guardian", 0, 150);
+            s.Shape_NxNSquare(playerID, 1, "Terran Science Vessel", 3, 75);
+            s.Shape_Square(playerID, 1, "Terran Science Vessel", 0, 150);
+            KillUnitAt(All, "Terran Science Vessel", "Anywhere", playerID);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);    
+         }
+
+
+       s.SkillWait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 10)
+         {
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 3)
+      else if (v.P_CountMain[playerID] == 3)
       {
-         if (f.loop[cp] == 6 )
+         if (v.P_LoopMain[playerID] == 6 )
          {
-            f.NxNSquareShape(cp, 1, "40 + 1n Ghost", 3, 75);
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Ghost", cp, "Anywhere", Attack, f.location[cp]);    
+            s.Shape_NxNSquare(playerID, 1, "40 + 1n Ghost", 3, 75);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);    
          }
-         if (f.loop[cp] == 8 )
+         if (v.P_LoopMain[playerID] == 8 )
          {
-            KillUnitAt(All, "40 + 1n Ghost", "Anywhere", cp);
-            f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 3, 75);
-            f.SquareShape(cp, 1, "40 + 1n Guardian", 0, 150);
-            f.NxNSquareShape(cp, 1, "Terran Science Vessel", 3, 75);
-            f.SquareShape(cp, 1, "Terran Science Vessel", 0, 150);
-            KillUnitAt(All, "Terran Science Vessel", "Anywhere", cp);
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);   
+            KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
+            s.Shape_NxNSquare(playerID, 1, "40 + 1n Guardian", 3, 75);
+            s.Shape_Square(playerID, 1, "40 + 1n Guardian", 0, 150);
+            s.Shape_NxNSquare(playerID, 1, "Terran Science Vessel", 3, 75);
+            s.Shape_Square(playerID, 1, "Terran Science Vessel", 0, 150);
+            KillUnitAt(All, "Terran Science Vessel", "Anywhere", playerID);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);   
          }
 
-       f.SkillWait(cp, 80);
+       s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 12)
+         if (v.P_LoopMain[playerID] == 12)
          {
-            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-            SetDeaths(cp, SetTo, 0, " `ShieldRecharge");
-            f.SkillEnd(cp);
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            SetDeaths(playerID, SetTo, 0, " `ShieldRecharge");
+            s.SkillEnd();
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
    }

@@ -1,185 +1,185 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
-function main(cp)
+function main(playerID)
 {
-   ModifyUnitShields(All, f.heroID[cp], cp, "Anywhere", 1);
+   ModifyUnitShields(All, v.P_CharacterID[playerID], playerID, "Anywhere", 1);
 
-   if (f.delay[cp] == 0)
+   if (v.P_Delay[playerID] == 0)
    {
-      if (f.count[cp] == 0)
+      if (v.P_CountMain[playerID] == 0)
       {
-         if (f.loop[cp] < 8)
+         if (v.P_LoopMain[playerID] < 8)
          {             
-            if (f.loop[cp] == 0)
+            if (v.P_LoopMain[playerID] == 0)
             {
-               f.Table_Sin(cp, 22, 50);
-               f.Table_Cos(cp, 22, 50);
+               s.Table_Sin(playerID, 22, 50);
+               s.Table_Cos(playerID, 22, 50);
 
-               f.SquareShape(cp, 1, "40 + 1n Wraith", f.CosAngle[cp], f.SinAngle[cp]);
-               f.SquareShape(cp, 1, "40 + 1n Zealot", f.CosAngle[cp], f.SinAngle[cp]);
+               s.Shape_Square(playerID, 1, "40 + 1n Wraith", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+               s.Shape_Square(playerID, 1, "40 + 1n Zealot", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-               f.Table_Sin(cp, 67, 100);
-               f.Table_Cos(cp, 67, 100);
+               s.Table_Sin(playerID, 67, 100);
+               s.Table_Cos(playerID, 67, 100);
 
-               f.SquareShape(cp, 1, "40 + 1n Wraith", f.CosAngle[cp], f.SinAngle[cp]);
-               f.SquareShape(cp, 1, "40 + 1n Zealot", f.CosAngle[cp], f.SinAngle[cp]);
+               s.Shape_Square(playerID, 1, "40 + 1n Wraith", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+               s.Shape_Square(playerID, 1, "40 + 1n Zealot", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
             }
-            else if (f.loop[cp] == 2)
+            else if (v.P_LoopMain[playerID] == 2)
             {
-               RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+               RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
 
-               f.Table_Sin(cp, 22, 100);
-               f.Table_Cos(cp, 22, 100);
+               s.Table_Sin(playerID, 22, 100);
+               s.Table_Cos(playerID, 22, 100);
 
-               f.SquareShape(cp, 1, "40 + 1n Wraith", f.CosAngle[cp], f.SinAngle[cp]);
-               f.SquareShape(cp, 1, "40 + 1n Zealot", f.CosAngle[cp], f.SinAngle[cp]);
+               s.Shape_Square(playerID, 1, "40 + 1n Wraith", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+               s.Shape_Square(playerID, 1, "40 + 1n Zealot", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-               f.Table_Sin(cp, 67, 150);
-               f.Table_Cos(cp, 67, 150);
+               s.Table_Sin(playerID, 67, 150);
+               s.Table_Cos(playerID, 67, 150);
 
-               f.SquareShape(cp, 1, "40 + 1n Wraith", f.CosAngle[cp], f.SinAngle[cp]);
-               f.SquareShape(cp, 1, "40 + 1n Zealot", f.CosAngle[cp], f.SinAngle[cp]);
+               s.Shape_Square(playerID, 1, "40 + 1n Wraith", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+               s.Shape_Square(playerID, 1, "40 + 1n Zealot", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
             }
-            else if (f.loop[cp] == 4)
+            else if (v.P_LoopMain[playerID] == 4)
             {
-               RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+               RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
 
-               f.Table_Sin(cp, 22, 50);
-               f.Table_Cos(cp, 22, 50);
+               s.Table_Sin(playerID, 22, 50);
+               s.Table_Cos(playerID, 22, 50);
 
-               f.SquareShape(cp, 1, " Unit. Hoffnung 25000", f.CosAngle[cp], f.SinAngle[cp]);
-               f.SquareShape(cp, 1, "Kakaru (Twilight)", f.CosAngle[cp], f.SinAngle[cp]);
+               s.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+               s.Shape_Square(playerID, 1, "Kakaru (Twilight)", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-               f.Table_Sin(cp, 67, 100);
-               f.Table_Cos(cp, 67, 100);
+               s.Table_Sin(playerID, 67, 100);
+               s.Table_Cos(playerID, 67, 100);
 
-               f.SquareShape(cp, 1, " Unit. Hoffnung 25000", f.CosAngle[cp], f.SinAngle[cp]);
-               f.SquareShape(cp, 1, "Kakaru (Twilight)", f.CosAngle[cp], f.SinAngle[cp]);
+               s.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+               s.Shape_Square(playerID, 1, "Kakaru (Twilight)", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-               f.Table_Sin(cp, 22, 100);
-               f.Table_Cos(cp, 22, 100);
+               s.Table_Sin(playerID, 22, 100);
+               s.Table_Cos(playerID, 22, 100);
 
-               f.SquareShape(cp, 1, " Unit. Hoffnung 25000", f.CosAngle[cp], f.SinAngle[cp]);
-               f.SquareShape(cp, 1, "Kakaru (Twilight)", f.CosAngle[cp], f.SinAngle[cp]);
+               s.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+               s.Shape_Square(playerID, 1, "Kakaru (Twilight)", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-               f.Table_Sin(cp, 67, 150);
-               f.Table_Cos(cp, 67, 150);
+               s.Table_Sin(playerID, 67, 150);
+               s.Table_Cos(playerID, 67, 150);
 
-               f.SquareShape(cp, 1, " Unit. Hoffnung 25000", f.CosAngle[cp], f.SinAngle[cp]);
-               f.SquareShape(cp, 1, "Kakaru (Twilight)", f.CosAngle[cp], f.SinAngle[cp]);
+               s.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+               s.Shape_Square(playerID, 1, "Kakaru (Twilight)", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-               f.Table_Sin(cp, 22, 150);
-               f.Table_Cos(cp, 22, 150);
+               s.Table_Sin(playerID, 22, 150);
+               s.Table_Cos(playerID, 22, 150);
 
-               f.SquareShape(cp, 1, " Unit. Hoffnung 25000", f.CosAngle[cp], f.SinAngle[cp]);
-               f.SquareShape(cp, 1, "Kakaru (Twilight)", f.CosAngle[cp], f.SinAngle[cp]);
+               s.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+               s.Shape_Square(playerID, 1, "Kakaru (Twilight)", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-               KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
-               KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
+               KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+               KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
             }
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Wraith", cp, "Anywhere", Attack, "Anywhere");
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, "Anywhere");
 
-            f.SquareShape(cp, 1, "40 + 1n Guardian", 160 - 40 * f.loop[cp], 160);
-            f.SquareShape(cp, 1, "60 + 1n Archon", 160 - 40 * f.loop[cp], 160);
+            s.Shape_Square(playerID, 1, "40 + 1n Guardian", 160 - 40 * v.P_LoopMain[playerID], 160);
+            s.Shape_Square(playerID, 1, "60 + 1n Archon", 160 - 40 * v.P_LoopMain[playerID], 160);
 
-            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-            KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
-            KillUnitAt(All, "40 + 1n Zealot", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+            KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID);
 
 
-            f.SkillWait(cp, 80);
+            s.SkillWait(80);
 
-            f.loop[cp] += 1;
+            v.P_LoopMain[playerID] += 1;
          }
-         else if (f.loop[cp] == 8)
+         else if (v.P_LoopMain[playerID] == 8)
          {
-            f.EdgeShape(cp, 1, "40 + 1n Ghost", 0, 3, 160);
+            s.EdgeShape(playerID, 1, "40 + 1n Ghost", 0, 3, 160);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, "40 + 1n Ghost", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-            Order("40 + 1n Ghost", cp, "Anywhere", Attack, f.location[cp]);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
-            f.EdgeShape(cp, 1, "40 + 1n Guardian", 45, 7, 160);
-            f.EdgeShape(cp, 1, "60 + 1n Archon", 45, 7, 160);
-            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-            KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+            s.EdgeShape(playerID, 1, "40 + 1n Guardian", 45, 7, 160);
+            s.EdgeShape(playerID, 1, "60 + 1n Archon", 45, 7, 160);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
 
-            f.SkillWait(cp, 80);
+            s.SkillWait(80);
 
-            f.count[cp] += 1;
-            f.loop[cp] = 0;
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
          }
       }
-      else if (f.count[cp] == 1)
+      else if (v.P_CountMain[playerID] == 1)
       {
-         if (f.loop[cp] < 3)
+         if (v.P_LoopMain[playerID] < 3)
          {             
-            RemoveUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
+            RemoveUnitAt(All, " Creep. Dunkelheit", "Anywhere", playerID);
 
-            f.DotShape(cp, 8, "Bengalaas (Jungle)", 0, 0);
-            f.DotShape(cp, 1, "40 + 1n Guardian", 0, 0);
+            s.Shape_Dot(playerID, 8, "Bengalaas (Jungle)", 0, 0);
+            s.Shape_Dot(playerID, 1, "40 + 1n Guardian", 0, 0);
 
-            KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", cp);
-            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+            KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", playerID);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
 
-            f.EdgeShape(cp, 1, "40 + 1n Guardian", 45, 7, 160);
-            f.EdgeShape(cp, 1, "60 + 1n Archon", 45, 7, 160);
+            s.EdgeShape(playerID, 1, "40 + 1n Guardian", 45, 7, 160);
+            s.EdgeShape(playerID, 1, "60 + 1n Archon", 45, 7, 160);
 
-            f.SquareShape(cp, 1, " Creep. Dunkelheit", 80, 80);
-            f.SquareShape(cp, 7, "60 + 1n High Templar", 80, 80);
+            s.Shape_Square(playerID, 1, " Creep. Dunkelheit", 80, 80);
+            s.Shape_Square(playerID, 7, "60 + 1n High Templar", 80, 80);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, " Creep. Dunkelheit", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-            Order(" Creep. Dunkelheit", cp, "Anywhere", Attack, f.location[cp]);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            MoveUnit(All, " Creep. Dunkelheit", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order(" Creep. Dunkelheit", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
-            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-            KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
-            KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+            KillUnitAt(All, "60 + 1n High Templar", "Anywhere", playerID);
 
-            f.SkillWait(cp, 160);
+            s.SkillWait(160);
 
-            f.loop[cp] += 1;
+            v.P_LoopMain[playerID] += 1;
          }
-         else if (f.loop[cp] == 3)
+         else if (v.P_LoopMain[playerID] == 3)
          {
-            RemoveUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
-            KillUnitAt(All, "40 + 1n Ghost", "Anywhere", cp);
+            RemoveUnitAt(All, " Creep. Dunkelheit", "Anywhere", playerID);
+            KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
 
-            f.EdgeShape(cp, 1, "40 + 1n Wraith", 45, 7, 160);
-            f.EdgeShape(cp, 1, " Creep. Dunkelheit", 45, 7, 160);
-            KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
+            s.EdgeShape(playerID, 1, "40 + 1n Wraith", 45, 7, 160);
+            s.EdgeShape(playerID, 1, " Creep. Dunkelheit", 45, 7, 160);
+            KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", playerID);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
-            f.SkillWait(cp, 160);
+            s.SkillWait(160);
 
-            f.loop[cp] += 1;
+            v.P_LoopMain[playerID] += 1;
          }
 
-         else if (f.loop[cp] == 4)
+         else if (v.P_LoopMain[playerID] == 4)
          {
-            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
-            KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+            KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", playerID);
 
-            f.EdgeShape(cp, 1, "Kakaru (Twilight)", 45, 7, 160);
-            f.EdgeShape(cp, 1, " Unit. Hoffnung 25000", 45, 7, 160);
-            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
-            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
+            s.EdgeShape(playerID, 1, "Kakaru (Twilight)", 45, 7, 160);
+            s.EdgeShape(playerID, 1, " Unit. Hoffnung 25000", 45, 7, 160);
+            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
 
-            f.SkillWait(cp, 80);
+            s.SkillWait(80);
 
-            f.count[cp] += 1;
-            f.loop[cp] = 0;
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
          }
       }
-      else if (f.count[cp] == 2)
+      else if (v.P_CountMain[playerID] == 2)
       {
-         f.SkillEnd(cp);
+         s.SkillEnd();
       }
    }
 }

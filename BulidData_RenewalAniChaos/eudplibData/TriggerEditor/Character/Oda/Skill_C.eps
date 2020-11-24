@@ -1,139 +1,139 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
-function main(cp)
+function main(playerID)
 {
-   if (f.delay[cp] == 0)
+   if (v.P_Delay[playerID] == 0)
    {
-      if (f.count[cp] == 0)
+      if (v.P_CountMain[playerID] == 0)
       {
-         if (f.loop[cp] == 0)
+         if (v.P_LoopMain[playerID] == 0)
          {
-            f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 3, 50);
-            f.NxNSquareShape(cp, 1, "Protoss Dark Archon", 3, 50);
-            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+            s.Shape_NxNSquare(playerID, 1, "40 + 1n Guardian", 3, 50);
+            s.Shape_NxNSquare(playerID, 1, "Protoss Dark Archon", 3, 50);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
          }
-         else if (f.loop[cp] == 2)
+         else if (v.P_LoopMain[playerID] == 2)
          {
-            f.EdgeShape(cp, 1, "40 + 1n Guardian", 45, 5, 100);
-            f.EdgeShape(cp, 1, "Protoss Dark Archon", 45, 5, 100);
-            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+            s.EdgeShape(playerID, 1, "40 + 1n Guardian", 45, 5, 100);
+            s.EdgeShape(playerID, 1, "Protoss Dark Archon", 45, 5, 100);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
          }
-         else if (f.loop[cp] == 4)
+         else if (v.P_LoopMain[playerID] == 4)
          {
-            f.SquareShape(cp, 1, "40 + 1n Wraith", 50, 50);
-            f.SquareShape(cp, 1, "40 + 1n Goliath", 50, 50);
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 0, 50);
+            s.Shape_Square(playerID, 1, "40 + 1n Wraith", 50, 50);
+            s.Shape_Square(playerID, 1, "40 + 1n Goliath", 50, 50);
+            s.Shape_Square(playerID, 1, "Kakaru (Twilight)", 0, 50);
 
-            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
-            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
 
-            Order("40 + 1n Wraith", cp, "Anywhere", Attack, "Anywhere");
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, "Anywhere");
          }
-         else if (f.loop[cp] == 6)
+         else if (v.P_LoopMain[playerID] == 6)
          {
-            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
 
-            f.SquareShape(cp, 1, "40 + 1n Wraith", 0, 50);
-            f.SquareShape(cp, 1, "40 + 1n Goliath", 0, 50);
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 0, 50);
+            s.Shape_Square(playerID, 1, "40 + 1n Wraith", 0, 50);
+            s.Shape_Square(playerID, 1, "40 + 1n Goliath", 0, 50);
+            s.Shape_Square(playerID, 1, "Kakaru (Twilight)", 0, 50);
 
-            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
-            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
 
-            Order("40 + 1n Wraith", cp, "Anywhere", Attack, "Anywhere");
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, "Anywhere");
          }
-         else if (f.loop[cp] == 8)
+         else if (v.P_LoopMain[playerID] == 8)
          {
-            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
 
-            f.SquareShape(cp, 1, "40 + 1n Wraith", 50, 50);
-            f.SquareShape(cp, 1, "40 + 1n Goliath", 50, 50);
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 0, 50);
+            s.Shape_Square(playerID, 1, "40 + 1n Wraith", 50, 50);
+            s.Shape_Square(playerID, 1, "40 + 1n Goliath", 50, 50);
+            s.Shape_Square(playerID, 1, "Kakaru (Twilight)", 0, 50);
 
-            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
-            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
 
-            Order("40 + 1n Wraith", cp, "Anywhere", Attack, "Anywhere");
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, "Anywhere");
          }
-         else if (f.loop[cp] == 10)
+         else if (v.P_LoopMain[playerID] == 10)
          {
-            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
 
-            f.SquareShape(cp, 1, "40 + 1n Wraith", 0, 50);
-            f.SquareShape(cp, 1, "40 + 1n Goliath", 0, 50);
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 0, 50);
+            s.Shape_Square(playerID, 1, "40 + 1n Wraith", 0, 50);
+            s.Shape_Square(playerID, 1, "40 + 1n Goliath", 0, 50);
+            s.Shape_Square(playerID, 1, "Kakaru (Twilight)", 0, 50);
 
-            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
-            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
 
-            Order("40 + 1n Wraith", cp, "Anywhere", Attack, "Anywhere");
-         }
-
-         if ((f.loop[cp] % 8) / 4 == 0)
-         {
-            f.DoubleShape(cp, 1, "Rhynadon (Badlands)", 100 - 50 * (f.loop[cp] % 4), 100);
-            KillUnitAt(All, "Rhynadon (Badlands)", "Anywhere", cp);
-         }
-         else if ((f.loop[cp] % 8) / 4 == 1)
-         {
-            f.DoubleShape(cp, 1, "Rhynadon (Badlands)", -100, 100 - 50 * (f.loop[cp] % 4));
-            KillUnitAt(All, "Rhynadon (Badlands)", "Anywhere", cp);
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, "Anywhere");
          }
 
-         f.SkillWait(cp, 80);
-
-         f.loop[cp] += 1;
-
-         if (f.loop[cp] == 12)
+         if ((v.P_LoopMain[playerID] % 8) / 4 == 0)
          {
-            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+            s.DoubleShape(playerID, 1, "Rhynadon (Badlands)", 100 - 50 * (v.P_LoopMain[playerID] % 4), 100);
+            KillUnitAt(All, "Rhynadon (Badlands)", "Anywhere", playerID);
+         }
+         else if ((v.P_LoopMain[playerID] % 8) / 4 == 1)
+         {
+            s.DoubleShape(playerID, 1, "Rhynadon (Badlands)", -100, 100 - 50 * (v.P_LoopMain[playerID] % 4));
+            KillUnitAt(All, "Rhynadon (Badlands)", "Anywhere", playerID);
+         }
 
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+         s.SkillWait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 12)
+         {
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 1)
+      else if (v.P_CountMain[playerID] == 1)
       {
-         if (f.loop[cp] == 0)
+         if (v.P_LoopMain[playerID] == 0)
          {
-            f.NxNSquareShape(cp, 1, "Protoss Dark Archon", 3, 50);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+            s.Shape_NxNSquare(playerID, 1, "Protoss Dark Archon", 3, 50);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
          }
-         else if (f.loop[cp] == 2)
+         else if (v.P_LoopMain[playerID] == 2)
          {
-            f.EdgeShape(cp, 1, "Protoss Dark Archon", 45, 5, 100);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+            s.EdgeShape(playerID, 1, "Protoss Dark Archon", 45, 5, 100);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
          }
-         else if (f.loop[cp] == 4)
+         else if (v.P_LoopMain[playerID] == 4)
          {
-            f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 3, 50);
-            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+            s.Shape_NxNSquare(playerID, 1, "40 + 1n Guardian", 3, 50);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
          }
-         else if (f.loop[cp] == 6)
+         else if (v.P_LoopMain[playerID] == 6)
          {
-            f.NxNSquareShape(cp, 1, "40 + 1n Wraith", 3, 50);
+            s.Shape_NxNSquare(playerID, 1, "40 + 1n Wraith", 3, 50);
 
-            Order("40 + 1n Wraith", cp, "Anywhere", Attack, "Anywhere");
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, "Anywhere");
          }
 
-         f.SkillWait(cp, 80);
+         s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 8)
+         if (v.P_LoopMain[playerID] == 8)
          {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 2)
+      else if (v.P_CountMain[playerID] == 2)
       {
-         KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+         KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
 
-         f.SkillEnd(cp);
+         s.SkillEnd();
       }
    }
 }

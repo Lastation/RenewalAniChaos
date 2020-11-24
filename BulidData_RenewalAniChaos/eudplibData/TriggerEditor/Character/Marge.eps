@@ -1,6 +1,6 @@
 import PluginVariables as msqcvar;
 import Variable as v;
-import Function as f;
+import func.shape as s;
 import Character.Sound as s;
 
 import Character.Rusaruka.Main 		as rusarukaMain;
@@ -19,157 +19,157 @@ import Character.Park.Main 			as parkMain;
 
 const bgmWait		= PVariable();			
 
-function SetVoice(cp);
-function MargeSound(cp);
-function SkillWait(cp);
-function SkillDelay(cp);
-function BGMRoutine(cp);
+function SetVoice(playerID);
+function MargeSound(playerID);
+function SkillWait(playerID);
+function SkillDelay(playerID);
+function BGMRoutine(playerID);
 
-function main(cp)
+function main(playerID)
 {
-	switch(v.Hero_Num[cp])
+	switch(v.Hero_Num[playerID])
 	{
 	case 1:
-		rusarukaMain.main(cp);
+		rusarukaMain.main(playerID);
 		break;
 	case 2:
-		chthollyMain.main(cp);
+		chthollyMain.main(playerID);
 		break;
 	case 17:
-		kianaMain.main(cp);
+		kianaMain.main(playerID);
 		break;
 	case 22:
-		yuunaMain.main(cp);
+		yuunaMain.main(playerID);
 		break;
 	case 23:
-		mayuriMain.main(cp);
+		mayuriMain.main(playerID);
 		break;
 	case 24:
-		nanamiMain.main(cp);
+		nanamiMain.main(playerID);
 		break;
 	case 25:
-		milimMain.main(cp);
+		milimMain.main(playerID);
 		break;
 	case 26:
-		yumeMain.main(cp);
+		yumeMain.main(playerID);
 		break;
 	case 27:
-		maganeMain.main(cp);
+		maganeMain.main(playerID);
 		break;
 	case 28:
-		odaMain.main(cp);
+		odaMain.main(playerID);
 		break;
 	case 29:
-		ekidonaMain.main(cp);
+		ekidonaMain.main(playerID);
 		break;
 	case 30:
-		niwaMain.main(cp);
+		niwaMain.main(playerID);
 		break;
 	case 31:
-		parkMain.main(cp);
+		parkMain.main(playerID);
 		break;
 	}
 	
-	SkillWait(cp);
-	SkillDelay(cp);
+	SkillWait(playerID);
+	SkillDelay(playerID);
 	
-	SetVoice(cp);
-	s.main(cp);
-	BGMRoutine(cp);
+	SetVoice(playerID);
+	s.main(playerID);
+	BGMRoutine(playerID);
 }
 
-function SetVoice(cp)
+function SetVoice(playerID)
 {
 	if (cp < 6)
 	{
-		if (Deaths(cp, AtLeast, 1, (186)))
+		if (Deaths(playerID, AtLeast, 1, (186)))
 		{
-			v.Sound_Text1[cp] = dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * cp));
-			v.Sound_Text1[8 + cp] = v.Sound_Text1[cp];
-			SetDeaths(cp, SetTo, 0, (186));
+			v.Sound_Text1[playerID] = dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * playerID));
+			v.Sound_Text1[8 + playerID] = v.Sound_Text1[playerID];
+			SetDeaths(playerID, SetTo, 0, (186));
 		}
-		if (Deaths(cp, AtLeast, 1, (174)))
+		if (Deaths(playerID, AtLeast, 1, (174)))
 		{
-			v.Sound_Text2[cp] = dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * cp));
-			v.Sound_Text2[8 + cp] = v.Sound_Text2[cp];
-			SetDeaths(cp, SetTo, 0, (174));
+			v.Sound_Text2[playerID] = dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * playerID));
+			v.Sound_Text2[8 + playerID] = v.Sound_Text2[playerID];
+			SetDeaths(playerID, SetTo, 0, (174));
 		}
-		if (Deaths(cp, AtLeast, 1, (117)))
+		if (Deaths(playerID, AtLeast, 1, (117)))
 		{
-			v.Sound_Text3[cp] = dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * cp));
-			v.Sound_Text3[8 + cp] = v.Sound_Text3[cp];
-			SetDeaths(cp, SetTo, 0, (117));
+			v.Sound_Text3[playerID] = dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * playerID));
+			v.Sound_Text3[8 + playerID] = v.Sound_Text3[playerID];
+			SetDeaths(playerID, SetTo, 0, (117));
 		}
-		if (Deaths(cp, AtLeast, 1, (157)))
+		if (Deaths(playerID, AtLeast, 1, (157)))
 		{
-			v.Sound_Text4[cp] = dwread_epd(EPD(0x58A364 + 48 * 157 + 4 * cp));
-			v.Sound_Text4[8 + cp] = v.Sound_Text4[cp];
-			SetDeaths(cp, SetTo, 0, (157));
+			v.Sound_Text4[playerID] = dwread_epd(EPD(0x58A364 + 48 * 157 + 4 * playerID));
+			v.Sound_Text4[8 + playerID] = v.Sound_Text4[playerID];
+			SetDeaths(playerID, SetTo, 0, (157));
 		}
-		if (Deaths(cp, AtLeast, 1, (222)))
+		if (Deaths(playerID, AtLeast, 1, (222)))
 		{
-			v.Sound_Text_Uilti[cp] = dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * cp));
-			v.Sound_Text_Uilti[8 + cp] = v.Sound_Text_Uilti[cp];
-			SetDeaths(cp, SetTo, 0, (222));
+			v.Sound_Text_Uilti[playerID] = dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * playerID));
+			v.Sound_Text_Uilti[8 + playerID] = v.Sound_Text_Uilti[playerID];
+			SetDeaths(playerID, SetTo, 0, (222));
 		}
-		if (Deaths(cp, AtLeast, 1, (188)))
+		if (Deaths(playerID, AtLeast, 1, (188)))
 		{
-			v.Sound_Text_Uniq[cp] = dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * cp));
-			v.Sound_Text_Uniq[8 + cp] = v.Sound_Text_Uniq[cp];
-			SetDeaths(cp, SetTo, 0, (188));
+			v.Sound_Text_Uniq[playerID] = dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * playerID));
+			v.Sound_Text_Uniq[8 + playerID] = v.Sound_Text_Uniq[playerID];
+			SetDeaths(playerID, SetTo, 0, (188));
 		}
 	}
 }
 
-function BGMRoutine(cp)
+function BGMRoutine(playerID)
 {
-	if (Bring(cp, AtLeast, 1, "Terran SCV", "[BGM]ON"))
+	if (Bring(playerID, AtLeast, 1, "Terran SCV", "[BGM]ON"))
 	{
-		if (bgmWait[cp] == 0)
+		if (bgmWait[playerID] == 0)
 		{
-			f.stb.print("　　\x04\x1F# N\x04ow \x04Playing... ' \x08化\x02身の\x04獣 [ \x19십\x04이대전 ed ]\x04");
+			s.stb.print("　　\x04\x1F# N\x04ow \x04Playing... ' \x08化\x02身の\x04獣 [ \x19십\x04이대전 ed ]\x04");
 			PlayWAV("BGM.ogg");
-			bgmWait[cp] = 2424;
+			bgmWait[playerID] = 2424;
 		}
 	}
 	
-	if (bgmWait[cp] > 0)
+	if (bgmWait[playerID] > 0)
 	{
-		bgmWait[cp] -= 1;
+		bgmWait[playerID] -= 1;
 	}
 }
 
-function SkillWait(cp)
+function SkillWait(playerID)
 {
-	if (f.delay[cp] == 0)
+	if (v.P_Delay[playerID] == 0)
 	{
-		if (f.count[cp] == 999)
+		if (v.P_CountMain[playerID] == 999)
 		{
-			f.SkillWait(cp, 500);
-			f.count[cp] = 1000;
+			s.SkillWait(500);
+			v.P_CountMain[playerID] = 1000;
 		}
-		else if (f.count[cp] == 1000)
+		else if (v.P_CountMain[playerID] == 1000)
 		{
-			f.count[cp] = 0;
-			f.loop[cp] = 0;
-			f.wait[cp] = 12;
+			v.P_CountMain[playerID] = 0;
+			v.P_LoopMain[playerID] = 0;
+			s.wait[playerID] = 12;
 		}
 	}
 	
-	if (f.wait[cp] >= 2)
+	if (s.wait[playerID] >= 2)
 	{
-		f.wait[cp] -= 1;
+		s.wait[playerID] -= 1;
 	}
-	else if (f.wait[cp] == 1)
+	else if (s.wait[playerID] == 1)
 	{
-		f.wait[cp] = 0;
-		f.step[cp] = 0;
+		s.wait[playerID] = 0;
+		s.step[playerID] = 0;
 	}
 }
 
-function SkillDelay(cp)
+function SkillDelay(playerID)
 {
-	if (f.delay[cp] >= 1) { f.delay[cp] -= 1; }
-	if (f.delayB[cp] >= 1) { f.delayB[cp] -= 1; }
-	if (f.delayC[cp] >= 1) { f.delayC[cp] -= 1; }
+	if (v.P_Delay[playerID] >= 1) { v.P_Delay[playerID] -= 1; }
+	if (v.P_DelayB[playerID] >= 1) { v.P_DelayB[playerID] -= 1; }
+	if (v.P_DelayC[playerID] >= 1) { v.P_DelayC[playerID] -= 1; }
 }

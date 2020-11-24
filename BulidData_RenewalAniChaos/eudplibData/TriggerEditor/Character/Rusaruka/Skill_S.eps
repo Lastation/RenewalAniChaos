@@ -1,55 +1,55 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
-function Shape(cp, Unit : TrgUnit, x, y);
+function Shape(playerID, Unit : TrgUnit, x, y);
 
-function main(cp)
+function main(playerID)
 {
-	if (f.delay[cp] == 0)
+	if (v.P_Delay[playerID] == 0)
 	{
-		if (f.count[cp] == 0 || f.count[cp] == 4)
+		if (v.P_CountMain[playerID] == 0 || v.P_CountMain[playerID] == 4)
 		{
-			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-			Shape(cp, "40 + 1n Mojo", 0, 48);
+			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+			Shape(playerID, "40 + 1n Mojo", 0, 48);
 		}
-		else if (f.count[cp] == 1 || f.count[cp] == 5)
+		else if (v.P_CountMain[playerID] == 1 || v.P_CountMain[playerID] == 5)
 		{
-			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-			Shape(cp, "40 + 1n Wraith", 42, 24);
+			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+			Shape(playerID, "40 + 1n Wraith", 42, 24);
 		}
-		else if (f.count[cp] == 2 || f.count[cp] == 6)
+		else if (v.P_CountMain[playerID] == 2 || v.P_CountMain[playerID] == 6)
 		{
-			KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
-			Shape(cp, "40 + 1n Mutalisk", 24, 42);
+			KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+			Shape(playerID, "40 + 1n Mutalisk", 24, 42);
 		}
-		else if (f.count[cp] == 3 || f.count[cp] == 7)
+		else if (v.P_CountMain[playerID] == 3 || v.P_CountMain[playerID] == 7)
 		{
-			KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
-			Shape(cp, "40 + 1n Mojo", 48, 0);
+			KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
+			Shape(playerID, "40 + 1n Mojo", 48, 0);
 		}
-		else if (f.count[cp] == 8)
+		else if (v.P_CountMain[playerID] == 8)
 		{
-			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-			f.SkillEnd(cp);
+			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+			s.SkillEnd();
 		}
 	}
 }
 
-function Shape(cp, Unit : TrgUnit, x, y)
+function Shape(playerID, Unit : TrgUnit, x, y)
 {
-	f.MoveLoc(f.heroID[cp], cp, x, y);
-	f.SkillUnit(cp, 1, Unit);
-	f.SkillUnit(cp, 1, "Protoss Dark Templar");
-	f.MoveLoc(f.heroID[cp], cp, -y, x);
-	f.SkillUnit(cp, 1, "Protoss Dark Templar");
-	f.MoveLoc(f.heroID[cp], cp, -x, -y);
-	f.SkillUnit(cp, 1, Unit);
-	f.SkillUnit(cp, 1, "Protoss Dark Templar");
-	f.MoveLoc(f.heroID[cp], cp, y, -x);
-	f.SkillUnit(cp, 1, "Protoss Dark Templar");
-	KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp);
-	MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-	Order(Unit, cp, "Anywhere", Attack, f.location[cp]);
-	f.SkillWait(cp, 50);
-	f.count[cp] += 1;
+	s.MoveLoc(v.P_CharacterID[playerID], playerID, x, y);
+	s.SkillUnit(playerID, 1, Unit);
+	s.SkillUnit(playerID, 1, "Protoss Dark Templar");
+	s.MoveLoc(v.P_CharacterID[playerID], playerID, -y, x);
+	s.SkillUnit(playerID, 1, "Protoss Dark Templar");
+	s.MoveLoc(v.P_CharacterID[playerID], playerID, -x, -y);
+	s.SkillUnit(playerID, 1, Unit);
+	s.SkillUnit(playerID, 1, "Protoss Dark Templar");
+	s.MoveLoc(v.P_CharacterID[playerID], playerID, y, -x);
+	s.SkillUnit(playerID, 1, "Protoss Dark Templar");
+	KillUnitAt(All, "Protoss Dark Templar", "Anywhere", playerID);
+	MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+	Order(Unit, playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+	s.SkillWait(50);
+	v.P_CountMain[playerID] += 1;
 }

@@ -1,198 +1,198 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
 var x = 0;
 var y = 0;
 
-function main(cp)
+function main(playerID)
 {
-   MoveUnit(All, "40 + 3n Zeratul", cp, "Anywhere", "[Skill]HoldPosition");
+   MoveUnit(All, "40 + 3n Zeratul", playerID, "Anywhere", "[Skill]HoldPosition");
 
-   f.BanReturn(cp);
-   f.HoldPosition(cp);
+   s.BanReturn(playerID);
+   s.HoldPosition(playerID);
 
-   if (f.delay[cp] == 0)
+   if (v.P_Delay[playerID] == 0)
    {
-      if (f.count[cp] == 0)
+      if (v.P_CountMain[playerID] == 0)
       {
-         if (f.loop[cp] == 0)
+         if (v.P_LoopMain[playerID] == 0)
          {
-            f.EdgeShape(cp, 1, "Unclean One (Defiler)", 45, 3, 32);
+            s.EdgeShape(playerID, 1, "Unclean One (Defiler)", 45, 3, 32);
 
-            f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 3, 50);
-            f.NxNSquareShape(cp, 1, "Protoss Dark Archon", 3, 50);
+            s.Shape_NxNSquare(playerID, 1, "40 + 1n Guardian", 3, 50);
+            s.Shape_NxNSquare(playerID, 1, "Protoss Dark Archon", 3, 50);
 
-            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
          }
-         if (f.loop[cp] == 1)
+         if (v.P_LoopMain[playerID] == 1)
          {
-            f.NxNSquareShape(cp, 1, "Kakaru (Twilight)", 3, 50);
-            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
+            s.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 3, 50);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
          }
          /*
-         if (f.loop[cp] < 8)
+         if (v.P_LoopMain[playerID] < 8)
          {
-            if (f.loop[cp] == 0) { x = 32; y = 0; }
-            if (f.loop[cp] == 1) { x = 32; y = 32; }
-            if (f.loop[cp] == 2) { x = 0; y = 32; }
-            if (f.loop[cp] == 3) { x = -32; y = 32; }
-            if (f.loop[cp] == 4) { x = -32; y = 0; }
-            if (f.loop[cp] == 5) { x = -32; y = -32; }
-            if (f.loop[cp] == 6) { x = 0; y = -32; }
-            if (f.loop[cp] == 7) { x = 32; y = -32; }
+            if (v.P_LoopMain[playerID] == 0) { x = 32; y = 0; }
+            if (v.P_LoopMain[playerID] == 1) { x = 32; y = 32; }
+            if (v.P_LoopMain[playerID] == 2) { x = 0; y = 32; }
+            if (v.P_LoopMain[playerID] == 3) { x = -32; y = 32; }
+            if (v.P_LoopMain[playerID] == 4) { x = -32; y = 0; }
+            if (v.P_LoopMain[playerID] == 5) { x = -32; y = -32; }
+            if (v.P_LoopMain[playerID] == 6) { x = 0; y = -32; }
+            if (v.P_LoopMain[playerID] == 7) { x = 32; y = -32; }
 
-            f.DotShapeWithProperty(cp, 1, "40 + 1n Lurker", x, y, 0);
+            s.Shape_DotWithProperty(playerID, 1, "40 + 1n Lurker", x, y, 0);
          }
          */
-         f.SkillWait(cp, 80);
+         s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 8)
+         if (v.P_LoopMain[playerID] == 8)
          {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 1)
+      else if (v.P_CountMain[playerID] == 1)
       {
-         if (f.loop[cp] == 0)
+         if (v.P_LoopMain[playerID] == 0)
          {
-            f.SquareShape(cp, 1, "60 + 1n Hydralisk", 100, 100);
+            s.Shape_Square(playerID, 1, "60 + 1n Hydralisk", 100, 100);
 
-            f.SquareShape(cp, 1, "40 + 1n Guardian", 100, 100);
-            f.SquareShapeWithProperty(cp, 1, "60 + 1n Archon", 100, 100, 1);
+            s.Shape_Square(playerID, 1, "40 + 1n Guardian", 100, 100);
+            s.Shape_SquareWithProperty(playerID, 1, "60 + 1n Archon", 100, 100, 1);
 
-            f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 100, 0);
+            s.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 100, 0);
 
-            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-            KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
-            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, "60 + 1n Hydralisk", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-            Order("60 + 1n Hydralisk", cp, "Anywhere", Attack, f.location[cp]);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "60 + 1n Hydralisk", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("60 + 1n Hydralisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
          }
-         if (f.loop[cp] == 4)
+         if (v.P_LoopMain[playerID] == 4)
          {
-            f.SquareShape(cp, 1, "60 + 1n Hydralisk", 100, 0);
-            f.SquareShape(cp, 1, "40 + 1n Mutalisk", 100, 0);
+            s.Shape_Square(playerID, 1, "60 + 1n Hydralisk", 100, 0);
+            s.Shape_Square(playerID, 1, "40 + 1n Mutalisk", 100, 0);
 
-            f.SquareShape(cp, 1, "40 + 1n Guardian", 100, 0);
-            f.SquareShapeWithProperty(cp, 1, "60 + 1n Archon", 100, 0, 1);
+            s.Shape_Square(playerID, 1, "40 + 1n Guardian", 100, 0);
+            s.Shape_SquareWithProperty(playerID, 1, "60 + 1n Archon", 100, 0, 1);
 
-            f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 100, 100);
+            s.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 100, 100);
 
-            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-            KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
-            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, "60 + 1n Hydralisk", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-            Order("60 + 1n Hydralisk", cp, "Anywhere", Attack, f.location[cp]);
-            Order("40 + 1n Mutalisk", cp, "Anywhere", Attack, f.location[cp]);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "60 + 1n Hydralisk", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("60 + 1n Hydralisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
          }
 
-         f.SkillWait(cp, 80);
+         s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 19)
+         if (v.P_LoopMain[playerID] == 19)
          {
-            KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
 
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 2)
+      else if (v.P_CountMain[playerID] == 2)
       {
-         if (f.loop[cp] == 0)
+         if (v.P_LoopMain[playerID] == 0)
          {
-            f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 9, 50);
-            f.EdgeShape(cp, 1, "Protoss Dark Templar", 45, 3, 150);
-            f.EdgeShape(cp, 1, "Protoss Dark Templar", 45, 5, 200);
+            s.Shape_NxNSquare(playerID, 1, "40 + 1n Guardian", 9, 50);
+            s.EdgeShape(playerID, 1, "Protoss Dark Templar", 45, 3, 150);
+            s.EdgeShape(playerID, 1, "Protoss Dark Templar", 45, 5, 200);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("Protoss Dark Templar", cp, "Anywhere", Attack, f.location[cp]);
-            Order("40 + 3n Zeratul", cp, "Anywhere", Attack, f.location[cp]);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("Protoss Dark Templar", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            Order("40 + 3n Zeratul", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
-            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
 
          }
-         if (f.loop[cp] == 9)
+         if (v.P_LoopMain[playerID] == 9)
          {
-            f.Voice_Routine(cp, 8);
+            s.Voice_Routine(playerID, 8);
          }
 
 
-         f.SkillWait(cp, 80);
+         s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 32)
+         if (v.P_LoopMain[playerID] == 32)
          {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 3)
+      else if (v.P_CountMain[playerID] == 3)
       {
-         if (f.loop[cp] == 0)
+         if (v.P_LoopMain[playerID] == 0)
          {
-            f.NxNSquareShape(cp, 1, "40 + 1n Mutalisk", 3, 50);
-            f.NxNSquareShape(cp, 1, "Protoss Dark Archon", 3, 50);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+            s.Shape_NxNSquare(playerID, 1, "40 + 1n Mutalisk", 3, 50);
+            s.Shape_NxNSquare(playerID, 1, "Protoss Dark Archon", 3, 50);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Mutalisk", cp, "Anywhere", Attack, "Anywhere");
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, "Anywhere");
          }
-         if (f.loop[cp] == 3)
+         if (v.P_LoopMain[playerID] == 3)
          {
-            RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
+            RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
 
-            f.NxNSquareShape(cp, 1, "40 + 1n Mutalisk", 3, 50);
-            f.NxNSquareShape(cp, 1, "Protoss Dark Archon", 3, 50);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+            s.Shape_NxNSquare(playerID, 1, "40 + 1n Mutalisk", 3, 50);
+            s.Shape_NxNSquare(playerID, 1, "Protoss Dark Archon", 3, 50);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Mutalisk", cp, "Anywhere", Attack, "Anywhere");
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, "Anywhere");
          }
 
-         f.SkillWait(cp, 80);
+         s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 7)
+         if (v.P_LoopMain[playerID] == 7)
          {
-            KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
 
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 4)
+      else if (v.P_CountMain[playerID] == 4)
       {
-         if (Bring(cp, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill")
+         if (Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill")
             )
          {
-            f.Voice_Routine(cp, 9);
-            f.wait[cp] = 0;
-            f.count[cp] = 0;
-            f.loop[cp] = 0;
-            f.step[cp] = 230;
-            KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", cp);
+            s.Voice_Routine(playerID, 9);
+            s.wait[playerID] = 0;
+            v.P_CountMain[playerID] = 0;
+            v.P_LoopMain[playerID] = 0;
+            s.step[playerID] = 230;
+            KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
          }
          else
          {
-            KillUnitAt(All, "40 + 3n Zeratul", "Anywhere", cp);
-            KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp);
-            KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-            KillUnitAt(All, "60 + 1n Hydralisk", "Anywhere", cp);
-            KillUnitAt(All, "Unclean One (Defiler)", "Anywhere", cp);
+            KillUnitAt(All, "40 + 3n Zeratul", "Anywhere", playerID);
+            KillUnitAt(All, "Protoss Dark Templar", "Anywhere", playerID);
+            KillUnitAt(All, "40 + 1n Lurker", "Anywhere", playerID);
+            KillUnitAt(All, "60 + 1n Hydralisk", "Anywhere", playerID);
+            KillUnitAt(All, "Unclean One (Defiler)", "Anywhere", playerID);
 
-            f.SkillEnd(cp);
+            s.SkillEnd();
          }
       }
    }

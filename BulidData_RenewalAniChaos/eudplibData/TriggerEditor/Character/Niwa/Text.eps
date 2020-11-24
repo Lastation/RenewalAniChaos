@@ -1,5 +1,5 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
 const looker = PVariable();
 
@@ -13,13 +13,13 @@ function Looker()
 	}
 }
 
-function main(cp)
+function main(playerID)
 {
-	if (f.Niwa_Voice[cp] > 0)
+	if (s.Niwa_Voice[playerID] > 0)
 	{
-		Text(f.Niwa_Voice[cp]);
-		looker[cp] = f.Niwa_Voice[cp];
-		f.Niwa_Voice[cp] = 0;
+		Text(s.Niwa_Voice[playerID]);
+		looker[playerID] = s.Niwa_Voice[playerID];
+		s.Niwa_Voice[playerID] = 0;
 	}
 }
 
@@ -29,13 +29,13 @@ function Text(num)
 	{
 	case 1:
 		PlayWAV("Niwa_01.ogg");
-		f.stb.print("\x13\x1FNiwa Ryoka\n");
-		f.stb.print("\x13\x04저의 '우노메타카노메' 앞에선 숨길 수 없답니다\x04\n");
+		s.stb.print("\x13\x1FNiwa Ryoka\n");
+		s.stb.print("\x13\x04저의 '우노메타카노메' 앞에선 숨길 수 없답니다\x04\n");
 		break;
 	case 2:
 		PlayWAV("Niwa_Ult01.ogg");
-		f.stb.print("\x13\x1FNiwa Ryoka\n");
-		f.stb.print("\x13\x04자 부탁해, 새들아!\x04\n");
+		s.stb.print("\x13\x1FNiwa Ryoka\n");
+		s.stb.print("\x13\x04자 부탁해, 새들아!\x04\n");
 		break;
 	case 3:
 		PlayWAV("Niwa_Ult02.ogg");
@@ -44,37 +44,37 @@ function Text(num)
 		PlayWAV("Niwa_Ult03.ogg");
 		break;
 	case 5:
-		f.stb.print("\x13\x1FNiwa Ryoka\n");
-		f.stb.print("\x13\x04쪼아 죽인다, '조장'\x04\n");
+		s.stb.print("\x13\x1FNiwa Ryoka\n");
+		s.stb.print("\x13\x04쪼아 죽인다, '조장'\x04\n");
 		break;
 	case 6:
 		PlayWAV("Niwa_02.ogg");
-		f.stb.print("\x13\x1FNiwa Ryoka\n");
-		f.stb.print("\x13\x04최강의 전사라도 오늘은 컨디션이 나쁠지 모르고\x04");
-		f.stb.print("\x13\x04최약의 전사라도 오늘은 운이 좋을지 모른다\x04\n");
+		s.stb.print("\x13\x1FNiwa Ryoka\n");
+		s.stb.print("\x13\x04최강의 전사라도 오늘은 컨디션이 나쁠지 모르고\x04");
+		s.stb.print("\x13\x04최약의 전사라도 오늘은 운이 좋을지 모른다\x04\n");
 		break;
 	case 10:
-		f.stb.print("\x13\x1FNiwa Ryoka\n");
-		f.stb.print("\x13\x04요컨대, 최종적으로 살아남는 게 이기는 거다\x04\n");
+		s.stb.print("\x13\x1FNiwa Ryoka\n");
+		s.stb.print("\x13\x04요컨대, 최종적으로 살아남는 게 이기는 거다\x04\n");
 		break;
 	case 7:
 		PlayWAV("Niwa_03.ogg");
-		f.stb.print("\x13\x1FNiwa Ryoka\n");
-		f.stb.print("\x13\x04무사히 도망치셨나요?\x04");
+		s.stb.print("\x13\x1FNiwa Ryoka\n");
+		s.stb.print("\x13\x04무사히 도망치셨나요?\x04");
 		break;
 	case 8:
-		f.stb.print("\x13\x1FNiwa Ryoka\n");
-		f.stb.print("\x13\x04도망치셨군요, 그렇구나...\x04");
+		s.stb.print("\x13\x1FNiwa Ryoka\n");
+		s.stb.print("\x13\x04도망치셨군요, 그렇구나...\x04");
 		break;
 	case 9:
 		PlayWAV("Niwa_04.ogg");
-		f.stb.print("\x13\x1FNiwa Ryoka\n");
-		f.stb.print("\x13\x04살아 있으면 나중에 귀찮아져요\x04");
+		s.stb.print("\x13\x1FNiwa Ryoka\n");
+		s.stb.print("\x13\x04살아 있으면 나중에 귀찮아져요\x04");
 		break;
 	case 11:
 		PlayWAV("Niwa_Unique.ogg");
-		f.stb.print("\x13\x1FNiwa Ryoka\n");
-		f.stb.print("\x13\x04'유'의 전사! '쪼아서 죽인다', 니와토리!\x04");
+		s.stb.print("\x13\x1FNiwa Ryoka\n");
+		s.stb.print("\x13\x04'유'의 전사! '쪼아서 죽인다', 니와토리!\x04");
 		break;
 		
 	}

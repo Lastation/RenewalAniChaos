@@ -5,6 +5,44 @@ import variable as v;
  * @Type
  * F
  * @Summary.ko-KR
+ * 스킬의 대기시간을 줄때 사용합니다.
+ * [wait]은 ms기준입니다. 1000ms = 1sec 입니다.
+ * @param.wait.ko-KR
+ * [wait] : 기다릴 시간입니다. 1000당 1초를 기다립니다.
+***/
+function Main_Wait(wait : TrgCount)
+{
+	v.P_WaitMain[getuserplayerid()] = wait / 83 + 1;
+}
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
+ * 스킬이 끝났을때 사용합니다.
+***/
+function SkillEnd()
+{
+	var playerID = getuserplayerid();
+	
+	v.P_CountMain[playerID] = 999;
+	
+	v.P_Shield[playerID] = 0;
+	SetDeaths(playerID, SetTo, 0, " `ShieldRecharge");
+	
+	if (v.P_Ally[playerID] == 1)
+	{
+	       SetSwitch("ComputerAlliy", Clear);
+	       if (playerID < 3) 		{ SetAllianceStatus(P8, Enemy); }
+		else if (playerID >= 3)	{ SetAllianceStatus(P7, Enemy); }
+		v.P_Ally[playerID] = 0;
+	}
+}
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
  * X좌표를 거리에서 각도만큼 이동시킨 위치를 구할때 사용합니다.
  * [distance]에 [degree]를 곱하여 X좌표의 거리를 구합니다.
  * @param.playerID.ko-KR
@@ -176,35 +214,40 @@ function Shape_NxNSquare(playerID : TrgPlayer, count, unit : TrgUnit, size, inte
 	var space = interval / 2;
 	var dis_x, dis_y;
 	
-	foreach(idx : EUDLoopRange(loop))
+	if (size == 0 || size == 1)
+	{ 
+		Shape_Dot(playerID, count, unit, 0, 0);
+	}
+	else
 	{
-		if (size == 1)
-		{ Shape_Dot(playerID, count, unit, 0, 0); }
-		else if (size % 2 == 0)
+		foreach(idx : EUDLoopRange(loop))
 		{
-			dis_x = idx % (size / 2) + 1;
-			dis_y = idx / (size / 2) + 1;
-			if (dis_x == 1)
-			{ Shape_Square(playerID, count, unit, space, dis_y * interval - space); }
-			else if (dis_y == 1)
-			{ Shape_Square(playerID, count, unit, dis_x * interval - space, space); }
-			else 
-			{ Shape_Square(playerID, count, unit, dis_x * interval - space, dis_y * interval - space); }
-		}
-		else if (size % 2 == 1)
-		{
-			dis_x = idx % (size / 2);
-			dis_y = idx / (size / 2);
-			
-			if (idx == 0)
-			{ Shape_Dot(playerID, count, unit, 0, 0); }
-			else if (dis_y == 0)
-			{ Shape_Square(playerID, count, unit, dis_x * interval, 0); }
-			else
-			{ Shape_Square(playerID, count, unit, dis_x * interval + interval, dis_y * interval); }
-			
-			if (idx == loop - 1)
-			{ Shape_Square(playerID, count, unit, (idx / 2) * interval, 0); }
+			if (size % 2 == 0)
+			{
+				dis_x = idx % (size / 2) + 1;
+				dis_y = idx / (size / 2) + 1;
+				if (dis_x == 1)
+				{ Shape_Square(playerID, count, unit, space, dis_y * interval - space); }
+				else if (dis_y == 1)
+				{ Shape_Square(playerID, count, unit, dis_x * interval - space, space); }
+				else 
+				{ Shape_Square(playerID, count, unit, dis_x * interval - space, dis_y * interval - space); }
+			}
+			else if (size % 2 == 1)
+			{
+				dis_x = idx % (size / 2);
+				dis_y = idx / (size / 2);
+				
+				if (idx == 0)
+				{ Shape_Dot(playerID, count, unit, 0, 0); }
+				else if (dis_y == 0)
+				{ Shape_Square(playerID, count, unit, dis_x * interval, 0); }
+				else
+				{ Shape_Square(playerID, count, unit, dis_x * interval + interval, dis_y * interval); }
+				
+				if (idx == loop - 1)
+				{ Shape_Square(playerID, count, unit, (size / 2) * interval, 0); }
+			}
 		}
 	}
 }
@@ -250,8 +293,10 @@ function Shape_Line(playerID : TrgPlayer, count, unit : TrgUnit, degree, size, i
 	Table_Sin(playerID, degree, interval);
 	Table_Cos(playerID, degree, interval);
 	
-	foreach(idx : EUDLoopRange(size))
-	{ Shape_Dot(playerID, count, unit, initial_x - idx * v.P_AngleCos[playerID], initial_y - idx * v.P_AngleSin[playerID]); }
+	if (size == 0 || size == 1)
+	{ Shape_Dot(playerID, count, unit, 0, 0); }
+	else 
+	{ foreach(idx : EUDLoopRange(size)) { Shape_Dot(playerID, count, unit, initial_x - idx * v.P_AngleCos[playerID], initial_y - idx * v.P_AngleSin[playerID]); } }
 }
 
 /***
@@ -289,19 +334,26 @@ function Shape_Cross(playerID : TrgPlayer, count, unit : TrgUnit, degree, size, 
 	Table_Sin(playerID, degree, interval);
 	Table_Cos(playerID, degree, interval);
 	
-	foreach(idx : EUDLoopRange(size))
+	if (size == 0 || size == 1)
 	{
-		angle_x = v.P_AngleCos[playerID] * idx;
-		angle_y = v.P_AngleSin[playerID] * idx;
-		
-		if (size % 2 == 0 && idx != size / 2)
-		{ Shape_Square(playerID, count, unit, angle_x + gradient_x, angle_y + gradient_y); }
-		else if (size % 2 == 1)
+		Shape_Dot(playerID, count, unit, 0, 0);
+	}
+	else
+	{
+		foreach(idx : EUDLoopRange(size))
 		{
-			if (idx == 0)
-			{ Shape_Dot(playerID, count, unit, 0, 0); }
-			else
-			{ Shape_Square(playerID, count, unit, angle_x, angle_y); }
+			angle_x = v.P_AngleCos[playerID] * idx;
+			angle_y = v.P_AngleSin[playerID] * idx;
+			
+			if (size % 2 == 0 && idx != size / 2)
+			{ Shape_Square(playerID, count, unit, angle_x + gradient_x, angle_y + gradient_y); }
+			else if (size % 2 == 1)
+			{
+				if (idx == 0)
+				{ Shape_Dot(playerID, count, unit, 0, 0); }
+				else
+				{ Shape_Square(playerID, count, unit, angle_x, angle_y); }
+			}
 		}
 	}
 }

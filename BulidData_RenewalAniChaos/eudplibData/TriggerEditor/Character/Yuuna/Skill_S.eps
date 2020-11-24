@@ -1,101 +1,101 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
 const s = StringBuffer();
 
-function main(cp)
+function main(playerID)
 {
-   if (f.delay[cp] == 0)
+   if (v.P_Delay[playerID] == 0)
    {
-      if (f.count[cp] < 4)
+      if (v.P_CountMain[playerID] < 4)
       {
-         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
    
-         f.distance[cp] = 50;
+         s.distance[playerID] = 50;
          
-         f.Table_Cos(cp, 45 * f.count[cp], f.distance[cp]);
-         f.Table_Sin(cp, 45 * f.count[cp], f.distance[cp]);
+         s.Table_Cos(playerID, 45 * v.P_CountMain[playerID], s.distance[playerID]);
+         s.Table_Sin(playerID, 45 * v.P_CountMain[playerID], s.distance[playerID]);
         
-         f.SquareShape(cp, 1, "Protoss Dark Templar", f.CosAngle[cp], f.SinAngle[cp]);
-         f.MoveLoc(f.heroID[cp], cp, f.CosAngle[cp], f.SinAngle[cp]);
-         f.SkillUnit(cp, 1, "40 + 1n Mojo");
-         f.MoveLoc(f.heroID[cp], cp, -f.CosAngle[cp], -f.SinAngle[cp]);
-         f.SkillUnit(cp, 1, "40 + 1n Mojo");
+         s.Shape_Square(playerID, 1, "Protoss Dark Templar", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+         s.MoveLoc(v.P_CharacterID[playerID], playerID, v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+         s.SkillUnit(playerID, 1, "40 + 1n Mojo");
+         s.MoveLoc(v.P_CharacterID[playerID], playerID, -v.P_AngleCos[playerID], -v.P_AngleSin[playerID]);
+         s.SkillUnit(playerID, 1, "40 + 1n Mojo");
 
-         KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp);
-         MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-         Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+         KillUnitAt(All, "Protoss Dark Templar", "Anywhere", playerID);
+         MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+         Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
          
-         f.SkillWait(cp, 160);
-         f.count[cp] += 1;
+         s.SkillWait(160);
+         v.P_CountMain[playerID] += 1;
       }
-      else if (f.count[cp] == 4)
+      else if (v.P_CountMain[playerID] == 4)
       {
-         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
 
-         f.Table_Cos(cp, 0, f.distance[cp]);
-         f.Table_Sin(cp, 0, f.distance[cp]);
+         s.Table_Cos(playerID, 0, s.distance[playerID]);
+         s.Table_Sin(playerID, 0, s.distance[playerID]);
             
-         f.SquareShape(cp, 1, "Kakaru (Twilight)", f.CosAngle[cp], f.SinAngle[cp]);
+         s.Shape_Square(playerID, 1, "Kakaru (Twilight)", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-         f.Table_Cos(cp, 45, f.distance[cp]);
-         f.Table_Sin(cp, 45, f.distance[cp]);
+         s.Table_Cos(playerID, 45, s.distance[playerID]);
+         s.Table_Sin(playerID, 45, s.distance[playerID]);
             
-       f.SquareShape(cp, 1, "Kakaru (Twilight)", f.CosAngle[cp], f.SinAngle[cp]);
+       s.Shape_Square(playerID, 1, "Kakaru (Twilight)", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-         KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
+         KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
 
-         f.SkillWait(cp, 50);
-         f.count[cp] += 1;
+         s.SkillWait(50);
+         v.P_CountMain[playerID] += 1;
       }
-      else if (f.count[cp] == 5)
+      else if (v.P_CountMain[playerID] == 5)
       {
-         f.distance[cp] = 75;
+         s.distance[playerID] = 75;
 
-         f.Table_Cos(cp, 0, f.distance[cp]);
-         f.Table_Sin(cp, 0, f.distance[cp]);
+         s.Table_Cos(playerID, 0, s.distance[playerID]);
+         s.Table_Sin(playerID, 0, s.distance[playerID]);
             
-         f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp]);
+         s.Shape_Square(playerID, 1, "40 + 1n Guardian", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-         f.Table_Cos(cp, 45, f.distance[cp]);
-         f.Table_Sin(cp, 45, f.distance[cp]);
+         s.Table_Cos(playerID, 45, s.distance[playerID]);
+         s.Table_Sin(playerID, 45, s.distance[playerID]);
             
-         f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp]);
+         s.Shape_Square(playerID, 1, "40 + 1n Guardian", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
       
-         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
 
-         f.SkillWait(cp, 50);
-         f.count[cp] += 1;
+         s.SkillWait(50);
+         v.P_CountMain[playerID] += 1;
       }
-      else if (f.count[cp] == 6)
+      else if (v.P_CountMain[playerID] == 6)
       {
-         f.distance[cp] = 50;
-         f.Table_Cos(cp, 0, f.distance[cp]);
-         f.Table_Sin(cp, 0, f.distance[cp]);
+         s.distance[playerID] = 50;
+         s.Table_Cos(playerID, 0, s.distance[playerID]);
+         s.Table_Sin(playerID, 0, s.distance[playerID]);
             
-         f.SquareShape(cp, 1, "40 + 1n Mojo", f.CosAngle[cp], f.SinAngle[cp]);
+         s.Shape_Square(playerID, 1, "40 + 1n Mojo", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-         f.Table_Cos(cp, 45, f.distance[cp]);
-         f.Table_Sin(cp, 45, f.distance[cp]);
+         s.Table_Cos(playerID, 45, s.distance[playerID]);
+         s.Table_Sin(playerID, 45, s.distance[playerID]);
             
-         f.SquareShape(cp, 1, "40 + 1n Mojo", f.CosAngle[cp], f.SinAngle[cp]);
+         s.Shape_Square(playerID, 1, "40 + 1n Mojo", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-         MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-         Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+         MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+         Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
-         f.SkillWait(cp, 160);
-         f.count[cp] += 1;
+         s.SkillWait(160);
+         v.P_CountMain[playerID] += 1;
       }
-      else if (f.count[cp] == 7)
+      else if (v.P_CountMain[playerID] == 7)
       {
-         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
 
-         f.SkillWait(cp, 80);
-         f.count[cp] += 1;
+         s.SkillWait(80);
+         v.P_CountMain[playerID] += 1;
       }
-      else if (f.count[cp] == 8)
+      else if (v.P_CountMain[playerID] == 8)
       {
-         f.SkillEnd(cp);
+         s.SkillEnd();
       }
    }
 }

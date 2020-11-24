@@ -1,82 +1,82 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
-function main(cp)
+function main(playerID)
 {
-	if (f.wait[cp] == 0 && f.step[cp] == 0)
+	if (s.wait[playerID] == 0 && s.step[playerID] == 0)
 	{
-		if (Bring(cp, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill"))
+		if (Bring(playerID, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill"))
 		{
-			KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", cp);
+			KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID);
 			if (Switch("Unique - Chtholly", Cleared))
 			{ 
 				SetSwitch("Unique - Chtholly", Set); 
-				f.stb.printAt(8, "\x13\x04전투속행 패시브를 \x1CON \x04시킵니다.");
+				s.stb.printAt(8, "\x13\x04전투속행 패시브를 \x1CON \x04시킵니다.");
 			}
 			else 
 			{ 
 				SetSwitch("Unique - Chtholly", Clear); 
-				f.stb.printAt(8, "\x13\x04전투속행 패시브를 \x08OFF \x04시킵니다.");
+				s.stb.printAt(8, "\x13\x04전투속행 패시브를 \x08OFF \x04시킵니다.");
 			}
 		}
-		if (Bring(cp, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))
+		if (Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))
 		{
-			f.step[cp] = 100;
-			KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", cp);
+			s.step[playerID] = 100;
+			KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", playerID);
 		}
-		else if (Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))
+		else if (Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))
 		{
-			f.step[cp] = 200;
-			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp);
+			s.step[playerID] = 200;
+			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
 		}
-		else if (Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))
+		else if (Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))
 		{
-			f.step[cp] = 300;
-			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
+			s.step[playerID] = 300;
+			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 		}
 	}
 	
 	// Combo
-	if (f.wait[cp] >= 2 && f.count[cp] == 0)
+	if (s.wait[playerID] >= 2 && v.P_CountMain[playerID] == 0)
 	{
-		if (Bring(cp, AtLeast, 2, "Protoss Scout", "[Skill]UseSkill") &&  f.step[cp] == 100)
+		if (Bring(playerID, AtLeast, 2, "Protoss Scout", "[Skill]UseSkill") &&  s.step[playerID] == 100)
 		{
-			f.Voice_Routine(cp, 9);
-			f.wait[cp] = 0;
-			f.step[cp] = 110;
-			KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", cp);
+			s.Voice_Routine(playerID, 9);
+			s.wait[playerID] = 0;
+			s.step[playerID] = 110;
+			KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", playerID);
 		}
 		
-		else if (Bring(cp, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill") 
-		&& Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill") &&  f.step[cp] == 200)
+		else if (Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill") 
+		&& Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill") &&  s.step[playerID] == 200)
 		{
-			f.Voice_Routine(cp, 1);
-			f.wait[cp] = 0;
-			f.step[cp] = 210;
-			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", cp);
-			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
+			s.Voice_Routine(playerID, 1);
+			s.wait[playerID] = 0;
+			s.step[playerID] = 210;
+			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
+			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 		}
 		
 		// Ultimate
-		else if (Bring(cp, AtLeast, 3, "Protoss Arbiter", "[Skill]UseSkill") 
-		&& f.step[cp] == 300
-		&& Deaths(cp, AtLeast, f.UltimateB[cp], " `UltimateCoolTime"))
+		else if (Bring(playerID, AtLeast, 3, "Protoss Arbiter", "[Skill]UseSkill") 
+		&& s.step[playerID] == 300
+		&& Deaths(playerID, AtLeast, s.UltimateB[playerID], " `UltimateCoolTime"))
 		{
 			if (Switch("UiltimateSwitch", Cleared))
 			{
-				f.Voice_Routine(cp, 11);
+				s.Voice_Routine(playerID, 11);
 				SetSwitch("UiltimateSwitch", Set);
-				f.wait[cp] = 0;
-				f.step[cp] = 240;
-				f.loopB[cp] = 1;
-				SetDeaths(cp, Subtract, f.UltimateB[cp], " `UltimateCoolTime");
-				KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", cp);
+				s.wait[playerID] = 0;
+				s.step[playerID] = 240;
+				v.P_LoopMainB[playerID] = 1;
+				SetDeaths(playerID, Subtract, s.UltimateB[playerID], " `UltimateCoolTime");
+				KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 				SetSwitch("Recall - Chtholly", Set);
 			}
 			else
 			{
 				SetResources(CurrentPlayer, Add, 900, Gas);
-				KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", cp);
+				KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 				SetDeaths(CurrentPlayer, SetTo, 999, " `SYSTEMTEXT");
 			}
 		}

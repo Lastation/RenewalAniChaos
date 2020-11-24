@@ -1,97 +1,97 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
-function main(cp)
+function main(playerID)
 {
-   if (f.delay[cp] == 0)
+   if (v.P_Delay[playerID] == 0)
    {
-      if (f.count[cp] == 0)
+      if (v.P_CountMain[playerID] == 0)
       {
-         if (f.loop[cp] == 0)
+         if (v.P_LoopMain[playerID] == 0)
          {
-            f.NxNSquareShape(cp, 1, "40 + 1n Mojo", 3, 50);
-            Order("40 + 1n Mojo", cp, "Anywhere", Attack, "Anywhere");
+            s.Shape_NxNSquare(playerID, 1, "40 + 1n Mojo", 3, 50);
+            Order("40 + 1n Mojo", playerID, "Anywhere", Attack, "Anywhere");
 
-            f.EdgeShapeWithProperty(cp, 1, "60 + 1n Archon", 45, 5, 100, 1);
-            f.EdgeShape(cp, 1, "60 + 1n Archon", 45, 3, 50);
-            KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+            s.EdgeShapeWithProperty(playerID, 1, "60 + 1n Archon", 45, 5, 100, 1);
+            s.EdgeShape(playerID, 1, "60 + 1n Archon", 45, 3, 50);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
          }
-         if (f.loop[cp] == 4)
+         if (v.P_LoopMain[playerID] == 4)
          {
-            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
          }
 
-         var i = f.loop[cp] / 2;
+         var i = v.P_LoopMain[playerID] / 2;
          var x = 50 - 50 * i;
          var y = 100;
 
-         if (f.loop[cp] < 8 && f.loop[cp] % 2 == 0)
+         if (v.P_LoopMain[playerID] < 8 && v.P_LoopMain[playerID] % 2 == 0)
          {
-            RemoveUnitAt(All, "80 + 1n Artanis", "Anywhere", cp);
+            RemoveUnitAt(All, "80 + 1n Artanis", "Anywhere", playerID);
 
             if (i % 2 == 0)
             {
-               f.SquareShapeWithProperty(cp, 1, "80 + 1n Artanis", x, y, 1);
-               f.SquareShape(cp, 1, "Protoss Dark Templar", x, y);
-               KillUnitAt(All, "Protoss Dark Templar", "Anywhere", cp);
+               s.Shape_SquareWithProperty(playerID, 1, "80 + 1n Artanis", x, y, 1);
+               s.Shape_Square(playerID, 1, "Protoss Dark Templar", x, y);
+               KillUnitAt(All, "Protoss Dark Templar", "Anywhere", playerID);
             }
             else
             {
-               f.SquareShape(cp, 1, "80 + 1n Artanis", x, y);
-               f.SquareShape(cp, 1, "60 + 1n High Templar", x, y);
-               KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
+               s.Shape_Square(playerID, 1, "80 + 1n Artanis", x, y);
+               s.Shape_Square(playerID, 1, "60 + 1n High Templar", x, y);
+               KillUnitAt(All, "60 + 1n High Templar", "Anywhere", playerID);
             }
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("80 + 1n Artanis", cp, "Anywhere", Attack, f.location[cp]);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("80 + 1n Artanis", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
          }
 
-         f.SkillWait(cp, 80);
+         s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 8)
+         if (v.P_LoopMain[playerID] == 8)
          {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 1)
+      else if (v.P_CountMain[playerID] == 1)
       {
-         if (f.loop[cp] == 0)
+         if (v.P_LoopMain[playerID] == 0)
          {
-            RemoveUnitAt(All, "80 + 1n Artanis", "Anywhere", cp);
+            RemoveUnitAt(All, "80 + 1n Artanis", "Anywhere", playerID);
 
-            f.EdgeShape(cp, 1, "40 + 1n Mojo", 45, 5, 100);
-            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+            s.EdgeShape(playerID, 1, "40 + 1n Mojo", 45, 5, 100);
+            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
          }
-         if (f.loop[cp] == 2)
+         if (v.P_LoopMain[playerID] == 2)
          {
-            f.EdgeShape(cp, 1, "Kakaru (Twilight)", 45, 5, 100);
-            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
+            s.EdgeShape(playerID, 1, "Kakaru (Twilight)", 45, 5, 100);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
 
-            f.NxNSquareShape(cp, 1, "40 + 1n Mojo", 3, 50);
-            Order("40 + 1n Mojo", cp, "Anywhere", Attack, "Anywhere");
+            s.Shape_NxNSquare(playerID, 1, "40 + 1n Mojo", 3, 50);
+            Order("40 + 1n Mojo", playerID, "Anywhere", Attack, "Anywhere");
 
-            f.EdgeShape(cp, 1, "60 + 1n Archon", 45, 3, 50);
-            KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+            s.EdgeShape(playerID, 1, "60 + 1n Archon", 45, 3, 50);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
          }
 
-         f.SkillWait(cp, 80);
+         s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 6)
+         if (v.P_LoopMain[playerID] == 6)
          {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 2)
+      else if (v.P_CountMain[playerID] == 2)
       {
-         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
 
-         f.SkillEnd(cp);
+         s.SkillEnd();
       }
    }
 }

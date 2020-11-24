@@ -1,5 +1,5 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
 const looker = PVariable();
 
@@ -13,13 +13,13 @@ function Looker()
 	}
 }
 
-function main(cp)
+function main(playerID)
 {
-	if (f.Kiana_Voice[cp] > 0)
+	if (s.Kiana_Voice[playerID] > 0)
 	{
-		Text(f.Kiana_Voice[cp]);
-		looker[cp] = f.Kiana_Voice[cp];
-		f.Kiana_Voice[cp] = 0;
+		Text(s.Kiana_Voice[playerID]);
+		looker[playerID] = s.Kiana_Voice[playerID];
+		s.Kiana_Voice[playerID] = 0;
 	}
 }
 
@@ -29,7 +29,7 @@ function Text(num)
 	{
 	case 1:
 		PlayWAV("Kiana_01.ogg");
-		f.stb.print("\x13\x19Kiana Kaslana\n\n\x13\x04네코 참!");
+		s.stb.print("\x13\x19Kiana Kaslana\n\n\x13\x04네코 참!");
 		break;
 	}
 }

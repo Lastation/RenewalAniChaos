@@ -132,46 +132,81 @@ import PluginVariables as msqcvar
 import variable as v
 # (Line 3) import func.shape as s;
 from func import shape as s
-# (Line 5) const stb = StringBuffer();
+# (Line 5) import Character.Group1.Rusaruka.Common.Skill_O as O;
+from Character.Group1.Rusaruka.Common import Skill_O as O
+# (Line 7) const stb = StringBuffer();
 stb = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 7) function onPluginStart() 	// 초기화 함수
-# (Line 8) {
+# (Line 9) function onPluginStart() 	// 초기화 함수
+# (Line 10) {
 @EUDFunc
 def onPluginStart():
-    # (Line 10) }
-    # (Line 12) function beforeTriggerExec()
+    # (Line 12) }
+    # (Line 14) function Skill_Variable(playerID)
     pass
 
-# (Line 13) {
+# (Line 15) {
+@EUDFunc
+def Skill_Variable(playerID):
+    # (Line 16) if (v.P_WaitMain[playerID] == 0)
+    if EUDIf()(v.P_WaitMain[playerID] == 0):
+        # (Line 17) {
+        # (Line 18) if 		(v.P_CountMain[playerID] == 999)	{ v.P_CountMain[playerID] = 1000; s.Main_Wait(500); }
+        if EUDIf()(v.P_CountMain[playerID] == 999):
+            _ARRW(v.P_CountMain, playerID) << (1000)
+            s.Main_Wait(500)
+            # (Line 19) else if 	(v.P_CountMain[playerID] == 1000)	{ v.P_CountMain[playerID] = 0; v.P_LoopMain[playerID] = 0; v.P_SkillDelay[playerID] = 12; }
+        if EUDElseIf()(v.P_CountMain[playerID] == 1000):
+            _ARRW(v.P_CountMain, playerID) << (0)
+            _ARRW(v.P_LoopMain, playerID) << (0)
+            _ARRW(v.P_SkillDelay, playerID) << (12)
+            # (Line 20) }
+        EUDEndIf()
+        # (Line 22) if 		(v.P_SkillDelay[playerID] >= 2) 	{ v.P_SkillDelay[playerID] -= 1; }
+    EUDEndIf()
+    if EUDIf()(v.P_SkillDelay[playerID] >= 2):
+        _ARRW(v.P_SkillDelay, playerID).__isub__(1)
+        # (Line 23) else if 	(v.P_SkillDelay[playerID] == 1) 	{ v.P_SkillDelay[playerID] = 0; v.P_Step[playerID] = 0; }
+    if EUDElseIf()(v.P_SkillDelay[playerID] == 1):
+        _ARRW(v.P_SkillDelay, playerID) << (0)
+        _ARRW(v.P_Step, playerID) << (0)
+        # (Line 25) if (v.P_WaitMain[playerID] >= 1) { v.P_WaitMain[playerID] -= 1; }
+    EUDEndIf()
+    if EUDIf()(v.P_WaitMain[playerID] >= 1):
+        _ARRW(v.P_WaitMain, playerID).__isub__(1)
+        # (Line 26) }
+    EUDEndIf()
+    # (Line 29) function beforeTriggerExec()
+
+# (Line 30) {
 @EUDFunc
 def beforeTriggerExec():
-    # (Line 15) randomize();
+    # (Line 32) randomize();
     f_randomize()
-    # (Line 18) foreach(Player : EUDLoopPlayer())
+    # (Line 35) foreach(Player : EUDLoopPlayer())
     for Player in EUDLoopPlayer():
-        # (Line 19) {
-        # (Line 20) setcurpl(Player);
+        # (Line 36) {
+        # (Line 37) setcurpl(Player);
         f_setcurpl(Player)
-        # (Line 21) v.P_PlayerID[Player] = Player;
+        # (Line 38) v.P_PlayerID[Player] = Player;
         _ARRW(v.P_PlayerID, Player) << (Player)
-        # (Line 22) MuteUnitSpeech();
-        # (Line 23) stb.print("Now Player = ", getuserplayerid(), "");
+        # (Line 39) MuteUnitSpeech();
+        # (Line 41) v.P_CharacterID[Player] = 51;
         DoActions(MuteUnitSpeech())
-        stb.print("Now Player = ", f_getuserplayerid(), "")
-        # (Line 25) s.Shape_NxNSquare(Player, 1, "50 + 1n Battlecruiser", 2, 64);
-        s.Shape_NxNSquare(Player, 1, "50 + 1n Battlecruiser", 2, 64)
-        # (Line 26) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", Player);
-        # (Line 27) }
-        DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", Player))
-        # (Line 30) foreach (Observer : EUDLoopRange(128, 132))
+        _ARRW(v.P_CharacterID, Player) << (51)
+        # (Line 42) v.P_LocationID[Player] = 32;
+        _ARRW(v.P_LocationID, Player) << (32)
+        # (Line 43) O.main(Player);
+        O.f_main(Player)
+        # (Line 45) Skill_Variable(Player);
+        Skill_Variable(Player)
+        # (Line 47) }
+        # (Line 50) foreach (Observer : EUDLoopRange(128, 132))
 
     for Observer in EUDLoopRange(128, 132):
-        # (Line 31) {
-        # (Line 32) setcurpl(Observer);
+        # (Line 51) {
+        # (Line 52) setcurpl(Observer);
         f_setcurpl(Observer)
-        # (Line 33) MuteUnitSpeech();
-        # (Line 34) stb.print("Now Player = ", getuserplayerid(), "");
+        # (Line 53) MuteUnitSpeech();
+        # (Line 54) }
         DoActions(MuteUnitSpeech())
-        stb.print("Now Player = ", f_getuserplayerid(), "")
-        # (Line 35) }
-        # (Line 36) }
+        # (Line 55) }

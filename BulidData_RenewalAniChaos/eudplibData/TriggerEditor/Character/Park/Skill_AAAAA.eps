@@ -1,19 +1,19 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
 function EdgeShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, x, y);
 
-function main(cp)
+function main(playerID)
 {
-   f.BanReturn(cp);
+   s.BanReturn(playerID);
 
-   if (f.delay[cp] == 0)
+   if (v.P_Delay[playerID] == 0)
    {
-      if (f.count[cp] == 0)
+      if (v.P_CountMain[playerID] == 0)
       {
-         if (f.loop[cp] == 0)
+         if (v.P_LoopMain[playerID] == 0)
          {
-            f.ShieldFix(cp, 1);
+            s.ShieldFix(playerID, 1);
             SetSwitch("ComputerAlliy", Set);
             SetAllianceStatus(P1, Ally);
             SetAllianceStatus(P2, Ally);
@@ -23,193 +23,193 @@ function main(cp)
             SetAllianceStatus(P6, Ally);
          }
 
-         if (f.loop[cp] < 10)
+         if (v.P_LoopMain[playerID] < 10)
          {
-            f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 100, 100);
-            f.SquareShape(cp, 1, "Protoss Dark Archon", 100, 100);
-            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+            s.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 100, 100);
+            s.Shape_Square(playerID, 1, "Protoss Dark Archon", 100, 100);
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
          }
 
-         f.SkillWait(cp, 80);
+         s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 10)
+         if (v.P_LoopMain[playerID] == 10)
          {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
-         }
-      }
-      else if (f.count[cp] == 1)
-      {
-         if (f.loop[cp] == 0)
-         {
-            EdgeShapeAt(cp, 1, "Target", 22, 3, 32, 100, 100);
-            f.SquareShape(cp, 1, "Protoss Dark Archon", 100, 100);
-            KillUnitAt(All, "Target", "Anywhere", cp);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
-         }
-         if (f.loop[cp] == 1)
-         {
-            EdgeShapeAt(cp, 1, "Terran Science Vessel", 22, 3, 32, 100, 100);
-            f.SquareShape(cp, 1, "Protoss Dark Archon", 100, 100);
-            KillUnitAt(All, "Terran Science Vessel", "Anywhere", cp);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
-         }
-
-         f.SkillWait(cp, 80);
-
-         f.loop[cp] += 1;
-
-         if (f.loop[cp] == 5)
-         {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 2)
+      else if (v.P_CountMain[playerID] == 1)
       {
-         if (f.loop[cp] < 6)
+         if (v.P_LoopMain[playerID] == 0)
          {
-            f.EdgeShape(cp, 1, "50 + 1n Battlecruiser", 0, 1 + 2 * f.loop[cp], 50 * f.loop[cp]);
-            f.EdgeShape(cp, 1, "Protoss Dark Archon", 0, 1 + 2 * f.loop[cp], 50 * f.loop[cp]);
-            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+            EdgeShapeAt(playerID, 1, "Target", 22, 3, 32, 100, 100);
+            s.Shape_Square(playerID, 1, "Protoss Dark Archon", 100, 100);
+            KillUnitAt(All, "Target", "Anywhere", playerID);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
          }
-         if (f.loop[cp] == 5)
+         if (v.P_LoopMain[playerID] == 1)
          {
-            for (var i = 0; i < 3; i++)
-            {
-               var x = -0 - 100 * i;
-               var y = 300 - 100 * i;
-
-               EdgeShapeAt(cp, 1, "40 + 1n Firebat", 0, 3, 50, x, y);
-            }
+            EdgeShapeAt(playerID, 1, "Terran Science Vessel", 22, 3, 32, 100, 100);
+            s.Shape_Square(playerID, 1, "Protoss Dark Archon", 100, 100);
+            KillUnitAt(All, "Terran Science Vessel", "Anywhere", playerID);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
          }
-         f.SkillWait(cp, 80);
 
-         f.loop[cp] += 1;
+         s.SkillWait(80);
 
-         if (f.loop[cp] == 15)
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 5)
          {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 3)
+      else if (v.P_CountMain[playerID] == 2)
       {
-         KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-
-         if (f.loop[cp] < 6)
+         if (v.P_LoopMain[playerID] < 6)
          {
-            var x = -50 - 50 * f.loop[cp];
-            var y = 250 - 50 * f.loop[cp];
-
-            EdgeShapeAt(cp, 1, "50 + 1n Battlecruiser", 0, 3, 50, x, y);
-            EdgeShapeAt(cp, 1, "50 + 1n Tank", 0, 3, 50, x, y);
-
-            KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
-
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
+            s.EdgeShape(playerID, 1, "50 + 1n Battlecruiser", 0, 1 + 2 * v.P_LoopMain[playerID], 50 * v.P_LoopMain[playerID]);
+            s.EdgeShape(playerID, 1, "Protoss Dark Archon", 0, 1 + 2 * v.P_LoopMain[playerID], 50 * v.P_LoopMain[playerID]);
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
          }
-
-         f.SkillWait(cp, 80);
-
-         f.loop[cp] += 1;
-
-         if (f.loop[cp] == 11)
+         if (v.P_LoopMain[playerID] == 5)
          {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            for (var i = 0; i < 3; i++)
+            {
+               var x = -0 - 100 * i;
+               var y = 300 - 100 * i;
+
+               EdgeShapeAt(playerID, 1, "40 + 1n Firebat", 0, 3, 50, x, y);
+            }
+         }
+         s.SkillWait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 15)
+         {
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 4)
+      else if (v.P_CountMain[playerID] == 3)
       {
-         if (f.loop[cp] == 0)
+         KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+
+         if (v.P_LoopMain[playerID] < 6)
+         {
+            var x = -50 - 50 * v.P_LoopMain[playerID];
+            var y = 250 - 50 * v.P_LoopMain[playerID];
+
+            EdgeShapeAt(playerID, 1, "50 + 1n Battlecruiser", 0, 3, 50, x, y);
+            EdgeShapeAt(playerID, 1, "50 + 1n Tank", 0, 3, 50, x, y);
+
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+         }
+
+         s.SkillWait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 11)
+         {
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 4)
+      {
+         if (v.P_LoopMain[playerID] == 0)
          {
             for (var i = 0; i < 3; i++)
             {
                var x = -0 - 100 * i;
                var y = 300 - 100 * i;
 
-               EdgeShapeAt(cp, 1, "50 + 1n Battlecruiser", 0, 3, 50, x, y);
-               EdgeShapeAt(cp, 1, "40 + 1n Wraith", 0, 3, 50, x, y);
-               EdgeShapeAt(cp, 1, "Protoss Dark Archon", 0, 3, 50, x, y);
+               EdgeShapeAt(playerID, 1, "50 + 1n Battlecruiser", 0, 3, 50, x, y);
+               EdgeShapeAt(playerID, 1, "40 + 1n Wraith", 0, 3, 50, x, y);
+               EdgeShapeAt(playerID, 1, "Protoss Dark Archon", 0, 3, 50, x, y);
             }
 
-            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, "40 + 1n Wraith", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-            Order("40 + 1n Wraith", cp, "Anywhere", Attack, f.location[cp]);
-            MoveUnit(All, "40 + 1n Firebat", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-            Order("40 + 1n Firebat", cp, "Anywhere", Attack, f.location[cp]);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "40 + 1n Wraith", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            MoveUnit(All, "40 + 1n Firebat", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("40 + 1n Firebat", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
          }
-         if (f.loop[cp] == 2)
+         if (v.P_LoopMain[playerID] == 2)
          {
             for (var i = 0; i < 3; i++)
             {
                var x = -0 - 100 * i;
                var y = 300 - 100 * i;
 
-               EdgeShapeAt(cp, 1, "80 + 1n Tom Kazansky", 0, 3, 50, x, y);
-               EdgeShapeAt(cp, 1, "Protoss Dark Archon", 0, 3, 50, x, y);
+               EdgeShapeAt(playerID, 1, "80 + 1n Tom Kazansky", 0, 3, 50, x, y);
+               EdgeShapeAt(playerID, 1, "Protoss Dark Archon", 0, 3, 50, x, y);
             }
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("80 + 1n Tom Kazansky", cp, "Anywhere", Attack, f.location[cp]);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
          }
-         if (f.loop[cp] == 4)
+         if (v.P_LoopMain[playerID] == 4)
          {
-            RemoveUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", cp);
+            RemoveUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", playerID);
             for (var i = 0; i < 3; i++)
             {
                var x = -0 - 100 * i;
                var y = 300 - 100 * i;
 
-               EdgeShapeAt(cp, 1, "50 + 1n Battlecruiser", 0, 3, 50, x, y);
-               EdgeShapeAt(cp, 1, "Protoss Dark Archon", 0, 3, 50, x, y);
+               EdgeShapeAt(playerID, 1, "50 + 1n Battlecruiser", 0, 3, 50, x, y);
+               EdgeShapeAt(playerID, 1, "Protoss Dark Archon", 0, 3, 50, x, y);
             }
 
-            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
          }
-         if (f.loop[cp] == 6)
+         if (v.P_LoopMain[playerID] == 6)
          {
             for (var i = 0; i < 3; i++)
             {
                var x = -0 - 100 * i;
                var y = 300 - 100 * i;
 
-               EdgeShapeAt(cp, 1, "80 + 1n Tom Kazansky", 0, 3, 50, x, y);
-               EdgeShapeAt(cp, 1, "Protoss Dark Archon", 0, 3, 50, x, y);
+               EdgeShapeAt(playerID, 1, "80 + 1n Tom Kazansky", 0, 3, 50, x, y);
+               EdgeShapeAt(playerID, 1, "Protoss Dark Archon", 0, 3, 50, x, y);
             }
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("80 + 1n Tom Kazansky", cp, "Anywhere", Attack, f.location[cp]);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
          }
-         if (f.loop[cp] == 8)
+         if (v.P_LoopMain[playerID] == 8)
          {
-            RemoveUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", cp);
+            RemoveUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", playerID);
             for (var i = 0; i < 3; i++)
             {
                var x = -0 - 100 * i;
                var y = 300 - 100 * i;
 
-               EdgeShapeAt(cp, 1, "Terran Science Vessel", 0, 3, 50, x, y);
+               EdgeShapeAt(playerID, 1, "Terran Science Vessel", 0, 3, 50, x, y);
             }
-            KillUnitAt(All, "Terran Science Vessel", "Anywhere", cp);
+            KillUnitAt(All, "Terran Science Vessel", "Anywhere", playerID);
          }
 
 
-         f.SkillWait(cp, 80);
+         s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 100)
+         if (v.P_LoopMain[playerID] == 100)
          {
             SetSwitch("ComputerAlliy", Clear);
 
@@ -226,29 +226,29 @@ function main(cp)
                SetAllianceStatus(P3, Enemy);
             }
 
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 5)
+      else if (v.P_CountMain[playerID] == 5)
       {
-         if (Bring(cp, AtLeast, 20, "Protoss Arbiter", "[Skill]UseSkill") 
-         && Deaths(cp, AtLeast, f.UltimateB[cp], " `UltimateCoolTime"))
+         if (Bring(playerID, AtLeast, 20, "Protoss Arbiter", "[Skill]UseSkill") 
+         && Deaths(playerID, AtLeast, s.UltimateB[playerID], " `UltimateCoolTime"))
          {
-            f.Voice_Routine(cp, 3);
-            f.wait[cp] = 0;
-            f.count[cp] = 0;
-            f.loop[cp] = 0;
-            f.step[cp] = 0;
-            SetDeaths(cp, Subtract, f.UltimateB[cp], " `UltimateCoolTime");
-            KillUnitAt(20, "Protoss Arbiter", "[Skill]UseSkill", cp);
+            s.Voice_Routine(playerID, 3);
+            s.wait[playerID] = 0;
+            v.P_CountMain[playerID] = 0;
+            v.P_LoopMain[playerID] = 0;
+            s.step[playerID] = 0;
+            SetDeaths(playerID, Subtract, s.UltimateB[playerID], " `UltimateCoolTime");
+            KillUnitAt(20, "Protoss Arbiter", "[Skill]UseSkill", playerID);
          }
          else
          {
-            KillUnitAt(All, "40 + 1n Firebat", "Anywhere", cp);
-            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Firebat", "Anywhere", playerID);
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
             SetSwitch("UiltimateSwitch", Clear);
-            f.SkillEnd(cp);
+            s.SkillEnd();
          }
       }
    }
@@ -256,14 +256,14 @@ function main(cp)
 
 function EdgeShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, x, y)
 {
-   f.EdgeShapeAt(cp, count, Unit, degree, n, interval, x, y);
-   f.EdgeShapeAt(cp, count, Unit, degree, n, interval, -x, -y);
-   f.EdgeShapeAt(cp, count, Unit, degree, n, interval, -y, x);
-   f.EdgeShapeAt(cp, count, Unit, degree, n, interval, y, -x);
+   s.EdgeShapeAt(playerID, count, Unit, degree, n, interval, x, y);
+   s.EdgeShapeAt(playerID, count, Unit, degree, n, interval, -x, -y);
+   s.EdgeShapeAt(playerID, count, Unit, degree, n, interval, -y, x);
+   s.EdgeShapeAt(playerID, count, Unit, degree, n, interval, y, -x);
 
-   f.DotShape(cp, count, Unit, x, y);
-   f.DotShape(cp, count, Unit, -x, -y);
-   f.DotShape(cp, count, Unit, -y, x);
-   f.DotShape(cp, count, Unit, y, -x);
+   s.Shape_Dot(playerID, count, Unit, x, y);
+   s.Shape_Dot(playerID, count, Unit, -x, -y);
+   s.Shape_Dot(playerID, count, Unit, -y, x);
+   s.Shape_Dot(playerID, count, Unit, y, -x);
 }
 

@@ -1,5 +1,5 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
 const looker = PVariable();
 
@@ -13,13 +13,13 @@ function Looker()
 	}
 }
 
-function main(cp)
+function main(playerID)
 {
-	if (f.Ekidona_Voice[cp] > 0)
+	if (s.Ekidona_Voice[playerID] > 0)
 	{
-		Text(f.Ekidona_Voice[cp]);
-		looker[cp] = f.Ekidona_Voice[cp];
-		f.Ekidona_Voice[cp] = 0;
+		Text(s.Ekidona_Voice[playerID]);
+		looker[playerID] = s.Ekidona_Voice[playerID];
+		s.Ekidona_Voice[playerID] = 0;
 	}
 }
 
@@ -29,166 +29,166 @@ function Text(num)
 	{
 	case 1:
 		PlayWAV("Ekidona_01.ogg");
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04역시 재미있어, 그렇게 생각하지 않아?\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04역시 재미있어, 그렇게 생각하지 않아?\x04\n");
 		break;
 	case 2:
 		PlayWAV("Ekidona_Ult01.ogg");
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04알고 있어\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04알고 있어\x04\n");
 		break;
 	case 3:
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04너의 지금까지의 발자취를 알고 있어\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04너의 지금까지의 발자취를 알고 있어\x04\n");
 		break;
 	case 4:
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04봤으니까\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04봤으니까\x04\n");
 		break;
 	case 5:
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04하지만 보기만 했을 뿐이야\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04하지만 보기만 했을 뿐이야\x04\n");
 		break;
 	case 6:
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04그러니까 가능하다면 네가 직접 가르쳐 줬으면 해\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04그러니까 가능하다면 네가 직접 가르쳐 줬으면 해\x04\n");
 		break;
 	case 7:
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04네가 지금까지 무슨 생각을 하고\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04네가 지금까지 무슨 생각을 하고\x04\n");
 		break;
 	case 8:
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04어떻게 느끼고\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04어떻게 느끼고\x04\n");
 		break;
 	case 9:
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04얼마나 떠안아 왔는지\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04얼마나 떠안아 왔는지\x04\n");
 		break;
 	case 10:
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04그걸 알고 싶어\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04그걸 알고 싶어\x04\n");
 		break;
 	case 11:
 		PlayWAV("Ekidona_Ult02.ogg");
 		break;
 	case 12:
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04왜냐하면 나는\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04왜냐하면 나는\x04\n");
 		break;
 	case 13:
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04세상의 모든 걸 알길 원하는 탐욕의 마녀\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04세상의 모든 걸 알길 원하는 탐욕의 마녀\x04\n");
 		break;
 	case 14:
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04에키드나니까\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04에키드나니까\x04\n");
 		break;
 	case 15:
 		PlayWAV("Ekidona_04.ogg");
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04에? 후에? 거짓말이지?! 나는 탐욕의 마녀라고?!\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04에? 후에? 거짓말이지?! 나는 탐욕의 마녀라고?!\x04\n");
 		break;
 	case 16:
 		PlayWAV("Ekidona_05.ogg");
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04세상의 모든 권력자가 내 지식에 매달리려고 이 몸을 갈구해 왔어\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04세상의 모든 권력자가 내 지식에 매달리려고 이 몸을 갈구해 왔어\x04\n");
 		break;
 	case 17:
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04저기, 일단 진정하자 진정하고 대화하자!\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04저기, 일단 진정하자 진정하고 대화하자!\x04\n");
 		break;
 	case 18:
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04아무도 모르는 세상의 진실을...\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04아무도 모르는 세상의 진실을...\x04\n");
 		break;
 	case 19:
-		f.stb.print("\x13\x04흥미 없어\x04\n");
+		s.stb.print("\x13\x04흥미 없어\x04\n");
 		break;
 	case 20:
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04에에에엑?!\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04에에에엑?!\x04\n");
 		break;
 	case 21:
 		PlayWAV("Ekidona_02.ogg");
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04너라는 인간이 이해되지 않아서 무척이나 흥미로워, 무서울 정도야\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04너라는 인간이 이해되지 않아서 무척이나 흥미로워, 무서울 정도야\x04\n");
 		break;
 	case 22:
 		PlayWAV("Ekidona_03.ogg");
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04과연... 그건 어떨까나?\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04과연... 그건 어떨까나?\x04\n");
 		break;
 	case 23:
 		PlayWAV("Ekidona_Unique.ogg");
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04내가 널 도우면 넌 반드시 구하고 싶은 이들을 구하는 미래에 다다를 수 있어\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04내가 널 도우면 넌 반드시 구하고 싶은 이들을 구하는 미래에 다다를 수 있어\x04\n");
 		break;
 	case 24:
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04어떡하면 되는지 모르는 너의 손을 내가 이끌 수 있게 해 주지 않겠어?\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04어떡하면 되는지 모르는 너의 손을 내가 이끌 수 있게 해 주지 않겠어?\x04\n");
 		break;
 	case 25:
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04너를 반드시 네가 바라는 미래로 데려가 주겠다고\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04너를 반드시 네가 바라는 미래로 데려가 주겠다고\x04\n");
 		break;
 	case 26:
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04약속하지\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04약속하지\x04\n");
 		break;
 		
 	case 101:
 		PlayWAV("Ekidona_Unique01.ogg");
-		f.stb.printAt(3, "\x13\x04너야말로 더 잘 알아야 해 생각을 해봐\x04");
-		f.stb.printAt(4, "\x13\x04네가 가진 사망귀환 그건 굉장한 권능이야 그것의 진정한 유용함을 넌 모르고 있어\x04");
-		f.stb.printAt(5, "\x13\x04원하는 결과에 다다를 때까지 몇 번이든 다시 시작할 수 있어\x04");
-		f.stb.printAt(6, "\x13\x04그것은 탐구자에게 있어 궁극적인 이상의 체현이야\x04");
+		s.stb.printAt(3, "\x13\x04너야말로 더 잘 알아야 해 생각을 해봐\x04");
+		s.stb.printAt(4, "\x13\x04네가 가진 사망귀환 그건 굉장한 권능이야 그것의 진정한 유용함을 넌 모르고 있어\x04");
+		s.stb.printAt(5, "\x13\x04원하는 결과에 다다를 때까지 몇 번이든 다시 시작할 수 있어\x04");
+		s.stb.printAt(6, "\x13\x04그것은 탐구자에게 있어 궁극적인 이상의 체현이야\x04");
 		break;
 	case 102:
 		PlayWAV("Ekidona_Unique02.ogg");
-		f.stb.printAt(3, "\x13\x04물론 난 네게 사망귀환을 강요하진 않을 거야\x04");
-		f.stb.printAt(4, "\x13\x04넌 네가 원하는 결과를 위해 그 힘을 쓰고\x04");
-		f.stb.printAt(5, "\x13\x04나 또한 네 바람을 이루기 위해 실컷 지헤를 빌려줄게\x04");
-		f.stb.printAt(6, "\x13\x04그 과정에서 생기는 온갖 결과가 내 호기심을 채우는 데 크게 공헌할 것이 기대돼\x04");
+		s.stb.printAt(3, "\x13\x04물론 난 네게 사망귀환을 강요하진 않을 거야\x04");
+		s.stb.printAt(4, "\x13\x04넌 네가 원하는 결과를 위해 그 힘을 쓰고\x04");
+		s.stb.printAt(5, "\x13\x04나 또한 네 바람을 이루기 위해 실컷 지헤를 빌려줄게\x04");
+		s.stb.printAt(6, "\x13\x04그 과정에서 생기는 온갖 결과가 내 호기심을 채우는 데 크게 공헌할 것이 기대돼\x04");
 		break;
 	case 103:
 		PlayWAV("Ekidona_Unique03.ogg");
-		f.stb.printAt(3, "\x13\x04함께 같은 문제를 고민하고 발버둥 쳐 답을 내는 거야 우린 그걸 위한 최고의 관계가 될 수 있어\x04");
-		f.stb.printAt(4, "\x13\x04난 너의 힘을 이용하고 너도 나를 최선의 미래를 위해 이용해 줬으면 해\x04");
-		f.stb.printAt(5, "\x13\x04네게 호감이 있고 널 돕고 싶은 소녀 마음은 진짜야\x04");
-		f.stb.printAt(6, "\x13\x04이용하기 좋은 여자로 취급해도 좋아 원한다면 널 위로하는데 내 몸을 써도 괜찮아\x04");
+		s.stb.printAt(3, "\x13\x04함께 같은 문제를 고민하고 발버둥 쳐 답을 내는 거야 우린 그걸 위한 최고의 관계가 될 수 있어\x04");
+		s.stb.printAt(4, "\x13\x04난 너의 힘을 이용하고 너도 나를 최선의 미래를 위해 이용해 줬으면 해\x04");
+		s.stb.printAt(5, "\x13\x04네게 호감이 있고 널 돕고 싶은 소녀 마음은 진짜야\x04");
+		s.stb.printAt(6, "\x13\x04이용하기 좋은 여자로 취급해도 좋아 원한다면 널 위로하는데 내 몸을 써도 괜찮아\x04");
 		break;
 	case 104:
 		PlayWAV("Ekidona_Unique04.ogg");
-		f.stb.printAt(3, "\x13\x04기꺼이 바칠게\x04");
-		f.stb.printAt(4, "\x13\x04네가 나아가기 위한 힘을 난 말로써 줄게\x04");
-		f.stb.printAt(5, "\x13\x04위로든 격려든 사랑이라도 좋아 아니면 증오라도\x04");
-		f.stb.printAt(6, "\x13\x04난 네게 헌신할게 헌신할 수 있어 헌신하는 여자 좋아하잖아?\x04");
+		s.stb.printAt(3, "\x13\x04기꺼이 바칠게\x04");
+		s.stb.printAt(4, "\x13\x04네가 나아가기 위한 힘을 난 말로써 줄게\x04");
+		s.stb.printAt(5, "\x13\x04위로든 격려든 사랑이라도 좋아 아니면 증오라도\x04");
+		s.stb.printAt(6, "\x13\x04난 네게 헌신할게 헌신할 수 있어 헌신하는 여자 좋아하잖아?\x04");
 		break;
 	case 105:
 		PlayWAV("Ekidona_Unique05.ogg");
-		f.stb.printAt(3, "\x13\x04네게는 내가 필요해 내 호기심은 이제 네가 없으면 채울 수 없어\x04");
-		f.stb.printAt(4, "\x13\x04네가 누군가를 구하기 위해 힘을 쓸 거라면 나도 구해 줬으면 해\x04");
-		f.stb.printAt(5, "\x13\x04무슨 일이 있더라도 난 반드시 너를 네가 바라는 미래로 데려갈 거야\x04");
-		f.stb.printAt(6, "\x13\x04반드시, 반드시야!\x04");
+		s.stb.printAt(3, "\x13\x04네게는 내가 필요해 내 호기심은 이제 네가 없으면 채울 수 없어\x04");
+		s.stb.printAt(4, "\x13\x04네가 누군가를 구하기 위해 힘을 쓸 거라면 나도 구해 줬으면 해\x04");
+		s.stb.printAt(5, "\x13\x04무슨 일이 있더라도 난 반드시 너를 네가 바라는 미래로 데려갈 거야\x04");
+		s.stb.printAt(6, "\x13\x04반드시, 반드시야!\x04");
 		break;
 	case 106:
 		PlayWAV("Ekidona_Unique06.ogg");
-		f.stb.printAt(3, "\x13\x04그 다음에 성역의 해방이 있고\x04");
-		f.stb.printAt(4, "\x13\x04성역에 붙잡힌 네 연모하는 이도 소중한 사람들도 구할 수 있어\x04");
-		f.stb.printAt(5, "\x13\x04그걸 위해 나를 빼앗고 이용하고 마음껏 이 탐욕을 어지럽히고 미래를 붙잡으러 가자!\x04");
-		f.stb.printAt(6, "\x13\x04내가 네게 바라고 네게 원하고 그 대신 줄 수 있는 건 이게 전부야\x04");
+		s.stb.printAt(3, "\x13\x04그 다음에 성역의 해방이 있고\x04");
+		s.stb.printAt(4, "\x13\x04성역에 붙잡힌 네 연모하는 이도 소중한 사람들도 구할 수 있어\x04");
+		s.stb.printAt(5, "\x13\x04그걸 위해 나를 빼앗고 이용하고 마음껏 이 탐욕을 어지럽히고 미래를 붙잡으러 가자!\x04");
+		s.stb.printAt(6, "\x13\x04내가 네게 바라고 네게 원하고 그 대신 줄 수 있는 건 이게 전부야\x04");
 		break;
 	case 107:
 		PlayWAV("Ekidona_Unique07.ogg");
-		f.stb.printAt(3, "\x13\x04난 모든 걸... 정말로 모든 걸 적나라하게 전했어 열정적으로\x04");
-		f.stb.printAt(4, "\x13\x04이건 사랑에 가까운지도 몰라\x04");
-		f.stb.printAt(5, "\x13\x04사랑의 맹세야\x04");
-		f.stb.printAt(6, "\x13\x04그런 내 사랑에 넌 어떻게 응할 거지? 대답해줘\x04");
+		s.stb.printAt(3, "\x13\x04난 모든 걸... 정말로 모든 걸 적나라하게 전했어 열정적으로\x04");
+		s.stb.printAt(4, "\x13\x04이건 사랑에 가까운지도 몰라\x04");
+		s.stb.printAt(5, "\x13\x04사랑의 맹세야\x04");
+		s.stb.printAt(6, "\x13\x04그런 내 사랑에 넌 어떻게 응할 거지? 대답해줘\x04");
 		break;
 	case 108:
-		f.stb.print("\x13\x16Ekidona\n");
-		f.stb.print("\x13\x04그것 또한 내 호기심을 채울 답 중 하나니까\x04\n");
+		s.stb.print("\x13\x16Ekidona\n");
+		s.stb.print("\x13\x04그것 또한 내 호기심을 채울 답 중 하나니까\x04\n");
 		break;
 	}
 }

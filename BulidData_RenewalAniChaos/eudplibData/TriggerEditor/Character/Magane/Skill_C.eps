@@ -1,132 +1,132 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
-function main(cp)
+function main(playerID)
 {
-   if (f.delay[cp] == 0)
+   if (v.P_Delay[playerID] == 0)
    {
-      if (f.count[cp] == 0)
+      if (v.P_CountMain[playerID] == 0)
       {
-         if (f.loop[cp] < 4)
+         if (v.P_LoopMain[playerID] < 4)
          {             
-            RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
+            RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
 
-            f.DotShape(cp, 1, "40 + 1n Mutalisk", 0, 0);
+            s.Shape_Dot(playerID, 1, "40 + 1n Mutalisk", 0, 0);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Mutalisk", cp, "Anywhere", Attack, "Anywhere");
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, "Anywhere");
 
-            f.Table_Sin(cp, 90 * f.loop[cp], 150);
-            f.Table_Cos(cp, 90 * f.loop[cp], 150);
+            s.Table_Sin(playerID, 90 * v.P_LoopMain[playerID], 150);
+            s.Table_Cos(playerID, 90 * v.P_LoopMain[playerID], 150);
 
-            f.DotShape(cp, 1, "Protoss Dark Archon", f.CosAngle[cp], f.SinAngle[cp]);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+            s.Shape_Dot(playerID, 1, "Protoss Dark Archon", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
 
-            f.SkillWait(cp, 80);
+            s.SkillWait(80);
 
-            f.loop[cp] += 1;
+            v.P_LoopMain[playerID] += 1;
          }
-         else if (f.loop[cp] < 8)
+         else if (v.P_LoopMain[playerID] < 8)
          {             
-            RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
+            RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
 
-            f.DotShape(cp, 1, "40 + 1n Mutalisk", 0, 0);
+            s.Shape_Dot(playerID, 1, "40 + 1n Mutalisk", 0, 0);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Mutalisk", cp, "Anywhere", Attack, "Anywhere");
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, "Anywhere");
 
-            f.Table_Sin(cp, 90 * f.loop[cp] + 45, 150);
-            f.Table_Cos(cp, 90 * f.loop[cp] + 45, 150);
+            s.Table_Sin(playerID, 90 * v.P_LoopMain[playerID] + 45, 150);
+            s.Table_Cos(playerID, 90 * v.P_LoopMain[playerID] + 45, 150);
 
-            f.DotShape(cp, 1, "Protoss Dark Archon", f.CosAngle[cp], f.SinAngle[cp]);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+            s.Shape_Dot(playerID, 1, "Protoss Dark Archon", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
 
-            f.SkillWait(cp, 80);
+            s.SkillWait(80);
 
-            f.loop[cp] += 1;
+            v.P_LoopMain[playerID] += 1;
          }
-         else if (f.loop[cp] == 8)
+         else if (v.P_LoopMain[playerID] == 8)
          {
-            RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", cp);
+            RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
 
-            f.SkillWait(cp, 80);
+            s.SkillWait(80);
 
-            f.count[cp] += 1;
-            f.loop[cp] = 0;
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
          }
       }
-      else if (f.count[cp] == 1)
+      else if (v.P_CountMain[playerID] == 1)
       {
-         if (f.loop[cp] < 2)
+         if (v.P_LoopMain[playerID] < 2)
          {       
-            f.Table_Sin(cp, 90 * f.loop[cp] + 45, f.loop[cp] * 75 + 75);
-            f.Table_Cos(cp, 90 * f.loop[cp] + 45, f.loop[cp] * 75 + 75);
+            s.Table_Sin(playerID, 90 * v.P_LoopMain[playerID] + 45, v.P_LoopMain[playerID] * 75 + 75);
+            s.Table_Cos(playerID, 90 * v.P_LoopMain[playerID] + 45, v.P_LoopMain[playerID] * 75 + 75);
 
-            f.SquareShape(cp, 1, " Unit. Hoffnung 25000", f.CosAngle[cp], f.SinAngle[cp]);
-            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+            s.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
 
-            f.Table_Sin(cp, 90 * f.loop[cp], f.loop[cp] * 75 + 75);
-            f.Table_Cos(cp, 90 * f.loop[cp], f.loop[cp] * 75 + 75);
+            s.Table_Sin(playerID, 90 * v.P_LoopMain[playerID], v.P_LoopMain[playerID] * 75 + 75);
+            s.Table_Cos(playerID, 90 * v.P_LoopMain[playerID], v.P_LoopMain[playerID] * 75 + 75);
 
-            f.SquareShape(cp, 1, " Unit. Hoffnung 25000", f.CosAngle[cp], f.SinAngle[cp]);
-            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+            s.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
 
-            f.SkillWait(cp, 80);
-            f.loop[cp] += 1;
+            s.SkillWait(80);
+            v.P_LoopMain[playerID] += 1;
          }
-         else if (f.loop[cp] == 2)
+         else if (v.P_LoopMain[playerID] == 2)
          {         
-            f.Table_Sin(cp, 90 * f.loop[cp] + 45, 150);
-            f.Table_Cos(cp, 90 * f.loop[cp] + 45, 150);
+            s.Table_Sin(playerID, 90 * v.P_LoopMain[playerID] + 45, 150);
+            s.Table_Cos(playerID, 90 * v.P_LoopMain[playerID] + 45, 150);
 
-            f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp]);
+            s.Shape_Square(playerID, 1, "40 + 1n Guardian", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-            f.Table_Sin(cp, 90 * f.loop[cp], 150);
-            f.Table_Cos(cp, 90 * f.loop[cp], 150);
+            s.Table_Sin(playerID, 90 * v.P_LoopMain[playerID], 150);
+            s.Table_Cos(playerID, 90 * v.P_LoopMain[playerID], 150);
 
-            f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp]);
+            s.Shape_Square(playerID, 1, "40 + 1n Guardian", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
-            f.SkillWait(cp, 240);
+            s.SkillWait(240);
 
-            f.loop[cp] += 1;
+            v.P_LoopMain[playerID] += 1;
          }
-         else if (f.loop[cp] == 3)
+         else if (v.P_LoopMain[playerID] == 3)
          {         
-            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
 
-            f.SkillWait(cp, 80);
+            s.SkillWait(80);
 
-            f.loop[cp] += 1;
+            v.P_LoopMain[playerID] += 1;
          }
-         else if (f.loop[cp] == 4)
+         else if (v.P_LoopMain[playerID] == 4)
          {         
-            f.Table_Sin(cp, 90 * f.loop[cp] + 45, 75);
-            f.Table_Cos(cp, 90 * f.loop[cp] + 45, 75);
+            s.Table_Sin(playerID, 90 * v.P_LoopMain[playerID] + 45, 75);
+            s.Table_Cos(playerID, 90 * v.P_LoopMain[playerID] + 45, 75);
 
-            f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp]);
+            s.Shape_Square(playerID, 1, "40 + 1n Guardian", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-            f.Table_Sin(cp, 90 * f.loop[cp], 75);
-            f.Table_Cos(cp, 90 * f.loop[cp], 75);
+            s.Table_Sin(playerID, 90 * v.P_LoopMain[playerID], 75);
+            s.Table_Cos(playerID, 90 * v.P_LoopMain[playerID], 75);
 
-            f.SquareShape(cp, 1, "40 + 1n Guardian", f.CosAngle[cp], f.SinAngle[cp]);
+            s.Shape_Square(playerID, 1, "40 + 1n Guardian", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Guardian", cp, "Anywhere", Attack, f.location[cp]);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
-            f.SkillWait(cp, 240);
+            s.SkillWait(240);
 
-            f.count[cp] += 1;
-            f.loop[cp] = 0;
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
          }
       }
-      else if (f.count[cp] == 2)
+      else if (v.P_CountMain[playerID] == 2)
       {
-         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
 
-         f.SkillEnd(cp);
+         s.SkillEnd();
       }
    }
 }

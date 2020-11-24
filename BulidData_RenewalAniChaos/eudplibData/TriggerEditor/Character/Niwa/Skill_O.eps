@@ -1,54 +1,54 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
-function main(cp)
+function main(playerID)
 {
-   if (f.delay[cp] == 0)
+   if (v.P_Delay[playerID] == 0)
    {
-      if (f.count[cp] == 0)
+      if (v.P_CountMain[playerID] == 0)
       {
-         if (f.loop[cp] < 11)
+         if (v.P_LoopMain[playerID] < 11)
          {
-            f.DotShape(cp, 1, "40 + 1n Gantrithor", 0, 0);
-            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
+            s.Shape_Dot(playerID, 1, "40 + 1n Gantrithor", 0, 0);
+            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
          }
-         if (f.loop[cp] == 11)
+         if (v.P_LoopMain[playerID] == 11)
          {
-            f.DotShape(cp, 1, "Target", 0, 0);
-            f.DotShape(cp, 1, "60 + 1n Archon", 0, 0);
-            KillUnitAt(All, "Target", "Anywhere", cp);
-            KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+            s.Shape_Dot(playerID, 1, "Target", 0, 0);
+            s.Shape_Dot(playerID, 1, "60 + 1n Archon", 0, 0);
+            KillUnitAt(All, "Target", "Anywhere", playerID);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
          }
-         if (f.loop[cp] == 12)
+         if (v.P_LoopMain[playerID] == 12)
          {
-            f.DotShape(cp, 1, "Kakaru (Twilight)", 0, 0);
-            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
-         }
-
-         if (f.loop[cp] == 25)
-         {
-            f.NxNSquareShape(cp, 1, "40 + 1n Gantrithor", 3, 100);
-            f.NxNSquareShape(cp, 1, "60 + 1n Archon", 3, 100);
-            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
-            KillUnitAt(All, "60 + 1n Archon", "Anywhere", cp);
+            s.Shape_Dot(playerID, 1, "Kakaru (Twilight)", 0, 0);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
          }
 
-
-         f.SkillWait(cp, 80);
-
-         f.loop[cp] += 1;
-
-         if (f.loop[cp] == 26)
+         if (v.P_LoopMain[playerID] == 25)
          {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            s.Shape_NxNSquare(playerID, 1, "40 + 1n Gantrithor", 3, 100);
+            s.Shape_NxNSquare(playerID, 1, "60 + 1n Archon", 3, 100);
+            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+         }
+
+
+         s.SkillWait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 26)
+         {
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 1)
+      else if (v.P_CountMain[playerID] == 1)
       {
-         SetDeaths(cp, SetTo, 1440, " `UniqueCoolTime");
-         SetDeaths(cp, SetTo, 240, " `UniqueSkill");
-         f.SkillEnd(cp);
+         SetDeaths(playerID, SetTo, 1440, " `UniqueCoolTime");
+         SetDeaths(playerID, SetTo, 240, " `UniqueSkill");
+         s.SkillEnd();
       }
    }
 }

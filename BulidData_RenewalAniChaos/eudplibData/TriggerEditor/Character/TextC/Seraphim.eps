@@ -1,165 +1,165 @@
 import PluginVariables as msqcvar;
 import Variable as v;
-import Function as f;
+import func.shape as s;
 
-function NormalText(cp)
+function NormalText(playerID)
 {
-	switch (v.Sound_Text3[cp])
+	switch (v.Sound_Text3[playerID])
 	{
 	case 4000:
 		PlayWAV("Seraphim_SSS.ogg");
-		f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04역시 그런가, 조금도 신선한게 없네\n\n");
-		v.Sound_Text3[cp] = 0;
+		s.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04역시 그런가, 조금도 신선한게 없네\n\n");
+		v.Sound_Text3[playerID] = 0;
 		break;
 	case 4001:
 		PlayWAV("Seraphim_AAC.ogg");
-		f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04이제 됐어\n\x13\x04네가 그렇게 결정했다면, 이루어주지\n\n");
-		v.Sound_Text3[cp] = 0;
+		s.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04이제 됐어\n\x13\x04네가 그렇게 결정했다면, 이루어주지\n\n");
+		v.Sound_Text3[playerID] = 0;
 		break;
 	case 4002:
 		PlayWAV("Seraphim_CC.ogg");
-		f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04불쌍한 녀석이야\n\n");
-		v.Sound_Text3[cp] = 0;
+		s.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04불쌍한 녀석이야\n\n");
+		v.Sound_Text3[playerID] = 0;
 		break;
 	case 4003:
 		PlayWAV("Seraphim_CCAA.ogg");
-		f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04소원을 이루기 위해 진실에서 눈을 돌려버리고 말았어\n\n");
-		v.Sound_Text3[cp] = 0;
+		s.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04소원을 이루기 위해 진실에서 눈을 돌려버리고 말았어\n\n");
+		v.Sound_Text3[playerID] = 0;
 		break;
 	}
 }
 
-function UiltimateText(cp)
+function UiltimateText(playerID)
 {
-	switch (v.Sound_Text_Uilti[cp])
+	switch (v.Sound_Text_Uilti[playerID])
 	{
 	case 16000:
 		PlayWAV("Seraphim_AAAA.ogg");
-		f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04하지만...\n\n");
-		v.Sound_Text_Uilti[cp] = 0;
+		s.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04하지만...\n\n");
+		v.Sound_Text_Uilti[playerID] = 0;
 		break;
 	case 16001:
-		f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04분명 후회할테니까\n\n");
-		v.Sound_Text_Uilti[cp] = 0;
+		s.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04분명 후회할테니까\n\n");
+		v.Sound_Text_Uilti[playerID] = 0;
 		break;
 	case 16010:
 		PlayWAV("Seraphim_O_Ult.ogg");
-		v.Sound_Text_Uilti[cp] = 0;
+		v.Sound_Text_Uilti[playerID] = 0;
 		break;
 	}
 }
 
-function UniqueText(cp)
+function UniqueText(playerID)
 {
-	switch (v.Sound_Text_Uniq[cp])
+	switch (v.Sound_Text_Uniq[playerID])
 	{
 	case 16000:
-		f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04행복한 세계,\n\x13\x04모든 사람이 행복할 수 있는 세상은...\n\n");
+		s.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04행복한 세계,\n\x13\x04모든 사람이 행복할 수 있는 세상은...\n\n");
 		PlayWAV("Seraphim_O_0.ogg");
-		v.Sound_Text_Uniq[cp] = 0;
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16001:
-		f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04역시 실현할 수 없는 건가...\n\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04역시 실현할 수 없는 건가...\n\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16011:
 		PlayWAV("Seraphim_O_1.ogg");
-		f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04하지만 너는, 내 소원을 이해할 수 있을 리가 없어\n\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04하지만 너는, 내 소원을 이해할 수 있을 리가 없어\n\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16012:
 		PlayWAV("Seraphim_O_2.ogg");
-		f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04말해봐 내 소원은... 뭐지?\n\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04말해봐 내 소원은... 뭐지?\n\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16013:
 		PlayWAV("Seraphim_O_3.ogg");
-		f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04종말을 막는 소원을 빌어 나를 구해준다라...\n\x13\x04나쁘지 않네\n\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04종말을 막는 소원을 빌어 나를 구해준다라...\n\x13\x04나쁘지 않네\n\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16014:
 		PlayWAV("Seraphim_O_4.ogg");
-		f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04이번의 너는 뭐랄까 조금,\n\x13\x047일의 시간이 너무 짧게 느껴지게 만들어\n\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04이번의 너는 뭐랄까 조금,\n\x13\x047일의 시간이 너무 짧게 느껴지게 만들어\n\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16015:
 		PlayWAV("Seraphim_O_5.ogg");
-		f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04내가 사라져도 이 세계의 윤회는 계속해서 이어질 거야\n\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04내가 사라져도 이 세계의 윤회는 계속해서 이어질 거야\n\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16016:
 		PlayWAV("Seraphim_O_6.ogg");
-		f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04너는 이 세계를 지키고 싶어,\n\x13\x04하지만 이 세계에 있어 지금의 나는 진정한 위협이니까\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04너는 이 세계를 지키고 싶어,\n\x13\x04하지만 이 세계에 있어 지금의 나는 진정한 위협이니까\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16017:
 		PlayWAV("Seraphim_O_7.ogg");
-		f.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04네 소원은, 확실히 받아뒀어\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.print("\n\n\x13\x1BSeraphim\n\x13\x04네 소원은, 확실히 받아뒀어\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16021:
-		f.stb.printAt(3,"\x13\x02\" \x02너의 \x02\"                \n\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.printAt(3,"\x13\x02\" \x02너의 \x02\"                \n\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16022:
-		f.stb.printAt(3,"\x13\x04\" \x04너의 \x04\"                \n\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.printAt(3,"\x13\x04\" \x04너의 \x04\"                \n\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16023:
-		f.stb.printAt(3,"\x13\x04\" \x04너의 \x04\"                \n\x13\x02          \" \x02소원 \x02\"\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.printAt(3,"\x13\x04\" \x04너의 \x04\"                \n\x13\x02          \" \x02소원 \x02\"\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16024:
-		f.stb.printAt(3,"\x13\x04\" \x04너의 \x04\"                \n\x13\x04          \" \x04소원 \x04\"\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.printAt(3,"\x13\x04\" \x04너의 \x04\"                \n\x13\x04          \" \x04소원 \x04\"\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16031:
-		f.stb.printAt(3,"\x13\x02\" \x02신의 소원을 지키기 위해           \n\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.printAt(3,"\x13\x02\" \x02신의 소원을 지키기 위해           \n\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16032:
-		f.stb.printAt(3,"\x13\x04\" 신의 소원을 지키기 위해           \n\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.printAt(3,"\x13\x04\" 신의 소원을 지키기 위해           \n\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16033:
-		f.stb.printAt(3,"\x13\x04\" 신의 소원을 지키기 위해           \n\x13\x1B             인간은 어리석은 맹세를 하였다 \"\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.printAt(3,"\x13\x04\" 신의 소원을 지키기 위해           \n\x13\x1B             인간은 어리석은 맹세를 하였다 \"\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16034:
-		f.stb.printAt(3,"\x13\x04\" 신의 소원을 지키기 위해           \n\x13\x08             인간은 어리석은 맹세를 하였다 \"\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.printAt(3,"\x13\x04\" 신의 소원을 지키기 위해           \n\x13\x08             인간은 어리석은 맹세를 하였다 \"\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16041:
-		f.stb.printAt(3,"\x13\x02\" 영원히 윤회에 속박되고       \n\n\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.printAt(3,"\x13\x02\" 영원히 윤회에 속박되고       \n\n\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16042:
-		f.stb.printAt(3,"\x13\x04\" 영원히 윤회에 속박되고       \n  \n\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.printAt(3,"\x13\x04\" 영원히 윤회에 속박되고       \n  \n\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16043:
-		f.stb.printAt(3,"\x13\x04\" 영원히 윤회에 속박되고       \n\x13\x02             영원히 시간 속에서 헤맨다 \"       \n\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.printAt(3,"\x13\x04\" 영원히 윤회에 속박되고       \n\x13\x02             영원히 시간 속에서 헤맨다 \"       \n\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16044:
-		f.stb.printAt(3,"\x13\x04\" 영원히 윤회에 속박되고       \n\x13\x04             영원히 시간 속에서 헤맨다 \"       \n\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.printAt(3,"\x13\x04\" 영원히 윤회에 속박되고       \n\x13\x04             영원히 시간 속에서 헤맨다 \"       \n\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16045:
-		f.stb.printAt(3,"\x13\x04\" 영원히 윤회에 속박되고       \n\x13\x04             영원히 시간 속에서 헤맨다 \"       \n\x13\x1B             \" 신이라는 존재는 그저... \"\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.printAt(3,"\x13\x04\" 영원히 윤회에 속박되고       \n\x13\x04             영원히 시간 속에서 헤맨다 \"       \n\x13\x1B             \" 신이라는 존재는 그저... \"\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16046:
-		f.stb.printAt(3,"\x13\x04\" 영원히 윤회에 속박되고       \n\x13\x04             영원히 시간 속에서 헤맨다 \"       \n\x13\x08             \" 신이라는 존재는 그저... \"\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.printAt(3,"\x13\x04\" 영원히 윤회에 속박되고       \n\x13\x04             영원히 시간 속에서 헤맨다 \"       \n\x13\x08             \" 신이라는 존재는 그저... \"\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16051:
-		f.stb.printAt(3,"\x13\x02\" 홀로 \"   \" 모래성을 쌓는 자일 뿐 \"\n\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.printAt(3,"\x13\x02\" 홀로 \"   \" 모래성을 쌓는 자일 뿐 \"\n\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	case 16052:
-		f.stb.printAt(3,"\x13\x04\" 홀로 \"   \" 모래성을 쌓는 자일 뿐 \"\n\n");
-		v.Sound_Text_Uniq[cp] = 0;
+		s.stb.printAt(3,"\x13\x04\" 홀로 \"   \" 모래성을 쌓는 자일 뿐 \"\n\n");
+		v.Sound_Text_Uniq[playerID] = 0;
 		break;
 	}
 }

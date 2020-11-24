@@ -1,43 +1,43 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
-function main(cp)
+function main(playerID)
 {
-   MoveLocation("27.Magane_Bozo", f.heroID[cp], cp, "Anywhere");
+   MoveLocation("27.Magane_Bozo", v.P_CharacterID[playerID], playerID, "Anywhere");
 
-   if (f.delay[cp] == 0)
+   if (v.P_Delay[playerID] == 0)
    {
-      if (f.count[cp] == 0)
+      if (v.P_CountMain[playerID] == 0)
       {
-         if (f.loop[cp] == 0)
+         if (v.P_LoopMain[playerID] == 0)
          {
-            f.EdgeShape(cp, 1, "40 + 1n Guardian", 45, 3, 50);
-            f.EdgeShape(cp, 1, "Protoss Dark Archon", 45, 3, 50);
-            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+            s.EdgeShape(playerID, 1, "40 + 1n Guardian", 45, 3, 50);
+            s.EdgeShape(playerID, 1, "Protoss Dark Archon", 45, 3, 50);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
          }
-         else if (f.loop[cp] == 2)
+         else if (v.P_LoopMain[playerID] == 2)
          {
-            f.EdgeShape(cp, 1, "Kakaru (Twilight)", 45, 3, 50);
-            f.EdgeShape(cp, 1, " Unit. Hoffnung 25000", 45, 3, 50);
-            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
-            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", cp);
+            s.EdgeShape(playerID, 1, "Kakaru (Twilight)", 45, 3, 50);
+            s.EdgeShape(playerID, 1, " Unit. Hoffnung 25000", 45, 3, 50);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
          }
 
-         f.SkillWait(cp, 80);
+         s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 16)
+         if (v.P_LoopMain[playerID] == 16)
          {
-            f.Voice_Routine(cp, 9);
+            s.Voice_Routine(playerID, 9);
             SetSwitch("Recall - Magane", Set);
 
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 1)
+      else if (v.P_CountMain[playerID] == 1)
       {
          if (Switch("UiltimateSwitch", Cleared))
          {
@@ -132,22 +132,22 @@ function main(cp)
 
          }
 
-         f.SkillWait(cp, 80);
+         s.SkillWait(80);
 
-         if (f.loop[cp] == 19)
+         if (v.P_LoopMain[playerID] == 19)
          {
-            f.Voice_Routine(cp, 10);
+            s.Voice_Routine(playerID, 10);
          }
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 46)
+         if (v.P_LoopMain[playerID] == 46)
          {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 2)
+      else if (v.P_CountMain[playerID] == 2)
       {
          KillUnitAt(All, "Protoss Dark Templar", "Anywhere", P7);
          KillUnitAt(All, "80 + 1n Goliath", "Anywhere", P7);
@@ -234,9 +234,9 @@ function main(cp)
          KillUnitAt(All, "60 + 3n Ghost", "Anywhere", P8);
 
          SetSwitch("Recall - Magane", Clear);
-         SetDeaths(cp, SetTo, 1080, " `UniqueCoolTime");
+         SetDeaths(playerID, SetTo, 1080, " `UniqueCoolTime");
 
-         f.SkillEnd(cp);
+         s.SkillEnd();
       }
    }
 }

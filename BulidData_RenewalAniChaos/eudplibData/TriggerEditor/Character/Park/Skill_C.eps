@@ -1,62 +1,62 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
-function main(cp)
+function main(playerID)
 {
-   if (f.delay[cp] == 0)
+   if (v.P_Delay[playerID] == 0)
    {
-      if (f.count[cp] == 0)
+      if (v.P_CountMain[playerID] == 0)
       {
          
-         KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
-         KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+         KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
+         KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
 
-         if (f.loop[cp] < 5)
+         if (v.P_LoopMain[playerID] < 5)
          {
-            f.DoubleShape(cp, 1, "Protoss Dark Archon", -100, 100 - 50 * f.loop[cp]);            
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            f.DoubleShape(cp, 1, "40 + 1n Goliath", 100 - 50 * f.loop[cp], 100);            
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);         
+            s.DoubleShape(playerID, 1, "Protoss Dark Archon", -100, 100 - 50 * v.P_LoopMain[playerID]);            
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            s.DoubleShape(playerID, 1, "40 + 1n Goliath", 100 - 50 * v.P_LoopMain[playerID], 100);            
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);         
          }
-         if (f.loop[cp] == 5)
+         if (v.P_LoopMain[playerID] == 5)
          {
-            f.DoubleShape(cp, 1, "Protoss Dark Archon", -50, 100);    
-            f.DoubleShape(cp, 1, "40 + 1n Goliath", -100, 50);            
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]); 
+            s.DoubleShape(playerID, 1, "Protoss Dark Archon", -50, 100);    
+            s.DoubleShape(playerID, 1, "40 + 1n Goliath", -100, 50);            
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]); 
          }
-         if (f.loop[cp] == 6)
+         if (v.P_LoopMain[playerID] == 6)
          {
-            f.DoubleShape(cp, 1, "Protoss Dark Archon", 0, -100); 
-            f.DoubleShape(cp, 1, "40 + 1n Goliath", -100, 0);            
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]); 
+            s.DoubleShape(playerID, 1, "Protoss Dark Archon", 0, -100); 
+            s.DoubleShape(playerID, 1, "40 + 1n Goliath", -100, 0);            
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]); 
          }
-         if (f.loop[cp] == 7)
+         if (v.P_LoopMain[playerID] == 7)
          {
-            f.EdgeShape(cp, 1, "Protoss Dark Archon", 45,3, 50); 
-            f.EdgeShape(cp, 1, "40 + 1n Goliath", 45,3, 50);            
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);       
+            s.EdgeShape(playerID, 1, "Protoss Dark Archon", 45,3, 50); 
+            s.EdgeShape(playerID, 1, "40 + 1n Goliath", 45,3, 50);            
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);       
          }
-          f.SkillWait(cp, 80);
+          s.SkillWait(80);
 
-          f.loop[cp] += 1;
+          v.P_LoopMain[playerID] += 1;
 
-          if (f.loop[cp] == 8)
+          if (v.P_LoopMain[playerID] == 8)
          {
-            f.count[cp] += 1;
-            f.loop[cp] = 0; 
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0; 
          }
       }
        
-      else if (f.count[cp] == 1)
+      else if (v.P_CountMain[playerID] == 1)
       {
-          KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
-          KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+          KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
+          KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
 
-         f.SkillEnd(cp);
+         s.SkillEnd();
       }
    }
 }

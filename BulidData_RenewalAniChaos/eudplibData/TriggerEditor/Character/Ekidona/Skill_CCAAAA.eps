@@ -1,485 +1,485 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
-function NxNSquareShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, n, interval, x, y);
-function NxNSquareShapeAtDouble(cp : TrgPlayer, count, Unit : TrgUnit, n, interval, x, y);
+function Shape_NxNSquareAt(cp : TrgPlayer, count, Unit : TrgUnit, n, interval, x, y);
+function Shape_NxNSquareAtDouble(cp : TrgPlayer, count, Unit : TrgUnit, n, interval, x, y);
 
 var x = 0;
 var y = 0;
 
-function main(cp)
+function main(playerID)
 {
-   f.BanReturn(cp);
-   f.HoldPosition(cp);
+   s.BanReturn(playerID);
+   s.HoldPosition(playerID);
 
-   MoveUnit(All, "40 + 1n Gantrithor", cp, "Anywhere", "[Skill]HoldPosition");
-   MoveUnit(All, "50 + 1n Tank", cp, "Anywhere", "[Skill]HoldPosition");
-   MoveUnit(All, "60 + 1n Dragoon", cp, "Anywhere", "[Skill]HoldPosition");
+   MoveUnit(All, "40 + 1n Gantrithor", playerID, "Anywhere", "[Skill]HoldPosition");
+   MoveUnit(All, "50 + 1n Tank", playerID, "Anywhere", "[Skill]HoldPosition");
+   MoveUnit(All, "60 + 1n Dragoon", playerID, "Anywhere", "[Skill]HoldPosition");
 
-   if (f.delay[cp] == 0)
+   if (v.P_Delay[playerID] == 0)
    {
-      if (f.count[cp] == 0)      //0.00
+      if (v.P_CountMain[playerID] == 0)      //0.00
       {
-         RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+         RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
 
-         if (f.loop[cp] % 2 == 0 && f.loop[cp] < 64)
+         if (v.P_LoopMain[playerID] % 2 == 0 && v.P_LoopMain[playerID] < 64)
          {
-            RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
+            RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
 
-            f.Table_Sin(cp, 45 * (f.loop[cp] / 2), 64);
-            f.Table_Cos(cp, 45 * (f.loop[cp] / 2), 64);
+            s.Table_Sin(playerID, 45 * (v.P_LoopMain[playerID] / 2), 64);
+            s.Table_Cos(playerID, 45 * (v.P_LoopMain[playerID] / 2), 64);
 
-            x = f.CosAngle[cp];
-            y = f.SinAngle[cp];
+            x = v.P_AngleCos[playerID];
+            y = v.P_AngleSin[playerID];
 
-            f.DoubleShape(cp, 1, "60 + 1n Danimoth", x, y);
-            f.DoubleShape(cp, 1, "Protoss Dark Archon", x, y);
-            f.DotShape(cp, 1, "40 + 1n Mojo", 0, 0);
+            s.DoubleShape(playerID, 1, "60 + 1n Danimoth", x, y);
+            s.DoubleShape(playerID, 1, "Protoss Dark Archon", x, y);
+            s.Shape_Dot(playerID, 1, "40 + 1n Mojo", 0, 0);
 
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
 
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("60 + 1n Danimoth", cp, "Anywhere", Attack, f.location[cp]);
-            //Order("40 + 1n Mojo", cp, "Anywhere", Attack, "Anywhere");
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            //Order("40 + 1n Mojo", playerID, "Anywhere", Attack, "Anywhere");
          }
 
-         if (f.loop[cp] >= 8 && f.loop[cp] < 14)    //0.64 - 1.12
+         if (v.P_LoopMain[playerID] >= 8 && v.P_LoopMain[playerID] < 14)    //0.64 - 1.12
          {
-            var i = f.loop[cp] - 8;
+            var i = v.P_LoopMain[playerID] - 8;
 
             if (i < 4)
             {
-               f.Table_Sin(cp, 0, 50 + 50 * i);
-               f.Table_Cos(cp, 0, 50 + 50 * i);
+               s.Table_Sin(playerID, 0, 50 + 50 * i);
+               s.Table_Cos(playerID, 0, 50 + 50 * i);
 
-               x = f.CosAngle[cp];
-               y = f.SinAngle[cp];
+               x = v.P_AngleCos[playerID];
+               y = v.P_AngleSin[playerID];
 
-               f.SquareShape(cp, 1, "40 + 1n Mojo", x, y);
-               f.SquareShape(cp, 1, "60 + 1n Archon", x, y);
+               s.Shape_Square(playerID, 1, "40 + 1n Mojo", x, y);
+               s.Shape_Square(playerID, 1, "60 + 1n Archon", x, y);
 
-               KillUnitAt(All,  "60 + 1n Archon", "Anywhere", cp);
+               KillUnitAt(All,  "60 + 1n Archon", "Anywhere", playerID);
 
-               MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-               //Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+               MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+               //Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
             }
 
             if (i == 4)
             {
-               f.Table_Sin(cp, 0, 200);
-               f.Table_Cos(cp, 0, 200);
+               s.Table_Sin(playerID, 0, 200);
+               s.Table_Cos(playerID, 0, 200);
 
-               x = f.CosAngle[cp];
-               y = f.SinAngle[cp];
+               x = v.P_AngleCos[playerID];
+               y = v.P_AngleSin[playerID];
 
-               f.SquareShape(cp, 1, "40 + 1n Gantrithor", x, y);
-               f.SquareShape(cp, 1, "60 + 1n Siege", x, y);
+               s.Shape_Square(playerID, 1, "40 + 1n Gantrithor", x, y);
+               s.Shape_Square(playerID, 1, "60 + 1n Siege", x, y);
 
-               KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
+               KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
             }
          }
-         if (f.loop[cp] >= 14 && f.loop[cp] < 20)   //1.12 - 1.60
+         if (v.P_LoopMain[playerID] >= 14 && v.P_LoopMain[playerID] < 20)   //1.12 - 1.60
          {
-            var i = f.loop[cp] - 14;
+            var i = v.P_LoopMain[playerID] - 14;
 
             if (i < 4)
             {
-               f.Table_Sin(cp, 45, 50 + 50 * i);
-               f.Table_Cos(cp, 45, 50 + 50 * i);
+               s.Table_Sin(playerID, 45, 50 + 50 * i);
+               s.Table_Cos(playerID, 45, 50 + 50 * i);
 
-               x = f.CosAngle[cp];
-               y = f.SinAngle[cp];
+               x = v.P_AngleCos[playerID];
+               y = v.P_AngleSin[playerID];
 
-               f.SquareShape(cp, 1, "40 + 1n Mojo", x, y);
-               f.SquareShape(cp, 1, "60 + 1n Archon", x, y);
+               s.Shape_Square(playerID, 1, "40 + 1n Mojo", x, y);
+               s.Shape_Square(playerID, 1, "60 + 1n Archon", x, y);
 
-               KillUnitAt(All,  "60 + 1n Archon", "Anywhere", cp);
+               KillUnitAt(All,  "60 + 1n Archon", "Anywhere", playerID);
 
-               MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-               //Order("40 + 1n Mojo", cp, "Anywhere", Attack, f.location[cp]);
+               MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+               //Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
             }
 
             if (i == 4)
             {
-               f.Table_Sin(cp, 45, 200);
-               f.Table_Cos(cp, 45, 200);
+               s.Table_Sin(playerID, 45, 200);
+               s.Table_Cos(playerID, 45, 200);
 
-               x = f.CosAngle[cp];
-               y = f.SinAngle[cp];
+               x = v.P_AngleCos[playerID];
+               y = v.P_AngleSin[playerID];
 
-               f.SquareShape(cp, 1, "40 + 1n Gantrithor", x, y);
-               f.SquareShape(cp, 1, "60 + 1n Siege", x, y);
+               s.Shape_Square(playerID, 1, "40 + 1n Gantrithor", x, y);
+               s.Shape_Square(playerID, 1, "60 + 1n Siege", x, y);
 
-               KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
+               KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
             }
          }
 
-         if (f.loop[cp] >= 30 && f.loop[cp] < 64)    //1.92
+         if (v.P_LoopMain[playerID] >= 30 && v.P_LoopMain[playerID] < 64)    //1.92
          {
-            var i = f.loop[cp] - 30;
+            var i = v.P_LoopMain[playerID] - 30;
 
             if (i == 0) 
             {
-               f.Table_Sin(cp, 22, 100);
-               f.Table_Cos(cp, 22, 100);
+               s.Table_Sin(playerID, 22, 100);
+               s.Table_Cos(playerID, 22, 100);
 
-               x = f.CosAngle[cp];
-               y = f.SinAngle[cp];
+               x = v.P_AngleCos[playerID];
+               y = v.P_AngleSin[playerID];
             }
             if (i == 6) 
             {
-               f.Table_Sin(cp, 67, 150);
-               f.Table_Cos(cp, 67, 150);
+               s.Table_Sin(playerID, 67, 150);
+               s.Table_Cos(playerID, 67, 150);
 
-               x = f.CosAngle[cp];
-               y = f.SinAngle[cp];
+               x = v.P_AngleCos[playerID];
+               y = v.P_AngleSin[playerID];
             }            
             if (i == 12) 
             {
-               f.Table_Sin(cp, 67, 100);
-               f.Table_Cos(cp, 67, 100);
+               s.Table_Sin(playerID, 67, 100);
+               s.Table_Cos(playerID, 67, 100);
 
-               x = f.CosAngle[cp];
-               y = f.SinAngle[cp];
+               x = v.P_AngleCos[playerID];
+               y = v.P_AngleSin[playerID];
             }            
             if (i == 18) 
             {
-               f.Table_Sin(cp, 22, 150);
-               f.Table_Cos(cp, 22, 150);
+               s.Table_Sin(playerID, 22, 150);
+               s.Table_Cos(playerID, 22, 150);
 
-               x = f.CosAngle[cp];
-               y = f.SinAngle[cp];
+               x = v.P_AngleCos[playerID];
+               y = v.P_AngleSin[playerID];
             }
             if (i == 24) 
             {
-               f.Table_Sin(cp, 22, 100);
-               f.Table_Cos(cp, 22, 100);
+               s.Table_Sin(playerID, 22, 100);
+               s.Table_Cos(playerID, 22, 100);
 
-               x = f.CosAngle[cp];
-               y = f.SinAngle[cp];
+               x = v.P_AngleCos[playerID];
+               y = v.P_AngleSin[playerID];
             }
             if (i == 30) 
             {
-               f.Table_Sin(cp, 67, 150);
-               f.Table_Cos(cp, 67, 150);
+               s.Table_Sin(playerID, 67, 150);
+               s.Table_Cos(playerID, 67, 150);
 
-               x = f.CosAngle[cp];
-               y = f.SinAngle[cp];
+               x = v.P_AngleCos[playerID];
+               y = v.P_AngleSin[playerID];
             }
 
             if (i % 6 == 0)
             {
-               KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
+               KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
 
-               f.SquareShape(cp, 1, "50 + 1n Tank", x, y);
-               f.SquareShape(cp, 1, "60 + 1n Danimoth", x, y);
+               s.Shape_Square(playerID, 1, "50 + 1n Tank", x, y);
+               s.Shape_Square(playerID, 1, "60 + 1n Danimoth", x, y);
 
-               KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
+               KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
 
-               MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-               MoveUnit(All, "50 + 1n Tank", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-               Order("50 + 1n Tank", cp, "Anywhere", Attack, f.location[cp]);
+               MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+               MoveUnit(All, "50 + 1n Tank", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+               Order("50 + 1n Tank", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
             }
          }
-         if (f.loop[cp] == 64)      //5.12
+         if (v.P_LoopMain[playerID] == 64)      //5.12
          {
-            KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
-            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
-            KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", cp);
-            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
-            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-            f.Voice_Routine(cp, 17);            
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
+            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+            KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", playerID);
+            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+            s.Voice_Routine(playerID, 17);            
          }
 
-         f.SkillWait(cp, 80);
+         s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 72)      
+         if (v.P_LoopMain[playerID] == 72)      
          {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
-         }
-      }
-      else if (f.count[cp] == 1)    //5.80
-      {
-         if (f.loop[cp] == 0)
-         {
-            NxNSquareShapeAt(cp, 1, "60 + 1n Danimoth", 2, 75, 100, 0);
-            NxNSquareShapeAt(cp, 1, "60 + 1n High Templar", 2, 75, 100, 0);
-
-            KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
-
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("60 + 1n Danimoth", cp, "Anywhere", Attack, f.location[cp]);
-         }
-
-         if (f.loop[cp] == 4)    //6.12
-         {
-            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
-
-            NxNSquareShapeAt(cp, 1, "60 + 1n Danimoth", 2, 75, 100, 100);
-            NxNSquareShapeAt(cp, 1, "60 + 1n High Templar", 2, 75, 100, 100);
-
-            KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
-
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("60 + 1n Danimoth", cp, "Anywhere", Attack, f.location[cp]);
-         }
-
-         if (f.loop[cp] == 8)    //6.44
-         {
-            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
-         }
-
-         f.SkillWait(cp, 80);
-
-         f.loop[cp] += 1;
-
-         if (f.loop[cp] == 12)
-         {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 2)    //6.80
+      else if (v.P_CountMain[playerID] == 1)    //5.80
       {
-         if (f.loop[cp] < 4)
+         if (v.P_LoopMain[playerID] == 0)
          {
-            RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
+            Shape_NxNSquareAt(playerID, 1, "60 + 1n Danimoth", 2, 75, 100, 0);
+            Shape_NxNSquareAt(playerID, 1, "60 + 1n High Templar", 2, 75, 100, 0);
 
-            f.SquareShape(cp, 1, "60 + 1n Danimoth", 50 - 50 * f.loop[cp], 100);
-            f.SquareShape(cp, 1, "Protoss Dark Archon", 50 - 50 * f.loop[cp], 100);
+            KillUnitAt(All, "60 + 1n High Templar", "Anywhere", playerID);
 
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
-
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("60 + 1n Danimoth", cp, "Anywhere", Attack, f.location[cp]);
-         }
-         if (f.loop[cp] == 4)
-         {
-            RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
-
-            f.NxNSquareShape(cp, 1, "60 + 1n Danimoth", 5, 75);
-            f.NxNSquareShape(cp, 1, "60 + 1n High Templar", 5, 75);
-
-            KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
-
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("60 + 1n Danimoth", cp, "Anywhere", Attack, f.location[cp]);
-         }
-         if (f.loop[cp] == 8)
-         {
-            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
-
-            f.NxNSquareShape(cp, 1, "60 + 1n Danimoth", 3, 75);
-            f.NxNSquareShape(cp, 1, "60 + 1n High Templar", 3, 75);
-
-            KillUnitAt(All, "60 + 1n High Templar", "Anywhere", cp);
-
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("60 + 1n Danimoth", cp, "Anywhere", Attack, f.location[cp]);
-         }
-         if (f.loop[cp] == 12)
-         {
-            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
          }
 
-         f.SkillWait(cp, 80);
-
-         f.loop[cp] += 1;
-
-         if (f.loop[cp] == 16)
+         if (v.P_LoopMain[playerID] == 4)    //6.12
          {
-            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
-            f.Voice_Routine(cp, 18);            
+            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
 
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            Shape_NxNSquareAt(playerID, 1, "60 + 1n Danimoth", 2, 75, 100, 100);
+            Shape_NxNSquareAt(playerID, 1, "60 + 1n High Templar", 2, 75, 100, 100);
+
+            KillUnitAt(All, "60 + 1n High Templar", "Anywhere", playerID);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+         }
+
+         if (v.P_LoopMain[playerID] == 8)    //6.44
+         {
+            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+         }
+
+         s.SkillWait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 12)
+         {
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 3) //8.10
+      else if (v.P_CountMain[playerID] == 2)    //6.80
       {
-         if (f.loop[cp] == 0)
+         if (v.P_LoopMain[playerID] < 4)
+         {
+            RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+
+            s.Shape_Square(playerID, 1, "60 + 1n Danimoth", 50 - 50 * v.P_LoopMain[playerID], 100);
+            s.Shape_Square(playerID, 1, "Protoss Dark Archon", 50 - 50 * v.P_LoopMain[playerID], 100);
+
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+         }
+         if (v.P_LoopMain[playerID] == 4)
+         {
+            RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+
+            s.Shape_NxNSquare(playerID, 1, "60 + 1n Danimoth", 5, 75);
+            s.Shape_NxNSquare(playerID, 1, "60 + 1n High Templar", 5, 75);
+
+            KillUnitAt(All, "60 + 1n High Templar", "Anywhere", playerID);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+         }
+         if (v.P_LoopMain[playerID] == 8)
+         {
+            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+
+            s.Shape_NxNSquare(playerID, 1, "60 + 1n Danimoth", 3, 75);
+            s.Shape_NxNSquare(playerID, 1, "60 + 1n High Templar", 3, 75);
+
+            KillUnitAt(All, "60 + 1n High Templar", "Anywhere", playerID);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+            Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+         }
+         if (v.P_LoopMain[playerID] == 12)
+         {
+            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+         }
+
+         s.SkillWait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 16)
+         {
+            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+            s.Voice_Routine(playerID, 18);            
+
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 3) //8.10
+      {
+         if (v.P_LoopMain[playerID] == 0)
          {
             for (var k = 0; k < 8; k++)
             {
-               CreateUnit(4, "60 + 1n Siege", k + 33, cp);
-               SetInvincibility(Enable, "60 + 1n Siege", cp, "[Skill]Unit_Wait_ALL");
+               CreateUnit(4, "60 + 1n Siege", k + 33, playerID);
+               SetInvincibility(Enable, "60 + 1n Siege", playerID, "[Skill]Unit_Wait_ALL");
             }
          }
 
-         var i = f.loop[cp] % 4;
+         var i = v.P_LoopMain[playerID] % 4;
 
-         if (f.loop[cp] % 8 == 0)
+         if (v.P_LoopMain[playerID] % 8 == 0)
          {
-            KillUnitAt(All, "Protoss Reaver", "Anywhere", cp);
+            KillUnitAt(All, "Protoss Reaver", "Anywhere", playerID);
          }
 
-         var r = ((f.loop[cp] / 4) % 2) * 45 + 22;
+         var r = ((v.P_LoopMain[playerID] / 4) % 2) * 45 + 22;
 
          if (i % 2 == 0) 
          {
-            f.Table_Sin(cp, r, 50 + 50 * i);
-            f.Table_Cos(cp, r, 50 + 50 * i);
+            s.Table_Sin(playerID, r, 50 + 50 * i);
+            s.Table_Cos(playerID, r, 50 + 50 * i);
 
-            x = f.CosAngle[cp];
-            y = f.SinAngle[cp];
+            x = v.P_AngleCos[playerID];
+            y = v.P_AngleSin[playerID];
          }
          if (i % 2 == 1) 
          {
-            f.Table_Sin(cp, r + 22, 50 + 50 * i);
-            f.Table_Cos(cp, r + 22, 50 + 50 * i);
+            s.Table_Sin(playerID, r + 22, 50 + 50 * i);
+            s.Table_Cos(playerID, r + 22, 50 + 50 * i);
 
-            x = f.CosAngle[cp];
-            y = f.SinAngle[cp];
+            x = v.P_AngleCos[playerID];
+            y = v.P_AngleSin[playerID];
          }
 
-         RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
+         RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
 
-         f.SquareShape(cp, 1, "Protoss Reaver", x, y);
-         f.SquareShape(cp, 1, "60 + 1n Danimoth", x, y);
-         f.SquareShape(cp, 1, "Protoss Dark Archon", x, y);
+         s.Shape_Square(playerID, 1, "Protoss Reaver", x, y);
+         s.Shape_Square(playerID, 1, "60 + 1n Danimoth", x, y);
+         s.Shape_Square(playerID, 1, "Protoss Dark Archon", x, y);
 
-         KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+         KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
 
-         MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-         MoveUnit(All, "Protoss Reaver", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+         MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+         MoveUnit(All, "Protoss Reaver", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
 
-         MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-         Order("60 + 1n Danimoth", cp, "Anywhere", Attack, f.location[cp]);
+         MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+         Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
-         f.SkillWait(cp, 80);
+         s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 20)
+         if (v.P_LoopMain[playerID] == 20)
          {
-            KillUnitAt(All, "Protoss Reaver", "Anywhere", cp);
-            RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
+            KillUnitAt(All, "Protoss Reaver", "Anywhere", playerID);
+            RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
 
-            f.Voice_Routine(cp, 19);            
+            s.Voice_Routine(playerID, 19);            
 
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
-         }
-      }
-      else if (f.count[cp] == 4) //9.90
-      {
-         if (f.loop[cp] == 0)
-         {
-            f.NxNSquareShapeWithProperty(cp, 1, "50 + 1n Battlecruiser", 3, 75, 1);
-
-            Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere");
-         }
-         if (f.loop[cp] == 4)
-         {
-            RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-
-            f.NxNSquareShape(cp, 1, "Kakaru (Twilight)", 3, 75);
-            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
-         }
-         if (f.loop[cp] == 6)
-         {
-            f.NxNSquareShapeWithProperty(cp, 1, "50 + 1n Battlecruiser", 3, 75, 1);
-
-            Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, "Anywhere");
-         }
-
-         f.SkillWait(cp, 80);
-
-         f.loop[cp] += 1;
-
-         if (f.loop[cp] == 10)
-         {
-            RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-
-            f.NxNSquareShape(cp, 1, "Kakaru (Twilight)", 3, 75);
-            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
-
-            f.Voice_Routine(cp, 20);            
-
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 5) //10.70
+      else if (v.P_CountMain[playerID] == 4) //9.90
       {
-         if (f.loop[cp] < 8)
+         if (v.P_LoopMain[playerID] == 0)
          {
-            if (f.loop[cp] % 2 == 0)
+            s.Shape_NxNSquareWithProperty(playerID, 1, "50 + 1n Battlecruiser", 3, 75, 1);
+
+            Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, "Anywhere");
+         }
+         if (v.P_LoopMain[playerID] == 4)
+         {
+            RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+
+            s.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 3, 75);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+         }
+         if (v.P_LoopMain[playerID] == 6)
+         {
+            s.Shape_NxNSquareWithProperty(playerID, 1, "50 + 1n Battlecruiser", 3, 75, 1);
+
+            Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, "Anywhere");
+         }
+
+         s.SkillWait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 10)
+         {
+            RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+
+            s.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 3, 75);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+
+            s.Voice_Routine(playerID, 20);            
+
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 5) //10.70
+      {
+         if (v.P_LoopMain[playerID] < 8)
+         {
+            if (v.P_LoopMain[playerID] % 2 == 0)
             {
-               f.Table_Sin(cp, (dwrand() % 36 * 10), 100 + dwrand() % 100);
-               f.Table_Cos(cp, (dwrand() % 36 * 10), 100 + dwrand() % 100);
+               s.Table_Sin(playerID, (dwrand() % 36 * 10), 100 + dwrand() % 100);
+               s.Table_Cos(playerID, (dwrand() % 36 * 10), 100 + dwrand() % 100);
 
-               x = f.CosAngle[cp];
-               y = f.SinAngle[cp];
+               x = v.P_AngleCos[playerID];
+               y = v.P_AngleSin[playerID];
 
-               NxNSquareShapeAtDouble(cp, 1, "40 + 1n Gantrithor", 3, 50, x, y);
-               NxNSquareShapeAtDouble(cp, 1, "50 + 1n Tank", 2, 75, x, y);
+               Shape_NxNSquareAtDouble(playerID, 1, "40 + 1n Gantrithor", 3, 50, x, y);
+               Shape_NxNSquareAtDouble(playerID, 1, "50 + 1n Tank", 2, 75, x, y);
 
                for (var i = 0; i < 8; i++)
                {
-                  f.MoveLoc("50 + 1n Tank", cp, 0, 0);
-                  RemoveUnitAt(1, "50 + 1n Tank", "Anywhere", cp);
-                  MoveUnit(1, "60 + 1n Siege", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+                  s.MoveLoc("50 + 1n Tank", playerID, 0, 0);
+                  RemoveUnitAt(1, "50 + 1n Tank", "Anywhere", playerID);
+                  MoveUnit(1, "60 + 1n Siege", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
                }
             }
 
-            if (f.loop[cp] % 2 == 1)
+            if (v.P_LoopMain[playerID] % 2 == 1)
             {
-               f.Table_Sin(cp, (dwrand() % 36 * 10), 100 + dwrand() % 100);
-               f.Table_Cos(cp, (dwrand() % 36 * 10), 100 + dwrand() % 100);
+               s.Table_Sin(playerID, (dwrand() % 36 * 10), 100 + dwrand() % 100);
+               s.Table_Cos(playerID, (dwrand() % 36 * 10), 100 + dwrand() % 100);
 
-               x = f.CosAngle[cp];
-               y = f.SinAngle[cp];
+               x = v.P_AngleCos[playerID];
+               y = v.P_AngleSin[playerID];
 
-               NxNSquareShapeAtDouble(cp, 1, "50 + 1n Battlecruiser", 3, 50, x, y);
-               NxNSquareShapeAtDouble(cp, 1, "Protoss Reaver", 2, 75, x, y);
+               Shape_NxNSquareAtDouble(playerID, 1, "50 + 1n Battlecruiser", 3, 50, x, y);
+               Shape_NxNSquareAtDouble(playerID, 1, "Protoss Reaver", 2, 75, x, y);
 
-               KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", cp);
-               KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+               KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+               KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
 
                ModifyUnitHangarCount(1, All, "Protoss Reaver", CurrentPlayer, "Anywhere");
 
-               MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-               MoveUnit(All, "Protoss Reaver", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
+               MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+               MoveUnit(All, "Protoss Reaver", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
             }
          }
 
-         f.SkillWait(cp, 80);
+         s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 18)
+         if (v.P_LoopMain[playerID] == 18)
          {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 6)    //9.90
+      else if (v.P_CountMain[playerID] == 6)    //9.90
       {
-         KillUnitAt(All, "Protoss Reaver", "Anywhere", cp);
-         KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp);
+         KillUnitAt(All, "Protoss Reaver", "Anywhere", playerID);
+         KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
 
-         f.SkillEnd(cp);
+         s.SkillEnd();
       }
    }
 }
 
-function NxNSquareShapeAt(cp : TrgPlayer, count, Unit : TrgUnit, n, interval, x, y)
+function Shape_NxNSquareAt(cp : TrgPlayer, count, Unit : TrgUnit, n, interval, x, y)
 {
-   f.NxNSquareShapeAt(cp, count, Unit, n, interval, x, y);
-   f.NxNSquareShapeAt(cp, count, Unit, n, interval, -x, -y);
-   f.NxNSquareShapeAt(cp, count, Unit, n, interval, -y, x);
-   f.NxNSquareShapeAt(cp, count, Unit, n, interval, y, -x);
+   s.Shape_NxNSquareAt(playerID, count, Unit, n, interval, x, y);
+   s.Shape_NxNSquareAt(playerID, count, Unit, n, interval, -x, -y);
+   s.Shape_NxNSquareAt(playerID, count, Unit, n, interval, -y, x);
+   s.Shape_NxNSquareAt(playerID, count, Unit, n, interval, y, -x);
 }
 
-function NxNSquareShapeAtDouble(cp : TrgPlayer, count, Unit : TrgUnit, n, interval, x, y)
+function Shape_NxNSquareAtDouble(cp : TrgPlayer, count, Unit : TrgUnit, n, interval, x, y)
 {
-   f.NxNSquareShapeAt(cp, count, Unit, n, interval, x, y);
-   f.NxNSquareShapeAt(cp, count, Unit, n, interval, -x, -y);
+   s.Shape_NxNSquareAt(playerID, count, Unit, n, interval, x, y);
+   s.Shape_NxNSquareAt(playerID, count, Unit, n, interval, -x, -y);
 }
 
 

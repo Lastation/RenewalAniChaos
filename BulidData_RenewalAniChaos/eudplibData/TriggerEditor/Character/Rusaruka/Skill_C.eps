@@ -1,105 +1,105 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
-function main(cp)
+function main(playerID)
 {
-	if (f.delay[cp] == 0)
+	if (v.P_Delay[playerID] == 0)
 	{
-		switch(f.count[cp])
+		switch(v.P_CountMain[playerID])
 		{
 		case 0:
 		case 11:
 			
-			f.SquareShape(cp, 1, "40 + 1n Lurker", 32, 0);
-			f.SquareShape(cp, 1, "Torrasque", 24, 24);
-			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-			KillUnitAt(All, "Torrasque", "Anywhere", cp);
-			f.SkillWait(cp, 0);
-			f.count[cp] += 1;
+			s.Shape_Square(playerID, 1, "40 + 1n Lurker", 32, 0);
+			s.Shape_Square(playerID, 1, "Torrasque", 24, 24);
+			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", playerID);
+			KillUnitAt(All, "Torrasque", "Anywhere", playerID);
+			s.SkillWait(0);
+			v.P_CountMain[playerID] += 1;
 			break;
 		case 1:
-			f.SquareShape(cp, 1, "40 + 1n Lurker", 64, 0);
-			f.SquareShape(cp, 1, "Torrasque", 48, 48);
-			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-			KillUnitAt(All, "Torrasque", "Anywhere", cp);
-			f.SkillWait(cp, 0);
-			f.count[cp] += 1;
+			s.Shape_Square(playerID, 1, "40 + 1n Lurker", 64, 0);
+			s.Shape_Square(playerID, 1, "Torrasque", 48, 48);
+			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", playerID);
+			KillUnitAt(All, "Torrasque", "Anywhere", playerID);
+			s.SkillWait(0);
+			v.P_CountMain[playerID] += 1;
 			break;
 		case 2:
-			f.SquareShape(cp, 1, "40 + 1n Lurker", 96, 0);
-			f.SquareShape(cp, 1, "Torrasque", 72, 72);
-			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-			KillUnitAt(All, "Torrasque", "Anywhere", cp);
-			f.SkillWait(cp, 0);
-			f.count[cp] += 1;
+			s.Shape_Square(playerID, 1, "40 + 1n Lurker", 96, 0);
+			s.Shape_Square(playerID, 1, "Torrasque", 72, 72);
+			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", playerID);
+			KillUnitAt(All, "Torrasque", "Anywhere", playerID);
+			s.SkillWait(0);
+			v.P_CountMain[playerID] += 1;
 			break;
 		case 3:
-			f.SquareShape(cp, 1, "40 + 1n Lurker", 128, 0);
-			f.SquareShape(cp, 1, "Torrasque", 96, 96);
-			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-			KillUnitAt(All, "Torrasque", "Anywhere", cp);
-			f.SkillWait(cp, 0);
-			f.count[cp] += 1;
+			s.Shape_Square(playerID, 1, "40 + 1n Lurker", 128, 0);
+			s.Shape_Square(playerID, 1, "Torrasque", 96, 96);
+			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", playerID);
+			KillUnitAt(All, "Torrasque", "Anywhere", playerID);
+			s.SkillWait(0);
+			v.P_CountMain[playerID] += 1;
 			break;
 		case 4:
 		case 7:
-			f.SquareShape(cp, 1, "40 + 1n Lurker", 160, 0);
-			f.SquareShape(cp, 1, "Torrasque", 120, 120);
-			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-			KillUnitAt(All, "Torrasque", "Anywhere", cp);
-			f.SkillWait(cp, 0);
-			f.count[cp] += 1;
+			s.Shape_Square(playerID, 1, "40 + 1n Lurker", 160, 0);
+			s.Shape_Square(playerID, 1, "Torrasque", 120, 120);
+			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", playerID);
+			KillUnitAt(All, "Torrasque", "Anywhere", playerID);
+			s.SkillWait(0);
+			v.P_CountMain[playerID] += 1;
 			break;
 		case 5:
 		case 6:
-			f.SquareShape(cp, 1, "40 + 1n Lurker", 192, 0);
-			f.SquareShape(cp, 1, "Torrasque", 144, 144);
-			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-			KillUnitAt(All, "Torrasque", "Anywhere", cp);
-			f.SkillWait(cp, 0);
-			f.count[cp] += 1;
+			s.Shape_Square(playerID, 1, "40 + 1n Lurker", 192, 0);
+			s.Shape_Square(playerID, 1, "Torrasque", 144, 144);
+			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", playerID);
+			KillUnitAt(All, "Torrasque", "Anywhere", playerID);
+			s.SkillWait(0);
+			v.P_CountMain[playerID] += 1;
 			break;
 		case 8:
-			f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 128, 0);
-			f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 96, 96);
-			f.SquareShape(cp, 1, "40 + 1n Lurker", 128, 0);
-			f.SquareShape(cp, 1, "Torrasque", 96, 96);
-			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-			KillUnitAt(All, "Torrasque", "Anywhere", cp);
-			MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-			Order("50 + 1n Battlecruiser", CurrentPlayer, "Anywhere", Attack, f.location[cp]);
-			f.SkillWait(cp, 180);
-			f.count[cp] += 1;
+			s.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 128, 0);
+			s.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 96, 96);
+			s.Shape_Square(playerID, 1, "40 + 1n Lurker", 128, 0);
+			s.Shape_Square(playerID, 1, "Torrasque", 96, 96);
+			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", playerID);
+			KillUnitAt(All, "Torrasque", "Anywhere", playerID);
+			MoveLocation(v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+			Order("50 + 1n Battlecruiser", CurrentPlayer, "Anywhere", Attack, v.P_LocationID[playerID]);
+			s.SkillWait(180);
+			v.P_CountMain[playerID] += 1;
 			break;
 		case 9:
-			KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
+			KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
 		
-			f.SquareShape(cp, 1, "40 + 1n Guardian", 96, 0);
-			f.SquareShape(cp, 1, "40 + 1n Guardian", 72, 72);
-			f.SquareShape(cp, 1, "40 + 1n Lurker", 96, 0);
-			f.SquareShape(cp, 1, "Torrasque", 72, 72);
-			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-			KillUnitAt(All, "Torrasque", "Anywhere", cp);
-			MoveLocation( f.location[cp], f.heroID[cp], cp, "Anywhere");
-			Order("40 + 1n Guardian", CurrentPlayer, "Anywhere", Attack, f.location[cp]);
-			f.SkillWait(cp, 180);
-			f.count[cp] += 1;
+			s.Shape_Square(playerID, 1, "40 + 1n Guardian", 96, 0);
+			s.Shape_Square(playerID, 1, "40 + 1n Guardian", 72, 72);
+			s.Shape_Square(playerID, 1, "40 + 1n Lurker", 96, 0);
+			s.Shape_Square(playerID, 1, "Torrasque", 72, 72);
+			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", playerID);
+			KillUnitAt(All, "Torrasque", "Anywhere", playerID);
+			MoveLocation( v.P_LocationID[playerID], v.P_CharacterID[playerID], playerID, "Anywhere");
+			Order("40 + 1n Guardian", CurrentPlayer, "Anywhere", Attack, v.P_LocationID[playerID]);
+			s.SkillWait(180);
+			v.P_CountMain[playerID] += 1;
 			break;
 		case 10:
-			KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
+			KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
 		
-			f.SquareShape(cp, 1, "40 + 1n Mojo", 64, 0);
-			f.SquareShape(cp, 1, "40 + 1n Mojo", 48, 48);
-			f.SquareShape(cp, 1, "40 + 1n Lurker", 64, 0);
-			f.SquareShape(cp, 1, "Torrasque", 48, 48);
-			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", cp);
-			KillUnitAt(All, "Torrasque", "Anywhere", cp);
-			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
-			f.SkillWait(cp, 180);
-			f.count[cp] += 1;
+			s.Shape_Square(playerID, 1, "40 + 1n Mojo", 64, 0);
+			s.Shape_Square(playerID, 1, "40 + 1n Mojo", 48, 48);
+			s.Shape_Square(playerID, 1, "40 + 1n Lurker", 64, 0);
+			s.Shape_Square(playerID, 1, "Torrasque", 48, 48);
+			KillUnitAt(All, "40 + 1n Lurker", "Anywhere", playerID);
+			KillUnitAt(All, "Torrasque", "Anywhere", playerID);
+			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+			s.SkillWait(180);
+			v.P_CountMain[playerID] += 1;
 			break;
 		case 12:
-			f.SkillEnd(cp);
+			s.SkillEnd();
 		}
 	}
 }

@@ -1,6 +1,6 @@
 import PluginVariables as msqcvar;
 import Variable as v;
-import Function as f;
+import func.shape as s;
 
 function Announce_Init()
 {
@@ -11,136 +11,136 @@ function Announce_Init()
 	{ eprintf("　\x04캐릭터 선택 : \x17커세어　\x04캐릭터 정보확인 : \x17유닛 클릭　\x04랜덤 선택 : \x17리버"); }
 }
 
-function Announce_Adv(value, cp)
+function Announce_Adv(value, playerID)
 {
-	if (Deaths((13), (10), 0, (210)) && v.Unique_Cool[cp] == 0)
+	if (Deaths((13), (10), 0, (210)) && v.Unique_Cool[playerID] == 0)
 	{
 		if (value == 0)
-		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04{}", v.Potion[cp], v.Level[cp]); }
+		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04{}", v.Potion[playerID], v.Level[playerID]); }
 		if (value == 1)
-		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO Skill \x04사용가능 \x08OFF　\x07Level \x04{}", v.Potion[cp], v.Level[cp]); }
+		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO Skill \x04사용가능 \x08OFF　\x07Level \x04{}", v.Potion[playerID], v.Level[playerID]); }
 	}
-	else if (Deaths((13), (10), 0, (210)) && v.Unique_Cool[cp] != 0)
+	else if (Deaths((13), (10), 0, (210)) && v.Unique_Cool[playerID] != 0)
 	{
 		if (value == 0)
-		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO \x1ECooltime \x04{}초 \x1CON　\x07Level \x04{}", v.Potion[cp], v.Unique_Cool[cp] , v.Level[cp]); }
+		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO \x1ECooltime \x04{}초 \x1CON　\x07Level \x04{}", v.Potion[playerID], v.Unique_Cool[playerID] , v.Level[playerID]); }
 		if (value == 1)
-		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO \x1ECooltime \x04{}초 \x08OFF　\x07Level \x04{}", v.Potion[cp], v.Unique_Cool[cp], v.Level[cp]); }
+		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO \x1ECooltime \x04{}초 \x08OFF　\x07Level \x04{}", v.Potion[playerID], v.Unique_Cool[playerID], v.Level[playerID]); }
 	}
-	else if (Deaths((13), (0), 1, (210)) && v.Unique_Cool[cp] == 0)
+	else if (Deaths((13), (0), 1, (210)) && v.Unique_Cool[playerID] == 0)
 	{ 
 		if (value == 0)
-		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04{}", v.DeathCount[cp], v.Level[cp]); }
+		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04{}", v.DeathCount[playerID], v.Level[playerID]); }
 		if (value == 1)
-		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FO Skill \x04사용가능 \x08OFF　\x07Level \x04{}", v.DeathCount[cp], v.Level[cp]); }
+		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FO Skill \x04사용가능 \x08OFF　\x07Level \x04{}", v.DeathCount[playerID], v.Level[playerID]); }
 	}
-	else if (Deaths((13), (0), 1, (210)) && v.Unique_Cool[cp] != 0)
+	else if (Deaths((13), (0), 1, (210)) && v.Unique_Cool[playerID] != 0)
 	{
 		if (value == 0)
-		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FO \x1ECooltime \x04{}초 \x1CON　\x07Level \x04{}", v.DeathCount[cp], v.Unique_Cool[cp], v.Level[cp]); }
+		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FO \x1ECooltime \x04{}초 \x1CON　\x07Level \x04{}", v.DeathCount[playerID], v.Unique_Cool[playerID], v.Level[playerID]); }
 		if (value == 1)
-		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FO \x1ECooltime \x04{}초 \x08OFF　\x07Level \x04{}", v.DeathCount[cp], v.Unique_Cool[cp], v.Level[cp]); }
+		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FO \x1ECooltime \x04{}초 \x08OFF　\x07Level \x04{}", v.DeathCount[playerID], v.Unique_Cool[playerID], v.Level[playerID]); }
 	}
 }
 
-function Announce_Normal(cp)
+function Announce_Normal(playerID)
 {
 	if (Deaths((13), (10), 0, (210)))
 	{
-		if (v.Unique_Cool[cp] == 0) 
-		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO Skill \x04사용가능　\x07Level \x04{}", v.Potion[cp], v.Level[cp]); }
+		if (v.Unique_Cool[playerID] == 0) 
+		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO Skill \x04사용가능　\x07Level \x04{}", v.Potion[playerID], v.Level[playerID]); }
 		else
-		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO \x1ECooltime \x04{}초　\x07Level \x04{}", v.Potion[cp], v.Unique_Cool[cp], v.Level[cp]); }
+		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO \x1ECooltime \x04{}초　\x07Level \x04{}", v.Potion[playerID], v.Unique_Cool[playerID], v.Level[playerID]); }
 	}
 	else 
 	{
-		if (v.Unique_Cool[cp] == 0)
-		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FO Skill \x04사용가능　\x07Level \x04{}", v.DeathCount[cp], v.Level[cp]); }
+		if (v.Unique_Cool[playerID] == 0)
+		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FO Skill \x04사용가능　\x07Level \x04{}", v.DeathCount[playerID], v.Level[playerID]); }
 		else 
-		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FO \x1ECooltime \x04{}초　\x07Level \x04{}", v.DeathCount[cp], v.Unique_Cool[cp], v.Level[cp]); }
+		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FO \x1ECooltime \x04{}초　\x07Level \x04{}", v.DeathCount[playerID], v.Unique_Cool[playerID], v.Level[playerID]); }
 	}
 }
 
-function Announce_Ingame(cp)
+function Announce_Ingame(playerID)
 {
 	if (Score((13), (7), (1), 24))
 	{
 		if (Deaths((13), (10), 0, (210)))
-		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FExp \x04{}/{}　\x07Level \x04{}", v.Potion[cp], v.EXP_Now[cp], v.EXP_Need[cp], v.Level[cp]); }
+		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FExp \x04{}/{}　\x07Level \x04{}", v.Potion[playerID], v.EXP_Now[playerID], v.EXP_Need[playerID], v.Level[playerID]); }
 		else
-		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FExp \x04{}/{}　\x07Level \x04{}", v.DeathCount[cp], v.EXP_Now[cp], v.EXP_Need[cp], v.Level[cp]); }
+		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FExp \x04{}/{}　\x07Level \x04{}", v.DeathCount[playerID], v.EXP_Now[playerID], v.EXP_Need[playerID], v.Level[playerID]); }
 	}
 	else
 	{
-		switch (v.Hero_Num[cp])
+		switch (v.Hero_Num[playerID])
 		{
 		case 2:
-			if (Switch((6), (2))) { Announce_Adv(0, cp); }
-			if (Switch((6), (3))) { Announce_Adv(1, cp); }
+			if (Switch((6), (2))) { Announce_Adv(0, playerID); }
+			if (Switch((6), (3))) { Announce_Adv(1, playerID); }
 			break;
 		case 7:
-			if (Switch((9), (2))) { Announce_Adv(0, cp); }
-			if (Switch((9), (3))) { Announce_Adv(1, cp); }
+			if (Switch((9), (2))) { Announce_Adv(0, playerID); }
+			if (Switch((9), (3))) { Announce_Adv(1, playerID); }
 			break;
 		case 15:
-			if (Switch((19), (2))) { Announce_Adv(0, cp); }
-			if (Switch((19), (3))) { Announce_Adv(1, cp); }
+			if (Switch((19), (2))) { Announce_Adv(0, playerID); }
+			if (Switch((19), (3))) { Announce_Adv(1, playerID); }
 			break;
 		case 16:
 			if (Deaths((13), (0), 1, (204)) && Deaths((13), (1), 7, (204)))
-			{ Announce_Adv(0, cp); }
+			{ Announce_Adv(0, playerID); }
 			else
-			{ Announce_Normal(cp); }
+			{ Announce_Normal(playerID); }
 			break;
 		default:
-			Announce_Normal(cp);
+			Announce_Normal(playerID);
 			break;
 		}
 	}
 }
 
-function Announce_Character(cp)
+function Announce_Character(playerID)
 {
 	if(Switch(255, Cleared))
 	{
 		eprintf("　\x17[ \x04{:s}\x17 ]　\x07Exp \x04{}　\x1FCS \x04{}　\x08K\x04/\x1BD \x08{}\x04/\x1B{}"
-		, v.Hero_Name[v.Hero_Num[cp]]
-		, v.Exp_Player[cp]
-		, v.CS_Player[cp]
-		, v.Kill_Score[cp]
-		, v.Death_Score[cp]);
+		, v.Hero_Name[v.Hero_Num[playerID]]
+		, v.Exp_Player[playerID]
+		, v.CS_Player[playerID]
+		, v.Kill_Score[playerID]
+		, v.Death_Score[playerID]);
 	}
 	else
 	{
 		eprintf("　\x17[ \x04{:s}\x17 ]　\x07Exp \x04{}　\x1FCS \x04{}　\x08K\x04/\x1BD \x08{}\x04/\x1B{}"
-		, v.Hero_Name[v.Hero_Num[cp]]
-		, v.Exp_Player[cp]
-		, v.Exp_Player[cp]
-		, v.CS_Player[cp]
-		, v.Kill_Score[cp]
-		, v.Death_Score[cp]);
+		, v.Hero_Name[v.Hero_Num[playerID]]
+		, v.Exp_Player[playerID]
+		, v.Exp_Player[playerID]
+		, v.CS_Player[playerID]
+		, v.Kill_Score[playerID]
+		, v.Death_Score[playerID]);
 	}
 }
 
-function Announce_Marge(cp)
+function Announce_Marge(playerID)
 {
 	if (Deaths(CurrentPlayer, Exactly, 1, "Terran SCV"))
 	{
 		SetDeaths(CurrentPlayer, SetTo, 0, "Terran SCV");
 		
-		if (v.AnnounceList[cp] < 1) 	{ v.AnnounceList[cp] += 1; }
-		else 						{ v.AnnounceList[cp] 	= 0; }
+		if (v.AnnounceList[playerID] < 1) 	{ v.AnnounceList[playerID] += 1; }
+		else 						{ v.AnnounceList[playerID] 	= 0; }
 	}
 	
 	
-	switch(v.AnnounceList[cp])
+	switch(v.AnnounceList[playerID])
 	{
 		case 0:
-			if (Switch(255, Set))		Announce_Ingame(cp);
+			if (Switch(255, Set))		Announce_Ingame(playerID);
 			if (Switch(255, Cleared))	Announce_Init();
 			break;
 		case 1:
-			Announce_Character(cp);
+			Announce_Character(playerID);
 			break;
 	}
 }

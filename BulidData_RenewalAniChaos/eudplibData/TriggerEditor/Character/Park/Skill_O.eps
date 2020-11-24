@@ -1,74 +1,74 @@
 import PluginVariables as msqcvar;
-import Function as f;
+import func.shape as s;
 
-function main(cp)
+function main(playerID)
 {
-   if (f.delay[cp] == 0)
+   if (v.P_Delay[playerID] == 0)
    {
-      if (f.count[cp] == 0)
+      if (v.P_CountMain[playerID] == 0)
       {
-         if (f.loop[cp] < 12)
+         if (v.P_LoopMain[playerID] < 12)
          {
-            f.SquareShape(cp, 1, "Bengalaas (Jungle)", 32, 32);
-            KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", cp);
+            s.Shape_Square(playerID, 1, "Bengalaas (Jungle)", 32, 32);
+            KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", playerID);
          }
 
-         f.SkillWait(cp, 80);
+         s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 12)
+         if (v.P_LoopMain[playerID] == 12)
          {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
-      else if (f.count[cp] == 1)
+      else if (v.P_CountMain[playerID] == 1)
       {
-         if (f.loop[cp] < 12 )
+         if (v.P_LoopMain[playerID] < 12 )
          {
-            f.SquareShape(cp, 1, "Bengalaas (Jungle)", 64, 64);
-            f.SquareShape(cp, 1, "Protoss Dark Archon", 64, 0);
-            KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", cp);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
+            s.Shape_Square(playerID, 1, "Bengalaas (Jungle)", 64, 64);
+            s.Shape_Square(playerID, 1, "Protoss Dark Archon", 64, 0);
+            KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", playerID);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
          }
 
-       f.SkillWait(cp, 80);
+       s.SkillWait(80);
 
-         f.loop[cp] += 1;
+         v.P_LoopMain[playerID] += 1;
 
-         if (f.loop[cp] == 12)
+         if (v.P_LoopMain[playerID] == 12)
          {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
-         }
-      }
-
-      else if (f.count[cp] == 2)
-      {
-         if (f.loop[cp] == 8 )
-         {
-            f.NxNSquareShape(cp, 1, "50 + 1n Battlecruiser", 3, 100);
-            f.NxNSquareShape(cp, 1, "Protoss Dark Archon", 3, 50);
-            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", cp);
-         }
-       f.SkillWait(cp, 80);
-
-         f.loop[cp] += 1;
-
-         if (f.loop[cp] == 10)
-         {
-            f.count[cp] += 1;
-            f.loop[cp] = 0;         
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
          }
       }
 
-      else if (f.count[cp] == 3)
+      else if (v.P_CountMain[playerID] == 2)
       {
-         SetDeaths(cp, SetTo, 1200, " `UniqueCoolTime");
-         SetDeaths(cp, SetTo, 120, " `UniqueSkill");
-         f.SkillEnd(cp);
+         if (v.P_LoopMain[playerID] == 8 )
+         {
+            s.Shape_NxNSquare(playerID, 1, "50 + 1n Battlecruiser", 3, 100);
+            s.Shape_NxNSquare(playerID, 1, "Protoss Dark Archon", 3, 50);
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+         }
+       s.SkillWait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 10)
+         {
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+
+      else if (v.P_CountMain[playerID] == 3)
+      {
+         SetDeaths(playerID, SetTo, 1200, " `UniqueCoolTime");
+         SetDeaths(playerID, SetTo, 120, " `UniqueSkill");
+         s.SkillEnd();
       }
    }
 }
