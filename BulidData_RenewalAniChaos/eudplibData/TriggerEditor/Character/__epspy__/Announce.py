@@ -161,8 +161,8 @@ def Announce_Adv(value, cp):
             # (Line 20) if (value == 1)
         EUDEndIf()
         if EUDIf()(value == 1):
-            # (Line 21) { eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO Skill \x04사용가능 \x1COFF　\x07Level \x04{}", v.Potion[cp], v.Level[cp]); }
-            f_eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO Skill \x04사용가능 \x1COFF　\x07Level \x04{}", v.Potion[cp], v.Level[cp])
+            # (Line 21) { eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO Skill \x04사용가능 \x08OFF　\x07Level \x04{}", v.Potion[cp], v.Level[cp]); }
+            f_eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO Skill \x04사용가능 \x08OFF　\x07Level \x04{}", v.Potion[cp], v.Level[cp])
             # (Line 22) }
         EUDEndIf()
         # (Line 23) else if (Deaths((13), (10), 0, (210)) && v.Unique_Cool[cp] != 0)
@@ -175,8 +175,8 @@ def Announce_Adv(value, cp):
             # (Line 27) if (value == 1)
         EUDEndIf()
         if EUDIf()(value == 1):
-            # (Line 28) { eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO \x1ECooltime \x04{}초 \x1COFF　\x07Level \x04{}", v.Potion[cp], v.Unique_Cool[cp], v.Level[cp]); }
-            f_eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO \x1ECooltime \x04{}초 \x1COFF　\x07Level \x04{}", v.Potion[cp], v.Unique_Cool[cp], v.Level[cp])
+            # (Line 28) { eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO \x1ECooltime \x04{}초 \x08OFF　\x07Level \x04{}", v.Potion[cp], v.Unique_Cool[cp], v.Level[cp]); }
+            f_eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO \x1ECooltime \x04{}초 \x08OFF　\x07Level \x04{}", v.Potion[cp], v.Unique_Cool[cp], v.Level[cp])
             # (Line 29) }
         EUDEndIf()
         # (Line 30) else if (Deaths((13), (0), 1, (210)) && v.Unique_Cool[cp] == 0)
@@ -203,8 +203,8 @@ def Announce_Adv(value, cp):
             # (Line 41) if (value == 1)
         EUDEndIf()
         if EUDIf()(value == 1):
-            # (Line 42) { eprintf("　\x04치명상 치료까지 : {}초　\x1FO \x1ECooltime \x04{}초 \x1COFF　\x07Level \x04{}", v.DeathCount[cp], v.Unique_Cool[cp], v.Level[cp]); }
-            f_eprintf("　\x04치명상 치료까지 : {}초　\x1FO \x1ECooltime \x04{}초 \x1COFF　\x07Level \x04{}", v.DeathCount[cp], v.Unique_Cool[cp], v.Level[cp])
+            # (Line 42) { eprintf("　\x04치명상 치료까지 : {}초　\x1FO \x1ECooltime \x04{}초 \x08OFF　\x07Level \x04{}", v.DeathCount[cp], v.Unique_Cool[cp], v.Level[cp]); }
+            f_eprintf("　\x04치명상 치료까지 : {}초　\x1FO \x1ECooltime \x04{}초 \x08OFF　\x07Level \x04{}", v.DeathCount[cp], v.Unique_Cool[cp], v.Level[cp])
             # (Line 43) }
         EUDEndIf()
         # (Line 44) }

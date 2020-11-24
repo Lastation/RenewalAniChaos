@@ -5,6 +5,20 @@ function main(cp)
 {
 	if (f.wait[cp] == 0 && f.step[cp] == 0)
 	{
+		if (Bring(cp, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill"))
+		{
+			KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", cp);
+			if (Switch("Unique - Chtholly", Cleared))
+			{ 
+				SetSwitch("Unique - Chtholly", Set); 
+				f.stb.printAt(8, "\x13\x04전투속행 패시브를 \x1CON \x04시킵니다.");
+			}
+			else 
+			{ 
+				SetSwitch("Unique - Chtholly", Clear); 
+				f.stb.printAt(8, "\x13\x04전투속행 패시브를 \x08OFF \x04시킵니다.");
+			}
+		}
 		if (Bring(cp, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))
 		{
 			f.step[cp] = 100;

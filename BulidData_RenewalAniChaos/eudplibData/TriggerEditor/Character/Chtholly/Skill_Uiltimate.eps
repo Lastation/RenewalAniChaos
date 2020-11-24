@@ -65,13 +65,15 @@ function main(cp)
 			f.MoveLoc(f.heroID[cp], cp, 0, 0);
 			MoveUnit(All, "(any unit)", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
 			Order("50 + 1n Tank", cp, "Anywhere", Attack, f.location[cp]);
+			Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);
+			Order("40 + 1n Marine", cp, "Anywhere", Attack, f.location[cp]);
 			f.SkillWait(cp, 0);
 			f.count[cp] += 1;
 		}
 		else if (f.count[cp] == 3 && f.loop[cp] <= 27)
 		{
-			f.Table_Cos(cp, 15 * f.loop[cp], 256);
-			f.Table_Sin(cp, 15 * f.loop[cp], 256);
+			f.Table_Cos(cp, 12 * f.loop[cp], 256);
+			f.Table_Sin(cp, 12 * f.loop[cp], 256);
 			f.SquareShape(cp, 1, "80 + 1n Artanis", f.CosAngle[cp], f.SinAngle[cp]);
 			f.SquareShape(cp, 1, "Protoss Dark Archon", f.CosAngle[cp], f.SinAngle[cp]);
 			f.MoveLoc(f.heroID[cp], cp, 0, 0);
@@ -146,6 +148,7 @@ function main(cp)
 		{
 			KillUnitAt(All, "80 + 1n Artanis", "Anywhere", cp);
 			SetSwitch("UiltimateSwitch", Clear);
+			SetSwitch("Recall - Chtholly", Clear);
 			f.loopB[cp] = 0;
 			f.SkillEnd(cp);
 		}

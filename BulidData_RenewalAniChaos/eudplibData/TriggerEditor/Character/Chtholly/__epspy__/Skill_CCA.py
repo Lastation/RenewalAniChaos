@@ -280,60 +280,62 @@ def f_main(cp):
             f.Voice_Routine(cp, 2)
             # (Line 87) f.SquareShape(cp, 1, "60 + 1n Danimoth", 180, 0);
             f.SquareShape(cp, 1, "60 + 1n Danimoth", 180, 0)
-            # (Line 88) f.SquareShape(cp, 8, "Torrasque", 128, 128);
+            # (Line 88) f.SquareShape(cp, 1, "60 + 1n Danimoth", 128, 128);
+            f.SquareShape(cp, 1, "60 + 1n Danimoth", 128, 128)
+            # (Line 89) f.SquareShape(cp, 8, "Torrasque", 128, 128);
             f.SquareShape(cp, 8, "Torrasque", 128, 128)
-            # (Line 89) f.MoveLoc(f.heroID[cp], cp, 0, 0);
+            # (Line 90) f.MoveLoc(f.heroID[cp], cp, 0, 0);
             f.MoveLoc(f.heroID[cp], cp, 0, 0)
-            # (Line 90) Order("60 + 1n Danimoth", cp, "Anywhere", Attack, f.location[cp]);
-            # (Line 91) KillUnitAt(All, "Torrasque", "Anywhere", cp);
+            # (Line 91) Order("60 + 1n Danimoth", cp, "Anywhere", Attack, f.location[cp]);
+            # (Line 92) KillUnitAt(All, "Torrasque", "Anywhere", cp);
             DoActions(Order("60 + 1n Danimoth", cp, "Anywhere", Attack, f.location[cp]))
-            # (Line 92) f.SkillWait(cp, 2750);
+            # (Line 93) f.SkillWait(cp, 2750);
             DoActions(KillUnitAt(All, "Torrasque", "Anywhere", cp))
             f.SkillWait(cp, 2750)
-            # (Line 93) f.count[cp] += 1;
+            # (Line 94) f.count[cp] += 1;
             _ARRW(f.count, cp).__iadd__(1)
-            # (Line 94) f.loop[cp] = 0;
+            # (Line 95) f.loop[cp] = 0;
             _ARRW(f.loop, cp) << (0)
-            # (Line 95) }
-            # (Line 96) else if (f.count[cp] == 4
+            # (Line 96) }
+            # (Line 97) else if (f.count[cp] == 4
         _t10 = EUDElseIf()
-        # (Line 97) && Bring(cp, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill"))
+        # (Line 98) && Bring(cp, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill"))
         if _t10(EUDSCAnd()(f.count[cp] == 4)(Bring(cp, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill"))()):
-            # (Line 98) {
-            # (Line 99) KillUnitAt(All, "40 + 1n Marine", "Anywhere", cp);
-            # (Line 100) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+            # (Line 99) {
+            # (Line 100) KillUnitAt(All, "40 + 1n Marine", "Anywhere", cp);
+            # (Line 101) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Marine", "Anywhere", cp))
-            # (Line 101) KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
+            # (Line 102) KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
-            # (Line 102) KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
+            # (Line 103) KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
             DoActions(KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp))
-            # (Line 104) f.Voice_Routine(cp, 3);
+            # (Line 105) f.Voice_Routine(cp, 3);
             DoActions(KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp))
             f.Voice_Routine(cp, 3)
-            # (Line 105) KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp);
-            # (Line 107) f.step[cp] = 220;
+            # (Line 106) KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp);
+            # (Line 108) f.step[cp] = 220;
             DoActions(KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", cp))
             _ARRW(f.step, cp) << (220)
-            # (Line 108) f.count[cp] = 0;
+            # (Line 109) f.count[cp] = 0;
             _ARRW(f.count, cp) << (0)
-            # (Line 109) f.loop[cp] = 0;
+            # (Line 110) f.loop[cp] = 0;
             _ARRW(f.loop, cp) << (0)
-            # (Line 110) }
-            # (Line 111) else if (f.count[cp] == 4)
+            # (Line 111) }
+            # (Line 112) else if (f.count[cp] == 4)
         if EUDElseIf()(f.count[cp] == 4):
-            # (Line 112) {
-            # (Line 113) KillUnitAt(All, "40 + 1n Marine", "Anywhere", cp);
-            # (Line 114) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
+            # (Line 113) {
+            # (Line 114) KillUnitAt(All, "40 + 1n Marine", "Anywhere", cp);
+            # (Line 115) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Marine", "Anywhere", cp))
-            # (Line 115) KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
+            # (Line 116) KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp);
             DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", cp))
-            # (Line 116) KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
+            # (Line 117) KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp);
             DoActions(KillUnitAt(All, "50 + 1n Tank", "Anywhere", cp))
-            # (Line 117) f.SkillEnd(cp);
+            # (Line 118) f.SkillEnd(cp);
             DoActions(KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", cp))
             f.SkillEnd(cp)
-            # (Line 118) }
             # (Line 119) }
+            # (Line 120) }
         EUDEndIf()
-        # (Line 120) }
+        # (Line 121) }
     EUDEndIf()

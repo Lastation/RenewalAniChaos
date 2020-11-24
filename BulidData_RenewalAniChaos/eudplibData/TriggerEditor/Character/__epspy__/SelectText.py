@@ -324,659 +324,665 @@ def CharacterTextNum(cp):
         # (Line 79) CharacterText(cp);
         CharacterText(cp)
         # (Line 80) }
-        # (Line 81) else if (Deaths(P7, Exactly, 1, " Struct. Mond") || Deaths(P8, Exactly, 1, " Struct. Mond"))
-    if EUDElseIf()(EUDSCOr()(Deaths(P7, Exactly, 1, " Struct. Mond"))(Deaths(P8, Exactly, 1, " Struct. Mond"))()):
-        # (Line 82) {
-        # (Line 83) EndTotalText(cp);
-        EndTotalText(cp)
-        # (Line 84) }
-        # (Line 85) }
+        # (Line 82) if (ElapsedTime(AtLeast, 10))
     EUDEndIf()
-    # (Line 87) function CharacterText(cp)
+    if EUDIf()(ElapsedTime(AtLeast, 10)):
+        # (Line 83) {
+        # (Line 84) if (Bring(P7, Exactly, 0, " Struct. Mond", "Anywhere") || Bring(P8, Exactly, 0, " Struct. Mond", "Anywhere"))
+        if EUDIf()(EUDSCOr()(Bring(P7, Exactly, 0, " Struct. Mond", "Anywhere"))(Bring(P8, Exactly, 0, " Struct. Mond", "Anywhere"))()):
+            # (Line 85) {
+            # (Line 86) EndTotalText(cp);
+            EndTotalText(cp)
+            # (Line 87) }
+            # (Line 88) }
+        EUDEndIf()
+        # (Line 89) }
+    EUDEndIf()
+    # (Line 91) function CharacterText(cp)
 
-# (Line 88) {
+# (Line 92) {
 @EUDFunc
 def CharacterText(cp):
-    # (Line 90) f.stb.printAt(0, "\x13\x17[ \x04",ptr2s(v.Hero_Name[v.Hero_Text[cp]])," \x17]");
+    # (Line 94) f.stb.printAt(0, "\x13\x17[ \x04",ptr2s(v.Hero_Name[v.Hero_Text[cp]])," \x17]");
     f.stb.printAt(0, "\x13\x17[ \x04", ptr2s(v.Hero_Name[v.Hero_Text[cp]]), " \x17]")
-    # (Line 91) switch (v.Hero_Text[cp])
+    # (Line 95) switch (v.Hero_Text[cp])
     EUDSwitch(v.Hero_Text[cp])
-    # (Line 92) {
-    # (Line 93) case 1:
+    # (Line 96) {
+    # (Line 97) case 1:
     _t1 = EUDSwitchCase()
-    # (Line 94) f.stb.printAt(1, "\x13\x04- \x17Dies irae \x04-");
+    # (Line 98) f.stb.printAt(1, "\x13\x04- \x17Dies irae \x04-");
     if _t1(1):
         f.stb.printAt(1, "\x13\x04- \x17Dies irae \x04-")
-        # (Line 95) f.stb.printAt(2, "\n");
+        # (Line 99) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 96) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
+        # (Line 100) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.")
-        # (Line 97) f.stb.printAt(4, "\x13\x04처음하는 플레이어에게 추천합니다.");
+        # (Line 101) f.stb.printAt(4, "\x13\x04처음하는 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04처음하는 플레이어에게 추천합니다.")
-        # (Line 98) f.stb.printAt(5, "\n");
+        # (Line 102) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 99) f.stb.printAt(6, "\x13\x1F#\x04공성특화 \x1F#\x04만능 \x1F#\x04조작쉬움");
+        # (Line 103) f.stb.printAt(6, "\x13\x1F#\x04공성특화 \x1F#\x04만능 \x1F#\x04조작쉬움");
         f.stb.printAt(6, "\x13\x1F#\x04공성특화 \x1F#\x04만능 \x1F#\x04조작쉬움")
-        # (Line 100) f.stb.printAt(7, "\n");
+        # (Line 104) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 101) break;
+        # (Line 105) break;
         EUDBreak()
-        # (Line 102) case 2:
+        # (Line 106) case 2:
     _t2 = EUDSwitchCase()
-    # (Line 103) f.stb.printAt(1, "\x13\x04- \x17종말에 뭐 하세요? 바쁘세요? 구해 주실 수 있나요? \x04-");
+    # (Line 107) f.stb.printAt(1, "\x13\x04- \x17종말에 뭐 하세요? 바쁘세요? 구해 주실 수 있나요? \x04-");
     if _t2(2):
         f.stb.printAt(1, "\x13\x04- \x17종말에 뭐 하세요? 바쁘세요? 구해 주실 수 있나요? \x04-")
-        # (Line 104) f.stb.printAt(2, "\n");
+        # (Line 108) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 105) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
+        # (Line 109) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.")
-        # (Line 106) f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
+        # (Line 110) f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.")
-        # (Line 107) f.stb.printAt(5, "\n");
+        # (Line 111) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 108) f.stb.printAt(6, "\x13\x1F#\x04공성특화++ \x1F#\x04지속딜 \x1F#\x04조작어려움");
+        # (Line 112) f.stb.printAt(6, "\x13\x1F#\x04공성특화++ \x1F#\x04지속딜 \x1F#\x04조작어려움");
         f.stb.printAt(6, "\x13\x1F#\x04공성특화++ \x1F#\x04지속딜 \x1F#\x04조작어려움")
-        # (Line 109) f.stb.printAt(7, "\n");
+        # (Line 113) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 110) break;
+        # (Line 114) break;
         EUDBreak()
-        # (Line 111) case 3:
+        # (Line 115) case 3:
     _t3 = EUDSwitchCase()
-    # (Line 112) f.stb.printAt(1, "\x13\x04- \x17퀄리디아 코드 \x04-");
+    # (Line 116) f.stb.printAt(1, "\x13\x04- \x17퀄리디아 코드 \x04-");
     if _t3(3):
         f.stb.printAt(1, "\x13\x04- \x17퀄리디아 코드 \x04-")
-        # (Line 113) f.stb.printAt(2, "\n");
+        # (Line 117) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 114) f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
+        # (Line 118) f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.")
-        # (Line 115) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
+        # (Line 119) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.")
-        # (Line 116) f.stb.printAt(5, "\n");
+        # (Line 120) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 117) f.stb.printAt(6, "\x13\x1F#\x04대인특화 \x1F#\x04지속딜 \x1F#\x04만능궁 \x1F#\x04조작보통");
+        # (Line 121) f.stb.printAt(6, "\x13\x1F#\x04대인특화 \x1F#\x04지속딜 \x1F#\x04만능궁 \x1F#\x04조작보통");
         f.stb.printAt(6, "\x13\x1F#\x04대인특화 \x1F#\x04지속딜 \x1F#\x04만능궁 \x1F#\x04조작보통")
-        # (Line 118) f.stb.printAt(7, "\n");
+        # (Line 122) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 119) break;
+        # (Line 123) break;
         EUDBreak()
-        # (Line 120) case 4:
+        # (Line 124) case 4:
     _t4 = EUDSwitchCase()
-    # (Line 121) f.stb.printAt(1, "\x13\x04- \x17동방 스카이 아레나 \x04-");
+    # (Line 125) f.stb.printAt(1, "\x13\x04- \x17동방 스카이 아레나 \x04-");
     if _t4(4):
         f.stb.printAt(1, "\x13\x04- \x17동방 스카이 아레나 \x04-")
-        # (Line 122) f.stb.printAt(2, "\n");
+        # (Line 126) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 123) f.stb.printAt(3, "\x13\x17모든전투\x04에 특화 되어있습니다.");
+        # (Line 127) f.stb.printAt(3, "\x13\x17모든전투\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17모든전투\x04에 특화 되어있습니다.")
-        # (Line 124) f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
+        # (Line 128) f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.")
-        # (Line 125) f.stb.printAt(5, "\n");
+        # (Line 129) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 126) f.stb.printAt(6, "\x13\x1F#\x04설치 \x1F#\x04만능 \x1F#\x04조작보통");
+        # (Line 130) f.stb.printAt(6, "\x13\x1F#\x04설치 \x1F#\x04만능 \x1F#\x04조작보통");
         f.stb.printAt(6, "\x13\x1F#\x04설치 \x1F#\x04만능 \x1F#\x04조작보통")
-        # (Line 127) f.stb.printAt(7, "\n");
+        # (Line 131) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 128) break;
+        # (Line 132) break;
         EUDBreak()
-        # (Line 129) case 5:
+        # (Line 133) case 5:
     _t5 = EUDSwitchCase()
-    # (Line 130) f.stb.printAt(1, "\x13\x04- \x17당신과 그녀와 그녀의 사랑 \x04-");
+    # (Line 134) f.stb.printAt(1, "\x13\x04- \x17당신과 그녀와 그녀의 사랑 \x04-");
     if _t5(5):
         f.stb.printAt(1, "\x13\x04- \x17당신과 그녀와 그녀의 사랑 \x04-")
-        # (Line 131) f.stb.printAt(2, "\n");
+        # (Line 135) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 132) f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
+        # (Line 136) f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.")
-        # (Line 133) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
+        # (Line 137) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.")
-        # (Line 134) f.stb.printAt(5, "\n");
+        # (Line 138) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 135) f.stb.printAt(6, "\x13\x1F#\x04대인특화 \x1F#\x04순간강한딜 \x1F#\x04만능궁 \x1F#\x04조작어려움");
+        # (Line 139) f.stb.printAt(6, "\x13\x1F#\x04대인특화 \x1F#\x04순간강한딜 \x1F#\x04만능궁 \x1F#\x04조작어려움");
         f.stb.printAt(6, "\x13\x1F#\x04대인특화 \x1F#\x04순간강한딜 \x1F#\x04만능궁 \x1F#\x04조작어려움")
-        # (Line 136) f.stb.printAt(7, "\n");
+        # (Line 140) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 137) break;
+        # (Line 141) break;
         EUDBreak()
-        # (Line 138) case 6:
+        # (Line 142) case 6:
     _t6 = EUDSwitchCase()
-    # (Line 139) f.stb.printAt(1, "\x13\x04- \x17소녀전선 \x04-");
+    # (Line 143) f.stb.printAt(1, "\x13\x04- \x17소녀전선 \x04-");
     if _t6(6):
         f.stb.printAt(1, "\x13\x04- \x17소녀전선 \x04-")
-        # (Line 140) f.stb.printAt(2, "\n");
+        # (Line 144) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 141) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
+        # (Line 145) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.")
-        # (Line 142) f.stb.printAt(4, "\x13\x04처음하는 플레이어에게 추천합니다.");
+        # (Line 146) f.stb.printAt(4, "\x13\x04처음하는 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04처음하는 플레이어에게 추천합니다.")
-        # (Line 143) f.stb.printAt(5, "\n");
+        # (Line 147) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 144) f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04순간딜 \x1F#\x04조작보통");
+        # (Line 148) f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04순간딜 \x1F#\x04조작보통");
         f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04순간딜 \x1F#\x04조작보통")
-        # (Line 145) f.stb.printAt(7, "\n");
+        # (Line 149) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 146) break;
+        # (Line 150) break;
         EUDBreak()
-        # (Line 147) case 7:
+        # (Line 151) case 7:
     _t7 = EUDSwitchCase()
-    # (Line 148) f.stb.printAt(1, "\x13\x04- \x17킹스레이드 \x04-");
+    # (Line 152) f.stb.printAt(1, "\x13\x04- \x17킹스레이드 \x04-");
     if _t7(7):
         f.stb.printAt(1, "\x13\x04- \x17킹스레이드 \x04-")
-        # (Line 149) f.stb.printAt(2, "\n");
+        # (Line 153) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 150) f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
+        # (Line 154) f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.")
-        # (Line 151) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
+        # (Line 155) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.")
-        # (Line 152) f.stb.printAt(5, "\n");
+        # (Line 156) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 153) f.stb.printAt(6, "\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작어려움");
+        # (Line 157) f.stb.printAt(6, "\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작어려움");
         f.stb.printAt(6, "\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작어려움")
-        # (Line 154) f.stb.printAt(7, "\n");
+        # (Line 158) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 155) break;
+        # (Line 159) break;
         EUDBreak()
-        # (Line 156) case 8:
+        # (Line 160) case 8:
     _t8 = EUDSwitchCase()
-    # (Line 157) f.stb.printAt(1, "\x13\x04- \x17PROJECT iM@S CINDERELLA GIRLS \x04-");
+    # (Line 161) f.stb.printAt(1, "\x13\x04- \x17PROJECT iM@S CINDERELLA GIRLS \x04-");
     if _t8(8):
         f.stb.printAt(1, "\x13\x04- \x17PROJECT iM@S CINDERELLA GIRLS \x04-")
-        # (Line 158) f.stb.printAt(2, "\n");
+        # (Line 162) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 159) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
+        # (Line 163) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.")
-        # (Line 160) f.stb.printAt(4, "\x13\x04처음하는 플레이어에게 추천합니다.");
+        # (Line 164) f.stb.printAt(4, "\x13\x04처음하는 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04처음하는 플레이어에게 추천합니다.")
-        # (Line 161) f.stb.printAt(5, "\n");
+        # (Line 165) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 162) f.stb.printAt(6, "\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작쉬움");
+        # (Line 166) f.stb.printAt(6, "\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작쉬움");
         f.stb.printAt(6, "\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작쉬움")
-        # (Line 163) f.stb.printAt(7, "\n");
+        # (Line 167) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 164) break;
+        # (Line 168) break;
         EUDBreak()
-        # (Line 165) case 9:
+        # (Line 169) case 9:
     _t9 = EUDSwitchCase()
-    # (Line 166) f.stb.printAt(1, "\x13\x04- \x17주문은 토끼입니까? \x04-");
+    # (Line 170) f.stb.printAt(1, "\x13\x04- \x17주문은 토끼입니까? \x04-");
     if _t9(9):
         f.stb.printAt(1, "\x13\x04- \x17주문은 토끼입니까? \x04-")
-        # (Line 167) f.stb.printAt(2, "\n");
+        # (Line 171) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 168) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
+        # (Line 172) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.")
-        # (Line 169) f.stb.printAt(4, "\x13\x04처음하는 플레이어에게 추천합니다.");
+        # (Line 173) f.stb.printAt(4, "\x13\x04처음하는 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04처음하는 플레이어에게 추천합니다.")
-        # (Line 170) f.stb.printAt(5, "\n");
+        # (Line 174) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 171) f.stb.printAt(6, "\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
+        # (Line 175) f.stb.printAt(6, "\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
         f.stb.printAt(6, "\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움")
-        # (Line 172) f.stb.printAt(7, "\n");
+        # (Line 176) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 173) break;
+        # (Line 177) break;
         EUDBreak()
-        # (Line 174) case 10:
+        # (Line 178) case 10:
     _t10 = EUDSwitchCase()
-    # (Line 175) f.stb.printAt(1, "\x13\x04- \x17Fate/Extra CCC \x04-");
+    # (Line 179) f.stb.printAt(1, "\x13\x04- \x17Fate/Extra CCC \x04-");
     if _t10(10):
         f.stb.printAt(1, "\x13\x04- \x17Fate/Extra CCC \x04-")
-        # (Line 176) f.stb.printAt(2, "\n");
+        # (Line 180) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 177) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
+        # (Line 181) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.")
-        # (Line 178) f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
+        # (Line 182) f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.")
-        # (Line 179) f.stb.printAt(5, "\n");
+        # (Line 183) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 180) f.stb.printAt(6, "\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
+        # (Line 184) f.stb.printAt(6, "\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
         f.stb.printAt(6, "\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움")
-        # (Line 181) f.stb.printAt(7, "\n");
+        # (Line 185) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 182) break;
+        # (Line 186) break;
         EUDBreak()
-        # (Line 183) case 11:
+        # (Line 187) case 11:
     _t11 = EUDSwitchCase()
-    # (Line 192) break;
+    # (Line 196) break;
     if _t11(11):
         EUDBreak()
-        # (Line 193) case 12:
+        # (Line 197) case 12:
     _t12 = EUDSwitchCase()
-    # (Line 194) f.stb.printAt(1, "\x13\x04- \x17ClockWork Planet \x04-");
+    # (Line 198) f.stb.printAt(1, "\x13\x04- \x17ClockWork Planet \x04-");
     if _t12(12):
         f.stb.printAt(1, "\x13\x04- \x17ClockWork Planet \x04-")
-        # (Line 195) f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
+        # (Line 199) f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.")
-        # (Line 196) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
+        # (Line 200) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.")
-        # (Line 197) f.stb.printAt(5, "\n");
+        # (Line 201) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 198) f.stb.printAt(6, "\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작쉬움");
+        # (Line 202) f.stb.printAt(6, "\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작쉬움");
         f.stb.printAt(6, "\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04조작쉬움")
-        # (Line 199) f.stb.printAt(7, "\n");
+        # (Line 203) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 200) break;
+        # (Line 204) break;
         EUDBreak()
-        # (Line 201) case 13:
+        # (Line 205) case 13:
     _t13 = EUDSwitchCase()
-    # (Line 202) f.stb.printAt(1, "\x13\x04- \x17Fate/stay night");
+    # (Line 206) f.stb.printAt(1, "\x13\x04- \x17Fate/stay night");
     if _t13(13):
         f.stb.printAt(1, "\x13\x04- \x17Fate/stay night")
-        # (Line 203) f.stb.printAt(2, "\n");
+        # (Line 207) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 204) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
+        # (Line 208) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.")
-        # (Line 205) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
+        # (Line 209) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.")
-        # (Line 206) f.stb.printAt(5, "\n");
+        # (Line 210) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 207) f.stb.printAt(6, "\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
+        # (Line 211) f.stb.printAt(6, "\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
         f.stb.printAt(6, "\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움")
-        # (Line 208) f.stb.printAt(7, "\n");
+        # (Line 212) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 209) break;
+        # (Line 213) break;
         EUDBreak()
-        # (Line 210) case 14:
+        # (Line 214) case 14:
     _t14 = EUDSwitchCase()
-    # (Line 211) f.stb.printAt(1, "\x13\x04- \x17나만이 없는 거리\x04-");
+    # (Line 215) f.stb.printAt(1, "\x13\x04- \x17나만이 없는 거리\x04-");
     if _t14(14):
         f.stb.printAt(1, "\x13\x04- \x17나만이 없는 거리\x04-")
-        # (Line 212) f.stb.printAt(2, "\n");
+        # (Line 216) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 213) f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
+        # (Line 217) f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.")
-        # (Line 214) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
+        # (Line 218) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.")
-        # (Line 215) f.stb.printAt(5, "\n");
+        # (Line 219) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 216) f.stb.printAt(6, "\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04스택 \x1F#\x04조작매우어려움");
+        # (Line 220) f.stb.printAt(6, "\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04스택 \x1F#\x04조작매우어려움");
         f.stb.printAt(6, "\x13\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04스택 \x1F#\x04조작매우어려움")
-        # (Line 217) f.stb.printAt(7, "\n");
+        # (Line 221) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 218) break;
+        # (Line 222) break;
         EUDBreak()
-        # (Line 219) case 15:
+        # (Line 223) case 15:
     _t15 = EUDSwitchCase()
-    # (Line 220) f.stb.printAt(1, "\x13\x04- \x17Shelter \x04-");
+    # (Line 224) f.stb.printAt(1, "\x13\x04- \x17Shelter \x04-");
     if _t15(15):
         f.stb.printAt(1, "\x13\x04- \x17Shelter \x04-")
-        # (Line 221) f.stb.printAt(2, "\n");
+        # (Line 225) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 222) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
+        # (Line 226) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.")
-        # (Line 223) f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
+        # (Line 227) f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.")
-        # (Line 224) f.stb.printAt(5, "\n");
+        # (Line 228) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 225) f.stb.printAt(6, "\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
+        # (Line 229) f.stb.printAt(6, "\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움");
         f.stb.printAt(6, "\x13\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작어려움")
-        # (Line 226) f.stb.printAt(7, "\n");
+        # (Line 230) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 227) break;
+        # (Line 231) break;
         EUDBreak()
-        # (Line 228) case 16:
+        # (Line 232) case 16:
     _t16 = EUDSwitchCase()
-    # (Line 229) f.stb.printAt(1, "\x13\x04- \x17영원한 7일의 도시 \x04-");
+    # (Line 233) f.stb.printAt(1, "\x13\x04- \x17영원한 7일의 도시 \x04-");
     if _t16(16):
         f.stb.printAt(1, "\x13\x04- \x17영원한 7일의 도시 \x04-")
-        # (Line 230) f.stb.printAt(2, "\n");
+        # (Line 234) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 231) f.stb.printAt(3, "\x13\x17모든전투\x04에 특화 되어있습니다.");
+        # (Line 235) f.stb.printAt(3, "\x13\x17모든전투\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17모든전투\x04에 특화 되어있습니다.")
-        # (Line 232) f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
+        # (Line 236) f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.")
-        # (Line 233) f.stb.printAt(5, "\n");
+        # (Line 237) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 234) f.stb.printAt(6, "\x13\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04조작보통 \x1F#\x04특수");
+        # (Line 238) f.stb.printAt(6, "\x13\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04조작보통 \x1F#\x04특수");
         f.stb.printAt(6, "\x13\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04조작보통 \x1F#\x04특수")
-        # (Line 235) f.stb.printAt(7, "\n");
+        # (Line 239) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 236) break;
+        # (Line 240) break;
         EUDBreak()
-        # (Line 237) case 17:
+        # (Line 241) case 17:
     _t17 = EUDSwitchCase()
-    # (Line 247) break;
+    # (Line 251) break;
     if _t17(17):
         EUDBreak()
-        # (Line 248) case 18:
+        # (Line 252) case 18:
     _t18 = EUDSwitchCase()
-    # (Line 249) f.stb.printAt(1, "\x13\x04- \x17K RETURN OF KINGS \x04-");
+    # (Line 253) f.stb.printAt(1, "\x13\x04- \x17K RETURN OF KINGS \x04-");
     if _t18(18):
         f.stb.printAt(1, "\x13\x04- \x17K RETURN OF KINGS \x04-")
-        # (Line 250) f.stb.printAt(2, "\n");
+        # (Line 254) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 251) f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
+        # (Line 255) f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.")
-        # (Line 252) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
+        # (Line 256) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.")
-        # (Line 253) f.stb.printAt(5, "\n");
+        # (Line 257) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 254) f.stb.printAt(6, "\x13\x1F#\x04대인 \x1F#\x04순간딜 \x1F#\x04조작보통");
+        # (Line 258) f.stb.printAt(6, "\x13\x1F#\x04대인 \x1F#\x04순간딜 \x1F#\x04조작보통");
         f.stb.printAt(6, "\x13\x1F#\x04대인 \x1F#\x04순간딜 \x1F#\x04조작보통")
-        # (Line 255) f.stb.printAt(7, "\n");
+        # (Line 259) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 256) break;
+        # (Line 260) break;
         EUDBreak()
-        # (Line 257) case 19:
+        # (Line 261) case 19:
     _t19 = EUDSwitchCase()
-    # (Line 258) f.stb.printAt(1, "\x13\x04- \x17경계선상의 호라이즌 \x04-");
+    # (Line 262) f.stb.printAt(1, "\x13\x04- \x17경계선상의 호라이즌 \x04-");
     if _t19(19):
         f.stb.printAt(1, "\x13\x04- \x17경계선상의 호라이즌 \x04-")
-        # (Line 259) f.stb.printAt(2, "\n");
+        # (Line 263) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 260) f.stb.printAt(3, "\x13\x17모든전투\x04에 특화 되어있습니다.");
+        # (Line 264) f.stb.printAt(3, "\x13\x17모든전투\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17모든전투\x04에 특화 되어있습니다.")
-        # (Line 261) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
+        # (Line 265) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.")
-        # (Line 262) f.stb.printAt(5, "\n");
+        # (Line 266) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 263) f.stb.printAt(6, "\x13\x1F#\x04만능 \x1F#\x04저격 \x1F#\x04보조 \x1F#\x04조작보통");
+        # (Line 267) f.stb.printAt(6, "\x13\x1F#\x04만능 \x1F#\x04저격 \x1F#\x04보조 \x1F#\x04조작보통");
         f.stb.printAt(6, "\x13\x1F#\x04만능 \x1F#\x04저격 \x1F#\x04보조 \x1F#\x04조작보통")
-        # (Line 264) f.stb.printAt(7, "\n");
+        # (Line 268) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 265) break;
+        # (Line 269) break;
         EUDBreak()
-        # (Line 266) case 20:
+        # (Line 270) case 20:
     _t20 = EUDSwitchCase()
-    # (Line 267) f.stb.printAt(1, "\x13\x04- \x17Final Fantasy XIV \x04-");
+    # (Line 271) f.stb.printAt(1, "\x13\x04- \x17Final Fantasy XIV \x04-");
     if _t20(20):
         f.stb.printAt(1, "\x13\x04- \x17Final Fantasy XIV \x04-")
-        # (Line 268) f.stb.printAt(2, "\n");
+        # (Line 272) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 269) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
+        # (Line 273) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.")
-        # (Line 270) f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
+        # (Line 274) f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.")
-        # (Line 271) f.stb.printAt(5, "\n");
+        # (Line 275) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 272) f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04지속딜 \x1F#\x04조작보통");
+        # (Line 276) f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04지속딜 \x1F#\x04조작보통");
         f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04지속딜 \x1F#\x04조작보통")
-        # (Line 273) f.stb.printAt(7, "\n");
+        # (Line 277) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 274) break;
+        # (Line 278) break;
         EUDBreak()
-        # (Line 275) case 21:
+        # (Line 279) case 21:
     _t21 = EUDSwitchCase()
-    # (Line 276) f.stb.printAt(1, "\x13\x04- \x17Arknights \x04-");
+    # (Line 280) f.stb.printAt(1, "\x13\x04- \x17Arknights \x04-");
     if _t21(21):
         f.stb.printAt(1, "\x13\x04- \x17Arknights \x04-")
-        # (Line 277) f.stb.printAt(2, "\n");
+        # (Line 281) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 278) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
+        # (Line 282) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.")
-        # (Line 279) f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
+        # (Line 283) f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.")
-        # (Line 280) f.stb.printAt(5, "\n");
+        # (Line 284) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 281) f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04순간딜 \x1F#\x04드론 \x1F#\x04조작보통");
+        # (Line 285) f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04순간딜 \x1F#\x04드론 \x1F#\x04조작보통");
         f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04순간딜 \x1F#\x04드론 \x1F#\x04조작보통")
-        # (Line 282) f.stb.printAt(7, "\n");
+        # (Line 286) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 283) break;
+        # (Line 287) break;
         EUDBreak()
-        # (Line 284) case 22:
+        # (Line 288) case 22:
     _t22 = EUDSwitchCase()
-    # (Line 285) f.stb.printAt(1, "\x13\x04- \x17유우키 유우나는 용사다 \x04-");
+    # (Line 289) f.stb.printAt(1, "\x13\x04- \x17유우키 유우나는 용사다 \x04-");
     if _t22(22):
         f.stb.printAt(1, "\x13\x04- \x17유우키 유우나는 용사다 \x04-")
-        # (Line 286) f.stb.printAt(2, "\n");
+        # (Line 290) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 287) f.stb.printAt(3, "\x13\x17모든전투\x04에 특화 되어있습니다.");
+        # (Line 291) f.stb.printAt(3, "\x13\x17모든전투\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17모든전투\x04에 특화 되어있습니다.")
-        # (Line 288) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
+        # (Line 292) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.")
-        # (Line 289) f.stb.printAt(5, "\n");
+        # (Line 293) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 290) f.stb.printAt(6, "\x13\x1F#\x04만능 \x1F#\x04하이리스크 \x1F#\x04하이리턴 \x1F#\x04조작어려움");
+        # (Line 294) f.stb.printAt(6, "\x13\x1F#\x04만능 \x1F#\x04하이리스크 \x1F#\x04하이리턴 \x1F#\x04조작어려움");
         f.stb.printAt(6, "\x13\x1F#\x04만능 \x1F#\x04하이리스크 \x1F#\x04하이리턴 \x1F#\x04조작어려움")
-        # (Line 291) f.stb.printAt(7, "\n");
+        # (Line 295) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 292) break;
+        # (Line 296) break;
         EUDBreak()
-        # (Line 293) case 23:
+        # (Line 297) case 23:
     _t23 = EUDSwitchCase()
-    # (Line 294) f.stb.printAt(1, "\x13\x04- \x17슈타인즈 게이트 \x04-");
+    # (Line 298) f.stb.printAt(1, "\x13\x04- \x17슈타인즈 게이트 \x04-");
     if _t23(23):
         f.stb.printAt(1, "\x13\x04- \x17슈타인즈 게이트 \x04-")
-        # (Line 295) f.stb.printAt(2, "\n");
+        # (Line 299) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 296) f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
+        # (Line 300) f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.")
-        # (Line 297) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
+        # (Line 301) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.")
-        # (Line 298) f.stb.printAt(5, "\n");
+        # (Line 302) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 299) f.stb.printAt(6, "\x13\x1F#\x04대인 \x1F#\x04고정 \x1F#\x04조작어려움");
+        # (Line 303) f.stb.printAt(6, "\x13\x1F#\x04대인 \x1F#\x04고정 \x1F#\x04조작어려움");
         f.stb.printAt(6, "\x13\x1F#\x04대인 \x1F#\x04고정 \x1F#\x04조작어려움")
-        # (Line 300) f.stb.printAt(7, "\n");
+        # (Line 304) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 301) break;
+        # (Line 305) break;
         EUDBreak()
-        # (Line 302) case 24:
+        # (Line 306) case 24:
     _t24 = EUDSwitchCase()
-    # (Line 303) f.stb.printAt(1, "\x13\x04- \x17단간론파 \x04-");
+    # (Line 307) f.stb.printAt(1, "\x13\x04- \x17단간론파 \x04-");
     if _t24(24):
         f.stb.printAt(1, "\x13\x04- \x17단간론파 \x04-")
-        # (Line 304) f.stb.printAt(2, "\n");
+        # (Line 308) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 305) f.stb.printAt(3, "\x13\x17모든전투\x04에 특화 되어있습니다.");
+        # (Line 309) f.stb.printAt(3, "\x13\x17모든전투\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17모든전투\x04에 특화 되어있습니다.")
-        # (Line 306) f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
+        # (Line 310) f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.")
-        # (Line 307) f.stb.printAt(5, "\n");
+        # (Line 311) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 308) f.stb.printAt(6, "\x13\x1F#\x04만능 \x1F#\x04서포트 \x1F#\x04조작보통");
+        # (Line 312) f.stb.printAt(6, "\x13\x1F#\x04만능 \x1F#\x04서포트 \x1F#\x04조작보통");
         f.stb.printAt(6, "\x13\x1F#\x04만능 \x1F#\x04서포트 \x1F#\x04조작보통")
-        # (Line 309) f.stb.printAt(7, "\n");
+        # (Line 313) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 310) break;
+        # (Line 314) break;
         EUDBreak()
-        # (Line 311) case 25:
+        # (Line 315) case 25:
     _t25 = EUDSwitchCase()
-    # (Line 312) f.stb.printAt(1, "\x13\x04- \x17전생했더니 슬라임이었던 건에 대하여 \x04-");
+    # (Line 316) f.stb.printAt(1, "\x13\x04- \x17전생했더니 슬라임이었던 건에 대하여 \x04-");
     if _t25(25):
         f.stb.printAt(1, "\x13\x04- \x17전생했더니 슬라임이었던 건에 대하여 \x04-")
-        # (Line 313) f.stb.printAt(2, "\n");
+        # (Line 317) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 314) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
+        # (Line 318) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.")
-        # (Line 315) f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
+        # (Line 319) f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.")
-        # (Line 316) f.stb.printAt(5, "\n");
+        # (Line 320) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 317) f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04기동성 \x1F#\x04조작보통");
+        # (Line 321) f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04기동성 \x1F#\x04조작보통");
         f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04기동성 \x1F#\x04조작보통")
-        # (Line 318) f.stb.printAt(7, "\n");
+        # (Line 322) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 319) break;
+        # (Line 323) break;
         EUDBreak()
-        # (Line 320) case 26:
+        # (Line 324) case 26:
     _t26 = EUDSwitchCase()
-    # (Line 321) f.stb.printAt(1, "\x13\x04- \x17도사의 무녀 \x04-");
+    # (Line 325) f.stb.printAt(1, "\x13\x04- \x17도사의 무녀 \x04-");
     if _t26(26):
         f.stb.printAt(1, "\x13\x04- \x17도사의 무녀 \x04-")
-        # (Line 322) f.stb.printAt(2, "\n");
+        # (Line 326) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 323) f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
+        # (Line 327) f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.")
-        # (Line 324) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
+        # (Line 328) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.")
-        # (Line 325) f.stb.printAt(5, "\n");
+        # (Line 329) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 326) f.stb.printAt(6, "\x13\x1F#\x04대인 \x1F#\x04기동성 \x1F#\x04조작어려움");
+        # (Line 330) f.stb.printAt(6, "\x13\x1F#\x04대인 \x1F#\x04기동성 \x1F#\x04조작어려움");
         f.stb.printAt(6, "\x13\x1F#\x04대인 \x1F#\x04기동성 \x1F#\x04조작어려움")
-        # (Line 327) f.stb.printAt(7, "\n");
+        # (Line 331) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 328) break;
+        # (Line 332) break;
         EUDBreak()
-        # (Line 329) case 27:
+        # (Line 333) case 27:
     _t27 = EUDSwitchCase()
-    # (Line 330) f.stb.printAt(1, "\x13\x04- \x17Re : CREATORS \x04-");
+    # (Line 334) f.stb.printAt(1, "\x13\x04- \x17Re : CREATORS \x04-");
     if _t27(27):
         f.stb.printAt(1, "\x13\x04- \x17Re : CREATORS \x04-")
-        # (Line 331) f.stb.printAt(2, "\n");
+        # (Line 335) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 332) f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
+        # (Line 336) f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.")
-        # (Line 333) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
+        # (Line 337) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.")
-        # (Line 334) f.stb.printAt(5, "\n");
+        # (Line 338) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 335) f.stb.printAt(6, "\x13\x1F#\x04대인 \x1F#\x04무효화 \x1F#\x04조작어려움");
+        # (Line 339) f.stb.printAt(6, "\x13\x1F#\x04대인 \x1F#\x04무효화 \x1F#\x04조작어려움");
         f.stb.printAt(6, "\x13\x1F#\x04대인 \x1F#\x04무효화 \x1F#\x04조작어려움")
-        # (Line 336) f.stb.printAt(7, "\n");
+        # (Line 340) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 337) break;
+        # (Line 341) break;
         EUDBreak()
-        # (Line 338) case 28:
+        # (Line 342) case 28:
     _t28 = EUDSwitchCase()
-    # (Line 339) f.stb.printAt(1, "\x13\x04- \x17문호 스트레이독스 \x04-");
+    # (Line 343) f.stb.printAt(1, "\x13\x04- \x17문호 스트레이독스 \x04-");
     if _t28(28):
         f.stb.printAt(1, "\x13\x04- \x17문호 스트레이독스 \x04-")
-        # (Line 340) f.stb.printAt(2, "\n");
+        # (Line 344) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 341) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
+        # (Line 345) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.")
-        # (Line 342) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
+        # (Line 346) f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04숙련된 플레이어에게 추천합니다.")
-        # (Line 343) f.stb.printAt(5, "\n");
+        # (Line 347) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 344) f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04영구각성 \x1F#\x04조작어려움");
+        # (Line 348) f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04영구각성 \x1F#\x04조작어려움");
         f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04영구각성 \x1F#\x04조작어려움")
-        # (Line 345) f.stb.printAt(7, "\n");
+        # (Line 349) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 346) break;
+        # (Line 350) break;
         EUDBreak()
-        # (Line 347) case 29:
+        # (Line 351) case 29:
     _t29 = EUDSwitchCase()
-    # (Line 348) f.stb.printAt(1, "\x13\x04- \x17Re : 제로부터 시작하는 이세계 생활 \x04-");
+    # (Line 352) f.stb.printAt(1, "\x13\x04- \x17Re : 제로부터 시작하는 이세계 생활 \x04-");
     if _t29(29):
         f.stb.printAt(1, "\x13\x04- \x17Re : 제로부터 시작하는 이세계 생활 \x04-")
-        # (Line 349) f.stb.printAt(2, "\n");
+        # (Line 353) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 350) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
+        # (Line 354) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.")
-        # (Line 351) f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
+        # (Line 355) f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04적응된 플레이어에게 추천합니다.")
-        # (Line 352) f.stb.printAt(5, "\n");
+        # (Line 356) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 353) f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04계약 \x1F#\x04조작보통");
+        # (Line 357) f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04계약 \x1F#\x04조작보통");
         f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04계약 \x1F#\x04조작보통")
-        # (Line 354) f.stb.printAt(7, "\n");
+        # (Line 358) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 355) break;
+        # (Line 359) break;
         EUDBreak()
-        # (Line 356) case 30:
+        # (Line 360) case 30:
     _t30 = EUDSwitchCase()
-    # (Line 357) f.stb.printAt(1, "\x13\x04- \x17십이대전 \x04-");
+    # (Line 361) f.stb.printAt(1, "\x13\x04- \x17십이대전 \x04-");
     if _t30(30):
         f.stb.printAt(1, "\x13\x04- \x17십이대전 \x04-")
-        # (Line 358) f.stb.printAt(2, "\n");
+        # (Line 362) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 359) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
+        # (Line 363) f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17공성전\x04에 특화 되어있습니다.")
-        # (Line 360) f.stb.printAt(4, "\x13\x04모든 플레이어에게 추천합니다.");
+        # (Line 364) f.stb.printAt(4, "\x13\x04모든 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04모든 플레이어에게 추천합니다.")
-        # (Line 361) f.stb.printAt(5, "\n");
+        # (Line 365) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 362) f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04지속딜 \x1F#\x04조작쉬움");
+        # (Line 366) f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04지속딜 \x1F#\x04조작쉬움");
         f.stb.printAt(6, "\x13\x1F#\x04공성 \x1F#\x04지속딜 \x1F#\x04조작쉬움")
-        # (Line 363) f.stb.printAt(7, "\n");
+        # (Line 367) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 364) break;
+        # (Line 368) break;
         EUDBreak()
-        # (Line 365) case 31:
+        # (Line 369) case 31:
     _t31 = EUDSwitchCase()
-    # (Line 366) f.stb.printAt(1, "\x13\x04- \x17갓 오브 하이스쿨 \x04-");
+    # (Line 370) f.stb.printAt(1, "\x13\x04- \x17갓 오브 하이스쿨 \x04-");
     if _t31(31):
         f.stb.printAt(1, "\x13\x04- \x17갓 오브 하이스쿨 \x04-")
-        # (Line 367) f.stb.printAt(2, "\n");
+        # (Line 371) f.stb.printAt(2, "\n");
         f.stb.printAt(2, "\n")
-        # (Line 368) f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
+        # (Line 372) f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.");
         f.stb.printAt(3, "\x13\x17대인전\x04에 특화 되어있습니다.")
-        # (Line 369) f.stb.printAt(4, "\x13\x04모든 플레이어에게 추천합니다.");
+        # (Line 373) f.stb.printAt(4, "\x13\x04모든 플레이어에게 추천합니다.");
         f.stb.printAt(4, "\x13\x04모든 플레이어에게 추천합니다.")
-        # (Line 370) f.stb.printAt(5, "\n");
+        # (Line 374) f.stb.printAt(5, "\n");
         f.stb.printAt(5, "\n")
-        # (Line 371) f.stb.printAt(6, "\x13\x1F#\x04대인 \x1F#\x04순간딜 \x1F#\x04조작쉬움");
+        # (Line 375) f.stb.printAt(6, "\x13\x1F#\x04대인 \x1F#\x04순간딜 \x1F#\x04조작쉬움");
         f.stb.printAt(6, "\x13\x1F#\x04대인 \x1F#\x04순간딜 \x1F#\x04조작쉬움")
-        # (Line 372) f.stb.printAt(7, "\n");
+        # (Line 376) f.stb.printAt(7, "\n");
         f.stb.printAt(7, "\n")
-        # (Line 373) break;
+        # (Line 377) break;
         EUDBreak()
-        # (Line 375) }
-    # (Line 377) if (cp >=0 && cp <= 2 && Switch((249), (2)))
+        # (Line 379) }
+    # (Line 381) if (cp >=0 && cp <= 2 && Switch((249), (2)))
     EUDEndSwitch()
     if EUDIf()(EUDSCAnd()(cp >= 0)(cp <= 2)(Switch((249), (2)))()):
-        # (Line 378) {
-        # (Line 379) if (v.Hero_Text[cp] == 3
+        # (Line 382) {
+        # (Line 383) if (v.Hero_Text[cp] == 3
         _t33 = EUDIf()
-        # (Line 380) || v.Hero_Text[cp] == 5
-        # (Line 381) || v.Hero_Text[cp] == 7
-        # (Line 382) || v.Hero_Text[cp] == 12
-        # (Line 383) || v.Hero_Text[cp] == 18
-        # (Line 384) || v.Hero_Text[cp] == 23
-        # (Line 385) || v.Hero_Text[cp] == 26
-        # (Line 386) || v.Hero_Text[cp] == 27
-        # (Line 387) || v.Hero_Text[cp] == 31
-        # (Line 388) )
+        # (Line 384) || v.Hero_Text[cp] == 5
+        # (Line 385) || v.Hero_Text[cp] == 7
+        # (Line 386) || v.Hero_Text[cp] == 12
+        # (Line 387) || v.Hero_Text[cp] == 18
+        # (Line 388) || v.Hero_Text[cp] == 23
+        # (Line 389) || v.Hero_Text[cp] == 26
+        # (Line 390) || v.Hero_Text[cp] == 27
+        # (Line 391) || v.Hero_Text[cp] == 31
+        # (Line 392) )
         if _t33(EUDSCOr()(v.Hero_Text[cp] == 3)(v.Hero_Text[cp] == 5)(v.Hero_Text[cp] == 7)(v.Hero_Text[cp] == 12)(v.Hero_Text[cp] == 18)(v.Hero_Text[cp] == 23)(v.Hero_Text[cp] == 26)(v.Hero_Text[cp] == 27)(v.Hero_Text[cp] == 31)()):
-            # (Line 389) { f.stb.printAt(8, "\x13\x04선택할수 없습니다."); }
+            # (Line 393) { f.stb.printAt(8, "\x13\x04선택할수 없습니다."); }
             f.stb.printAt(8, "\x13\x04선택할수 없습니다.")
-            # (Line 390) else {  f.stb.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요."); }
+            # (Line 394) else {  f.stb.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요."); }
         if EUDElse()():
             f.stb.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.")
-            # (Line 391) }
+            # (Line 395) }
         EUDEndIf()
-        # (Line 392) else if (cp >=3 && cp <= 5 && Switch((248), (2)))
+        # (Line 396) else if (cp >=3 && cp <= 5 && Switch((248), (2)))
     if EUDElseIf()(EUDSCAnd()(cp >= 3)(cp <= 5)(Switch((248), (2)))()):
-        # (Line 393) {
-        # (Line 394) if (v.Hero_Text[cp] == 3
+        # (Line 397) {
+        # (Line 398) if (v.Hero_Text[cp] == 3
         _t35 = EUDIf()
-        # (Line 395) || v.Hero_Text[cp] == 5
-        # (Line 396) || v.Hero_Text[cp] == 7
-        # (Line 397) || v.Hero_Text[cp] == 12
-        # (Line 398) || v.Hero_Text[cp] == 18
-        # (Line 399) || v.Hero_Text[cp] == 23
-        # (Line 400) || v.Hero_Text[cp] == 26
-        # (Line 401) || v.Hero_Text[cp] == 27
-        # (Line 402) || v.Hero_Text[cp] == 31
-        # (Line 403) )
+        # (Line 399) || v.Hero_Text[cp] == 5
+        # (Line 400) || v.Hero_Text[cp] == 7
+        # (Line 401) || v.Hero_Text[cp] == 12
+        # (Line 402) || v.Hero_Text[cp] == 18
+        # (Line 403) || v.Hero_Text[cp] == 23
+        # (Line 404) || v.Hero_Text[cp] == 26
+        # (Line 405) || v.Hero_Text[cp] == 27
+        # (Line 406) || v.Hero_Text[cp] == 31
+        # (Line 407) )
         if _t35(EUDSCOr()(v.Hero_Text[cp] == 3)(v.Hero_Text[cp] == 5)(v.Hero_Text[cp] == 7)(v.Hero_Text[cp] == 12)(v.Hero_Text[cp] == 18)(v.Hero_Text[cp] == 23)(v.Hero_Text[cp] == 26)(v.Hero_Text[cp] == 27)(v.Hero_Text[cp] == 31)()):
-            # (Line 404) {  f.stb.printAt(8, "\x13\x04선택할수 없습니다."); }
+            # (Line 408) {  f.stb.printAt(8, "\x13\x04선택할수 없습니다."); }
             f.stb.printAt(8, "\x13\x04선택할수 없습니다.")
-            # (Line 405) else {  f.stb.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요."); }
+            # (Line 409) else {  f.stb.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요."); }
         if EUDElse()():
             f.stb.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.")
-            # (Line 406) }
+            # (Line 410) }
         EUDEndIf()
-        # (Line 407) else {  f.stb.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요."); }
+        # (Line 411) else {  f.stb.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요."); }
     if EUDElse()():
         f.stb.printAt(8, "\x13\x04선택하시려면 \x17커세어(O)\x04를 뽑아주세요.")
-        # (Line 409) v.Hero_Num[cp] = v.Hero_Text[cp];
+        # (Line 413) v.Hero_Num[cp] = v.Hero_Text[cp];
     EUDEndIf()
     _ARRW(v.Hero_Num, cp) << (v.Hero_Text[cp])
-    # (Line 410) v.Hero_Text[cp] = 0;
+    # (Line 414) v.Hero_Text[cp] = 0;
     _ARRW(v.Hero_Text, cp) << (0)
-    # (Line 411) }
-    # (Line 414) function EndTotalText(cp)
+    # (Line 415) }
+    # (Line 418) function EndTotalText(cp)
 
-# (Line 415) {
+# (Line 419) {
 @EUDFunc
 def EndTotalText(cp):
-    # (Line 416) const Exp 	= dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
+    # (Line 420) const Exp 	= dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp));
     Exp = f_dwread_epd(EPD(0x58A364 + 48 * 166 + 4 * cp))
-    # (Line 418) f.stb.printAt(1, "\x13\x17[ \x04",ptr2s(v.Hero_Name[v.Hero_Num[cp]])," \x17]");
+    # (Line 422) f.stb.printAt(1, "\x13\x17[ \x04",ptr2s(v.Hero_Name[v.Hero_Num[cp]])," \x17]");
     f.stb.printAt(1, "\x13\x17[ \x04", ptr2s(v.Hero_Name[v.Hero_Num[cp]]), " \x17]")
-    # (Line 419) f.stb.printAt(2, "\n");
+    # (Line 423) f.stb.printAt(2, "\n");
     f.stb.printAt(2, "\n")
-    # (Line 420) f.stb.printAt(3, "\x13\x04얻은 경험치 :　\x17[ \x07", v.Exp_Player[20 * cp + (v.Hero_Num[cp] - 1)], "\x17 ]");
+    # (Line 424) f.stb.printAt(3, "\x13\x04얻은 경험치 :　\x17[ \x07", v.Exp_Player[20 * cp + (v.Hero_Num[cp] - 1)], "\x17 ]");
     f.stb.printAt(3, "\x13\x04얻은 경험치 :　\x17[ \x07", v.Exp_Player[20 * cp + (v.Hero_Num[cp] - 1)], "\x17 ]")
-    # (Line 421) f.stb.printAt(4, "\x13\x04잡은 크립 :　\x17[ \x1F", v.CS_Player[cp], "\x17 ]");
+    # (Line 425) f.stb.printAt(4, "\x13\x04잡은 크립 :　\x17[ \x1F", v.CS_Player[cp], "\x17 ]");
     f.stb.printAt(4, "\x13\x04잡은 크립 :　\x17[ \x1F", v.CS_Player[cp], "\x17 ]")
-    # (Line 422) f.stb.printAt(5, "\x13\x04Kill :　\x17[ \x08", v.Kill_Score[cp],"\x17 ]");
+    # (Line 426) f.stb.printAt(5, "\x13\x04Kill :　\x17[ \x08", v.Kill_Score[cp],"\x17 ]");
     f.stb.printAt(5, "\x13\x04Kill :　\x17[ \x08", v.Kill_Score[cp], "\x17 ]")
-    # (Line 423) f.stb.printAt(6, "\x13\x04Death :　\x17[ \x1C", v.Death_Score[cp],"\x17 ]");
+    # (Line 427) f.stb.printAt(6, "\x13\x04Death :　\x17[ \x1C", v.Death_Score[cp],"\x17 ]");
     f.stb.printAt(6, "\x13\x04Death :　\x17[ \x1C", v.Death_Score[cp], "\x17 ]")
-    # (Line 424) f.stb.printAt(7, "\n");
+    # (Line 428) f.stb.printAt(7, "\n");
     f.stb.printAt(7, "\n")
-    # (Line 425) f.stb.printAt(8, "\x13", PColor(cp), PName(cp), "님 수고하셨습니다.");
+    # (Line 429) f.stb.printAt(8, "\x13", PColor(cp), PName(cp), "님 수고하셨습니다.");
     f.stb.printAt(8, "\x13", PColor(cp), PName(cp), "님 수고하셨습니다.")
-    # (Line 426) }
+    # (Line 430) }

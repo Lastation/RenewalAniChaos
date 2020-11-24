@@ -78,9 +78,13 @@ function CharacterTextNum(cp)
 	{
 		CharacterText(cp);
 	}
-	else if (Deaths(P7, Exactly, 1, " Struct. Mond") || Deaths(P8, Exactly, 1, " Struct. Mond"))
+	
+	if (ElapsedTime(AtLeast, 10))
 	{
-		EndTotalText(cp);
+		if (Bring(P7, Exactly, 0, " Struct. Mond", "Anywhere") || Bring(P8, Exactly, 0, " Struct. Mond", "Anywhere"))
+		{
+			EndTotalText(cp);
+		}
 	}
 }
 

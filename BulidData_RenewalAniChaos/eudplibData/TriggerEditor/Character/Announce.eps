@@ -18,14 +18,14 @@ function Announce_Adv(value, cp)
 		if (value == 0)
 		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04{}", v.Potion[cp], v.Level[cp]); }
 		if (value == 1)
-		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO Skill \x04사용가능 \x1COFF　\x07Level \x04{}", v.Potion[cp], v.Level[cp]); }
+		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO Skill \x04사용가능 \x08OFF　\x07Level \x04{}", v.Potion[cp], v.Level[cp]); }
 	}
 	else if (Deaths((13), (10), 0, (210)) && v.Unique_Cool[cp] != 0)
 	{
 		if (value == 0)
 		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO \x1ECooltime \x04{}초 \x1CON　\x07Level \x04{}", v.Potion[cp], v.Unique_Cool[cp] , v.Level[cp]); }
 		if (value == 1)
-		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO \x1ECooltime \x04{}초 \x1COFF　\x07Level \x04{}", v.Potion[cp], v.Unique_Cool[cp], v.Level[cp]); }
+		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO \x1ECooltime \x04{}초 \x08OFF　\x07Level \x04{}", v.Potion[cp], v.Unique_Cool[cp], v.Level[cp]); }
 	}
 	else if (Deaths((13), (0), 1, (210)) && v.Unique_Cool[cp] == 0)
 	{ 
@@ -39,7 +39,7 @@ function Announce_Adv(value, cp)
 		if (value == 0)
 		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FO \x1ECooltime \x04{}초 \x1CON　\x07Level \x04{}", v.DeathCount[cp], v.Unique_Cool[cp], v.Level[cp]); }
 		if (value == 1)
-		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FO \x1ECooltime \x04{}초 \x1COFF　\x07Level \x04{}", v.DeathCount[cp], v.Unique_Cool[cp], v.Level[cp]); }
+		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FO \x1ECooltime \x04{}초 \x08OFF　\x07Level \x04{}", v.DeathCount[cp], v.Unique_Cool[cp], v.Level[cp]); }
 	}
 }
 

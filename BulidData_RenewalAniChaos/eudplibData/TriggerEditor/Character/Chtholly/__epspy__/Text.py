@@ -273,9 +273,9 @@ def Text(num):
         EUDBreak()
         # (Line 73) case 14:
     _t14 = EUDSwitchCase()
-    # (Line 74) f.stb.printAt(1, "\x13\x06Chtholly Nota Seniorious\n\x13\x04지금의 나는\n\x13\x04누가 뭐라 할지라도\n\x13\x04세상에서 제일 \x06행복한 여자아이\x04인 거야");
+    # (Line 74) f.stb.printAt(0, "\x13\x06Chtholly Nota Seniorious\n\x13\x04지금의 나는\n\x13\x04누가 뭐라 할지라도\n\x13\x04세상에서 제일 \x06행복한 여자아이\x04인 거야");
     if _t14(14):
-        f.stb.printAt(1, "\x13\x06Chtholly Nota Seniorious\n\x13\x04지금의 나는\n\x13\x04누가 뭐라 할지라도\n\x13\x04세상에서 제일 \x06행복한 여자아이\x04인 거야")
+        f.stb.printAt(0, "\x13\x06Chtholly Nota Seniorious\n\x13\x04지금의 나는\n\x13\x04누가 뭐라 할지라도\n\x13\x04세상에서 제일 \x06행복한 여자아이\x04인 거야")
         # (Line 75) break;
         EUDBreak()
         # (Line 76) }
