@@ -1,0 +1,36 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.shape as s;
+
+const stb = StringBuffer();
+
+function onPluginStart() 	// 초기화 함수
+{
+	
+}
+
+function beforeTriggerExec() 
+{
+
+	randomize();
+	
+	// Player Loop
+	foreach(Player : EUDLoopPlayer())
+	{
+		setcurpl(Player);
+		v.P_PlayerID[Player] = Player;
+		MuteUnitSpeech();
+		stb.print("Now Player = ", getuserplayerid(), "");
+		
+		s.Shape_NxNSquare(Player, 1, "50 + 1n Battlecruiser", 2, 64);
+		KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", Player);
+	}
+	
+	// Observer Loop
+	foreach (Observer : EUDLoopRange(128, 132))
+	{
+		setcurpl(Observer);
+		MuteUnitSpeech();
+		stb.print("Now Player = ", getuserplayerid(), "");
+	}
+}

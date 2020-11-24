@@ -1,0 +1,17 @@
+import PluginVariables as msqcvar;
+import py_math;
+
+// Player ID
+const P_PlayerID 	= PVariable();
+
+// Location & Character(Hero) ID
+const P_LocationID 	= PVariable();
+const P_CharacterID	= PVariable();
+
+// Sin & Cos Angle
+const P_AngleCos 	= PVariable();
+const P_AngleSin 	= PVariable();
+
+// Sin & Cos Angle Table
+const P_Table_Cos 	= EUDArray(py_eval("[int(round(100*math.cos(math.radians(t)))) for t in range(361)]"));
+const P_Table_Sin 	= EUDArray(py_eval("[int(round(100*math.sin(math.radians(t)))) for t in range(361)]"));
