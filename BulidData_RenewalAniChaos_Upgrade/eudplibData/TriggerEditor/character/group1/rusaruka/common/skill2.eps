@@ -1,0 +1,56 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+function Shape(playerID, Unit : TrgUnit, x, y);
+
+function main(playerID)
+{
+	if (v.P_WaitMain[playerID] == 0)
+	{
+		if (v.P_CountMain[playerID] == 0 || v.P_CountMain[playerID] == 4)
+		{
+			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+			Shape(playerID, "40 + 1n Mojo", 0, 48);
+		}
+		else if (v.P_CountMain[playerID] == 1 || v.P_CountMain[playerID] == 5)
+		{
+			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+			Shape(playerID, "40 + 1n Wraith", 42, 24);
+		}
+		else if (v.P_CountMain[playerID] == 2 || v.P_CountMain[playerID] == 6)
+		{
+			KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+			Shape(playerID, "40 + 1n Mutalisk", 24, 42);
+		}
+		else if (v.P_CountMain[playerID] == 3 || v.P_CountMain[playerID] == 7)
+		{
+			KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
+			Shape(playerID, "40 + 1n Mojo", 48, 0);
+		}
+		else if (v.P_CountMain[playerID] == 8)
+		{
+			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+			trg.SkillEnd();
+		}
+	}
+}
+
+function Shape(playerID, Unit : TrgUnit, x, y)
+{
+	trg.MoveLoc(v.P_UnitID[playerID], playerID, x, y);
+	trg.SkillUnit(playerID, 1, Unit);
+	trg.SkillUnit(playerID, 1, "Protoss Dark Templar");
+	trg.MoveLoc(v.P_UnitID[playerID], playerID, -y, x);
+	trg.SkillUnit(playerID, 1, "Protoss Dark Templar");
+	trg.MoveLoc(v.P_UnitID[playerID], playerID, -x, -y);
+	trg.SkillUnit(playerID, 1, Unit);
+	trg.SkillUnit(playerID, 1, "Protoss Dark Templar");
+	trg.MoveLoc(v.P_UnitID[playerID], playerID, y, -x);
+	trg.SkillUnit(playerID, 1, "Protoss Dark Templar");
+	KillUnitAt(All, "Protoss Dark Templar", "Anywhere", playerID);
+	MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+	Order(Unit, playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+	trg.Main_Wait(50);
+	v.P_CountMain[playerID] += 1;
+}

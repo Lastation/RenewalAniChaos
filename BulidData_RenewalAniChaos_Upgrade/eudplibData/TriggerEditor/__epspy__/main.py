@@ -130,83 +130,52 @@ def _LSH(l, r):
 import PluginVariables as msqcvar
 # (Line 2) import variable as v;
 import variable as v
-# (Line 3) import func.shape as s;
-from func import shape as s
-# (Line 5) import Character.Group1.Rusaruka.Common.Skill_O as O;
-from Character.Group1.Rusaruka.Common import Skill_O as O
-# (Line 7) const stb = StringBuffer();
+# (Line 3) import func.trig as trg;
+from func import trig as trg
+# (Line 4) import func.sound as s;
+from func import sound as s
+# (Line 5) import character.marge as marge;
+from character import marge as marge
+# (Line 7) import character.group1.maihime.main as maihime;
+from character.group1.maihime import main as maihime
+# (Line 9) const stb = StringBuffer();
 stb = _CGFW(lambda: [StringBuffer()], 1)[0]
-# (Line 9) function onPluginStart() 	// 초기화 함수
-# (Line 10) {
+# (Line 11) function onPluginStart() 	// 초기화 함수
+# (Line 12) {
 @EUDFunc
 def onPluginStart():
-    # (Line 12) }
-    # (Line 14) function Skill_Variable(playerID)
+    # (Line 13) }
+    # (Line 15) function beforeTriggerExec()
     pass
 
-# (Line 15) {
-@EUDFunc
-def Skill_Variable(playerID):
-    # (Line 16) if (v.P_WaitMain[playerID] == 0)
-    if EUDIf()(v.P_WaitMain[playerID] == 0):
-        # (Line 17) {
-        # (Line 18) if 		(v.P_CountMain[playerID] == 999)	{ v.P_CountMain[playerID] = 1000; s.Main_Wait(500); }
-        if EUDIf()(v.P_CountMain[playerID] == 999):
-            _ARRW(v.P_CountMain, playerID) << (1000)
-            s.Main_Wait(500)
-            # (Line 19) else if 	(v.P_CountMain[playerID] == 1000)	{ v.P_CountMain[playerID] = 0; v.P_LoopMain[playerID] = 0; v.P_SkillDelay[playerID] = 12; }
-        if EUDElseIf()(v.P_CountMain[playerID] == 1000):
-            _ARRW(v.P_CountMain, playerID) << (0)
-            _ARRW(v.P_LoopMain, playerID) << (0)
-            _ARRW(v.P_SkillDelay, playerID) << (12)
-            # (Line 20) }
-        EUDEndIf()
-        # (Line 22) if 		(v.P_SkillDelay[playerID] >= 2) 	{ v.P_SkillDelay[playerID] -= 1; }
-    EUDEndIf()
-    if EUDIf()(v.P_SkillDelay[playerID] >= 2):
-        _ARRW(v.P_SkillDelay, playerID).__isub__(1)
-        # (Line 23) else if 	(v.P_SkillDelay[playerID] == 1) 	{ v.P_SkillDelay[playerID] = 0; v.P_Step[playerID] = 0; }
-    if EUDElseIf()(v.P_SkillDelay[playerID] == 1):
-        _ARRW(v.P_SkillDelay, playerID) << (0)
-        _ARRW(v.P_Step, playerID) << (0)
-        # (Line 25) if (v.P_WaitMain[playerID] >= 1) { v.P_WaitMain[playerID] -= 1; }
-    EUDEndIf()
-    if EUDIf()(v.P_WaitMain[playerID] >= 1):
-        _ARRW(v.P_WaitMain, playerID).__isub__(1)
-        # (Line 26) }
-    EUDEndIf()
-    # (Line 29) function beforeTriggerExec()
-
-# (Line 30) {
+# (Line 16) {
 @EUDFunc
 def beforeTriggerExec():
-    # (Line 32) randomize();
+    # (Line 18) randomize();
     f_randomize()
-    # (Line 35) foreach(Player : EUDLoopPlayer())
-    for Player in EUDLoopPlayer():
-        # (Line 36) {
-        # (Line 37) setcurpl(Player);
-        f_setcurpl(Player)
-        # (Line 38) v.P_PlayerID[Player] = Player;
-        _ARRW(v.P_PlayerID, Player) << (Player)
-        # (Line 39) MuteUnitSpeech();
-        # (Line 41) v.P_CharacterID[Player] = 51;
+    # (Line 21) foreach(playerID : EUDLoopPlayer())
+    for playerID in EUDLoopPlayer():
+        # (Line 22) {
+        # (Line 23) setcurpl(playerID);
+        f_setcurpl(playerID)
+        # (Line 24) marge.main(playerID);
+        marge.f_main(playerID)
+        # (Line 25) maihime.main(playerID);
+        maihime.f_main(playerID)
+        # (Line 26) MuteUnitSpeech();
+        # (Line 27) s.main(playerID);
         DoActions(MuteUnitSpeech())
-        _ARRW(v.P_CharacterID, Player) << (51)
-        # (Line 42) v.P_LocationID[Player] = 32;
-        _ARRW(v.P_LocationID, Player) << (32)
-        # (Line 43) O.main(Player);
-        O.f_main(Player)
-        # (Line 45) Skill_Variable(Player);
-        Skill_Variable(Player)
-        # (Line 47) }
-        # (Line 50) foreach (Observer : EUDLoopRange(128, 132))
+        s.f_main(playerID)
+        # (Line 28) }
+        # (Line 31) foreach (observerID : EUDLoopRange(128, 132))
 
-    for Observer in EUDLoopRange(128, 132):
-        # (Line 51) {
-        # (Line 52) setcurpl(Observer);
-        f_setcurpl(Observer)
-        # (Line 53) MuteUnitSpeech();
-        # (Line 54) }
+    for observerID in EUDLoopRange(128, 132):
+        # (Line 32) {
+        # (Line 33) setcurpl(observerID);
+        f_setcurpl(observerID)
+        # (Line 34) MuteUnitSpeech();
+        # (Line 35) s.main(observerID);
         DoActions(MuteUnitSpeech())
-        # (Line 55) }
+        s.f_main(observerID)
+        # (Line 36) }
+        # (Line 37) }
