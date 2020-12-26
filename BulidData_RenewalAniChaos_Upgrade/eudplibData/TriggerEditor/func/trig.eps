@@ -97,6 +97,34 @@ function Main_Wait(wait : TrgCount)
  * @Type
  * F
  * @Summary.ko-KR
+ * 스킬의 대기시간을 줄때 사용합니다. 2개이상 곂치는 이펙트를 줄때 사용합니다.
+ * [wait]은 ms기준입니다. 1000ms = 1sec 입니다.
+ * @param.wait.ko-KR
+ * [wait] : 기다릴 시간입니다. 1000당 1초를 기다립니다.
+***/
+function Sub1_Wait(wait : TrgCount)
+{
+	v.P_WaitSub1[getcurpl()] = wait / 83 + 1;
+}
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
+ * 스킬의 대기시간을 줄때 사용합니다. 3개이상 곂치는 이펙트를 줄때 사용합니다.
+ * [wait]은 ms기준입니다. 1000ms = 1sec 입니다.
+ * @param.wait.ko-KR
+ * [wait] : 기다릴 시간입니다. 1000당 1초를 기다립니다.
+***/
+function Sub2_Wait(wait : TrgCount)
+{
+	v.P_WaitSub2[getcurpl()] = wait / 83 + 1;
+}
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
  * 스킬이 끝났을때 사용합니다.
 ***/
 function SkillEnd()
@@ -104,7 +132,6 @@ function SkillEnd()
 	var playerID = getcurpl();
 	
 	v.P_CountMain[playerID] = 999;
-	v.P_Shield[playerID] = 0;
 	
 	if (v.P_Ally[playerID] == 1)
 	{
@@ -125,12 +152,22 @@ function Main_WaitLoop()
 {
 	var playerID = getcurpl();
 	
-	// Wait Time
+	// Main Wait Time
 	if 		(v.P_WaitMain[playerID] >= 1) { v.P_WaitMain[playerID] -= 1; }
+	// Sub Wait Time
+	if 		(v.P_WaitSub1[playerID] >= 1) { v.P_WaitSub1[playerID] -= 1; }
+	if 		(v.P_WaitSub2[playerID] >= 1) { v.P_WaitSub2[playerID] -= 1; }
 	
 	// End Wait Time
-	if 		(v.P_SkillDelay[playerID] >= 2) { v.P_SkillDelay[playerID] -= 1; }
-	else if 	(v.P_SkillDelay[playerID] == 1) { v.P_SkillDelay[playerID] = 0; v.P_Step[playerID] = 0; }
+	if 		(v.P_SkillDelay[playerID] >= 2) 
+	{ v.P_SkillDelay[playerID] -= 1; }
+	else if 	(v.P_SkillDelay[playerID] == 1)
+	{
+		v.P_SkillDelay[playerID] = 0;
+		v.P_Step[playerID] = 0; 
+		v.P_Shield[playerID] = 0;
+		ModifyUnitShields(1, v.P_UnitID[playerID], playerID, "Anywhere", 0);
+	}
 	
 	if (v.P_WaitMain[playerID] == 0)
 	{
@@ -304,14 +341,21 @@ function Shape_Double(playerID : TrgPlayer, count, unit : TrgUnit, pos_x, pos_y)
 ***/
 function Shape_Square(playerID : TrgPlayer, count, unit : TrgUnit, pos_x, pos_y)
 {
-	MoveLoc(v.P_UnitID[playerID], playerID, pos_x, pos_y);
-	SkillUnit(playerID, count, unit);
-	MoveLoc(v.P_UnitID[playerID], playerID, -pos_y, pos_x);
-	SkillUnit(playerID, count, unit);
-	MoveLoc(v.P_UnitID[playerID], playerID, -pos_x, -pos_y);
-	SkillUnit(playerID, count, unit);
-	MoveLoc(v.P_UnitID[playerID], playerID, pos_y, -pos_x);
-	SkillUnit(playerID, count, unit);
+	if (pos_x == 0 && pos_y == 0)
+	{
+		Shape_Dot(playerID, count, unit, pos_x, pos_y);
+	}
+	else
+	{
+		MoveLoc(v.P_UnitID[playerID], playerID, pos_x, pos_y);
+		SkillUnit(playerID, count, unit);
+		MoveLoc(v.P_UnitID[playerID], playerID, -pos_y, pos_x);
+		SkillUnit(playerID, count, unit);
+		MoveLoc(v.P_UnitID[playerID], playerID, -pos_x, -pos_y);
+		SkillUnit(playerID, count, unit);
+		MoveLoc(v.P_UnitID[playerID], playerID, pos_y, -pos_x);
+		SkillUnit(playerID, count, unit);
+	}
 }
 
 /***
@@ -486,8 +530,8 @@ function Shape_Cross(playerID : TrgPlayer, count, unit : TrgUnit, degree, size, 
  * @Type
  * F
  * @Summary.ko-KR
- * 외곽선만 가진 정사각형을 그릴떄 사용합니다.
- * [playerID]의 캐릭터를 기준으로 [size]크기 만큼의 정사각형을 [degree]만큼 기울이며 [unit]을 [interval]마다 [degree] x [distance]만큼 이동하여 [count]개 생성합니다.
+ * 외곽선만 가진 정사각형을 그릴떄 사용합니다. 기본적으로 45도 기울어져 있습니다.
+ * [playerID]의 캐릭터를 기준으로 [size]크기 만큼의 정사각형을 [degree]만큼 기울이며 [unit]을 [interval]만큼 이동하여 [count]개 생성합니다.
  * ex) size = 3, count = 2 일때, 3 크기의 정사각형이 생성되며 총 3 x 4 x 2 - 4 [size x 4 x count - 4] 개의 유닛이 생성됩니다.
  * @param.playerID.ko-KR
  * [playerID] : 유닛의 소유자를 정합니다.
@@ -498,9 +542,9 @@ function Shape_Cross(playerID : TrgPlayer, count, unit : TrgUnit, degree, size, 
  * @param.degree.ko-KR
  * [degree] : 정사각형의 기울기입니다.
  * @param.size.ko-KR
- * [size] : 정사각형의 크기입니다.
+ * [size] : 한변당 유닛의 갯수입니다.
  * @param.interval.ko-KR
- * [interval] : 정사각형의 유닛마다의 거리입니다.
+ * [interval] : 정사각형의 크기입니다.
 ***/
 function Shape_Edge(playerID : TrgPlayer, count, unit : TrgUnit, degree, size, interval)
 {
@@ -521,5 +565,5 @@ function Shape_Edge(playerID : TrgPlayer, count, unit : TrgUnit, degree, size, i
 	if (size == 1)
 	{ Shape_Dot(playerID, 1, unit, 0, 0); }
 	else if (size > 1)
-	{ foreach(idx : EUDLoopRange(size)) { Shape_Square(playerID, 1, unit, x_o - (distance_x * idx), y_o - (distance_y * idx)); } }
+	{ foreach(idx : EUDLoopRange(size - 1)) { Shape_Square(playerID, 1, unit, x_o - (distance_x * idx), y_o - (distance_y * idx)); } }
 }

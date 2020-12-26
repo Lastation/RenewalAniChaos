@@ -1,6 +1,7 @@
 import PluginVariables as msqcvar;
 import variable as v;
 import func.trig as trg;
+import func.sound as s;
 
 function main(playerID)
 {
@@ -68,7 +69,7 @@ function main(playerID)
 				
 				trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
 				Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
-				trg.Main_Wait(90);
+				trg.Main_Wait(40);
 			}
 			else if (v.P_LoopMain[playerID] == 2 || v.P_LoopMain[playerID] == 4)
 			{
@@ -149,6 +150,8 @@ function main(playerID)
 				trg.Shape_Double(playerID, 1, "Protoss Dark Archon", 144 - (48 * v.P_LoopMain[playerID]), 144);
 				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
 				KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+				Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 				trg.Main_Wait(0);
 				v.P_LoopMain[playerID] += 1;
 			}
@@ -278,6 +281,17 @@ function main(playerID)
 				Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 				Order(2, playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 				trg.Main_Wait(90);
+			}
+			else if (Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill") 
+			&& Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill") 
+			&& v.P_LoopMain[playerID] == 11)
+			{
+				s.CharacterVoice(4);
+				v.P_Step[playerID] = 220;
+				v.P_CountMain[playerID] = 0;
+				v.P_LoopMain[playerID] = 0;
+				KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
+				KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 			}
 			else if (v.P_LoopMain[playerID] == 11)
 			{

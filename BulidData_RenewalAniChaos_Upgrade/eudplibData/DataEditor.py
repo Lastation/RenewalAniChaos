@@ -7,7 +7,6 @@ def onPluginStart():
         SetMemory(0x664518, Add, -9437184),# units:Graphics  index:34    from 189 To 45
         SetMemory(0x664520, Add, 768),# units:Graphics  index:41    from 5 To 8
         SetMemory(0x664534, Add, -9437184),# units:Graphics  index:62    from 185 To 41
-        SetMemory(0x66453C, Add, -1280),# units:Graphics  index:69    from 44 To 39
         SetMemory(0x664558, Add, -10092544),# units:Graphics  index:98    from 191 To 37
         SetMemory(0x664564, Add, 7936),# units:Graphics  index:109    from 95 To 126
         SetMemory(0x664568, Add, 419430400),# units:Graphics  index:115    from 96 To 121
@@ -335,7 +334,6 @@ def onPluginStart():
         SetMemory(0x66295C, Add, -15),# units:StarEdit Placement Box Width  index:63    from 32 To 17
         SetMemory(0x662968, Add, -15),# units:StarEdit Placement Box Width  index:66    from 32 To 17
         SetMemory(0x662970, Add, -15),# units:StarEdit Placement Box Width  index:68    from 32 To 17
-        SetMemory(0x662974, Add, -19),# units:StarEdit Placement Box Width  index:69    from 40 To 21
         SetMemory(0x662978, Add, -19),# units:StarEdit Placement Box Width  index:70    from 36 To 17
         SetMemory(0x66297C, Add, -27),# units:StarEdit Placement Box Width  index:71    from 44 To 17
         SetMemory(0x662980, Add, -47),# units:StarEdit Placement Box Width  index:72    from 64 To 17
@@ -398,7 +396,6 @@ def onPluginStart():
         SetMemory(0x66295C, Add, -983040),# units:StarEdit Placement Box Height  index:63    from 32 To 17
         SetMemory(0x662968, Add, -983040),# units:StarEdit Placement Box Height  index:66    from 32 To 17
         SetMemory(0x662970, Add, -983040),# units:StarEdit Placement Box Height  index:68    from 32 To 17
-        SetMemory(0x662974, Add, -720896),# units:StarEdit Placement Box Height  index:69    from 32 To 21
         SetMemory(0x662978, Add, -983040),# units:StarEdit Placement Box Height  index:70    from 32 To 17
         SetMemory(0x66297C, Add, -1769472),# units:StarEdit Placement Box Height  index:71    from 44 To 17
         SetMemory(0x662980, Add, -3080192),# units:StarEdit Placement Box Height  index:72    from 64 To 17
@@ -463,7 +460,6 @@ def onPluginStart():
         SetMemory(0x6619C0, Add, -8),# units:Unit Size Left  index:63    from 16 To 8
         SetMemory(0x6619D8, Add, -7),# units:Unit Size Left  index:66    from 15 To 8
         SetMemory(0x6619E8, Add, -8),# units:Unit Size Left  index:68    from 16 To 8
-        SetMemory(0x6619F0, Add, -10),# units:Unit Size Left  index:69    from 20 To 10
         SetMemory(0x6619F8, Add, -10),# units:Unit Size Left  index:70    from 18 To 8
         SetMemory(0x661A00, Add, -14),# units:Unit Size Left  index:71    from 22 To 8
         SetMemory(0x661A08, Add, -24),# units:Unit Size Left  index:72    from 32 To 8
@@ -526,7 +522,6 @@ def onPluginStart():
         SetMemory(0x6619C0, Add, -524288),# units:Unit Size Up  index:63    from 16 To 8
         SetMemory(0x6619D8, Add, -458752),# units:Unit Size Up  index:66    from 15 To 8
         SetMemory(0x6619E8, Add, -524288),# units:Unit Size Up  index:68    from 16 To 8
-        SetMemory(0x6619F0, Add, -393216),# units:Unit Size Up  index:69    from 16 To 10
         SetMemory(0x6619F8, Add, -524288),# units:Unit Size Up  index:70    from 16 To 8
         SetMemory(0x661A00, Add, -917504),# units:Unit Size Up  index:71    from 22 To 8
         SetMemory(0x661A08, Add, -1572864),# units:Unit Size Up  index:72    from 32 To 8
@@ -587,7 +582,6 @@ def onPluginStart():
         SetMemory(0x6619C4, Add, -7),# units:Unit Size Right  index:63    from 15 To 8
         SetMemory(0x6619DC, Add, -8),# units:Unit Size Right  index:66    from 16 To 8
         SetMemory(0x6619EC, Add, -7),# units:Unit Size Right  index:68    from 15 To 8
-        SetMemory(0x6619F4, Add, -9),# units:Unit Size Right  index:69    from 19 To 10
         SetMemory(0x6619FC, Add, -9),# units:Unit Size Right  index:70    from 17 To 8
         SetMemory(0x661A04, Add, -13),# units:Unit Size Right  index:71    from 21 To 8
         SetMemory(0x661A0C, Add, -23),# units:Unit Size Right  index:72    from 31 To 8
@@ -650,7 +644,6 @@ def onPluginStart():
         SetMemory(0x6619C4, Add, -458752),# units:Unit Size Down  index:63    from 15 To 8
         SetMemory(0x6619DC, Add, -524288),# units:Unit Size Down  index:66    from 16 To 8
         SetMemory(0x6619EC, Add, -458752),# units:Unit Size Down  index:68    from 15 To 8
-        SetMemory(0x6619F4, Add, -327680),# units:Unit Size Down  index:69    from 15 To 10
         SetMemory(0x6619FC, Add, -458752),# units:Unit Size Down  index:70    from 15 To 8
         SetMemory(0x661A04, Add, -851968),# units:Unit Size Down  index:71    from 21 To 8
         SetMemory(0x661A0C, Add, -1507328),# units:Unit Size Down  index:72    from 31 To 8

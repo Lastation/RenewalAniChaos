@@ -214,12 +214,12 @@ def f_main(playerID):
                 # (Line 50) trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 64, 128);
                 trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 64, 128)
                 # (Line 51) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
-                # (Line 52) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+                # (Line 52) KillUnitAt(All, "80 + 1n Goliath", "Anywhere", playerID);
                 DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID))
+                # (Line 53) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+                DoActions(KillUnitAt(All, "80 + 1n Goliath", "Anywhere", playerID))
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
-                # (Line 53) Order("80 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 # (Line 54) trg.Main_Wait(100);
-                DoActions(Order("80 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
                 trg.Main_Wait(100)
                 # (Line 55) }
                 # (Line 56) else if (v.P_LoopMain[playerID] == 4)

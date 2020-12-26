@@ -132,12 +132,14 @@ import PluginVariables as msqcvar
 import variable as v
 # (Line 3) import func.trig as trg;
 from func import trig as trg
-# (Line 4) import func.sound as s;
-from func import sound as s
-# (Line 5) import character.marge as marge;
+# (Line 4) import func.sound as sound;
+from func import sound as sound
+# (Line 5) import system.getUnitID as unitID;
+from system import getUnitID as unitID
+# (Line 6) import system.select as select;
+from system import select as select
+# (Line 7) import character.marge as marge;
 from character import marge as marge
-# (Line 7) import character.group1.maihime.main as maihime;
-from character.group1.maihime import main as maihime
 # (Line 9) const stb = StringBuffer();
 stb = _CGFW(lambda: [StringBuffer()], 1)[0]
 # (Line 11) function onPluginStart() 	// 초기화 함수
@@ -158,24 +160,31 @@ def beforeTriggerExec():
         # (Line 22) {
         # (Line 23) setcurpl(playerID);
         f_setcurpl(playerID)
-        # (Line 24) marge.main(playerID);
+        # (Line 25) unitID.getUnitID(playerID);
+        unitID.f_getUnitID(playerID)
+        # (Line 26) select.SelectText(playerID);
+        select.SelectText(playerID)
+        # (Line 27) marge.main(playerID);
         marge.f_main(playerID)
-        # (Line 25) maihime.main(playerID);
-        maihime.f_main(playerID)
-        # (Line 26) MuteUnitSpeech();
-        # (Line 27) s.main(playerID);
+        # (Line 28) sound.main(playerID);
+        sound.f_main(playerID)
+        # (Line 30) if (v.P_HeroID[playerID] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
+        if EUDIf()(v.P_HeroID[playerID] == f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)), neg=True):
+            # (Line 31) { v.P_HeroID[playerID] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)); }
+            _ARRW(v.P_HeroID, playerID) << (f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
+            # (Line 33) MuteUnitSpeech();
+        EUDEndIf()
+        # (Line 34) }
         DoActions(MuteUnitSpeech())
-        s.f_main(playerID)
-        # (Line 28) }
-        # (Line 31) foreach (observerID : EUDLoopRange(128, 132))
+        # (Line 37) foreach (observerID : EUDLoopRange(128, 132))
 
     for observerID in EUDLoopRange(128, 132):
-        # (Line 32) {
-        # (Line 33) setcurpl(observerID);
+        # (Line 38) {
+        # (Line 39) setcurpl(observerID);
         f_setcurpl(observerID)
-        # (Line 34) MuteUnitSpeech();
-        # (Line 35) s.main(observerID);
+        # (Line 40) MuteUnitSpeech();
+        # (Line 41) sound.main(observerID);
         DoActions(MuteUnitSpeech())
-        s.f_main(observerID)
-        # (Line 36) }
-        # (Line 37) }
+        sound.f_main(observerID)
+        # (Line 42) }
+        # (Line 43) }

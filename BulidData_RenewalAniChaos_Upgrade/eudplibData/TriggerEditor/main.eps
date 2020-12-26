@@ -1,10 +1,10 @@
 import PluginVariables as msqcvar;
 import variable as v;
 import func.trig as trg;
-import func.sound as s;
+import func.sound as sound;
+import system.getUnitID as unitID;
+import system.select as select;
 import character.marge as marge;
-
-import character.group1.maihime.main as maihime;
 
 const stb = StringBuffer();
 
@@ -21,10 +21,16 @@ function beforeTriggerExec()
 	foreach(playerID : EUDLoopPlayer())
 	{
 		setcurpl(playerID);
+		
+		unitID.getUnitID(playerID);
+		select.SelectText(playerID);
 		marge.main(playerID);
-		maihime.main(playerID);
+		sound.main(playerID);
+		
+		if (v.P_HeroID[playerID] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
+      	 	{ v.P_HeroID[playerID] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)); }
+      	 
 		MuteUnitSpeech();
-		s.main(playerID);	
 	}
 	
 	// Observer Loop
@@ -32,6 +38,6 @@ function beforeTriggerExec()
 	{
 		setcurpl(observerID);
 		MuteUnitSpeech();
-		s.main(observerID);	
+		sound.main(observerID);
 	}
 }

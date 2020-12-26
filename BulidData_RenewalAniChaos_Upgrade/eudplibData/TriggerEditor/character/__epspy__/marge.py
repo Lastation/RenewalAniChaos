@@ -130,14 +130,53 @@ def _LSH(l, r):
 import PluginVariables as msqcvar
 # (Line 2) import func.trig as trg;
 from func import trig as trg
-# (Line 4) import character.group1.rusaruka.main 	as rusaruka;
+# (Line 3) import variable as v;
+import variable as v
+# (Line 4) import system.text as text;
+from system import text as text
+# (Line 7) import character.group1.rusaruka.main 	as rusaruka;
 from character.group1.rusaruka import main as rusaruka
-# (Line 5) import character.group1.chtholly.main 	as chtholly;
+# (Line 8) import character.group1.chtholly.main 	as chtholly;
 from character.group1.chtholly import main as chtholly
-# (Line 7) function main(playerID)
-# (Line 8) {
+# (Line 9) import character.group1.maihime.main 	as maihime;
+from character.group1.maihime import main as maihime
+# (Line 11) function main(playerID)
+# (Line 12) {
 @EUDFunc
 def f_main(playerID):
-    # (Line 9) trg.Main_WaitLoop();
+    # (Line 13) trg.Main_WaitLoop();
     trg.Main_WaitLoop()
-    # (Line 10) }
+    # (Line 15) text.BuildingText(playerID);
+    text.BuildingText(playerID)
+    # (Line 16) text.ShopText(playerID);
+    text.ShopText(playerID)
+    # (Line 18) v.P_UltimateGauge[playerID] = 1000;
+    _ARRW(v.P_UltimateGauge, playerID) << (1000)
+    # (Line 20) ModifyUnitHitPoints(1, 155, playerID, "Anywhere", 100 - (v.P_UniqueCool[playerID] / 10));
+    # (Line 21) ModifyUnitShields(1, 167, playerID, "Anywhere", v.P_UltimateGauge[playerID] / 10);
+    DoActions(ModifyUnitHitPoints(1, 155, playerID, "Anywhere", 100 - (v.P_UniqueCool[playerID] // 10)))
+    # (Line 23) if 		(v.P_HeroID[playerID] == 1) 	rusaruka.main(playerID);
+    DoActions(ModifyUnitShields(1, 167, playerID, "Anywhere", v.P_UltimateGauge[playerID] // 10))
+    if EUDIf()(v.P_HeroID[playerID] == 1):
+        rusaruka.f_main(playerID)
+        # (Line 24) else if 	(v.P_HeroID[playerID] == 2) 	chtholly.main(playerID);
+    if EUDElseIf()(v.P_HeroID[playerID] == 2):
+        chtholly.f_main(playerID)
+        # (Line 25) else if 	(v.P_HeroID[playerID] == 3) 	maihime.main(playerID);
+    if EUDElseIf()(v.P_HeroID[playerID] == 3):
+        maihime.f_main(playerID)
+        # (Line 28) if(playerID < 6 && bread(0x58D2B0 + 0x207C * (0 / 46) + playerID * (46 - 31 * (0 / 46)) + (0 % 46)) != 80)
+    EUDEndIf()
+    if EUDIf()(EUDSCAnd()(playerID >= 6, neg=True)(f_bread(0x58D2B0 + 0x207C * (0 // 46) + playerID * (46 - 31 * (0 // 46)) + (0 % 46)) == 80, neg=True)()):
+        # (Line 29) {
+        # (Line 30) bwrite(0x58D2B0 + 0x207C * (0 / 46) + playerID * (46 - 31 * (0 / 46)) + (0 % 46), 60);
+        f_bwrite(0x58D2B0 + 0x207C * (0 // 46) + playerID * (46 - 31 * (0 // 46)) + (0 % 46), 60)
+        # (Line 31) bwrite(0x58D2B0 + 0x207C * (7 / 46) + playerID * (46 - 31 * (7 / 46)) + (7 % 46), 80);
+        f_bwrite(0x58D2B0 + 0x207C * (7 // 46) + playerID * (46 - 31 * (7 // 46)) + (7 % 46), 80)
+        # (Line 33) bwrite(0x58D2B0 + 0x207C * (2 / 46) + playerID * (46 - 31 * (2 / 46)) + (2 % 46), 60); 	//방어력 최종 적용
+        f_bwrite(0x58D2B0 + 0x207C * (2 // 46) + playerID * (46 - 31 * (2 // 46)) + (2 % 46), 60)
+        # (Line 34) bwrite(0x58D2B0 + 0x207C * (9 / 46) + playerID * (46 - 31 * (9 / 46)) + (9 % 46), 80);		//공격력 최종 적용
+        f_bwrite(0x58D2B0 + 0x207C * (9 // 46) + playerID * (46 - 31 * (9 // 46)) + (9 % 46), 80)
+        # (Line 35) }
+        # (Line 36) }
+    EUDEndIf()

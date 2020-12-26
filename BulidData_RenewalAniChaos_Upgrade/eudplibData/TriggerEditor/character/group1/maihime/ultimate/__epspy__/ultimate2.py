@@ -136,15 +136,90 @@ from func import trig as trg
 # (Line 6) {
 @EUDFunc
 def f_main(playerID):
-    # (Line 7) if (v.P_WaitMain[playerID] == 0)
+    # (Line 7) trg.Debuff_Stop();
+    trg.Debuff_Stop()
+    # (Line 8) trg.Buff_ShieldFix(1);
+    trg.Buff_ShieldFix(1)
+    # (Line 10) if (v.P_WaitMain[playerID] == 0)
     if EUDIf()(v.P_WaitMain[playerID] == 0):
-        # (Line 8) {
-        # (Line 9) if (v.P_CountMain[playerID] == 0)
+        # (Line 11) {
+        # (Line 12) if (v.P_CountMain[playerID] == 0)
         if EUDIf()(v.P_CountMain[playerID] == 0):
-            # (Line 10) {
-            # (Line 11) }
-            # (Line 12) }
-            pass
+            # (Line 13) {
+            # (Line 14) if (v.P_LoopMain[playerID] < 15)
+            if EUDIf()(v.P_LoopMain[playerID] >= 15, neg=True):
+                # (Line 15) {
+                # (Line 16) var Degree = 6 * v.P_LoopMain[playerID];
+                Degree = EUDVariable()
+                Degree << (6 * v.P_LoopMain[playerID])
+                # (Line 17) trg.Table_Cos(playerID, Degree, 64);
+                trg.Table_Cos(playerID, Degree, 64)
+                # (Line 18) trg.Table_Sin(playerID, Degree, 64);
+                trg.Table_Sin(playerID, Degree, 64)
+                # (Line 20) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+                trg.Shape_Square(playerID, 1, "40 + 1n Zealot", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
+                # (Line 21) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", v.P_AngleCos[playerID] * 2, v.P_AngleSin[playerID] * 2);
+                trg.Shape_Square(playerID, 1, "40 + 1n Zealot", v.P_AngleCos[playerID] * 2, v.P_AngleSin[playerID] * 2)
+                # (Line 22) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", v.P_AngleCos[playerID] * 3, v.P_AngleSin[playerID] * 3);
+                trg.Shape_Square(playerID, 1, "40 + 1n Zealot", v.P_AngleCos[playerID] * 3, v.P_AngleSin[playerID] * 3)
+                # (Line 23) trg.Shape_Square(playerID, 1, "60 + 1n Siege", v.P_AngleCos[playerID] * 4, v.P_AngleSin[playerID] * 4);
+                trg.Shape_Square(playerID, 1, "60 + 1n Siege", v.P_AngleCos[playerID] * 4, v.P_AngleSin[playerID] * 4)
+                # (Line 24) trg.Shape_Square(playerID, 1, "60 + 1n Siege", v.P_AngleCos[playerID] * 5, v.P_AngleSin[playerID] * 5);
+                trg.Shape_Square(playerID, 1, "60 + 1n Siege", v.P_AngleCos[playerID] * 5, v.P_AngleSin[playerID] * 5)
+                # (Line 25) trg.Shape_Square(playerID, 1, "60 + 1n Siege", v.P_AngleCos[playerID] * 6, v.P_AngleSin[playerID] * 6);
+                trg.Shape_Square(playerID, 1, "60 + 1n Siege", v.P_AngleCos[playerID] * 6, v.P_AngleSin[playerID] * 6)
+                # (Line 26) trg.Shape_Double(playerID, 1, "80 + 1n Artanis", v.P_AngleCos[playerID] * 4, -v.P_AngleSin[playerID] * 4);
+                trg.Shape_Double(playerID, 1, "80 + 1n Artanis", v.P_AngleCos[playerID] * 4, -v.P_AngleSin[playerID] * 4)
+                # (Line 27) trg.Shape_Square(playerID, 1, "80 + 1n Tom Kazansky", v.P_AngleCos[playerID] * 4, v.P_AngleSin[playerID] * 4);
+                trg.Shape_Square(playerID, 1, "80 + 1n Tom Kazansky", v.P_AngleCos[playerID] * 4, v.P_AngleSin[playerID] * 4)
+                # (Line 28) trg.Shape_Square(playerID, 1, "80 + 1n Artanis", v.P_AngleCos[playerID] * 5, v.P_AngleSin[playerID] * 5);
+                trg.Shape_Square(playerID, 1, "80 + 1n Artanis", v.P_AngleCos[playerID] * 5, v.P_AngleSin[playerID] * 5)
+                # (Line 29) trg.Shape_Double(playerID, 1, "80 + 1n Tom Kazansky", v.P_AngleCos[playerID] * 5, -v.P_AngleSin[playerID] * 5);
+                trg.Shape_Double(playerID, 1, "80 + 1n Tom Kazansky", v.P_AngleCos[playerID] * 5, -v.P_AngleSin[playerID] * 5)
+                # (Line 30) trg.Shape_Double(playerID, 1, "80 + 1n Artanis", v.P_AngleCos[playerID] * 6, -v.P_AngleSin[playerID] * 6);
+                trg.Shape_Double(playerID, 1, "80 + 1n Artanis", v.P_AngleCos[playerID] * 6, -v.P_AngleSin[playerID] * 6)
+                # (Line 31) trg.Shape_Square(playerID, 1, "80 + 1n Tom Kazansky", v.P_AngleCos[playerID] * 6, v.P_AngleSin[playerID] * 6);
+                trg.Shape_Square(playerID, 1, "80 + 1n Tom Kazansky", v.P_AngleCos[playerID] * 6, v.P_AngleSin[playerID] * 6)
+                # (Line 32) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 33) Order("80 + 1n Artanis", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
+                # (Line 34) Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                DoActions(Order("80 + 1n Artanis", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
+                # (Line 35) KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID);
+                DoActions(Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
+                # (Line 36) trg.Main_Wait(30);
+                DoActions(KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID))
+                trg.Main_Wait(30)
+                # (Line 37) v.P_LoopMain[playerID] += 1;
+                _ARRW(v.P_LoopMain, playerID).__iadd__(1)
+                # (Line 38) }
+                # (Line 39) else if (v.P_LoopMain[playerID] == 15)
+            if EUDElseIf()(v.P_LoopMain[playerID] == 15):
+                # (Line 40) {
+                # (Line 41) trg.Main_Wait(2800);
+                trg.Main_Wait(2800)
+                # (Line 42) v.P_LoopMain[playerID] += 1;
+                _ARRW(v.P_LoopMain, playerID).__iadd__(1)
+                # (Line 43) }
+                # (Line 44) else if (v.P_LoopMain[playerID] == 16)
+            if EUDElseIf()(v.P_LoopMain[playerID] == 16):
+                # (Line 45) {
+                # (Line 46) RemoveUnitAt(All, "80 + 1n Artanis", "Anywhere", playerID);
+                # (Line 47) RemoveUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", playerID);
+                DoActions(RemoveUnitAt(All, "80 + 1n Artanis", "Anywhere", playerID))
+                # (Line 48) KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
+                DoActions(RemoveUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", playerID))
+                # (Line 49) SetSwitch("Recall - MaiHime", Clear);
+                DoActions(KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID))
+                # (Line 50) SetSwitch("UiltimateSwitch", Clear);
+                DoActions(SetSwitch("Recall - MaiHime", Clear))
+                # (Line 51) trg.SkillEnd();
+                DoActions(SetSwitch("UiltimateSwitch", Clear))
+                trg.SkillEnd()
+                # (Line 52) }
+                # (Line 53) }
+            EUDEndIf()
+            # (Line 54) }
         EUDEndIf()
-        # (Line 13) }
+        # (Line 55) }
     EUDEndIf()

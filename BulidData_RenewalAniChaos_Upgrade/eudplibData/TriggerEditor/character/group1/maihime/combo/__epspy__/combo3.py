@@ -205,9 +205,7 @@ def f_main(playerID):
                 # (Line 50) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
                 DoActions(KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID))
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
-                # (Line 51) Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 # (Line 52) trg.Main_Wait(90);
-                DoActions(Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
                 trg.Main_Wait(90)
                 # (Line 53) }
                 # (Line 54) else if (v.P_LoopMain[playerID] == 5)

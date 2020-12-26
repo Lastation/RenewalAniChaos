@@ -1,6 +1,7 @@
 import PluginVariables as msqcvar;
 import variable as v;
 import func.trig as trg;
+import func.trigadv as adv;
 
 function main(playerID)
 {
@@ -8,6 +9,58 @@ function main(playerID)
 	{
 		if (v.P_CountMain[playerID] == 0)
 		{
+			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", CurrentPlayer);
+			RemoveUnitAt(All, "80 + 1n Vulture", "Anywhere", CurrentPlayer);
+			RemoveUnitAt(All, "60 + 3n Ghost", "Anywhere", CurrentPlayer);
+			KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
+
+			if (v.P_LoopMain[playerID] < 17)
+			{
+				var Degree = (15 * v.P_LoopMain[playerID]) % 90;
+				trg.Table_Cos(playerID, Degree, 224);
+				trg.Table_Sin(playerID, Degree, 224);
+				
+				trg.Shape_Square(playerID, 1, "40 + 1n Ghost", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+				adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 32, 32);
+				adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 0, 32);
+				adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 32, 32);
+				adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 0, 32);
+				RemoveUnitAt(1, "40 + 1n Ghost", "Anywhere", playerID);
+				adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 32, 32);
+				adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 0, 32);
+				adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 32, 32);
+				adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 0, 32);
+				RemoveUnitAt(1, "40 + 1n Ghost", "Anywhere", playerID);
+				adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 32, 32);
+				adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 0, 32);
+				adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 32, 32);
+				adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 0, 32);
+				RemoveUnitAt(1, "40 + 1n Ghost", "Anywhere", playerID);
+				adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 32, 32);
+				adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 0, 32);
+				adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 32, 32);
+				adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 0, 32);
+				RemoveUnitAt(1, "40 + 1n Ghost", "Anywhere", playerID);
+				trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+				trg.Shape_Square(playerID, 1, "60 + 3n Ghost", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+				trg.Shape_Square(playerID, 1, "100 + 1n Hyperion", 32, 32);
+				trg.Shape_Square(playerID, 1, "100 + 1n Hyperion", 0, 32);
+				trg.Shape_Square(playerID, 1, "Bengalaas", 32, 32);
+				trg.Shape_Square(playerID, 1, "Bengalaas", 0, 32);
+				MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+				Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				Order("80 + 1n Vulture", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				Order("60 + 3n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				Order("100 + 1n Hyperion", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+				KillUnitAt(All, "Bengalaas", "Anywhere", playerID);
+				trg.Main_Wait(83);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 17)
+			{
+				trg.SkillEnd();
+			}
 		}
 	}
 }

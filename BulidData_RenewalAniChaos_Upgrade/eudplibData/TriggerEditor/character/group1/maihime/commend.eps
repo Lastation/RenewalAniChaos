@@ -70,31 +70,21 @@ function main(playerID)
 			v.P_Step[playerID] = 210;
 			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
 		}
-		else if (Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill") 
-		&& Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill") 
-		&& v.P_Step[playerID] == 210)
-		{
-			s.CharacterVoice(4);
-			v.P_SkillDelay[playerID] = 0;
-			v.P_Step[playerID] = 220;
-			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
-			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
-		}
 		else if (Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill") 
 		&& Bring(playerID, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") 
 		&&  v.P_Step[playerID] == 300)
 		{
-			s.CharacterVoice(7);
-			v.P_SkillDelay[playerID] = 0;
+			s.CharacterVoice(6);
 			v.P_Step[playerID] = 310;
+			v.P_SkillDelay[playerID] = 0;
 			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 			KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", playerID);
 		}
 		
 		// Ultimate
-		else if (Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill")
+		else if (Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill")
 		&& v.P_UltimateGauge[playerID] >= v.P_Ultimate1[playerID]
-		&& v.P_Step[playerID] == 310)
+		&& v.P_Step[playerID] == 300)
 		{
 			s.CharacterVoice(8);
 			v.P_Step[playerID] = 320;
@@ -105,14 +95,15 @@ function main(playerID)
 		// Ultimate2
 		else if (Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill")
 		&& v.P_UltimateGauge[playerID] >= v.P_Ultimate2[playerID]
-		&& v.P_Step[playerID] == 300)
+		&& v.P_Step[playerID] == 320)
 		{
 			if (Switch("UiltimateSwitch", Cleared))
 			{
 				s.CharacterVoice(9);
 				SetSwitch("UiltimateSwitch", Set);
+				SetSwitch("Recall - MaiHime", Set);
                		CreateUnit(1, " Item. Flag", "[Uiltimate]Flag", CurrentPlayer);
-				v.P_Step[playerID] = 320;
+				v.P_Step[playerID] = 330;
 				v.P_SkillDelay[playerID] = 0;
 				v.P_UltimateGauge[playerID] -= v.P_Ultimate2[playerID];
 				KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);

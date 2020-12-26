@@ -210,9 +210,9 @@ def f_main(playerID):
                 trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 96, 48)
                 # (Line 48) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
-                # (Line 49) Order("40 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 49) Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 # (Line 50) trg.Main_Wait(60);
-                DoActions(Order("40 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
+                DoActions(Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
                 trg.Main_Wait(60)
                 # (Line 51) v.P_LoopMain[playerID] += 1;
                 _ARRW(v.P_LoopMain, playerID).__iadd__(1)
@@ -236,9 +236,9 @@ def f_main(playerID):
                 trg.Shape_Square(playerID, 1, "40 + 1n Mojo", 96, 96)
                 # (Line 63) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
-                # (Line 64) Order("40 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 64) Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 # (Line 65) trg.Main_Wait(60);
-                DoActions(Order("40 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
+                DoActions(Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
                 trg.Main_Wait(60)
                 # (Line 66) v.P_LoopMain[playerID] += 1;
                 _ARRW(v.P_LoopMain, playerID).__iadd__(1)
@@ -262,9 +262,9 @@ def f_main(playerID):
                 trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 48, 96)
                 # (Line 78) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
-                # (Line 79) Order("40 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 79) Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 # (Line 80) trg.Main_Wait(60);
-                DoActions(Order("40 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
+                DoActions(Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
                 trg.Main_Wait(60)
                 # (Line 81) v.P_LoopMain[playerID] += 1;
                 _ARRW(v.P_LoopMain, playerID).__iadd__(1)

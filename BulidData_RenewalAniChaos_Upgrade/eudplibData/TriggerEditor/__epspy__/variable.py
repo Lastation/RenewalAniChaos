@@ -134,9 +134,9 @@ import math
 stb = _CGFW(lambda: [StringBuffer()], 1)[0]
 # (Line 8) const P_LocationID 	= PVariable();
 P_LocationID = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 9) const P_HeroID 		= PVariable();
+# (Line 9) const P_HeroID 		= PVariable();	// 1, 2, 3 ~
 P_HeroID = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 10) const P_UnitID		= PVariable();
+# (Line 10) const P_UnitID		= PVariable();	// 77 - Feinx
 P_UnitID = _CGFW(lambda: [PVariable()], 1)[0]
 # (Line 13) const P_AngleCos 	= PVariable();
 P_AngleCos = _CGFW(lambda: [PVariable()], 1)[0]

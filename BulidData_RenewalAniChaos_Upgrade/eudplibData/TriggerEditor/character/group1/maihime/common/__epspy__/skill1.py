@@ -184,81 +184,85 @@ def f_main(playerID):
                 # (Line 33) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
                 # (Line 34) Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
-                # (Line 35) trg.Main_Wait(130);
+                # (Line 35) Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
+                # (Line 36) trg.Main_Wait(130);
+                DoActions(Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
                 trg.Main_Wait(130)
-                # (Line 36) v.P_LoopMain[playerID] += 1;
+                # (Line 37) v.P_LoopMain[playerID] += 1;
                 _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-                # (Line 37) }
-                # (Line 38) else if (v.P_LoopMain[playerID] == 3)
+                # (Line 38) }
+                # (Line 39) else if (v.P_LoopMain[playerID] == 3)
             if EUDElseIf()(v.P_LoopMain[playerID] == 3):
-                # (Line 39) {
-                # (Line 40) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
-                # (Line 41) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+                # (Line 40) {
+                # (Line 41) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+                # (Line 42) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
                 DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID))
-                # (Line 43) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 64, 0);
+                # (Line 44) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 64, 0);
                 DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID))
                 trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 64, 0)
-                # (Line 44) KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID);
-                # (Line 45) trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", 64, 0);
+                # (Line 45) KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID);
+                # (Line 46) trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", 64, 0);
                 DoActions(KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID))
                 trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", 64, 0)
-                # (Line 46) trg.Shape_Dot(playerID, 1, "40 + 1n Mojo", -0, 64);
+                # (Line 47) trg.Shape_Dot(playerID, 1, "40 + 1n Mojo", -0, 64);
                 trg.Shape_Dot(playerID, 1, "40 + 1n Mojo", -0, 64)
-                # (Line 47) trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", -64, -0);
+                # (Line 48) trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", -64, -0);
                 trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", -64, -0)
-                # (Line 48) trg.Shape_Dot(playerID, 1, "40 + 1n Mojo", 0, -64);
+                # (Line 49) trg.Shape_Dot(playerID, 1, "40 + 1n Mojo", 0, -64);
                 trg.Shape_Dot(playerID, 1, "40 + 1n Mojo", 0, -64)
-                # (Line 49) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+                # (Line 50) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
-                # (Line 50) Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
-                # (Line 51) trg.Main_Wait(130);
+                # (Line 51) Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 52) Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
+                # (Line 53) trg.Main_Wait(130);
+                DoActions(Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
                 trg.Main_Wait(130)
-                # (Line 52) v.P_LoopMain[playerID] += 1;
+                # (Line 54) v.P_LoopMain[playerID] += 1;
                 _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-                # (Line 53) }
-                # (Line 54) else if (v.P_LoopMain[playerID] == 4)
+                # (Line 55) }
+                # (Line 56) else if (v.P_LoopMain[playerID] == 4)
             if EUDElseIf()(v.P_LoopMain[playerID] == 4):
-                # (Line 55) {
-                # (Line 56) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
-                # (Line 57) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+                # (Line 57) {
+                # (Line 58) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+                # (Line 59) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
                 DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID))
-                # (Line 59) trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 46, 80);
+                # (Line 61) trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 46, 80);
                 DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID))
                 trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 46, 80)
-                # (Line 60) trg.Shape_Dot(playerID, 1, "60 + 1n Danimoth", 92, 0);
+                # (Line 62) trg.Shape_Dot(playerID, 1, "60 + 1n Danimoth", 92, 0);
                 trg.Shape_Dot(playerID, 1, "60 + 1n Danimoth", 92, 0)
-                # (Line 61) trg.Shape_Dot(playerID, 1, "60 + 1n Danimoth", -92, 0);
+                # (Line 63) trg.Shape_Dot(playerID, 1, "60 + 1n Danimoth", -92, 0);
                 trg.Shape_Dot(playerID, 1, "60 + 1n Danimoth", -92, 0)
-                # (Line 62) KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
-                # (Line 64) trg.Shape_Square(playerID, 1, "40 + 1n Goliath", 46, 80);
+                # (Line 64) KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+                # (Line 66) trg.Shape_Square(playerID, 1, "40 + 1n Goliath", 46, 80);
                 DoActions(KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID))
                 trg.Shape_Square(playerID, 1, "40 + 1n Goliath", 46, 80)
-                # (Line 65) trg.Shape_Dot(playerID, 1, "40 + 1n Goliath", 92, 0);
+                # (Line 67) trg.Shape_Dot(playerID, 1, "40 + 1n Goliath", 92, 0);
                 trg.Shape_Dot(playerID, 1, "40 + 1n Goliath", 92, 0)
-                # (Line 66) trg.Shape_Dot(playerID, 1, "40 + 1n Goliath", -92, 0);
+                # (Line 68) trg.Shape_Dot(playerID, 1, "40 + 1n Goliath", -92, 0);
                 trg.Shape_Dot(playerID, 1, "40 + 1n Goliath", -92, 0)
-                # (Line 67) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+                # (Line 69) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
-                # (Line 68) Order("40 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
-                # (Line 69) trg.Main_Wait(100);
+                # (Line 70) Order("40 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 71) trg.Main_Wait(100);
                 DoActions(Order("40 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
                 trg.Main_Wait(100)
-                # (Line 70) v.P_LoopMain[playerID] += 1;
+                # (Line 72) v.P_LoopMain[playerID] += 1;
                 _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-                # (Line 71) }
-                # (Line 72) else if (v.P_LoopMain[playerID] == 5)
+                # (Line 73) }
+                # (Line 74) else if (v.P_LoopMain[playerID] == 5)
             if EUDElseIf()(v.P_LoopMain[playerID] == 5):
-                # (Line 73) {
-                # (Line 74) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
-                # (Line 75) trg.SkillEnd();
+                # (Line 75) {
+                # (Line 76) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
+                # (Line 77) trg.SkillEnd();
                 DoActions(KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID))
                 trg.SkillEnd()
-                # (Line 76) }
-                # (Line 77) }
+                # (Line 78) }
+                # (Line 79) }
             EUDEndIf()
-            # (Line 78) }
+            # (Line 80) }
         EUDEndIf()
-        # (Line 79) }
+        # (Line 81) }
     EUDEndIf()

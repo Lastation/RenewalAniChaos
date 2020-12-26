@@ -165,8 +165,8 @@ def f_skillList(playerID):
         v.stb.printAt(2, "　　\x1FA\x04ction List")
         # (Line 25) v.stb.printAt(3, "　　　\x18 O\x04 연설 \x19[ 자신포함 팀 + 200 gas ] \x05개인쿨 1분");
         v.stb.printAt(3, "　　　\x18 O\x04 연설 \x19[ 자신포함 팀 + 200 gas ] \x05개인쿨 1분")
-        # (Line 26) v.stb.printAt(4, "　　　\x1F SSS\x04 강하닷! \x19[ 대인 ]　　　\x1F CC + CA\x04 힘과 파워! \x19[ 대인 / 분산딜 ]");
-        v.stb.printAt(4, "　　　\x1F SSS\x04 강하닷! \x19[ 대인 ]　　　\x1F CC + CA\x04 힘과 파워! \x19[ 대인 / 분산딜 ]")
+        # (Line 26) v.stb.printAt(4, "　　　\x1F SSS\x04 강하닷! \x19[ 대인 ]");
+        v.stb.printAt(4, "　　　\x1F SSS\x04 강하닷! \x19[ 대인 ]")
         # (Line 27) v.stb.printAt(5, "　　　\x1F CC + CA\x04 힘과 파워! \x19[ 대인 / 분산딜 ]");
         v.stb.printAt(5, "　　　\x1F CC + CA\x04 힘과 파워! \x19[ 대인 / 분산딜 ]")
         # (Line 28) v.stb.printAt(6, "　　　\x1F AACC + 300 Gas\x04 영역 \x19[ 대인 / 가두기 / 자리고정 / 쉴드 3고정 / 지속딜 / 컴퓨터 동맹 ]");
@@ -275,5 +275,5 @@ def f_main(playerID):
             # (Line 81) }
         # (Line 82) }
         EUDEndSwitch()
-        # (Line 84) }
+        # (Line 83) }
     EUDEndIf()
