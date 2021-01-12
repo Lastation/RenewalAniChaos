@@ -1,0 +1,77 @@
+import variable as v;
+import Variable as v;
+import func.trig as trg;
+
+function NormalText(playerID)
+{
+	switch (v.Sound_Text2[playerID])
+	{
+	case 4100:
+		PlayWAV("Alther_0.ogg");
+		v.stb.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　멜트 스트라이크!　\x04」\n");
+		v.Sound_Text2[playerID] = 0;
+		break;
+	case 4200:
+		PlayWAV("Alther_1.ogg");
+		v.stb.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　작별이네,　\x04」\n");
+		v.Sound_Text2[playerID] = 0;
+		break;
+	case 4201:
+		v.stb.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　마지막으로 사랑을 가르쳐줄게.　\x04」\n");
+		v.Sound_Text2[playerID] = 0;
+		break;
+	case 4202:
+		v.stb.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　가엾고 비참한 물의 포로.　\x04」\n");
+		v.Sound_Text2[playerID] = 0;
+		break;
+	case 4300:
+		PlayWAV("Alther_2.ogg");
+		v.Sound_Text2[playerID] = 0;
+		break;
+	case 4301:
+		v.stb.print("\n\x13\x1FAlther Ego Λ\n\x13\x04「　나의 가시로, 잘 가도록해!　\x04」\n");
+		v.Sound_Text2[playerID] = 0;
+		break;
+	}
+}
+
+function UiltimateText(playerID)
+{
+	switch (v.Sound_Text_Uilti[playerID])
+	{
+	case 10000:
+		PlayWAV("Alther_EX1.ogg");
+		v.stb.printAt(3,"\x13\x1FAlther Ego Λ\n\x13\x04「　대청소로 가보실까.　\x04」");
+		v.Sound_Text_Uilti[playerID] = 0;
+		break;
+	case 10001:
+		v.stb.printAt(3,"\x13\x1FAlther Ego Λ\n\x13\x04「　이걸로 피니시!　\x04」");
+		v.Sound_Text_Uilti[playerID] = 0;
+		break;
+	case 10010:
+		PlayWAV("Alther_EX2.ogg");
+		v.stb.printAt(3,"\x13\x1FAlther Ego Λ\n\x13\x04「　어머, 너희들도 같이?　\x04」");
+		v.Sound_Text_Uilti[playerID] = 0;
+		break;
+	case 10011:
+		v.stb.printAt(3,"\x13\x1FAlther Ego Λ\n\x13\x04「　라스트 스트로크!　\x04」");
+		v.Sound_Text_Uilti[playerID] = 0;
+		break;
+	case 10012:
+		v.stb.printAt(3,"\x13\x1FAlther Ego Λ\n\n\x13\x04「　블루서머・팔라디온　\x04」");
+		v.Sound_Text_Uilti[playerID] = 0;
+		break;
+	}
+}
+
+function UniqueText(playerID)
+{
+	switch (v.Sound_Text_Uniq[playerID]) 
+	{
+	case 10000:
+		PlayWAV("Alther_O.ogg");
+		v.stb.printAt(3,"\x13\x1FAlther Ego Λ\n\x13\x04「　도망칠 곳? 있을리가 없잖아.　\x04」");
+		v.Sound_Text_Uniq[playerID] = 0;
+		break;
+	}
+}

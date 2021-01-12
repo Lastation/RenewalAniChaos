@@ -136,41 +136,73 @@ from character.group1.rusaruka import text as rusaruka
 from character.group1.chtholly import text as chtholly
 # (Line 5) import character.group1.maihime.text as maihime;
 from character.group1.maihime import text as maihime
-# (Line 7) function CharacterVoice(count : TrgCount)
-# (Line 8) {
+# (Line 7) import character.group4.yuuna.text as yuuna;
+from character.group4.yuuna import text as yuuna
+# (Line 8) import character.group4.mayuri.text as mayuri;
+from character.group4.mayuri import text as mayuri
+# (Line 9) import character.group4.nanami.text as nanami;
+from character.group4.nanami import text as nanami
+# (Line 10) import character.group4.milim.text as milim;
+from character.group4.milim import text as milim
+# (Line 12) function CharacterVoice(count : TrgCount)
+# (Line 13) {
 @EUDTypedFunc([TrgCount])
 def CharacterVoice(count):
-    # (Line 9) var playerID = getcurpl();
+    # (Line 14) var playerID = getcurpl();
     playerID = EUDVariable()
     playerID << (f_getcurpl())
-    # (Line 11) foreach(idx : EUDLoopRange(6))
+    # (Line 16) foreach(idx : EUDLoopRange(6))
     for idx in EUDLoopRange(6):
-        # (Line 12) {
-        # (Line 13) if 		(v.P_HeroID[playerID] == 1)	{ rusaruka.	P_player[idx] = count; rusaruka.	P_observer[idx] = count; }
+        # (Line 17) {
+        # (Line 18) if 		(v.P_HeroID[playerID] == 1)	{ rusaruka.	P_player[idx] = count; rusaruka.	P_observer[idx] = count; }
         if EUDIf()(v.P_HeroID[playerID] == 1):
             _ARRW(rusaruka.P_player, idx) << (count)
             _ARRW(rusaruka.P_observer, idx) << (count)
-            # (Line 14) else if 	(v.P_HeroID[playerID] == 2)	{ chtholly.	P_player[idx] = count; chtholly.	P_observer[idx] = count; 	}
+            # (Line 19) else if 	(v.P_HeroID[playerID] == 2)	{ chtholly.	P_player[idx] = count; chtholly.	P_observer[idx] = count; 	}
         if EUDElseIf()(v.P_HeroID[playerID] == 2):
             _ARRW(chtholly.P_player, idx) << (count)
             _ARRW(chtholly.P_observer, idx) << (count)
-            # (Line 15) else if 	(v.P_HeroID[playerID] == 3)	{ maihime.	P_player[idx] = count; maihime.	P_observer[idx] = count; 	}
+            # (Line 20) else if 	(v.P_HeroID[playerID] == 3)	{ maihime.	P_player[idx] = count; maihime.	P_observer[idx] = count; 	}
         if EUDElseIf()(v.P_HeroID[playerID] == 3):
             _ARRW(maihime.P_player, idx) << (count)
             _ARRW(maihime.P_observer, idx) << (count)
-            # (Line 16) }
+            # (Line 21) else if 	(v.P_HeroID[playerID] == 22)	{ yuuna.		P_player[idx] = count; yuuna.		P_observer[idx] = count; 	}
+        if EUDElseIf()(v.P_HeroID[playerID] == 22):
+            _ARRW(yuuna.P_player, idx) << (count)
+            _ARRW(yuuna.P_observer, idx) << (count)
+            # (Line 22) else if 	(v.P_HeroID[playerID] == 23)	{ mayuri.	P_player[idx] = count; mayuri.	P_observer[idx] = count; 	}
+        if EUDElseIf()(v.P_HeroID[playerID] == 23):
+            _ARRW(mayuri.P_player, idx) << (count)
+            _ARRW(mayuri.P_observer, idx) << (count)
+            # (Line 23) else if 	(v.P_HeroID[playerID] == 24)	{ nanami.	P_player[idx] = count; nanami.	P_observer[idx] = count; 	}
+        if EUDElseIf()(v.P_HeroID[playerID] == 24):
+            _ARRW(nanami.P_player, idx) << (count)
+            _ARRW(nanami.P_observer, idx) << (count)
+            # (Line 24) else if 	(v.P_HeroID[playerID] == 25)	{ milim.		P_player[idx] = count; milim.		P_observer[idx] = count; 	}
+        if EUDElseIf()(v.P_HeroID[playerID] == 25):
+            _ARRW(milim.P_player, idx) << (count)
+            _ARRW(milim.P_observer, idx) << (count)
+            # (Line 25) }
         EUDEndIf()
-        # (Line 17) }
+        # (Line 26) }
 
-    # (Line 19) function main(playerID)
+    # (Line 28) function main(playerID)
 
-# (Line 20) {
+# (Line 29) {
 @EUDFunc
 def f_main(playerID):
-    # (Line 21) rusaruka.main(playerID);
+    # (Line 30) rusaruka.main(playerID);
     rusaruka.f_main(playerID)
-    # (Line 22) chtholly.main(playerID);
+    # (Line 31) chtholly.main(playerID);
     chtholly.f_main(playerID)
-    # (Line 23) maihime.main(playerID);
+    # (Line 32) maihime.main(playerID);
     maihime.f_main(playerID)
-    # (Line 24) }
+    # (Line 34) yuuna.main(playerID);
+    yuuna.f_main(playerID)
+    # (Line 35) mayuri.main(playerID);
+    mayuri.f_main(playerID)
+    # (Line 36) nanami.main(playerID);
+    nanami.f_main(playerID)
+    # (Line 37) milim.main(playerID);
+    milim.f_main(playerID)
+    # (Line 38) }

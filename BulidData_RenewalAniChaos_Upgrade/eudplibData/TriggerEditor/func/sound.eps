@@ -4,6 +4,11 @@ import character.group1.rusaruka.text as rusaruka;
 import character.group1.chtholly.text as chtholly;
 import character.group1.maihime.text as maihime;
 
+import character.group4.yuuna.text as yuuna;
+import character.group4.mayuri.text as mayuri;
+import character.group4.nanami.text as nanami;
+import character.group4.milim.text as milim;
+
 function CharacterVoice(count : TrgCount)
 {
 	var playerID = getcurpl();
@@ -13,6 +18,10 @@ function CharacterVoice(count : TrgCount)
 		if 		(v.P_HeroID[playerID] == 1)	{ rusaruka.	P_player[idx] = count; rusaruka.	P_observer[idx] = count; }
 		else if 	(v.P_HeroID[playerID] == 2)	{ chtholly.	P_player[idx] = count; chtholly.	P_observer[idx] = count; 	}
 		else if 	(v.P_HeroID[playerID] == 3)	{ maihime.	P_player[idx] = count; maihime.	P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 22)	{ yuuna.		P_player[idx] = count; yuuna.		P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 23)	{ mayuri.	P_player[idx] = count; mayuri.	P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 24)	{ nanami.	P_player[idx] = count; nanami.	P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 25)	{ milim.		P_player[idx] = count; milim.		P_observer[idx] = count; 	}
 	}
 }
 
@@ -21,4 +30,9 @@ function main(playerID)
 	rusaruka.main(playerID);
 	chtholly.main(playerID);
 	maihime.main(playerID);
+	
+	yuuna.main(playerID);
+	mayuri.main(playerID);
+	nanami.main(playerID);
+	milim.main(playerID);
 }

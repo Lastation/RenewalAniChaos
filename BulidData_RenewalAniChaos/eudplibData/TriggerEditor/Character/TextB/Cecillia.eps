@@ -1,0 +1,49 @@
+import variable as v;
+import Variable as v;
+import func.trig as trg;
+
+function NormalText(playerID)
+{
+	switch (v.Sound_Text2[playerID]) 
+	{
+	case 1000:
+		PlayWAV("Cecillia_01.ogg");
+		v.stb.print("\n\x13\x17Cecillia\n\x13\x04「　간다, \x17파동각!　\x04」\n");
+		v.Sound_Text2[playerID] = 0;
+		break;
+	case 1010:
+		PlayWAV("Cecillia_02.ogg");
+		v.stb.print("\n\x13\x17Cecillia\n\x13\x04「　받아라! \x17천추각!　\x04」\n");
+		v.Sound_Text2[playerID] = 0;
+		break;
+	case 1020:
+		PlayWAV("Cecillia_03.ogg");
+		v.stb.print("\n\x13\x17Cecillia\n\x13\x04「　부셔져라, \x06폭렬각!!!　\x04」\n");
+		v.Sound_Text2[playerID] = 0;
+		break;
+	}
+}
+
+function UiltimateText(playerID)
+{
+	switch (v.Sound_Text_Uilti[playerID])
+	{
+	case 7000:
+		PlayWAV("Cecillia_Uiltimate.ogg");
+		v.stb.printAt(3,"\x13\x17Cecillia\n\n\x13\x04「　하아앗.. \x06필살 유성각!　\x04」");
+		v.Sound_Text_Uilti[playerID] = 0;
+		break;
+	}
+}
+
+function UniqueText(playerID)
+{
+	switch (v.Sound_Text_Uniq[playerID])
+	{
+	case 7000:
+		PlayWAV("Cecillia_Unique.ogg");
+		v.stb.printAt(3,"\x13\x17Cecillia\n\x13\x04「　괴로워도 포기하면 거기서 끝이라고? 용기란 포기하지 않는 걸 말하는거라고　\x04」");
+		v.Sound_Text_Uniq[playerID] = 0;
+		break;
+	}
+}

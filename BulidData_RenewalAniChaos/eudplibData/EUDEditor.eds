@@ -1,0 +1,21 @@
+[TriggerEditor\Main.eps]
+
+[main]
+input: ..\..\RenewalAniChaos_Original.scx
+output: C:\Users\vocal\Documents\Starcraft\Maps\RenewalAniChaos\RenewalAniChaos_T.scx
+[freeze]
+freeze : 0
+sectorSize: 3
+[DataEditor.py]
+[ExtraDataEditor.py]
+[dataDumper]
+..\temp\custom_txt.tbl : 0x6D5A30, copy
+
+[MSQC]
+QCDebug : False
+` : Terran SCV, 1
+
+[noAirCollision]
+[unlimiter]
+
+

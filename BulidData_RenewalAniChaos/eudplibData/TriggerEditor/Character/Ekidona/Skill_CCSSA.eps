@@ -1,0 +1,111 @@
+import variable as v;
+import func.trig as trg;
+
+function Shape(playerID : TrgPlayer, count, Unit : TrgUnit);
+function ShapeWithProperty(playerID : TrgPlayer, count, Unit : TrgUnit, property);
+
+
+function main(playerID)
+{
+   trg.Debuff_BanReturn();
+   trg.Debuff_Stop();
+
+   MoveUnit(All, "60 + 1n High Templar", playerID, "Anywhere", "[Skill]HoldPosition");
+
+   if (v.P_WaitMain[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] == 0)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {
+            Shape(playerID, 1, "60 + 1n High Templar");
+            Shape(playerID, 1, "60 + 1n Archon");
+            ShapeWithProperty(playerID, 1, "40 + 1n Gantrithor", 1);
+
+            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "60 + 1n High Templar", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("60 + 1n High Templar", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+         }
+
+         if (v.P_LoopMain[playerID] == 2)
+         {
+            KillUnitAt(All, "60 + 1n High Templar", "Anywhere", playerID);
+
+            Shape(playerID, 1, "40 + 1n Mojo");
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+         }
+
+         if (v.P_LoopMain[playerID] == 4)
+         {
+            RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+
+            Shape(playerID, 1, "60 + 1n Danimoth");
+            ShapeWithProperty(playerID, 1, "40 + 1n Lurker", 0);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "40 + 1n Lurker", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+         }
+
+         if (v.P_LoopMain[playerID] == 8)
+         {
+            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+         }
+
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 14)
+         {
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 1)
+      {
+         trg.MoveLoc("40 + 1n Lurker", playerID, 0, 0);
+         RemoveUnitAt(1, "40 + 1n Lurker", "Anywhere", playerID);
+         trg.SkillUnit(playerID, 1, "60 + 1n Archon");
+         epic.SkillUnit(playerID, 1, "60 + 1n Danimoth", 1);
+
+         KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+         KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 16)
+         {
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 2)
+      {
+         trg.SkillEnd();
+      }
+   }
+}
+
+function Shape(playerID : TrgPlayer, count, Unit : TrgUnit)
+{
+   trg.Shape_Square(playerID, count, Unit, 50, 0);
+   trg.Shape_Square(playerID, count, Unit, 100, 100);
+   trg.Shape_Square(playerID, count, Unit, 150, 0);
+   trg.Shape_Square(playerID, count, Unit, 50, 50);
+}
+
+function ShapeWithProperty(playerID : TrgPlayer, count, Unit : TrgUnit, property)
+{
+   epic.Shape_Square(playerID, count, Unit, 50, 0, property);
+   epic.Shape_Square(playerID, count, Unit, 100, 100, property);
+   epic.Shape_Square(playerID, count, Unit, 150, 0, property);
+   epic.Shape_Square(playerID, count, Unit, 50, 50, property);
+}

@@ -1,0 +1,80 @@
+import variable as v;
+import func.trig as trg;
+
+const posX1 = PVariable();
+const posX2 = PVariable();
+
+const posY1 = PVariable();
+const posY2 = PVariable();
+
+var n = 0;
+var max_n = 5;
+
+function savePosRoutine(playerID)
+{
+   MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+
+   var i = n;
+
+   for (; i > 0; i--)
+   {
+      posX1[i] = posX1[i - 1];
+      posX2[i] = posX2[i - 1];
+      posY1[i] = posY1[i - 1];
+      posY2[i] = posY2[i - 1];
+   }
+
+   posX1[0] = dwread_epd(EPD(0x58DC60 + (v.P_LocationID[playerID] - 1) * 20));
+   posX2[0] = dwread_epd(EPD(0x58DC60 + (v.P_LocationID[playerID] - 1) * 20 + 8));
+   posY1[0] = dwread_epd(EPD(0x58DC60 + (v.P_LocationID[playerID] - 1) * 20 + 4));
+   posY2[0] = dwread_epd(EPD(0x58DC60 + (v.P_LocationID[playerID] - 1) * 20 + 12));
+
+   if (n < max_n) n++;
+}
+
+function main(playerID)
+{
+   if (v.P_WaitMain[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] == 0)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {
+            SetSwitch("Recall - Oda", Set);
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+         }
+
+         if (v.P_LoopMain[playerID] == 1)
+         {
+            if (n == max_n)
+            {
+               dwwrite_epd(EPD(0x58DC60 + (v.P_LocationID[playerID] - 1) * 20), posX1[max_n]);
+               dwwrite_epd(EPD(0x58DC60 + (v.P_LocationID[playerID] - 1) * 20 + 8), posX2[max_n]);
+               dwwrite_epd(EPD(0x58DC60 + (v.P_LocationID[playerID] - 1) * 20 + 4), posY1[max_n]);
+               dwwrite_epd(EPD(0x58DC60 + (v.P_LocationID[playerID] - 1) * 20 + 12), posY2[max_n]);
+
+               MoveUnit(All, v.P_UnitID[playerID], playerID, "Anywhere", v.P_LocationID[playerID]);
+               CenterView(v.P_LocationID[playerID]);
+            }
+         }
+
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 2)
+         {
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 1)
+      {
+         SetSwitch("Recall - Oda", Clear);
+         SetDeaths(playerID, SetTo, 2160, " `UniqueCoolTime");
+         trg.SkillEnd();
+      }
+   }
+   MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+
+}

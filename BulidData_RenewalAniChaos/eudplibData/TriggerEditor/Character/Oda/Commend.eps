@@ -1,0 +1,177 @@
+import variable as v;
+import func.trig as trg;
+
+function main(playerID)
+{
+	if (v.P_SkillDelay[playerID] == 0 && v.P_Step[playerID] == 0)
+	{
+		if (Bring(playerID, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill")
+		&& Deaths(CurrentPlayer, AtLeast, 1, " `O Skill Condition")
+		&& Deaths(CurrentPlayer, Exactly, 0, " `UniqueCoolTime"))
+		{
+			s.CharacterVoice(27);
+		
+			v.P_Step[playerID] = 1;
+			KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID);
+		}
+		else if (Bring(playerID, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill"))
+		{
+			SetResources(CurrentPlayer, Add, 60, Gas);
+			KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID);
+		}
+		else if (Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))
+		{
+			v.P_Step[playerID] = 200;
+			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
+		}
+		else if (Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))
+		{
+			v.P_Step[playerID] = 300;
+			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+		}
+		
+		else if (Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))
+		{
+			v.P_Step[playerID] = 100;
+			KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", playerID);
+		}
+
+	}
+	
+	// Combo
+	if (v.P_SkillDelay[playerID] >= 2 && v.P_CountMain[playerID] == 0)
+	{
+		if (Bring(playerID, AtLeast, 2, "Protoss Scout", "[Skill]UseSkill") && v.P_Step[playerID] == 100)
+		{
+			s.CharacterVoice(13);
+			v.P_SkillDelay[playerID] = 0;
+			v.P_CountMain[playerID] = 0;
+			v.P_LoopMain[playerID] = 0;
+			v.P_Step[playerID] = 110;
+			KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", playerID);
+		}
+		else if (Bring(playerID, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") 
+		&& v.P_Step[playerID] == 110)
+		{
+			s.CharacterVoice(14);
+			v.P_SkillDelay[playerID] = 0;
+			v.P_CountMain[playerID] = 0;
+			v.P_LoopMain[playerID] = 0;
+			v.P_Step[playerID] = 120;
+			KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", playerID);
+		}
+		else if (Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill")
+		&& v.P_Step[playerID] == 120)
+		{
+			s.CharacterVoice(15);
+			v.P_SkillDelay[playerID] = 0;
+			v.P_CountMain[playerID] = 0;
+			v.P_LoopMain[playerID] = 0;
+			v.P_Step[playerID] = 130;
+			KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+		}
+		else if (Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill") && v.P_Step[playerID] == 200
+		&& Switch("Reinforce - Oda", Set))
+		{
+			s.CharacterVoice(18);
+			v.P_SkillDelay[playerID] = 0;
+			v.P_CountMain[playerID] = 0;
+			v.P_LoopMain[playerID] = 0;
+			v.P_Step[playerID] = 210;
+			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
+		}
+		else if (Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill") && v.P_Step[playerID] == 210)
+		{
+			s.CharacterVoice(19);
+			v.P_SkillDelay[playerID] = 0;
+			v.P_CountMain[playerID] = 0;
+			v.P_LoopMain[playerID] = 0;
+			v.P_Step[playerID] = 220;
+			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+		}
+		else if (Bring(playerID, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") && v.P_Step[playerID] == 220)
+		{
+			s.CharacterVoice(20);
+			v.P_SkillDelay[playerID] = 0;
+			v.P_CountMain[playerID] = 0;
+			v.P_LoopMain[playerID] = 0;
+			v.P_Step[playerID] = 230;
+			KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", playerID);
+		}
+		else if (Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") && v.P_Step[playerID] == 230)
+		{
+			s.CharacterVoice(22);
+			v.P_SkillDelay[playerID] = 0;
+			v.P_CountMain[playerID] = 0;
+			v.P_LoopMain[playerID] = 0;
+			v.P_Step[playerID] = 240;
+			KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+		}
+		else if (Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill") 
+		&& v.P_Step[playerID] == 300
+		&& Switch("Reinforce - Oda", Set))
+		{
+			s.CharacterVoice(25);
+			v.P_SkillDelay[playerID] = 0;
+			v.P_CountMain[playerID] = 0;
+			v.P_LoopMain[playerID] = 0;
+			v.P_Step[playerID] = 330;
+			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+		}
+		
+		// Ultimate
+		else if (Bring(playerID, AtLeast, 3, "Protoss Carrier", "[Skill]UseSkill") 
+		&& v.P_Step[playerID] == 300
+		&& v.P_UltimateGauge[playerID] >= v.P_Ultimate1[playerID])
+		{
+			if (Switch("UiltimateSwitch", Cleared))
+			{
+				s.CharacterVoice(1);
+				SetSwitch("UiltimateSwitch", Set);
+               		CreateUnit(1, " Item. Flag", "[Uiltimate]Flag", CurrentPlayer);
+				v.P_SkillDelay[playerID] = 0;
+				v.P_CountMain[playerID] = 0;
+				v.P_LoopMain[playerID] = 0;
+				v.P_Step[playerID] = 310;
+				SetDeaths(playerID, Subtract, v.P_Ultimate1[playerID], " `UltimateCoolTime");
+				KillUnitAt(3, "Protoss Carrier", "[Skill]UseSkill", playerID);
+			}
+			else
+			{
+				SetResources(CurrentPlayer, Add, 900, Gas);
+				KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+				SetDeaths(CurrentPlayer, SetTo, 999, " `SYSTEMTEXT");
+			}
+		}
+		else if (Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") 
+		&& v.P_Step[playerID] == 310
+		&& v.P_UltimateGauge[playerID] >= v.P_Ultimate2[playerID]
+		)
+		{
+			SetSwitch("UiltimateSwitch", Set);
+			SetSwitch("Ult - Oda", Set);
+			s.CharacterVoice(7);
+			v.P_SkillDelay[playerID] = 0;
+			v.P_CountMain[playerID] = 0;
+			v.P_LoopMain[playerID] = 0;
+			v.P_Step[playerID] = 320;
+			SetDeaths(playerID, Subtract, v.P_Ultimate2[playerID], " `UltimateCoolTime");
+			KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+		}
+		else if (Bring(playerID, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill") 
+		&& v.P_Step[playerID] == 300
+		&& Deaths(CurrentPlayer, AtLeast, 1, " `O Skill Condition")
+		&& Switch("Reinforce - Oda", Cleared)
+		)
+		{
+			s.CharacterVoice(28);
+			v.P_SkillDelay[playerID] = 0;
+			v.P_CountMain[playerID] = 0;
+			v.P_LoopMain[playerID] = 0;
+			v.P_Step[playerID] = 340;
+			KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID);
+		}
+		
+
+	}
+}

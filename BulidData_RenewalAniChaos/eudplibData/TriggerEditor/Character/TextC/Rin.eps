@@ -1,0 +1,99 @@
+import variable as v;
+import Variable as v;
+import func.trig as trg;
+
+function NormalText(playerID)
+{
+	switch (v.Sound_Text3[playerID])
+	{
+	case 3000:
+		PlayWAV("Rin_01.ogg");
+		v.stb.print("\n\n\x13\x1BRin\n\x13\x04이 앞에 무엇이 있는 걸까?\n\n");
+		v.Sound_Text3[playerID] = 0;
+		break;
+	case 3001:
+		PlayWAV("Rin_02.ogg");
+		v.stb.print("\n\n\x13\x1BRin\n\x13\x04언제부턴가, 생각하지 않게 됐다\n\n");
+		v.Sound_Text3[playerID] = 0;
+		break;
+	case 3002:
+		PlayWAV("Rin_03.ogg");
+		v.stb.print("\n\n\x13\x1BRin\n\x13\x04생각하는 방법... 그것조차 잊어버린 걸지도\n\n");
+		v.Sound_Text3[playerID] = 0;
+		break;
+	case 3003:
+		PlayWAV("Rin_04.ogg");
+		v.stb.print("\n\n\x13\x1BRin\n\x13\x04변하지 않는, 나만의 세계가 매일매일 계속된다\n\n");
+		v.Sound_Text3[playerID] = 0;
+		break;
+	case 3004:
+		PlayWAV("Rin_05.ogg");
+		v.stb.print("\n\n\x13\x1BRin\n\x13\x04하지만 외롭지는 않아\n\n");
+		v.Sound_Text3[playerID] = 0;
+		break;
+	case 3005:
+		PlayWAV("Rin_06.ogg");
+		v.stb.print("\n\n\x13\x1BRin\n\x13\x04별 것 아니니까\n\n");
+		v.Sound_Text3[playerID] = 0;
+		break;
+	}
+}
+
+function UiltimateText(playerID)
+{
+	switch (v.Sound_Text_Uilti[playerID])
+	{
+	case 15000:
+		PlayWAV("Rin_Ult.ogg");
+		v.Sound_Text_Uilti[playerID] = 0;
+		break;
+	case 15001:
+		v.stb.printAt(3,"\x13\x1BRin\n\x13\x04추억이, 슬픈 것이었다고 해도");
+		v.Sound_Text_Uilti[playerID] = 0;
+		break;
+	case 15002:
+		v.stb.printAt(3,"\x13\x1BRin\n\x13\x04미래를 믿으며 나아가는 거야");
+		v.Sound_Text_Uilti[playerID] = 0;
+		break;
+	case 15003:
+		v.stb.printAt(3,"\x13\x1BRin\n\x13\x04외로움을 깨달아서");
+		v.Sound_Text_Uilti[playerID] = 0;
+		break;
+	case 15004:
+		v.stb.printAt(3,"\x13\x1BRin\n\x13\x04좌절하고 싶어져도");
+		v.Sound_Text_Uilti[playerID] = 0;
+		break;
+	case 15005:
+		v.stb.printAt(3,"\x13\x1BRin\n\x13\x04당신 덕분에");
+		v.Sound_Text_Uilti[playerID] = 0;
+		break;
+	case 15006:
+		v.stb.printAt(3,"\x13\x1BRin\n\x13\x04기억해내서");
+		v.Sound_Text_Uilti[playerID] = 0;
+		break;
+	case 15007:
+		v.stb.printAt(3,"\x13\x1BRin\n\x13\x04강해질 수 있는 거야");
+		v.Sound_Text_Uilti[playerID] = 0;
+		break;
+	case 15008:
+		v.stb.printAt(3,"\x13\x1BRin\n\x13\x04혼자가 아니라고...");
+		v.Sound_Text_Uilti[playerID] = 0;
+		break;
+	case 15009:
+		v.stb.printAt(3,"\x13\x1BRin\n\x13\x04당신 덕분에...");
+		v.Sound_Text_Uilti[playerID] = 0;
+		break;
+	}
+}
+
+function UniqueText(playerID)
+{
+	switch (v.Sound_Text_Uniq[playerID])
+	{
+	case 15000:
+		v.stb.print("\n\n\x13\x1BRin\n\x13\x04고마워요...\n\n");
+		PlayWAV("Rin_Unique.ogg");
+		v.Sound_Text_Uniq[playerID] = 0;
+		break;
+	}
+}

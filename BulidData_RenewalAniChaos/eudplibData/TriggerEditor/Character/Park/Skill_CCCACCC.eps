@@ -1,0 +1,168 @@
+import variable as v;
+import func.trig as trg;
+
+function main(playerID)
+{
+   if (v.P_WaitMain[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] == 0)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {
+            SetDeaths(playerID, SetTo, 0, " `UniqueSkill");
+            trg.Buff_ShieldFix(1);
+            trg.Shape_Square(playerID, 1, " Creep. Dunkelheit", 75, 25);
+            trg.Shape_Square(playerID, 1, " Creep. Dunkelheit", 25, 75);
+            trg.Shape_Square(playerID, 1, "50 + 1n Tank", 75, 25);
+            trg.Shape_Square(playerID, 1, "50 + 1n Tank", 25, 75);
+            trg.Shape_Square(playerID, 1, "Terran Science Vessel", 50, 0);
+            KillUnitAt(All, "Terran Science Vessel", "Anywhere", playerID);
+            Order("50 + 1n Tank", playerID, "Anywhere", Attack, v.P_LocationID[playerID]); 
+            Order(" Creep. Dunkelheit", playerID, "Anywhere", Attack, v.P_LocationID[playerID]); 
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+         }
+         if (v.P_LoopMain[playerID] == 6)
+         {
+            KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", playerID);
+            trg.Shape_Square(playerID, 1, "50 + 1n Tank", 75, 0);
+            trg.Shape_Square(playerID, 1, "50 + 1n Tank", 50, 50);
+            trg.Shape_Square(playerID, 1, "50 + 1n Tank", 100, 100);
+            trg.Shape_Square(playerID, 1, " Creep. Dunkelheit", 75, 25);
+            trg.Shape_Square(playerID, 1, " Creep. Dunkelheit", 25, 75);
+            trg.Shape_Square(playerID, 1, "Terran Science Vessel", 50, 50);
+            trg.Shape_Square(playerID, 1, "Terran Science Vessel", 50, 0);
+            KillUnitAt(All, "Terran Science Vessel", "Anywhere", playerID);
+            Order(" Creep. Dunkelheit", playerID, "Anywhere", Attack, v.P_LocationID[playerID]); 
+            Order("50 + 1n Tank", playerID, "Anywhere", Attack, v.P_LocationID[playerID]); 
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+         }
+         if (v.P_LoopMain[playerID] == 12)
+         {
+            KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", playerID);
+            trg.Shape_Square(playerID, 1, "50 + 1n Tank", 125, 0);
+            trg.Shape_Square(playerID, 1, " Creep. Dunkelheit", 75, 25);
+            trg.Shape_Square(playerID, 1, " Creep. Dunkelheit", 25, 75);
+            trg.Shape_Square(playerID, 1, "Terran Science Vessel", 75, 0);
+            trg.Shape_Square(playerID, 1, "Terran Science Vessel", 50, 50);
+            trg.Shape_Square(playerID, 1, "Terran Science Vessel", 100, 100);
+            KillUnitAt(All, "Terran Science Vessel", "Anywhere", playerID);
+            Order("50 + 1n Tank", playerID, "Anywhere", Attack, v.P_LocationID[playerID]); 
+            Order(" Creep. Dunkelheit", playerID, "Anywhere", Attack, v.P_LocationID[playerID]); 
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+         }
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 18)
+         {
+         v.P_CountMain[playerID] += 1;
+         v.P_LoopMain[playerID] = 0;
+         }
+
+      }
+         
+      else if (v.P_CountMain[playerID] == 1)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {
+         KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", playerID);
+         trg.Shape_Double(playerID, 1, "40 + 1n Guardian", 125, 0);
+         trg.Shape_Edge(playerID, 1, "40 + 1n Ghost", 45,2, 32);
+         trg.Shape_Edge(playerID, 1, "40 + 1n Mutalisk", 45,3, 32);
+         MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+         Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]); 
+         Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]); 
+         Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);     
+         }
+         if (v.P_LoopMain[playerID] == 4 )
+         {
+         KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
+         KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
+         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+         trg.Shape_Double(playerID, 1, "40 + 1n Guardian", 0, 125);
+         trg.Shape_Edge(playerID, 1, "40 + 1n Ghost", 90,2, 64);
+         trg.Shape_Edge(playerID, 1, "40 + 1n Mutalisk", 90,3, 64);
+         MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+         Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);  
+         Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]); 
+         Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);    
+         }
+
+       trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 8)
+         {
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 2)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {
+         KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
+         KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
+         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+         }
+         if (v.P_LoopMain[playerID] == 13 )
+         {
+            trg.Shape_NxNSquare(playerID, 1, "50 + 1n Battlecruiser", 3, 75);
+            trg.Shape_Edge(playerID, 1, "40 + 1n Goliath", 45,3, 32);
+            trg.Shape_Edge(playerID, 1, "50 + 1n Tank", 45,3, 32);
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);     
+            Order("40 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);     
+         }
+
+       trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 16)
+         {
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 3)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {
+         KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
+         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+         }
+         if (v.P_LoopMain[playerID] == 10 )
+         {
+            trg.Shape_NxNSquare(playerID, 1, "50 + 1n Battlecruiser", 3, 75);
+            trg.Shape_Edge(playerID, 1, "40 + 1n Goliath", 45,3, 32);
+            trg.Shape_Edge(playerID, 1, "50 + 1n Tank", 45,3, 32);
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);     
+            Order("40 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);     
+         }
+
+       trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 14)
+         {
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
+            
+            trg.SkillEnd();
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+   }
+}
