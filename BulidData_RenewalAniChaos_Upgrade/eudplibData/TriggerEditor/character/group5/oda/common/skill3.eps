@@ -1,0 +1,140 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+function main(playerID)
+{
+   if (v.P_WaitMain[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] == 0)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {
+            trg.Shape_NxNSquare(playerID, 1, "40 + 1n Guardian", 3, 50);
+            trg.Shape_NxNSquare(playerID, 1, "Protoss Dark Archon", 3, 50);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+         }
+         else if (v.P_LoopMain[playerID] == 2)
+         {
+            trg.Shape_Edge(playerID, 1, "40 + 1n Guardian", 45, 5, 100);
+            trg.Shape_Edge(playerID, 1, "Protoss Dark Archon", 45, 5, 100);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+         }
+         else if (v.P_LoopMain[playerID] == 4)
+         {
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 50, 50);
+            trg.Shape_Square(playerID, 1, "40 + 1n Goliath", 50, 50);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 0, 50);
+
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, "Anywhere");
+         }
+         else if (v.P_LoopMain[playerID] == 6)
+         {
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 0, 50);
+            trg.Shape_Square(playerID, 1, "40 + 1n Goliath", 0, 50);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 0, 50);
+
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, "Anywhere");
+         }
+         else if (v.P_LoopMain[playerID] == 8)
+         {
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 50, 50);
+            trg.Shape_Square(playerID, 1, "40 + 1n Goliath", 50, 50);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 0, 50);
+
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, "Anywhere");
+         }
+         else if (v.P_LoopMain[playerID] == 10)
+         {
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 0, 50);
+            trg.Shape_Square(playerID, 1, "40 + 1n Goliath", 0, 50);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 0, 50);
+
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, "Anywhere");
+         }
+
+         if ((v.P_LoopMain[playerID] % 8) / 4 == 0)
+         {
+            trg.Shape_Double(playerID, 1, "Rhynadon (Badlands)", 100 - 50 * (v.P_LoopMain[playerID] % 4), 100);
+            KillUnitAt(All, "Rhynadon (Badlands)", "Anywhere", playerID);
+         }
+         else if ((v.P_LoopMain[playerID] % 8) / 4 == 1)
+         {
+            trg.Shape_Double(playerID, 1, "Rhynadon (Badlands)", -100, 100 - 50 * (v.P_LoopMain[playerID] % 4));
+            KillUnitAt(All, "Rhynadon (Badlands)", "Anywhere", playerID);
+         }
+
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 12)
+         {
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 1)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {
+            trg.Shape_NxNSquare(playerID, 1, "Protoss Dark Archon", 3, 50);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+         }
+         else if (v.P_LoopMain[playerID] == 2)
+         {
+            trg.Shape_Edge(playerID, 1, "Protoss Dark Archon", 45, 5, 100);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+         }
+         else if (v.P_LoopMain[playerID] == 4)
+         {
+            trg.Shape_NxNSquare(playerID, 1, "40 + 1n Guardian", 3, 50);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+         }
+         else if (v.P_LoopMain[playerID] == 6)
+         {
+            trg.Shape_NxNSquare(playerID, 1, "40 + 1n Wraith", 3, 50);
+
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, "Anywhere");
+         }
+
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 8)
+         {
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 2)
+      {
+         KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+
+         trg.SkillEnd();
+      }
+   }
+}

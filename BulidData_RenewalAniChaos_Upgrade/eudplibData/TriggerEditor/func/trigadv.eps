@@ -111,15 +111,15 @@ function Shape_SquareAt(playerID : TrgPlayer, baseunit : TrgUnit, count, unit : 
  * @Type
  * 사용하지 마세요
 ***/
-function Shape_SquareAt2(playerID : TrgPlayer, count, unit : TrgUnit, pos_x, pos_y)
+function Shape_SquareAt2(playerID : TrgPlayer, count, unit : TrgUnit, pos_x, pos_y, distance_x, distance_y)
 {
-	trg.MoveLoc(v.P_UnitID[playerID] ,playerID, pos_x, pos_y);
+	trg.MoveLoc(v.P_UnitID[playerID] ,playerID, distance_x + pos_x, distance_y + pos_y);
 	trg.SkillUnit(playerID, count, unit);
-	trg.MoveLoc(v.P_UnitID[playerID] ,playerID, -pos_y, pos_x);
+	trg.MoveLoc(v.P_UnitID[playerID] ,playerID, distance_x + -pos_y, distance_y + pos_x);
 	trg.SkillUnit(playerID, count, unit);
-	trg.MoveLoc(v.P_UnitID[playerID] ,playerID, -pos_x, -pos_y);
+	trg.MoveLoc(v.P_UnitID[playerID] ,playerID, distance_x + -pos_x, distance_y + -pos_y);
 	trg.SkillUnit(playerID, count, unit);
-	trg.MoveLoc(v.P_UnitID[playerID] ,playerID, pos_y, -pos_x);
+	trg.MoveLoc(v.P_UnitID[playerID] ,playerID, distance_x + pos_y, distance_y + -pos_x);
 	trg.SkillUnit(playerID, count, unit);
 }
 
@@ -226,11 +226,11 @@ function Shape_NxNSquareAt2(playerID : TrgPlayer, count, unit : TrgUnit, size, i
 				dis_x = idx % (size / 2) + 1;
 				dis_y = idx / (size / 2) + 1;
 				if (dis_x == 1)
-				{ Shape_SquareAt2(playerID, count, unit, x + space, y + dis_y * interval - space); }
+				{ Shape_SquareAt2(playerID, count, unit, space, dis_y * interval - space, x, y); }
 				else if (dis_y == 1)
-				{ Shape_SquareAt2(playerID, count, unit, x + dis_x * interval - space, y + space); }
+				{ Shape_SquareAt2(playerID, count, unit, dis_x * interval - space, space, x, y); }
 				else 
-				{ Shape_SquareAt2(playerID, count, unit, x + dis_x * interval - space, y + dis_y * interval - space); }
+				{ Shape_SquareAt2(playerID, count, unit, dis_x * interval - space, dis_y * interval - space, x, y); }
 			}
 			else if (size % 2 == 1)
 			{
@@ -240,12 +240,12 @@ function Shape_NxNSquareAt2(playerID : TrgPlayer, count, unit : TrgUnit, size, i
 				if (idx == 0)
 				{ Shape_DotAt2(playerID, count, unit, x, y); }
 				else if (dis_y == 0)
-				{ Shape_SquareAt2(playerID, count, unit, x + dis_x * interval, y); }
+				{ Shape_SquareAt2(playerID, count, unit, dis_x * interval, 0, x, y); }
 				else
-				{ Shape_SquareAt2(playerID, count, unit, x + dis_x * interval + interval, y + dis_y * interval); }
+				{ Shape_SquareAt2(playerID, count, unit, dis_x * interval + interval, dis_y * interval, x, y); }
 				
 				if (idx == loop - 1)
-				{ Shape_SquareAt2(playerID, count, unit, x + (size / 2) * interval, y); }
+				{ Shape_SquareAt2(playerID, count, unit, (size / 2) * interval, 0, x, y); }
 			}
 		}
 	}
@@ -298,6 +298,55 @@ function Shape_LineAt(playerID : TrgPlayer, count, baseunit : TrgUnit, unit : Tr
 	{ Shape_DotAt(playerID, baseunit, count, unit, 0, 0); }
 	else if (size > 1)
 	{ foreach(idx : EUDLoopRange(size)) { Shape_DotAt(playerID, baseunit, count, unit, initial_x - idx * v.P_AngleCos[playerID], initial_y - idx * v.P_AngleSin[playerID]); } }
+}
+
+/***
+ * @Type
+ * 사용하지 마세요
+***/
+function Shape_LineAt2(playerID : TrgPlayer, count, unit : TrgUnit, degree, size, interval, distanceX, distanceY)
+{
+	var i = 0;
+	var distance = interval / 2;
+	
+	trg.Table_Sin(playerID, degree, distance);
+	trg.Table_Cos(playerID, degree, distance);
+	
+	var gradientX = v.P_AngleCos[playerID];
+	var gradientY = v.P_AngleSin[playerID] ;
+	var Angle_X, Angle_Y;
+	
+	trg.Table_Sin(playerID, degree, interval);
+	trg.Table_Cos(playerID, degree, interval);
+	
+	for (; i <= size / 2; i++)
+	{
+		Angle_X = v.P_AngleCos[playerID] * i;
+		Angle_Y = v.P_AngleSin[playerID] * i;
+		
+		if (size % 2 == 0 && i != size / 2)
+		{
+			trg.MoveLoc(v.P_UnitID[playerID], playerID, -Angle_X - gradientX + distanceX, Angle_Y + gradientY + distanceY);
+			trg.SkillUnit(playerID, count, unit);
+			trg.MoveLoc(v.P_UnitID[playerID], playerID, Angle_X + gradientX + distanceX, -Angle_Y - gradientY + distanceY);
+			trg.SkillUnit(playerID, count, unit);
+		}
+		else if (size % 2 == 1)
+		{
+			if (i == 0)
+			{
+				trg.MoveLoc(v.P_UnitID[playerID], playerID, distanceX, distanceY);
+				trg.SkillUnit(playerID, count, unit);
+			}
+			else
+			{
+				trg.MoveLoc(v.P_UnitID[playerID], playerID, -Angle_X + distanceX, Angle_Y + distanceY);
+				trg.SkillUnit(playerID, count, unit);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID, Angle_X + distanceX, -Angle_Y + distanceY);
+				trg.SkillUnit(playerID, count, unit);
+			}
+		}
+	}
 }
 
 /***

@@ -1,0 +1,245 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
+
+function main(playerID)
+{
+   MoveLocation("27.Magane_Bozo", v.P_UnitID[playerID], playerID, "Anywhere");
+
+   if (v.P_WaitMain[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] == 0)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {
+            trg.Shape_Edge(playerID, 1, "40 + 1n Guardian", 45, 3, 50);
+            trg.Shape_Edge(playerID, 1, "Protoss Dark Archon", 45, 3, 50);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+         }
+         else if (v.P_LoopMain[playerID] == 2)
+         {
+            trg.Shape_Edge(playerID, 1, "Kakaru (Twilight)", 45, 3, 50);
+            trg.Shape_Edge(playerID, 1, " Unit. Hoffnung 25000", 45, 3, 50);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+         }
+
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 16)
+         {
+            s.CharacterVoice(9);
+            SetSwitch("Recall - Magane", Set);
+
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 1)
+      {
+         if (Switch("UiltimateSwitch", Cleared))
+         {
+            if (playerID < 3)
+            {
+               GiveUnits(All, "Protoss Dark Templar", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "40 + 1n Marine", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "40 + 1n Ghost", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "80 + 1n Vulture", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "40 + 1n Goliath", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "40 + 1n Wraith", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "40 + 1n Firebat", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "40 + 1n Zergling", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, " Creep. Licht", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "40 + 1n Drone", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "40 + 1n Mutalisk", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "40 + 1n Guardian", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "40 + 1n Zealot", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "40 + 3n Zeratul", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "40 + 1n Mojo", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "40 + 1n Gantrithor", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "40 + 1n Lurker", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "50 + 1n Tank", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "50 + 1n Battlecruiser", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "60 + 3n Siege", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "60 + 1n Siege", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "60 + 1n Hydralisk", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "60 + 1n Dragoon", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "60 + 1n High Templar", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "60 + 1n Archon", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "60 + 1n Danimoth", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "60 + 3n Ghost", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "80 + 1n Goliath", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "80 + 1n Vulture", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "80 + 1n Marine", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "80 + 1n Tom Kazansky", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "80 + 1n Tank", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "80 + 1n Mutalisk", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "80 + 1n Guardian", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "80 + 1n Artanis", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "80 + 1n Ghost", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "100 + 1n Hyperion", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "100 + 1n Dragoon", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "120 + 1n Archon", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "130 + 1n Norad", Foes, "27.Magane_Bozo", P7);
+               GiveUnits(All, "130 + 1n Arbiter", Foes, "27.Magane_Bozo", P7);
+            }
+            if (playerID >= 3)
+            {
+               GiveUnits(All, "Protoss Dark Templar", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "40 + 1n Marine", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "40 + 1n Ghost", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "80 + 1n Vulture", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "40 + 1n Goliath", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "40 + 1n Wraith", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "40 + 1n Firebat", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "40 + 1n Zergling", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, " Creep. Licht", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "40 + 1n Drone", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "40 + 1n Mutalisk", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "40 + 1n Guardian", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "40 + 1n Zealot", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "40 + 3n Zeratul", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "40 + 1n Mojo", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "40 + 1n Gantrithor", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "40 + 1n Lurker", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "50 + 1n Tank", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "50 + 1n Battlecruiser", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "60 + 3n Siege", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "60 + 1n Siege", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "60 + 1n Hydralisk", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "60 + 1n Dragoon", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "60 + 1n High Templar", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "60 + 1n Archon", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "60 + 1n Danimoth", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "60 + 3n Ghost", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "80 + 1n Goliath", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "80 + 1n Vulture", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "80 + 1n Marine", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "80 + 1n Tom Kazansky", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "80 + 1n Tank", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "80 + 1n Mutalisk", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "80 + 1n Guardian", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "80 + 1n Artanis", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "80 + 1n Ghost", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "100 + 1n Hyperion", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "100 + 1n Dragoon", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "120 + 1n Archon", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "130 + 1n Norad", Foes, "27.Magane_Bozo", P8);
+               GiveUnits(All, "130 + 1n Arbiter", Foes, "27.Magane_Bozo", P8);
+            }
+
+         }
+
+         trg.Main_Wait(80);
+
+         if (v.P_LoopMain[playerID] == 19)
+         {
+            s.CharacterVoice(10);
+         }
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 46)
+         {
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 2)
+      {
+         KillUnitAt(All, "Protoss Dark Templar", "Anywhere", P7);
+         KillUnitAt(All, "80 + 1n Goliath", "Anywhere", P7);
+         KillUnitAt(All, "80 + 1n Vulture", "Anywhere", P7);
+         KillUnitAt(All, "80 + 1n Marine", "Anywhere", P7);
+         KillUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", P7);
+         KillUnitAt(All, "80 + 1n Tank", "Anywhere", P7);
+         KillUnitAt(All, "80 + 1n Mutalisk", "Anywhere", P7);
+         KillUnitAt(All, "80 + 1n Guardian", "Anywhere", P7);
+         KillUnitAt(All, "80 + 1n Artanis", "Anywhere", P7);
+         KillUnitAt(All, "80 + 1n Ghost", "Anywhere", P7);
+         KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", P7);
+         KillUnitAt(All, "100 + 1n Dragoon", "Anywhere", P7);
+         KillUnitAt(All, "120 + 1n Archon", "Anywhere", P7);
+         KillUnitAt(All, "130 + 1n Norad", "Anywhere", P7);
+         KillUnitAt(All, "130 + 1n Arbiter", "Anywhere", P7);
+         KillUnitAt(All, "40 + 1n Marine", "Anywhere", P7);
+         KillUnitAt(All, "40 + 1n Ghost", "Anywhere", P7);
+         KillUnitAt(All, "80 + 1n Vulture", "Anywhere", P7);
+         KillUnitAt(All, "40 + 1n Goliath", "Anywhere", P7);
+         KillUnitAt(All, "40 + 1n Wraith", "Anywhere", P7);
+         KillUnitAt(All, "40 + 1n Firebat", "Anywhere", P7);
+         KillUnitAt(All, "40 + 1n Zergling", "Anywhere", P7);
+         KillUnitAt(All, " Creep. Licht", "Anywhere", P7);
+         KillUnitAt(All, "40 + 1n Drone", "Anywhere", P7);
+         KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", P7);
+         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", P7);
+         KillUnitAt(All, "40 + 1n Zealot", "Anywhere", P7);
+         KillUnitAt(All, "40 + 3n Zeratul", "Anywhere", P7);
+         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", P7);
+         KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", P7);
+         KillUnitAt(All, "40 + 1n Lurker", "Anywhere", P7);
+         KillUnitAt(All, "50 + 1n Tank", "Anywhere", P7);
+         KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", P7);
+         KillUnitAt(All, "60 + 3n Siege", "Anywhere", P7);
+         KillUnitAt(All, "60 + 1n Siege", "Anywhere", P7);
+         KillUnitAt(All, "60 + 1n Hydralisk", "Anywhere", P7);
+         KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", P7);
+         KillUnitAt(All, "60 + 1n High Templar", "Anywhere", P7);
+         KillUnitAt(All, "60 + 1n Archon", "Anywhere", P7);
+         KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", P7);
+         KillUnitAt(All, "60 + 3n Ghost", "Anywhere", P7);
+
+         KillUnitAt(All, "Protoss Dark Templar", "Anywhere", P8);
+         KillUnitAt(All, "80 + 1n Goliath", "Anywhere", P8);
+         KillUnitAt(All, "80 + 1n Vulture", "Anywhere", P8);
+         KillUnitAt(All, "80 + 1n Marine", "Anywhere", P8);
+         KillUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", P8);
+         KillUnitAt(All, "80 + 1n Tank", "Anywhere", P8);
+         KillUnitAt(All, "80 + 1n Mutalisk", "Anywhere", P8);
+         KillUnitAt(All, "80 + 1n Guardian", "Anywhere", P8);
+         KillUnitAt(All, "80 + 1n Artanis", "Anywhere", P8);
+         KillUnitAt(All, "80 + 1n Ghost", "Anywhere", P8);
+         KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", P8);
+         KillUnitAt(All, "100 + 1n Dragoon", "Anywhere", P8);
+         KillUnitAt(All, "120 + 1n Archon", "Anywhere", P8);
+         KillUnitAt(All, "130 + 1n Norad", "Anywhere", P8);
+         KillUnitAt(All, "130 + 1n Arbiter", "Anywhere", P8);
+         KillUnitAt(All, "40 + 1n Marine", "Anywhere", P8);
+         KillUnitAt(All, "40 + 1n Ghost", "Anywhere", P8);
+         KillUnitAt(All, "80 + 1n Vulture", "Anywhere", P8);
+         KillUnitAt(All, "40 + 1n Goliath", "Anywhere", P8);
+         KillUnitAt(All, "40 + 1n Wraith", "Anywhere", P8);
+         KillUnitAt(All, "40 + 1n Firebat", "Anywhere", P8);
+         KillUnitAt(All, "40 + 1n Zergling", "Anywhere", P8);
+         KillUnitAt(All, " Creep. Licht", "Anywhere", P8);
+         KillUnitAt(All, "40 + 1n Drone", "Anywhere", P8);
+         KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", P8);
+         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", P8);
+         KillUnitAt(All, "40 + 1n Zealot", "Anywhere", P8);
+         KillUnitAt(All, "40 + 3n Zeratul", "Anywhere", P8);
+         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", P8);
+         KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", P8);
+         KillUnitAt(All, "40 + 1n Lurker", "Anywhere", P8);
+         KillUnitAt(All, "50 + 1n Tank", "Anywhere", P8);
+         KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", P8);
+         KillUnitAt(All, "60 + 3n Siege", "Anywhere", P8);
+         KillUnitAt(All, "60 + 1n Siege", "Anywhere", P8);
+         KillUnitAt(All, "60 + 1n Hydralisk", "Anywhere", P8);
+         KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", P8);
+         KillUnitAt(All, "60 + 1n High Templar", "Anywhere", P8);
+         KillUnitAt(All, "60 + 1n Archon", "Anywhere", P8);
+         KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", P8);
+         KillUnitAt(All, "60 + 3n Ghost", "Anywhere", P8);
+
+         SetSwitch("Recall - Magane", Clear);
+         SetDeaths(playerID, SetTo, 1080, " `UniqueCoolTime");
+
+         trg.SkillEnd();
+      }
+   }
+}
+

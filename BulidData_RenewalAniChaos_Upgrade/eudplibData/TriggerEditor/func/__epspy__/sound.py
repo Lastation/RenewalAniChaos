@@ -144,65 +144,89 @@ from character.group4.mayuri import text as mayuri
 from character.group4.nanami import text as nanami
 # (Line 10) import character.group4.milim.text as milim;
 from character.group4.milim import text as milim
-# (Line 12) function CharacterVoice(count : TrgCount)
-# (Line 13) {
+# (Line 12) import character.group5.yume.text as yume;
+from character.group5.yume import text as yume
+# (Line 13) import character.group5.magane.text as magane;
+from character.group5.magane import text as magane
+# (Line 14) import character.group5.oda.text as oda;
+from character.group5.oda import text as oda
+# (Line 16) function CharacterVoice(count : TrgCount)
+# (Line 17) {
 @EUDTypedFunc([TrgCount])
 def CharacterVoice(count):
-    # (Line 14) var playerID = getcurpl();
+    # (Line 18) var playerID = getcurpl();
     playerID = EUDVariable()
     playerID << (f_getcurpl())
-    # (Line 16) foreach(idx : EUDLoopRange(6))
+    # (Line 20) foreach(idx : EUDLoopRange(6))
     for idx in EUDLoopRange(6):
-        # (Line 17) {
-        # (Line 18) if 		(v.P_HeroID[playerID] == 1)	{ rusaruka.	P_player[idx] = count; rusaruka.	P_observer[idx] = count; }
+        # (Line 21) {
+        # (Line 22) if 		(v.P_HeroID[playerID] == 1)	{ rusaruka.	P_player[idx] = count; rusaruka.	P_observer[idx] = count; }
         if EUDIf()(v.P_HeroID[playerID] == 1):
             _ARRW(rusaruka.P_player, idx) << (count)
             _ARRW(rusaruka.P_observer, idx) << (count)
-            # (Line 19) else if 	(v.P_HeroID[playerID] == 2)	{ chtholly.	P_player[idx] = count; chtholly.	P_observer[idx] = count; 	}
+            # (Line 23) else if 	(v.P_HeroID[playerID] == 2)	{ chtholly.	P_player[idx] = count; chtholly.	P_observer[idx] = count; 	}
         if EUDElseIf()(v.P_HeroID[playerID] == 2):
             _ARRW(chtholly.P_player, idx) << (count)
             _ARRW(chtholly.P_observer, idx) << (count)
-            # (Line 20) else if 	(v.P_HeroID[playerID] == 3)	{ maihime.	P_player[idx] = count; maihime.	P_observer[idx] = count; 	}
+            # (Line 24) else if 	(v.P_HeroID[playerID] == 3)	{ maihime.	P_player[idx] = count; maihime.	P_observer[idx] = count; 	}
         if EUDElseIf()(v.P_HeroID[playerID] == 3):
             _ARRW(maihime.P_player, idx) << (count)
             _ARRW(maihime.P_observer, idx) << (count)
-            # (Line 21) else if 	(v.P_HeroID[playerID] == 22)	{ yuuna.		P_player[idx] = count; yuuna.		P_observer[idx] = count; 	}
+            # (Line 26) else if 	(v.P_HeroID[playerID] == 22)	{ yuuna.		P_player[idx] = count; yuuna.		P_observer[idx] = count; 	}
         if EUDElseIf()(v.P_HeroID[playerID] == 22):
             _ARRW(yuuna.P_player, idx) << (count)
             _ARRW(yuuna.P_observer, idx) << (count)
-            # (Line 22) else if 	(v.P_HeroID[playerID] == 23)	{ mayuri.	P_player[idx] = count; mayuri.	P_observer[idx] = count; 	}
+            # (Line 27) else if 	(v.P_HeroID[playerID] == 23)	{ mayuri.	P_player[idx] = count; mayuri.	P_observer[idx] = count; 	}
         if EUDElseIf()(v.P_HeroID[playerID] == 23):
             _ARRW(mayuri.P_player, idx) << (count)
             _ARRW(mayuri.P_observer, idx) << (count)
-            # (Line 23) else if 	(v.P_HeroID[playerID] == 24)	{ nanami.	P_player[idx] = count; nanami.	P_observer[idx] = count; 	}
+            # (Line 28) else if 	(v.P_HeroID[playerID] == 24)	{ nanami.	P_player[idx] = count; nanami.	P_observer[idx] = count; 	}
         if EUDElseIf()(v.P_HeroID[playerID] == 24):
             _ARRW(nanami.P_player, idx) << (count)
             _ARRW(nanami.P_observer, idx) << (count)
-            # (Line 24) else if 	(v.P_HeroID[playerID] == 25)	{ milim.		P_player[idx] = count; milim.		P_observer[idx] = count; 	}
+            # (Line 29) else if 	(v.P_HeroID[playerID] == 25)	{ milim.		P_player[idx] = count; milim.		P_observer[idx] = count; 	}
         if EUDElseIf()(v.P_HeroID[playerID] == 25):
             _ARRW(milim.P_player, idx) << (count)
             _ARRW(milim.P_observer, idx) << (count)
-            # (Line 25) }
+            # (Line 31) else if 	(v.P_HeroID[playerID] == 26)	{ yume.		P_player[idx] = count; yume.		P_observer[idx] = count; 	}
+        if EUDElseIf()(v.P_HeroID[playerID] == 26):
+            _ARRW(yume.P_player, idx) << (count)
+            _ARRW(yume.P_observer, idx) << (count)
+            # (Line 32) else if 	(v.P_HeroID[playerID] == 27)	{ magane.	P_player[idx] = count; magane.	P_observer[idx] = count; 	}
+        if EUDElseIf()(v.P_HeroID[playerID] == 27):
+            _ARRW(magane.P_player, idx) << (count)
+            _ARRW(magane.P_observer, idx) << (count)
+            # (Line 33) else if 	(v.P_HeroID[playerID] == 28)	{ oda.		P_player[idx] = count; oda.		P_observer[idx] = count; 	}
+        if EUDElseIf()(v.P_HeroID[playerID] == 28):
+            _ARRW(oda.P_player, idx) << (count)
+            _ARRW(oda.P_observer, idx) << (count)
+            # (Line 34) }
         EUDEndIf()
-        # (Line 26) }
+        # (Line 35) }
 
-    # (Line 28) function main(playerID)
+    # (Line 37) function main(playerID)
 
-# (Line 29) {
+# (Line 38) {
 @EUDFunc
 def f_main(playerID):
-    # (Line 30) rusaruka.main(playerID);
+    # (Line 40) rusaruka.main(playerID);
     rusaruka.f_main(playerID)
-    # (Line 31) chtholly.main(playerID);
+    # (Line 41) chtholly.main(playerID);
     chtholly.f_main(playerID)
-    # (Line 32) maihime.main(playerID);
+    # (Line 42) maihime.main(playerID);
     maihime.f_main(playerID)
-    # (Line 34) yuuna.main(playerID);
+    # (Line 45) yuuna.main(playerID);
     yuuna.f_main(playerID)
-    # (Line 35) mayuri.main(playerID);
+    # (Line 46) mayuri.main(playerID);
     mayuri.f_main(playerID)
-    # (Line 36) nanami.main(playerID);
+    # (Line 47) nanami.main(playerID);
     nanami.f_main(playerID)
-    # (Line 37) milim.main(playerID);
+    # (Line 48) milim.main(playerID);
     milim.f_main(playerID)
-    # (Line 38) }
+    # (Line 51) yume.main(playerID);
+    yume.f_main(playerID)
+    # (Line 52) magane.main(playerID);
+    magane.f_main(playerID)
+    # (Line 53) oda.main(playerID);
+    oda.f_main(playerID)
+    # (Line 54) }

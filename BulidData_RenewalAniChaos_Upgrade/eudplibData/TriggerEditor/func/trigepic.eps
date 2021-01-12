@@ -32,18 +32,21 @@ function MoveLoc(unit : TrgUnit, playerID : TrgPlayer, pos_x, pos_y)
 ***/
 function SkillUnit(playerID : TrgPlayer, count, unit : TrgUnit, type : TrgCount)
 {
-	switch (property)
+	switch (type)
 	{
 		case 0:
-			CreateUnitWithProperties(count, unit, dwrand() % 8 + 33, cp, UnitProperty(burrowed = true));
+			CreateUnitWithProperties(count, unit, dwrand() % 8 + 33, playerID, UnitProperty(burrowed = true));
 			break;
 		case 1:
-			CreateUnitWithProperties(count, unit, dwrand() % 8 + 33, cp, UnitProperty(hallucinated = true));
+			CreateUnitWithProperties(count, unit, dwrand() % 8 + 33, playerID, UnitProperty(hallucinated = true));
 			break;
 		case 2:
-			CreateUnitWithProperties(count, unit, dwrand() % 8 + 33, cp, UnitProperty(hallucinated = true, burrowed = true));
+			CreateUnitWithProperties(count, unit, dwrand() % 8 + 33, playerID, UnitProperty(hallucinated = true, burrowed = true));
 			break;
 	}
+	
+	SetInvincibility(Enable, unit, playerID, "[Skill]Unit_Wait_ALL");
+	MoveUnit(count, unit, playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
 }
 
 /***
@@ -68,10 +71,10 @@ function SkillUnit(playerID : TrgPlayer, count, unit : TrgUnit, type : TrgCount)
  * 1 - 할루네이션
  * 2 - 버러우 + 할루네이션
 ***/
-function Shape_Dot(cp : TrgPlayer, count, Unit : TrgUnit, x, y, type)
+function Shape_Dot(playerID : TrgPlayer, count, Unit : TrgUnit, x, y, type)
 {
-	MoveLoc(heroID[cp], cp, x, y);
-	SkillUnit(cp, count, Unit, type);
+	MoveLoc(v.P_UnitID[playerID], playerID, x, y);
+	SkillUnit(playerID, count, Unit, type);
 }
 
 /***
@@ -159,16 +162,16 @@ function Shape_DoubleAt(playerID : TrgPlayer, count, unit : TrgUnit, pos_x, pos_
  * 1 - 할루네이션
  * 2 - 버러우 + 할루네이션
 ***/
-function Shape_Square(cp : TrgPlayer, count, Unit : TrgUnit, x, y, type)
+function Shape_Square(playerID : TrgPlayer, count, Unit : TrgUnit, x, y, type)
 {
-	MoveLoc(heroID[cp], cp, x, y);
-	SkillUnit(cp, count, Unit, type);
-	MoveLoc(heroID[cp], cp, -y, x);
-	SkillUnit(cp, count, Unit, type);
-	MoveLoc(heroID[cp], cp, -x, -y);
-	SkillUnit(cp, count, Unit, type);
-	MoveLoc(heroID[cp], cp, y, -x);
-	SkillUnit(cp, count, Unit, type);
+	MoveLoc(v.P_UnitID[playerID], playerID, x, y);
+	SkillUnit(playerID, count, Unit, type);
+	MoveLoc(v.P_UnitID[playerID], playerID, -y, x);
+	SkillUnit(playerID, count, Unit, type);
+	MoveLoc(v.P_UnitID[playerID], playerID, -x, -y);
+	SkillUnit(playerID, count, Unit, type);
+	MoveLoc(v.P_UnitID[playerID], playerID, y, -x);
+	SkillUnit(playerID, count, Unit, type);
 }
 
 /***
@@ -198,16 +201,16 @@ function Shape_Square(cp : TrgPlayer, count, Unit : TrgUnit, x, y, type)
  * 1 - 할루네이션
  * 2 - 버러우 + 할루네이션
 ***/
-function Shape_SquareAt(cp : TrgPlayer, count, Unit : TrgUnit, x, y, distance_x, distance_y, type)
+function Shape_SquareAt(playerID : TrgPlayer, count, Unit : TrgUnit, x, y, distance_x, distance_y, type)
 {
-	MoveLoc(heroID[cp], cp, x + distance_x, y + distance_y);
-	SkillUnit(cp, count, Unit, type);
-	MoveLoc(heroID[cp], cp, -y + distance_x, x + distance_y);
-	SkillUnit(cp, count, Unit, type);
-	MoveLoc(heroID[cp], cp, -x + distance_x, -y + distance_y);
-	SkillUnit(cp, count, Unit, type);
-	MoveLoc(heroID[cp], cp, y + distance_x, -x + distance_y);
-	SkillUnit(cp, count, Unit, type);
+	MoveLoc(v.P_UnitID[playerID], playerID, x + distance_x, y + distance_y);
+	SkillUnit(playerID, count, Unit, type);
+	MoveLoc(v.P_UnitID[playerID], playerID, -y + distance_x, x + distance_y);
+	SkillUnit(playerID, count, Unit, type);
+	MoveLoc(v.P_UnitID[playerID], playerID, -x + distance_x, -y + distance_y);
+	SkillUnit(playerID, count, Unit, type);
+	MoveLoc(v.P_UnitID[playerID], playerID, y + distance_x, -x + distance_y);
+	SkillUnit(playerID, count, Unit, type);
 }
 
 /***
@@ -305,33 +308,33 @@ function Shape_NxNSquare(playerID : TrgPlayer, count, unit : TrgUnit, size, inte
  * 1 - 할루네이션
  * 2 - 버러우 + 할루네이션
 ***/
-function Shape_Edge(cp : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, property)
+function Shape_Edge(playerID : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, property)
 {
    var i = 0;
 
-   trg.Table_Sin(cp, degree, interval * 14 / 10);
-   trg.Table_Cos(cp, degree, interval * 14 / 10);
+   trg.Table_Sin(playerID, degree, interval * 14 / 10);
+   trg.Table_Cos(playerID, degree, interval * 14 / 10);
 
-   var x_o = CosAngle[cp];
-   var y_o = SinAngle[cp];
+   var x_o = v.P_AngleCos[playerID];
+   var y_o = v.P_AngleSin[playerID];
 
    var distance = (interval * 2) / (n - 1);
 
-   trg.Table_Sin(cp, degree + 45, distance);
-   trg.Table_Cos(cp, degree + 45, distance);
+   trg.Table_Sin(playerID, degree + 45, distance);
+   trg.Table_Cos(playerID, degree + 45, distance);
 
-   var distance_x = CosAngle[cp];
-   var distance_y = SinAngle[cp];
+   var distance_x = v.P_AngleCos[playerID];
+   var distance_y = v.P_AngleSin[playerID];
    
    if (n == 1)
    {
-      Shape_Dot(cp, 1, Unit, 0, 0, property);
+      Shape_Dot(playerID, 1, Unit, 0, 0, property);
    }
    else if (n > 1)
    {
       for (; i < n - 1; i++)
       {
-         Shape_Square(cp, 1, Unit, x_o - (distance_x * i), y_o - (distance_y * i), property);
+         Shape_Square(playerID, 1, Unit, x_o - (distance_x * i), y_o - (distance_y * i), property);
       }
    }
 }
@@ -385,7 +388,7 @@ function Shape_EdgeAt(playerID : TrgPlayer, count, unit : TrgUnit, degree, size,
 	var distance_y = v.P_AngleSin[playerID];
    
 	if (size == 1)
-	{ Shape_Dot(playerI, 1, unit, x, y, type); }
+	{ Shape_Dot(playerID, 1, unit, x, y, type); }
 	else if (size > 1)
 	{ foreach(idx : EUDLoopRange(size - 1)) { Shape_SquareAt(playerID, 1, unit,x_o - (distance_x * idx),y_o - (distance_y * idx), x, y, type); } }
 }

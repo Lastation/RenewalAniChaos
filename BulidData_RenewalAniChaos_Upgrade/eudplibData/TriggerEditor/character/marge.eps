@@ -13,6 +13,10 @@ import character.group4.mayuri.main 	as mayuri;
 import character.group4.nanami.main 	as nanami;
 import character.group4.milim.main 		as milim;
 
+import character.group5.yume.main 		as yume;
+import character.group5.magane.main 	as magane;
+import character.group5.oda.main 		as oda;
+
 
 function main(playerID)
 {
@@ -34,6 +38,10 @@ function main(playerID)
 	else if 	(v.P_HeroID[playerID] == 23) 	mayuri.main(playerID);
 	else if 	(v.P_HeroID[playerID] == 24) 	nanami.main(playerID);
 	else if 	(v.P_HeroID[playerID] == 25) 	milim.main(playerID);
+	
+	else if 	(v.P_HeroID[playerID] == 26) 	yume.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 27) 	magane.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 28) 	oda.main(playerID);
 	
 	//Test
        if(playerID < 6 && bread(0x58D2B0 + 0x207C * (0 / 46) + playerID * (46 - 31 * (0 / 46)) + (0 % 46)) != 80)
