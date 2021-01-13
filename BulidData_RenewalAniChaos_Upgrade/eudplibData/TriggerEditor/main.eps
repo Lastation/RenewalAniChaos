@@ -25,11 +25,12 @@ function beforeTriggerExec()
 		unitID.getUnitID(playerID);
 		select.SelectText(playerID);
 		marge.main(playerID);
+		sound.OldVoicemain();
 		sound.main(playerID);
 		
 		if (v.P_HeroID[playerID] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
       	 	{ v.P_HeroID[playerID] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)); }
-      	 
+      	 	
 		MuteUnitSpeech();
 	}
 	
@@ -38,6 +39,7 @@ function beforeTriggerExec()
 	{
 		setcurpl(observerID);
 		MuteUnitSpeech();
+		sound.OldVoicemain();
 		sound.main(observerID);
 	}
 }

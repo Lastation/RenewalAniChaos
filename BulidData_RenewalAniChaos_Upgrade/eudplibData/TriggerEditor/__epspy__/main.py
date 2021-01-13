@@ -166,25 +166,29 @@ def beforeTriggerExec():
         select.SelectText(playerID)
         # (Line 27) marge.main(playerID);
         marge.f_main(playerID)
-        # (Line 28) sound.main(playerID);
+        # (Line 28) sound.OldVoicemain();
+        sound.OldVoicemain()
+        # (Line 29) sound.main(playerID);
         sound.f_main(playerID)
-        # (Line 30) if (v.P_HeroID[playerID] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
+        # (Line 31) if (v.P_HeroID[playerID] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
         if EUDIf()(v.P_HeroID[playerID] == f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)), neg=True):
-            # (Line 31) { v.P_HeroID[playerID] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)); }
+            # (Line 32) { v.P_HeroID[playerID] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)); }
             _ARRW(v.P_HeroID, playerID) << (f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
-            # (Line 33) MuteUnitSpeech();
+            # (Line 34) MuteUnitSpeech();
         EUDEndIf()
-        # (Line 34) }
+        # (Line 35) }
         DoActions(MuteUnitSpeech())
-        # (Line 37) foreach (observerID : EUDLoopRange(128, 132))
+        # (Line 38) foreach (observerID : EUDLoopRange(128, 132))
 
     for observerID in EUDLoopRange(128, 132):
-        # (Line 38) {
-        # (Line 39) setcurpl(observerID);
+        # (Line 39) {
+        # (Line 40) setcurpl(observerID);
         f_setcurpl(observerID)
-        # (Line 40) MuteUnitSpeech();
-        # (Line 41) sound.main(observerID);
+        # (Line 41) MuteUnitSpeech();
+        # (Line 42) sound.OldVoicemain();
         DoActions(MuteUnitSpeech())
+        sound.OldVoicemain()
+        # (Line 43) sound.main(observerID);
         sound.f_main(observerID)
-        # (Line 42) }
-        # (Line 43) }
+        # (Line 44) }
+        # (Line 45) }

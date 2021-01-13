@@ -1,56 +1,56 @@
-import variable as v;
-import Variable as v;
-import func.trig as trg;
 
-function NormalText(playerID)
+
+
+
+function Text1(num)
 {
-	switch (v.Sound_Text2[playerID])
+	switch (num)
 	{
 	case 3110:
 		PlayWAV("HotoMoka_01.ogg");
 		v.stb.print("\n\n\x13\x1BHoto Moka\n\x13\x04어서오세욧~\n\n");
-		v.Sound_Text2[playerID] = 0;
+		
 		break;
 	case 3210:
 		PlayWAV("HotoMoka_02.ogg");
 		v.stb.print("\n\n\x13\x1BHoto Moka\n\x13\x04코코아가 젤 첨에 되고 싶었던거 기억나?\n\n");
-		v.Sound_Text2[playerID] = 0;
+		
 		break;
 	case 3220:
 		PlayWAV("HotoMoka_03.ogg");
-		v.Sound_Text2[playerID] = 0;
+		
 		break;
 	case 3221:
 		v.stb.print("\n\n\x13\x1BHoto Moka\n\x13\x04마법사!\n\n");
-		v.Sound_Text2[playerID] = 0;
+		
 		break;
 	}
 }
 
-function UiltimateText(playerID)
+function Text2(num)
 {
-	switch (v.Sound_Text_Uilti[playerID])
+	switch (num)
 	{
 	case 9000:
 		PlayWAV("HotoMoka_Uiltimate.ogg");
 		v.stb.printAt(3,"\x13\x1BHoto Moka\n\n\x13\x04나, 준비해올게");
-		v.Sound_Text_Uilti[playerID] = 0;
+		
 		break;
 	case 9001:
 		v.stb.printAt(3,"\x13\x1BHoto Moka\n\n\x13\x04좋아, 준비 완료!");
-		v.Sound_Text_Uilti[playerID] = 0;
+		
 		break;
 	}
 }
 
-function UniqueText(playerID)
+function Text3(num)
 {
-	switch (v.Sound_Text_Uniq[playerID]) 
+	switch (num) 
 	{
 	case 9000:
 		PlayWAV("HotoMoka_00.ogg");
 		v.stb.printAt(3,"\x13\x1BHoto Moka\n\n\x13\x04이 앞에는 전파가 닿지 않으니까\n\x13\x04핸드폰은 쓰지 못한단다?");
-		v.Sound_Text_Uniq[playerID] = 0;
+		
 		break;
 	}
 }

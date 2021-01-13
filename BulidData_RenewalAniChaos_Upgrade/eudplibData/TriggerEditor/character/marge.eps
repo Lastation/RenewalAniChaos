@@ -16,6 +16,10 @@ import character.group4.milim.main 		as milim;
 import character.group5.yume.main 		as yume;
 import character.group5.magane.main 	as magane;
 import character.group5.oda.main 		as oda;
+import character.group5.ekidona.main 	as ekidona;
+import character.group5.niwa.main 		as niwa;
+
+import character.group6.park.main 		as park;
 
 
 function main(playerID)
@@ -42,6 +46,10 @@ function main(playerID)
 	else if 	(v.P_HeroID[playerID] == 26) 	yume.main(playerID);
 	else if 	(v.P_HeroID[playerID] == 27) 	magane.main(playerID);
 	else if 	(v.P_HeroID[playerID] == 28) 	oda.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 29) 	ekidona.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 30) 	niwa.main(playerID);
+	
+	else if 	(v.P_HeroID[playerID] == 31) 	park.main(playerID);
 	
 	//Test
        if(playerID < 6 && bread(0x58D2B0 + 0x207C * (0 / 46) + playerID * (46 - 31 * (0 / 46)) + (0 % 46)) != 80)

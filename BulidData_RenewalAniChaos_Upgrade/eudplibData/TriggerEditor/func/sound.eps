@@ -1,9 +1,31 @@
 import PluginVariables as msqcvar;
 import variable as v;
+
 import character.group1.rusaruka.text as rusaruka;
 import character.group1.chtholly.text as chtholly;
 import character.group1.maihime.text as maihime;
+import character.etc.tenshi as tenshi;
+import character.etc.miyuki as miyuki;
 
+import character.etc.negev as negev;
+import character.etc.cecillia as cecillia;
+import character.etc.anzu as anzu;
+import character.etc.hotomoka as hotomoka;
+import character.etc.alterego as alterego;
+
+import character.etc.ryuzu as ryuzu;
+//import character.etc.kurumi as kurumi;
+import character.etc.sakura as sakura;
+import character.etc.yashiro as yashiro;
+import character.etc.rin as rin;
+
+import character.etc.seraphim as seraphim;
+//import character.etc.kiana as kiana;
+import character.etc.iwahune as iwahune;
+import character.etc.mn as mn;
+import character.etc.emetselch as emetselch;
+
+import character.etc.magellan as magellan;
 import character.group4.yuuna.text as yuuna;
 import character.group4.mayuri.text as mayuri;
 import character.group4.nanami.text as nanami;
@@ -12,6 +34,140 @@ import character.group4.milim.text as milim;
 import character.group5.yume.text as yume;
 import character.group5.magane.text as magane;
 import character.group5.oda.text as oda;
+import character.group5.ekidona.text as ekidona;
+import character.group5.niwa.text as niwa;
+
+import character.group6.park.text as park;
+
+
+function OldCharacterVoiceNormal()
+{
+	var count;
+
+	if (Deaths(P7, AtLeast, 1, " `SkillText"))
+	{
+		count = dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * 7));
+		
+		foreach(idx : EUDLoopRange(6))
+		{
+			tenshi.P_type[idx] = 1;  		tenshi.P_player[idx] = count; 			tenshi.P_observer[idx] = count;
+			miyuki.P_type[idx] = 1;  		miyuki.P_player[idx] = count; 		miyuki.P_observer[idx] = count;
+			negev.P_type[idx] = 1;  		negev.P_player[idx] = count; 			negev.P_observer[idx] = count;
+		}
+		SetDeaths(6, SetTo, 0, 186);
+	}
+	if (Deaths(P7, AtLeast, 1, " `SkillText2"))
+	{
+		count = dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * 7));
+		
+		foreach(idx : EUDLoopRange(6))
+		{
+			cecillia.P_type[idx] = 1;  		cecillia.P_player[idx] = count; 		cecillia.P_observer[idx] = count;
+			anzu.P_type[idx] = 1; 		anzu.P_player[idx] = count; 			anzu.P_observer[idx] = count;
+			hotomoka.P_type[idx] = 1;  	hotomoka.P_player[idx] = count; 		hotomoka.P_observer[idx] = count;
+			alterego.P_type[idx] = 1;  	alterego.P_player[idx] = count; 		alterego.P_observer[idx] = count;
+			ryuzu.P_type[idx] = 1; 		ryuzu.P_player[idx] = count; 			ryuzu.P_observer[idx] = count;
+			//kurumi.P_type[idx] = 1;  	kurumi.P_player[idx] = count; 		kurumi.P_observer[idx] = count;
+		}
+		SetDeaths(6, SetTo, 0, 174);
+	}
+	if (Deaths(P7, AtLeast, 1, " `SkillText3"))
+	{
+		count = dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * 7));
+		
+		foreach(idx : EUDLoopRange(6))
+		{
+			sakura.P_type[idx] = 1;  		sakura.P_player[idx] = count; 		sakura.P_observer[idx] = count;
+			yashiro.P_type[idx] = 1; 		yashiro.P_player[idx] = count; 		yashiro.P_observer[idx] = count;
+			rin.P_type[idx] = 1;  			rin.P_player[idx] = count; 			rin.P_observer[idx] = count;
+			seraphim.P_type[idx] = 1;  	seraphim.P_player[idx] = count; 		seraphim.P_observer[idx] = count;
+			//kiana.P_type[idx] = 1; 		kiana.P_player[idx] = count; 			kiana.P_observer[idx] = count;
+			iwahune.P_type[idx] = 1;  	iwahune.P_player[idx] = count; 		iwahune.P_observer[idx] = count;
+		}
+		SetDeaths(6, SetTo, 0, 117);
+	}
+	if (Deaths(P7, AtLeast, 1, " `SkillText4"))
+	{
+		count = dwread_epd(EPD(0x58A364 + 48 * 157 + 4 * 7));
+		
+		foreach(idx : EUDLoopRange(6))
+		{
+			mn.P_type[idx] = 1;  			mn.P_player[idx] = count; 			mn.P_observer[idx] = count;
+			emetselch.P_type[idx] = 1; 	emetselch.P_player[idx] = count; 		emetselch.P_observer[idx] = count;
+			magellan.P_type[idx] = 1;  	magellan.P_player[idx] = count; 		magellan.P_observer[idx] = count;
+		}
+		SetDeaths(6, SetTo, 0, 157);
+	}
+}
+
+function OldCharacterVoiceUltimate()
+{
+	var count;
+
+	if (Deaths(P7, AtLeast, 1, " `SkillText_Uiltimate"))
+	{
+		count = dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * 7));
+		
+		foreach(idx : EUDLoopRange(6))
+		{
+			tenshi.P_type[idx] = 2;  		tenshi.P_player[idx] = count; 			tenshi.P_observer[idx] = count;
+			miyuki.P_type[idx] = 2;  		miyuki.P_player[idx] = count; 		miyuki.P_observer[idx] = count;
+			negev.P_type[idx] = 2;  		negev.P_player[idx] = count; 			negev.P_observer[idx] = count;
+			cecillia.P_type[idx] = 2;  		cecillia.P_player[idx] = count; 		cecillia.P_observer[idx] = count;
+			anzu.P_type[idx] = 2; 		anzu.P_player[idx] = count; 			anzu.P_observer[idx] = count;
+			hotomoka.P_type[idx] = 2;  	hotomoka.P_player[idx] = count; 		hotomoka.P_observer[idx] = count;
+			alterego.P_type[idx] = 2;  	alterego.P_player[idx] = count; 		alterego.P_observer[idx] = count;
+			ryuzu.P_type[idx] = 2; 		ryuzu.P_player[idx] = count; 			ryuzu.P_observer[idx] = count;
+			//kurumi.P_type[idx] = 2;  	kurumi.P_player[idx] = count; 		kurumi.P_observer[idx] = count;
+			sakura.P_type[idx] = 2;  		sakura.P_player[idx] = count; 		sakura.P_observer[idx] = count;
+			yashiro.P_type[idx] = 2; 		yashiro.P_player[idx] = count; 		yashiro.P_observer[idx] = count;
+			rin.P_type[idx] = 2;  			rin.P_player[idx] = count; 			rin.P_observer[idx] = count;
+			seraphim.P_type[idx] = 2;  	seraphim.P_player[idx] = count; 		seraphim.P_observer[idx] = count;
+			//kiana.P_type[idx] = 2; 		kiana.P_player[idx] = count; 			kiana.P_observer[idx] = count;
+			iwahune.P_type[idx] = 2;  	iwahune.P_player[idx] = count; 		iwahune.P_observer[idx] = count;
+			mn.P_type[idx] = 2;  			mn.P_player[idx] = count; 			mn.P_observer[idx] = count;
+			emetselch.P_type[idx] = 2; 	emetselch.P_player[idx] = count; 		emetselch.P_observer[idx] = count;
+			magellan.P_type[idx] = 2;  	magellan.P_player[idx] = count; 		magellan.P_observer[idx] = count;
+		}
+		
+		SetDeaths(6, SetTo, 0, 222);
+	}
+}
+
+function OldCharacterVoiceUnique()
+{
+	var count;
+
+	if (Deaths(P7, AtLeast, 1, " `SkillText_Unique"))
+	{
+		count = dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * 7));
+		
+		foreach(idx : EUDLoopRange(6))
+		{
+			tenshi.P_type[idx] = 3;  		tenshi.P_player[idx] = count; 			tenshi.P_observer[idx] = count;
+			miyuki.P_type[idx] = 3;  		miyuki.P_player[idx] = count; 		miyuki.P_observer[idx] = count;
+			negev.P_type[idx] = 3;  		negev.P_player[idx] = count; 			negev.P_observer[idx] = count;
+			cecillia.P_type[idx] = 3;  		cecillia.P_player[idx] = count; 		cecillia.P_observer[idx] = count;
+			anzu.P_type[idx] = 3; 		anzu.P_player[idx] = count; 			anzu.P_observer[idx] = count;
+			hotomoka.P_type[idx] = 3;  	hotomoka.P_player[idx] = count; 		hotomoka.P_observer[idx] = count;
+			alterego.P_type[idx] = 3;  	alterego.P_player[idx] = count; 		alterego.P_observer[idx] = count;
+			ryuzu.P_type[idx] = 3; 		ryuzu.P_player[idx] = count; 			ryuzu.P_observer[idx] = count;
+			//kurumi.P_type[idx] = 3;  	kurumi.P_player[idx] = count; 		kurumi.P_observer[idx] = count;
+			sakura.P_type[idx] = 3;  		sakura.P_player[idx] = count; 		sakura.P_observer[idx] = count;
+			yashiro.P_type[idx] = 3; 		yashiro.P_player[idx] = count; 		yashiro.P_observer[idx] = count;
+			rin.P_type[idx] = 3;  			rin.P_player[idx] = count; 			rin.P_observer[idx] = count;
+			seraphim.P_type[idx] = 3;  	seraphim.P_player[idx] = count; 		seraphim.P_observer[idx] = count;
+			//kiana.P_type[idx] = 3; 		kiana.P_player[idx] = count; 			kiana.P_observer[idx] = count;
+			iwahune.P_type[idx] = 3;  	iwahune.P_player[idx] = count; 		iwahune.P_observer[idx] = count;
+			mn.P_type[idx] = 3;  			mn.P_player[idx] = count; 			mn.P_observer[idx] = count;
+			emetselch.P_type[idx] = 3; 	emetselch.P_player[idx] = count; 		emetselch.P_observer[idx] = count;
+			magellan.P_type[idx] = 3;  	magellan.P_player[idx] = count; 		magellan.P_observer[idx] = count;
+		}
+		
+		SetDeaths(6, SetTo, 0, 188);
+	}
+}
+
 
 function CharacterVoice(count : TrgCount)
 {
@@ -31,7 +187,18 @@ function CharacterVoice(count : TrgCount)
 		else if 	(v.P_HeroID[playerID] == 26)	{ yume.		P_player[idx] = count; yume.		P_observer[idx] = count; 	}
 		else if 	(v.P_HeroID[playerID] == 27)	{ magane.	P_player[idx] = count; magane.	P_observer[idx] = count; 	}
 		else if 	(v.P_HeroID[playerID] == 28)	{ oda.		P_player[idx] = count; oda.		P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 29)	{ ekidona.	P_player[idx] = count; ekidona.	P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 30)	{ niwa.		P_player[idx] = count; niwa.		P_observer[idx] = count; 	}
+		
+		else if 	(v.P_HeroID[playerID] == 31)	{ park.		P_player[idx] = count; park.		P_observer[idx] = count; 	}
 	}
+}
+
+function OldVoicemain()
+{
+	OldCharacterVoiceNormal();
+	OldCharacterVoiceUltimate();
+	OldCharacterVoiceUnique();
 }
 
 function main(playerID)
@@ -40,8 +207,32 @@ function main(playerID)
 	rusaruka.main(playerID);
 	chtholly.main(playerID);
 	maihime.main(playerID);
+	tenshi.main(playerID);
+	miyuki.main(playerID);
+	
+	// Group2
+	negev.main(playerID);
+	cecillia.main(playerID);
+	anzu.main(playerID);
+	hotomoka.main(playerID);
+	alterego.main(playerID);
+	
+	// Group3
+	ryuzu.main(playerID);
+	//kurumi.main(playerID);
+	sakura.main(playerID);
+	yashiro.main(playerID);
+	rin.main(playerID);
 	
 	// Group4
+	seraphim.main(playerID);
+	//kiana.main(playerID);
+	iwahune.main(playerID);
+	mn.main(playerID);
+	emetselch.main(playerID);
+	
+	// Group5
+	magellan.main(playerID);
 	yuuna.main(playerID);
 	mayuri.main(playerID);
 	nanami.main(playerID);
@@ -51,4 +242,9 @@ function main(playerID)
 	yume.main(playerID);
 	magane.main(playerID);
 	oda.main(playerID);
+	ekidona.main(playerID);
+	niwa.main(playerID);
+	
+	// Group6
+	park.main(playerID);
 }

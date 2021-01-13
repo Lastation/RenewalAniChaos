@@ -1,150 +1,150 @@
-import variable as v;
-import Variable as v;
-import func.trig as trg;
 
-function NormalText(playerID)
+
+
+
+function Text1(num)
 {
-	switch (v.Sound_Text2[playerID]) 
+	switch (num) 
 	{
 	case 6000:
 		PlayWAV("Ryuzu_00.ogg");
 		v.stb.print("\n\x13\x1CRyuzu\n\x13\x04과연…\n");
-		v.Sound_Text2[playerID] = 0;
+		
 		break;
 	case 6001:
 		v.stb.print("\n\x13\x1CRyuzu\n\x13\x05감히 어느 분께 살의를 향하고 계시는지?\n");
-		v.Sound_Text2[playerID] = 0;
+		
 		break;
 	case 6002:
 		PlayWAV("Ryuzu_01.ogg");
 		v.stb.print("\n\x13\x1CRyuzu\n\x13\x04감히 나오토 님께 그런 장난감을\n\x13\x04들이밀어도 될 거라 생각하시는 거라면\n");
-		v.Sound_Text2[playerID] = 0;
+		
 		break;
 	case 6003:
 		v.stb.print("\n\x13\x1CRyuzu\n\x13\x05두 분 모두 사이좋게\n\x13\x05잘게 썰어드리겠습니다만\n");
-		v.Sound_Text2[playerID] = 0;
+		
 		break;
 	case 6010:
 		PlayWAV("Ryuzu_02.ogg");
 		v.stb.print("\n\x13\x1CRyuzu\n\x13\x04마음껏 덤벼와보시죠, 「앙클」\n");
-		v.Sound_Text2[playerID] = 0;
+		
 		break;
 	case 6011:
 		v.stb.print("\n\x13\x1CRyuzu\n\x13\x04언니된 몸으로서의 위엄을\n\x13\x04그 몸에 새겨드리겠어요\n");
-		v.Sound_Text2[playerID] = 0;
+		
 		break;
 	}
 }
 
-function UiltimateText(playerID)
+function Text2(num)
 {
-	switch (v.Sound_Text_Uilti[playerID])
+	switch (num)
 	{
 	case 12001:
 		PlayWAV("Ryuzu_Uil.ogg");
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04배제하겠습니다.");
-		v.Sound_Text_Uilti[playerID] = 0;
+		
 		break;
 	case 12002:
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04저런 차마 쳐다보기도 역겨운\n\x13\x04잡동사니 집단은");
-		v.Sound_Text_Uilti[playerID] = 0;
+		
 		break;
 	case 12003:
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04나오토 님께 포구를 겨누었습니다.");
-		v.Sound_Text_Uilti[playerID] = 0;
+		
 		break;
 	case 12004:
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04다시 말해,");
-		v.Sound_Text_Uilti[playerID] = 0;
+		
 		break;
 	case 12005:
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04배제하여야 할 저의ㅡ");
-		v.Sound_Text_Uilti[playerID] = 0;
+		
 		break;
 	case 12006:
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04적입니다");
-		v.Sound_Text_Uilti[playerID] = 0;
+		
 		break;
 	case 12007:
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04저런 잡동사니를\n\x13\x04제아무리 늘어놓는다 한들");
-		v.Sound_Text_Uilti[playerID] = 0;
+		
 		break;
 	case 12008:
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04자매들 중에서도 최약체인\n\x13\x04저에게조차 미치지 못합니다");
-		v.Sound_Text_Uilti[playerID] = 0;
+		
 		break;
 	case 12009:
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04정의 선언──");
-		v.Sound_Text_Uilti[playerID] = 0;
+		
 		break;
 	case 12010:
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04정의 선언──\n\x13\x04Initial-Y 시리즈 1번기");
-		v.Sound_Text_Uilti[playerID] = 0;
+		
 		break;
 	case 12011:
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04복종하는자");
-		v.Sound_Text_Uilti[playerID] = 0;
+		
 		break;
 	case 12012:
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04복종하는자\n\n\x13\x04류즈");
-		v.Sound_Text_Uilti[playerID] = 0;
+		
 		break;
 	case 12013:
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04고유 기능──");
-		v.Sound_Text_Uilti[playerID] = 0;
+		
 		break;
 	case 12014:
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04고유 기능──\n\x13\x04[ 허수 시간 ]");
-		v.Sound_Text_Uilti[playerID] = 0;
+		
 		break;
 	case 12015:
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04기동 시퀀스를 개시하겠습니다");
-		v.Sound_Text_Uilti[playerID] = 0;
+		
 		break;
 	case 12020:
 		PlayWAV("Ryuzu_Uil2.ogg");
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04상대 기동");
-		v.Sound_Text_Uilti[playerID] = 0;
+		
 		break;
 	case 12021:
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04상대 기동\n\n\x13\x04『뮤트·스크림』\n\n");
-		v.Sound_Text_Uilti[playerID] = 0;
+		
 		break;
 	}
 }
 
-function UniqueText(playerID)
+function Text3(num)
 {
-	switch (v.Sound_Text_Uniq[playerID])
+	switch (num)
 	{
 	case 12000:
 		PlayWAV("Ryuzu_Unq.ogg");
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\x13\x04시프트 개시\n");
-		v.Sound_Text_Uniq[playerID] = 0;
+		
 		break;
 	case 12001:
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\x13\x04제 1시계");
-		v.Sound_Text_Uniq[playerID] = 0;
+		
 		break;
 	case 12002:
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\x13\x05제 1시계\n\x13\x04『실수 시간』으로부터");
-		v.Sound_Text_Uniq[playerID] = 0;
+		
 		break;
 	case 12003:
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\x13\x04제 2시계");
-		v.Sound_Text_Uniq[playerID] = 0;
+		
 		break;
 	case 12004:
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\x13\x05제 2시계\n\x13\x04『허수 시간』으로");
-		v.Sound_Text_Uniq[playerID] = 0;
+		
 		break;
 	case 12005:
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\x13\x04구동[크로노 훅]―");
-		v.Sound_Text_Uniq[playerID] = 0;
+		
 		break;
 	case 12006:
 		v.stb.printAt(3,"\x13\x1CRyuzu\n\n\x13\x04통상 운동으로부터 \n\x13\x04허수 운동을 향해 점프하겠습니다");
-		v.Sound_Text_Uniq[playerID] = 0;
+		
 		break;
 	}
 }

@@ -154,64 +154,79 @@ from character.group5.yume import main as yume
 from character.group5.magane import main as magane
 # (Line 18) import character.group5.oda.main 		as oda;
 from character.group5.oda import main as oda
-# (Line 21) function main(playerID)
-# (Line 22) {
+# (Line 19) import character.group5.ekidona.main 	as ekidona;
+from character.group5.ekidona import main as ekidona
+# (Line 20) import character.group5.niwa.main 		as niwa;
+from character.group5.niwa import main as niwa
+# (Line 22) import character.group6.park.main 		as park;
+from character.group6.park import main as park
+# (Line 25) function main(playerID)
+# (Line 26) {
 @EUDFunc
 def f_main(playerID):
-    # (Line 23) trg.Main_WaitLoop();
+    # (Line 27) trg.Main_WaitLoop();
     trg.Main_WaitLoop()
-    # (Line 25) text.BuildingText(playerID);
+    # (Line 29) text.BuildingText(playerID);
     text.BuildingText(playerID)
-    # (Line 26) text.ShopText(playerID);
+    # (Line 30) text.ShopText(playerID);
     text.ShopText(playerID)
-    # (Line 28) v.P_UltimateGauge[playerID] = 1000;
+    # (Line 32) v.P_UltimateGauge[playerID] = 1000;
     _ARRW(v.P_UltimateGauge, playerID) << (1000)
-    # (Line 30) ModifyUnitHitPoints(1, 155, playerID, "Anywhere", 100 - (v.P_UniqueCool[playerID] / 10));
-    # (Line 31) ModifyUnitShields(1, 167, playerID, "Anywhere", v.P_UltimateGauge[playerID] / 10);
+    # (Line 34) ModifyUnitHitPoints(1, 155, playerID, "Anywhere", 100 - (v.P_UniqueCool[playerID] / 10));
+    # (Line 35) ModifyUnitShields(1, 167, playerID, "Anywhere", v.P_UltimateGauge[playerID] / 10);
     DoActions(ModifyUnitHitPoints(1, 155, playerID, "Anywhere", 100 - (v.P_UniqueCool[playerID] // 10)))
-    # (Line 33) if 		(v.P_HeroID[playerID] == 1) 		rusaruka.main(playerID);
+    # (Line 37) if 		(v.P_HeroID[playerID] == 1) 		rusaruka.main(playerID);
     DoActions(ModifyUnitShields(1, 167, playerID, "Anywhere", v.P_UltimateGauge[playerID] // 10))
     if EUDIf()(v.P_HeroID[playerID] == 1):
         rusaruka.f_main(playerID)
-        # (Line 34) else if 	(v.P_HeroID[playerID] == 2) 		chtholly.main(playerID);
+        # (Line 38) else if 	(v.P_HeroID[playerID] == 2) 		chtholly.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 2):
         chtholly.f_main(playerID)
-        # (Line 35) else if 	(v.P_HeroID[playerID] == 3) 		maihime.main(playerID);
+        # (Line 39) else if 	(v.P_HeroID[playerID] == 3) 		maihime.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 3):
         maihime.f_main(playerID)
-        # (Line 37) else if 	(v.P_HeroID[playerID] == 22) 	yuuna.main(playerID);
+        # (Line 41) else if 	(v.P_HeroID[playerID] == 22) 	yuuna.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 22):
         yuuna.f_main(playerID)
-        # (Line 38) else if 	(v.P_HeroID[playerID] == 23) 	mayuri.main(playerID);
+        # (Line 42) else if 	(v.P_HeroID[playerID] == 23) 	mayuri.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 23):
         mayuri.f_main(playerID)
-        # (Line 39) else if 	(v.P_HeroID[playerID] == 24) 	nanami.main(playerID);
+        # (Line 43) else if 	(v.P_HeroID[playerID] == 24) 	nanami.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 24):
         nanami.f_main(playerID)
-        # (Line 40) else if 	(v.P_HeroID[playerID] == 25) 	milim.main(playerID);
+        # (Line 44) else if 	(v.P_HeroID[playerID] == 25) 	milim.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 25):
         milim.f_main(playerID)
-        # (Line 42) else if 	(v.P_HeroID[playerID] == 26) 	yume.main(playerID);
+        # (Line 46) else if 	(v.P_HeroID[playerID] == 26) 	yume.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 26):
         yume.f_main(playerID)
-        # (Line 43) else if 	(v.P_HeroID[playerID] == 27) 	magane.main(playerID);
+        # (Line 47) else if 	(v.P_HeroID[playerID] == 27) 	magane.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 27):
         magane.f_main(playerID)
-        # (Line 44) else if 	(v.P_HeroID[playerID] == 28) 	oda.main(playerID);
+        # (Line 48) else if 	(v.P_HeroID[playerID] == 28) 	oda.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 28):
         oda.f_main(playerID)
-        # (Line 47) if(playerID < 6 && bread(0x58D2B0 + 0x207C * (0 / 46) + playerID * (46 - 31 * (0 / 46)) + (0 % 46)) != 80)
+        # (Line 49) else if 	(v.P_HeroID[playerID] == 29) 	ekidona.main(playerID);
+    if EUDElseIf()(v.P_HeroID[playerID] == 29):
+        ekidona.f_main(playerID)
+        # (Line 50) else if 	(v.P_HeroID[playerID] == 30) 	niwa.main(playerID);
+    if EUDElseIf()(v.P_HeroID[playerID] == 30):
+        niwa.f_main(playerID)
+        # (Line 52) else if 	(v.P_HeroID[playerID] == 31) 	park.main(playerID);
+    if EUDElseIf()(v.P_HeroID[playerID] == 31):
+        park.f_main(playerID)
+        # (Line 55) if(playerID < 6 && bread(0x58D2B0 + 0x207C * (0 / 46) + playerID * (46 - 31 * (0 / 46)) + (0 % 46)) != 80)
     EUDEndIf()
     if EUDIf()(EUDSCAnd()(playerID >= 6, neg=True)(f_bread(0x58D2B0 + 0x207C * (0 // 46) + playerID * (46 - 31 * (0 // 46)) + (0 % 46)) == 80, neg=True)()):
-        # (Line 48) {
-        # (Line 49) bwrite(0x58D2B0 + 0x207C * (0 / 46) + playerID * (46 - 31 * (0 / 46)) + (0 % 46), 60);
+        # (Line 56) {
+        # (Line 57) bwrite(0x58D2B0 + 0x207C * (0 / 46) + playerID * (46 - 31 * (0 / 46)) + (0 % 46), 60);
         f_bwrite(0x58D2B0 + 0x207C * (0 // 46) + playerID * (46 - 31 * (0 // 46)) + (0 % 46), 60)
-        # (Line 50) bwrite(0x58D2B0 + 0x207C * (7 / 46) + playerID * (46 - 31 * (7 / 46)) + (7 % 46), 80);
+        # (Line 58) bwrite(0x58D2B0 + 0x207C * (7 / 46) + playerID * (46 - 31 * (7 / 46)) + (7 % 46), 80);
         f_bwrite(0x58D2B0 + 0x207C * (7 // 46) + playerID * (46 - 31 * (7 // 46)) + (7 % 46), 80)
-        # (Line 52) bwrite(0x58D2B0 + 0x207C * (2 / 46) + playerID * (46 - 31 * (2 / 46)) + (2 % 46), 60); 	//방어력 최종 적용
+        # (Line 60) bwrite(0x58D2B0 + 0x207C * (2 / 46) + playerID * (46 - 31 * (2 / 46)) + (2 % 46), 60); 	//방어력 최종 적용
         f_bwrite(0x58D2B0 + 0x207C * (2 // 46) + playerID * (46 - 31 * (2 // 46)) + (2 % 46), 60)
-        # (Line 53) bwrite(0x58D2B0 + 0x207C * (9 / 46) + playerID * (46 - 31 * (9 / 46)) + (9 % 46), 80);		//공격력 최종 적용
+        # (Line 61) bwrite(0x58D2B0 + 0x207C * (9 / 46) + playerID * (46 - 31 * (9 / 46)) + (9 % 46), 80);		//공격력 최종 적용
         f_bwrite(0x58D2B0 + 0x207C * (9 // 46) + playerID * (46 - 31 * (9 // 46)) + (9 % 46), 80)
-        # (Line 54) }
-        # (Line 55) }
+        # (Line 62) }
+        # (Line 63) }
     EUDEndIf()
