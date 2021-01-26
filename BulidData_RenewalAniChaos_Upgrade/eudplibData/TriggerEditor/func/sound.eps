@@ -14,7 +14,7 @@ import character.etc.hotomoka as hotomoka;
 import character.etc.alterego as alterego;
 
 import character.etc.ryuzu as ryuzu;
-//import character.etc.kurumi as kurumi;
+import character.group3.kurumi.text as kurumi;
 import character.etc.sakura as sakura;
 import character.etc.yashiro as yashiro;
 import character.etc.rin as rin;
@@ -38,7 +38,37 @@ import character.group5.ekidona.text as ekidona;
 import character.group5.niwa.text as niwa;
 
 import character.group6.park.text as park;
+import character.group6.hodaka.text 	as hodaka;
 
+
+function CharacterVoice(count : TrgCount)
+{
+	var playerID = getcurpl();
+	
+	foreach(idx : EUDLoopRange(6))
+	{
+		if 		(v.P_HeroID[playerID] == 1)	{ rusaruka.	P_player[idx] = count; rusaruka.	P_observer[idx] = count; }
+		else if 	(v.P_HeroID[playerID] == 2)	{ chtholly.	P_player[idx] = count; chtholly.	P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 3)	{ maihime.	P_player[idx] = count; maihime.	P_observer[idx] = count; 	}
+		
+		
+		else if 	(v.P_HeroID[playerID] == 12)	{ kurumi.	P_player[idx] = count; kurumi.	P_observer[idx] = count; 	}
+		
+		else if 	(v.P_HeroID[playerID] == 22)	{ yuuna.		P_player[idx] = count; yuuna.		P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 23)	{ mayuri.	P_player[idx] = count; mayuri.	P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 24)	{ nanami.	P_player[idx] = count; nanami.	P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 25)	{ milim.		P_player[idx] = count; milim.		P_observer[idx] = count; 	}
+		
+		else if 	(v.P_HeroID[playerID] == 26)	{ yume.		P_player[idx] = count; yume.		P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 27)	{ magane.	P_player[idx] = count; magane.	P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 28)	{ oda.		P_player[idx] = count; oda.		P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 29)	{ ekidona.	P_player[idx] = count; ekidona.	P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 30)	{ niwa.		P_player[idx] = count; niwa.		P_observer[idx] = count; 	}
+		
+		else if 	(v.P_HeroID[playerID] == 31)	{ park.		P_player[idx] = count; park.		P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 32)	{ hodaka.	P_player[idx] = count; hodaka.	P_observer[idx] = count; 	}
+	}
+}
 
 function OldCharacterVoiceNormal()
 {
@@ -169,30 +199,6 @@ function OldCharacterVoiceUnique()
 }
 
 
-function CharacterVoice(count : TrgCount)
-{
-	var playerID = getcurpl();
-	
-	foreach(idx : EUDLoopRange(6))
-	{
-		if 		(v.P_HeroID[playerID] == 1)	{ rusaruka.	P_player[idx] = count; rusaruka.	P_observer[idx] = count; }
-		else if 	(v.P_HeroID[playerID] == 2)	{ chtholly.	P_player[idx] = count; chtholly.	P_observer[idx] = count; 	}
-		else if 	(v.P_HeroID[playerID] == 3)	{ maihime.	P_player[idx] = count; maihime.	P_observer[idx] = count; 	}
-		
-		else if 	(v.P_HeroID[playerID] == 22)	{ yuuna.		P_player[idx] = count; yuuna.		P_observer[idx] = count; 	}
-		else if 	(v.P_HeroID[playerID] == 23)	{ mayuri.	P_player[idx] = count; mayuri.	P_observer[idx] = count; 	}
-		else if 	(v.P_HeroID[playerID] == 24)	{ nanami.	P_player[idx] = count; nanami.	P_observer[idx] = count; 	}
-		else if 	(v.P_HeroID[playerID] == 25)	{ milim.		P_player[idx] = count; milim.		P_observer[idx] = count; 	}
-		
-		else if 	(v.P_HeroID[playerID] == 26)	{ yume.		P_player[idx] = count; yume.		P_observer[idx] = count; 	}
-		else if 	(v.P_HeroID[playerID] == 27)	{ magane.	P_player[idx] = count; magane.	P_observer[idx] = count; 	}
-		else if 	(v.P_HeroID[playerID] == 28)	{ oda.		P_player[idx] = count; oda.		P_observer[idx] = count; 	}
-		else if 	(v.P_HeroID[playerID] == 29)	{ ekidona.	P_player[idx] = count; ekidona.	P_observer[idx] = count; 	}
-		else if 	(v.P_HeroID[playerID] == 30)	{ niwa.		P_player[idx] = count; niwa.		P_observer[idx] = count; 	}
-		
-		else if 	(v.P_HeroID[playerID] == 31)	{ park.		P_player[idx] = count; park.		P_observer[idx] = count; 	}
-	}
-}
 
 function OldVoicemain()
 {
@@ -219,7 +225,7 @@ function main(playerID)
 	
 	// Group3
 	ryuzu.main(playerID);
-	//kurumi.main(playerID);
+	kurumi.main(playerID);
 	sakura.main(playerID);
 	yashiro.main(playerID);
 	rin.main(playerID);
@@ -247,4 +253,5 @@ function main(playerID)
 	
 	// Group6
 	park.main(playerID);
+	hodaka.main(playerID);
 }

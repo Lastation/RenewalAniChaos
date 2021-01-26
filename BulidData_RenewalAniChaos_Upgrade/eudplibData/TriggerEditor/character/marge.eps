@@ -8,6 +8,8 @@ import character.group1.rusaruka.main 	as rusaruka;
 import character.group1.chtholly.main 	as chtholly;
 import character.group1.maihime.main 	as maihime;
 
+import character.group3.kurumi.main 	as kurumi;
+
 import character.group4.yuuna.main 		as yuuna;
 import character.group4.mayuri.main 	as mayuri;
 import character.group4.nanami.main 	as nanami;
@@ -20,6 +22,7 @@ import character.group5.ekidona.main 	as ekidona;
 import character.group5.niwa.main 		as niwa;
 
 import character.group6.park.main 		as park;
+import character.group6.hodaka.main 	as hodaka;
 
 
 function main(playerID)
@@ -38,6 +41,8 @@ function main(playerID)
 	else if 	(v.P_HeroID[playerID] == 2) 		chtholly.main(playerID);
 	else if 	(v.P_HeroID[playerID] == 3) 		maihime.main(playerID);
 	
+	else if 	(v.P_HeroID[playerID] == 12) 	kurumi.main(playerID);
+	
 	else if 	(v.P_HeroID[playerID] == 22) 	yuuna.main(playerID);
 	else if 	(v.P_HeroID[playerID] == 23) 	mayuri.main(playerID);
 	else if 	(v.P_HeroID[playerID] == 24) 	nanami.main(playerID);
@@ -50,7 +55,10 @@ function main(playerID)
 	else if 	(v.P_HeroID[playerID] == 30) 	niwa.main(playerID);
 	
 	else if 	(v.P_HeroID[playerID] == 31) 	park.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 32) 	hodaka.main(playerID);
 	
+	SetDeaths(playerID, SetTo, v.P_Shield[playerID], " `SystemShield");
+		
 	//Test
        if(playerID < 6 && bread(0x58D2B0 + 0x207C * (0 / 46) + playerID * (46 - 31 * (0 / 46)) + (0 % 46)) != 80)
        {
