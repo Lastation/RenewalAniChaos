@@ -1,4 +1,3 @@
-import PluginVariables as msqcvar;
 import variable as v;
 import system.getUnitID as unitid;
 
@@ -12,7 +11,7 @@ function BuildingText(playerID)
 	{
 		case 81:
 			unitid.UnitHP[playerID] = dwread_epd(unitid.NowIndex[playerID] + 0x008 / 4) / 256;
-			v.stb.printAt(0, "\x13\x19[ \x1FP\x04olarlicht \x19]\n\x13\x04\x1955초 \x04마다 Hoffnung [용병] 스텍이 5 추가로 증가합니다.\n\n\x13\x04남은 체력 : ", unitid.UnitHP[playerID], " / 30000");
+			v.stb.printAt(0, "\x13\x19[ \x1FP\x04olarlicht \x19]\n\x13\x04\x1955초 \x04마다 Hoffnung [용병] 스텍이 5 추가로 증가합니다.\n\n\x13\x04남은 체력 : ", unitid.UnitHP[playerID], " / 20000");
 			BuildingID[playerID] = 0;
 			break;
 		case 79:
@@ -41,7 +40,7 @@ function BuildingText(playerID)
 			break;
 		case 200:
 			unitid.UnitHP[playerID] = dwread_epd(unitid.NowIndex[playerID] + 0x008 / 4) / 256;
-			v.stb.printAt(0, "\x13\x19[ \x1BW\x04ald \x19]\n\x13\x04제거시 \x1B방어건물 \x04의 무적이 해제됩니다.\n\n\x13\x04남은 체력 : ", unitid.UnitHP[playerID], " / 70000");
+			v.stb.printAt(0, "\x13\x19[ \x1BW\x04ald \x19]\n\x13\x04제거시 \x1B방어건물 \x04의 무적이 해제되며,\n\x13\x1B신전\x04의 방어력이 20 감소됩니다.\n\n\x13\x04남은 체력 : ", unitid.UnitHP[playerID], " / 50000");
 			BuildingID[playerID] = 0;
 			break;
 	}

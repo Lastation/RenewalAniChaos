@@ -2,7 +2,7 @@
 
 [main]
 input: ..\..\RenewalAniChaos_Original.scx
-output: C:\Users\vocal\Documents\Starcraft\Maps\RenewalAniChaos\RenewalAniChaos_T2.scx
+output: D:\StarCraft\Maps\making\RenewalAniChaos_T_KAT.scx
 [freeze]
 freeze : 0
 sectorSize: 3
