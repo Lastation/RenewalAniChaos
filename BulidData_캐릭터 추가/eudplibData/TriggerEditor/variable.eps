@@ -1,0 +1,52 @@
+import PluginVariables as msqcvar;
+import py_math;
+
+// String Buffer
+const stb			= StringBuffer();
+
+// Location & Hero & Unit ID
+const P_LocationID 	= PVariable();
+const P_HeroID 		= PVariable();	// 1, 2, 3 ~
+const P_UnitID		= PVariable();	// 77 - Feinx
+
+// Sin & Cos Angle
+const P_AngleCos 	= PVariable();
+const P_AngleSin 	= PVariable();
+
+// Sin & Cos Angle Table
+const P_Distance	= PVariable();
+const P_Table_Cos 	= EUDArray(py_eval("[int(round(100*math.cos(math.radians(t)))) for t in range(361)]"));
+const P_Table_Sin 	= EUDArray(py_eval("[int(round(100*math.sin(math.radians(t)))) for t in range(361)]"));
+
+// Ultimate Need Gauge
+const P_UltimateGauge 	= PVariable();
+const P_Ultimate1		= PVariable();
+const P_Ultimate2		= PVariable();
+const P_Ultimate3		= PVariable();
+
+// Unique Variable
+const P_CharacterFlag		= PVariable();
+const P_UniqueCool			= PVariable();
+const P_UniqueCondition	= PVariable();
+
+// Wait 
+const P_WaitMain	= PVariable();
+const P_WaitSub1	= PVariable();
+const P_WaitSub2	= PVariable();
+
+// Count
+const P_CountMain	= PVariable();
+const P_CountSub1	= PVariable();
+const P_CountSub2	= PVariable();
+
+// Loop
+const P_LoopMain	= PVariable();
+const P_LoopSub1	= PVariable();
+const P_LoopSub2	= PVariable();
+
+// Skill
+const P_Step			= PVariable();
+const P_Shield			= PVariable();
+const P_Ally				= PVariable();
+const P_SkillDelay		= PVariable();
+const P_HoldLocation 	= [97, 119, 122, 126, 134, 143, 0, 0];

@@ -4,6 +4,21 @@ import variable as v;
  * @Type
  * F
  * @Summary.ko-KR
+ * 캐릭터에게 리콜이펙트를 줄때 사용합니다.
+***/
+function Effect_Recall()
+{
+	var playerID = getcurpl();
+	MoveLocation(v.P_HoldLocation[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+	
+	if (Switch(53 + playerID, Cleared))
+	{ SetSwitch(53 + playerID, Set); }
+}
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
  * 캐릭터의 쉴드의 양을 설정할 때 사용합니다.
  * [amount]은 캐릭터의 쉴드의 양을 정할 때 사용합니다.
  * @param.amount.ko-KR
@@ -162,6 +177,9 @@ function Main_WaitLoop()
 	{ v.P_SkillDelay[playerID] -= 1; }
 	else if 	(v.P_SkillDelay[playerID] == 1)
 	{
+		if (Switch(53 + playerID, Set))
+		{ SetSwitch(53 + playerID, Clear); }
+		
 		v.P_SkillDelay[playerID] = 0;
 		v.P_Step[playerID] = 0; 
 		v.P_Shield[playerID] = 0;

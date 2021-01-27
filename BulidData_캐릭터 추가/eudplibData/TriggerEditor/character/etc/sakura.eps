@@ -1,0 +1,98 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
+
+const P_player		= PVariable();
+const P_observer 	= PVariable();
+const P_type 		= PVariable();
+
+function Text1(num);
+function Text2(num);
+function Text3(num);
+
+function player(playerID)
+{
+	if (P_type[playerID] == 1) { Text1(P_player[playerID]); }
+	if (P_type[playerID] == 2) { Text2(P_player[playerID]); }
+	if (P_type[playerID] == 3) { Text3(P_player[playerID]); }
+	P_player[playerID] = 0;
+}
+
+function observer(playerID)
+{
+	if (P_type[playerID] == 1) { Text1(P_observer[playerID - 128]); }
+	if (P_type[playerID] == 2) { Text2(P_observer[playerID - 128]); }
+	if (P_type[playerID] == 3) { Text3(P_observer[playerID - 128]); }
+	P_observer[playerID - 128] = 0;
+}
+
+function main(playerID)
+{
+	if (playerID < 6) 	{ player(playerID); 	}
+	else  			{ observer(playerID); }
+}
+
+
+
+
+function Text1(num)
+{
+	switch (num)
+	{
+	case 1000:
+		v.stb.print("\n\x13\x1BMato Sakura\n\x13\x04와~~앙!!\n");
+		PlayWAV("sakura_01.ogg");
+		
+		break;
+	case 1001:
+		v.stb.print("\n\x13\x1BMato Sakura\n\x13\x04어째서... \x08항상 \x04이렇게 되어버리는 걸까...\n");
+		PlayWAV("sakura_02.ogg");
+		
+		break;
+	case 1002:
+		v.stb.print("\n\x13\x1BMato Sakura\n\x13\x04아주 예전부터 생각했다...\n");
+		
+		break;
+	case 1003:
+		v.stb.print("\n\x13\x1BMato Sakura\n\x13\x04아주 예전부터 \x08원망\x04하고 있었던 거야...\n");
+		
+		break;
+	case 1004:
+		PlayWAV("sakura_03.ogg");
+		v.stb.print("\n\x13\x1BMato Sakura\n\x13\x04왜 내 주변에 있는 \x08세계\x04는...\n");
+		
+		break;
+	case 1005:
+		v.stb.print("\n\x13\x1BMato Sakura\n\x13\x04이렇게나... 나를 \x08싫어하는 걸까...\n");
+		
+		break;
+	}
+}
+
+function Text2(num)
+{
+	switch (num)
+	{
+	case 13000:
+		PlayWAV("sakura_04.ogg");
+		
+		break;
+	case 13001:
+		PlayWAV("sakura_05.ogg");
+		v.stb.printAt(3,"\x13\x1BMato Sakura\n\x13\x08이런 사람... 없었으면 좋았을텐데...");
+		
+		break;
+	}
+}
+
+function Text3(num)
+{
+	switch (num) 
+	{
+	case 13000:
+		PlayWAV("sakura_06.ogg");
+		
+		break;
+	}
+}
