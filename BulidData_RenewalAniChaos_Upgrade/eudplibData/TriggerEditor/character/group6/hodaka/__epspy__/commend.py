@@ -255,8 +255,8 @@ def f_main(playerID):
         # (Line 76) &&  v.P_Step[playerID] == 300)
         if _t12(EUDSCAnd()(Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))(Bring(playerID, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill"))(v.P_Step[playerID] == 300)()):
             # (Line 77) {
-            # (Line 78) s.CharacterVoice(6);
-            s.CharacterVoice(6)
+            # (Line 78) s.CharacterVoice(5);
+            s.CharacterVoice(5)
             # (Line 79) v.P_Step[playerID] = 310;
             _ARRW(v.P_Step, playerID) << (310)
             # (Line 80) v.P_SkillDelay[playerID] = 0;

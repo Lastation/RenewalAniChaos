@@ -65,12 +65,17 @@ function SelectText(playerID)
 		break;
 	case 10:		// Gui Montag (Firebat)
 		if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 31; }	// Park
-		if 		(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 32; }	// Hodaka
+		else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 32; }	// Hodaka
 		unitID.UnitID[playerID] = 0;
 		break;
 	}
 	
-	if (unitID.PlayerID[playerID] < 6)
+	if (unitID.PlayerID[playerID] < 6 && 
+		(unitID.UnitID[playerID] == 51 || unitID.UnitID[playerID] == 77 || 
+		 unitID.UnitID[playerID] == 74 || unitID.UnitID[playerID] == 16 || 
+		 unitID.UnitID[playerID] == 54 || unitID.UnitID[playerID] == 99 ||
+		 unitID.UnitID[playerID] == 64 || unitID.UnitID[playerID] == 53 || 
+		 unitID.UnitID[playerID] == 34 || unitID.UnitID[playerID] == 10))
 	{
 		t.T_CharaterNum[playerID] = v.P_HeroID[playerID];
 		unitID.UnitID[playerID] = 0;

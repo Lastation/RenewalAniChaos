@@ -128,10 +128,12 @@ def _LSH(l, r):
 
 # (Line 1) import PluginVariables as msqcvar;
 import PluginVariables as msqcvar
-# (Line 3) import variable as v;
+# (Line 2) import variable as v;
 import variable as v
-# (Line 4) import func.trig as trg;
+# (Line 3) import func.trig as trg;
 from func import trig as trg
+# (Line 4) import func.trigadv as adv;
+from func import trigadv as adv
 # (Line 5) import func.sound as s;
 from func import sound as s
 # (Line 7) function main(playerID)
@@ -309,50 +311,46 @@ def f_main(playerID):
                 # (Line 109) else if(v.P_LoopMain[playerID] <= 46)
             if EUDElseIf()(v.P_LoopMain[playerID] <= 46):
                 # (Line 110) {
-                # (Line 111) MoveLocation(v.P_LocationID[playerID],"Kakaru",playerID,"Anywhere");
-                # (Line 112) RemoveUnitAt(1,"Kakaru","Anywhere",playerID);
-                DoActions(MoveLocation(v.P_LocationID[playerID], "Kakaru", playerID, "Anywhere"))
-                # (Line 113) trg.SkillUnit(playerID,12,"50 + 1n Tank");
+                # (Line 111) adv.Shape_NxNSquareAt(playerID,"Kakaru", 1, "50 + 1n Tank", 3, 64);
+                adv.Shape_NxNSquareAt(playerID, "Kakaru", 1, "50 + 1n Tank", 3, 64)
+                # (Line 112) adv.Shape_NxNSquareAt(playerID,"Kakaru", 1, "50 + 1n Battlecruiser", 3, 64);
+                adv.Shape_NxNSquareAt(playerID, "Kakaru", 1, "50 + 1n Battlecruiser", 3, 64)
+                # (Line 113) RemoveUnitAt(1,"Kakaru","Anywhere",playerID);
+                # (Line 114) Order("50 + 1n Tank", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(RemoveUnitAt(1, "Kakaru", "Anywhere", playerID))
-                trg.SkillUnit(playerID, 12, "50 + 1n Tank")
-                # (Line 114) trg.SkillUnit(playerID,6,"50 + 1n Battlecruiser");
-                trg.SkillUnit(playerID, 6, "50 + 1n Battlecruiser")
-                # (Line 115) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
-                trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
-                # (Line 116) Order("50 + 1n Tank", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
-                # (Line 117) Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 115) Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(Order("50 + 1n Tank", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 118) trg.Main_Wait(200);
+                # (Line 116) trg.Main_Wait(200);
                 DoActions(Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
                 trg.Main_Wait(200)
-                # (Line 119) }
-                # (Line 121) else if(v.P_LoopMain[playerID] == 47)
+                # (Line 117) }
+                # (Line 119) else if(v.P_LoopMain[playerID] == 47)
             if EUDElseIf()(v.P_LoopMain[playerID] == 47):
-                # (Line 122) {
-                # (Line 123) KillUnitAt(All,"50 + 1n Tank","Anywhere",playerID);
-                # (Line 124) KillUnitAt(All,"50 + 1n Battlecruiser","Anywhere",playerID);
+                # (Line 120) {
+                # (Line 121) KillUnitAt(All,"50 + 1n Tank","Anywhere",playerID);
+                # (Line 122) KillUnitAt(All,"50 + 1n Battlecruiser","Anywhere",playerID);
                 DoActions(KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID))
-                # (Line 125) trg.Shape_NxNSquare(playerID,1,"100 + 1n Hyperion",3,64);
+                # (Line 123) trg.Shape_NxNSquare(playerID,1,"100 + 1n Hyperion",3,64);
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID))
                 trg.Shape_NxNSquare(playerID, 1, "100 + 1n Hyperion", 3, 64)
-                # (Line 126) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+                # (Line 124) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
-                # (Line 127) Order("100 + 1n Hyperion", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
-                # (Line 128) trg.Main_Wait(200);
+                # (Line 125) Order("100 + 1n Hyperion", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 126) trg.Main_Wait(200);
                 DoActions(Order("100 + 1n Hyperion", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
                 trg.Main_Wait(200)
-                # (Line 129) }
-                # (Line 131) else if(v.P_LoopMain[playerID] == 52)
+                # (Line 127) }
+                # (Line 129) else if(v.P_LoopMain[playerID] == 52)
             if EUDElseIf()(v.P_LoopMain[playerID] == 52):
-                # (Line 132) {
-                # (Line 133) trg.SkillEnd();
+                # (Line 130) {
+                # (Line 131) trg.SkillEnd();
                 trg.SkillEnd()
-                # (Line 134) }
-                # (Line 135) v.P_LoopMain[playerID] += 1;
+                # (Line 132) }
+                # (Line 133) v.P_LoopMain[playerID] += 1;
             EUDEndIf()
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 136) }
-            # (Line 137) }
+            # (Line 134) }
+            # (Line 135) }
         EUDEndIf()
-        # (Line 138) }
+        # (Line 136) }
     EUDEndIf()

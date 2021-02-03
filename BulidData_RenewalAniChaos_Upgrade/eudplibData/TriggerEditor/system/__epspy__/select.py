@@ -306,9 +306,8 @@ def SelectText(playerID):
     if _t39(10):
         if EUDIf()(unitID.PlayerID[playerID] == 8):
             _ARRW(t.T_CharaterNum, playerID) << (31)
-            # (Line 68) if 		(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 32; }	// Hodaka
-        EUDEndIf()
-        if EUDIf()(unitID.PlayerID[playerID] == 9):
+            # (Line 68) else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 32; }	// Hodaka
+        if EUDElseIf()(unitID.PlayerID[playerID] == 9):
             _ARRW(t.T_CharaterNum, playerID) << (32)
             # (Line 69) unitID.UnitID[playerID] = 0;
         EUDEndIf()
@@ -316,37 +315,43 @@ def SelectText(playerID):
         # (Line 70) break;
         EUDBreak()
         # (Line 71) }
-    # (Line 73) if (unitID.PlayerID[playerID] < 6)
+    # (Line 73) if (unitID.PlayerID[playerID] < 6 &&
     EUDEndSwitch()
-    if EUDIf()(unitID.PlayerID[playerID] >= 6, neg=True):
-        # (Line 74) {
-        # (Line 75) t.T_CharaterNum[playerID] = v.P_HeroID[playerID];
+    _t42 = EUDIf()
+    # (Line 74) (unitID.UnitID[playerID] == 51 || unitID.UnitID[playerID] == 77 ||
+    # (Line 75) unitID.UnitID[playerID] == 74 || unitID.UnitID[playerID] == 16 ||
+    # (Line 76) unitID.UnitID[playerID] == 54 || unitID.UnitID[playerID] == 99 ||
+    # (Line 77) unitID.UnitID[playerID] == 64 || unitID.UnitID[playerID] == 53 ||
+    # (Line 78) unitID.UnitID[playerID] == 34 || unitID.UnitID[playerID] == 10))
+    if _t42(EUDSCAnd()(unitID.PlayerID[playerID] >= 6, neg=True)((EUDSCOr()(unitID.UnitID[playerID] == 51)(unitID.UnitID[playerID] == 77)(unitID.UnitID[playerID] == 74)(unitID.UnitID[playerID] == 16)(unitID.UnitID[playerID] == 54)(unitID.UnitID[playerID] == 99)(unitID.UnitID[playerID] == 64)(unitID.UnitID[playerID] == 53)(unitID.UnitID[playerID] == 34)(unitID.UnitID[playerID] == 10)()))()):
+        # (Line 79) {
+        # (Line 80) t.T_CharaterNum[playerID] = v.P_HeroID[playerID];
         _ARRW(t.T_CharaterNum, playerID) << (v.P_HeroID[playerID])
-        # (Line 76) unitID.UnitID[playerID] = 0;
+        # (Line 81) unitID.UnitID[playerID] = 0;
         _ARRW(unitID.UnitID, playerID) << (0)
-        # (Line 77) }
-        # (Line 79) if (t.T_CharaterNum[playerID] > 0 && Switch("StartSwitch", Cleared))
+        # (Line 82) }
+        # (Line 84) if (t.T_CharaterNum[playerID] > 0 && Switch("StartSwitch", Cleared))
     EUDEndIf()
     if EUDIf()(EUDSCAnd()(t.T_CharaterNum[playerID] <= 0, neg=True)(Switch("StartSwitch", Cleared))()):
-        # (Line 80) {
-        # (Line 81) v.stb.printAt(0, "\x13\x17[ \x04",ptr2s(t.T_CharacterName[t.T_CharaterNum[playerID]])," \x17]");
+        # (Line 85) {
+        # (Line 86) v.stb.printAt(0, "\x13\x17[ \x04",ptr2s(t.T_CharacterName[t.T_CharaterNum[playerID]])," \x17]");
         v.stb.printAt(0, "\x13\x17[ \x04", ptr2s(t.T_CharacterName[t.T_CharaterNum[playerID]]), " \x17]")
-        # (Line 82) v.stb.printAt(1, "\x13\x04- \x17", ptr2s(t.T_CharacterTitle[t.T_CharaterNum[playerID]]) , " \x04-");
+        # (Line 87) v.stb.printAt(1, "\x13\x04- \x17", ptr2s(t.T_CharacterTitle[t.T_CharaterNum[playerID]]) , " \x04-");
         v.stb.printAt(1, "\x13\x04- \x17", ptr2s(t.T_CharacterTitle[t.T_CharaterNum[playerID]]), " \x04-")
-        # (Line 83) v.stb.printAt(2, "\n");
+        # (Line 88) v.stb.printAt(2, "\n");
         v.stb.printAt(2, "\n")
-        # (Line 84) v.stb.printAt(3, "\x13\x17", ptr2s(t.T_CharacterType[t.T_CharaterNum[playerID]]), ptr2s(t.T_SubText[1]));
+        # (Line 89) v.stb.printAt(3, "\x13\x17", ptr2s(t.T_CharacterType[t.T_CharaterNum[playerID]]), ptr2s(t.T_SubText[1]));
         v.stb.printAt(3, "\x13\x17", ptr2s(t.T_CharacterType[t.T_CharaterNum[playerID]]), ptr2s(t.T_SubText[1]))
-        # (Line 85) v.stb.printAt(4, "\x13\x04", ptr2s(t.T_CharacterNeed[t.T_CharaterNum[playerID]]), ptr2s(t.T_SubText[2]));
+        # (Line 90) v.stb.printAt(4, "\x13\x04", ptr2s(t.T_CharacterNeed[t.T_CharaterNum[playerID]]), ptr2s(t.T_SubText[2]));
         v.stb.printAt(4, "\x13\x04", ptr2s(t.T_CharacterNeed[t.T_CharaterNum[playerID]]), ptr2s(t.T_SubText[2]))
-        # (Line 86) v.stb.printAt(5, "\n");
+        # (Line 91) v.stb.printAt(5, "\n");
         v.stb.printAt(5, "\n")
-        # (Line 87) v.stb.printAt(6, "\x13", ptr2s(t.T_CharacterTrait[t.T_CharaterNum[playerID]]));
+        # (Line 92) v.stb.printAt(6, "\x13", ptr2s(t.T_CharacterTrait[t.T_CharaterNum[playerID]]));
         v.stb.printAt(6, "\x13", ptr2s(t.T_CharacterTrait[t.T_CharaterNum[playerID]]))
-        # (Line 88) v.stb.printAt(7, "\n");
+        # (Line 93) v.stb.printAt(7, "\n");
         v.stb.printAt(7, "\n")
-        # (Line 90) t.T_CharaterNum[playerID] = 0;
+        # (Line 95) t.T_CharaterNum[playerID] = 0;
         _ARRW(t.T_CharaterNum, playerID) << (0)
-        # (Line 91) }
-        # (Line 92) }
+        # (Line 96) }
+        # (Line 97) }
     EUDEndIf()

@@ -162,8 +162,8 @@ def f_main(playerID):
                 # (Line 22) else if (v.P_LoopMain[playerID] == 1)
             if EUDElseIf()(v.P_LoopMain[playerID] == 1):
                 # (Line 23) {
-                # (Line 24) s.CharacterVoice(9);
-                s.CharacterVoice(9)
+                # (Line 24) s.CharacterVoice(10);
+                s.CharacterVoice(10)
                 # (Line 25) }
                 # (Line 26) else if (v.P_LoopMain[playerID] <= 11)
             if EUDElseIf()(v.P_LoopMain[playerID] <= 11):
