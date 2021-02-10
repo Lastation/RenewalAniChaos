@@ -1,0 +1,106 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+function Announce_Init()
+{
+	if (Bring((13), (10), 0, (15), (96))) 
+	{ eprintf("　\x04특성 정보 - \x17S [스카웃] : \x04성장특화　\x17C [캐리어] : \x04마나특화　\x17A [아비터] : \x04게이지특화"); }
+	else 
+	{ eprintf("　\x04캐릭터 선택 : \x17커세어　\x04캐릭터 정보확인 : \x17유닛 클릭　\x04랜덤 선택 : \x17리버"); }
+}
+
+function Announce_Adv(value, playerID)
+{
+	if (Deaths((13), (10), 0, (210)) && v.P_UniqueCool[playerID] == 0)
+	{
+		if (value == 0)
+		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04{}", v.P_Potion[playerID], v.P_Level[playerID]); }
+		if (value == 1)
+		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO Skill \x04사용가능 \x08OFF　\x07Level \x04{}", v.P_Potion[playerID], v.P_Level[playerID]); }
+	}
+	else if (Deaths((13), (10), 0, (210)) && v.P_UniqueCool[playerID] != 0)
+	{
+		if (value == 0)
+		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO \x1ECooltime \x04{}초 \x1CON　\x07Level \x04{}", v.P_Potion[playerID], v.P_UniqueCool[playerID] , v.P_Level[playerID]); }
+		if (value == 1)
+		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO \x1ECooltime \x04{}초 \x08OFF　\x07Level \x04{}", v.P_Potion[playerID], v.P_UniqueCool[playerID], v.P_Level[playerID]); }
+	}
+	else if (Deaths((13), (0), 1, (210)) && v.P_UniqueCool[playerID] == 0)
+	{ 
+		if (value == 0)
+		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FO Skill \x04사용가능 \x1CON　\x07Level \x04{}", v.P_DeathTime[playerID], v.P_Level[playerID]); }
+		if (value == 1)
+		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FO Skill \x04사용가능 \x08OFF　\x07Level \x04{}", v.P_DeathTime[playerID], v.P_Level[playerID]); }
+	}
+	else if (Deaths((13), (0), 1, (210)) && v.P_UniqueCool[playerID] != 0)
+	{
+		if (value == 0)
+		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FO \x1ECooltime \x04{}초 \x1CON　\x07Level \x04{}", v.P_DeathTime[playerID], v.P_UniqueCool[playerID], v.P_Level[playerID]); }
+		if (value == 1)
+		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FO \x1ECooltime \x04{}초 \x08OFF　\x07Level \x04{}", v.P_DeathTime[playerID], v.P_UniqueCool[playerID], v.P_Level[playerID]); }
+	}
+}
+
+function Announce_Normal(playerID)
+{
+	if (Deaths((13), (10), 0, (210)))
+	{
+		if (v.P_UniqueCool[playerID] == 0) 
+		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO Skill \x04사용가능　\x07Level \x04{}", v.P_Potion[playerID], v.P_Level[playerID]); }
+		else
+		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FO \x1ECooltime \x04{}초　\x07Level \x04{}", v.P_Potion[playerID], v.P_UniqueCool[playerID], v.P_Level[playerID]); }
+	}
+	else 
+	{
+		if (v.P_UniqueCool[playerID] == 0)
+		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FO Skill \x04사용가능　\x07Level \x04{}", v.P_DeathTime[playerID], v.P_Level[playerID]); }
+		else 
+		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FO \x1ECooltime \x04{}초　\x07Level \x04{}", v.P_DeathTime[playerID], v.P_UniqueCool[playerID], v.P_Level[playerID]); }
+	}
+}
+
+function Announce_Ingame(playerID)
+{
+	if (Score((13), (7), (1), 24))
+	{
+		if (Deaths((13), (10), 0, (210)))
+		{ eprintf("　\x1B남은 포션 갯수 \x04: {}　\x1FExp \x04{}/{}　\x07Level \x04{}", v.P_Potion[playerID], v.EXP_Now[playerID], v.EXP_Need[playerID], v.P_Level[playerID]); }
+		else
+		{ eprintf("　\x04치명상 치료까지 : {}초　\x1FExp \x04{}/{}　\x07Level \x04{}", v.P_DeathTime[playerID], v.EXP_Now[playerID], v.EXP_Need[playerID], v.P_Level[playerID]); }
+	}
+	else
+	{
+		switch (v.P_HeroID[playerID])
+		{
+		case 2:
+			if (Switch((6), (2))) { Announce_Adv(0, playerID); }
+			if (Switch((6), (3))) { Announce_Adv(1, playerID); }
+			break;
+		case 7:
+			if (Switch((9), (2))) { Announce_Adv(0, playerID); }
+			if (Switch((9), (3))) { Announce_Adv(1, playerID); }
+			break;
+		case 15:
+			if (Switch((19), (2))) { Announce_Adv(0, playerID); }
+			if (Switch((19), (3))) { Announce_Adv(1, playerID); }
+			break;
+		case 16:
+			if (Deaths((13), (0), 1, (204)) && Deaths((13), (1), 7, (204)))
+			{ Announce_Adv(0, playerID); }
+			else
+			{ Announce_Normal(playerID); }
+			break;
+		default:
+			Announce_Normal(playerID);
+			break;
+		}
+	}
+}
+
+function Announce_Marge(playerID)
+{
+	if (Switch(255, Set))		Announce_Ingame(playerID);
+	if (Switch(255, Cleared))	Announce_Init();
+}
+

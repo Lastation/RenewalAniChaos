@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import variable as v;
 import func.trig as trg;
 
@@ -190,8 +191,8 @@ function main(playerID)
          {     
             s.CharacterVoice(4); 
             SetSwitch("Unique - Milim", Set);
-            SetDeaths(playerID, SetTo, 2880, " `UniqueCoolTime");
-            SetDeaths(playerID, SetTo, 720, " `UniqueSkill");
+            SetDeaths(playerID, SetTo, 1440, " `UniqueCoolTime");
+            SetDeaths(playerID, SetTo, 300, " `UniqueSkill");
 
             trg.Main_Wait(80);
 

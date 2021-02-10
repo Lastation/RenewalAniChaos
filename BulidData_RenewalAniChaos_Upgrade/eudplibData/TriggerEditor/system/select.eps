@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import variable as v;
 import func.text as t;
 import system.getUnitID as unitID;
@@ -8,7 +9,8 @@ function SelectText(playerID)
 	{
 	case 51:		// Infested Kerrigan
 		if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 1;   }	// Rusaruka
-		else if 	(unitID.PlayerID[playerID] == 9)		{ t.T_CharaterNum[playerID] = 9;   }	// HotoMoka
+		else if 	(unitID.PlayerID[playerID] == 9)		{ t.T_CharaterNum[playerID] = 8;   }	// Anzu
+		else if 	(unitID.PlayerID[playerID] == 10)		{ t.T_CharaterNum[playerID] = 9;   }	// HotoMoka
 		else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 19; }	// Margot & Naruge
 		 unitID.UnitID[playerID] = 0;
 		break;

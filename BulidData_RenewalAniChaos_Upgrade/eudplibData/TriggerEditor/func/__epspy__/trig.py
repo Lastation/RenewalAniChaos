@@ -153,8 +153,8 @@ def Buff_ShieldFix(amount):
     # (Line 30) var playerID = getcurpl();
     playerID = EUDVariable()
     playerID << (f_getcurpl())
-    # (Line 31) v.P_Shield[playerID] = 1;
-    _ARRW(v.P_Shield, playerID) << (1)
+    # (Line 31) v.P_Shield[playerID] = amount;
+    _ARRW(v.P_Shield, playerID) << (amount)
     # (Line 32) ModifyUnitShields(1, v.P_UnitID[playerID], playerID, "Anywhere", amount);
     # (Line 33) }
     DoActions(ModifyUnitShields(1, v.P_UnitID[playerID], playerID, "Anywhere", amount))

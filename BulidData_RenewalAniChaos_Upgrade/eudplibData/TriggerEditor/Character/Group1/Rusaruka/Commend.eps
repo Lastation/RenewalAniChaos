@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import variable as v;
 import func.sound as s;
 
@@ -61,12 +62,13 @@ function main(playerID)
 			KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 			SetSwitch("Recall - Rusalka", Set);
 		}
-		else if (Bring(playerID, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") &&  v.P_Step[playerID] == 300)
+		else if (Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill") && Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill") &&  v.P_Step[playerID] == 300)
 		{
 			s.CharacterVoice(1);
 			v.P_Step[playerID] = 310;
 			v.P_SkillDelay[playerID] = 0;
-			KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", playerID);
+			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
+			KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", playerID);
 		}
 		
 		// Ultimate

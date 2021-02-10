@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import variable as v;
 import func.trig as trg;
 import func.sound as s;
@@ -5,7 +6,6 @@ import func.sound as s;
 function main(playerID)
 {	
 	trg.Debuff_BanReturn();
-	trg.Debuff_Slow();
 	
 	MoveUnit(All, "40 + 1n Marine", playerID, "Anywhere", "[Skill]HoldPosition");
 	MoveUnit(All, "40 + 1n Mojo", playerID, "Anywhere", "[Skill]HoldPosition");

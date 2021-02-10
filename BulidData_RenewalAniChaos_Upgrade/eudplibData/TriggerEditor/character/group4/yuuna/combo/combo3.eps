@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import variable as v;
 import func.trig as trg;
 import func.sound as s;
@@ -113,7 +114,7 @@ function main(playerID)
       }
       else if (v.P_CountMain[playerID] == 2)
       {
-         if (Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill") 
+         if (Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill") 
          && Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill") 
          && v.P_Step[playerID] == 210)
          {
@@ -123,7 +124,7 @@ function main(playerID)
             v.P_CountMain[playerID] = 0;
             v.P_LoopMain[playerID] = 0;
             v.P_Step[playerID] = 220;
-            KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+            KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
             KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", playerID);
          }
          else 
