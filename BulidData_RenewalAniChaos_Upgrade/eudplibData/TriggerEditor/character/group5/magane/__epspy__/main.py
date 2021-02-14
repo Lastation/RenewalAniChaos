@@ -146,8 +146,8 @@ from character.group5.magane.combo import combo1 as SSS
 from character.group5.magane.combo import combo2 as CCC
 # (Line 12) import character.group5.magane.combo.combo3 as CCCAA;
 from character.group5.magane.combo import combo3 as CCCAA
-# (Line 13) import character.group5.magane.combo.combo4 as ACC;
-from character.group5.magane.combo import combo4 as ACC
+# (Line 13) import character.group5.magane.combo.combo4 as AAC;
+from character.group5.magane.combo import combo4 as AAC
 # (Line 15) import character.group5.magane.ultimate.ultimate1 as AAA;
 from character.group5.magane.ultimate import ultimate1 as AAA
 # (Line 17) import character.group5.magane.text as text;
@@ -246,9 +246,9 @@ def f_main(playerID):
             EUDBreak()
             # (Line 68) case 310:
         _t7 = EUDSwitchCase()
-        # (Line 69) ACC.main(playerID);
+        # (Line 69) AAC.main(playerID);
         if _t7(310):
-            ACC.f_main(playerID)
+            AAC.f_main(playerID)
             # (Line 70) break;
             EUDBreak()
             # (Line 71) case 210:

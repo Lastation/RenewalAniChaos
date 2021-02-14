@@ -6,10 +6,9 @@ import func.sound as s;
 
 function main(playerID)
 {
-
+	trg.Debuff_Stop();
 	if (v.P_WaitMain[playerID] == 0)
 	{
-		
 		if (v.P_CountMain[playerID] == 0)
 		{
 			 KillUnitAt(All,"40 + 1n Goliath", "Anywhere", playerID);

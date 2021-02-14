@@ -16,6 +16,7 @@ function SetVariable(playerID)
        v.P_DeathTime[playerID] = dwread_epd(EPD(0x58A364 + 48 * 210 + 4 * playerID))/12;
        v.P_UniqueCool[playerID] = dwread_epd(EPD(0x58A364 + 48 * 203 + 4 * playerID))/12;
        v.P_UltimateGauge[playerID] = dwread_epd(EPD(0x58A364 + 48 * 205 + 4 * playerID));
+       v.P_UniqueCondition[playerID] = dwread_epd(EPD(0x58A364 + 48 * 128 + 4 * playerID));
        
        if (bread(0x58D2B0 + 0x207C * ((7) / 46) + (playerID) * (46 - 31 * ((7) / 46)) + ((7) % 46)) != bread(0x58D2B0 + 35 + 46 * playerID))
        { bwrite(0x58D2B0 + 0x207C * ((35) / 46) + (playerID) * (46 - 31 * ((35) / 46)) + ((35) % 46), bread(0x58D2B0 + 7 + 46 * playerID)); }

@@ -230,8 +230,8 @@ def Text(num):
         # (Line 55) v.stb.print("\x13\x08Tokisaki \x05Krumi");
         DoActions(PlayWAV("Kurumi_04.ogg"))
         v.stb.print("\x13\x08Tokisaki \x05Krumi")
-        # (Line 56) v.stb.print("\x13\x04s나는 다시 한번 그를 만나러 가겠어!");
-        v.stb.print("\x13\x04s나는 다시 한번 그를 만나러 가겠어!")
+        # (Line 56) v.stb.print("\x13\x04나는 다시 한번 그를 만나러 가겠어!");
+        v.stb.print("\x13\x04나는 다시 한번 그를 만나러 가겠어!")
         # (Line 57) break;
         EUDBreak()
         # (Line 58) case 8:

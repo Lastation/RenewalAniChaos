@@ -163,8 +163,8 @@ def SkillList(playerID):
         v.stb.printAt(2, "　　\x1FA\x04ction List\r\n　　　\x07O \x19 전투속행 ON/OFF [ 침식 도중 사망시 5초간 전투 속행 ] \x05개인쿨 4분")
         # (Line 24) v.stb.printAt(3, "　　　\x1FSSS \x04어쩔수 없지;; \x19[ 공성 ]");
         v.stb.printAt(3, "　　　\x1FSSS \x04어쩔수 없지;; \x19[ 공성 ]")
-        # (Line 25) v.stb.printAt(4, "　　　\x1FCCA + CC + AAA \x04침식 \x19[ 공성 / AAA - 자리고정 / 귀환봉인 ] \x1F[1]");
-        v.stb.printAt(4, "　　　\x1FCCA + CC + AAA \x04침식 \x19[ 공성 / AAA - 자리고정 / 귀환봉인 ] \x1F[1]")
+        # (Line 25) v.stb.printAt(4, "　　　\x1FCAA + CC + AAA \x04침식 \x19[ 공성 / AAA - 자리고정 / 귀환봉인 ] \x1F[1]");
+        v.stb.printAt(4, "　　　\x1FCAA + CC + AAA \x04침식 \x19[ 공성 / AAA - 자리고정 / 귀환봉인 ] \x1F[1]")
         # (Line 26) v.stb.printAt(5, "\n");
         v.stb.printAt(5, "\n")
         # (Line 27) v.stb.printAt(6, "　　　\x1F[1] + \x08O \x04세상에서 가장 행복한 여자 \x19[ 공성 / 선딜 4.5초 / 장판형 / 쉴드 10고정 ] \x05", v.P_Ultimate1[playerID]);
@@ -191,10 +191,10 @@ def f_main(playerID):
     _ARRW(v.P_LocationID, playerID) << (117)
     # (Line 39) v.P_UnitID[playerID] 			= 77;
     _ARRW(v.P_UnitID, playerID) << (77)
-    # (Line 41) v.P_Ultimate1[playerID] = 700;
-    _ARRW(v.P_Ultimate1, playerID) << (700)
-    # (Line 42) v.P_Ultimate2[playerID] = 700;
-    _ARRW(v.P_Ultimate2, playerID) << (700)
+    # (Line 41) v.P_Ultimate1[playerID] = 650;
+    _ARRW(v.P_Ultimate1, playerID) << (650)
+    # (Line 42) v.P_Ultimate2[playerID] = 650;
+    _ARRW(v.P_Ultimate2, playerID) << (650)
     # (Line 45) commend.main(playerID);
     commend.f_main(playerID)
     # (Line 46) SkillList(playerID);

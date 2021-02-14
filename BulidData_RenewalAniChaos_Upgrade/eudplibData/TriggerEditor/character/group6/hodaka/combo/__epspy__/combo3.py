@@ -330,9 +330,9 @@ def f_main(playerID):
                 # (Line 121) KillUnitAt(All,"50 + 1n Tank","Anywhere",playerID);
                 # (Line 122) KillUnitAt(All,"50 + 1n Battlecruiser","Anywhere",playerID);
                 DoActions(KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID))
-                # (Line 123) trg.Shape_NxNSquare(playerID,1,"100 + 1n Hyperion",3,64);
+                # (Line 123) trg.Shape_NxNSquare(playerID,1,"100 + 1n Hyperion",3,256);
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID))
-                trg.Shape_NxNSquare(playerID, 1, "100 + 1n Hyperion", 3, 64)
+                trg.Shape_NxNSquare(playerID, 1, "100 + 1n Hyperion", 3, 256)
                 # (Line 124) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
                 # (Line 125) Order("100 + 1n Hyperion", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);

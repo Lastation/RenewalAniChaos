@@ -334,8 +334,8 @@ def f_main(playerID):
             # (Line 118) else if (v.P_CountMain[playerID] == 8
         _t14 = EUDElseIf()
         # (Line 119) && Bring(playerID, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill")
-        # (Line 120) && v.P_UltimateGauge[playerID] >= v.P_Ultimate2[playerID])
-        if _t14(EUDSCAnd()(v.P_CountMain[playerID] == 8)(Bring(playerID, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill"))(v.P_UltimateGauge[playerID] >= v.P_Ultimate2[playerID])()):
+        # (Line 120) && v.P_UltimateGauge[playerID] >= v.P_Ultimate1[playerID])
+        if _t14(EUDSCAnd()(v.P_CountMain[playerID] == 8)(Bring(playerID, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill"))(v.P_UltimateGauge[playerID] >= v.P_Ultimate1[playerID])()):
             # (Line 121) {
             # (Line 122) if (Switch("UiltimateSwitch", Cleared))
             if EUDIf()(Switch("UiltimateSwitch", Cleared)):
@@ -350,9 +350,9 @@ def f_main(playerID):
                 _ARRW(v.P_CountMain, playerID) << (0)
                 # (Line 128) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 129) v.P_UltimateGauge[playerID] -= v.P_Ultimate2[playerID];
-                _ARRW(v.P_UltimateGauge, playerID).__isub__(v.P_Ultimate2[playerID])
+                # (Line 129) SetDeaths(playerID, Subtract, v.P_Ultimate1[playerID], 205);
                 # (Line 130) KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID);
+                DoActions(SetDeaths(playerID, Subtract, v.P_Ultimate1[playerID], 205))
                 # (Line 131) SetSwitch("Recall - Chtholly", Set);
                 DoActions(KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID))
                 # (Line 132) }

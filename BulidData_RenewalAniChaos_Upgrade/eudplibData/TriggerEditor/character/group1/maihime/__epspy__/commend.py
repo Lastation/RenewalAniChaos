@@ -278,9 +278,9 @@ def f_main(playerID):
             _ARRW(v.P_Step, playerID) << (320)
             # (Line 91) v.P_SkillDelay[playerID] = 0;
             _ARRW(v.P_SkillDelay, playerID) << (0)
-            # (Line 92) v.P_UltimateGauge[playerID] -= v.P_Ultimate1[playerID];
-            _ARRW(v.P_UltimateGauge, playerID).__isub__(v.P_Ultimate1[playerID])
+            # (Line 92) SetDeaths(playerID, Subtract, v.P_Ultimate1[playerID], 205);
             # (Line 93) KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+            DoActions(SetDeaths(playerID, Subtract, v.P_Ultimate1[playerID], 205))
             # (Line 94) }
             DoActions(KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID))
             # (Line 96) else if (Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill")
@@ -304,9 +304,9 @@ def f_main(playerID):
                 _ARRW(v.P_Step, playerID) << (330)
                 # (Line 107) v.P_SkillDelay[playerID] = 0;
                 _ARRW(v.P_SkillDelay, playerID) << (0)
-                # (Line 108) v.P_UltimateGauge[playerID] -= v.P_Ultimate2[playerID];
-                _ARRW(v.P_UltimateGauge, playerID).__isub__(v.P_Ultimate2[playerID])
+                # (Line 108) SetDeaths(playerID, Subtract, v.P_Ultimate2[playerID], 205);
                 # (Line 109) KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+                DoActions(SetDeaths(playerID, Subtract, v.P_Ultimate2[playerID], 205))
                 # (Line 110) }
                 DoActions(KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID))
                 # (Line 111) else

@@ -89,7 +89,7 @@ function main(playerID)
 			s.CharacterVoice(8);
 			v.P_Step[playerID] = 320;
 			v.P_SkillDelay[playerID] = 0;
-			v.P_UltimateGauge[playerID] -= v.P_Ultimate1[playerID];
+			SetDeaths(playerID, Subtract, v.P_Ultimate1[playerID], 205);
 			KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 		}
 		// Ultimate2
@@ -105,7 +105,7 @@ function main(playerID)
                		CreateUnit(1, " Item. Flag", "[Uiltimate]Flag", CurrentPlayer);
 				v.P_Step[playerID] = 330;
 				v.P_SkillDelay[playerID] = 0;
-				v.P_UltimateGauge[playerID] -= v.P_Ultimate2[playerID];
+				SetDeaths(playerID, Subtract, v.P_Ultimate2[playerID], 205);
 				KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 			}
 			else

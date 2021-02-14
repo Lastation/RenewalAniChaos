@@ -175,8 +175,8 @@ def SkillList(playerID):
         v.stb.printAt(4, "　　　\x04\x1FSSS \x04여유 \x19[ 대인 ]")
         # (Line 30) v.stb.printAt(5, "　　　\x04\x1FCC + A \x04닛카리 아오에 \x19[ 대인 ]");
         v.stb.printAt(5, "　　　\x04\x1FCC + A \x04닛카리 아오에 \x19[ 대인 ]")
-        # (Line 31) v.stb.printAt(6, "　　　\x04\x1FCCAS + AA \x04전투광 \x19[ 대인 / 쉴드고정 ]");
-        v.stb.printAt(6, "　　　\x04\x1FCCAS + AA \x04전투광 \x19[ 대인 / 쉴드고정 ]")
+        # (Line 31) v.stb.printAt(6, "　　　\x04\x1FCAA + 200 Gas + AC \x04전투광 \x19[ 대인 / 쉴드고정 ]");
+        v.stb.printAt(6, "　　　\x04\x1FCAA + 200 Gas + AC \x04전투광 \x19[ 대인 / 쉴드고정 ]")
         # (Line 32) v.stb.printAt(7, "\n");
         v.stb.printAt(7, "\n")
         # (Line 33) v.stb.printAt(8, "　　　\x08AAA \x04시간 낭비 \x19[ 선입력 0.5초 / 대인 / 시전 중 무적 / 25 x 25 영웅 로케 ] \x05", v.P_Ultimate1[playerID]);

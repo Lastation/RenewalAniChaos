@@ -149,10 +149,10 @@ def f_main(playerID):
             DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID))
             # (Line 16) KillUnitAt(All,"40 + 1n Wraith", "Anywhere", playerID);
             DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID))
-            # (Line 17) KillUnitAt(All,"130 + 1n Arbiter", "Anywhere", playerID);
+            # (Line 17) KillUnitAt(All,"60 + 1n Danimoth", "Anywhere", playerID);
             DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID))
             # (Line 18) KillUnitAt(All,"50 + 1n Battlecruiser", "Anywhere", playerID);
-            DoActions(KillUnitAt(All, "130 + 1n Arbiter", "Anywhere", playerID))
+            DoActions(KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID))
             # (Line 19) if (v.P_LoopMain[playerID] == 0)
             DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID))
             if EUDIf()(v.P_LoopMain[playerID] == 0):
@@ -201,13 +201,13 @@ def f_main(playerID):
                 # (Line 45) else if (v.P_LoopMain[playerID] == 4)
             if EUDElseIf()(v.P_LoopMain[playerID] == 4):
                 # (Line 46) {
-                # (Line 47) trg.Shape_Line(playerID,1,"130 + 1n Arbiter",90,4,64,0);
-                trg.Shape_Line(playerID, 1, "130 + 1n Arbiter", 90, 4, 64, 0)
+                # (Line 47) trg.Shape_Line(playerID,1,"60 + 1n Danimoth",90,4,64,0);
+                trg.Shape_Line(playerID, 1, "60 + 1n Danimoth", 90, 4, 64, 0)
                 # (Line 48) trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
-                # (Line 49) Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 49) Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 # (Line 50) s.CharacterVoice(15);
-                DoActions(Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
+                DoActions(Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
                 s.CharacterVoice(15)
                 # (Line 51) trg.Main_Wait(30);
                 trg.Main_Wait(30)
@@ -217,13 +217,13 @@ def f_main(playerID):
                 # (Line 54) else if (v.P_LoopMain[playerID] == 5)
             if EUDElseIf()(v.P_LoopMain[playerID] == 5):
                 # (Line 55) {
-                # (Line 56) trg.Shape_Line(playerID,1,"130 + 1n Arbiter",180,4,64,0);
-                trg.Shape_Line(playerID, 1, "130 + 1n Arbiter", 180, 4, 64, 0)
+                # (Line 56) trg.Shape_Line(playerID,1,"60 + 1n Danimoth",180,4,64,0);
+                trg.Shape_Line(playerID, 1, "60 + 1n Danimoth", 180, 4, 64, 0)
                 # (Line 57) trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
-                # (Line 58) Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 58) Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 # (Line 59) trg.Main_Wait(30);
-                DoActions(Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
+                DoActions(Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
                 trg.Main_Wait(30)
                 # (Line 60) v.P_LoopMain[playerID] += 1;
                 _ARRW(v.P_LoopMain, playerID).__iadd__(1)
@@ -231,13 +231,13 @@ def f_main(playerID):
                 # (Line 62) else if (v.P_LoopMain[playerID] == 6)
             if EUDElseIf()(v.P_LoopMain[playerID] == 6):
                 # (Line 63) {
-                # (Line 64) trg.Shape_Line(playerID,1,"130 + 1n Arbiter",270,4,64,0);
-                trg.Shape_Line(playerID, 1, "130 + 1n Arbiter", 270, 4, 64, 0)
+                # (Line 64) trg.Shape_Line(playerID,1,"60 + 1n Danimoth",270, 4,64,0);
+                trg.Shape_Line(playerID, 1, "60 + 1n Danimoth", 270, 4, 64, 0)
                 # (Line 65) trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
-                # (Line 66) Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 66) Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 # (Line 67) trg.Main_Wait(30);
-                DoActions(Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
+                DoActions(Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
                 trg.Main_Wait(30)
                 # (Line 68) v.P_LoopMain[playerID] += 1;
                 _ARRW(v.P_LoopMain, playerID).__iadd__(1)
@@ -245,13 +245,13 @@ def f_main(playerID):
                 # (Line 70) else if (v.P_LoopMain[playerID] == 7)
             if EUDElseIf()(v.P_LoopMain[playerID] == 7):
                 # (Line 71) {
-                # (Line 72) trg.Shape_Line(playerID,1,"130 + 1n Arbiter",0,4,64,0);
-                trg.Shape_Line(playerID, 1, "130 + 1n Arbiter", 0, 4, 64, 0)
+                # (Line 72) trg.Shape_Line(playerID,1,"60 + 1n Danimoth",0,4,64,0);
+                trg.Shape_Line(playerID, 1, "60 + 1n Danimoth", 0, 4, 64, 0)
                 # (Line 73) trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
-                # (Line 74) Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 74) Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 # (Line 75) trg.Main_Wait(30);
-                DoActions(Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
+                DoActions(Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
                 trg.Main_Wait(30)
                 # (Line 76) v.P_LoopMain[playerID] += 1;
                 _ARRW(v.P_LoopMain, playerID).__iadd__(1)
@@ -281,8 +281,8 @@ def f_main(playerID):
                 # (Line 91) else if (v.P_LoopMain[playerID] == 10)
             if EUDElseIf()(v.P_LoopMain[playerID] == 10):
                 # (Line 92) {
-                # (Line 93) trg.Shape_NxNSquare(playerID,1,"40 + 1n Mojo",3,32);
-                trg.Shape_NxNSquare(playerID, 1, "40 + 1n Mojo", 3, 32)
+                # (Line 93) trg.Shape_NxNSquare(playerID,1,"40 + 1n Mojo",3,64);
+                trg.Shape_NxNSquare(playerID, 1, "40 + 1n Mojo", 3, 64)
                 # (Line 94) trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
                 # (Line 95) Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
@@ -295,8 +295,8 @@ def f_main(playerID):
                 # (Line 99) else if (v.P_LoopMain[playerID] == 11)
             if EUDElseIf()(v.P_LoopMain[playerID] == 11):
                 # (Line 100) {
-                # (Line 101) trg.Shape_NxNSquare(playerID,1,"40 + 1n Wraith",4,32);
-                trg.Shape_NxNSquare(playerID, 1, "40 + 1n Wraith", 4, 32)
+                # (Line 101) trg.Shape_NxNSquare(playerID,1,"40 + 1n Wraith",4,64);
+                trg.Shape_NxNSquare(playerID, 1, "40 + 1n Wraith", 4, 64)
                 # (Line 102) trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
                 # (Line 103) Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
@@ -309,8 +309,8 @@ def f_main(playerID):
                 # (Line 107) else if (v.P_LoopMain[playerID] == 12)
             if EUDElseIf()(v.P_LoopMain[playerID] == 12):
                 # (Line 108) {
-                # (Line 109) trg.Shape_NxNSquare(playerID,1,"40 + 1n Guardian",5,32);
-                trg.Shape_NxNSquare(playerID, 1, "40 + 1n Guardian", 5, 32)
+                # (Line 109) trg.Shape_NxNSquare(playerID,1,"40 + 1n Guardian",5,64);
+                trg.Shape_NxNSquare(playerID, 1, "40 + 1n Guardian", 5, 64)
                 # (Line 110) trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
                 # (Line 111) Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);

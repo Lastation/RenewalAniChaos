@@ -173,8 +173,8 @@ def f_main(playerID):
     _ARRW(v.P_UnitID, playerID) << (64)
     # (Line 31) v.P_Ultimate1[playerID] = 650;
     _ARRW(v.P_Ultimate1, playerID) << (650)
-    # (Line 32) v.P_Ultimate2[playerID] = 500;
-    _ARRW(v.P_Ultimate2, playerID) << (500)
+    # (Line 32) v.P_Ultimate2[playerID] = 450;
+    _ARRW(v.P_Ultimate2, playerID) << (450)
     # (Line 34) SkillList(playerID);
     SkillList(playerID)
     # (Line 35) commend.main(playerID);
@@ -296,8 +296,8 @@ def SkillList(playerID):
         v.stb.printAt(5, "　　　\x04\x1FSSS \x04발상 \x19[ 만능 ]")
         # (Line 91) v.stb.printAt(6, "　　　\x04\x1FACC+ CA \x04필살기 \x19[ 만능 / 자리고정 ]");
         v.stb.printAt(6, "　　　\x04\x1FACC+ CA \x04필살기 \x19[ 만능 / 자리고정 ]")
-        # (Line 92) v.stb.printAt(7, "　　　\x04\x1FCCC + AA + AA \x04응원 \x19[ 공성 / CCC + AA - 자리고정 / 15 x 15 아군 공 방 증가 +5 ] \x1F[1]");
-        v.stb.printAt(7, "　　　\x04\x1FCCC + AA + AA \x04응원 \x19[ 공성 / CCC + AA - 자리고정 / 15 x 15 아군 공 방 증가 +5 ] \x1F[1]")
+        # (Line 92) v.stb.printAt(7, "　　　\x04\x1FCCC + CCC + AA \x04응원 \x19[ 공성 / CCC + CCC - 자리고정 / 15 x 15 아군 공 방 증가 +5 ] \x1F[1]");
+        v.stb.printAt(7, "　　　\x04\x1FCCC + CCC + AA \x04응원 \x19[ 공성 / CCC + CCC - 자리고정 / 15 x 15 아군 공 방 증가 +5 ] \x1F[1]")
         # (Line 93) v.stb.printAt(8, "\n");
         v.stb.printAt(8, "\n")
         # (Line 94) v.stb.printAt(9, "　　　\x1F[1] + \x08O \x04클래스메이트 \x19[ 공성 / 자리고정 ] \x05", v.P_Ultimate1[playerID]);

@@ -177,8 +177,8 @@ def SkillList(playerID):
         v.stb.printAt(4, "　　　\x04\x1FSSS \x04즐거움 \x19[ 테러 ]")
         # (Line 31) v.stb.printAt(5, "　　　\x04\x1FCCA + AAC \x04당황 \x19[ 공성 / 자리고정 ]");
         v.stb.printAt(5, "　　　\x04\x1FCCA + AAC \x04당황 \x19[ 공성 / 자리고정 ]")
-        # (Line 32) v.stb.printAt(6, "　　　\x04\x1FCCC + C \x04흥미 \x19[ 만능 / 자리고정 ]");
-        v.stb.printAt(6, "　　　\x04\x1FCCC + C \x04흥미 \x19[ 만능 / 자리고정 ]")
+        # (Line 32) v.stb.printAt(6, "　　　\x04\x1FCCC + A \x04흥미 \x19[ 만능 / 자리고정 ]");
+        v.stb.printAt(6, "　　　\x04\x1FCCC + A \x04흥미 \x19[ 만능 / 자리고정 ]")
         # (Line 33) v.stb.printAt(7, "\n");
         v.stb.printAt(7, "\n")
         # (Line 34) v.stb.printAt(8, "　　　\x08AAAAA + AAA \x04탐욕의 마녀 \x19[ 공성 ] \x05", v.P_Ultimate1[playerID], " + ",  v.P_Ultimate2[playerID]);

@@ -167,8 +167,8 @@ def f_skillList(playerID):
         v.stb.printAt(3, "　　　\x18O \x04창조 \x19[ 15x15 / 적 5초마다 경직 / 파괴될시 5분후 재생 / 설치형 ]")
         # (Line 26) v.stb.printAt(4, "　　　\x04\x1FSSS \x04위협 \x19[ 대인 / 공성 ]");
         v.stb.printAt(4, "　　　\x04\x1FSSS \x04위협 \x19[ 대인 / 공성 ]")
-        # (Line 27) v.stb.printAt(5, "　　　\x04\x1FCCC + AA \x04고문바퀴 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]");
-        v.stb.printAt(5, "　　　\x04\x1FCCC + AA \x04고문바퀴 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]")
+        # (Line 27) v.stb.printAt(5, "　　　\x04\x1FCC + AAS \x04고문바퀴 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]");
+        v.stb.printAt(5, "　　　\x04\x1FCC + AAS \x04고문바퀴 \x19[ 공성 / 후속 스킬 귀환봉인, 자리고정 ]")
         # (Line 28) v.stb.printAt(6, "　　　\x04\x1FACS \x04고문용 쇠사슬 \x19[ 대인 ]");
         v.stb.printAt(6, "　　　\x04\x1FACS \x04고문용 쇠사슬 \x19[ 대인 ]")
         # (Line 29) v.stb.printAt(7, "\n");

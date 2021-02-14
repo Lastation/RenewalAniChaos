@@ -195,33 +195,35 @@ def beforeTriggerExec():
             sound.OldVoicemain()
             # (Line 44) sound.main(playerID);
             sound.f_main(playerID)
-            # (Line 46) deathText.SetDeathValue(playerID);
+            # (Line 45) ppty.Property(playerID);
+            ppty.Property(playerID)
+            # (Line 47) deathText.SetDeathValue(playerID);
             deathText.SetDeathValue(playerID)
-            # (Line 48) init.SetBuildingHP(playerID);
+            # (Line 49) init.SetBuildingHP(playerID);
             init.SetBuildingHP(playerID)
-            # (Line 49) init.SetVariable(playerID);
+            # (Line 50) init.SetVariable(playerID);
             init.SetVariable(playerID)
-            # (Line 50) }
-            # (Line 52) if (v.P_HeroID[playerID] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
+            # (Line 51) }
+            # (Line 53) if (v.P_HeroID[playerID] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
         EUDEndIf()
         if EUDIf()(v.P_HeroID[playerID] == f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)), neg=True):
-            # (Line 53) { v.P_HeroID[playerID] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)); }
+            # (Line 54) { v.P_HeroID[playerID] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)); }
             _ARRW(v.P_HeroID, playerID) << (f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
-            # (Line 55) MuteUnitSpeech();
+            # (Line 56) MuteUnitSpeech();
         EUDEndIf()
-        # (Line 56) }
+        # (Line 57) }
         DoActions(MuteUnitSpeech())
-        # (Line 59) foreach (observerID : EUDLoopRange(128, 132))
+        # (Line 60) foreach (observerID : EUDLoopRange(128, 132))
 
     for observerID in EUDLoopRange(128, 132):
-        # (Line 60) {
-        # (Line 61) setcurpl(observerID);
+        # (Line 61) {
+        # (Line 62) setcurpl(observerID);
         f_setcurpl(observerID)
-        # (Line 62) MuteUnitSpeech();
-        # (Line 63) sound.OldVoicemain();
+        # (Line 63) MuteUnitSpeech();
+        # (Line 64) sound.OldVoicemain();
         DoActions(MuteUnitSpeech())
         sound.OldVoicemain()
-        # (Line 64) sound.main(observerID);
+        # (Line 65) sound.main(observerID);
         sound.f_main(observerID)
-        # (Line 65) }
         # (Line 66) }
+        # (Line 67) }
