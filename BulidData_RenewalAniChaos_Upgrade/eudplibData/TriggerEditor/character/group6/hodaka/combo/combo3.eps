@@ -1,7 +1,7 @@
 import PluginVariables as msqcvar;
-
 import variable as v;
 import func.trig as trg;
+import func.trigadv as adv;
 import func.sound as s;
 
 function main(playerID)
@@ -108,11 +108,9 @@ function main(playerID)
 			}
 			else if(v.P_LoopMain[playerID] <= 46)
 			{
-				MoveLocation(v.P_LocationID[playerID],"Kakaru",playerID,"Anywhere");
+				adv.Shape_NxNSquareAt(playerID,"Kakaru", 1, "50 + 1n Tank", 3, 64);
+				adv.Shape_NxNSquareAt(playerID,"Kakaru", 1, "50 + 1n Battlecruiser", 3, 64);
 				RemoveUnitAt(1,"Kakaru","Anywhere",playerID);
-				trg.SkillUnit(playerID,12,"50 + 1n Tank");
-				trg.SkillUnit(playerID,6,"50 + 1n Battlecruiser");
-				trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
 				Order("50 + 1n Tank", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 				Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 				trg.Main_Wait(200);
@@ -122,7 +120,7 @@ function main(playerID)
 			{
 				KillUnitAt(All,"50 + 1n Tank","Anywhere",playerID);
 				KillUnitAt(All,"50 + 1n Battlecruiser","Anywhere",playerID);
-				trg.Shape_NxNSquare(playerID,1,"100 + 1n Hyperion",3,64);
+				trg.Shape_NxNSquare(playerID,1,"100 + 1n Hyperion",3,256);
 				trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
 				Order("100 + 1n Hyperion", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 				trg.Main_Wait(200);

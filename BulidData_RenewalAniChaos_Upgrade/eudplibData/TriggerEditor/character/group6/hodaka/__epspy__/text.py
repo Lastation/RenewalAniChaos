@@ -128,152 +128,262 @@ def _LSH(l, r):
 
 # (Line 1) import PluginVariables as msqcvar;
 import PluginVariables as msqcvar
-# (Line 3) import variable as v;
+# (Line 2) import variable as v;
 import variable as v
-# (Line 4) import func.trig as trg;
+# (Line 3) import func.trig as trg;
 from func import trig as trg
-# (Line 5) import func.sound as s;
+# (Line 4) import func.sound as s;
 from func import sound as s
-# (Line 7) const P_player		= PVariable();
+# (Line 6) const P_player			= PVariable();
 P_player = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 8) const P_observer 	= PVariable();
+# (Line 7) const P_observer 		= PVariable();
 P_observer = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 10) function Text(num);
-# (Line 12) function player(playerID)
-# (Line 13) {
+# (Line 9) const P_Next = PVariable();
+P_Next = _CGFW(lambda: [PVariable()], 1)[0]
+# (Line 10) const P_Wait = PVariable();
+P_Wait = _CGFW(lambda: [PVariable()], 1)[0]
+# (Line 12) function Text(num, playerID);
+# (Line 14) function player(playerID)
+# (Line 15) {
 @EUDFunc
 def f_player(playerID):
-    # (Line 14) Text(P_player[playerID]);
-    Text(P_player[playerID])
-    # (Line 15) P_player[playerID] = 0;
+    # (Line 16) Text(P_player[playerID], playerID);
+    Text(P_player[playerID], playerID)
+    # (Line 17) P_player[playerID] = 0;
     _ARRW(P_player, playerID) << (0)
-    # (Line 16) }
-    # (Line 18) function observer(playerID)
+    # (Line 18) }
+    # (Line 20) function observer(playerID)
 
-# (Line 19) {
+# (Line 21) {
 @EUDFunc
 def f_observer(playerID):
-    # (Line 20) Text(P_observer[playerID - 128]);
-    Text(P_observer[playerID - 128])
-    # (Line 21) P_observer[playerID - 128] = 0;
+    # (Line 22) Text(P_observer[playerID - 128], playerID);
+    Text(P_observer[playerID - 128], playerID)
+    # (Line 23) P_observer[playerID - 128] = 0;
     _ARRW(P_observer, playerID - 128) << (0)
-    # (Line 22) }
-    # (Line 24) function main(playerID)
+    # (Line 24) }
+    # (Line 26) function main(playerID)
 
-# (Line 25) {
+# (Line 27) {
 @EUDFunc
 def f_main(playerID):
-    # (Line 26) if (playerID < 6) 	{ player(playerID); 	}
+    # (Line 28) if (playerID < 6) 	{ player(playerID); 	}
     if EUDIf()(playerID >= 6, neg=True):
         f_player(playerID)
-        # (Line 27) else  			{ observer(playerID); }
+        # (Line 29) else  			{ observer(playerID); }
     if EUDElse()():
         f_observer(playerID)
-        # (Line 28) }
+        # (Line 31) if (playerID < 6)
     EUDEndIf()
-    # (Line 30) function Text(num)
+    if EUDIf()(playerID >= 6, neg=True):
+        # (Line 32) {
+        # (Line 33) if (P_Wait[playerID] > 0)
+        if EUDIf()(P_Wait[playerID] <= 0, neg=True):
+            # (Line 34) { P_Wait[playerID] -= 1; }
+            _ARRW(P_Wait, playerID).__isub__(1)
+            # (Line 35) else if (P_Next[playerID] != 0)
+        if EUDElseIf()(P_Next[playerID] == 0, neg=True):
+            # (Line 36) {
+            # (Line 37) P_player[playerID] 	= P_Next[playerID] + 1;
+            _ARRW(P_player, playerID) << (P_Next[playerID] + 1)
+            # (Line 38) P_observer[playerID] = P_Next[playerID] + 1;
+            _ARRW(P_observer, playerID) << (P_Next[playerID] + 1)
+            # (Line 39) P_Next[playerID] = 0;
+            _ARRW(P_Next, playerID) << (0)
+            # (Line 40) }
+            # (Line 41) }
+        EUDEndIf()
+        # (Line 42) }
+    EUDEndIf()
+    # (Line 44) function TextDelay(playerID, wait)
 
-# (Line 31) {
+# (Line 45) {
 @EUDFunc
-def Text(num):
-    # (Line 32) switch(num)
+def TextDelay(playerID, wait):
+    # (Line 46) if (playerID < 6)
+    if EUDIf()(playerID >= 6, neg=True):
+        # (Line 47) {
+        # (Line 48) P_Next[playerID] = P_player[playerID];
+        _ARRW(P_Next, playerID) << (P_player[playerID])
+        # (Line 49) if (wait == 0)
+        if EUDIf()(wait == 0):
+            # (Line 50) { P_Next[playerID] = 0; }
+            _ARRW(P_Next, playerID) << (0)
+            # (Line 51) else
+            # (Line 52) { P_Wait[playerID] = wait / 83 + 1; }
+        if EUDElse()():
+            _ARRW(P_Wait, playerID) << (wait // 83 + 1)
+            # (Line 53) }
+        EUDEndIf()
+        # (Line 54) }
+    EUDEndIf()
+    # (Line 56) function Text(num, playerID)
+
+# (Line 57) {
+@EUDFunc
+def Text(num, playerID):
+    # (Line 58) switch(num)
     EUDSwitch(num)
-    # (Line 33) {
-    # (Line 34) case 1:
+    # (Line 59) {
+    # (Line 60) case 1:
     _t1 = EUDSwitchCase()
-    # (Line 35) PlayWAV("Hodaka_Unique.ogg");
+    # (Line 61) PlayWAV("Hodaka_Unique.ogg");
     if _t1(1):
-        # (Line 36) v.stb.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n");
+        # (Line 62) v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n");
         DoActions(PlayWAV("Hodaka_Unique.ogg"))
-        v.stb.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n")
-        # (Line 37) v.stb.printAt(5, "\x13\x04제군 ! \x07광연\x04의 시간이다!");
-        v.stb.printAt(5, "\x13\x04제군 ! \x07광연\x04의 시간이다!")
-        # (Line 38) break;
+        v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n")
+        # (Line 63) v.stb.printAt(5, "\x13\x04그냥 좀 둬요! 왜 방해해요? 아무것도 모르면서, 모르는 척만 하고!");
+        v.stb.printAt(5, "\x13\x04그냥 좀 둬요! 왜 방해해요? 아무것도 모르면서, 모르는 척만 하고!")
+        # (Line 64) TextDelay(playerID, 0);
+        TextDelay(playerID, 0)
+        # (Line 65) break;
         EUDBreak()
-        # (Line 39) case 2:
+        # (Line 66) case 2:
     _t2 = EUDSwitchCase()
-    # (Line 40) PlayWAV("Hodaka_01.ogg");
+    # (Line 67) PlayWAV("Hodaka_01.ogg");
     if _t2(2):
-        # (Line 41) v.stb.print("\x13\x04Tenkawa \x07MaiHime");
+        # (Line 68) v.stb.print("\x13\x04Morishima \x1FHodaka");
         DoActions(PlayWAV("Hodaka_01.ogg"))
-        v.stb.print("\x13\x04Tenkawa \x07MaiHime")
-        # (Line 42) v.stb.print("\x13\x04강하닷―――!!");
-        v.stb.print("\x13\x04강하닷―――!!")
-        # (Line 43) break;
-        EUDBreak()
-        # (Line 44) case 3:
-    _t3 = EUDSwitchCase()
-    # (Line 45) PlayWAV("Hodaka_02.ogg");
-    if _t3(3):
-        # (Line 46) v.stb.print("\x13\x04Tenkawa \x07MaiHime");
-        DoActions(PlayWAV("Hodaka_02.ogg"))
-        v.stb.print("\x13\x04Tenkawa \x07MaiHime")
-        # (Line 47) v.stb.print("\x13\x04있잖아, 힘에는 책임이 따르고 파워에는 책임이 따른다구?");
-        v.stb.print("\x13\x04있잖아, 힘에는 책임이 따르고 파워에는 책임이 따른다구?")
-        # (Line 48) break;
-        EUDBreak()
-        # (Line 49) case 4:
-    _t4 = EUDSwitchCase()
-    # (Line 50) PlayWAV("Hodaka_ultimate002.ogg");
-    if _t4(4):
-        # (Line 51) v.stb.print("\x13\x04Tenkawa \x07MaiHime");
-        DoActions(PlayWAV("Hodaka_ultimate002.ogg"))
-        v.stb.print("\x13\x04Tenkawa \x07MaiHime")
-        # (Line 52) v.stb.print("\x13\x04즉 힘이야말로 책임이며 책임이야말로 파워!");
-        v.stb.print("\x13\x04즉 힘이야말로 책임이며 책임이야말로 파워!")
-        # (Line 53) break;
-        EUDBreak()
-        # (Line 54) case 5:
-    _t5 = EUDSwitchCase()
-    # (Line 55) v.stb.print("\x13\x04Tenkawa \x07MaiHime");
-    if _t5(5):
-        v.stb.print("\x13\x04Tenkawa \x07MaiHime")
-        # (Line 56) v.stb.print("\x13\x04따라서 힘이야말로 파워!");
-        v.stb.print("\x13\x04따라서 힘이야말로 파워!")
-        # (Line 57) break;
-        EUDBreak()
-        # (Line 58) case 6:
-    _t6 = EUDSwitchCase()
-    # (Line 59) PlayWAV("Hodaka_03.ogg");
-    if _t6(6):
-        # (Line 60) v.stb.print("\x13\x04Tenkawa \x07MaiHime");
-        DoActions(PlayWAV("Hodaka_03.ogg"))
-        v.stb.print("\x13\x04Tenkawa \x07MaiHime")
-        # (Line 61) v.stb.print("\x13\x04여기는 나의 영역이다");
-        v.stb.print("\x13\x04여기는 나의 영역이다")
-        # (Line 62) break;
-        EUDBreak()
-        # (Line 63) case 7:
-    _t7 = EUDSwitchCase()
-    # (Line 64) v.stb.print("\x13\x04Tenkawa \x07MaiHime");
-    if _t7(7):
-        v.stb.print("\x13\x04Tenkawa \x07MaiHime")
-        # (Line 65) v.stb.print("\x13\x04내 \x07세계\x04에\n\x13\x04네놈들이 들어올 자리는 없어!!!");
-        v.stb.print("\x13\x04내 \x07세계\x04에\n\x13\x04네놈들이 들어올 자리는 없어!!!")
-        # (Line 66) break;
-        EUDBreak()
-        # (Line 67) case 8:
-    _t8 = EUDSwitchCase()
-    # (Line 68) PlayWAV("Hodaka_Ultimate01.ogg");
-    if _t8(8):
-        # (Line 69) v.stb.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n");
-        DoActions(PlayWAV("Hodaka_Ultimate01.ogg"))
-        v.stb.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n")
-        # (Line 70) v.stb.printAt(5, "\x13\x04이정도 힘으로 나에게 \x06싸움\x04을 걸었던거야?");
-        v.stb.printAt(5, "\x13\x04이정도 힘으로 나에게 \x06싸움\x04을 걸었던거야?")
+        v.stb.print("\x13\x04Morishima \x1FHodaka")
+        # (Line 69) v.stb.print("\x13\x04나, 돌아가기 싫어.. 절대");
+        v.stb.print("\x13\x04나, 돌아가기 싫어.. 절대")
+        # (Line 70) TextDelay(playerID, 0);
+        TextDelay(playerID, 0)
         # (Line 71) break;
         EUDBreak()
-        # (Line 72) case 9:
-    _t9 = EUDSwitchCase()
-    # (Line 73) PlayWAV("Hodaka_Ultimate02.ogg");
-    if _t9(9):
-        # (Line 74) v.stb.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n");
-        DoActions(PlayWAV("Hodaka_Ultimate02.ogg"))
-        v.stb.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n")
-        # (Line 75) v.stb.printAt(5, "\x13\x04이정도 힘으로 모두를 \x08죽이려고했던거야?");
-        v.stb.printAt(5, "\x13\x04이정도 힘으로 모두를 \x08죽이려고했던거야?")
-        # (Line 76) break;
+        # (Line 72) case 3:
+    _t3 = EUDSwitchCase()
+    # (Line 73) PlayWAV("Hodaka_02.ogg");
+    if _t3(3):
+        # (Line 74) v.stb.print("\x13\x04Morishima \x1FHodaka");
+        DoActions(PlayWAV("Hodaka_02.ogg"))
+        v.stb.print("\x13\x04Morishima \x1FHodaka")
+        # (Line 75) v.stb.print("\x13\x04여기서 벗어나고 싶어서, 저 빛에 들어가고 싶어서 필사적으로 달렸어");
+        v.stb.print("\x13\x04여기서 벗어나고 싶어서, 저 빛에 들어가고 싶어서 필사적으로 달렸어")
+        # (Line 76) TextDelay(playerID, 6000);
+        TextDelay(playerID, 6000)
+        # (Line 77) break;
         EUDBreak()
-        # (Line 77) }
-    # (Line 78) }
+        # (Line 78) case 4:
+    _t4 = EUDSwitchCase()
+    # (Line 79) v.stb.print("\x13\x04Morishima \x1FHodaka");
+    if _t4(4):
+        v.stb.print("\x13\x04Morishima \x1FHodaka")
+        # (Line 80) v.stb.print("\x13\x04그리고 그 끝에 네가 있었어");
+        v.stb.print("\x13\x04그리고 그 끝에 네가 있었어")
+        # (Line 81) TextDelay(playerID, 0);
+        TextDelay(playerID, 0)
+        # (Line 82) break;
+        EUDBreak()
+        # (Line 83) case 5:
+    _t5 = EUDSwitchCase()
+    # (Line 84) PlayWAV("Hodaka_03.ogg");
+    if _t5(5):
+        # (Line 85) v.stb.print("\x13\x04Morishima \x1FHodaka");
+        DoActions(PlayWAV("Hodaka_03.ogg"))
+        v.stb.print("\x13\x04Morishima \x1FHodaka")
+        # (Line 86) v.stb.print("\x13\x04두번 다시 맑지 않아도 돼!");
+        v.stb.print("\x13\x04두번 다시 맑지 않아도 돼!")
+        # (Line 87) TextDelay(playerID, 3000);
+        TextDelay(playerID, 3000)
+        # (Line 88) break;
+        EUDBreak()
+        # (Line 89) case 6:
+    _t6 = EUDSwitchCase()
+    # (Line 90) v.stb.print("\x13\x04Morishima \x1FHodaka");
+    if _t6(6):
+        v.stb.print("\x13\x04Morishima \x1FHodaka")
+        # (Line 91) v.stb.print("\x13\x04푸른 하늘보다도 나는 히나가 좋아!");
+        v.stb.print("\x13\x04푸른 하늘보다도 나는 히나가 좋아!")
+        # (Line 92) TextDelay(playerID, 4600);
+        TextDelay(playerID, 4600)
+        # (Line 93) break;
+        EUDBreak()
+        # (Line 94) case 7:
+    _t7 = EUDSwitchCase()
+    # (Line 95) v.stb.print("\x13\x04Morishima \x1FHodaka");
+    if _t7(7):
+        v.stb.print("\x13\x04Morishima \x1FHodaka")
+        # (Line 96) v.stb.print("\x13\x04날씨 따위는.. 미쳐 있어도 돼!");
+        v.stb.print("\x13\x04날씨 따위는.. 미쳐 있어도 돼!")
+        # (Line 97) TextDelay(playerID, 0);
+        TextDelay(playerID, 0)
+        # (Line 98) break;
+        EUDBreak()
+        # (Line 99) case 8:
+    _t8 = EUDSwitchCase()
+    # (Line 100) PlayWAV("Hodaka_Ultimate01.ogg");
+    if _t8(8):
+        # (Line 101) v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n");
+        DoActions(PlayWAV("Hodaka_Ultimate01.ogg"))
+        v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n")
+        # (Line 102) v.stb.printAt(5, "\x13\x04만약 신이 존재한다면, 부탁드려요.");
+        v.stb.printAt(5, "\x13\x04만약 신이 존재한다면, 부탁드려요.")
+        # (Line 103) TextDelay(playerID, 5000);
+        TextDelay(playerID, 5000)
+        # (Line 104) break;
+        EUDBreak()
+        # (Line 105) case 9:
+    _t9 = EUDSwitchCase()
+    # (Line 106) v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n");
+    if _t9(9):
+        v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n")
+        # (Line 107) v.stb.printAt(5, "\x13\x04저희를 계속 이대로 있게 해주세요..");
+        v.stb.printAt(5, "\x13\x04저희를 계속 이대로 있게 해주세요..")
+        # (Line 108) TextDelay(playerID, 0);
+        TextDelay(playerID, 0)
+        # (Line 109) break;
+        EUDBreak()
+        # (Line 110) case 10:
+    _t10 = EUDSwitchCase()
+    # (Line 111) PlayWAV("Hodaka_Ultimate02.ogg");
+    if _t10(10):
+        # (Line 112) TextDelay(playerID, 3500);
+        DoActions(PlayWAV("Hodaka_Ultimate02.ogg"))
+        TextDelay(playerID, 3500)
+        # (Line 113) break;
+        EUDBreak()
+        # (Line 114) case 11:
+    _t11 = EUDSwitchCase()
+    # (Line 115) v.stb.printAt(1, "\n\n");
+    if _t11(11):
+        v.stb.printAt(1, "\n\n")
+        # (Line 116) v.stb.printAt(3, "\x13\x04Suga \x1CKeisuke\n");
+        v.stb.printAt(3, "\x13\x04Suga \x1CKeisuke\n")
+        # (Line 117) v.stb.printAt(5, "\x13\x04이제 어른이 돼라, 소년");
+        v.stb.printAt(5, "\x13\x04이제 어른이 돼라, 소년")
+        # (Line 118) v.stb.printAt(6, "\n\n");
+        v.stb.printAt(6, "\n\n")
+        # (Line 119) TextDelay(playerID, 4000);
+        TextDelay(playerID, 4000)
+        # (Line 120) break;
+        EUDBreak()
+        # (Line 121) case 12:
+    _t12 = EUDSwitchCase()
+    # (Line 122) v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n");
+    if _t12(12):
+        v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n")
+        # (Line 123) v.stb.printAt(5, "\x13\x04나는 그저, 다시 한 번 그 사람을");
+        v.stb.printAt(5, "\x13\x04나는 그저, 다시 한 번 그 사람을")
+        # (Line 124) TextDelay(playerID, 3600);
+        TextDelay(playerID, 3600)
+        # (Line 125) break;
+        EUDBreak()
+        # (Line 126) case 13:
+    _t13 = EUDSwitchCase()
+    # (Line 127) v.stb.printAt(1, "\n\n");
+    if _t13(13):
+        v.stb.printAt(1, "\n\n")
+        # (Line 128) v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n");
+        v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n")
+        # (Line 129) v.stb.printAt(5, "\x13\x04만나고 싶어!");
+        v.stb.printAt(5, "\x13\x04만나고 싶어!")
+        # (Line 130) v.stb.printAt(6, "\n\n");
+        v.stb.printAt(6, "\n\n")
+        # (Line 131) TextDelay(playerID, 0);
+        TextDelay(playerID, 0)
+        # (Line 132) break;
+        EUDBreak()
+        # (Line 133) }
+    # (Line 134) }
     EUDEndSwitch()

@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import variable as v;
 
 /***
@@ -27,7 +28,7 @@ function Effect_Recall()
 function Buff_ShieldFix(amount : TrgCount)
 {
 	var playerID = getcurpl();
-	v.P_Shield[playerID] = 1;
+	v.P_Shield[playerID] = amount;
 	ModifyUnitShields(1, v.P_UnitID[playerID], playerID, "Anywhere", amount);
 }
 

@@ -193,8 +193,8 @@ def f_main(playerID):
     _ARRW(v.P_UnitID, playerID) << (10)
     # (Line 40) v.P_LocationID[playerID] 		= 201;
     _ARRW(v.P_LocationID, playerID) << (201)
-    # (Line 42) v.P_Ultimate1[playerID] = 750;
-    _ARRW(v.P_Ultimate1, playerID) << (750)
+    # (Line 42) v.P_Ultimate1[playerID] = 700;
+    _ARRW(v.P_Ultimate1, playerID) << (700)
     # (Line 45) commend.main(playerID);
     commend.f_main(playerID)
     # (Line 46) skillList(playerID);

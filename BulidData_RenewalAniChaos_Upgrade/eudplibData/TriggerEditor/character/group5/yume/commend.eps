@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import variable as v;
 import func.trig as trg;
 import func.sound as s;
@@ -70,7 +71,7 @@ function main(playerID)
 			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 		}
 		else if (Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill")
-		&& Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill")
+		&& Accumulate(playerID, AtLeast, 200, Gas)
 		&& v.P_Step[playerID] == 200)
 		{
 			s.CharacterVoice(3);
@@ -79,7 +80,7 @@ function main(playerID)
 			v.P_LoopMain[playerID] = 0;
 			v.P_Step[playerID] = 210;
 			KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
-			KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", playerID);
+			SetResources(playerID, Subtract, 200, Gas);
 		}
 
 	}

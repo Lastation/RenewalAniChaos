@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import variable as v;
 import func.trig as trg;
 
@@ -27,8 +28,8 @@ function main(playerID)
 	v.P_LocationID[playerID] = 185;
 	v.P_UnitID[playerID] = 64;
 	
-	v.P_Ultimate1[playerID] = 700;
-	v.P_Ultimate2[playerID] = 500;
+	v.P_Ultimate1[playerID] = 650;
+	v.P_Ultimate2[playerID] = 450;
 	
 	SkillList(playerID);
 	commend.main(playerID);
@@ -88,7 +89,7 @@ function SkillList(playerID)
 		v.stb.printAt(4, "　　　\x18O \x04모두의 힘 \x19[ 1분 간 아군 공 방 증가 +5 ] \x053분");
 		v.stb.printAt(5, "　　　\x04\x1FSSS \x04발상 \x19[ 만능 ]");
 		v.stb.printAt(6, "　　　\x04\x1FACC+ CA \x04필살기 \x19[ 만능 / 자리고정 ]");
-		v.stb.printAt(7, "　　　\x04\x1FCCC + AA + AA \x04응원 \x19[ 공성 / CCC + AA - 자리고정 / 15 x 15 아군 공 방 증가 +5 ] \x1F[1]");
+		v.stb.printAt(7, "　　　\x04\x1FCCC + CCC + AA \x04응원 \x19[ 공성 / CCC + CCC - 자리고정 / 15 x 15 아군 공 방 증가 +5 ] \x1F[1]");
 		v.stb.printAt(8, "\n");
 		v.stb.printAt(9, "　　　\x1F[1] + \x08O \x04클래스메이트 \x19[ 공성 / 자리고정 ] \x05", v.P_Ultimate1[playerID]);
 		v.stb.printAt(10, "　　　\x08AAA \x04격려 \x19[ 서포트 / 아군 궁게이지 +250 ] \x05", v.P_Ultimate2[playerID]);

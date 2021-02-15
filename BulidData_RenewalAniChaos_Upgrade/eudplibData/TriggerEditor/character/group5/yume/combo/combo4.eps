@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import variable as v;
 import func.trig as trg;
 import func.trigadv as adv;
@@ -420,8 +421,9 @@ function main(playerID)
       {
          
 
-         if (Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill") &&
-         Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill") && v.P_Step[playerID] == 210)
+         if (Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill") 
+         && Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill") 
+         && v.P_Step[playerID] == 210)
          {
             s.CharacterVoice(4);
             v.P_SkillDelay[playerID] = 0;
