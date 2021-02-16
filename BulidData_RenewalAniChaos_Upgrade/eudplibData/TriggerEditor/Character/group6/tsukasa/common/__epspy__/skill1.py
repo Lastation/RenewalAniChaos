@@ -136,19 +136,19 @@ from func import trigepic as epic
 # (Line 6) {
 @EUDFunc
 def f_main(playerID):
-    # (Line 7) if (Deaths(CurrentPlayer, AtLeast, 1054, " `UniqueCoolTime"))
-    if EUDIf()(Deaths(CurrentPlayer, AtLeast, 1054, " `UniqueCoolTime")):
+    # (Line 7) if (Deaths(CurrentPlayer, AtLeast, 2134, " `UniqueCoolTime"))
+    if EUDIf()(Deaths(CurrentPlayer, AtLeast, 2134, " `UniqueCoolTime")):
         # (Line 8) {
-        # (Line 9) if (Deaths(CurrentPlayer, Exactly, 1080, " `UniqueCoolTime"))
-        if EUDIf()(Deaths(CurrentPlayer, Exactly, 1080, " `UniqueCoolTime")):
+        # (Line 9) if (Deaths(CurrentPlayer, Exactly, 2160, " `UniqueCoolTime"))
+        if EUDIf()(Deaths(CurrentPlayer, Exactly, 2160, " `UniqueCoolTime")):
             # (Line 10) {
             # (Line 11) trg.Shape_NxNSquare(playerID, 1, "40 + 1n Guardian", 3, 50);
             trg.Shape_NxNSquare(playerID, 1, "40 + 1n Guardian", 3, 50)
             # (Line 12) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
             # (Line 13) }
             DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID))
-            # (Line 14) else if (Deaths(CurrentPlayer, Exactly, 1055, " `UniqueCoolTime"))
-        if EUDElseIf()(Deaths(CurrentPlayer, Exactly, 1055, " `UniqueCoolTime")):
+            # (Line 14) else if (Deaths(CurrentPlayer, Exactly, 2135, " `UniqueCoolTime"))
+        if EUDElseIf()(Deaths(CurrentPlayer, Exactly, 2135, " `UniqueCoolTime")):
             # (Line 15) {
             # (Line 16) trg.Shape_Dot(playerID, 1, "Kakaru (Twilight)", 0, 0);
             trg.Shape_Dot(playerID, 1, "Kakaru (Twilight)", 0, 0)

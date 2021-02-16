@@ -182,9 +182,9 @@ def f_main(playerID):
             # (Line 38) else if (v.P_CountMain[playerID] == 1)
         if EUDElseIf()(v.P_CountMain[playerID] == 1):
             # (Line 39) {
-            # (Line 40) SetDeaths(playerID, SetTo, 2880, " `UniqueCoolTime");
+            # (Line 40) SetDeaths(playerID, SetTo, 1440, " `UniqueCoolTime");
             # (Line 41) trg.SkillEnd();
-            DoActions(SetDeaths(playerID, SetTo, 2880, " `UniqueCoolTime"))
+            DoActions(SetDeaths(playerID, SetTo, 1440, " `UniqueCoolTime"))
             trg.SkillEnd()
             # (Line 42) }
             # (Line 44) }

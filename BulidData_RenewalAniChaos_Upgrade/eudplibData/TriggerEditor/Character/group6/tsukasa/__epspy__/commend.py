@@ -144,9 +144,9 @@ def f_main(playerID):
         # (Line 10) {
         # (Line 11) s.CharacterVoice(11);
         s.CharacterVoice(11)
-        # (Line 12) SetDeaths(playerID, SetTo, 1080, " `UniqueCoolTime");
+        # (Line 12) SetDeaths(playerID, SetTo, 2160, " `UniqueCoolTime");
         # (Line 13) KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID);
-        DoActions(SetDeaths(playerID, SetTo, 1080, " `UniqueCoolTime"))
+        DoActions(SetDeaths(playerID, SetTo, 2160, " `UniqueCoolTime"))
         # (Line 14) }
         DoActions(KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID))
         # (Line 15) else if (Bring(playerID, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill"))

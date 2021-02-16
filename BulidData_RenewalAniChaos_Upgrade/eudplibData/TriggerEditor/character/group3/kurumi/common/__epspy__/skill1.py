@@ -180,37 +180,32 @@ def f_main(playerID):
                     # (Line 31) }
                     # (Line 32) }
                 EUDEndIf()
-                # (Line 34) if (v.P_LoopMain[playerID] == 60)
-            EUDEndIf()
-            if EUDIf()(v.P_LoopMain[playerID] == 60):
-                # (Line 35) {
-                # (Line 36) s.CharacterVoice(17);
-                s.CharacterVoice(17)
-                # (Line 37) }
-                # (Line 39) trg.Main_Wait(80);
+                # (Line 34) trg.Main_Wait(80);
             EUDEndIf()
             trg.Main_Wait(80)
-            # (Line 41) v.P_LoopMain[playerID] += 1;
+            # (Line 36) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 43) if (v.P_LoopMain[playerID] == 75)
-            if EUDIf()(v.P_LoopMain[playerID] == 75):
-                # (Line 44) {
-                # (Line 45) v.P_CountMain[playerID] += 1;
+            # (Line 38) if (v.P_LoopMain[playerID] == 60)
+            if EUDIf()(v.P_LoopMain[playerID] == 60):
+                # (Line 39) {
+                # (Line 40) s.CharacterVoice(17);
+                s.CharacterVoice(17)
+                # (Line 42) v.P_CountMain[playerID] += 1;
                 _ARRW(v.P_CountMain, playerID).__iadd__(1)
-                # (Line 46) v.P_LoopMain[playerID] = 0;
+                # (Line 43) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 47) }
-                # (Line 48) }
+                # (Line 44) }
+                # (Line 45) }
             EUDEndIf()
-            # (Line 50) else if (v.P_CountMain[playerID] == 1)
+            # (Line 47) else if (v.P_CountMain[playerID] == 1)
         if EUDElseIf()(v.P_CountMain[playerID] == 1):
-            # (Line 51) {
-            # (Line 52) SetDeaths(playerID, SetTo, 3600, " `UniqueCoolTime");
-            # (Line 54) trg.SkillEnd();
-            DoActions(SetDeaths(playerID, SetTo, 3600, " `UniqueCoolTime"))
+            # (Line 48) {
+            # (Line 49) SetDeaths(playerID, SetTo, 2160, " `UniqueCoolTime");
+            # (Line 51) trg.SkillEnd();
+            DoActions(SetDeaths(playerID, SetTo, 2160, " `UniqueCoolTime"))
             trg.SkillEnd()
-            # (Line 55) }
-            # (Line 56) }
+            # (Line 52) }
+            # (Line 53) }
         EUDEndIf()
-        # (Line 57) }
+        # (Line 54) }
     EUDEndIf()

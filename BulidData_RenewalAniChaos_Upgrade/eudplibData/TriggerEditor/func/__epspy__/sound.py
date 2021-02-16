@@ -593,12 +593,12 @@ def BGMRoutine(cp):
         # (Line 214) if (v.bgmWait[cp] == 0)
         if EUDIf()(v.bgmWait[cp] == 0):
             # (Line 215) {
-            # (Line 216) PlayWAV("BGM04.ogg");
-            # (Line 217) v.stb.print("　　\x04\x1F# N\x04ow \x04Playing... ' \x04V\x02igilante (feat. mpi & Gemie) - \x04G\x02undam \x04N\x02arrative \x04OST \x02- \x04Sawano \x04Hiroyuki'\x04");
-            DoActions(PlayWAV("BGM04.ogg"))
-            v.stb.print("　　\x04\x1F# N\x04ow \x04Playing... ' \x04V\x02igilante (feat. mpi & Gemie) - \x04G\x02undam \x04N\x02arrative \x04OST \x02- \x04Sawano \x04Hiroyuki'\x04")
-            # (Line 218) v.bgmWait[cp] = 2700;
-            _ARRW(v.bgmWait, cp) << (2700)
+            # (Line 216) PlayWAV("BGM03.ogg");
+            # (Line 217) v.stb.print("　　\x04\x1F# N\x04ow \x04Playing... \x04");
+            DoActions(PlayWAV("BGM03.ogg"))
+            v.stb.print("　　\x04\x1F# N\x04ow \x04Playing... \x04")
+            # (Line 218) v.bgmWait[cp] = 2712;
+            _ARRW(v.bgmWait, cp) << (2712)
             # (Line 219) }
             # (Line 220) }
         EUDEndIf()
@@ -680,4 +680,6 @@ def f_main(playerID):
     hodaka.f_main(playerID)
     # (Line 275) tsukasa.main(playerID);
     tsukasa.f_main(playerID)
+    # (Line 277) BGMRoutine(playerID);
+    BGMRoutine(playerID)
     # (Line 278) }

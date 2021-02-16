@@ -31,17 +31,14 @@ function main(playerID)
 	     	}
 	}
 	
-         if (v.P_LoopMain[playerID] == 60)
-         {
-                 s.CharacterVoice(17);
-         }
-
          trg.Main_Wait(80);
 
          v.P_LoopMain[playerID] += 1;
 
-         if (v.P_LoopMain[playerID] == 75)
+         if (v.P_LoopMain[playerID] == 60)
          {
+             s.CharacterVoice(17);
+                 
             v.P_CountMain[playerID] += 1;
             v.P_LoopMain[playerID] = 0;         
          }
@@ -49,7 +46,7 @@ function main(playerID)
     
       else if (v.P_CountMain[playerID] == 1)
       {
-         SetDeaths(playerID, SetTo, 3600, " `UniqueCoolTime");
+         SetDeaths(playerID, SetTo, 2160, " `UniqueCoolTime");
 
          trg.SkillEnd();
       }

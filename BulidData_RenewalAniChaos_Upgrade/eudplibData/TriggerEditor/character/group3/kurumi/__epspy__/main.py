@@ -170,8 +170,8 @@ def f_skillList(playerID):
         v.stb.printAt(1, "\x1F　＃\x04- 토키자키 \x1B쿠루미　\x04[ 데이트 어 불릿 ]")
         # (Line 28) v.stb.printAt(2, "　　\x1FA\x04ction List");
         v.stb.printAt(2, "　　\x1FA\x04ction List")
-        # (Line 29) v.stb.printAt(3, "　　　\x18 O\x04 자인 \x19[ 6초 간 적 전체 고정 ] \x05개인쿨 5분");
-        v.stb.printAt(3, "　　　\x18 O\x04 자인 \x19[ 6초 간 적 전체 고정 ] \x05개인쿨 5분")
+        # (Line 29) v.stb.printAt(3, "　　　\x18 O\x04 자인 \x19[ 4.5초 간 적 전체 고정 ] \x05개인쿨 3분");
+        v.stb.printAt(3, "　　　\x18 O\x04 자인 \x19[ 4.5초 간 적 전체 고정 ] \x05개인쿨 3분")
         # (Line 30) v.stb.printAt(4, "　　　\x1F SSS\x04 귀엽구나 \x19[ 공성 ]");
         v.stb.printAt(4, "　　　\x1F SSS\x04 귀엽구나 \x19[ 공성 ]")
         # (Line 31) v.stb.printAt(5, "　　　\x1F CCC\x04 맑은영혼 \x19[ 공성 / 지속딜 ]");

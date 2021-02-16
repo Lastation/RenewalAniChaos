@@ -174,8 +174,8 @@ def SkillList(playerID):
         v.stb.printAt(1, "\x1F　＃\x1B- 유자키 츠카사　\x04[ 어쨋든 귀여워 ]")
         # (Line 30) v.stb.printAt(2, "　　\x1FA\x04ction List");
         v.stb.printAt(2, "　　\x1FA\x04ction List")
-        # (Line 31) v.stb.printAt(3, "　　　\x18O \x04불사 \x19[ 2초 간 피 고정 / 스킬 중 사용 가능 ] \x054분");
-        v.stb.printAt(3, "　　　\x18O \x04불사 \x19[ 2초 간 피 고정 / 스킬 중 사용 가능 ] \x054분")
+        # (Line 31) v.stb.printAt(3, "　　　\x18O \x04불사 \x19[ 2초 간 피 고정 / 스킬 중 사용 가능 ] \x053분");
+        v.stb.printAt(3, "　　　\x18O \x04불사 \x19[ 2초 간 피 고정 / 스킬 중 사용 가능 ] \x053분")
         # (Line 32) v.stb.printAt(4, "　　　\x04\x1FSSS\x04 귀여워 \x19[ 공성 ]");
         v.stb.printAt(4, "　　　\x04\x1FSSS\x04 귀여워 \x19[ 공성 ]")
         # (Line 33) v.stb.printAt(5, "　　　\x04\x1FCCC + A\x04 추억 \x19[ 공성 / 순간딜 / 자리고정 ]");
