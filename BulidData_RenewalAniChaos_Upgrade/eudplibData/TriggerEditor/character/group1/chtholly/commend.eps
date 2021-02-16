@@ -78,6 +78,7 @@ function main(playerID)
 				SetDeaths(playerID, Subtract, v.P_Ultimate2[playerID], 205);
 				KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 				SetSwitch("Recall - Chtholly", Set);
+               		CreateUnit(1, " Item. Flag", "[Uiltimate]Flag", CurrentPlayer);
 			}
 			else
 			{

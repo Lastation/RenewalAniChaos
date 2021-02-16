@@ -597,8 +597,8 @@ def BGMRoutine(cp):
             # (Line 217) v.stb.print("　　\x04\x1F# N\x04ow \x04Playing... \x04");
             DoActions(PlayWAV("BGM03.ogg"))
             v.stb.print("　　\x04\x1F# N\x04ow \x04Playing... \x04")
-            # (Line 218) v.bgmWait[cp] = 2712;
-            _ARRW(v.bgmWait, cp) << (2712)
+            # (Line 218) v.bgmWait[cp] = 5424;
+            _ARRW(v.bgmWait, cp) << (5424)
             # (Line 219) }
             # (Line 220) }
         EUDEndIf()

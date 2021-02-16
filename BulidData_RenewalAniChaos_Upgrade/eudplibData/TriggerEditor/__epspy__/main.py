@@ -179,49 +179,51 @@ def beforeTriggerExec():
             select.SelectText(playerID)
             # (Line 34) ppty.PropertyText(playerID);
             ppty.PropertyText(playerID)
-            # (Line 36) if (Switch("TestModeSwitch", Set)) { testmode.TestMode(playerID); }
+            # (Line 36) unitID.InitUnitID(playerID);
+            unitID.InitUnitID(playerID)
+            # (Line 38) if (Switch("TestModeSwitch", Set)) { testmode.TestMode(playerID); }
             if EUDIf()(Switch("TestModeSwitch", Set)):
                 testmode.TestMode(playerID)
-                # (Line 37) }
+                # (Line 39) }
             EUDEndIf()
-            # (Line 38) else
-            # (Line 39) {
+            # (Line 40) else
+            # (Line 41) {
         if EUDElse()():
-            # (Line 40) marge.main(playerID);
+            # (Line 42) marge.main(playerID);
             marge.f_main(playerID)
-            # (Line 41) sound.OldVoicemain();
+            # (Line 43) sound.OldVoicemain();
             sound.OldVoicemain()
-            # (Line 42) sound.main(playerID);
+            # (Line 44) sound.main(playerID);
             sound.f_main(playerID)
-            # (Line 43) ppty.Property(playerID);
+            # (Line 45) ppty.Property(playerID);
             ppty.Property(playerID)
-            # (Line 45) deathText.SetDeathValue(playerID);
+            # (Line 47) deathText.SetDeathValue(playerID);
             deathText.SetDeathValue(playerID)
-            # (Line 47) init.SetBuildingHP(playerID);
+            # (Line 49) init.SetBuildingHP(playerID);
             init.SetBuildingHP(playerID)
-            # (Line 48) init.SetVariable(playerID);
+            # (Line 50) init.SetVariable(playerID);
             init.SetVariable(playerID)
-            # (Line 49) }
-            # (Line 51) if (v.P_HeroID[playerID] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
+            # (Line 51) }
+            # (Line 53) if (v.P_HeroID[playerID] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
         EUDEndIf()
         if EUDIf()(v.P_HeroID[playerID] == f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)), neg=True):
-            # (Line 52) { v.P_HeroID[playerID] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)); }
+            # (Line 54) { v.P_HeroID[playerID] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)); }
             _ARRW(v.P_HeroID, playerID) << (f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
-            # (Line 54) MuteUnitSpeech();
+            # (Line 56) MuteUnitSpeech();
         EUDEndIf()
-        # (Line 55) }
+        # (Line 57) }
         DoActions(MuteUnitSpeech())
-        # (Line 58) foreach (observerID : EUDLoopRange(128, 132))
+        # (Line 60) foreach (observerID : EUDLoopRange(128, 132))
 
     for observerID in EUDLoopRange(128, 132):
-        # (Line 59) {
-        # (Line 60) setcurpl(observerID);
+        # (Line 61) {
+        # (Line 62) setcurpl(observerID);
         f_setcurpl(observerID)
-        # (Line 61) MuteUnitSpeech();
-        # (Line 62) sound.OldVoicemain();
+        # (Line 63) MuteUnitSpeech();
+        # (Line 64) sound.OldVoicemain();
         DoActions(MuteUnitSpeech())
         sound.OldVoicemain()
-        # (Line 63) sound.main(observerID);
+        # (Line 65) sound.main(observerID);
         sound.f_main(observerID)
-        # (Line 64) }
-        # (Line 65) }
+        # (Line 66) }
+        # (Line 67) }

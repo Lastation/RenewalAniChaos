@@ -250,21 +250,23 @@ def f_main(playerID):
                 DoActions(SetDeaths(playerID, Subtract, v.P_Ultimate2[playerID], 205))
                 # (Line 80) SetSwitch("Recall - Chtholly", Set);
                 DoActions(KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID))
-                # (Line 81) }
+                # (Line 81) CreateUnit(1, " Item. Flag", "[Uiltimate]Flag", CurrentPlayer);
                 DoActions(SetSwitch("Recall - Chtholly", Set))
-                # (Line 82) else
-                # (Line 83) {
+                # (Line 82) }
+                DoActions(CreateUnit(1, " Item. Flag", "[Uiltimate]Flag", CurrentPlayer))
+                # (Line 83) else
+                # (Line 84) {
             if EUDElse()():
-                # (Line 84) SetResources(CurrentPlayer, Add, 900, Gas);
-                # (Line 85) KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+                # (Line 85) SetResources(CurrentPlayer, Add, 900, Gas);
+                # (Line 86) KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID);
                 DoActions(SetResources(CurrentPlayer, Add, 900, Gas))
-                # (Line 86) SetDeaths(CurrentPlayer, SetTo, 999, " `SYSTEMTEXT");
+                # (Line 87) SetDeaths(CurrentPlayer, SetTo, 999, " `SYSTEMTEXT");
                 DoActions(KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID))
-                # (Line 87) }
-                DoActions(SetDeaths(CurrentPlayer, SetTo, 999, " `SYSTEMTEXT"))
                 # (Line 88) }
+                DoActions(SetDeaths(CurrentPlayer, SetTo, 999, " `SYSTEMTEXT"))
+                # (Line 89) }
             EUDEndIf()
-            # (Line 89) }
+            # (Line 90) }
         EUDEndIf()
-        # (Line 90) }
+        # (Line 91) }
     EUDEndIf()

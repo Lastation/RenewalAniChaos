@@ -33,6 +33,8 @@ function beforeTriggerExec()
 			select.SelectText(playerID);
 			ppty.PropertyText(playerID);
 			
+			unitID.InitUnitID(playerID);
+			
 			if (Switch("TestModeSwitch", Set)) { testmode.TestMode(playerID); }
 		}
 		else
