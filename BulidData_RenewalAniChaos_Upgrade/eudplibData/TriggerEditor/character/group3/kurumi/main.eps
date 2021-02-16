@@ -1,4 +1,3 @@
-import PluginVariables as msqcvar;
 import variable as v;
 import func.trig as trg;
 
@@ -27,7 +26,7 @@ function skillList(playerID)
 		v.stb.printAt(0, "\n");
 		v.stb.printAt(1, "\x1F　＃\x04- 토키자키 \x1B쿠루미　\x04[ 데이트 어 불릿 ]");
 		v.stb.printAt(2, "　　\x1FA\x04ction List");
-		v.stb.printAt(3, "　　　\x18 O\x04 연설 \x19[ 자신포함 팀 + 200 gas ] \x05개인쿨 1분");
+		v.stb.printAt(3, "　　　\x18 O\x04 자인 \x19[ 6초 간 적 전체 고정 ] \x05개인쿨 5분");
 		v.stb.printAt(4, "　　　\x1F SSS\x04 귀엽구나 \x19[ 공성 ]");
 		v.stb.printAt(5, "　　　\x1F CCC\x04 맑은영혼 \x19[ 공성 / 지속딜 ]");
 		v.stb.printAt(6, "　　　\x1F AACC + 200 Gas \x04 난폭한 방식 \x19[ 선딜 / 공성 / 순간딜 / 자리고정 ]");
@@ -56,6 +55,10 @@ function main(playerID)
 	{
 		switch(v.P_Step[playerID])
 		{
+		case 1:
+			O.main(playerID);
+			break;
+		
 		case 100:
 			S.main(playerID);
 			break;

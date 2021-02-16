@@ -849,10 +849,10 @@ Trigger { -- Skill : S
       Comment("Skill : Combo");
       PreserveTrigger();
       CreateUnit(8, "50 + 1n Battlecruiser", "[Skill]Unit_Wait_8", CurrentPlayer);
-      CreateUnit(4, "80 + 1n Goliath", "[Skill]Unit_Wait_8", CurrentPlayer);
+      CreateUnit(4, "40 + 1n Goliath", "[Skill]Unit_Wait_8", CurrentPlayer);
       SetInvincibility(Enable, "Any unit", CurrentPlayer, "[Skill]Unit_Wait_ALL");
       MoveLocation("18.Iwahune", " * Samir Duran", CurrentPlayer, "Anywhere");
-      MoveUnit(All, "80 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
+      MoveUnit(All, "40 + 1n Goliath", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       LMove(170, x1, y1);
       MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       MoveLocation("18.Iwahune", " * Samir Duran", CurrentPlayer, "Anywhere");
@@ -877,9 +877,9 @@ Trigger { -- Skill : S
       LMove(170, y2, -x2);
       MoveUnit(1, "50 + 1n Battlecruiser", CurrentPlayer, "[Skill]Unit_Wait_ALL", "18.Iwahune");
       KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", CurrentPlayer);
-      Order("80 + 1n Goliath", CurrentPlayer, "Anywhere", Attack, "Anywhere");
+      Order("40 + 1n Goliath", CurrentPlayer, "Anywhere", Attack, "Anywhere");
       Wait(0);
-      KillUnitAt(All, "80 + 1n Goliath", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "40 + 1n Goliath", "Anywhere", CurrentPlayer);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillLoop");
    },
 }

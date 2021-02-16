@@ -1,4 +1,3 @@
-import PluginVariables as msqcvar;
 import variable as v;
 import func.trig as trg;
 import func.sound as s;
@@ -6,6 +5,7 @@ import func.sound as s;
 function main(playerID)
 {
 	trg.Debuff_Stop();
+	trg.Debuff_BanReturn();
 	MoveUnit(All, "40 + 1n Goliath", playerID, "Anywhere", "[Skill]HoldPosition");
 	
 	if (v.P_WaitMain[playerID] == 0)

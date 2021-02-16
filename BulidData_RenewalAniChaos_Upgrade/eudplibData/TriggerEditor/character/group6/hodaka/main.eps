@@ -1,7 +1,7 @@
-import PluginVariables as msqcvar;
 import variable as v;
 import func.trig as trg;
 
+import character.group6.hodaka.common.skill0 as O;
 import character.group6.hodaka.common.skill1 as S;
 import character.group6.hodaka.common.skill2 as C;
 import character.group6.hodaka.common.skill3 as A;
@@ -22,7 +22,7 @@ function skillList(playerID)
 		v.stb.printAt(0, "\n");
 		v.stb.printAt(1, "\x1F　＃\x04- 모리시마 \x1B호다카　\x04[ 날씨의 아이 ]");
 		v.stb.printAt(2, "　　\x1FA\x04ction List");
-		v.stb.printAt(3, "　　　\x18 O\x04 연설 \x19[ 자신포함 팀 + 200 gas ] \x05개인쿨 1분");
+		v.stb.printAt(3, "　　　\x18 O\x04 사춘기 \x19[ 적 전체 개인쿨 +10초 ] \x05개인쿨 4분");
 		v.stb.printAt(4, "　　　\x1F SSS\x04 가출 \x19[ 만능 ]");
 		v.stb.printAt(5, "　　　\x1F CCC\x04 장소 \x19[ 공성 / 자리고정 ]");
 		v.stb.printAt(6, "　　　\x1F AACC + 200 Gas\x04 날씨 \x19[ 만능 / 자리고정 / 순간딜 ]");
@@ -50,6 +50,9 @@ function main(playerID)
 	{
 		switch(v.P_Step[playerID])
 		{
+		case 1:
+			O.main(playerID);
+			break;
 		case 100:
 			S.main(playerID);
 			break;

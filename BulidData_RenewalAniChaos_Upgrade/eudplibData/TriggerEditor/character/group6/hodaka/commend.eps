@@ -1,4 +1,3 @@
-import PluginVariables as msqcvar;
 
 import variable as v;
 import func.sound as s;
@@ -8,7 +7,15 @@ function main(playerID)
 {
 	if (v.P_WaitMain[playerID] == 0 && v.P_Step[playerID] == 0)
 	{
-		if (Bring(playerID, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill"))
+		if (Bring(playerID, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill")
+		&& Deaths(CurrentPlayer, AtLeast, 1, " `O Skill Condition")
+		&& Deaths(CurrentPlayer, Exactly, 0, " `UniqueCoolTime"))
+		{
+			s.CharacterVoice(1);
+			v.P_Step[playerID] = 1;
+			KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID);
+		}
+		else if (Bring(playerID, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill"))
 		{
 			KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID);
 			SetResources(playerID, Add, 60, Gas);
