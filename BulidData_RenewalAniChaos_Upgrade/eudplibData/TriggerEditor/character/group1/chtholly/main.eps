@@ -2,6 +2,7 @@ import variable as v;
 
 import character.group1.chtholly.commend as commend;
 
+import character.group1.chtholly.common.skill0 as O;
 import character.group1.chtholly.common.skill1 as S;
 import character.group1.chtholly.common.skill2 as C;
 import character.group1.chtholly.common.skill3 as A;
@@ -44,13 +45,12 @@ function main(playerID)
 	commend.main(playerID);
 	SkillList(playerID);
 	
+	
+	O.main(playerID);
 	if (v.P_SkillDelay[playerID] == 0)
 	{
 		switch(v.P_Step[playerID])
 		{
-		case 1:
-			//O.main(playerID);
-			break;
 		case 100:
 			S.main(playerID);
 			break;

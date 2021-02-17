@@ -152,9 +152,9 @@ def f_main(playerID):
             # (Line 15) {
             # (Line 16) trg.Shape_Dot(playerID, 1, "Kakaru (Twilight)", 0, 0);
             trg.Shape_Dot(playerID, 1, "Kakaru (Twilight)", 0, 0)
-            # (Line 17) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            # (Line 17) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
             # (Line 18) }
-            DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID))
+            DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID))
             # (Line 19) ModifyUnitHitPoints(All, " * Hunter Killer", playerID, "Anywhere", 100);
         EUDEndIf()
         # (Line 20) }
