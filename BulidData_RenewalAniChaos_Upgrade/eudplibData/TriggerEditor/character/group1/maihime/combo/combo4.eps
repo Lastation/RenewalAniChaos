@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import variable as v;
 import func.trig as trg;
 import func.sound as s;
@@ -13,6 +14,11 @@ function main(playerID)
 		{
 			if (v.P_LoopMain[playerID] <= 5)
 			{
+				if (Bring(playerID, AtLeast, 1, v.P_UnitID[playerID], "[Map]Team2"))
+				{ SetAllianceStatus(P8, Ally); }
+				if (Bring(playerID, AtLeast, 1, v.P_UnitID[playerID], "[Map]Team1"))
+				{ SetAllianceStatus(P7, Ally); }
+			
 				trg.Shape_NxNSquare(playerID, 1, "40 + 1n Gantrithor", v.P_LoopMain[playerID] + 1, 96);
 				KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
 				trg.Main_Wait(0);
@@ -104,6 +110,11 @@ function main(playerID)
 			}
 			else if (v.P_LoopMain[playerID] == 7)
 			{
+				if (playerID < 3)
+				{ SetAllianceStatus(P8, Enemy); }
+				else
+				{ SetAllianceStatus(P7, Enemy); }
+				
 				KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
 				KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
 				KillUnitAt(All, 128, "Anywhere", playerID);

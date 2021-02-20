@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import variable as v;
 import func.trig as trg;
 import func.sound as s;
@@ -120,6 +121,7 @@ function main(playerID)
 		{
 			if (Switch("UiltimateSwitch", Cleared))
 			{
+               		CreateUnit(1, " Item. Flag", "[Uiltimate]Flag", CurrentPlayer);
 				s.CharacterVoice(11);
 				SetSwitch("UiltimateSwitch", Set);
 				v.P_Step[playerID] = 240;

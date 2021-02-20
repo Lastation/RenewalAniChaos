@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import variable as v;
 import func.trig as trg;
 
@@ -25,12 +26,12 @@ function SkillList(playerID)
 		v.stb.printAt(0, "\n");
 		v.stb.printAt(1, "\x1F　＃\x1B- 에키드나　\x04[ Re : 제로부터 시작하는 이세계 생활 ]");
 		v.stb.printAt(2, "　　\x1FA\x04ction List");
-		v.stb.printAt(3, "　　　\x18O \x04계약 \x19[ 아군 한 명과 계약 / 계약 대상 5분(개인쿨)마다 부활 시간 10초 단축 ] \x0530초");
+		v.stb.printAt(3, "　　　\x18O \x04계약 \x19[ 아군 한 명과 계약 / 계약 대상 5분(개인쿨)마다 부활 시간 15초 단축 ] \x0530초");
 		v.stb.printAt(4, "　　　\x04\x1FSSS \x04즐거움 \x19[ 테러 ]");
 		v.stb.printAt(5, "　　　\x04\x1FCCA + AAC \x04당황 \x19[ 공성 / 자리고정 ]");
 		v.stb.printAt(6, "　　　\x04\x1FCCC + A \x04흥미 \x19[ 만능 / 자리고정 ]");
 		v.stb.printAt(7, "\n");
-		v.stb.printAt(8, "　　　\x08AAAAA + AAA \x04탐욕의 마녀 \x19[ 공성 ] \x05", v.P_Ultimate1[playerID], " + ",  v.P_Ultimate2[playerID]);
+		v.stb.printAt(8, "　　　\x08AAAA + AAA \x04탐욕의 마녀 \x19[ 공성 ] \x05", v.P_Ultimate1[playerID], " + ",  v.P_Ultimate2[playerID]);
 		v.stb.printAt(9, "\n");
 		PlayWAV("sound\\Bullet\\LaserHit.wav");
 	}

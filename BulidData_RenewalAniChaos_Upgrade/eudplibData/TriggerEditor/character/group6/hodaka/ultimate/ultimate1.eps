@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import variable as v;
 import func.trig as trg;
 import func.trigadv as adv;
@@ -9,6 +10,11 @@ function main(playerID)
    trg.Buff_ShieldFix(1);
    trg.Debuff_BanReturn();
    trg.Effect_Recall();
+   
+   if (v.P_LoopMain[playerID] >= 1)
+   {
+   	trg.Debuff_Stop();
+   }
    
    if (v.P_WaitMain[playerID] == 0)
    {

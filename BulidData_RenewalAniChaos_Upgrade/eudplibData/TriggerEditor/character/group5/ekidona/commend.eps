@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import variable as v;
 import func.trig as trg;
 import func.sound as s;
@@ -96,7 +97,7 @@ function main(playerID)
 		}
 		
 		// Ultimate
-		else if (Bring(playerID, AtLeast, 4, "Protoss Arbiter", "[Skill]UseSkill") 
+		else if (Bring(playerID, AtLeast, 3, "Protoss Arbiter", "[Skill]UseSkill") 
 		&& v.P_Step[playerID] == 300
 		&& v.P_UltimateGauge[playerID] >= v.P_Ultimate1[playerID])
 		{
@@ -110,7 +111,7 @@ function main(playerID)
 				v.P_LoopMain[playerID] = 0;
 				v.P_Step[playerID] = 310;
 				SetDeaths(playerID, Subtract, v.P_Ultimate1[playerID], " `UltimateCoolTime");
-				KillUnitAt(4, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+				KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 			}
 			else
 			{

@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import variable as v;
 import func.trig as trg;
 import func.sound as s;
@@ -6,11 +7,11 @@ var status = 0;
 
 function contract(playerID)
 {
-   if (Deaths(dwread_epd(204 * 12 + playerID), AtLeast, 132, (210)) 
+   if (Deaths(dwread_epd(204 * 12 + playerID), AtLeast, 192, (210)) 
       && Deaths(dwread_epd(204 * 12 + playerID), AtMost, 800, (210))
       && Deaths(playerID, Exactly, 0, " `UniqueCoolTime"))
    {
-      SetDeaths(dwread_epd(204 * 12 + playerID), Subtract, 120, (210));
+      SetDeaths(dwread_epd(204 * 12 + playerID), Subtract, 180, (210));
       SetDeaths(playerID, SetTo, 3600, " `UniqueCoolTime");
    }
 }

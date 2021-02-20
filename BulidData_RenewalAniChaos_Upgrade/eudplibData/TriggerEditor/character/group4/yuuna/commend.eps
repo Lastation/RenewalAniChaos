@@ -1,3 +1,4 @@
+import PluginVariables as msqcvar;
 import variable as v;
 import func.trig as trg;
 import func.sound as s;
@@ -112,6 +113,7 @@ function main(playerID)
 		&& Deaths(playerID, AtLeast, 3, " `UniqueSkill"))
 		{
 			SetSwitch("UiltimateSwitch", Set);
+               	CreateUnit(1, " Item. Flag", "[Uiltimate]Flag", CurrentPlayer);
 			s.CharacterVoice(12);
 			v.P_SkillDelay[playerID] = 0;
 			v.P_CountMain[playerID] = 0;

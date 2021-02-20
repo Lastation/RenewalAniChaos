@@ -5,21 +5,21 @@ def onPluginStart():
     # 와이어 프레임
     WireOffset = f_epdread_epd(EPD(0x68C204))
     DoActions([
-        SetMemoryEPD(WireOffset + 69, SetTo, 33554432),
-        SetMemoryEPD(WireOffset + 70, SetTo, 1916550464),
-        SetMemoryEPD(WireOffset + 71, SetTo, 134873089),
+        SetMemoryXEPD(WireOffset + 69, SetTo, 83951616, 0xFFFF0000),
+        SetMemoryEPD(WireOffset + 70, SetTo, 3420719389),
+        SetMemoryXEPD(WireOffset + 71, SetTo, 1, 0xFFFF),
     ])
     GrpOffset = f_epdread_epd(EPD(0x68C1FC))
     DoActions([
-        SetMemoryEPD(GrpOffset + 69, SetTo, 0),
-        SetMemoryEPD(GrpOffset + 70, SetTo, 2245533472),
-        SetMemoryEPD(GrpOffset + 71, SetTo, 131072),
+        SetMemoryXEPD(GrpOffset + 69, SetTo, 83951616, 0xFFFF0000),
+        SetMemoryEPD(GrpOffset + 70, SetTo, 912918813),
+        SetMemoryXEPD(GrpOffset + 71, SetTo, 0, 0xFFFF),
     ])
     tranOffset = f_epdread_epd(EPD(0x68C1F4))
     DoActions([
-        SetMemoryEPD(tranOffset + 69, SetTo, 83951616),
-        SetMemoryEPD(tranOffset + 70, SetTo, 1512245533),
-        SetMemoryEPD(tranOffset + 71, SetTo, 84213760),
+        SetMemoryXEPD(tranOffset + 69, SetTo, 83951616, 0xFFFF0000),
+        SetMemoryEPD(tranOffset + 70, SetTo, 3084388637),
+        SetMemoryXEPD(tranOffset + 71, SetTo, 0, 0xFFFF),
     ])
     DoActions([ # 스테이터스인포메이션
         SetMemory(0x5199C8, SetTo, 4344192),
