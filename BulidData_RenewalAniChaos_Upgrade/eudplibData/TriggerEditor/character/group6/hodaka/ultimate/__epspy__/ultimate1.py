@@ -149,8 +149,8 @@ def f_main(playerID):
     trg.Debuff_BanReturn()
     # (Line 12) trg.Effect_Recall();
     trg.Effect_Recall()
-    # (Line 14) if (v.P_LoopMain[playerID] >= 1)
-    if EUDIf()(v.P_LoopMain[playerID] >= 1):
+    # (Line 14) if (v.P_LoopMain[playerID] >= 2)
+    if EUDIf()(v.P_LoopMain[playerID] >= 2):
         # (Line 15) {
         # (Line 16) trg.Debuff_Stop();
         trg.Debuff_Stop()
