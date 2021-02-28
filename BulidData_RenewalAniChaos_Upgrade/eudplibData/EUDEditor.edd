@@ -17,5 +17,11 @@ QCDebug : False
 
 [noAirCollision]
 [unlimiter]
+[chatEvent]
+__Addr__ : 0x58D900
+__ptrAddr__ : 0x58D904
+__patternAddr__ : 0x58D908
+__lenAddr__ : 0x58D90C
+
 
 

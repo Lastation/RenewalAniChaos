@@ -1,0 +1,98 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
+
+const P_player		= PVariable();
+const P_observer 	= PVariable();
+
+function Text(num);
+
+function player(playerID)
+{
+	Text(P_player[playerID]);
+	P_player[playerID] = 0;
+}
+
+function observer(playerID)
+{
+	Text(P_observer[playerID - 128]);
+	P_observer[playerID - 128] = 0;
+}
+
+function main(playerID)
+{
+	if (playerID < 6) 	{ player(playerID); 	}
+	else  			{ observer(playerID); }
+}
+
+function Text(num)
+{
+	switch(num)
+	{
+	case 1:
+		PlayWAV("staredit\\wav\\Hime_Unique01.ogg");
+		v.stb.printAt(3, "\x13\x04Tenkawa \x07MaiHime\n");
+		v.stb.printAt(5, "\x13\x04제군 ! \x07광연\x04의 시간이다!");
+		break;
+	case 2:
+		PlayWAV("Kurumi_01.ogg");
+		v.stb.print("\x13\x08Tokisaki \x05Krumi");
+		v.stb.print("\x13\x04귀여우시군요, 당신");
+		break;
+	case 3:
+		PlayWAV("Kurumi_02.ogg");
+		v.stb.print("\x13\x08Tokisaki \x05Krumi");
+		v.stb.print("\x13\x04저는 한번 나눈 약속을 소홀히 할정도로 영혼이 썩진 않았답니다");
+		break;
+	case 6:
+		PlayWAV("Kurumi_03.ogg");
+		v.stb.print("\x13\x08Tokisaki \x05Krumi");
+		v.stb.print("\x13\x07어머,어머\x04 난폭하시군요\n\x13\x04뭐 , 유치한 소원이랑 제법 잘 어울리는 방식인걸요");
+		break;
+	case 7:
+		PlayWAV("Kurumi_04.ogg");
+		v.stb.print("\x13\x08Tokisaki \x05Krumi");
+		v.stb.print("\x13\x04나는 다시 한번 그를 만나러 가겠어!");
+		break;
+	case 8:
+		PlayWAV("Kurumi_05.ogg");
+		break;	
+	case 15:
+		v.stb.print("\x13\x08Tokisaki \x05Krumi");
+		v.stb.print("\x13알레프");
+		break;
+	case 9:
+		PlayWAV("Kurumi_06.ogg");
+		v.stb.printAt(3, "\x13\x08Tokisaki \x05Krumi");
+		v.stb.printAt(5, "\x13\x04제가 어째서 여기에 있는가");
+		break;
+	case 10:
+		v.stb.printAt(3, "\x13\x08Tokisaki \x05Krumi");
+		v.stb.printAt(5, "\x13\x04어떻게 살아있는가");
+		break;
+	case 11:
+		v.stb.printAt(3, "\x13\x08Tokisaki \x05Krumi");
+		v.stb.printAt(5, "\x13\x19당신\x04께서는 누구시며");
+		break;
+	case 12:
+		v.stb.printAt(3, "\x13\x08Tokisaki \x05Krumi");
+		v.stb.printAt(5, "\x13\x04고양이 씨는 어째서 저래 귀여운지");
+		break;
+	case 13:
+		v.stb.printAt(3, "\x13\x08Tokisaki \x05Krumi");
+		v.stb.printAt(5, "\x13\x04무엇하나 알지 못하겟지만");
+		break;
+	case 14:
+		v.stb.printAt(3, "\x13\x08Tokisaki \x05Krumi");
+		v.stb.printAt(5, "\x13\x04제 앞을 가로막으시겠다면 쓰러뜨려드리겠어요");
+		break;
+	case 16:
+		PlayWAV("Kurumi_Unique.ogg");
+		break;
+	case 17:
+		v.stb.printAt(3, "\x13\x08Tokisaki \x05Krumi");
+		v.stb.printAt(5, "\x13\x04자인");
+		break;
+	}
+}

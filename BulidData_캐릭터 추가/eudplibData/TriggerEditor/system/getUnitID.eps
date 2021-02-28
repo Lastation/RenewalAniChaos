@@ -1,0 +1,26 @@
+import PluginVariables as msqcvar;
+import variable as v;
+
+const NowIndex = PVariable();
+const PrevIndex 	= PVariable();
+const PlayerID 	= PVariable();
+const UnitID 	= PVariable();
+const UnitHP 	= PVariable();
+
+function getUnitID(playerID)
+{
+    	if (MemoryEPD(EPD(0x6284E8) + 12 *playerID, AtLeast, 1)) 
+    	{
+        	const selectedUnit = EPD(0x6284E8) + 12 * playerID;
+        	NowIndex[playerID] = epdread_epd(selectedUnit);
+        	PlayerID[playerID] = bread_epd(NowIndex[playerID] + 0x4C/4, 0);
+        	
+        	if(NowIndex[playerID] != PrevIndex[playerID] )
+        	{            
+        		PrevIndex[playerID] = NowIndex[playerID];
+            		UnitID[playerID] = bread_epd(NowIndex[playerID] + 0x64/4, 0);
+            		UnitHP[playerID] = dwread_epd(NowIndex[playerID] + 0x008 / 4);
+            		UnitHP[playerID] = UnitHP[playerID] / 256;
+        	}
+       }
+}

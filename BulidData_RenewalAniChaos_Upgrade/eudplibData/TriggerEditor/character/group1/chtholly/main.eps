@@ -3,6 +3,7 @@ import variable as v;
 
 import character.group1.chtholly.commend as commend;
 
+import character.group1.chtholly.common.skill0 as O;
 import character.group1.chtholly.common.skill1 as S;
 import character.group1.chtholly.common.skill2 as C;
 import character.group1.chtholly.common.skill3 as A;
@@ -22,7 +23,7 @@ function SkillList(playerID)
 		v.stb.printAt(1, "\x1F　＃\x04- 크톨리 \x1B노타 세니오리스　\x04[ 종말에 뭐 하세요? 바쁘세요? 구해 주실 수 있나요? ]");
 		v.stb.printAt(2, "　　\x1FA\x04ction List\r\n　　　\x07O \x19 전투속행 ON/OFF [ 침식 도중 사망시 5초간 전투 속행 ] \x05개인쿨 4분");
 		v.stb.printAt(3, "　　　\x1FSSS \x04어쩔수 없지;; \x19[ 공성 ]");
-		v.stb.printAt(4, "　　　\x1FCCA + CC + AAA \x04침식 \x19[ 공성 / AAA - 자리고정 / 귀환봉인 ] \x1F[1]");
+		v.stb.printAt(4, "　　　\x1FCAA + CC + AAA \x04침식 \x19[ 공성 / AAA - 자리고정 / 귀환봉인 ] \x1F[1]");
 		v.stb.printAt(5, "\n");
 		v.stb.printAt(6, "　　　\x1F[1] + \x08O \x04세상에서 가장 행복한 여자 \x19[ 공성 / 선딜 4.5초 / 장판형 / 쉴드 10고정 ] \x05", v.P_Ultimate1[playerID]);
 		v.stb.printAt(7, "　　　\x08AAAA \x04세상에서 가장 행복한 여자 \x19[ 공성 / 선딜 4.5초 / 장판형 / 쉴드 10고정 ] \x05", v.P_Ultimate2[playerID]);
@@ -38,20 +39,19 @@ function main(playerID)
 	v.P_LocationID[playerID] 		= 117;
 	v.P_UnitID[playerID] 			= 77;
 	
-	v.P_Ultimate1[playerID] = 700;
-	v.P_Ultimate2[playerID] = 700;
+	v.P_Ultimate1[playerID] = 650;
+	v.P_Ultimate2[playerID] = 650;
 	
 	// Commed Setting
 	commend.main(playerID);
 	SkillList(playerID);
 	
+	
+	O.main(playerID);
 	if (v.P_SkillDelay[playerID] == 0)
 	{
 		switch(v.P_Step[playerID])
 		{
-		case 1:
-			//O.main(playerID);
-			break;
 		case 100:
 			S.main(playerID);
 			break;

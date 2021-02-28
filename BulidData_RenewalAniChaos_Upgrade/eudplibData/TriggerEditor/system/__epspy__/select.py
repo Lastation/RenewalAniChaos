@@ -143,206 +143,236 @@ def SelectText(playerID):
     # (Line 9) {
     # (Line 10) case 51:		// Infested Kerrigan
     _t1 = EUDSwitchCase()
-    # (Line 11) if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 1; }	// Rusaruka
+    # (Line 11) if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 1;   }	// Rusaruka
     if _t1(51):
         if EUDIf()(unitID.PlayerID[playerID] == 8):
             _ARRW(t.T_CharaterNum, playerID) << (1)
-            # (Line 12) else if 	(unitID.PlayerID[playerID] == 9)		{ t.T_CharaterNum[playerID] = 9; }	// HotoMoka
+            # (Line 12) else if 	(unitID.PlayerID[playerID] == 9)		{ t.T_CharaterNum[playerID] = 8;   }	// Anzu
         if EUDElseIf()(unitID.PlayerID[playerID] == 9):
+            _ARRW(t.T_CharaterNum, playerID) << (8)
+            # (Line 13) else if 	(unitID.PlayerID[playerID] == 10)		{ t.T_CharaterNum[playerID] = 9;   }	// HotoMoka
+        if EUDElseIf()(unitID.PlayerID[playerID] == 10):
             _ARRW(t.T_CharaterNum, playerID) << (9)
-            # (Line 13) else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 19; }	// Margot & Naruge
+            # (Line 14) else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 19; }	// Margot & Naruge
         if EUDElseIf()(unitID.PlayerID[playerID] == 11):
             _ARRW(t.T_CharaterNum, playerID) << (19)
-            # (Line 14) unitID.UnitID[playerID] = 0;
+            # (Line 15) else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+        if EUDElse()():
+            _ARRW(t.T_CharaterNum, playerID) << (v.P_HeroID[unitID.PlayerID[playerID]])
+            # (Line 16) unitID.UnitID[playerID] = 0;
         EUDEndIf()
         _ARRW(unitID.UnitID, playerID) << (0)
-        # (Line 15) break;
+        # (Line 17) break;
         EUDBreak()
-        # (Line 16) case 77:		// Fenix (Zealot)
-    _t5 = EUDSwitchCase()
-    # (Line 17) if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 2; }	// Chtholly
-    if _t5(77):
+        # (Line 18) case 77:		// Fenix (Zealot)
+    _t6 = EUDSwitchCase()
+    # (Line 19) if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 2;   }	// Chtholly
+    if _t6(77):
         if EUDIf()(unitID.PlayerID[playerID] == 8):
             _ARRW(t.T_CharaterNum, playerID) << (2)
-            # (Line 18) else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 7; }	// Cecilia
+            # (Line 20) else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 7;   }	// Cecilia
         if EUDElseIf()(unitID.PlayerID[playerID] == 9):
             _ARRW(t.T_CharaterNum, playerID) << (7)
-            # (Line 19) else if 	(unitID.PlayerID[playerID] == 10)		{ t.T_CharaterNum[playerID] = 10; }	// Alther Ago
+            # (Line 21) else if 	(unitID.PlayerID[playerID] == 10)		{ t.T_CharaterNum[playerID] = 10; }	// Alther Ago
         if EUDElseIf()(unitID.PlayerID[playerID] == 10):
             _ARRW(t.T_CharaterNum, playerID) << (10)
-            # (Line 20) else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 17; }	// Kiana
+            # (Line 22) else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 17; }	// Kiana
         if EUDElseIf()(unitID.PlayerID[playerID] == 11):
             _ARRW(t.T_CharaterNum, playerID) << (17)
-            # (Line 21) unitID.UnitID[playerID] = 0;
+            # (Line 23) else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+        if EUDElse()():
+            _ARRW(t.T_CharaterNum, playerID) << (v.P_HeroID[unitID.PlayerID[playerID]])
+            # (Line 24) unitID.UnitID[playerID] = 0;
         EUDEndIf()
         _ARRW(unitID.UnitID, playerID) << (0)
-        # (Line 22) break;
+        # (Line 25) break;
         EUDBreak()
-        # (Line 23) case 74:		// Dark Templar (Hero)
-    _t10 = EUDSwitchCase()
-    # (Line 24) if 		 (unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 3; }	// Maihime
-    if _t10(74):
+        # (Line 26) case 74:		// Dark Templar (Hero)
+    _t11 = EUDSwitchCase()
+    # (Line 27) if 		 (unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 3;   }	// Maihime
+    if _t11(74):
         if EUDIf()(unitID.PlayerID[playerID] == 8):
             _ARRW(t.T_CharaterNum, playerID) << (3)
-            # (Line 25) else if 	 (unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 4; }	// Tenshi
+            # (Line 28) else if 	 (unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 4;   }	// Tenshi
         if EUDElseIf()(unitID.PlayerID[playerID] == 9):
             _ARRW(t.T_CharaterNum, playerID) << (4)
-            # (Line 26) else if 	 (unitID.PlayerID[playerID] == 10) 	{ t.T_CharaterNum[playerID] = 5; }	// Miyuki
+            # (Line 29) else if 	 (unitID.PlayerID[playerID] == 10) 	{ t.T_CharaterNum[playerID] = 5;   }	// Miyuki
         if EUDElseIf()(unitID.PlayerID[playerID] == 10):
             _ARRW(t.T_CharaterNum, playerID) << (5)
-            # (Line 27) else if 	 (unitID.PlayerID[playerID] == 11) 	{ t.T_CharaterNum[playerID] = 26; }	// Yume
+            # (Line 30) else if 	 (unitID.PlayerID[playerID] == 11) 	{ t.T_CharaterNum[playerID] = 26; }	// Yume
         if EUDElseIf()(unitID.PlayerID[playerID] == 11):
             _ARRW(t.T_CharaterNum, playerID) << (26)
-            # (Line 28) unitID.UnitID[playerID] = 0;
+            # (Line 31) else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+        if EUDElse()():
+            _ARRW(t.T_CharaterNum, playerID) << (v.P_HeroID[unitID.PlayerID[playerID]])
+            # (Line 32) unitID.UnitID[playerID] = 0;
         EUDEndIf()
         _ARRW(unitID.UnitID, playerID) << (0)
-        # (Line 29) break;
+        # (Line 33) break;
         EUDBreak()
-        # (Line 30) case 16:		// Sarah Kerrigan (Ghost)
-    _t15 = EUDSwitchCase()
-    # (Line 31) if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 6; }	// Negev
-    if _t15(16):
+        # (Line 34) case 16:		// Sarah Kerrigan (Ghost)
+    _t16 = EUDSwitchCase()
+    # (Line 35) if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 6;   }	// Negev
+    if _t16(16):
         if EUDIf()(unitID.PlayerID[playerID] == 8):
             _ARRW(t.T_CharaterNum, playerID) << (6)
-            # (Line 32) else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 11; }	// Kurumi
+            # (Line 36) else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 12; }	// Kurumi
         if EUDElseIf()(unitID.PlayerID[playerID] == 9):
-            _ARRW(t.T_CharaterNum, playerID) << (11)
-            # (Line 33) else if 	(unitID.PlayerID[playerID] == 10) 		{ t.T_CharaterNum[playerID] = 13; }	// Sakura
+            _ARRW(t.T_CharaterNum, playerID) << (12)
+            # (Line 37) else if 	(unitID.PlayerID[playerID] == 10) 		{ t.T_CharaterNum[playerID] = 13; }	// Sakura
         if EUDElseIf()(unitID.PlayerID[playerID] == 10):
             _ARRW(t.T_CharaterNum, playerID) << (13)
-            # (Line 34) else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 16; }	// Seraphim
+            # (Line 38) else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 16; }	// Seraphim
         if EUDElseIf()(unitID.PlayerID[playerID] == 11):
             _ARRW(t.T_CharaterNum, playerID) << (16)
-            # (Line 35) unitID.UnitID[playerID] = 0;
+            # (Line 39) else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+        if EUDElse()():
+            _ARRW(t.T_CharaterNum, playerID) << (v.P_HeroID[unitID.PlayerID[playerID]])
+            # (Line 40) unitID.UnitID[playerID] = 0;
         EUDEndIf()
         _ARRW(unitID.UnitID, playerID) << (0)
-        # (Line 36) break;
+        # (Line 41) break;
         EUDBreak()
-        # (Line 37) case 54:		// Devouring One (Zergling)
-    _t20 = EUDSwitchCase()
-    # (Line 38) if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 12; }	// Ryuzu
-    if _t20(54):
+        # (Line 42) case 54:		// Devouring One (Zergling)
+    _t21 = EUDSwitchCase()
+    # (Line 43) if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 11; }	// Ryuzu
+    if _t21(54):
         if EUDIf()(unitID.PlayerID[playerID] == 8):
-            _ARRW(t.T_CharaterNum, playerID) << (12)
-            # (Line 39) else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 15; }	// Rin
+            _ARRW(t.T_CharaterNum, playerID) << (11)
+            # (Line 44) else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 15; }	// Rin
         if EUDElseIf()(unitID.PlayerID[playerID] == 9):
             _ARRW(t.T_CharaterNum, playerID) << (15)
-            # (Line 40) else if 	(unitID.PlayerID[playerID] == 10) 		{ t.T_CharaterNum[playerID] = 22; }	// Yuuna
+            # (Line 45) else if 	(unitID.PlayerID[playerID] == 10) 		{ t.T_CharaterNum[playerID] = 22; }	// Yuuna
         if EUDElseIf()(unitID.PlayerID[playerID] == 10):
             _ARRW(t.T_CharaterNum, playerID) << (22)
-            # (Line 41) else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 25; }	// Milim
+            # (Line 46) else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 25; }	// Milim
         if EUDElseIf()(unitID.PlayerID[playerID] == 11):
             _ARRW(t.T_CharaterNum, playerID) << (25)
-            # (Line 42) unitID.UnitID[playerID] = 0;
+            # (Line 47) else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+        if EUDElse()():
+            _ARRW(t.T_CharaterNum, playerID) << (v.P_HeroID[unitID.PlayerID[playerID]])
+            # (Line 48) unitID.UnitID[playerID] = 0;
         EUDEndIf()
         _ARRW(unitID.UnitID, playerID) << (0)
-        # (Line 43) break;
+        # (Line 49) break;
         EUDBreak()
-        # (Line 44) case 99:		// Samir Duran (Ghost)
-    _t25 = EUDSwitchCase()
-    # (Line 45) if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 14; }	// Yashiro
-    if _t25(99):
+        # (Line 50) case 99:		// Samir Duran (Ghost)
+    _t26 = EUDSwitchCase()
+    # (Line 51) if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 14; }	// Yashiro
+    if _t26(99):
         if EUDIf()(unitID.PlayerID[playerID] == 8):
             _ARRW(t.T_CharaterNum, playerID) << (14)
-            # (Line 46) else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 18; }	// Tenkai
+            # (Line 52) else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 18; }	// Tenkai
         if EUDElseIf()(unitID.PlayerID[playerID] == 9):
             _ARRW(t.T_CharaterNum, playerID) << (18)
-            # (Line 47) else if 	(unitID.PlayerID[playerID] == 10) 		{ t.T_CharaterNum[playerID] = 20; }	// EmetSelch
+            # (Line 53) else if 	(unitID.PlayerID[playerID] == 10) 		{ t.T_CharaterNum[playerID] = 20; }	// EmetSelch
         if EUDElseIf()(unitID.PlayerID[playerID] == 10):
             _ARRW(t.T_CharaterNum, playerID) << (20)
-            # (Line 48) else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 28; }	// Oda
+            # (Line 54) else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 28; }	// Oda
         if EUDElseIf()(unitID.PlayerID[playerID] == 11):
             _ARRW(t.T_CharaterNum, playerID) << (28)
-            # (Line 49) unitID.UnitID[playerID] = 0;
+            # (Line 55) else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+        if EUDElse()():
+            _ARRW(t.T_CharaterNum, playerID) << (v.P_HeroID[unitID.PlayerID[playerID]])
+            # (Line 56) unitID.UnitID[playerID] = 0;
         EUDEndIf()
         _ARRW(unitID.UnitID, playerID) << (0)
-        # (Line 50) break;
+        # (Line 57) break;
         EUDBreak()
-        # (Line 51) case 64:		// Probe
-    _t30 = EUDSwitchCase()
-    # (Line 52) if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 21; }	// Magellan
-    if _t30(64):
+        # (Line 58) case 64:		// Probe
+    _t31 = EUDSwitchCase()
+    # (Line 59) if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 21; }	// Magellan
+    if _t31(64):
         if EUDIf()(unitID.PlayerID[playerID] == 8):
             _ARRW(t.T_CharaterNum, playerID) << (21)
-            # (Line 53) else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 23; }	// Mayuri
+            # (Line 60) else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 23; }	// Mayuri
         if EUDElseIf()(unitID.PlayerID[playerID] == 9):
             _ARRW(t.T_CharaterNum, playerID) << (23)
-            # (Line 54) else if 	(unitID.PlayerID[playerID] == 10) 		{ t.T_CharaterNum[playerID] = 24; }	// Chiaki
+            # (Line 61) else if 	(unitID.PlayerID[playerID] == 10) 		{ t.T_CharaterNum[playerID] = 24; }	// Chiaki
         if EUDElseIf()(unitID.PlayerID[playerID] == 10):
             _ARRW(t.T_CharaterNum, playerID) << (24)
-            # (Line 55) unitID.UnitID[playerID] = 0;
+            # (Line 62) else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+        if EUDElse()():
+            _ARRW(t.T_CharaterNum, playerID) << (v.P_HeroID[unitID.PlayerID[playerID]])
+            # (Line 63) unitID.UnitID[playerID] = 0;
         EUDEndIf()
         _ARRW(unitID.UnitID, playerID) << (0)
-        # (Line 56) break;
+        # (Line 64) break;
         EUDBreak()
-        # (Line 57) case 53:		// Hunter Killer (Hydralisk)
-    _t34 = EUDSwitchCase()
-    # (Line 58) if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 27; }	// Magane
-    if _t34(53):
+        # (Line 65) case 53:		// Hunter Killer (Hydralisk)
+    _t35 = EUDSwitchCase()
+    # (Line 66) if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 27; }	// Magane
+    if _t35(53):
         if EUDIf()(unitID.PlayerID[playerID] == 8):
             _ARRW(t.T_CharaterNum, playerID) << (27)
-            # (Line 59) else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 30; }	// Niwa
+            # (Line 67) else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 30; }	// Niwa
         if EUDElseIf()(unitID.PlayerID[playerID] == 9):
             _ARRW(t.T_CharaterNum, playerID) << (30)
-            # (Line 60) unitID.UnitID[playerID] = 0;
+            # (Line 68) else if 	(unitID.PlayerID[playerID] == 10) 		{ t.T_CharaterNum[playerID] = 34; }	// Tsukasa
+        if EUDElseIf()(unitID.PlayerID[playerID] == 10):
+            _ARRW(t.T_CharaterNum, playerID) << (34)
+            # (Line 69) else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+        if EUDElse()():
+            _ARRW(t.T_CharaterNum, playerID) << (v.P_HeroID[unitID.PlayerID[playerID]])
+            # (Line 70) unitID.UnitID[playerID] = 0;
         EUDEndIf()
         _ARRW(unitID.UnitID, playerID) << (0)
-        # (Line 61) break;
+        # (Line 71) break;
         EUDBreak()
-        # (Line 62) case 34:		// High Templar
-    _t37 = EUDSwitchCase()
-    # (Line 63) if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 29; }	// Ekidona
-    if _t37(34):
+        # (Line 72) case 34:		// High Templar
+    _t39 = EUDSwitchCase()
+    # (Line 73) if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 29; }	// Ekidona
+    if _t39(34):
         if EUDIf()(unitID.PlayerID[playerID] == 8):
             _ARRW(t.T_CharaterNum, playerID) << (29)
-            # (Line 64) unitID.UnitID[playerID] = 0;
+            # (Line 74) else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+        if EUDElse()():
+            _ARRW(t.T_CharaterNum, playerID) << (v.P_HeroID[unitID.PlayerID[playerID]])
+            # (Line 75) unitID.UnitID[playerID] = 0;
         EUDEndIf()
         _ARRW(unitID.UnitID, playerID) << (0)
-        # (Line 65) break;
+        # (Line 76) break;
         EUDBreak()
-        # (Line 66) case 10:		// Gui Montag (Firebat)
-    _t39 = EUDSwitchCase()
-    # (Line 67) if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 31; }	// Park
-    if _t39(10):
+        # (Line 77) case 10:		// Gui Montag (Firebat)
+    _t41 = EUDSwitchCase()
+    # (Line 78) if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 31; }	// Park
+    if _t41(10):
         if EUDIf()(unitID.PlayerID[playerID] == 8):
             _ARRW(t.T_CharaterNum, playerID) << (31)
-            # (Line 68) unitID.UnitID[playerID] = 0;
+            # (Line 79) else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 32; }	// Hodaka
+        if EUDElseIf()(unitID.PlayerID[playerID] == 9):
+            _ARRW(t.T_CharaterNum, playerID) << (32)
+            # (Line 80) else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+        if EUDElse()():
+            _ARRW(t.T_CharaterNum, playerID) << (v.P_HeroID[unitID.PlayerID[playerID]])
+            # (Line 81) unitID.UnitID[playerID] = 0;
         EUDEndIf()
         _ARRW(unitID.UnitID, playerID) << (0)
-        # (Line 69) break;
+        # (Line 82) break;
         EUDBreak()
-        # (Line 70) }
-    # (Line 72) if (unitID.PlayerID[playerID] < 6)
+        # (Line 83) }
+    # (Line 85) if (t.T_CharaterNum[playerID] > 0 && Switch("StartSwitch", Cleared))
     EUDEndSwitch()
-    if EUDIf()(unitID.PlayerID[playerID] >= 6, neg=True):
-        # (Line 73) {
-        # (Line 74) t.T_CharaterNum[playerID] = v.P_HeroID[playerID];
-        _ARRW(t.T_CharaterNum, playerID) << (v.P_HeroID[playerID])
-        # (Line 75) unitID.UnitID[playerID] = 0;
-        _ARRW(unitID.UnitID, playerID) << (0)
-        # (Line 76) }
-        # (Line 78) if (t.T_CharaterNum[playerID] > 0 && Switch("StartSwitch", Cleared))
-    EUDEndIf()
     if EUDIf()(EUDSCAnd()(t.T_CharaterNum[playerID] <= 0, neg=True)(Switch("StartSwitch", Cleared))()):
-        # (Line 79) {
-        # (Line 80) v.stb.printAt(0, "\x13\x17[ \x04",ptr2s(t.T_CharacterName[t.T_CharaterNum[playerID]])," \x17]");
+        # (Line 86) {
+        # (Line 87) v.stb.printAt(0, "\x13\x17[ \x04",ptr2s(t.T_CharacterName[t.T_CharaterNum[playerID]])," \x17]");
         v.stb.printAt(0, "\x13\x17[ \x04", ptr2s(t.T_CharacterName[t.T_CharaterNum[playerID]]), " \x17]")
-        # (Line 81) v.stb.printAt(1, "\x13\x04- \x17", ptr2s(t.T_CharacterTitle[t.T_CharaterNum[playerID]]) , " \x04-");
+        # (Line 88) v.stb.printAt(1, "\x13\x04- \x17", ptr2s(t.T_CharacterTitle[t.T_CharaterNum[playerID]]) , " \x04-");
         v.stb.printAt(1, "\x13\x04- \x17", ptr2s(t.T_CharacterTitle[t.T_CharaterNum[playerID]]), " \x04-")
-        # (Line 82) v.stb.printAt(2, "\n");
+        # (Line 89) v.stb.printAt(2, "\n");
         v.stb.printAt(2, "\n")
-        # (Line 83) v.stb.printAt(3, "\x13\x17", ptr2s(t.T_CharacterType[t.T_CharaterNum[playerID]]), ptr2s(t.T_SubText[1]));
+        # (Line 90) v.stb.printAt(3, "\x13\x17", ptr2s(t.T_CharacterType[t.T_CharaterNum[playerID]]), ptr2s(t.T_SubText[1]));
         v.stb.printAt(3, "\x13\x17", ptr2s(t.T_CharacterType[t.T_CharaterNum[playerID]]), ptr2s(t.T_SubText[1]))
-        # (Line 84) v.stb.printAt(4, "\x13\x04", ptr2s(t.T_CharacterNeed[t.T_CharaterNum[playerID]]), ptr2s(t.T_SubText[2]));
+        # (Line 91) v.stb.printAt(4, "\x13\x04", ptr2s(t.T_CharacterNeed[t.T_CharaterNum[playerID]]), ptr2s(t.T_SubText[2]));
         v.stb.printAt(4, "\x13\x04", ptr2s(t.T_CharacterNeed[t.T_CharaterNum[playerID]]), ptr2s(t.T_SubText[2]))
-        # (Line 85) v.stb.printAt(5, "\n");
+        # (Line 92) v.stb.printAt(5, "\n");
         v.stb.printAt(5, "\n")
-        # (Line 86) v.stb.printAt(6, "\x13", ptr2s(t.T_CharacterTrait[t.T_CharaterNum[playerID]]));
+        # (Line 93) v.stb.printAt(6, "\x13", ptr2s(t.T_CharacterTrait[t.T_CharaterNum[playerID]]));
         v.stb.printAt(6, "\x13", ptr2s(t.T_CharacterTrait[t.T_CharaterNum[playerID]]))
-        # (Line 87) v.stb.printAt(7, "\n");
+        # (Line 94) v.stb.printAt(7, "\n");
         v.stb.printAt(7, "\n")
-        # (Line 89) t.T_CharaterNum[playerID] = 0;
+        # (Line 96) t.T_CharaterNum[playerID] = 0;
         _ARRW(t.T_CharaterNum, playerID) << (0)
-        # (Line 90) }
-        # (Line 91) }
+        # (Line 97) }
+        # (Line 98) }
     EUDEndIf()

@@ -334,50 +334,52 @@ def f_main(playerID):
             # (Line 118) else if (v.P_CountMain[playerID] == 8
         _t14 = EUDElseIf()
         # (Line 119) && Bring(playerID, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill")
-        # (Line 120) && v.P_UltimateGauge[playerID] >= v.P_Ultimate2[playerID])
-        if _t14(EUDSCAnd()(v.P_CountMain[playerID] == 8)(Bring(playerID, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill"))(v.P_UltimateGauge[playerID] >= v.P_Ultimate2[playerID])()):
+        # (Line 120) && v.P_UltimateGauge[playerID] >= v.P_Ultimate1[playerID])
+        if _t14(EUDSCAnd()(v.P_CountMain[playerID] == 8)(Bring(playerID, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill"))(v.P_UltimateGauge[playerID] >= v.P_Ultimate1[playerID])()):
             # (Line 121) {
             # (Line 122) if (Switch("UiltimateSwitch", Cleared))
             if EUDIf()(Switch("UiltimateSwitch", Cleared)):
                 # (Line 123) {
-                # (Line 124) s.CharacterVoice(11);
+                # (Line 124) CreateUnit(1, " Item. Flag", "[Uiltimate]Flag", CurrentPlayer);
+                # (Line 125) s.CharacterVoice(11);
+                DoActions(CreateUnit(1, " Item. Flag", "[Uiltimate]Flag", CurrentPlayer))
                 s.CharacterVoice(11)
-                # (Line 125) SetSwitch("UiltimateSwitch", Set);
-                # (Line 126) v.P_Step[playerID] = 240;
+                # (Line 126) SetSwitch("UiltimateSwitch", Set);
+                # (Line 127) v.P_Step[playerID] = 240;
                 DoActions(SetSwitch("UiltimateSwitch", Set))
                 _ARRW(v.P_Step, playerID) << (240)
-                # (Line 127) v.P_CountMain[playerID] = 0;
+                # (Line 128) v.P_CountMain[playerID] = 0;
                 _ARRW(v.P_CountMain, playerID) << (0)
-                # (Line 128) v.P_LoopMain[playerID] = 0;
+                # (Line 129) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 129) v.P_UltimateGauge[playerID] -= v.P_Ultimate2[playerID];
-                _ARRW(v.P_UltimateGauge, playerID).__isub__(v.P_Ultimate2[playerID])
-                # (Line 130) KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID);
-                # (Line 131) SetSwitch("Recall - Chtholly", Set);
+                # (Line 130) SetDeaths(playerID, Subtract, v.P_Ultimate1[playerID], 205);
+                # (Line 131) KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID);
+                DoActions(SetDeaths(playerID, Subtract, v.P_Ultimate1[playerID], 205))
+                # (Line 132) SetSwitch("Recall - Chtholly", Set);
                 DoActions(KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID))
-                # (Line 132) }
+                # (Line 133) }
                 DoActions(SetSwitch("Recall - Chtholly", Set))
-                # (Line 133) else
-                # (Line 134) {
+                # (Line 134) else
+                # (Line 135) {
             if EUDElse()():
-                # (Line 135) SetResources(CurrentPlayer, Add, 60, Gas);
-                # (Line 136) KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID);
+                # (Line 136) SetResources(CurrentPlayer, Add, 60, Gas);
+                # (Line 137) KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID);
                 DoActions(SetResources(CurrentPlayer, Add, 60, Gas))
-                # (Line 137) SetDeaths(CurrentPlayer, SetTo, 999, " `SYSTEMTEXT");
+                # (Line 138) SetDeaths(CurrentPlayer, SetTo, 999, " `SYSTEMTEXT");
                 DoActions(KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID))
-                # (Line 138) trg.SkillEnd();
+                # (Line 139) trg.SkillEnd();
                 DoActions(SetDeaths(CurrentPlayer, SetTo, 999, " `SYSTEMTEXT"))
                 trg.SkillEnd()
-                # (Line 139) }
                 # (Line 140) }
+                # (Line 141) }
             EUDEndIf()
-            # (Line 141) else if (v.P_CountMain[playerID] == 8)
+            # (Line 142) else if (v.P_CountMain[playerID] == 8)
         if EUDElseIf()(v.P_CountMain[playerID] == 8):
-            # (Line 142) {
-            # (Line 143) trg.SkillEnd();
+            # (Line 143) {
+            # (Line 144) trg.SkillEnd();
             trg.SkillEnd()
-            # (Line 144) }
             # (Line 145) }
+            # (Line 146) }
         EUDEndIf()
-        # (Line 146) }
+        # (Line 147) }
     EUDEndIf()

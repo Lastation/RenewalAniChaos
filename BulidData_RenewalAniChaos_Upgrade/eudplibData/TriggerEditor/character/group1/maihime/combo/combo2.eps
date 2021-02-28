@@ -282,16 +282,14 @@ function main(playerID)
 				Order(2, playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 				trg.Main_Wait(90);
 			}
-			else if (Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill") 
-			&& Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill") 
+			else if (Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") 
 			&& v.P_LoopMain[playerID] == 11)
 			{
 				s.CharacterVoice(4);
 				v.P_Step[playerID] = 220;
 				v.P_CountMain[playerID] = 0;
 				v.P_LoopMain[playerID] = 0;
-				KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
-				KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+				KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 			}
 			else if (v.P_LoopMain[playerID] == 11)
 			{

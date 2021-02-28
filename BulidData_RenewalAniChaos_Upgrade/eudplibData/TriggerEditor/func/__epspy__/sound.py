@@ -130,47 +130,558 @@ def _LSH(l, r):
 import PluginVariables as msqcvar
 # (Line 2) import variable as v;
 import variable as v
-# (Line 3) import character.group1.rusaruka.text as rusaruka;
+# (Line 4) import character.group1.rusaruka.text as rusaruka;
 from character.group1.rusaruka import text as rusaruka
-# (Line 4) import character.group1.chtholly.text as chtholly;
+# (Line 5) import character.group1.chtholly.text as chtholly;
 from character.group1.chtholly import text as chtholly
-# (Line 5) import character.group1.maihime.text as maihime;
+# (Line 6) import character.group1.maihime.text as maihime;
 from character.group1.maihime import text as maihime
-# (Line 7) function CharacterVoice(count : TrgCount)
-# (Line 8) {
+# (Line 7) import character.etc.tenshi as tenshi;
+from character.etc import tenshi as tenshi
+# (Line 8) import character.etc.miyuki as miyuki;
+from character.etc import miyuki as miyuki
+# (Line 10) import character.etc.negev as negev;
+from character.etc import negev as negev
+# (Line 11) import character.etc.cecillia as cecillia;
+from character.etc import cecillia as cecillia
+# (Line 12) import character.etc.anzu as anzu;
+from character.etc import anzu as anzu
+# (Line 13) import character.etc.hotomoka as hotomoka;
+from character.etc import hotomoka as hotomoka
+# (Line 14) import character.etc.alterego as alterego;
+from character.etc import alterego as alterego
+# (Line 16) import character.etc.ryuzu as ryuzu;
+from character.etc import ryuzu as ryuzu
+# (Line 17) import character.group3.kurumi.text as kurumi;
+from character.group3.kurumi import text as kurumi
+# (Line 18) import character.etc.sakura as sakura;
+from character.etc import sakura as sakura
+# (Line 19) import character.etc.yashiro as yashiro;
+from character.etc import yashiro as yashiro
+# (Line 20) import character.etc.rin as rin;
+from character.etc import rin as rin
+# (Line 22) import character.etc.seraphim as seraphim;
+from character.etc import seraphim as seraphim
+# (Line 24) import character.etc.iwahune as iwahune;
+from character.etc import iwahune as iwahune
+# (Line 25) import character.etc.mn as mn;
+from character.etc import mn as mn
+# (Line 26) import character.etc.emetselch as emetselch;
+from character.etc import emetselch as emetselch
+# (Line 28) import character.etc.magellan as magellan;
+from character.etc import magellan as magellan
+# (Line 29) import character.group4.yuuna.text as yuuna;
+from character.group4.yuuna import text as yuuna
+# (Line 30) import character.group4.mayuri.text as mayuri;
+from character.group4.mayuri import text as mayuri
+# (Line 31) import character.group4.nanami.text as nanami;
+from character.group4.nanami import text as nanami
+# (Line 32) import character.group4.milim.text as milim;
+from character.group4.milim import text as milim
+# (Line 34) import character.group5.yume.text as yume;
+from character.group5.yume import text as yume
+# (Line 35) import character.group5.magane.text as magane;
+from character.group5.magane import text as magane
+# (Line 36) import character.group5.oda.text as oda;
+from character.group5.oda import text as oda
+# (Line 37) import character.group5.ekidona.text as ekidona;
+from character.group5.ekidona import text as ekidona
+# (Line 38) import character.group5.niwa.text as niwa;
+from character.group5.niwa import text as niwa
+# (Line 40) import character.group6.park.text as park;
+from character.group6.park import text as park
+# (Line 41) import character.group6.hodaka.text 	as hodaka;
+from character.group6.hodaka import text as hodaka
+# (Line 42) import character.group6.tsukasa.text 	as tsukasa;
+from character.group6.tsukasa import text as tsukasa
+# (Line 44) function CharacterVoice(count : TrgCount)
+# (Line 45) {
 @EUDTypedFunc([TrgCount])
 def CharacterVoice(count):
-    # (Line 9) var playerID = getcurpl();
+    # (Line 46) var playerID = getcurpl();
     playerID = EUDVariable()
     playerID << (f_getcurpl())
-    # (Line 11) foreach(idx : EUDLoopRange(6))
+    # (Line 48) foreach(idx : EUDLoopRange(6))
     for idx in EUDLoopRange(6):
-        # (Line 12) {
-        # (Line 13) if 		(v.P_HeroID[playerID] == 1)	{ rusaruka.	P_player[idx] = count; rusaruka.	P_observer[idx] = count; }
+        # (Line 49) {
+        # (Line 50) if 		(v.P_HeroID[playerID] == 1)	{ rusaruka.	P_player[idx] = count; rusaruka.	P_observer[idx] = count; }
         if EUDIf()(v.P_HeroID[playerID] == 1):
             _ARRW(rusaruka.P_player, idx) << (count)
             _ARRW(rusaruka.P_observer, idx) << (count)
-            # (Line 14) else if 	(v.P_HeroID[playerID] == 2)	{ chtholly.	P_player[idx] = count; chtholly.	P_observer[idx] = count; 	}
+            # (Line 51) else if 	(v.P_HeroID[playerID] == 2)	{ chtholly.	P_player[idx] = count; chtholly.	P_observer[idx] = count; 	}
         if EUDElseIf()(v.P_HeroID[playerID] == 2):
             _ARRW(chtholly.P_player, idx) << (count)
             _ARRW(chtholly.P_observer, idx) << (count)
-            # (Line 15) else if 	(v.P_HeroID[playerID] == 3)	{ maihime.	P_player[idx] = count; maihime.	P_observer[idx] = count; 	}
+            # (Line 52) else if 	(v.P_HeroID[playerID] == 3)	{ maihime.	P_player[idx] = count; maihime.	P_observer[idx] = count; 	}
         if EUDElseIf()(v.P_HeroID[playerID] == 3):
             _ARRW(maihime.P_player, idx) << (count)
             _ARRW(maihime.P_observer, idx) << (count)
-            # (Line 16) }
+            # (Line 55) else if 	(v.P_HeroID[playerID] == 12)	{ kurumi.	P_player[idx] = count; kurumi.	P_observer[idx] = count; 	}
+        if EUDElseIf()(v.P_HeroID[playerID] == 12):
+            _ARRW(kurumi.P_player, idx) << (count)
+            _ARRW(kurumi.P_observer, idx) << (count)
+            # (Line 57) else if 	(v.P_HeroID[playerID] == 22)	{ yuuna.		P_player[idx] = count; yuuna.		P_observer[idx] = count; 	}
+        if EUDElseIf()(v.P_HeroID[playerID] == 22):
+            _ARRW(yuuna.P_player, idx) << (count)
+            _ARRW(yuuna.P_observer, idx) << (count)
+            # (Line 58) else if 	(v.P_HeroID[playerID] == 23)	{ mayuri.	P_player[idx] = count; mayuri.	P_observer[idx] = count; 	}
+        if EUDElseIf()(v.P_HeroID[playerID] == 23):
+            _ARRW(mayuri.P_player, idx) << (count)
+            _ARRW(mayuri.P_observer, idx) << (count)
+            # (Line 59) else if 	(v.P_HeroID[playerID] == 24)	{ nanami.	P_player[idx] = count; nanami.	P_observer[idx] = count; 	}
+        if EUDElseIf()(v.P_HeroID[playerID] == 24):
+            _ARRW(nanami.P_player, idx) << (count)
+            _ARRW(nanami.P_observer, idx) << (count)
+            # (Line 60) else if 	(v.P_HeroID[playerID] == 25)	{ milim.		P_player[idx] = count; milim.		P_observer[idx] = count; 	}
+        if EUDElseIf()(v.P_HeroID[playerID] == 25):
+            _ARRW(milim.P_player, idx) << (count)
+            _ARRW(milim.P_observer, idx) << (count)
+            # (Line 62) else if 	(v.P_HeroID[playerID] == 26)	{ yume.		P_player[idx] = count; yume.		P_observer[idx] = count; 	}
+        if EUDElseIf()(v.P_HeroID[playerID] == 26):
+            _ARRW(yume.P_player, idx) << (count)
+            _ARRW(yume.P_observer, idx) << (count)
+            # (Line 63) else if 	(v.P_HeroID[playerID] == 27)	{ magane.	P_player[idx] = count; magane.	P_observer[idx] = count; 	}
+        if EUDElseIf()(v.P_HeroID[playerID] == 27):
+            _ARRW(magane.P_player, idx) << (count)
+            _ARRW(magane.P_observer, idx) << (count)
+            # (Line 64) else if 	(v.P_HeroID[playerID] == 28)	{ oda.		P_player[idx] = count; oda.		P_observer[idx] = count; 	}
+        if EUDElseIf()(v.P_HeroID[playerID] == 28):
+            _ARRW(oda.P_player, idx) << (count)
+            _ARRW(oda.P_observer, idx) << (count)
+            # (Line 65) else if 	(v.P_HeroID[playerID] == 29)	{ ekidona.	P_player[idx] = count; ekidona.	P_observer[idx] = count; 	}
+        if EUDElseIf()(v.P_HeroID[playerID] == 29):
+            _ARRW(ekidona.P_player, idx) << (count)
+            _ARRW(ekidona.P_observer, idx) << (count)
+            # (Line 66) else if 	(v.P_HeroID[playerID] == 30)	{ niwa.		P_player[idx] = count; niwa.		P_observer[idx] = count; 	}
+        if EUDElseIf()(v.P_HeroID[playerID] == 30):
+            _ARRW(niwa.P_player, idx) << (count)
+            _ARRW(niwa.P_observer, idx) << (count)
+            # (Line 68) else if 	(v.P_HeroID[playerID] == 31)	{ park.		P_player[idx] = count; park.		P_observer[idx] = count; 	}
+        if EUDElseIf()(v.P_HeroID[playerID] == 31):
+            _ARRW(park.P_player, idx) << (count)
+            _ARRW(park.P_observer, idx) << (count)
+            # (Line 69) else if 	(v.P_HeroID[playerID] == 32)	{ hodaka.	P_player[idx] = count; hodaka.	P_observer[idx] = count; 	}
+        if EUDElseIf()(v.P_HeroID[playerID] == 32):
+            _ARRW(hodaka.P_player, idx) << (count)
+            _ARRW(hodaka.P_observer, idx) << (count)
+            # (Line 70) else if 	(v.P_HeroID[playerID] == 34)	{ tsukasa.	P_player[idx] = count; tsukasa.	P_observer[idx] = count; 	}
+        if EUDElseIf()(v.P_HeroID[playerID] == 34):
+            _ARRW(tsukasa.P_player, idx) << (count)
+            _ARRW(tsukasa.P_observer, idx) << (count)
+            # (Line 71) }
         EUDEndIf()
-        # (Line 17) }
+        # (Line 72) }
 
-    # (Line 19) function main(playerID)
+    # (Line 74) function OldCharacterVoiceNormal()
 
-# (Line 20) {
+# (Line 75) {
+@EUDFunc
+def OldCharacterVoiceNormal():
+    # (Line 76) var count;
+    count = EUDVariable()
+    # (Line 78) if (Deaths(P7, AtLeast, 1, " `SkillText"))
+    if EUDIf()(Deaths(P7, AtLeast, 1, " `SkillText")):
+        # (Line 79) {
+        # (Line 80) count = dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * 7));
+        count << (f_dwread_epd(EPD(0x58A364 + 48 * 186 + 4 * 7)))
+        # (Line 82) foreach(idx : EUDLoopRange(6))
+        for idx in EUDLoopRange(6):
+            # (Line 83) {
+            # (Line 84) tenshi.P_type[idx] = 1;  		tenshi.P_player[idx] = count; 			tenshi.P_observer[idx] = count;
+            _ARRW(tenshi.P_type, idx) << (1)
+            _ARRW(tenshi.P_player, idx) << (count)
+            _ARRW(tenshi.P_observer, idx) << (count)
+            # (Line 85) miyuki.P_type[idx] = 1;  		miyuki.P_player[idx] = count; 		miyuki.P_observer[idx] = count;
+            _ARRW(miyuki.P_type, idx) << (1)
+            _ARRW(miyuki.P_player, idx) << (count)
+            _ARRW(miyuki.P_observer, idx) << (count)
+            # (Line 86) negev.P_type[idx] = 1;  		negev.P_player[idx] = count; 			negev.P_observer[idx] = count;
+            _ARRW(negev.P_type, idx) << (1)
+            _ARRW(negev.P_player, idx) << (count)
+            _ARRW(negev.P_observer, idx) << (count)
+            # (Line 87) }
+            # (Line 88) SetDeaths(6, SetTo, 0, 186);
+
+        # (Line 89) }
+        DoActions(SetDeaths(6, SetTo, 0, 186))
+        # (Line 90) if (Deaths(P7, AtLeast, 1, " `SkillText2"))
+    EUDEndIf()
+    if EUDIf()(Deaths(P7, AtLeast, 1, " `SkillText2")):
+        # (Line 91) {
+        # (Line 92) count = dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * 7));
+        count << (f_dwread_epd(EPD(0x58A364 + 48 * 174 + 4 * 7)))
+        # (Line 94) foreach(idx : EUDLoopRange(6))
+        for idx in EUDLoopRange(6):
+            # (Line 95) {
+            # (Line 96) cecillia.P_type[idx] = 1;  		cecillia.P_player[idx] = count; 		cecillia.P_observer[idx] = count;
+            _ARRW(cecillia.P_type, idx) << (1)
+            _ARRW(cecillia.P_player, idx) << (count)
+            _ARRW(cecillia.P_observer, idx) << (count)
+            # (Line 97) anzu.P_type[idx] = 1; 		anzu.P_player[idx] = count; 			anzu.P_observer[idx] = count;
+            _ARRW(anzu.P_type, idx) << (1)
+            _ARRW(anzu.P_player, idx) << (count)
+            _ARRW(anzu.P_observer, idx) << (count)
+            # (Line 98) hotomoka.P_type[idx] = 1;  	hotomoka.P_player[idx] = count; 		hotomoka.P_observer[idx] = count;
+            _ARRW(hotomoka.P_type, idx) << (1)
+            _ARRW(hotomoka.P_player, idx) << (count)
+            _ARRW(hotomoka.P_observer, idx) << (count)
+            # (Line 99) alterego.P_type[idx] = 1;  	alterego.P_player[idx] = count; 		alterego.P_observer[idx] = count;
+            _ARRW(alterego.P_type, idx) << (1)
+            _ARRW(alterego.P_player, idx) << (count)
+            _ARRW(alterego.P_observer, idx) << (count)
+            # (Line 100) ryuzu.P_type[idx] = 1; 		ryuzu.P_player[idx] = count; 			ryuzu.P_observer[idx] = count;
+            _ARRW(ryuzu.P_type, idx) << (1)
+            _ARRW(ryuzu.P_player, idx) << (count)
+            _ARRW(ryuzu.P_observer, idx) << (count)
+            # (Line 102) }
+            # (Line 103) SetDeaths(6, SetTo, 0, 174);
+
+        # (Line 104) }
+        DoActions(SetDeaths(6, SetTo, 0, 174))
+        # (Line 105) if (Deaths(P7, AtLeast, 1, " `SkillText3"))
+    EUDEndIf()
+    if EUDIf()(Deaths(P7, AtLeast, 1, " `SkillText3")):
+        # (Line 106) {
+        # (Line 107) count = dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * 7));
+        count << (f_dwread_epd(EPD(0x58A364 + 48 * 117 + 4 * 7)))
+        # (Line 109) foreach(idx : EUDLoopRange(6))
+        for idx in EUDLoopRange(6):
+            # (Line 110) {
+            # (Line 111) sakura.P_type[idx] = 1;  		sakura.P_player[idx] = count; 		sakura.P_observer[idx] = count;
+            _ARRW(sakura.P_type, idx) << (1)
+            _ARRW(sakura.P_player, idx) << (count)
+            _ARRW(sakura.P_observer, idx) << (count)
+            # (Line 112) yashiro.P_type[idx] = 1; 		yashiro.P_player[idx] = count; 		yashiro.P_observer[idx] = count;
+            _ARRW(yashiro.P_type, idx) << (1)
+            _ARRW(yashiro.P_player, idx) << (count)
+            _ARRW(yashiro.P_observer, idx) << (count)
+            # (Line 113) rin.P_type[idx] = 1;  			rin.P_player[idx] = count; 			rin.P_observer[idx] = count;
+            _ARRW(rin.P_type, idx) << (1)
+            _ARRW(rin.P_player, idx) << (count)
+            _ARRW(rin.P_observer, idx) << (count)
+            # (Line 114) seraphim.P_type[idx] = 1;  	seraphim.P_player[idx] = count; 		seraphim.P_observer[idx] = count;
+            _ARRW(seraphim.P_type, idx) << (1)
+            _ARRW(seraphim.P_player, idx) << (count)
+            _ARRW(seraphim.P_observer, idx) << (count)
+            # (Line 116) iwahune.P_type[idx] = 1;  	iwahune.P_player[idx] = count; 		iwahune.P_observer[idx] = count;
+            _ARRW(iwahune.P_type, idx) << (1)
+            _ARRW(iwahune.P_player, idx) << (count)
+            _ARRW(iwahune.P_observer, idx) << (count)
+            # (Line 117) }
+            # (Line 118) SetDeaths(6, SetTo, 0, 117);
+
+        # (Line 119) }
+        DoActions(SetDeaths(6, SetTo, 0, 117))
+        # (Line 120) if (Deaths(P7, AtLeast, 1, " `SkillText4"))
+    EUDEndIf()
+    if EUDIf()(Deaths(P7, AtLeast, 1, " `SkillText4")):
+        # (Line 121) {
+        # (Line 122) count = dwread_epd(EPD(0x58A364 + 48 * 157 + 4 * 7));
+        count << (f_dwread_epd(EPD(0x58A364 + 48 * 157 + 4 * 7)))
+        # (Line 124) foreach(idx : EUDLoopRange(6))
+        for idx in EUDLoopRange(6):
+            # (Line 125) {
+            # (Line 126) mn.P_type[idx] = 1;  			mn.P_player[idx] = count; 			mn.P_observer[idx] = count;
+            _ARRW(mn.P_type, idx) << (1)
+            _ARRW(mn.P_player, idx) << (count)
+            _ARRW(mn.P_observer, idx) << (count)
+            # (Line 127) emetselch.P_type[idx] = 1; 	emetselch.P_player[idx] = count; 		emetselch.P_observer[idx] = count;
+            _ARRW(emetselch.P_type, idx) << (1)
+            _ARRW(emetselch.P_player, idx) << (count)
+            _ARRW(emetselch.P_observer, idx) << (count)
+            # (Line 128) magellan.P_type[idx] = 1;  	magellan.P_player[idx] = count; 		magellan.P_observer[idx] = count;
+            _ARRW(magellan.P_type, idx) << (1)
+            _ARRW(magellan.P_player, idx) << (count)
+            _ARRW(magellan.P_observer, idx) << (count)
+            # (Line 129) }
+            # (Line 130) SetDeaths(6, SetTo, 0, 157);
+
+        # (Line 131) }
+        DoActions(SetDeaths(6, SetTo, 0, 157))
+        # (Line 132) }
+    EUDEndIf()
+    # (Line 134) function OldCharacterVoiceUltimate()
+
+# (Line 135) {
+@EUDFunc
+def OldCharacterVoiceUltimate():
+    # (Line 136) var count;
+    count = EUDVariable()
+    # (Line 138) if (Deaths(P7, AtLeast, 1, " `SkillText_Uiltimate"))
+    if EUDIf()(Deaths(P7, AtLeast, 1, " `SkillText_Uiltimate")):
+        # (Line 139) {
+        # (Line 140) count = dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * 7));
+        count << (f_dwread_epd(EPD(0x58A364 + 48 * 222 + 4 * 7)))
+        # (Line 142) foreach(idx : EUDLoopRange(6))
+        for idx in EUDLoopRange(6):
+            # (Line 143) {
+            # (Line 144) tenshi.P_type[idx] = 2;  		tenshi.P_player[idx] = count; 			tenshi.P_observer[idx] = count;
+            _ARRW(tenshi.P_type, idx) << (2)
+            _ARRW(tenshi.P_player, idx) << (count)
+            _ARRW(tenshi.P_observer, idx) << (count)
+            # (Line 145) miyuki.P_type[idx] = 2;  		miyuki.P_player[idx] = count; 		miyuki.P_observer[idx] = count;
+            _ARRW(miyuki.P_type, idx) << (2)
+            _ARRW(miyuki.P_player, idx) << (count)
+            _ARRW(miyuki.P_observer, idx) << (count)
+            # (Line 146) negev.P_type[idx] = 2;  		negev.P_player[idx] = count; 			negev.P_observer[idx] = count;
+            _ARRW(negev.P_type, idx) << (2)
+            _ARRW(negev.P_player, idx) << (count)
+            _ARRW(negev.P_observer, idx) << (count)
+            # (Line 147) cecillia.P_type[idx] = 2;  		cecillia.P_player[idx] = count; 		cecillia.P_observer[idx] = count;
+            _ARRW(cecillia.P_type, idx) << (2)
+            _ARRW(cecillia.P_player, idx) << (count)
+            _ARRW(cecillia.P_observer, idx) << (count)
+            # (Line 148) anzu.P_type[idx] = 2; 		anzu.P_player[idx] = count; 			anzu.P_observer[idx] = count;
+            _ARRW(anzu.P_type, idx) << (2)
+            _ARRW(anzu.P_player, idx) << (count)
+            _ARRW(anzu.P_observer, idx) << (count)
+            # (Line 149) hotomoka.P_type[idx] = 2;  	hotomoka.P_player[idx] = count; 		hotomoka.P_observer[idx] = count;
+            _ARRW(hotomoka.P_type, idx) << (2)
+            _ARRW(hotomoka.P_player, idx) << (count)
+            _ARRW(hotomoka.P_observer, idx) << (count)
+            # (Line 150) alterego.P_type[idx] = 2;  	alterego.P_player[idx] = count; 		alterego.P_observer[idx] = count;
+            _ARRW(alterego.P_type, idx) << (2)
+            _ARRW(alterego.P_player, idx) << (count)
+            _ARRW(alterego.P_observer, idx) << (count)
+            # (Line 151) ryuzu.P_type[idx] = 2; 		ryuzu.P_player[idx] = count; 			ryuzu.P_observer[idx] = count;
+            _ARRW(ryuzu.P_type, idx) << (2)
+            _ARRW(ryuzu.P_player, idx) << (count)
+            _ARRW(ryuzu.P_observer, idx) << (count)
+            # (Line 153) sakura.P_type[idx] = 2;  		sakura.P_player[idx] = count; 		sakura.P_observer[idx] = count;
+            _ARRW(sakura.P_type, idx) << (2)
+            _ARRW(sakura.P_player, idx) << (count)
+            _ARRW(sakura.P_observer, idx) << (count)
+            # (Line 154) yashiro.P_type[idx] = 2; 		yashiro.P_player[idx] = count; 		yashiro.P_observer[idx] = count;
+            _ARRW(yashiro.P_type, idx) << (2)
+            _ARRW(yashiro.P_player, idx) << (count)
+            _ARRW(yashiro.P_observer, idx) << (count)
+            # (Line 155) rin.P_type[idx] = 2;  			rin.P_player[idx] = count; 			rin.P_observer[idx] = count;
+            _ARRW(rin.P_type, idx) << (2)
+            _ARRW(rin.P_player, idx) << (count)
+            _ARRW(rin.P_observer, idx) << (count)
+            # (Line 156) seraphim.P_type[idx] = 2;  	seraphim.P_player[idx] = count; 		seraphim.P_observer[idx] = count;
+            _ARRW(seraphim.P_type, idx) << (2)
+            _ARRW(seraphim.P_player, idx) << (count)
+            _ARRW(seraphim.P_observer, idx) << (count)
+            # (Line 158) iwahune.P_type[idx] = 2;  	iwahune.P_player[idx] = count; 		iwahune.P_observer[idx] = count;
+            _ARRW(iwahune.P_type, idx) << (2)
+            _ARRW(iwahune.P_player, idx) << (count)
+            _ARRW(iwahune.P_observer, idx) << (count)
+            # (Line 159) mn.P_type[idx] = 2;  			mn.P_player[idx] = count; 			mn.P_observer[idx] = count;
+            _ARRW(mn.P_type, idx) << (2)
+            _ARRW(mn.P_player, idx) << (count)
+            _ARRW(mn.P_observer, idx) << (count)
+            # (Line 160) emetselch.P_type[idx] = 2; 	emetselch.P_player[idx] = count; 		emetselch.P_observer[idx] = count;
+            _ARRW(emetselch.P_type, idx) << (2)
+            _ARRW(emetselch.P_player, idx) << (count)
+            _ARRW(emetselch.P_observer, idx) << (count)
+            # (Line 161) magellan.P_type[idx] = 2;  	magellan.P_player[idx] = count; 		magellan.P_observer[idx] = count;
+            _ARRW(magellan.P_type, idx) << (2)
+            _ARRW(magellan.P_player, idx) << (count)
+            _ARRW(magellan.P_observer, idx) << (count)
+            # (Line 162) }
+            # (Line 164) SetDeaths(6, SetTo, 0, 222);
+
+        # (Line 165) }
+        DoActions(SetDeaths(6, SetTo, 0, 222))
+        # (Line 166) }
+    EUDEndIf()
+    # (Line 168) function OldCharacterVoiceUnique()
+
+# (Line 169) {
+@EUDFunc
+def OldCharacterVoiceUnique():
+    # (Line 170) var count;
+    count = EUDVariable()
+    # (Line 172) if (Deaths(P7, AtLeast, 1, " `SkillText_Unique"))
+    if EUDIf()(Deaths(P7, AtLeast, 1, " `SkillText_Unique")):
+        # (Line 173) {
+        # (Line 174) count = dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * 7));
+        count << (f_dwread_epd(EPD(0x58A364 + 48 * 188 + 4 * 7)))
+        # (Line 176) foreach(idx : EUDLoopRange(6))
+        for idx in EUDLoopRange(6):
+            # (Line 177) {
+            # (Line 178) tenshi.P_type[idx] = 3;  		tenshi.P_player[idx] = count; 			tenshi.P_observer[idx] = count;
+            _ARRW(tenshi.P_type, idx) << (3)
+            _ARRW(tenshi.P_player, idx) << (count)
+            _ARRW(tenshi.P_observer, idx) << (count)
+            # (Line 179) miyuki.P_type[idx] = 3;  		miyuki.P_player[idx] = count; 		miyuki.P_observer[idx] = count;
+            _ARRW(miyuki.P_type, idx) << (3)
+            _ARRW(miyuki.P_player, idx) << (count)
+            _ARRW(miyuki.P_observer, idx) << (count)
+            # (Line 180) negev.P_type[idx] = 3;  		negev.P_player[idx] = count; 			negev.P_observer[idx] = count;
+            _ARRW(negev.P_type, idx) << (3)
+            _ARRW(negev.P_player, idx) << (count)
+            _ARRW(negev.P_observer, idx) << (count)
+            # (Line 181) cecillia.P_type[idx] = 3;  		cecillia.P_player[idx] = count; 		cecillia.P_observer[idx] = count;
+            _ARRW(cecillia.P_type, idx) << (3)
+            _ARRW(cecillia.P_player, idx) << (count)
+            _ARRW(cecillia.P_observer, idx) << (count)
+            # (Line 182) anzu.P_type[idx] = 3; 		anzu.P_player[idx] = count; 			anzu.P_observer[idx] = count;
+            _ARRW(anzu.P_type, idx) << (3)
+            _ARRW(anzu.P_player, idx) << (count)
+            _ARRW(anzu.P_observer, idx) << (count)
+            # (Line 183) hotomoka.P_type[idx] = 3;  	hotomoka.P_player[idx] = count; 		hotomoka.P_observer[idx] = count;
+            _ARRW(hotomoka.P_type, idx) << (3)
+            _ARRW(hotomoka.P_player, idx) << (count)
+            _ARRW(hotomoka.P_observer, idx) << (count)
+            # (Line 184) alterego.P_type[idx] = 3;  	alterego.P_player[idx] = count; 		alterego.P_observer[idx] = count;
+            _ARRW(alterego.P_type, idx) << (3)
+            _ARRW(alterego.P_player, idx) << (count)
+            _ARRW(alterego.P_observer, idx) << (count)
+            # (Line 185) ryuzu.P_type[idx] = 3; 		ryuzu.P_player[idx] = count; 			ryuzu.P_observer[idx] = count;
+            _ARRW(ryuzu.P_type, idx) << (3)
+            _ARRW(ryuzu.P_player, idx) << (count)
+            _ARRW(ryuzu.P_observer, idx) << (count)
+            # (Line 187) sakura.P_type[idx] = 3;  		sakura.P_player[idx] = count; 		sakura.P_observer[idx] = count;
+            _ARRW(sakura.P_type, idx) << (3)
+            _ARRW(sakura.P_player, idx) << (count)
+            _ARRW(sakura.P_observer, idx) << (count)
+            # (Line 188) yashiro.P_type[idx] = 3; 		yashiro.P_player[idx] = count; 		yashiro.P_observer[idx] = count;
+            _ARRW(yashiro.P_type, idx) << (3)
+            _ARRW(yashiro.P_player, idx) << (count)
+            _ARRW(yashiro.P_observer, idx) << (count)
+            # (Line 189) rin.P_type[idx] = 3;  			rin.P_player[idx] = count; 			rin.P_observer[idx] = count;
+            _ARRW(rin.P_type, idx) << (3)
+            _ARRW(rin.P_player, idx) << (count)
+            _ARRW(rin.P_observer, idx) << (count)
+            # (Line 190) seraphim.P_type[idx] = 3;  	seraphim.P_player[idx] = count; 		seraphim.P_observer[idx] = count;
+            _ARRW(seraphim.P_type, idx) << (3)
+            _ARRW(seraphim.P_player, idx) << (count)
+            _ARRW(seraphim.P_observer, idx) << (count)
+            # (Line 192) iwahune.P_type[idx] = 3;  	iwahune.P_player[idx] = count; 		iwahune.P_observer[idx] = count;
+            _ARRW(iwahune.P_type, idx) << (3)
+            _ARRW(iwahune.P_player, idx) << (count)
+            _ARRW(iwahune.P_observer, idx) << (count)
+            # (Line 193) mn.P_type[idx] = 3;  			mn.P_player[idx] = count; 			mn.P_observer[idx] = count;
+            _ARRW(mn.P_type, idx) << (3)
+            _ARRW(mn.P_player, idx) << (count)
+            _ARRW(mn.P_observer, idx) << (count)
+            # (Line 194) emetselch.P_type[idx] = 3; 	emetselch.P_player[idx] = count; 		emetselch.P_observer[idx] = count;
+            _ARRW(emetselch.P_type, idx) << (3)
+            _ARRW(emetselch.P_player, idx) << (count)
+            _ARRW(emetselch.P_observer, idx) << (count)
+            # (Line 195) magellan.P_type[idx] = 3;  	magellan.P_player[idx] = count; 		magellan.P_observer[idx] = count;
+            _ARRW(magellan.P_type, idx) << (3)
+            _ARRW(magellan.P_player, idx) << (count)
+            _ARRW(magellan.P_observer, idx) << (count)
+            # (Line 196) }
+            # (Line 198) SetDeaths(6, SetTo, 0, 188);
+
+        # (Line 199) }
+        DoActions(SetDeaths(6, SetTo, 0, 188))
+        # (Line 200) }
+    EUDEndIf()
+    # (Line 204) function OldVoicemain()
+
+# (Line 205) {
+@EUDFunc
+def OldVoicemain():
+    # (Line 206) OldCharacterVoiceNormal();
+    OldCharacterVoiceNormal()
+    # (Line 207) OldCharacterVoiceUltimate();
+    OldCharacterVoiceUltimate()
+    # (Line 208) OldCharacterVoiceUnique();
+    OldCharacterVoiceUnique()
+    # (Line 209) }
+    # (Line 211) function BGMRoutine(cp)
+
+# (Line 212) {
+@EUDFunc
+def BGMRoutine(cp):
+    # (Line 213) if (Bring(cp, AtLeast, 1, "Terran SCV", "[BGM]ON"))
+    if EUDIf()(Bring(cp, AtLeast, 1, "Terran SCV", "[BGM]ON")):
+        # (Line 214) {
+        # (Line 215) if (v.bgmWait[cp] == 0)
+        if EUDIf()(v.bgmWait[cp] == 0):
+            # (Line 216) {
+            # (Line 217) PlayWAV("BGM03.ogg");
+            # (Line 218) v.stb.print("　　\x04\x1F# N\x04ow \x04Playing... \x04");
+            DoActions(PlayWAV("BGM03.ogg"))
+            v.stb.print("　　\x04\x1F# N\x04ow \x04Playing... \x04")
+            # (Line 219) v.bgmWait[cp] = 5424;
+            _ARRW(v.bgmWait, cp) << (5424)
+            # (Line 220) }
+            # (Line 221) }
+        EUDEndIf()
+        # (Line 223) if (v.bgmWait[cp] > 0)
+    EUDEndIf()
+    if EUDIf()(v.bgmWait[cp] <= 0, neg=True):
+        # (Line 224) {
+        # (Line 225) v.bgmWait[cp] -= 1;
+        _ARRW(v.bgmWait, cp).__isub__(1)
+        # (Line 226) }
+        # (Line 227) }
+    EUDEndIf()
+    # (Line 229) function main(playerID)
+
+# (Line 230) {
 @EUDFunc
 def f_main(playerID):
-    # (Line 21) rusaruka.main(playerID);
+    # (Line 232) rusaruka.main(playerID);
     rusaruka.f_main(playerID)
-    # (Line 22) chtholly.main(playerID);
+    # (Line 233) chtholly.main(playerID);
     chtholly.f_main(playerID)
-    # (Line 23) maihime.main(playerID);
+    # (Line 234) maihime.main(playerID);
     maihime.f_main(playerID)
-    # (Line 24) }
+    # (Line 235) tenshi.main(playerID);
+    tenshi.f_main(playerID)
+    # (Line 236) miyuki.main(playerID);
+    miyuki.f_main(playerID)
+    # (Line 239) negev.main(playerID);
+    negev.f_main(playerID)
+    # (Line 240) cecillia.main(playerID);
+    cecillia.f_main(playerID)
+    # (Line 241) anzu.main(playerID);
+    anzu.f_main(playerID)
+    # (Line 242) hotomoka.main(playerID);
+    hotomoka.f_main(playerID)
+    # (Line 243) alterego.main(playerID);
+    alterego.f_main(playerID)
+    # (Line 246) ryuzu.main(playerID);
+    ryuzu.f_main(playerID)
+    # (Line 247) kurumi.main(playerID);
+    kurumi.f_main(playerID)
+    # (Line 248) sakura.main(playerID);
+    sakura.f_main(playerID)
+    # (Line 249) yashiro.main(playerID);
+    yashiro.f_main(playerID)
+    # (Line 250) rin.main(playerID);
+    rin.f_main(playerID)
+    # (Line 253) seraphim.main(playerID);
+    seraphim.f_main(playerID)
+    # (Line 255) iwahune.main(playerID);
+    iwahune.f_main(playerID)
+    # (Line 256) mn.main(playerID);
+    mn.f_main(playerID)
+    # (Line 257) emetselch.main(playerID);
+    emetselch.f_main(playerID)
+    # (Line 260) magellan.main(playerID);
+    magellan.f_main(playerID)
+    # (Line 261) yuuna.main(playerID);
+    yuuna.f_main(playerID)
+    # (Line 262) mayuri.main(playerID);
+    mayuri.f_main(playerID)
+    # (Line 263) nanami.main(playerID);
+    nanami.f_main(playerID)
+    # (Line 264) milim.main(playerID);
+    milim.f_main(playerID)
+    # (Line 267) yume.main(playerID);
+    yume.f_main(playerID)
+    # (Line 268) magane.main(playerID);
+    magane.f_main(playerID)
+    # (Line 269) oda.main(playerID);
+    oda.f_main(playerID)
+    # (Line 270) ekidona.main(playerID);
+    ekidona.f_main(playerID)
+    # (Line 271) niwa.main(playerID);
+    niwa.f_main(playerID)
+    # (Line 274) park.main(playerID);
+    park.f_main(playerID)
+    # (Line 275) hodaka.main(playerID);
+    hodaka.f_main(playerID)
+    # (Line 276) tsukasa.main(playerID);
+    tsukasa.f_main(playerID)
+    # (Line 278) BGMRoutine(playerID);
+    BGMRoutine(playerID)
+    # (Line 279) }

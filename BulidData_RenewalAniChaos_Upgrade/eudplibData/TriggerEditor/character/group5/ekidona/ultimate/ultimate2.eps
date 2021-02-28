@@ -1,0 +1,148 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
+
+function main(playerID)
+{
+   if (v.P_WaitMain[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] < 3)
+      {
+         if (Bring(playerID, AtLeast, 1, "Zerg Devourer", "Anywhere"))
+         {
+            for (var i = 0; i < 3; i++)
+            {
+               MoveLocation(v.P_LocationID[playerID], "Zerg Devourer", playerID, "Anywhere");
+               RemoveUnitAt(1, "Zerg Devourer", "Anywhere", playerID);
+
+               if (i % 3 == 0) 
+               {
+                  trg.SkillUnit(playerID, 1, "50 + 1n Battlecruiser");
+                  trg.SkillUnit(playerID, 1, "130 + 1n Norad");
+                  trg.SkillUnit(playerID, 1, "80 + 1n Tank");
+               }
+               else if (i % 3 == 1)
+               {
+                  trg.SkillUnit(playerID, 1, "50 + 1n Battlecruiser");
+                  trg.SkillUnit(playerID, 1, "40 + 1n Gantrithor");
+                  trg.SkillUnit(playerID, 1, "60 + 1n Archon");
+               }
+               else if (i % 3 == 2)
+               {
+                  trg.SkillUnit(playerID, 1, "50 + 1n Battlecruiser");
+                  trg.SkillUnit(playerID, 1, "40 + 1n Guardian");
+                  trg.SkillUnit(playerID, 1, " Unit. Hoffnung 25000");
+               }
+
+            }
+            KillUnitAt(3, "60 + 1n Siege", "Anywhere", playerID);
+            KillUnitAt(3, "60 + 1n Danimoth", "Anywhere", playerID);
+            KillUnitAt(3, "60 + 1n Dragoon", "Anywhere", playerID);
+            KillUnitAt(3, "40 + 1n Mojo", "Anywhere", playerID);
+            KillUnitAt(3, "40 + 1n Wraith", "Anywhere", playerID);
+            KillUnitAt(3, "50 + 1n Tank", "Anywhere", playerID);
+            KillUnitAt(All, "130 + 1n Norad", "Anywhere", playerID);
+            KillUnitAt(All, "80 + 1n Tank", "Anywhere", playerID);
+            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+         }
+      }
+
+      if (v.P_CountMain[playerID] == 0)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {
+            GiveUnits(All, "Zerg Devourer", P12, "Anywhere", playerID);
+            GiveUnits(All, "Zerg Devourer", P11, "Anywhere", playerID);
+            GiveUnits(All, "Zerg Devourer", P10, "Anywhere", playerID);
+            GiveUnits(All, "Zerg Devourer", P9, "Anywhere", playerID);
+            GiveUnits(All, "Zerg Devourer", P8, "Anywhere", playerID);
+            GiveUnits(All, "Zerg Devourer", P7, "Anywhere", playerID);
+
+            trg.Buff_ShieldFix(1);
+         }
+
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 11)
+         {
+            s.CharacterVoice(12);
+
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 1)
+      {
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 20)
+         {
+            s.CharacterVoice(13);
+
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 2)
+      {
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 62)
+         {
+            s.CharacterVoice(14);
+
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 3)
+      {
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 57)
+         {
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 4)
+      {
+         KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
+         KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+         KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+         KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", playerID);
+         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+         KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+         KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
+         KillUnitAt(All, "Zerg Devourer", "Anywhere", playerID);
+         KillUnitAt(All, "Zerg Devourer", "Anywhere", P7);
+         KillUnitAt(All, "Zerg Devourer", "Anywhere", P8);
+         KillUnitAt(All, "Zerg Devourer", "Anywhere", P11);
+         KillUnitAt(All, "Zerg Devourer", "Anywhere", P9);
+         KillUnitAt(All, "Zerg Devourer", "Anywhere", P12);
+         KillUnitAt(All, "Zerg Devourer", "Anywhere", P10);
+
+         SetSwitch("JunkYardDog - Ekidona", Clear);
+         SetSwitch("UiltimateSwitch", Clear);
+         trg.SkillEnd();
+      }
+
+   }
+
+   MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+}

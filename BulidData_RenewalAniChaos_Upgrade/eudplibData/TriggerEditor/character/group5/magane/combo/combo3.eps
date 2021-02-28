@@ -1,0 +1,273 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.trigadv as adv;
+import func.trigepic as epic;
+
+function EdgeShapeAt(playerID : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, x, y);
+function NxNSquareShapeAt(playerID : TrgPlayer, count, Unit : TrgUnit, n, interval, x, y);
+function EdgeShapeAtWithProperty(playerID : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, x, y, property);
+
+function main(playerID)
+{
+   trg.Buff_ShieldFix(1);
+
+   if (v.P_WaitMain[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] == 0)
+      {
+         SetDeaths(playerID, SetTo, 1, " `ShieldRecharge");
+
+         if (v.P_LoopMain[playerID] % 2 == 0)
+         {
+            RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
+            RemoveUnitAt(All, " Creep. Dunkelheit", "Anywhere", playerID);
+
+            var i = v.P_LoopMain[playerID] / 2;
+
+            trg.Shape_Square(playerID, 1, "40 + 1n Mutalisk", 25 + 25 * i, 75 - 25 * i);
+            trg.Shape_Square(playerID, 1, "Rhynadon (Badlands)", 25 + 25 * i, 75 - 25 * i);
+            KillUnitAt(All, "Rhynadon (Badlands)", "Anywhere", playerID);
+
+            trg.Shape_Square(playerID, 1, " Creep. Dunkelheit", 100, 100);
+            trg.Shape_Square(playerID, 6, "Bengalaas (Jungle)", 100, 100);
+            trg.Shape_Square(playerID, 1, "Target", 100, 100);
+            trg.Shape_Dot(playerID, 1, "Target", 0, 0);
+            KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", playerID);
+            KillUnitAt(All, "Target", "Anywhere", playerID);
+
+            trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 40 + 40 * i, 40 + 40 * i);
+            KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID);
+
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 50, 50);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            MoveUnit(All, " Creep. Dunkelheit", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            Order(" Creep. Dunkelheit", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+         }
+
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 8)
+         {
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 1)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {
+            RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
+            RemoveUnitAt(All, " Creep. Dunkelheit", "Anywhere", playerID);
+         }
+         RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
+
+         trg.Shape_Square(playerID, 1, "40 + 1n Mutalisk", 120 - 8 * v.P_LoopMain[playerID], 0);
+         trg.Shape_Square(playerID, 1, "Protoss Dark Archon", 120 - 8 * v.P_LoopMain[playerID], 0);
+         KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+
+         trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 170 - 8 * v.P_LoopMain[playerID], 0);
+         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+
+         if (v.P_LoopMain[playerID] % 2 == 0)
+         {
+            trg.Shape_Square(playerID, 1, "Scantid (Desert)", 100, 100);
+            KillUnitAt(All, "Scantid (Desert)", "Anywhere", playerID);
+         }
+
+         if (v.P_LoopMain[playerID] == 0)
+         {
+            trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", 100, 100);
+            trg.Shape_Square(playerID, 1, "50 + 1n Tank", 100, 100);
+            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
+         }
+         else if (v.P_LoopMain[playerID] == 2)
+         {
+            trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 100, 100);
+            trg.Shape_Square(playerID, 1, "60 + 1n Archon", 100, 100);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+         }
+         else if (v.P_LoopMain[playerID] == 4)
+         {
+            trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", 150, 0);
+            trg.Shape_Square(playerID, 1, "50 + 1n Tank", 150, 0);
+            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
+         }
+         else if (v.P_LoopMain[playerID] == 6)
+         {
+            trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 150, 0);
+            trg.Shape_Square(playerID, 1, "60 + 1n Archon", 150, 0);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+         }
+
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 8)
+         {
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 2)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {
+            RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
+         }
+
+         if (v.P_LoopMain[playerID] == 0)
+         {
+            trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", 150, 150);
+            trg.Shape_Square(playerID, 1, "50 + 1n Tank", 150, 150);
+            trg.Shape_Dot(playerID, 1, "50 + 1n Battlecruiser", 0, 0);
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
+         }
+         else if (v.P_LoopMain[playerID] == 2)
+         {
+            trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 150, 150);
+            trg.Shape_Square(playerID, 1, "60 + 1n Archon", 150, 150);
+            trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 75, 75);
+            trg.Shape_Square(playerID, 1, "40 + 1n Ghost", 75, 75);
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+         }
+         else if (v.P_LoopMain[playerID] == 4)
+         {
+            trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", 200, 0);
+            trg.Shape_Square(playerID, 1, "50 + 1n Tank", 200, 0);
+            trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 150, 150);
+            trg.Shape_Square(playerID, 1, "40 + 1n Ghost", 150, 150);
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+         }
+         else if (v.P_LoopMain[playerID] == 6)
+         {
+            trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 200, 0);
+            trg.Shape_Square(playerID, 1, "60 + 1n Archon", 200, 0);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+         }
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 19)
+         {
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 3)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {
+            trg.Shape_NxNSquare(playerID, 1, "40 + 1n Guardian", 3, 50);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            epic.Shape_Edge(playerID, 1, " Unit. Hoffnung 25000", 45, 2, 50, 1);
+            trg.Shape_Edge(playerID, 1, "40 + 1n Drone", 0, 2, 30);
+            trg.Shape_NxNSquare(playerID, 1, " Creep. Licht", 2, 75);
+         }
+         else if (v.P_LoopMain[playerID] == 2)
+         {
+            NxNSquareShapeAt(playerID, 1, "40 + 1n Guardian", 3, 50, 150, 0);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            EdgeShapeAtWithProperty(playerID, 1, " Unit. Hoffnung 25000", 45, 2, 50, 150, 0, 1);
+            EdgeShapeAt(playerID, 1, "40 + 1n Drone", 0, 2, 30, 150, 0);
+            NxNSquareShapeAt(playerID, 1, " Creep. Licht", 2, 75, 150, 0);
+            trg.Shape_Square(playerID, 1, "40 + 1n Mutalisk", 150, 0);
+         }
+
+
+         if (v.P_LoopMain[playerID] < 3)
+         {
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            MoveUnit(All, " Unit. Hoffnung 25000", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            MoveUnit(All, "40 + 1n Drone", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            MoveUnit(All, " Creep. Licht", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            MoveUnit(All, "40 + 1n Mutalisk", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order(" Unit. Hoffnung 25000", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            Order("40 + 1n Drone", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            Order(" Creep. Licht", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+         }
+
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 42)
+         {
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 4)
+      {
+         KillUnitAt(All, "40 + 1n Zergling", "Anywhere", playerID);
+         KillUnitAt(All, "40 + 1n Drone", "Anywhere", playerID);
+         KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
+         KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
+         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+         KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+         KillUnitAt(All, " Creep. Licht", "Anywhere", playerID);
+         KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
+
+         
+
+         trg.SkillEnd();
+      }
+   }
+}
+
+function EdgeShapeAt(playerID : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, x, y)
+{
+   adv.Shape_EdgeAt(playerID, count, Unit, degree, n, interval, x, y);
+   adv.Shape_EdgeAt(playerID, count, Unit, degree, n, interval, -x, -y);
+   adv.Shape_EdgeAt(playerID, count, Unit, degree, n, interval, -y, x);
+   adv.Shape_EdgeAt(playerID, count, Unit, degree, n, interval, y, -x);
+}
+
+function EdgeShapeAtWithProperty(playerID : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, x, y, property)
+{
+   epic.Shape_EdgeAt(playerID, count, Unit, degree, n, interval, x, y, property);
+   epic.Shape_EdgeAt(playerID, count, Unit, degree, n, interval, -x, -y, property);
+   epic.Shape_EdgeAt(playerID, count, Unit, degree, n, interval, -y, x, property);
+   epic.Shape_EdgeAt(playerID, count, Unit, degree, n, interval, y, -x, property);
+}
+
+function NxNSquareShapeAt(playerID : TrgPlayer, count, Unit : TrgUnit, n, interval, x, y)
+{
+   adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, x, y);
+   adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, -x, -y);
+   adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, -y, x);
+   adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, y, -x);
+}

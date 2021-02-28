@@ -1,0 +1,66 @@
+import PluginVariables as msqcvar;
+import variable as v;
+
+function SetBuildingHP(playerID) 
+{
+	ModifyUnitHitPoints(1, (155), (13), (64), 100 - (v.P_UniqueCool[playerID] / 10));
+	ModifyUnitShields(1, (167), (13), (64), dwread_epd(EPD(0x58A364 + 48 * 205 + 4 * playerID)) / 10);
+}
+
+function SetVariable(playerID)
+{
+       v.P_Potion[playerID] = dwread_epd(EPD(0x58A364 + 48 * 219 + 4 * playerID));
+       v.EXP_Need[playerID] = dwread_epd(EPD(0x58A364 + 48 * 225 + 4 * playerID));
+       v.EXP_Now[playerID] = dwread_epd(EPD(0x58A364 + 48 * 185 + 4 * playerID));
+       
+       v.P_DeathTime[playerID] = dwread_epd(EPD(0x58A364 + 48 * 210 + 4 * playerID))/12;
+       v.P_UniqueCool[playerID] = dwread_epd(EPD(0x58A364 + 48 * 203 + 4 * playerID))/12;
+       v.P_UltimateGauge[playerID] = dwread_epd(EPD(0x58A364 + 48 * 205 + 4 * playerID));
+       v.P_UniqueCondition[playerID] = dwread_epd(EPD(0x58A364 + 48 * 128 + 4 * playerID));
+       
+       if (bread(0x58D2B0 + 0x207C * ((7) / 46) + (playerID) * (46 - 31 * ((7) / 46)) + ((7) % 46)) != bread(0x58D2B0 + 35 + 46 * playerID))
+       { bwrite(0x58D2B0 + 0x207C * ((35) / 46) + (playerID) * (46 - 31 * ((35) / 46)) + ((35) % 46), bread(0x58D2B0 + 7 + 46 * playerID)); }
+       v.Dfs[playerID] = bread(0x58D2B0 + 0 + 46 * playerID);
+       v.Atk[playerID] = bread(0x58D2B0 + 7 + 46 * playerID);
+       
+	switch (v.P_HeroID[playerID])	// 방어력 관련
+	{
+	case 10:	//얼터
+		if (Deaths((13), (0), 1, (204)))
+		{
+			v.Dfs[playerID] += 10;
+			SetDeaths((13), (9), 1, (204));
+		}
+		break;
+  	case 18:	//텐케이
+  		if (Deaths(CurrentPlayer, Exactly, 320, " `SkillStep")) v.Dfs[playerID] = 200;
+     		break;
+  	case 22:	//유우나
+  		v.Dfs[playerID] -= 3 * dwread_epd(204 * 12 + playerID);
+     		break;
+	}
+	
+	switch (v.P_HeroID[playerID])	// 공격력 관련
+	{
+  	case 14:
+      		v.Atk[playerID] += 2 * dwread_epd(204 * 12 + playerID);
+     		break;
+  	case 22:
+      		v.Atk[playerID] += 3 * dwread_epd(204 * 12 + playerID);
+     		break;
+     	case 30:
+     		if (Deaths(playerID, AtLeast, 1, " `UniqueSkill"))
+	     		v.Atk[playerID] += 10;
+     		break;
+	}
+	if (playerID < 3 && Switch("Passive - Nanami1", Set) && Bring(playerID, AtLeast, 1, "Any unit", "24.Nanami_Bozo")) { v.Atk[playerID] += 5; v.Dfs[playerID] += 5; }
+	else if (playerID >= 3 && Switch("Passive - Nanami2", Set) && Bring(playerID, AtLeast, 1, "Any unit", "24.Nanami_Bozo")) { v.Atk[playerID] += 5; v.Dfs[playerID] += 5; }
+
+	if (playerID < 3 && Switch("Unique - Nanami1", Set)) { v.Atk[playerID] += 5; v.Dfs[playerID] += 5; }
+	else if (playerID >= 3 && Switch("Unique - Nanami2", Set)) { v.Atk[playerID] += 5; v.Dfs[playerID] += 5; }
+
+	bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (playerID) * (46 - 31 * ((2) / 46)) + ((2) % 46), v.Dfs[playerID]); 	//방어력 최종 적용
+	bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (playerID) * (46 - 31 * ((9) / 46)) + ((9) % 46), v.Atk[playerID]);	//공격력 최종 적용
+
+	ModifyUnitShields(All, v.P_UnitID[playerID], playerID, "Anywhere", v.P_Shield[playerID]);			//쉴드 고정
+}

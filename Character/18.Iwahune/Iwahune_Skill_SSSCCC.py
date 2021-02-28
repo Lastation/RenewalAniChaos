@@ -1126,6 +1126,7 @@ Trigger { -- Skill : Combo
       Comment("Skill : Combo");
       PreserveTrigger();
       KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", CurrentPlayer);
+      KillUnitAt(All, "60 + 1n Siege", "Anywhere", CurrentPlayer);
       Wait(0);
       SetDeaths(CurrentPlayer, Add, 1, " `SkillCount");
       SetDeaths(CurrentPlayer, SetTo, 0, " `SkillLoop");

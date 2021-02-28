@@ -241,8 +241,8 @@ def f_main(playerID):
                 # (Line 70) else if (v.P_LoopMain[playerID] == 10)
             if EUDElseIf()(v.P_LoopMain[playerID] == 10):
                 # (Line 71) {
-                # (Line 72) trg.Main_Wait(1000);
-                trg.Main_Wait(1000)
+                # (Line 72) trg.Main_Wait(1500);
+                trg.Main_Wait(1500)
                 # (Line 73) v.P_LoopMain[playerID] += 1;
                 _ARRW(v.P_LoopMain, playerID).__iadd__(1)
                 # (Line 74) }
@@ -254,9 +254,9 @@ def f_main(playerID):
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID))
                 # (Line 79) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
                 DoActions(KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID))
-                # (Line 80) trg.Main_Wait(2000);
+                # (Line 80) trg.Main_Wait(1500);
                 DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID))
-                trg.Main_Wait(2000)
+                trg.Main_Wait(1500)
                 # (Line 81) v.P_LoopMain[playerID] += 1;
                 _ARRW(v.P_LoopMain, playerID).__iadd__(1)
                 # (Line 82) }

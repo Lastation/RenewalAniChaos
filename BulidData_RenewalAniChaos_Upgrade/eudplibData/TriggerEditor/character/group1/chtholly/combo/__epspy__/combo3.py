@@ -140,390 +140,388 @@ from func import sound as s
 def f_main(playerID):
     # (Line 8) trg.Debuff_BanReturn();
     trg.Debuff_BanReturn()
-    # (Line 9) trg.Debuff_Slow();
-    trg.Debuff_Slow()
-    # (Line 11) MoveUnit(All, "40 + 1n Marine", playerID, "Anywhere", "[Skill]HoldPosition");
-    # (Line 12) MoveUnit(All, "40 + 1n Mojo", playerID, "Anywhere", "[Skill]HoldPosition");
+    # (Line 10) MoveUnit(All, "40 + 1n Marine", playerID, "Anywhere", "[Skill]HoldPosition");
+    # (Line 11) MoveUnit(All, "40 + 1n Mojo", playerID, "Anywhere", "[Skill]HoldPosition");
     DoActions(MoveUnit(All, "40 + 1n Marine", playerID, "Anywhere", "[Skill]HoldPosition"))
-    # (Line 13) MoveUnit(All, "50 + 1n Tank", playerID, "Anywhere", "[Skill]HoldPosition");
+    # (Line 12) MoveUnit(All, "50 + 1n Tank", playerID, "Anywhere", "[Skill]HoldPosition");
     DoActions(MoveUnit(All, "40 + 1n Mojo", playerID, "Anywhere", "[Skill]HoldPosition"))
-    # (Line 14) MoveUnit(All, "60 + 1n Danimoth", playerID, "Anywhere", "[Skill]HoldPosition");
+    # (Line 13) MoveUnit(All, "60 + 1n Danimoth", playerID, "Anywhere", "[Skill]HoldPosition");
     DoActions(MoveUnit(All, "50 + 1n Tank", playerID, "Anywhere", "[Skill]HoldPosition"))
-    # (Line 16) if (v.P_WaitMain[playerID] == 0)
+    # (Line 15) if (v.P_WaitMain[playerID] == 0)
     DoActions(MoveUnit(All, "60 + 1n Danimoth", playerID, "Anywhere", "[Skill]HoldPosition"))
     if EUDIf()(v.P_WaitMain[playerID] == 0):
-        # (Line 17) {
-        # (Line 18) if (v.P_CountMain[playerID] == 0 && v.P_LoopMain[playerID] <= 10)
+        # (Line 16) {
+        # (Line 17) if (v.P_CountMain[playerID] == 0 && v.P_LoopMain[playerID] <= 10)
         if EUDIf()(EUDSCAnd()(v.P_CountMain[playerID] == 0)(v.P_LoopMain[playerID] <= 10)()):
-            # (Line 19) {
-            # (Line 20) trg.Shape_Square(playerID, 1, "80 + 1n Tank", 16 * (v.P_LoopMain[playerID] + 1), 16 * (v.P_LoopMain[playerID] + 1));
+            # (Line 18) {
+            # (Line 19) trg.Shape_Square(playerID, 1, "80 + 1n Tank", 16 * (v.P_LoopMain[playerID] + 1), 16 * (v.P_LoopMain[playerID] + 1));
             trg.Shape_Square(playerID, 1, "80 + 1n Tank", 16 * (v.P_LoopMain[playerID] + 1), 16 * (v.P_LoopMain[playerID] + 1))
-            # (Line 21) trg.Shape_Square(playerID, 1, "80 + 1n Tank", 20 * (v.P_LoopMain[playerID] + 1), 0);
+            # (Line 20) trg.Shape_Square(playerID, 1, "80 + 1n Tank", 20 * (v.P_LoopMain[playerID] + 1), 0);
             trg.Shape_Square(playerID, 1, "80 + 1n Tank", 20 * (v.P_LoopMain[playerID] + 1), 0)
-            # (Line 22) trg.Shape_Square(playerID, 1, "Zerg Devourer", 16 * (v.P_LoopMain[playerID] + 1), 16 * (v.P_LoopMain[playerID] + 1));
+            # (Line 21) trg.Shape_Square(playerID, 1, "Zerg Devourer", 16 * (v.P_LoopMain[playerID] + 1), 16 * (v.P_LoopMain[playerID] + 1));
             trg.Shape_Square(playerID, 1, "Zerg Devourer", 16 * (v.P_LoopMain[playerID] + 1), 16 * (v.P_LoopMain[playerID] + 1))
-            # (Line 23) trg.Shape_Square(playerID, 1, "Zerg Devourer", 20 * (v.P_LoopMain[playerID] + 1), 0);
+            # (Line 22) trg.Shape_Square(playerID, 1, "Zerg Devourer", 20 * (v.P_LoopMain[playerID] + 1), 0);
             trg.Shape_Square(playerID, 1, "Zerg Devourer", 20 * (v.P_LoopMain[playerID] + 1), 0)
-            # (Line 24) KillUnitAt(All, "80 + 1n Tank", "Anywhere", playerID);
-            # (Line 25) KillUnitAt(All, "Zerg Devourer", "Anywhere", playerID);
+            # (Line 23) KillUnitAt(All, "80 + 1n Tank", "Anywhere", playerID);
+            # (Line 24) KillUnitAt(All, "Zerg Devourer", "Anywhere", playerID);
             DoActions(KillUnitAt(All, "80 + 1n Tank", "Anywhere", playerID))
-            # (Line 26) trg.Main_Wait(0);
+            # (Line 25) trg.Main_Wait(0);
             DoActions(KillUnitAt(All, "Zerg Devourer", "Anywhere", playerID))
             trg.Main_Wait(0)
-            # (Line 27) v.P_LoopMain[playerID] += 1;
+            # (Line 26) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 28) }
-            # (Line 29) else if (v.P_CountMain[playerID] == 0 && v.P_LoopMain[playerID] == 11)
+            # (Line 27) }
+            # (Line 28) else if (v.P_CountMain[playerID] == 0 && v.P_LoopMain[playerID] == 11)
         if EUDElseIf()(EUDSCAnd()(v.P_CountMain[playerID] == 0)(v.P_LoopMain[playerID] == 11)()):
-            # (Line 30) {
-            # (Line 31) trg.Main_Wait(0);
+            # (Line 29) {
+            # (Line 30) trg.Main_Wait(0);
             trg.Main_Wait(0)
-            # (Line 32) v.P_CountMain[playerID] += 1;
+            # (Line 31) v.P_CountMain[playerID] += 1;
             _ARRW(v.P_CountMain, playerID).__iadd__(1)
-            # (Line 33) v.P_LoopMain[playerID] = 0;
+            # (Line 32) v.P_LoopMain[playerID] = 0;
             _ARRW(v.P_LoopMain, playerID) << (0)
-            # (Line 34) }
-            # (Line 35) else if (v.P_CountMain[playerID] == 1 && v.P_LoopMain[playerID] <= 11)
+            # (Line 33) }
+            # (Line 34) else if (v.P_CountMain[playerID] == 1 && v.P_LoopMain[playerID] <= 11)
         if EUDElseIf()(EUDSCAnd()(v.P_CountMain[playerID] == 1)(v.P_LoopMain[playerID] <= 11)()):
-            # (Line 36) {
-            # (Line 37) trg.Table_Cos(playerID, 15 * v.P_LoopMain[playerID], 256);
+            # (Line 35) {
+            # (Line 36) trg.Table_Cos(playerID, 15 * v.P_LoopMain[playerID], 256);
             trg.Table_Cos(playerID, 15 * v.P_LoopMain[playerID], 256)
-            # (Line 38) trg.Table_Sin(playerID, 15 * v.P_LoopMain[playerID], 256);
+            # (Line 37) trg.Table_Sin(playerID, 15 * v.P_LoopMain[playerID], 256);
             trg.Table_Sin(playerID, 15 * v.P_LoopMain[playerID], 256)
-            # (Line 39) trg.Shape_Dot(playerID, 1, "60 + 1n Siege", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            # (Line 38) trg.Shape_Dot(playerID, 1, "60 + 1n Siege", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
             trg.Shape_Dot(playerID, 1, "60 + 1n Siege", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-            # (Line 40) trg.Shape_Dot(playerID, 1, "60 + 1n Siege", -v.P_AngleCos[playerID], -v.P_AngleSin[playerID]);
+            # (Line 39) trg.Shape_Dot(playerID, 1, "60 + 1n Siege", -v.P_AngleCos[playerID], -v.P_AngleSin[playerID]);
             trg.Shape_Dot(playerID, 1, "60 + 1n Siege", -v.P_AngleCos[playerID], -v.P_AngleSin[playerID])
-            # (Line 41) trg.Shape_Dot(playerID, 8, "Protoss Dark Archon", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            # (Line 40) trg.Shape_Dot(playerID, 8, "Protoss Dark Archon", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
             trg.Shape_Dot(playerID, 8, "Protoss Dark Archon", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-            # (Line 42) trg.Shape_Dot(playerID, 8, "Protoss Dark Archon", -v.P_AngleCos[playerID], -v.P_AngleSin[playerID]);
+            # (Line 41) trg.Shape_Dot(playerID, 8, "Protoss Dark Archon", -v.P_AngleCos[playerID], -v.P_AngleSin[playerID]);
             trg.Shape_Dot(playerID, 8, "Protoss Dark Archon", -v.P_AngleCos[playerID], -v.P_AngleSin[playerID])
-            # (Line 43) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
-            # (Line 44) trg.Main_Wait(100);
+            # (Line 42) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+            # (Line 43) trg.Main_Wait(100);
             DoActions(KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID))
             trg.Main_Wait(100)
-            # (Line 45) v.P_LoopMain[playerID] += 1;
+            # (Line 44) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 46) }
-            # (Line 47) else if (v.P_CountMain[playerID] == 1 && v.P_LoopMain[playerID] == 12)
+            # (Line 45) }
+            # (Line 46) else if (v.P_CountMain[playerID] == 1 && v.P_LoopMain[playerID] == 12)
         if EUDElseIf()(EUDSCAnd()(v.P_CountMain[playerID] == 1)(v.P_LoopMain[playerID] == 12)()):
-            # (Line 48) {
-            # (Line 49) trg.Main_Wait(0);
+            # (Line 47) {
+            # (Line 48) trg.Main_Wait(0);
             trg.Main_Wait(0)
-            # (Line 50) v.P_CountMain[playerID] += 1;
+            # (Line 49) v.P_CountMain[playerID] += 1;
             _ARRW(v.P_CountMain, playerID).__iadd__(1)
-            # (Line 51) v.P_LoopMain[playerID] = 0;
+            # (Line 50) v.P_LoopMain[playerID] = 0;
             _ARRW(v.P_LoopMain, playerID) << (0)
-            # (Line 52) }
-            # (Line 53) else if (v.P_CountMain[playerID] == 2 && v.P_LoopMain[playerID] <= 10)
+            # (Line 51) }
+            # (Line 52) else if (v.P_CountMain[playerID] == 2 && v.P_LoopMain[playerID] <= 10)
         if EUDElseIf()(EUDSCAnd()(v.P_CountMain[playerID] == 2)(v.P_LoopMain[playerID] <= 10)()):
-            # (Line 54) {
-            # (Line 55) trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 224);
+            # (Line 53) {
+            # (Line 54) trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 224);
             trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 224)
-            # (Line 56) trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 224);
+            # (Line 55) trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 224);
             trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 224)
-            # (Line 57) trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            # (Line 56) trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
             trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-            # (Line 58) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
-            # (Line 59) trg.Main_Wait(0);
+            # (Line 57) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+            # (Line 58) trg.Main_Wait(0);
             DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID))
             trg.Main_Wait(0)
-            # (Line 60) v.P_LoopMain[playerID] += 1;
+            # (Line 59) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 61) }
-            # (Line 62) else if (v.P_CountMain[playerID] == 2 && v.P_LoopMain[playerID] == 11)
+            # (Line 60) }
+            # (Line 61) else if (v.P_CountMain[playerID] == 2 && v.P_LoopMain[playerID] == 11)
         if EUDElseIf()(EUDSCAnd()(v.P_CountMain[playerID] == 2)(v.P_LoopMain[playerID] == 11)()):
-            # (Line 63) {
-            # (Line 64) trg.Main_Wait(0);
+            # (Line 62) {
+            # (Line 63) trg.Main_Wait(0);
             trg.Main_Wait(0)
-            # (Line 65) v.P_CountMain[playerID] += 1;
+            # (Line 64) v.P_CountMain[playerID] += 1;
             _ARRW(v.P_CountMain, playerID).__iadd__(1)
-            # (Line 66) v.P_LoopMain[playerID] = 0;
+            # (Line 65) v.P_LoopMain[playerID] = 0;
             _ARRW(v.P_LoopMain, playerID) << (0)
-            # (Line 67) }
-            # (Line 68) else if (v.P_CountMain[playerID] == 3 && v.P_LoopMain[playerID] <= 10)
+            # (Line 66) }
+            # (Line 67) else if (v.P_CountMain[playerID] == 3 && v.P_LoopMain[playerID] <= 10)
         if EUDElseIf()(EUDSCAnd()(v.P_CountMain[playerID] == 3)(v.P_LoopMain[playerID] <= 10)()):
-            # (Line 69) {
-            # (Line 70) trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 192);
+            # (Line 68) {
+            # (Line 69) trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 192);
             trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 192)
-            # (Line 71) trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 192);
+            # (Line 70) trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 192);
             trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 192)
-            # (Line 72) trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            # (Line 71) trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
             trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-            # (Line 73) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
-            # (Line 74) trg.Main_Wait(0);
+            # (Line 72) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+            # (Line 73) trg.Main_Wait(0);
             DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID))
             trg.Main_Wait(0)
-            # (Line 75) v.P_LoopMain[playerID] += 1;
+            # (Line 74) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 76) }
-            # (Line 77) else if (v.P_CountMain[playerID] == 3 && v.P_LoopMain[playerID] == 11)
+            # (Line 75) }
+            # (Line 76) else if (v.P_CountMain[playerID] == 3 && v.P_LoopMain[playerID] == 11)
         if EUDElseIf()(EUDSCAnd()(v.P_CountMain[playerID] == 3)(v.P_LoopMain[playerID] == 11)()):
-            # (Line 78) {
-            # (Line 79) trg.Main_Wait(0);
+            # (Line 77) {
+            # (Line 78) trg.Main_Wait(0);
             trg.Main_Wait(0)
-            # (Line 80) v.P_CountMain[playerID] += 1;
+            # (Line 79) v.P_CountMain[playerID] += 1;
             _ARRW(v.P_CountMain, playerID).__iadd__(1)
-            # (Line 81) v.P_LoopMain[playerID] = 0;
+            # (Line 80) v.P_LoopMain[playerID] = 0;
             _ARRW(v.P_LoopMain, playerID) << (0)
-            # (Line 82) }
-            # (Line 83) else if (v.P_CountMain[playerID] == 4 && v.P_LoopMain[playerID] <= 10)
+            # (Line 81) }
+            # (Line 82) else if (v.P_CountMain[playerID] == 4 && v.P_LoopMain[playerID] <= 10)
         if EUDElseIf()(EUDSCAnd()(v.P_CountMain[playerID] == 4)(v.P_LoopMain[playerID] <= 10)()):
-            # (Line 84) {
-            # (Line 85) if (v.P_LoopMain[playerID] == 4)
+            # (Line 83) {
+            # (Line 84) if (v.P_LoopMain[playerID] == 4)
             if EUDIf()(v.P_LoopMain[playerID] == 4):
-                # (Line 86) {
-                # (Line 87) trg.Table_Cos(playerID, 0, 192);
+                # (Line 85) {
+                # (Line 86) trg.Table_Cos(playerID, 0, 192);
                 trg.Table_Cos(playerID, 0, 192)
-                # (Line 88) trg.Table_Sin(playerID, 0, 192);
+                # (Line 87) trg.Table_Sin(playerID, 0, 192);
                 trg.Table_Sin(playerID, 0, 192)
-                # (Line 89) trg.Shape_Square(playerID, 1, "40 + 1n Mojo", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+                # (Line 88) trg.Shape_Square(playerID, 1, "40 + 1n Mojo", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
                 trg.Shape_Square(playerID, 1, "40 + 1n Mojo", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-                # (Line 90) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+                # (Line 89) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
-                # (Line 91) }
-                # (Line 92) else if (v.P_LoopMain[playerID] == 6)
+                # (Line 90) }
+                # (Line 91) else if (v.P_LoopMain[playerID] == 6)
             if EUDElseIf()(v.P_LoopMain[playerID] == 6):
-                # (Line 93) {
-                # (Line 94) trg.Table_Cos(playerID, 22, 192);
+                # (Line 92) {
+                # (Line 93) trg.Table_Cos(playerID, 22, 192);
                 trg.Table_Cos(playerID, 22, 192)
-                # (Line 95) trg.Table_Sin(playerID, 22, 192);
+                # (Line 94) trg.Table_Sin(playerID, 22, 192);
                 trg.Table_Sin(playerID, 22, 192)
-                # (Line 96) trg.Shape_Square(playerID, 1, "40 + 1n Mojo", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+                # (Line 95) trg.Shape_Square(playerID, 1, "40 + 1n Mojo", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
                 trg.Shape_Square(playerID, 1, "40 + 1n Mojo", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-                # (Line 97) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+                # (Line 96) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
-                # (Line 98) }
-                # (Line 99) else if (v.P_LoopMain[playerID] == 8)
+                # (Line 97) }
+                # (Line 98) else if (v.P_LoopMain[playerID] == 8)
             if EUDElseIf()(v.P_LoopMain[playerID] == 8):
-                # (Line 100) {
-                # (Line 101) trg.Table_Cos(playerID, 45, 192);
+                # (Line 99) {
+                # (Line 100) trg.Table_Cos(playerID, 45, 192);
                 trg.Table_Cos(playerID, 45, 192)
-                # (Line 102) trg.Table_Sin(playerID, 45, 192);
+                # (Line 101) trg.Table_Sin(playerID, 45, 192);
                 trg.Table_Sin(playerID, 45, 192)
-                # (Line 103) trg.Shape_Square(playerID, 1, "40 + 1n Mojo", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+                # (Line 102) trg.Shape_Square(playerID, 1, "40 + 1n Mojo", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
                 trg.Shape_Square(playerID, 1, "40 + 1n Mojo", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-                # (Line 104) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+                # (Line 103) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
-                # (Line 105) }
-                # (Line 106) else if (v.P_LoopMain[playerID] == 10)
+                # (Line 104) }
+                # (Line 105) else if (v.P_LoopMain[playerID] == 10)
             if EUDElseIf()(v.P_LoopMain[playerID] == 10):
-                # (Line 107) {
-                # (Line 108) trg.Table_Cos(playerID, 73, 192);
+                # (Line 106) {
+                # (Line 107) trg.Table_Cos(playerID, 73, 192);
                 trg.Table_Cos(playerID, 73, 192)
-                # (Line 109) trg.Table_Sin(playerID, 73, 192);
+                # (Line 108) trg.Table_Sin(playerID, 73, 192);
                 trg.Table_Sin(playerID, 73, 192)
-                # (Line 110) trg.Shape_Square(playerID, 1, "40 + 1n Mojo", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+                # (Line 109) trg.Shape_Square(playerID, 1, "40 + 1n Mojo", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
                 trg.Shape_Square(playerID, 1, "40 + 1n Mojo", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-                # (Line 111) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+                # (Line 110) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
-                # (Line 112) }
-                # (Line 114) trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 160);
+                # (Line 111) }
+                # (Line 113) trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 160);
             EUDEndIf()
             trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 160)
-            # (Line 115) trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 160);
+            # (Line 114) trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 160);
             trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 160)
-            # (Line 116) trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            # (Line 115) trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
             trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-            # (Line 117) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
-            # (Line 118) trg.Main_Wait(0);
+            # (Line 116) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+            # (Line 117) trg.Main_Wait(0);
             DoActions(KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID))
             trg.Main_Wait(0)
-            # (Line 119) v.P_LoopMain[playerID] += 1;
+            # (Line 118) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 120) }
-            # (Line 121) else if (v.P_CountMain[playerID] == 4 && v.P_LoopMain[playerID] == 11)
+            # (Line 119) }
+            # (Line 120) else if (v.P_CountMain[playerID] == 4 && v.P_LoopMain[playerID] == 11)
         if EUDElseIf()(EUDSCAnd()(v.P_CountMain[playerID] == 4)(v.P_LoopMain[playerID] == 11)()):
-            # (Line 122) {
-            # (Line 123) s.CharacterVoice(4);
+            # (Line 121) {
+            # (Line 122) s.CharacterVoice(4);
             s.CharacterVoice(4)
-            # (Line 124) trg.Main_Wait(0);
+            # (Line 123) trg.Main_Wait(0);
             trg.Main_Wait(0)
-            # (Line 125) v.P_CountMain[playerID] += 1;
+            # (Line 124) v.P_CountMain[playerID] += 1;
             _ARRW(v.P_CountMain, playerID).__iadd__(1)
-            # (Line 126) v.P_LoopMain[playerID] = 0;
+            # (Line 125) v.P_LoopMain[playerID] = 0;
             _ARRW(v.P_LoopMain, playerID) << (0)
-            # (Line 127) }
-            # (Line 128) else if (v.P_CountMain[playerID] == 5 && v.P_LoopMain[playerID] <= 10)
+            # (Line 126) }
+            # (Line 127) else if (v.P_CountMain[playerID] == 5 && v.P_LoopMain[playerID] <= 10)
         if EUDElseIf()(EUDSCAnd()(v.P_CountMain[playerID] == 5)(v.P_LoopMain[playerID] <= 10)()):
-            # (Line 129) {
-            # (Line 130) if (v.P_LoopMain[playerID] == 4)
+            # (Line 128) {
+            # (Line 129) if (v.P_LoopMain[playerID] == 4)
             if EUDIf()(v.P_LoopMain[playerID] == 4):
-                # (Line 131) {
-                # (Line 132) trg.Table_Cos(playerID, 12, 160);
+                # (Line 130) {
+                # (Line 131) trg.Table_Cos(playerID, 12, 160);
                 trg.Table_Cos(playerID, 12, 160)
-                # (Line 133) trg.Table_Sin(playerID, 12, 160);
+                # (Line 132) trg.Table_Sin(playerID, 12, 160);
                 trg.Table_Sin(playerID, 12, 160)
-                # (Line 134) trg.Shape_Square(playerID, 1, "40 + 1n Marine", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+                # (Line 133) trg.Shape_Square(playerID, 1, "40 + 1n Marine", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
                 trg.Shape_Square(playerID, 1, "40 + 1n Marine", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-                # (Line 135) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+                # (Line 134) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
-                # (Line 136) }
-                # (Line 137) else if (v.P_LoopMain[playerID] == 8)
+                # (Line 135) }
+                # (Line 136) else if (v.P_LoopMain[playerID] == 8)
             if EUDElseIf()(v.P_LoopMain[playerID] == 8):
-                # (Line 138) {
-                # (Line 139) trg.Table_Cos(playerID, 56, 160);
+                # (Line 137) {
+                # (Line 138) trg.Table_Cos(playerID, 56, 160);
                 trg.Table_Cos(playerID, 56, 160)
-                # (Line 140) trg.Table_Sin(playerID, 56, 160);
+                # (Line 139) trg.Table_Sin(playerID, 56, 160);
                 trg.Table_Sin(playerID, 56, 160)
-                # (Line 141) trg.Shape_Square(playerID, 1, "40 + 1n Marine", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+                # (Line 140) trg.Shape_Square(playerID, 1, "40 + 1n Marine", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
                 trg.Shape_Square(playerID, 1, "40 + 1n Marine", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-                # (Line 142) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+                # (Line 141) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
                 trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
-                # (Line 143) }
-                # (Line 145) trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 128);
+                # (Line 142) }
+                # (Line 144) trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 128);
             EUDEndIf()
             trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 128)
-            # (Line 146) trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 128);
+            # (Line 145) trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 128);
             trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 128)
-            # (Line 147) trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            # (Line 146) trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
             trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-            # (Line 148) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
-            # (Line 149) trg.Main_Wait(0);
+            # (Line 147) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+            # (Line 148) trg.Main_Wait(0);
             DoActions(KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID))
             trg.Main_Wait(0)
-            # (Line 150) v.P_LoopMain[playerID] += 1;
+            # (Line 149) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 151) }
-            # (Line 152) else if (v.P_CountMain[playerID] == 5 && v.P_LoopMain[playerID] == 11)
+            # (Line 150) }
+            # (Line 151) else if (v.P_CountMain[playerID] == 5 && v.P_LoopMain[playerID] == 11)
         if EUDElseIf()(EUDSCAnd()(v.P_CountMain[playerID] == 5)(v.P_LoopMain[playerID] == 11)()):
-            # (Line 153) {
-            # (Line 154) trg.Main_Wait(0);
+            # (Line 152) {
+            # (Line 153) trg.Main_Wait(0);
             trg.Main_Wait(0)
-            # (Line 155) v.P_CountMain[playerID] += 1;
+            # (Line 154) v.P_CountMain[playerID] += 1;
             _ARRW(v.P_CountMain, playerID).__iadd__(1)
-            # (Line 156) v.P_LoopMain[playerID] = 0;
+            # (Line 155) v.P_LoopMain[playerID] = 0;
             _ARRW(v.P_LoopMain, playerID) << (0)
-            # (Line 157) }
-            # (Line 158) else if (v.P_CountMain[playerID] == 6 && v.P_LoopMain[playerID] <= 10)
+            # (Line 156) }
+            # (Line 157) else if (v.P_CountMain[playerID] == 6 && v.P_LoopMain[playerID] <= 10)
         if EUDElseIf()(EUDSCAnd()(v.P_CountMain[playerID] == 6)(v.P_LoopMain[playerID] <= 10)()):
-            # (Line 159) {
-            # (Line 160) trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 96);
+            # (Line 158) {
+            # (Line 159) trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 96);
             trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 96)
-            # (Line 161) trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 96);
+            # (Line 160) trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 96);
             trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 96)
-            # (Line 162) trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            # (Line 161) trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
             trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-            # (Line 163) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
-            # (Line 164) trg.Main_Wait(0);
+            # (Line 162) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+            # (Line 163) trg.Main_Wait(0);
             DoActions(KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID))
             trg.Main_Wait(0)
-            # (Line 165) v.P_LoopMain[playerID] += 1;
+            # (Line 164) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 166) }
-            # (Line 167) else if (v.P_CountMain[playerID] == 6 && v.P_LoopMain[playerID] == 11)
+            # (Line 165) }
+            # (Line 166) else if (v.P_CountMain[playerID] == 6 && v.P_LoopMain[playerID] == 11)
         if EUDElseIf()(EUDSCAnd()(v.P_CountMain[playerID] == 6)(v.P_LoopMain[playerID] == 11)()):
-            # (Line 168) {
-            # (Line 169) trg.Main_Wait(0);
+            # (Line 167) {
+            # (Line 168) trg.Main_Wait(0);
             trg.Main_Wait(0)
-            # (Line 170) v.P_CountMain[playerID] += 1;
+            # (Line 169) v.P_CountMain[playerID] += 1;
             _ARRW(v.P_CountMain, playerID).__iadd__(1)
-            # (Line 171) v.P_LoopMain[playerID] = 0;
+            # (Line 170) v.P_LoopMain[playerID] = 0;
             _ARRW(v.P_LoopMain, playerID) << (0)
-            # (Line 172) }
-            # (Line 173) else if (v.P_CountMain[playerID] == 7 && v.P_LoopMain[playerID] <= 10)
+            # (Line 171) }
+            # (Line 172) else if (v.P_CountMain[playerID] == 7 && v.P_LoopMain[playerID] <= 10)
         if EUDElseIf()(EUDSCAnd()(v.P_CountMain[playerID] == 7)(v.P_LoopMain[playerID] <= 10)()):
-            # (Line 174) {
-            # (Line 175) trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 64);
+            # (Line 173) {
+            # (Line 174) trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 64);
             trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 64)
-            # (Line 176) trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 64);
+            # (Line 175) trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 64);
             trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 64)
-            # (Line 177) trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            # (Line 176) trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
             trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-            # (Line 178) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
-            # (Line 179) trg.Main_Wait(0);
+            # (Line 177) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+            # (Line 178) trg.Main_Wait(0);
             DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID))
             trg.Main_Wait(0)
-            # (Line 180) v.P_LoopMain[playerID] += 1;
+            # (Line 179) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 181) }
-            # (Line 182) else if (v.P_CountMain[playerID] == 7 && v.P_LoopMain[playerID] == 11)
+            # (Line 180) }
+            # (Line 181) else if (v.P_CountMain[playerID] == 7 && v.P_LoopMain[playerID] == 11)
         if EUDElseIf()(EUDSCAnd()(v.P_CountMain[playerID] == 7)(v.P_LoopMain[playerID] == 11)()):
-            # (Line 183) {
-            # (Line 184) trg.Main_Wait(0);
+            # (Line 182) {
+            # (Line 183) trg.Main_Wait(0);
             trg.Main_Wait(0)
-            # (Line 185) v.P_CountMain[playerID] += 1;
+            # (Line 184) v.P_CountMain[playerID] += 1;
             _ARRW(v.P_CountMain, playerID).__iadd__(1)
-            # (Line 186) v.P_LoopMain[playerID] = 0;
+            # (Line 185) v.P_LoopMain[playerID] = 0;
             _ARRW(v.P_LoopMain, playerID) << (0)
-            # (Line 187) }
-            # (Line 188) else if (v.P_CountMain[playerID] == 8 && v.P_LoopMain[playerID] <= 10)
+            # (Line 186) }
+            # (Line 187) else if (v.P_CountMain[playerID] == 8 && v.P_LoopMain[playerID] <= 10)
         if EUDElseIf()(EUDSCAnd()(v.P_CountMain[playerID] == 8)(v.P_LoopMain[playerID] <= 10)()):
-            # (Line 189) {
-            # (Line 190) trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 96);
+            # (Line 188) {
+            # (Line 189) trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 96);
             trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 96)
-            # (Line 191) trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 96);
+            # (Line 190) trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 96);
             trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 96)
-            # (Line 192) trg.Shape_Square(playerID, 1, "60 + 1n Dragoon", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            # (Line 191) trg.Shape_Square(playerID, 1, "60 + 1n Dragoon", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
             trg.Shape_Square(playerID, 1, "60 + 1n Dragoon", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-            # (Line 193) trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 160);
+            # (Line 192) trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 160);
             trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 160)
-            # (Line 194) trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 160);
+            # (Line 193) trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 160);
             trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 160)
-            # (Line 195) trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            # (Line 194) trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
             trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-            # (Line 196) trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 224);
+            # (Line 195) trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 224);
             trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 224)
-            # (Line 197) trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 224);
+            # (Line 196) trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 224);
             trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 224)
-            # (Line 198) trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            # (Line 197) trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
             trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-            # (Line 199) KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", playerID);
-            # (Line 200) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+            # (Line 198) KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", playerID);
+            # (Line 199) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
             DoActions(KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", playerID))
-            # (Line 201) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+            # (Line 200) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
             DoActions(KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID))
-            # (Line 202) trg.Main_Wait(0);
+            # (Line 201) trg.Main_Wait(0);
             DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID))
             trg.Main_Wait(0)
-            # (Line 203) v.P_LoopMain[playerID] += 1;
+            # (Line 202) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 204) }
-            # (Line 205) else if (v.P_CountMain[playerID] == 8 && v.P_LoopMain[playerID] == 11)
+            # (Line 203) }
+            # (Line 204) else if (v.P_CountMain[playerID] == 8 && v.P_LoopMain[playerID] == 11)
         if EUDElseIf()(EUDSCAnd()(v.P_CountMain[playerID] == 8)(v.P_LoopMain[playerID] == 11)()):
-            # (Line 206) {
-            # (Line 207) trg.Main_Wait(1000);
+            # (Line 205) {
+            # (Line 206) trg.Main_Wait(1000);
             trg.Main_Wait(1000)
-            # (Line 208) v.P_CountMain[playerID] += 1;
+            # (Line 207) v.P_CountMain[playerID] += 1;
             _ARRW(v.P_CountMain, playerID).__iadd__(1)
-            # (Line 209) v.P_LoopMain[playerID] = 0;
+            # (Line 208) v.P_LoopMain[playerID] = 0;
             _ARRW(v.P_LoopMain, playerID) << (0)
-            # (Line 210) }
-            # (Line 211) else if (v.P_CountMain[playerID] == 9
+            # (Line 209) }
+            # (Line 210) else if (v.P_CountMain[playerID] == 9
         _t26 = EUDElseIf()
-        # (Line 212) && Bring(playerID, AtLeast, 3, "Protoss Arbiter", "[Skill]UseSkill"))
+        # (Line 211) && Bring(playerID, AtLeast, 3, "Protoss Arbiter", "[Skill]UseSkill"))
         if _t26(EUDSCAnd()(v.P_CountMain[playerID] == 9)(Bring(playerID, AtLeast, 3, "Protoss Arbiter", "[Skill]UseSkill"))()):
-            # (Line 213) {
-            # (Line 214) KillUnitAt(All, "40 + 1n Marine", "Anywhere", playerID);
-            # (Line 215) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+            # (Line 212) {
+            # (Line 213) KillUnitAt(All, "40 + 1n Marine", "Anywhere", playerID);
+            # (Line 214) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
             DoActions(KillUnitAt(All, "40 + 1n Marine", "Anywhere", playerID))
-            # (Line 216) KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
+            # (Line 215) KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
             DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID))
-            # (Line 218) s.CharacterVoice(5);
+            # (Line 217) s.CharacterVoice(5);
             DoActions(KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID))
             s.CharacterVoice(5)
-            # (Line 219) KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID);
-            # (Line 221) v.P_Step[playerID] = 230;
+            # (Line 218) KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+            # (Line 220) v.P_Step[playerID] = 230;
             DoActions(KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID))
             _ARRW(v.P_Step, playerID) << (230)
-            # (Line 222) v.P_CountMain[playerID] = 0;
+            # (Line 221) v.P_CountMain[playerID] = 0;
             _ARRW(v.P_CountMain, playerID) << (0)
-            # (Line 223) v.P_LoopMain[playerID] = 0;
+            # (Line 222) v.P_LoopMain[playerID] = 0;
             _ARRW(v.P_LoopMain, playerID) << (0)
-            # (Line 224) }
-            # (Line 225) else if (v.P_CountMain[playerID] == 9)
+            # (Line 223) }
+            # (Line 224) else if (v.P_CountMain[playerID] == 9)
         if EUDElseIf()(v.P_CountMain[playerID] == 9):
-            # (Line 226) {
-            # (Line 227) KillUnitAt(All, "40 + 1n Marine", "Anywhere", playerID);
-            # (Line 228) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+            # (Line 225) {
+            # (Line 226) KillUnitAt(All, "40 + 1n Marine", "Anywhere", playerID);
+            # (Line 227) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
             DoActions(KillUnitAt(All, "40 + 1n Marine", "Anywhere", playerID))
-            # (Line 229) KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
+            # (Line 228) KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
             DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID))
-            # (Line 230) trg.SkillEnd();
+            # (Line 229) trg.SkillEnd();
             DoActions(KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID))
             trg.SkillEnd()
+            # (Line 230) }
             # (Line 231) }
-            # (Line 232) }
         EUDEndIf()
-        # (Line 233) }
+        # (Line 232) }
     EUDEndIf()

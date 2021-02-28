@@ -5,6 +5,21 @@ import variable as v;
  * @Type
  * F
  * @Summary.ko-KR
+ * 캐릭터에게 리콜이펙트를 줄때 사용합니다.
+***/
+function Effect_Recall()
+{
+	var playerID = getcurpl();
+	MoveLocation(v.P_HoldLocation[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+	
+	if (Switch(53 + playerID, Cleared))
+	{ SetSwitch(53 + playerID, Set); }
+}
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
  * 캐릭터의 쉴드의 양을 설정할 때 사용합니다.
  * [amount]은 캐릭터의 쉴드의 양을 정할 때 사용합니다.
  * @param.amount.ko-KR
@@ -13,7 +28,7 @@ import variable as v;
 function Buff_ShieldFix(amount : TrgCount)
 {
 	var playerID = getcurpl();
-	v.P_Shield[playerID] = 1;
+	v.P_Shield[playerID] = amount;
 	ModifyUnitShields(1, v.P_UnitID[playerID], playerID, "Anywhere", amount);
 }
 
@@ -37,12 +52,39 @@ function Debuff_Slow()
  * @Type
  * F
  * @Summary.ko-KR
+ * 캐릭터의 이동속도를 저하 시킬때 사용합니다.
+***/
+function Debuff_SlowPlayer(playerID : TrgPlayer)
+{
+	MoveLocation(v.P_HoldLocation[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+	CreateUnit(1, "Zerg Devourer", "[Skill]Unit_Wait_8", playerID);
+	SetInvincibility(Enable, "Zerg Devourer", playerID, "[Skill]Unit_Wait_ALL");
+	MoveUnit(1, "Zerg Devourer", playerID, "[Skill]Unit_Wait_ALL", v.P_HoldLocation[playerID]);
+	RemoveUnitAt(1, "Zerg Devourer", "Anywhere", playerID);
+}
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
  * 캐릭터를 못움직이게 할 때 사용합니다.
 ***/
 function Debuff_Stop()
 {
 	var playerID = getcurpl();
 	Debuff_Slow();
+	Order(v.P_UnitID[playerID], playerID, "Anywhere", Move, v.P_HoldLocation[playerID]);
+}
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
+ * 캐릭터를 못움직이게 할 때 사용합니다.
+***/
+function Debuff_StopPlayer(playerID : TrgPlayer)
+{
+	Debuff_SlowPlayer(playerID);
 	Order(v.P_UnitID[playerID], playerID, "Anywhere", Move, v.P_HoldLocation[playerID]);
 }
 
@@ -163,6 +205,9 @@ function Main_WaitLoop()
 	{ v.P_SkillDelay[playerID] -= 1; }
 	else if 	(v.P_SkillDelay[playerID] == 1)
 	{
+		if (Switch(53 + playerID, Set))
+		{ SetSwitch(53 + playerID, Clear); }
+		
 		v.P_SkillDelay[playerID] = 0;
 		v.P_Step[playerID] = 0; 
 		v.P_Shield[playerID] = 0;
@@ -567,3 +612,19 @@ function Shape_Edge(playerID : TrgPlayer, count, unit : TrgUnit, degree, size, i
 	else if (size > 1)
 	{ foreach(idx : EUDLoopRange(size - 1)) { Shape_Square(playerID, 1, unit, x_o - (distance_x * idx), y_o - (distance_y * idx)); } }
 }
+
+
+function Shape_Circle(playerID : TrgPlayer, count, unit : TrgUnit, degree, n, radius)
+{
+	if (n == 1) {
+		Shape_Dot(playerID, 1, unit, 0, 0); 
+	} else {
+		foreach(idx : EUDLoopRange(n)) {
+			Table_Sin(playerID, degree + 360 / n * idx, radius);
+			Table_Cos(playerID, degree + 360 / n * idx, radius);
+			
+			Shape_Dot(playerID, count, unit, v.P_AngleCos[playerID], v.P_AngleSin[playerID]); 
+		}
+	}
+}
+

@@ -1,0 +1,205 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+function main(playerID)
+{
+   if (v.P_WaitMain[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] == 0)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {        
+            trg.Table_Sin(playerID, 45, 50);
+            trg.Table_Cos(playerID, 45, 50);
+
+            trg.Shape_Square(playerID, 1, "40 + 1n Mutalisk", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            trg.Shape_Square(playerID, 1, "Protoss Dark Archon", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+
+            trg.Table_Sin(playerID, 22, 125);
+            trg.Table_Cos(playerID, 22, 125);
+
+            trg.Shape_Square(playerID, 1, "40 + 1n Mutalisk", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            trg.Shape_Square(playerID, 1, "Protoss Dark Archon", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            trg.Main_Wait(160);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 1)
+         {        
+            RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
+
+            trg.Table_Sin(playerID, 45, 50);
+            trg.Table_Cos(playerID, 45, 50);
+
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+
+            trg.Table_Sin(playerID, 22, 125);
+            trg.Table_Cos(playerID, 22, 125);
+
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+
+            trg.Main_Wait(80);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 2)
+         {        
+            trg.Table_Sin(playerID, 90, 50);
+            trg.Table_Cos(playerID, 90, 50);
+
+            trg.Shape_Square(playerID, 1, "40 + 1n Mutalisk", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            trg.Shape_Square(playerID, 1, "Protoss Dark Archon", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+
+            trg.Table_Sin(playerID, 67, 125);
+            trg.Table_Cos(playerID, 67, 125);
+
+            trg.Shape_Square(playerID, 1, "40 + 1n Mutalisk", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            trg.Shape_Square(playerID, 1, "Protoss Dark Archon", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            trg.Main_Wait(160);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 3)
+         {        
+            RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
+
+            trg.Table_Sin(playerID, 90, 50);
+            trg.Table_Cos(playerID, 90, 50);
+
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+
+            trg.Table_Sin(playerID, 67, 125);
+            trg.Table_Cos(playerID, 67, 125);
+
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+
+            trg.Main_Wait(80);
+
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
+         }
+      }
+      else if (v.P_CountMain[playerID] == 1)
+      {
+         if (v.P_LoopMain[playerID] < 2)
+         {       
+            trg.Table_Sin(playerID, 90 * v.P_LoopMain[playerID] + 45, v.P_LoopMain[playerID] * 75 + 75);
+            trg.Table_Cos(playerID, 90 * v.P_LoopMain[playerID] + 45, v.P_LoopMain[playerID] * 75 + 75);
+
+            trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+
+            trg.Table_Sin(playerID, 90 * v.P_LoopMain[playerID], v.P_LoopMain[playerID] * 75 + 75);
+            trg.Table_Cos(playerID, 90 * v.P_LoopMain[playerID], v.P_LoopMain[playerID] * 75 + 75);
+
+            trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+
+            trg.Main_Wait(80);
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 2)
+         {         
+            trg.Table_Sin(playerID, 90 * v.P_LoopMain[playerID] + 45, 150);
+            trg.Table_Cos(playerID, 90 * v.P_LoopMain[playerID] + 45, 150);
+
+            trg.Shape_Square(playerID, 1, "40 + 1n Guardian", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+
+            trg.Table_Sin(playerID, 90 * v.P_LoopMain[playerID], 150);
+            trg.Table_Cos(playerID, 90 * v.P_LoopMain[playerID], 150);
+
+            trg.Shape_Square(playerID, 1, "40 + 1n Guardian", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            trg.Main_Wait(160);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 3)
+         {         
+            var x = 32;
+            var y = 32;
+
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", x, y);
+            trg.Shape_Double(playerID, 1, "60 + 1n Archon", x, y);
+            trg.Shape_Double(playerID, 1, "Protoss Dark Archon", -x, y);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            trg.Main_Wait(160);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 4)
+         {         
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+
+            trg.Main_Wait(80);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 5)
+         {         
+            var x = 32;
+            var y = 32;
+
+            trg.Shape_Square(playerID, 1, "40 + 1n Mojo", x, y);
+            trg.Shape_Double(playerID, 1, "60 + 1n Archon", -x, y);
+            trg.Shape_Double(playerID, 1, "Protoss Dark Archon", x, y);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            trg.Main_Wait(160);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 6)
+         {         
+            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+
+            trg.Main_Wait(80);
+
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
+         }
+      }
+      else if (v.P_CountMain[playerID] == 2)
+      {
+         KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+
+
+         trg.SkillEnd();
+      }
+   }
+}

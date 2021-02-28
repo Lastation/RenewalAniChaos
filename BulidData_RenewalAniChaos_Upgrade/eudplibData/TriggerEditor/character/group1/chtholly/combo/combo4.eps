@@ -117,16 +117,17 @@ function main(playerID)
 		}
 		else if (v.P_CountMain[playerID] == 8 
 		&& Bring(playerID, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill")
-		&& v.P_UltimateGauge[playerID] >= v.P_Ultimate2[playerID])
+		&& v.P_UltimateGauge[playerID] >= v.P_Ultimate1[playerID])
 		{
 			if (Switch("UiltimateSwitch", Cleared))
 			{
+               		CreateUnit(1, " Item. Flag", "[Uiltimate]Flag", CurrentPlayer);
 				s.CharacterVoice(11);
 				SetSwitch("UiltimateSwitch", Set);
 				v.P_Step[playerID] = 240;
 				v.P_CountMain[playerID] = 0;
 				v.P_LoopMain[playerID] = 0;
-				v.P_UltimateGauge[playerID] -= v.P_Ultimate2[playerID];
+				SetDeaths(playerID, Subtract, v.P_Ultimate1[playerID], 205);
 				KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID);
 				SetSwitch("Recall - Chtholly", Set);
 			}

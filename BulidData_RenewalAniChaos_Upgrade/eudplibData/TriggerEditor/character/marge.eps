@@ -3,10 +3,26 @@ import func.trig as trg;
 import variable as v;
 import system.text as text;
 
-
 import character.group1.rusaruka.main 	as rusaruka;
 import character.group1.chtholly.main 	as chtholly;
 import character.group1.maihime.main 	as maihime;
+
+import character.group3.kurumi.main 	as kurumi;
+
+import character.group4.yuuna.main 		as yuuna;
+import character.group4.mayuri.main 	as mayuri;
+import character.group4.nanami.main 	as nanami;
+import character.group4.milim.main 		as milim;
+
+import character.group5.yume.main 		as yume;
+import character.group5.magane.main 	as magane;
+import character.group5.oda.main 		as oda;
+import character.group5.ekidona.main 	as ekidona;
+import character.group5.niwa.main 		as niwa;
+
+import character.group6.park.main 		as park;
+import character.group6.hodaka.main 	as hodaka;
+import character.group6.tsukasa.main 	as tsukasa;
 
 function main(playerID)
 {
@@ -15,22 +31,26 @@ function main(playerID)
 	text.BuildingText(playerID);
 	text.ShopText(playerID);
 	
-	v.P_UltimateGauge[playerID] = 1000;
+	if 		(v.P_HeroID[playerID] == 1) 		rusaruka.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 2) 		chtholly.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 3) 		maihime.main(playerID);
 	
-	ModifyUnitHitPoints(1, 155, playerID, "Anywhere", 100 - (v.P_UniqueCool[playerID] / 10));
-	ModifyUnitShields(1, 167, playerID, "Anywhere", v.P_UltimateGauge[playerID] / 10);
+	else if 	(v.P_HeroID[playerID] == 12) 	kurumi.main(playerID);
 	
-	if 		(v.P_HeroID[playerID] == 1) 	rusaruka.main(playerID);
-	else if 	(v.P_HeroID[playerID] == 2) 	chtholly.main(playerID);
-	else if 	(v.P_HeroID[playerID] == 3) 	maihime.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 22) 	yuuna.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 23) 	mayuri.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 24) 	nanami.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 25) 	milim.main(playerID);
 	
-	//Test
-       if(playerID < 6 && bread(0x58D2B0 + 0x207C * (0 / 46) + playerID * (46 - 31 * (0 / 46)) + (0 % 46)) != 80)
-       {
-		bwrite(0x58D2B0 + 0x207C * (0 / 46) + playerID * (46 - 31 * (0 / 46)) + (0 % 46), 60);
-		bwrite(0x58D2B0 + 0x207C * (7 / 46) + playerID * (46 - 31 * (7 / 46)) + (7 % 46), 80);
-		
-		bwrite(0x58D2B0 + 0x207C * (2 / 46) + playerID * (46 - 31 * (2 / 46)) + (2 % 46), 60); 	//방어력 최종 적용
-		bwrite(0x58D2B0 + 0x207C * (9 / 46) + playerID * (46 - 31 * (9 / 46)) + (9 % 46), 80);		//공격력 최종 적용
-	}
+	else if 	(v.P_HeroID[playerID] == 26) 	yume.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 27) 	magane.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 28) 	oda.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 29) 	ekidona.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 30) 	niwa.main(playerID);
+	
+	else if 	(v.P_HeroID[playerID] == 31) 	park.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 32) 	hodaka.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 34) 	tsukasa.main(playerID);
+	
+	SetDeaths(playerID, SetTo, v.P_Shield[playerID], " `SystemShield");
 }

@@ -607,36 +607,33 @@ def f_main(playerID):
                 DoActions(Order(2, playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
                 trg.Main_Wait(90)
                 # (Line 284) }
-                # (Line 285) else if (Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill")
+                # (Line 285) else if (Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill")
             _t37 = EUDElseIf()
-            # (Line 286) && Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill")
-            # (Line 287) && v.P_LoopMain[playerID] == 11)
-            if _t37(EUDSCAnd()(Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))(Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))(v.P_LoopMain[playerID] == 11)()):
-                # (Line 288) {
-                # (Line 289) s.CharacterVoice(4);
+            # (Line 286) && v.P_LoopMain[playerID] == 11)
+            if _t37(EUDSCAnd()(Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill"))(v.P_LoopMain[playerID] == 11)()):
+                # (Line 287) {
+                # (Line 288) s.CharacterVoice(4);
                 s.CharacterVoice(4)
-                # (Line 290) v.P_Step[playerID] = 220;
+                # (Line 289) v.P_Step[playerID] = 220;
                 _ARRW(v.P_Step, playerID) << (220)
-                # (Line 291) v.P_CountMain[playerID] = 0;
+                # (Line 290) v.P_CountMain[playerID] = 0;
                 _ARRW(v.P_CountMain, playerID) << (0)
-                # (Line 292) v.P_LoopMain[playerID] = 0;
+                # (Line 291) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 293) KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
-                # (Line 294) KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
-                DoActions(KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID))
-                # (Line 295) }
-                DoActions(KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID))
-                # (Line 296) else if (v.P_LoopMain[playerID] == 11)
+                # (Line 292) KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+                # (Line 293) }
+                DoActions(KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID))
+                # (Line 294) else if (v.P_LoopMain[playerID] == 11)
             if EUDElseIf()(v.P_LoopMain[playerID] == 11):
-                # (Line 297) {
-                # (Line 298) trg.SkillEnd();
+                # (Line 295) {
+                # (Line 296) trg.SkillEnd();
                 trg.SkillEnd()
-                # (Line 299) }
-                # (Line 301) v.P_LoopMain[playerID] += 1;
+                # (Line 297) }
+                # (Line 299) v.P_LoopMain[playerID] += 1;
             EUDEndIf()
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 302) }
-            # (Line 303) }
+            # (Line 300) }
+            # (Line 301) }
         EUDEndIf()
-        # (Line 304) }
+        # (Line 302) }
     EUDEndIf()
