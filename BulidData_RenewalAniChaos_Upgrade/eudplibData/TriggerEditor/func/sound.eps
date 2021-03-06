@@ -40,6 +40,7 @@ import character.group5.niwa.text as niwa;
 import character.group6.park.text as park;
 import character.group6.hodaka.text 	as hodaka;
 import character.group6.tsukasa.text 	as tsukasa;
+import character.group6.zenitsu.text 	as zenitsu;
 
 function CharacterVoice(count : TrgCount)
 {
@@ -67,6 +68,7 @@ function CharacterVoice(count : TrgCount)
 		
 		else if 	(v.P_HeroID[playerID] == 31)	{ park.		P_player[idx] = count; park.		P_observer[idx] = count; 	}
 		else if 	(v.P_HeroID[playerID] == 32)	{ hodaka.	P_player[idx] = count; hodaka.	P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 33)	{ zenitsu.	P_player[idx] = count; zenitsu.	P_observer[idx] = count; 	}
 		else if 	(v.P_HeroID[playerID] == 34)	{ tsukasa.	P_player[idx] = count; tsukasa.	P_observer[idx] = count; 	}
 	}
 }
@@ -208,24 +210,6 @@ function OldVoicemain()
 	OldCharacterVoiceUnique();
 }
 
-function BGMRoutine(cp)
-{
-	if (Bring(cp, AtLeast, 1, "Terran SCV", "[BGM]ON"))
-	{
-		if (v.bgmWait[cp] == 0)
-		{
-			PlayWAV("BGM03.ogg");
-			v.stb.print("　　\x04\x1F# N\x04ow \x04Playing... \x04");
-			v.bgmWait[cp] = 5424;
-		}
-	}
-	
-	if (v.bgmWait[cp] > 0)
-	{
-		v.bgmWait[cp] -= 1;
-	}
-}
-
 function main(playerID)
 {
 	// Group1
@@ -274,6 +258,5 @@ function main(playerID)
 	park.main(playerID);
 	hodaka.main(playerID);
 	tsukasa.main(playerID);
-	
-	BGMRoutine(playerID);
+	zenitsu.main(playerID);
 }

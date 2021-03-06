@@ -1,0 +1,21 @@
+[TriggerEditor\main.eps]
+
+[main]
+input: ..\..\RenewalAniChaos_Original.scx
+output: D:\StarCraft\Maps\making\RenewalAniChaos_T_KAT.scx
+[freeze]
+freeze : 0
+sectorSize: 3
+[DataEditor.py]
+[ExtraDataEditor.py]
+[dataDumper]
+..\temp\custom_txt.tbl : 0x6D5A30, copy
+
+[MSQC]
+QCDebug : False
+` : Terran SCV, 1
+
+[noAirCollision]
+[unlimiter]
+
+

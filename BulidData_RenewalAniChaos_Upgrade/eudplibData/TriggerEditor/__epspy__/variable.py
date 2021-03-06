@@ -206,3 +206,5 @@ P_SkillDelay = _CGFW(lambda: [PVariable()], 1)[0]
 P_HoldLocation = _CGFW(lambda: [_ARR(FlattenList([97, 119, 122, 126, 134, 143, 0, 0]))], 1)[0]
 # (Line 66) const bgmWait		= PVariable();
 bgmWait = _CGFW(lambda: [PVariable()], 1)[0]
+# (Line 69) const P_ZenitsuDebuff = PVariable();
+P_ZenitsuDebuff = _CGFW(lambda: [PVariable()], 1)[0]
