@@ -263,8 +263,8 @@ def f_main(playerID):
                             _ARRW(v.P_ZenitsuDebuff, i) << (75)
                             # (Line 80) s.CharacterVoice(12);
                             s.CharacterVoice(12)
-                            # (Line 82) v.P_CountMain[playerID] += 1;
-                            _ARRW(v.P_CountMain, playerID).__iadd__(1)
+                            # (Line 82) v.P_CountMain[playerID] = 1;
+                            _ARRW(v.P_CountMain, playerID) << (1)
                             # (Line 83) v.P_LoopMain[playerID] = 0;
                             _ARRW(v.P_LoopMain, playerID) << (0)
                             # (Line 84) }
@@ -293,8 +293,8 @@ def f_main(playerID):
                             _ARRW(v.P_ZenitsuDebuff, i) << (75)
                             # (Line 95) s.CharacterVoice(12);
                             s.CharacterVoice(12)
-                            # (Line 97) v.P_CountMain[playerID] += 1;
-                            _ARRW(v.P_CountMain, playerID).__iadd__(1)
+                            # (Line 97) v.P_CountMain[playerID] = 1;
+                            _ARRW(v.P_CountMain, playerID) << (1)
                             # (Line 98) v.P_LoopMain[playerID] = 0;
                             _ARRW(v.P_LoopMain, playerID) << (0)
                             # (Line 99) }
@@ -353,490 +353,497 @@ def f_main(playerID):
                 # (Line 134) trg.ResizeLocation(playerID, 15, 15);
                 trg.ResizeLocation(playerID, 15, 15)
                 # (Line 135) SetInvincibility(Enable, v.P_UnitID[playerID], playerID, "Anywhere");
-                # (Line 137) for (var i = 0; i < 6; i++)
+                # (Line 136) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
                 DoActions(SetInvincibility(Enable, v.P_UnitID[playerID], playerID, "Anywhere"))
+                # (Line 138) for (var i = 0; i < 6; i++)
+                DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
                 i = EUDVariable()
                 i << (0)
                 if EUDWhile()(i >= 6, neg=True):
                     def _t21():
                         i.__iadd__(1)
-                    # (Line 138) {
-                    # (Line 139) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[i], i, "Anywhere");
-                    # (Line 140) }
-                    DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[i], i, "Anywhere"))
-                    # (Line 142) if (Deaths(CurrentPlayer, Exactly, 0, (210)))
+                    # (Line 139) {
+                    # (Line 140) if (v.P_ZenitsuDebuff[i] > 0)
+                    if EUDIf()(v.P_ZenitsuDebuff[i] <= 0, neg=True):
+                        # (Line 141) {
+                        # (Line 142) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[i], i, "Anywhere");
+                        # (Line 143) }
+                        DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[i], i, "Anywhere"))
+                        # (Line 144) }
+                    EUDEndIf()
+                    # (Line 146) if (Deaths(CurrentPlayer, Exactly, 0, (210)))
                     EUDSetContinuePoint()
                     _t21()
                 EUDEndWhile()
                 if EUDIf()(Deaths(CurrentPlayer, Exactly, 0, (210))):
-                    # (Line 143) {
-                    # (Line 144) MoveUnit(All, v.P_UnitID[playerID], playerID, "Anywhere", v.P_LocationID[playerID]);
-                    # (Line 145) CenterView(v.P_LocationID[playerID]);
+                    # (Line 147) {
+                    # (Line 148) MoveUnit(All, v.P_UnitID[playerID], playerID, "Anywhere", v.P_LocationID[playerID]);
+                    # (Line 149) CenterView(v.P_LocationID[playerID]);
                     DoActions(MoveUnit(All, v.P_UnitID[playerID], playerID, "Anywhere", v.P_LocationID[playerID]))
-                    # (Line 146) }
+                    # (Line 150) }
                     DoActions(CenterView(v.P_LocationID[playerID]))
-                    # (Line 148) if (Switch("UiltimateSwitch", Cleared))
+                    # (Line 152) if (Switch("UiltimateSwitch", Cleared))
                 EUDEndIf()
                 if EUDIf()(Switch("UiltimateSwitch", Cleared)):
-                    # (Line 149) {
-                    # (Line 150) if (playerID < 3)
+                    # (Line 153) {
+                    # (Line 154) if (playerID < 3)
                     if EUDIf()(playerID >= 3, neg=True):
-                        # (Line 151) {
-                        # (Line 152) GiveUnits(All, "Protoss Dark Templar", Foes, v.P_LocationID[playerID], P7);
-                        # (Line 153) GiveUnits(All, "40 + 1n Marine", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 155) {
+                        # (Line 156) GiveUnits(All, "Protoss Dark Templar", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 157) GiveUnits(All, "40 + 1n Marine", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "Protoss Dark Templar", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 154) GiveUnits(All, "40 + 1n Ghost", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 158) GiveUnits(All, "40 + 1n Ghost", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "40 + 1n Marine", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 155) GiveUnits(All, "80 + 1n Vulture", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 159) GiveUnits(All, "80 + 1n Vulture", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "40 + 1n Ghost", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 156) GiveUnits(All, "40 + 1n Goliath", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 160) GiveUnits(All, "40 + 1n Goliath", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "80 + 1n Vulture", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 157) GiveUnits(All, "40 + 1n Wraith", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 161) GiveUnits(All, "40 + 1n Wraith", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "40 + 1n Goliath", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 158) GiveUnits(All, "40 + 1n Firebat", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 162) GiveUnits(All, "40 + 1n Firebat", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "40 + 1n Wraith", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 159) GiveUnits(All, "40 + 1n Zergling", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 163) GiveUnits(All, "40 + 1n Zergling", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "40 + 1n Firebat", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 160) GiveUnits(All, " Creep. Licht", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 164) GiveUnits(All, " Creep. Licht", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "40 + 1n Zergling", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 161) GiveUnits(All, "40 + 1n Drone", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 165) GiveUnits(All, "40 + 1n Drone", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, " Creep. Licht", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 162) GiveUnits(All, "40 + 1n Mutalisk", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 166) GiveUnits(All, "40 + 1n Mutalisk", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "40 + 1n Drone", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 163) GiveUnits(All, "40 + 1n Guardian", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 167) GiveUnits(All, "40 + 1n Guardian", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "40 + 1n Mutalisk", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 164) GiveUnits(All, "40 + 1n Zealot", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 168) GiveUnits(All, "40 + 1n Zealot", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "40 + 1n Guardian", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 165) GiveUnits(All, "40 + 3n Zeratul", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 169) GiveUnits(All, "40 + 3n Zeratul", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "40 + 1n Zealot", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 166) GiveUnits(All, "40 + 1n Mojo", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 170) GiveUnits(All, "40 + 1n Mojo", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "40 + 3n Zeratul", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 167) GiveUnits(All, "40 + 1n Gantrithor", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 171) GiveUnits(All, "40 + 1n Gantrithor", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "40 + 1n Mojo", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 168) GiveUnits(All, "40 + 1n Lurker", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 172) GiveUnits(All, "40 + 1n Lurker", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "40 + 1n Gantrithor", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 169) GiveUnits(All, "50 + 1n Tank", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 173) GiveUnits(All, "50 + 1n Tank", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "40 + 1n Lurker", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 170) GiveUnits(All, "50 + 1n Battlecruiser", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 174) GiveUnits(All, "50 + 1n Battlecruiser", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "50 + 1n Tank", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 171) GiveUnits(All, "60 + 3n Siege", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 175) GiveUnits(All, "60 + 3n Siege", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "50 + 1n Battlecruiser", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 172) GiveUnits(All, "60 + 1n Siege", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 176) GiveUnits(All, "60 + 1n Siege", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "60 + 3n Siege", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 173) GiveUnits(All, "60 + 1n Hydralisk", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 177) GiveUnits(All, "60 + 1n Hydralisk", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "60 + 1n Siege", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 174) GiveUnits(All, "60 + 1n Dragoon", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 178) GiveUnits(All, "60 + 1n Dragoon", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "60 + 1n Hydralisk", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 175) GiveUnits(All, "60 + 1n High Templar", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 179) GiveUnits(All, "60 + 1n High Templar", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "60 + 1n Dragoon", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 176) GiveUnits(All, "60 + 1n Archon", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 180) GiveUnits(All, "60 + 1n Archon", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "60 + 1n High Templar", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 177) GiveUnits(All, "60 + 1n Danimoth", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 181) GiveUnits(All, "60 + 1n Danimoth", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "60 + 1n Archon", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 178) GiveUnits(All, "60 + 3n Ghost", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 182) GiveUnits(All, "60 + 3n Ghost", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "60 + 1n Danimoth", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 179) GiveUnits(All, "80 + 1n Goliath", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 183) GiveUnits(All, "80 + 1n Goliath", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "60 + 3n Ghost", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 180) GiveUnits(All, "80 + 1n Vulture", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 184) GiveUnits(All, "80 + 1n Vulture", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "80 + 1n Goliath", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 181) GiveUnits(All, "80 + 1n Marine", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 185) GiveUnits(All, "80 + 1n Marine", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "80 + 1n Vulture", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 182) GiveUnits(All, "80 + 1n Tom Kazansky", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 186) GiveUnits(All, "80 + 1n Tom Kazansky", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "80 + 1n Marine", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 183) GiveUnits(All, "80 + 1n Tank", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 187) GiveUnits(All, "80 + 1n Tank", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "80 + 1n Tom Kazansky", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 184) GiveUnits(All, "80 + 1n Mutalisk", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 188) GiveUnits(All, "80 + 1n Mutalisk", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "80 + 1n Tank", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 185) GiveUnits(All, "80 + 1n Guardian", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 189) GiveUnits(All, "80 + 1n Guardian", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "80 + 1n Mutalisk", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 186) GiveUnits(All, "80 + 1n Artanis", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 190) GiveUnits(All, "80 + 1n Artanis", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "80 + 1n Guardian", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 187) GiveUnits(All, "80 + 1n Ghost", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 191) GiveUnits(All, "80 + 1n Ghost", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "80 + 1n Artanis", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 188) GiveUnits(All, "100 + 1n Hyperion", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 192) GiveUnits(All, "100 + 1n Hyperion", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "80 + 1n Ghost", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 189) GiveUnits(All, "100 + 1n Dragoon", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 193) GiveUnits(All, "100 + 1n Dragoon", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "100 + 1n Hyperion", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 190) GiveUnits(All, "120 + 1n Archon", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 194) GiveUnits(All, "120 + 1n Archon", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "100 + 1n Dragoon", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 191) GiveUnits(All, "130 + 1n Norad", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 195) GiveUnits(All, "130 + 1n Norad", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "120 + 1n Archon", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 192) GiveUnits(All, "130 + 1n Arbiter", Foes, v.P_LocationID[playerID], P7);
+                        # (Line 196) GiveUnits(All, "130 + 1n Arbiter", Foes, v.P_LocationID[playerID], P7);
                         DoActions(GiveUnits(All, "130 + 1n Norad", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 193) }
+                        # (Line 197) }
                         DoActions(GiveUnits(All, "130 + 1n Arbiter", Foes, v.P_LocationID[playerID], P7))
-                        # (Line 194) if (playerID >= 3)
+                        # (Line 198) if (playerID >= 3)
                     EUDEndIf()
                     if EUDIf()(playerID >= 3):
-                        # (Line 195) {
-                        # (Line 196) GiveUnits(All, "Protoss Dark Templar", Foes, v.P_LocationID[playerID], P8);
-                        # (Line 197) GiveUnits(All, "40 + 1n Marine", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 199) {
+                        # (Line 200) GiveUnits(All, "Protoss Dark Templar", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 201) GiveUnits(All, "40 + 1n Marine", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "Protoss Dark Templar", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 198) GiveUnits(All, "40 + 1n Ghost", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 202) GiveUnits(All, "40 + 1n Ghost", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "40 + 1n Marine", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 199) GiveUnits(All, "80 + 1n Vulture", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 203) GiveUnits(All, "80 + 1n Vulture", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "40 + 1n Ghost", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 200) GiveUnits(All, "40 + 1n Goliath", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 204) GiveUnits(All, "40 + 1n Goliath", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "80 + 1n Vulture", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 201) GiveUnits(All, "40 + 1n Wraith", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 205) GiveUnits(All, "40 + 1n Wraith", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "40 + 1n Goliath", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 202) GiveUnits(All, "40 + 1n Firebat", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 206) GiveUnits(All, "40 + 1n Firebat", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "40 + 1n Wraith", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 203) GiveUnits(All, "40 + 1n Zergling", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 207) GiveUnits(All, "40 + 1n Zergling", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "40 + 1n Firebat", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 204) GiveUnits(All, " Creep. Licht", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 208) GiveUnits(All, " Creep. Licht", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "40 + 1n Zergling", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 205) GiveUnits(All, "40 + 1n Drone", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 209) GiveUnits(All, "40 + 1n Drone", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, " Creep. Licht", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 206) GiveUnits(All, "40 + 1n Mutalisk", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 210) GiveUnits(All, "40 + 1n Mutalisk", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "40 + 1n Drone", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 207) GiveUnits(All, "40 + 1n Guardian", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 211) GiveUnits(All, "40 + 1n Guardian", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "40 + 1n Mutalisk", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 208) GiveUnits(All, "40 + 1n Zealot", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 212) GiveUnits(All, "40 + 1n Zealot", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "40 + 1n Guardian", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 209) GiveUnits(All, "40 + 3n Zeratul", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 213) GiveUnits(All, "40 + 3n Zeratul", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "40 + 1n Zealot", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 210) GiveUnits(All, "40 + 1n Mojo", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 214) GiveUnits(All, "40 + 1n Mojo", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "40 + 3n Zeratul", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 211) GiveUnits(All, "40 + 1n Gantrithor", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 215) GiveUnits(All, "40 + 1n Gantrithor", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "40 + 1n Mojo", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 212) GiveUnits(All, "40 + 1n Lurker", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 216) GiveUnits(All, "40 + 1n Lurker", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "40 + 1n Gantrithor", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 213) GiveUnits(All, "50 + 1n Tank", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 217) GiveUnits(All, "50 + 1n Tank", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "40 + 1n Lurker", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 214) GiveUnits(All, "50 + 1n Battlecruiser", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 218) GiveUnits(All, "50 + 1n Battlecruiser", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "50 + 1n Tank", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 215) GiveUnits(All, "60 + 3n Siege", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 219) GiveUnits(All, "60 + 3n Siege", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "50 + 1n Battlecruiser", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 216) GiveUnits(All, "60 + 1n Siege", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 220) GiveUnits(All, "60 + 1n Siege", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "60 + 3n Siege", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 217) GiveUnits(All, "60 + 1n Hydralisk", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 221) GiveUnits(All, "60 + 1n Hydralisk", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "60 + 1n Siege", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 218) GiveUnits(All, "60 + 1n Dragoon", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 222) GiveUnits(All, "60 + 1n Dragoon", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "60 + 1n Hydralisk", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 219) GiveUnits(All, "60 + 1n High Templar", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 223) GiveUnits(All, "60 + 1n High Templar", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "60 + 1n Dragoon", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 220) GiveUnits(All, "60 + 1n Archon", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 224) GiveUnits(All, "60 + 1n Archon", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "60 + 1n High Templar", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 221) GiveUnits(All, "60 + 1n Danimoth", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 225) GiveUnits(All, "60 + 1n Danimoth", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "60 + 1n Archon", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 222) GiveUnits(All, "60 + 3n Ghost", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 226) GiveUnits(All, "60 + 3n Ghost", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "60 + 1n Danimoth", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 223) GiveUnits(All, "80 + 1n Goliath", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 227) GiveUnits(All, "80 + 1n Goliath", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "60 + 3n Ghost", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 224) GiveUnits(All, "80 + 1n Vulture", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 228) GiveUnits(All, "80 + 1n Vulture", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "80 + 1n Goliath", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 225) GiveUnits(All, "80 + 1n Marine", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 229) GiveUnits(All, "80 + 1n Marine", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "80 + 1n Vulture", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 226) GiveUnits(All, "80 + 1n Tom Kazansky", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 230) GiveUnits(All, "80 + 1n Tom Kazansky", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "80 + 1n Marine", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 227) GiveUnits(All, "80 + 1n Tank", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 231) GiveUnits(All, "80 + 1n Tank", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "80 + 1n Tom Kazansky", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 228) GiveUnits(All, "80 + 1n Mutalisk", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 232) GiveUnits(All, "80 + 1n Mutalisk", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "80 + 1n Tank", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 229) GiveUnits(All, "80 + 1n Guardian", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 233) GiveUnits(All, "80 + 1n Guardian", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "80 + 1n Mutalisk", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 230) GiveUnits(All, "80 + 1n Artanis", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 234) GiveUnits(All, "80 + 1n Artanis", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "80 + 1n Guardian", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 231) GiveUnits(All, "80 + 1n Ghost", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 235) GiveUnits(All, "80 + 1n Ghost", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "80 + 1n Artanis", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 232) GiveUnits(All, "100 + 1n Hyperion", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 236) GiveUnits(All, "100 + 1n Hyperion", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "80 + 1n Ghost", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 233) GiveUnits(All, "100 + 1n Dragoon", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 237) GiveUnits(All, "100 + 1n Dragoon", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "100 + 1n Hyperion", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 234) GiveUnits(All, "120 + 1n Archon", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 238) GiveUnits(All, "120 + 1n Archon", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "100 + 1n Dragoon", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 235) GiveUnits(All, "130 + 1n Norad", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 239) GiveUnits(All, "130 + 1n Norad", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "120 + 1n Archon", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 236) GiveUnits(All, "130 + 1n Arbiter", Foes, v.P_LocationID[playerID], P8);
+                        # (Line 240) GiveUnits(All, "130 + 1n Arbiter", Foes, v.P_LocationID[playerID], P8);
                         DoActions(GiveUnits(All, "130 + 1n Norad", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 237) }
+                        # (Line 241) }
                         DoActions(GiveUnits(All, "130 + 1n Arbiter", Foes, v.P_LocationID[playerID], P8))
-                        # (Line 239) }
+                        # (Line 243) }
                     EUDEndIf()
-                    # (Line 241) epic.Shape_NxNSquare(playerID, 1, "40 + 1n Mojo", 5, 50, 1);
+                    # (Line 245) epic.Shape_NxNSquare(playerID, 1, "40 + 1n Mojo", 5, 50, 1);
                 EUDEndIf()
                 epic.Shape_NxNSquare(playerID, 1, "40 + 1n Mojo", 5, 50, 1)
-                # (Line 242) trg.Shape_NxNSquare(playerID, 1, "60 + 1n Archon", 5, 50);
+                # (Line 246) trg.Shape_NxNSquare(playerID, 1, "60 + 1n Archon", 5, 50);
                 trg.Shape_NxNSquare(playerID, 1, "60 + 1n Archon", 5, 50)
-                # (Line 244) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
-                # (Line 245) Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 248) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 249) Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 247) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+                # (Line 251) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
                 DoActions(Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 248) }
+                # (Line 252) }
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID))
-                # (Line 249) else if (v.P_LoopMain[playerID] == 20)
+                # (Line 253) else if (v.P_LoopMain[playerID] == 20)
             if EUDElseIf()(v.P_LoopMain[playerID] == 20):
-                # (Line 250) {
-                # (Line 251) RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
-                # (Line 253) trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 5, 50);
+                # (Line 254) {
+                # (Line 255) RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+                # (Line 257) trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 5, 50);
                 DoActions(RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID))
                 trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 5, 50)
-                # (Line 255) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
-                # (Line 256) }
+                # (Line 259) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+                # (Line 260) }
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID))
-                # (Line 257) else if (v.P_LoopMain[playerID] == 22)
+                # (Line 261) else if (v.P_LoopMain[playerID] == 22)
             if EUDElseIf()(v.P_LoopMain[playerID] == 22):
-                # (Line 258) {
-                # (Line 259) var d = 100;
+                # (Line 262) {
+                # (Line 263) var d = 100;
                 d = EUDVariable()
                 d << (100)
-                # (Line 260) epic.Shape_NxNSquareAt(playerID, 1, "40 + 1n Mojo", 5, 50, d, d, 1);
+                # (Line 264) epic.Shape_NxNSquareAt(playerID, 1, "40 + 1n Mojo", 5, 50, d, d, 1);
                 epic.Shape_NxNSquareAt(playerID, 1, "40 + 1n Mojo", 5, 50, d, d, 1)
-                # (Line 261) epic.Shape_NxNSquareAt(playerID, 1, "40 + 1n Mojo", 5, 50, -d, -d, 1);
+                # (Line 265) epic.Shape_NxNSquareAt(playerID, 1, "40 + 1n Mojo", 5, 50, -d, -d, 1);
                 epic.Shape_NxNSquareAt(playerID, 1, "40 + 1n Mojo", 5, 50, -d, -d, 1)
-                # (Line 262) epic.Shape_NxNSquareAt(playerID, 1, "40 + 1n Mojo", 5, 50, -d, d, 1);
+                # (Line 266) epic.Shape_NxNSquareAt(playerID, 1, "40 + 1n Mojo", 5, 50, -d, d, 1);
                 epic.Shape_NxNSquareAt(playerID, 1, "40 + 1n Mojo", 5, 50, -d, d, 1)
-                # (Line 263) epic.Shape_NxNSquareAt(playerID, 1, "40 + 1n Mojo", 5, 50, d, -d, 1);
+                # (Line 267) epic.Shape_NxNSquareAt(playerID, 1, "40 + 1n Mojo", 5, 50, d, -d, 1);
                 epic.Shape_NxNSquareAt(playerID, 1, "40 + 1n Mojo", 5, 50, d, -d, 1)
-                # (Line 264) adv.Shape_NxNSquareAt2(playerID, 1, "60 + 1n Archon", 5, 50, d, d);
+                # (Line 268) adv.Shape_NxNSquareAt2(playerID, 1, "60 + 1n Archon", 5, 50, d, d);
                 adv.Shape_NxNSquareAt2(playerID, 1, "60 + 1n Archon", 5, 50, d, d)
-                # (Line 265) adv.Shape_NxNSquareAt2(playerID, 1, "60 + 1n Archon", 5, 50, -d, -d);
+                # (Line 269) adv.Shape_NxNSquareAt2(playerID, 1, "60 + 1n Archon", 5, 50, -d, -d);
                 adv.Shape_NxNSquareAt2(playerID, 1, "60 + 1n Archon", 5, 50, -d, -d)
-                # (Line 266) adv.Shape_NxNSquareAt2(playerID, 1, "60 + 1n Archon", 5, 50, -d, d);
+                # (Line 270) adv.Shape_NxNSquareAt2(playerID, 1, "60 + 1n Archon", 5, 50, -d, d);
                 adv.Shape_NxNSquareAt2(playerID, 1, "60 + 1n Archon", 5, 50, -d, d)
-                # (Line 267) adv.Shape_NxNSquareAt2(playerID, 1, "60 + 1n Archon", 5, 50, d, -d);
+                # (Line 271) adv.Shape_NxNSquareAt2(playerID, 1, "60 + 1n Archon", 5, 50, d, -d);
                 adv.Shape_NxNSquareAt2(playerID, 1, "60 + 1n Archon", 5, 50, d, -d)
-                # (Line 269) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
-                # (Line 270) Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 273) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 274) Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 272) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+                # (Line 276) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
                 DoActions(Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 273) }
+                # (Line 277) }
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID))
-                # (Line 274) else if (v.P_LoopMain[playerID] == 24)
+                # (Line 278) else if (v.P_LoopMain[playerID] == 24)
             if EUDElseIf()(v.P_LoopMain[playerID] == 24):
-                # (Line 275) {
-                # (Line 276) RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
-                # (Line 278) var d = 100;
+                # (Line 279) {
+                # (Line 280) RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+                # (Line 282) var d = 100;
                 DoActions(RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID))
                 d = EUDVariable()
                 d << (100)
-                # (Line 279) adv.Shape_NxNSquareAt2(playerID, 1, "Kakaru (Twilight)", 5, 50, d, d);
+                # (Line 283) adv.Shape_NxNSquareAt2(playerID, 1, "Kakaru (Twilight)", 5, 50, d, d);
                 adv.Shape_NxNSquareAt2(playerID, 1, "Kakaru (Twilight)", 5, 50, d, d)
-                # (Line 280) adv.Shape_NxNSquareAt2(playerID, 1, "Kakaru (Twilight)", 5, 50, -d, -d);
+                # (Line 284) adv.Shape_NxNSquareAt2(playerID, 1, "Kakaru (Twilight)", 5, 50, -d, -d);
                 adv.Shape_NxNSquareAt2(playerID, 1, "Kakaru (Twilight)", 5, 50, -d, -d)
-                # (Line 281) adv.Shape_NxNSquareAt2(playerID, 1, "Kakaru (Twilight)", 5, 50, -d, d);
+                # (Line 285) adv.Shape_NxNSquareAt2(playerID, 1, "Kakaru (Twilight)", 5, 50, -d, d);
                 adv.Shape_NxNSquareAt2(playerID, 1, "Kakaru (Twilight)", 5, 50, -d, d)
-                # (Line 282) adv.Shape_NxNSquareAt2(playerID, 1, "Kakaru (Twilight)", 5, 50, d, -d);
+                # (Line 286) adv.Shape_NxNSquareAt2(playerID, 1, "Kakaru (Twilight)", 5, 50, d, -d);
                 adv.Shape_NxNSquareAt2(playerID, 1, "Kakaru (Twilight)", 5, 50, d, -d)
-                # (Line 284) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
-                # (Line 285) }
+                # (Line 288) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+                # (Line 289) }
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID))
-                # (Line 286) else if (v.P_LoopMain[playerID] == 36)
+                # (Line 290) else if (v.P_LoopMain[playerID] == 36)
             if EUDElseIf()(v.P_LoopMain[playerID] == 36):
-                # (Line 287) {
-                # (Line 288) var d = 100;
+                # (Line 291) {
+                # (Line 292) var d = 100;
                 d = EUDVariable()
                 d << (100)
-                # (Line 289) adv.Shape_NxNSquareAt2(playerID, 1, " Unit. Hoffnung 25000", 5, 50, d, d);
+                # (Line 293) adv.Shape_NxNSquareAt2(playerID, 1, " Unit. Hoffnung 25000", 5, 50, d, d);
                 adv.Shape_NxNSquareAt2(playerID, 1, " Unit. Hoffnung 25000", 5, 50, d, d)
-                # (Line 290) adv.Shape_NxNSquareAt2(playerID, 1, " Unit. Hoffnung 25000", 5, 50, -d, -d);
+                # (Line 294) adv.Shape_NxNSquareAt2(playerID, 1, " Unit. Hoffnung 25000", 5, 50, -d, -d);
                 adv.Shape_NxNSquareAt2(playerID, 1, " Unit. Hoffnung 25000", 5, 50, -d, -d)
-                # (Line 291) adv.Shape_NxNSquareAt2(playerID, 1, " Unit. Hoffnung 25000", 5, 50, -d, d);
+                # (Line 295) adv.Shape_NxNSquareAt2(playerID, 1, " Unit. Hoffnung 25000", 5, 50, -d, d);
                 adv.Shape_NxNSquareAt2(playerID, 1, " Unit. Hoffnung 25000", 5, 50, -d, d)
-                # (Line 292) adv.Shape_NxNSquareAt2(playerID, 1, " Unit. Hoffnung 25000", 5, 50, d, -d);
+                # (Line 296) adv.Shape_NxNSquareAt2(playerID, 1, " Unit. Hoffnung 25000", 5, 50, d, -d);
                 adv.Shape_NxNSquareAt2(playerID, 1, " Unit. Hoffnung 25000", 5, 50, d, -d)
-                # (Line 294) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
-                # (Line 296) KillUnitAt(All, "Protoss Dark Templar", "Anywhere", P7);
+                # (Line 298) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+                # (Line 300) KillUnitAt(All, "Protoss Dark Templar", "Anywhere", P7);
                 DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID))
-                # (Line 297) KillUnitAt(All, "80 + 1n Goliath", "Anywhere", P7);
+                # (Line 301) KillUnitAt(All, "80 + 1n Goliath", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "Protoss Dark Templar", "Anywhere", P7))
-                # (Line 298) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", P7);
+                # (Line 302) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "80 + 1n Goliath", "Anywhere", P7))
-                # (Line 299) KillUnitAt(All, "80 + 1n Marine", "Anywhere", P7);
+                # (Line 303) KillUnitAt(All, "80 + 1n Marine", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "80 + 1n Vulture", "Anywhere", P7))
-                # (Line 300) KillUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", P7);
+                # (Line 304) KillUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "80 + 1n Marine", "Anywhere", P7))
-                # (Line 301) KillUnitAt(All, "80 + 1n Tank", "Anywhere", P7);
+                # (Line 305) KillUnitAt(All, "80 + 1n Tank", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", P7))
-                # (Line 302) KillUnitAt(All, "80 + 1n Mutalisk", "Anywhere", P7);
+                # (Line 306) KillUnitAt(All, "80 + 1n Mutalisk", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "80 + 1n Tank", "Anywhere", P7))
-                # (Line 303) KillUnitAt(All, "80 + 1n Guardian", "Anywhere", P7);
+                # (Line 307) KillUnitAt(All, "80 + 1n Guardian", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "80 + 1n Mutalisk", "Anywhere", P7))
-                # (Line 304) KillUnitAt(All, "80 + 1n Artanis", "Anywhere", P7);
+                # (Line 308) KillUnitAt(All, "80 + 1n Artanis", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "80 + 1n Guardian", "Anywhere", P7))
-                # (Line 305) KillUnitAt(All, "80 + 1n Ghost", "Anywhere", P7);
+                # (Line 309) KillUnitAt(All, "80 + 1n Ghost", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "80 + 1n Artanis", "Anywhere", P7))
-                # (Line 306) KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", P7);
+                # (Line 310) KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "80 + 1n Ghost", "Anywhere", P7))
-                # (Line 307) KillUnitAt(All, "100 + 1n Dragoon", "Anywhere", P7);
+                # (Line 311) KillUnitAt(All, "100 + 1n Dragoon", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", P7))
-                # (Line 308) KillUnitAt(All, "120 + 1n Archon", "Anywhere", P7);
+                # (Line 312) KillUnitAt(All, "120 + 1n Archon", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "100 + 1n Dragoon", "Anywhere", P7))
-                # (Line 309) KillUnitAt(All, "130 + 1n Norad", "Anywhere", P7);
+                # (Line 313) KillUnitAt(All, "130 + 1n Norad", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "120 + 1n Archon", "Anywhere", P7))
-                # (Line 310) KillUnitAt(All, "130 + 1n Arbiter", "Anywhere", P7);
+                # (Line 314) KillUnitAt(All, "130 + 1n Arbiter", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "130 + 1n Norad", "Anywhere", P7))
-                # (Line 311) KillUnitAt(All, "40 + 1n Marine", "Anywhere", P7);
+                # (Line 315) KillUnitAt(All, "40 + 1n Marine", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "130 + 1n Arbiter", "Anywhere", P7))
-                # (Line 312) KillUnitAt(All, "40 + 1n Ghost", "Anywhere", P7);
+                # (Line 316) KillUnitAt(All, "40 + 1n Ghost", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "40 + 1n Marine", "Anywhere", P7))
-                # (Line 313) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", P7);
+                # (Line 317) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "40 + 1n Ghost", "Anywhere", P7))
-                # (Line 314) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", P7);
+                # (Line 318) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "80 + 1n Vulture", "Anywhere", P7))
-                # (Line 315) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", P7);
+                # (Line 319) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "40 + 1n Goliath", "Anywhere", P7))
-                # (Line 316) KillUnitAt(All, "40 + 1n Firebat", "Anywhere", P7);
+                # (Line 320) KillUnitAt(All, "40 + 1n Firebat", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", P7))
-                # (Line 317) KillUnitAt(All, "40 + 1n Zergling", "Anywhere", P7);
+                # (Line 321) KillUnitAt(All, "40 + 1n Zergling", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "40 + 1n Firebat", "Anywhere", P7))
-                # (Line 318) KillUnitAt(All, " Creep. Licht", "Anywhere", P7);
+                # (Line 322) KillUnitAt(All, " Creep. Licht", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "40 + 1n Zergling", "Anywhere", P7))
-                # (Line 319) KillUnitAt(All, "40 + 1n Drone", "Anywhere", P7);
+                # (Line 323) KillUnitAt(All, "40 + 1n Drone", "Anywhere", P7);
                 DoActions(KillUnitAt(All, " Creep. Licht", "Anywhere", P7))
-                # (Line 320) KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", P7);
+                # (Line 324) KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "40 + 1n Drone", "Anywhere", P7))
-                # (Line 321) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", P7);
+                # (Line 325) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", P7))
-                # (Line 322) KillUnitAt(All, "40 + 1n Zealot", "Anywhere", P7);
+                # (Line 326) KillUnitAt(All, "40 + 1n Zealot", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", P7))
-                # (Line 323) KillUnitAt(All, "40 + 3n Zeratul", "Anywhere", P7);
+                # (Line 327) KillUnitAt(All, "40 + 3n Zeratul", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "40 + 1n Zealot", "Anywhere", P7))
-                # (Line 324) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", P7);
+                # (Line 328) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "40 + 3n Zeratul", "Anywhere", P7))
-                # (Line 325) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", P7);
+                # (Line 329) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", P7))
-                # (Line 326) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", P7);
+                # (Line 330) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", P7))
-                # (Line 327) KillUnitAt(All, "50 + 1n Tank", "Anywhere", P7);
+                # (Line 331) KillUnitAt(All, "50 + 1n Tank", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", P7))
-                # (Line 328) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", P7);
+                # (Line 332) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "50 + 1n Tank", "Anywhere", P7))
-                # (Line 329) KillUnitAt(All, "60 + 3n Siege", "Anywhere", P7);
+                # (Line 333) KillUnitAt(All, "60 + 3n Siege", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", P7))
-                # (Line 330) KillUnitAt(All, "60 + 1n Siege", "Anywhere", P7);
+                # (Line 334) KillUnitAt(All, "60 + 1n Siege", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "60 + 3n Siege", "Anywhere", P7))
-                # (Line 331) KillUnitAt(All, "60 + 1n Hydralisk", "Anywhere", P7);
+                # (Line 335) KillUnitAt(All, "60 + 1n Hydralisk", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "60 + 1n Siege", "Anywhere", P7))
-                # (Line 332) KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", P7);
+                # (Line 336) KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "60 + 1n Hydralisk", "Anywhere", P7))
-                # (Line 333) KillUnitAt(All, "60 + 1n High Templar", "Anywhere", P7);
+                # (Line 337) KillUnitAt(All, "60 + 1n High Templar", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", P7))
-                # (Line 334) KillUnitAt(All, "60 + 1n Archon", "Anywhere", P7);
+                # (Line 338) KillUnitAt(All, "60 + 1n Archon", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "60 + 1n High Templar", "Anywhere", P7))
-                # (Line 335) KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", P7);
+                # (Line 339) KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", P7))
-                # (Line 336) KillUnitAt(All, "60 + 3n Ghost", "Anywhere", P7);
+                # (Line 340) KillUnitAt(All, "60 + 3n Ghost", "Anywhere", P7);
                 DoActions(KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", P7))
-                # (Line 338) KillUnitAt(All, "Protoss Dark Templar", "Anywhere", P8);
+                # (Line 342) KillUnitAt(All, "Protoss Dark Templar", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "60 + 3n Ghost", "Anywhere", P7))
-                # (Line 339) KillUnitAt(All, "80 + 1n Goliath", "Anywhere", P8);
+                # (Line 343) KillUnitAt(All, "80 + 1n Goliath", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "Protoss Dark Templar", "Anywhere", P8))
-                # (Line 340) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", P8);
+                # (Line 344) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "80 + 1n Goliath", "Anywhere", P8))
-                # (Line 341) KillUnitAt(All, "80 + 1n Marine", "Anywhere", P8);
+                # (Line 345) KillUnitAt(All, "80 + 1n Marine", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "80 + 1n Vulture", "Anywhere", P8))
-                # (Line 342) KillUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", P8);
+                # (Line 346) KillUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "80 + 1n Marine", "Anywhere", P8))
-                # (Line 343) KillUnitAt(All, "80 + 1n Tank", "Anywhere", P8);
+                # (Line 347) KillUnitAt(All, "80 + 1n Tank", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", P8))
-                # (Line 344) KillUnitAt(All, "80 + 1n Mutalisk", "Anywhere", P8);
+                # (Line 348) KillUnitAt(All, "80 + 1n Mutalisk", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "80 + 1n Tank", "Anywhere", P8))
-                # (Line 345) KillUnitAt(All, "80 + 1n Guardian", "Anywhere", P8);
+                # (Line 349) KillUnitAt(All, "80 + 1n Guardian", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "80 + 1n Mutalisk", "Anywhere", P8))
-                # (Line 346) KillUnitAt(All, "80 + 1n Artanis", "Anywhere", P8);
+                # (Line 350) KillUnitAt(All, "80 + 1n Artanis", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "80 + 1n Guardian", "Anywhere", P8))
-                # (Line 347) KillUnitAt(All, "80 + 1n Ghost", "Anywhere", P8);
+                # (Line 351) KillUnitAt(All, "80 + 1n Ghost", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "80 + 1n Artanis", "Anywhere", P8))
-                # (Line 348) KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", P8);
+                # (Line 352) KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "80 + 1n Ghost", "Anywhere", P8))
-                # (Line 349) KillUnitAt(All, "100 + 1n Dragoon", "Anywhere", P8);
+                # (Line 353) KillUnitAt(All, "100 + 1n Dragoon", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", P8))
-                # (Line 350) KillUnitAt(All, "120 + 1n Archon", "Anywhere", P8);
+                # (Line 354) KillUnitAt(All, "120 + 1n Archon", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "100 + 1n Dragoon", "Anywhere", P8))
-                # (Line 351) KillUnitAt(All, "130 + 1n Norad", "Anywhere", P8);
+                # (Line 355) KillUnitAt(All, "130 + 1n Norad", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "120 + 1n Archon", "Anywhere", P8))
-                # (Line 352) KillUnitAt(All, "130 + 1n Arbiter", "Anywhere", P8);
+                # (Line 356) KillUnitAt(All, "130 + 1n Arbiter", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "130 + 1n Norad", "Anywhere", P8))
-                # (Line 353) KillUnitAt(All, "40 + 1n Marine", "Anywhere", P8);
+                # (Line 357) KillUnitAt(All, "40 + 1n Marine", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "130 + 1n Arbiter", "Anywhere", P8))
-                # (Line 354) KillUnitAt(All, "40 + 1n Ghost", "Anywhere", P8);
+                # (Line 358) KillUnitAt(All, "40 + 1n Ghost", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "40 + 1n Marine", "Anywhere", P8))
-                # (Line 355) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", P8);
+                # (Line 359) KillUnitAt(All, "80 + 1n Vulture", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "40 + 1n Ghost", "Anywhere", P8))
-                # (Line 356) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", P8);
+                # (Line 360) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "80 + 1n Vulture", "Anywhere", P8))
-                # (Line 357) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", P8);
+                # (Line 361) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "40 + 1n Goliath", "Anywhere", P8))
-                # (Line 358) KillUnitAt(All, "40 + 1n Firebat", "Anywhere", P8);
+                # (Line 362) KillUnitAt(All, "40 + 1n Firebat", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", P8))
-                # (Line 359) KillUnitAt(All, "40 + 1n Zergling", "Anywhere", P8);
+                # (Line 363) KillUnitAt(All, "40 + 1n Zergling", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "40 + 1n Firebat", "Anywhere", P8))
-                # (Line 360) KillUnitAt(All, " Creep. Licht", "Anywhere", P8);
+                # (Line 364) KillUnitAt(All, " Creep. Licht", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "40 + 1n Zergling", "Anywhere", P8))
-                # (Line 361) KillUnitAt(All, "40 + 1n Drone", "Anywhere", P8);
+                # (Line 365) KillUnitAt(All, "40 + 1n Drone", "Anywhere", P8);
                 DoActions(KillUnitAt(All, " Creep. Licht", "Anywhere", P8))
-                # (Line 362) KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", P8);
+                # (Line 366) KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "40 + 1n Drone", "Anywhere", P8))
-                # (Line 363) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", P8);
+                # (Line 367) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", P8))
-                # (Line 364) KillUnitAt(All, "40 + 1n Zealot", "Anywhere", P8);
+                # (Line 368) KillUnitAt(All, "40 + 1n Zealot", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", P8))
-                # (Line 365) KillUnitAt(All, "40 + 3n Zeratul", "Anywhere", P8);
+                # (Line 369) KillUnitAt(All, "40 + 3n Zeratul", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "40 + 1n Zealot", "Anywhere", P8))
-                # (Line 366) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", P8);
+                # (Line 370) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "40 + 3n Zeratul", "Anywhere", P8))
-                # (Line 367) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", P8);
+                # (Line 371) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", P8))
-                # (Line 368) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", P8);
+                # (Line 372) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", P8))
-                # (Line 369) KillUnitAt(All, "50 + 1n Tank", "Anywhere", P8);
+                # (Line 373) KillUnitAt(All, "50 + 1n Tank", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", P8))
-                # (Line 370) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", P8);
+                # (Line 374) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "50 + 1n Tank", "Anywhere", P8))
-                # (Line 371) KillUnitAt(All, "60 + 3n Siege", "Anywhere", P8);
+                # (Line 375) KillUnitAt(All, "60 + 3n Siege", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", P8))
-                # (Line 372) KillUnitAt(All, "60 + 1n Siege", "Anywhere", P8);
+                # (Line 376) KillUnitAt(All, "60 + 1n Siege", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "60 + 3n Siege", "Anywhere", P8))
-                # (Line 373) KillUnitAt(All, "60 + 1n Hydralisk", "Anywhere", P8);
+                # (Line 377) KillUnitAt(All, "60 + 1n Hydralisk", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "60 + 1n Siege", "Anywhere", P8))
-                # (Line 374) KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", P8);
+                # (Line 378) KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "60 + 1n Hydralisk", "Anywhere", P8))
-                # (Line 375) KillUnitAt(All, "60 + 1n High Templar", "Anywhere", P8);
+                # (Line 379) KillUnitAt(All, "60 + 1n High Templar", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", P8))
-                # (Line 376) KillUnitAt(All, "60 + 1n Archon", "Anywhere", P8);
+                # (Line 380) KillUnitAt(All, "60 + 1n Archon", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "60 + 1n High Templar", "Anywhere", P8))
-                # (Line 377) KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", P8);
+                # (Line 381) KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", P8))
-                # (Line 378) KillUnitAt(All, "60 + 3n Ghost", "Anywhere", P8);
+                # (Line 382) KillUnitAt(All, "60 + 3n Ghost", "Anywhere", P8);
                 DoActions(KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", P8))
-                # (Line 379) }
+                # (Line 383) }
                 DoActions(KillUnitAt(All, "60 + 3n Ghost", "Anywhere", P8))
-                # (Line 381) trg.Main_Wait(80);
+                # (Line 385) trg.Main_Wait(80);
             EUDEndIf()
             trg.Main_Wait(80)
-            # (Line 383) v.P_LoopMain[playerID] += 1;
+            # (Line 387) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 385) if (v.P_LoopMain[playerID] == 82)
+            # (Line 389) if (v.P_LoopMain[playerID] == 82)
             if EUDIf()(v.P_LoopMain[playerID] == 82):
-                # (Line 386) {
-                # (Line 387) trg.Shape_Dot(playerID, 1, "40 + 1n Gantrithor", 0, 0);
+                # (Line 390) {
+                # (Line 391) trg.Shape_Dot(playerID, 1, "40 + 1n Gantrithor", 0, 0);
                 trg.Shape_Dot(playerID, 1, "40 + 1n Gantrithor", 0, 0)
-                # (Line 388) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
-                # (Line 389) SetInvincibility(Disable, v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 392) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+                # (Line 393) SetInvincibility(Disable, v.P_UnitID[playerID], playerID, "Anywhere");
                 DoActions(KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID))
-                # (Line 391) SetDeaths(playerID, SetTo, 2160, " `UniqueCoolTime");
+                # (Line 395) SetDeaths(playerID, SetTo, 2160, " `UniqueCoolTime");
                 DoActions(SetInvincibility(Disable, v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 393) v.P_CountMain[playerID] += 1;
+                # (Line 397) v.P_CountMain[playerID] += 1;
                 DoActions(SetDeaths(playerID, SetTo, 2160, " `UniqueCoolTime"))
                 _ARRW(v.P_CountMain, playerID).__iadd__(1)
-                # (Line 394) v.P_LoopMain[playerID] = 0;
+                # (Line 398) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 395) }
-                # (Line 396) }
+                # (Line 399) }
+                # (Line 400) }
             EUDEndIf()
-            # (Line 397) else if (v.P_CountMain[playerID] == 2)
+            # (Line 401) else if (v.P_CountMain[playerID] == 2)
         if EUDElseIf()(v.P_CountMain[playerID] == 2):
-            # (Line 398) {
-            # (Line 399) RemoveUnitAt(All, "Flame Blue", "Anywhere", playerID);
-            # (Line 400) trg.SkillEnd();
+            # (Line 402) {
+            # (Line 403) RemoveUnitAt(All, "Flame Blue", "Anywhere", playerID);
+            # (Line 404) trg.SkillEnd();
             DoActions(RemoveUnitAt(All, "Flame Blue", "Anywhere", playerID))
             trg.SkillEnd()
-            # (Line 401) }
-            # (Line 403) }
+            # (Line 405) }
+            # (Line 407) }
         EUDEndIf()
-        # (Line 404) }
+        # (Line 408) }
     EUDEndIf()

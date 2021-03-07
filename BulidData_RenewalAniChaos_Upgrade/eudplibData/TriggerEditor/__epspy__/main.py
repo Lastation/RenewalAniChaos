@@ -210,29 +210,34 @@ def beforeTriggerExec():
             init.SetBuildingHP(playerID)
             # (Line 55) init.SetVariable(playerID);
             init.SetVariable(playerID)
-            # (Line 57) BGM.Play();
-            BGM.Play()
-            # (Line 58) }
-            # (Line 60) if (v.P_HeroID[playerID] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
+            # (Line 57) if (Bring(playerID, AtLeast, 1, "Terran SCV", "[BGM]ON"))
+            if EUDIf()(Bring(playerID, AtLeast, 1, "Terran SCV", "[BGM]ON")):
+                # (Line 58) {
+                # (Line 59) BGM.Play();
+                BGM.Play()
+                # (Line 60) }
+                # (Line 61) }
+            EUDEndIf()
+            # (Line 63) if (v.P_HeroID[playerID] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
         EUDEndIf()
         if EUDIf()(v.P_HeroID[playerID] == f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)), neg=True):
-            # (Line 61) { v.P_HeroID[playerID] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)); }
+            # (Line 64) { v.P_HeroID[playerID] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)); }
             _ARRW(v.P_HeroID, playerID) << (f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
-            # (Line 63) MuteUnitSpeech();
+            # (Line 66) MuteUnitSpeech();
         EUDEndIf()
-        # (Line 64) }
+        # (Line 67) }
         DoActions(MuteUnitSpeech())
-        # (Line 67) foreach (observerID : EUDLoopRange(128, 132))
+        # (Line 70) foreach (observerID : EUDLoopRange(128, 132))
 
     for observerID in EUDLoopRange(128, 132):
-        # (Line 68) {
-        # (Line 69) setcurpl(observerID);
+        # (Line 71) {
+        # (Line 72) setcurpl(observerID);
         f_setcurpl(observerID)
-        # (Line 70) MuteUnitSpeech();
-        # (Line 71) sound.OldVoicemain();
+        # (Line 73) MuteUnitSpeech();
+        # (Line 74) sound.OldVoicemain();
         DoActions(MuteUnitSpeech())
         sound.OldVoicemain()
-        # (Line 72) sound.main(observerID);
+        # (Line 75) sound.main(observerID);
         sound.f_main(observerID)
-        # (Line 73) }
-        # (Line 74) }
+        # (Line 76) }
+        # (Line 77) }

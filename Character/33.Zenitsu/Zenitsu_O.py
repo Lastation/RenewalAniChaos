@@ -78,7 +78,7 @@ function main(playerID)
                      v.P_ZenitsuDebuff[i] = 75;
                      s.CharacterVoice(12);
 
-                     v.P_CountMain[playerID] += 1;
+                     v.P_CountMain[playerID] = 1;
                      v.P_LoopMain[playerID] = 0;
                   }
                }
@@ -93,7 +93,7 @@ function main(playerID)
                      v.P_ZenitsuDebuff[i] = 75;
                      s.CharacterVoice(12);
 
-                     v.P_CountMain[playerID] += 1;
+                     v.P_CountMain[playerID] = 1;
                      v.P_LoopMain[playerID] = 0;
                   }
                }
@@ -132,10 +132,14 @@ function main(playerID)
          {      
             trg.ResizeLocation(playerID, 15, 15);
             SetInvincibility(Enable, v.P_UnitID[playerID], playerID, "Anywhere");
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
 
             for (var i = 0; i < 6; i++)
             {
-               MoveLocation(v.P_LocationID[playerID], v.P_UnitID[i], i, "Anywhere");
+               if (v.P_ZenitsuDebuff[i] > 0)
+               {
+                  MoveLocation(v.P_LocationID[playerID], v.P_UnitID[i], i, "Anywhere");
+               }
             }
 
             if (Deaths(CurrentPlayer, Exactly, 0, (210)))

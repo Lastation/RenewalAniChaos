@@ -54,7 +54,10 @@ function beforeTriggerExec()
 			init.SetBuildingHP(playerID);
 			init.SetVariable(playerID);
 			
-			BGM.Play();
+			if (Bring(playerID, AtLeast, 1, "Terran SCV", "[BGM]ON"))
+			{
+				BGM.Play();
+			}
 		}
 		
 		if (v.P_HeroID[playerID] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))

@@ -250,9 +250,9 @@ def f_main(playerID):
             _ARRW(v.P_Step, playerID) << (320)
             # (Line 78) v.P_LoopSub1[playerID] = 1;
             _ARRW(v.P_LoopSub1, playerID) << (1)
-            # (Line 79) v.P_UltimateGauge[playerID] -= v.P_Ultimate1[playerID];
-            _ARRW(v.P_UltimateGauge, playerID).__isub__(v.P_Ultimate1[playerID])
+            # (Line 79) SetDeaths(playerID, Subtract, v.P_Ultimate1[playerID], " `UltimateCoolTime");
             # (Line 80) KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+            DoActions(SetDeaths(playerID, Subtract, v.P_Ultimate1[playerID], " `UltimateCoolTime"))
             # (Line 81) }
             DoActions(KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID))
             # (Line 82) else if (Bring(playerID, AtLeast, 2,"Protoss Arbiter", "[Skill]UseSkill")
@@ -267,22 +267,22 @@ def f_main(playerID):
                 # (Line 88) KillUnitAt(All,"130 + 1n Norad","Anywhere",playerID);
                 # (Line 89) RemoveUnitAt(All,"60 + 3n Ghost","Anywhere",playerID);
                 DoActions(KillUnitAt(All, "130 + 1n Norad", "Anywhere", playerID))
-                # (Line 90) SetSwitch("Recall - Chtholly",Set);
+                # (Line 90) s.CharacterVoice(11);
                 DoActions(RemoveUnitAt(All, "60 + 3n Ghost", "Anywhere", playerID))
-                # (Line 91) s.CharacterVoice(11);
-                DoActions(SetSwitch("Recall - Chtholly", Set))
                 s.CharacterVoice(11)
-                # (Line 92) SetSwitch("UiltimateSwitch",Set);
-                # (Line 93) v.P_SkillDelay[playerID] = 0;
+                # (Line 91) SetSwitch("UiltimateSwitch",Set);
+                # (Line 92) CreateUnit(1, " Item. Flag", "[Uiltimate]Flag", CurrentPlayer);
                 DoActions(SetSwitch("UiltimateSwitch", Set))
+                # (Line 93) v.P_SkillDelay[playerID] = 0;
+                DoActions(CreateUnit(1, " Item. Flag", "[Uiltimate]Flag", CurrentPlayer))
                 _ARRW(v.P_SkillDelay, playerID) << (0)
                 # (Line 94) v.P_Step[playerID] = 330;
                 _ARRW(v.P_Step, playerID) << (330)
                 # (Line 95) v.P_LoopSub1[playerID] = 1;
                 _ARRW(v.P_LoopSub1, playerID) << (1)
-                # (Line 96) v.P_UltimateGauge[playerID] -= v.P_Ultimate2[playerID];
-                _ARRW(v.P_UltimateGauge, playerID).__isub__(v.P_Ultimate2[playerID])
+                # (Line 96) SetDeaths(playerID, Subtract, v.P_Ultimate2[playerID], " `UltimateCoolTime");
                 # (Line 97) KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+                DoActions(SetDeaths(playerID, Subtract, v.P_Ultimate2[playerID], " `UltimateCoolTime"))
                 # (Line 98) }
                 DoActions(KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID))
                 # (Line 99) else

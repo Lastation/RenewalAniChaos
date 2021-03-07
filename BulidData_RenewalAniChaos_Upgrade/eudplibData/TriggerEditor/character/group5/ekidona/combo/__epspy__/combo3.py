@@ -688,8 +688,8 @@ def f_main(playerID):
             EUDEndIf()
             if EUDIf()(v.P_LoopMain[playerID] == 6):
                 # (Line 388) {
-                # (Line 389) epic.Shape_NxNSquare(playerID, 1, "50 + 1n Battlecruiser", 3, 75, 1);
-                epic.Shape_NxNSquare(playerID, 1, "50 + 1n Battlecruiser", 3, 75, 1)
+                # (Line 389) trg.Shape_NxNSquare(playerID, 1, "50 + 1n Battlecruiser", 3, 75);
+                trg.Shape_NxNSquare(playerID, 1, "50 + 1n Battlecruiser", 3, 75)
                 # (Line 391) Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, "Anywhere");
                 # (Line 392) }
                 DoActions(Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, "Anywhere"))

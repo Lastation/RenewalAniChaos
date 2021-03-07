@@ -76,7 +76,7 @@ function main(playerID)
 			v.P_SkillDelay[playerID] = 0;
 			v.P_Step[playerID] = 320;
 			v.P_LoopSub1[playerID] = 1;
-			v.P_UltimateGauge[playerID] -= v.P_Ultimate1[playerID];
+			SetDeaths(playerID, Subtract, v.P_Ultimate1[playerID], " `UltimateCoolTime");
 			KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 		}
 		else if (Bring(playerID, AtLeast, 2,"Protoss Arbiter", "[Skill]UseSkill")
@@ -87,13 +87,13 @@ function main(playerID)
 			{
 				KillUnitAt(All,"130 + 1n Norad","Anywhere",playerID);
 				RemoveUnitAt(All,"60 + 3n Ghost","Anywhere",playerID);
-				SetSwitch("Recall - Chtholly",Set);
 				s.CharacterVoice(11);
 				SetSwitch("UiltimateSwitch",Set);
+				CreateUnit(1, " Item. Flag", "[Uiltimate]Flag", CurrentPlayer);
 				v.P_SkillDelay[playerID] = 0;
 				v.P_Step[playerID] = 330;
 				v.P_LoopSub1[playerID] = 1;
-				v.P_UltimateGauge[playerID] -= v.P_Ultimate2[playerID];
+				SetDeaths(playerID, Subtract, v.P_Ultimate2[playerID], " `UltimateCoolTime");
 				KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 			}
 			else
