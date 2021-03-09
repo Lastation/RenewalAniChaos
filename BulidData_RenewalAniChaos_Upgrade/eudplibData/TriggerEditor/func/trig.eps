@@ -103,6 +103,17 @@ function Debuff_BanReturn()
  * @Type
  * F
  * @Summary.ko-KR
+ * 캐릭터를 귀환 못하게 할 때 사용합니다.
+***/
+function Debuff_BanReturnPlayer(playerID : TrgPlayer)
+{
+	KillUnit("Protoss Observer", playerID);
+}
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
  * 동맹상태를 설정할때 사용합니다.
  * [state]는 동맹 상태를 설정할때 사용합니다.
  * @param.state.ko-KR

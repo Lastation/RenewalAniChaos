@@ -182,8 +182,8 @@ def SkillList(playerID):
         v.stb.printAt(4, "　　　\x04\x1FSSS\x04 귀여워 \x19[ 공성 ]")
         # (Line 34) v.stb.printAt(5, "　　　\x04\x1FCCC + A\x04 추억 \x19[ 공성 / 순간딜 / 자리고정 ]");
         v.stb.printAt(5, "　　　\x04\x1FCCC + A\x04 추억 \x19[ 공성 / 순간딜 / 자리고정 ]")
-        # (Line 35) v.stb.printAt(6, "　　　\x04\x1FCAS + CC + CC \x04첫 경험 \x19[ 공성 / 지속딜 / 자리고정 ] \x1F[1]");
-        v.stb.printAt(6, "　　　\x04\x1FCAS + CC + CC \x04첫 경험 \x19[ 공성 / 지속딜 / 자리고정 ] \x1F[1]")
+        # (Line 35) v.stb.printAt(6, "　　　\x04\x1FCAS + AA + CC \x04첫 경험 \x19[ 공성 / 지속딜 / 자리고정 ] \x1F[1]");
+        v.stb.printAt(6, "　　　\x04\x1FCAS + AA + CC \x04첫 경험 \x19[ 공성 / 지속딜 / 자리고정 ] \x1F[1]")
         # (Line 36) v.stb.printAt(7, "\n");
         v.stb.printAt(7, "\n")
         # (Line 37) v.stb.printAt(8, "　　　\x1F[1]\x08 + AA \x04인생의 동반자 \x19[ 공성 / 선딜 5.5초 ] \x05", v.P_Ultimate1[playerID]);

@@ -32,12 +32,13 @@ function main(playerID)
          else if (v.P_LoopMain[playerID] == 1)
          {          
             trg.Shape_Edge(playerID, 1, "60 + 1n Danimoth", 0, 3, 120);
+            trg.Shape_Edge(playerID, 1, "100 + 1n Dragoon", 0, 3, 120);
             trg.Shape_Edge(playerID, 1, "60 + 1n Dragoon", 0, 3, 120);
 
             MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
             Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
-            KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", playerID);
+            KillUnitAt(All, "100 + 1n Dragoon", "Anywhere", playerID);
          }
          else if (v.P_LoopMain[playerID] == 5)
          {          
@@ -57,11 +58,16 @@ function main(playerID)
          {          
             trg.Shape_Square(playerID, 1, "40 + 1n Mojo", 120, 120);
             trg.Shape_Square(playerID, 1, "40 + 1n Mojo", 64, 0);
+            trg.Shape_Square(playerID, 1, "60 + 1n High Templar", 64, 0);             
             trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 120, 120);
             trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 64, 0);
 
             MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
             Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "60 + 1n High Templar", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("60 + 1n High Templar", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);  
 
             KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
             KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
@@ -104,6 +110,8 @@ function main(playerID)
             KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
             KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
             KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
+            KillUnitAt(All, "60 + 1n High Templar", "Anywhere", playerID);
+            KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", playerID);
 
             CreateUnit(16, "60 + 1n Siege", dwrand() % 8 + 33, playerID);
             SetInvincibility(Enable, "60 + 1n Siege", playerID, "Anywhere");

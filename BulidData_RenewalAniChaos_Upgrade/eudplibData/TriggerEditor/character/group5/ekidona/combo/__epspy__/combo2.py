@@ -128,10 +128,10 @@ def _LSH(l, r):
 
 # (Line 1) import PluginVariables as msqcvar;
 import PluginVariables as msqcvar
-# (Line 2) import variable as v;
-import variable as v
-# (Line 3) import func.trig as trg;
+# (Line 2) import func.trig as trg;
 from func import trig as trg
+# (Line 3) import variable as v;
+import variable as v
 # (Line 5) function main(playerID)
 # (Line 6) {
 @EUDFunc

@@ -310,44 +310,193 @@ def f_main(playerID):
             # (Line 115) else if (v.P_CountMain[playerID] == 2)
         if EUDElseIf()(v.P_CountMain[playerID] == 2):
             # (Line 116) {
-            # (Line 117) if (Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill")
-            _t10 = EUDIf()
-            # (Line 118) && Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill")
-            # (Line 119) && v.P_Step[playerID] == 210)
-            if _t10(EUDSCAnd()(Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))(Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))(v.P_Step[playerID] == 210)()):
-                # (Line 120) {
-                # (Line 121) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
-                # (Line 122) s.CharacterVoice(4);
+            # (Line 117) if (v.P_LoopMain[playerID] == 0)
+            if EUDIf()(v.P_LoopMain[playerID] == 0):
+                # (Line 118) {
+                # (Line 119) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
+                # (Line 121) s.CharacterVoice(4);
                 DoActions(KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID))
                 s.CharacterVoice(4)
-                # (Line 123) v.P_SkillDelay[playerID] = 0;
-                _ARRW(v.P_SkillDelay, playerID) << (0)
-                # (Line 124) v.P_CountMain[playerID] = 0;
-                _ARRW(v.P_CountMain, playerID) << (0)
-                # (Line 125) v.P_LoopMain[playerID] = 0;
-                _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 126) v.P_Step[playerID] = 220;
-                _ARRW(v.P_Step, playerID) << (220)
-                # (Line 127) KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
-                # (Line 128) KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", playerID);
-                DoActions(KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID))
-                # (Line 129) }
-                DoActions(KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", playerID))
-                # (Line 130) else
-                # (Line 131) {
-            if EUDElse()():
-                # (Line 132) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
-                # (Line 133) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
-                DoActions(KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID))
-                # (Line 134) KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
-                DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID))
-                # (Line 135) trg.SkillEnd();
-                DoActions(KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID))
-                trg.SkillEnd()
-                # (Line 136) }
-                # (Line 139) }
+                # (Line 122) }
+                # (Line 124) if (v.P_LoopMain[playerID] < 8)
             EUDEndIf()
-            # (Line 142) }
+            if EUDIf()(v.P_LoopMain[playerID] >= 8, neg=True):
+                # (Line 125) {
+                # (Line 126) RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+                # (Line 128) trg.MoveLoc(v.P_UnitID[playerID], playerID, 200 - 50 * (v.P_LoopMain[playerID] % 4), 50 * (v.P_LoopMain[playerID] % 4));
+                DoActions(RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID))
+                trg.MoveLoc(v.P_UnitID[playerID], playerID, 200 - 50 * (v.P_LoopMain[playerID] % 4), 50 * (v.P_LoopMain[playerID] % 4))
+                # (Line 129) trg.SkillUnit(playerID, 1, "50 + 1n Tank");
+                trg.SkillUnit(playerID, 1, "50 + 1n Tank")
+                # (Line 130) trg.SkillUnit(playerID, 1, "60 + 1n Danimoth");
+                trg.SkillUnit(playerID, 1, "60 + 1n Danimoth")
+                # (Line 131) trg.MoveLoc(v.P_UnitID[playerID], playerID, -200 + 50 * (v.P_LoopMain[playerID] % 4), -50 * (v.P_LoopMain[playerID] % 4));
+                trg.MoveLoc(v.P_UnitID[playerID], playerID, -200 + 50 * (v.P_LoopMain[playerID] % 4), -50 * (v.P_LoopMain[playerID] % 4))
+                # (Line 132) trg.SkillUnit(playerID, 1, "50 + 1n Tank");
+                trg.SkillUnit(playerID, 1, "50 + 1n Tank")
+                # (Line 133) trg.SkillUnit(playerID, 1, "60 + 1n Danimoth");
+                trg.SkillUnit(playerID, 1, "60 + 1n Danimoth")
+                # (Line 134) trg.MoveLoc(v.P_UnitID[playerID], playerID, 50 * (v.P_LoopMain[playerID] % 4), -200 + 50 * (v.P_LoopMain[playerID] % 4));
+                trg.MoveLoc(v.P_UnitID[playerID], playerID, 50 * (v.P_LoopMain[playerID] % 4), -200 + 50 * (v.P_LoopMain[playerID] % 4))
+                # (Line 135) trg.SkillUnit(playerID, 1, "Protoss Dark Archon");
+                trg.SkillUnit(playerID, 1, "Protoss Dark Archon")
+                # (Line 136) trg.SkillUnit(playerID, 1, "60 + 1n Danimoth");
+                trg.SkillUnit(playerID, 1, "60 + 1n Danimoth")
+                # (Line 137) trg.MoveLoc(v.P_UnitID[playerID], playerID, -50 * (v.P_LoopMain[playerID] % 4), 200 - 50 * (v.P_LoopMain[playerID] % 4));
+                trg.MoveLoc(v.P_UnitID[playerID], playerID, -50 * (v.P_LoopMain[playerID] % 4), 200 - 50 * (v.P_LoopMain[playerID] % 4))
+                # (Line 138) trg.SkillUnit(playerID, 1, "Protoss Dark Archon");
+                trg.SkillUnit(playerID, 1, "Protoss Dark Archon")
+                # (Line 139) trg.SkillUnit(playerID, 1, "60 + 1n Danimoth");
+                trg.SkillUnit(playerID, 1, "60 + 1n Danimoth")
+                # (Line 141) KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
+                # (Line 142) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+                DoActions(KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID))
+                # (Line 143) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                DoActions(KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID))
+                # (Line 144) Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
+                # (Line 146) trg.Main_Wait(160);
+                DoActions(Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
+                trg.Main_Wait(160)
+                # (Line 148) v.P_LoopMain[playerID] += 1;
+                _ARRW(v.P_LoopMain, playerID).__iadd__(1)
+                # (Line 149) }
+                # (Line 150) else if (v.P_LoopMain[playerID] == 8)
+            if EUDElseIf()(v.P_LoopMain[playerID] == 8):
+                # (Line 151) {
+                # (Line 152) RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+                # (Line 154) trg.Main_Wait(80);
+                DoActions(RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID))
+                trg.Main_Wait(80)
+                # (Line 156) v.P_CountMain[playerID] += 1;
+                _ARRW(v.P_CountMain, playerID).__iadd__(1)
+                # (Line 157) v.P_LoopMain[playerID] = 0;
+                _ARRW(v.P_LoopMain, playerID) << (0)
+                # (Line 158) }
+                # (Line 159) }
+            EUDEndIf()
+            # (Line 160) else if (v.P_CountMain[playerID] == 3)
+        if EUDElseIf()(v.P_CountMain[playerID] == 3):
+            # (Line 161) {
+            # (Line 162) if (v.P_LoopMain[playerID] == 0)
+            if EUDIf()(v.P_LoopMain[playerID] == 0):
+                # (Line 163) {
+                # (Line 164) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+                # (Line 166) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 100, 0);
+                DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID))
+                trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 100, 0)
+                # (Line 167) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 100, 50);
+                trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 100, 50)
+                # (Line 168) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 100, -50);
+                trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 100, -50)
+                # (Line 169) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 150, 0);
+                trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 150, 0)
+                # (Line 170) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 150, 50);
+                trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 150, 50)
+                # (Line 171) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 150, -50);
+                trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 150, -50)
+                # (Line 172) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, 0);
+                trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, 0)
+                # (Line 173) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, 50);
+                trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, 50)
+                # (Line 174) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, -50);
+                trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, -50)
+                # (Line 175) trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, 0);
+                trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, 0)
+                # (Line 176) trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, 50);
+                trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, 50)
+                # (Line 177) trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, -50);
+                trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, -50)
+                # (Line 178) trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, 0);
+                trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, 0)
+                # (Line 179) trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, 50);
+                trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, 50)
+                # (Line 180) trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, -50);
+                trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, -50)
+                # (Line 181) trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, 0);
+                trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, 0)
+                # (Line 182) trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, 50);
+                trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, 50)
+                # (Line 183) trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, -50);
+                trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, -50)
+                # (Line 184) KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID);
+                # (Line 185) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                DoActions(KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID))
+                # (Line 186) Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
+                # (Line 188) trg.Main_Wait(240);
+                DoActions(Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
+                trg.Main_Wait(240)
+                # (Line 190) v.P_LoopMain[playerID] += 1;
+                _ARRW(v.P_LoopMain, playerID).__iadd__(1)
+                # (Line 191) }
+                # (Line 192) else if (v.P_LoopMain[playerID] == 1)
+            if EUDElseIf()(v.P_LoopMain[playerID] == 1):
+                # (Line 193) {
+                # (Line 194) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+                # (Line 196) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 100, 100);
+                DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID))
+                trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 100, 100)
+                # (Line 197) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 100, 150);
+                trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 100, 150)
+                # (Line 198) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 100, 200);
+                trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 100, 200)
+                # (Line 199) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 150, 100);
+                trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 150, 100)
+                # (Line 200) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 150, 150);
+                trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 150, 150)
+                # (Line 201) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 150, 200);
+                trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 150, 200)
+                # (Line 202) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, 100);
+                trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, 100)
+                # (Line 203) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, 150);
+                trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, 150)
+                # (Line 204) trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, 200);
+                trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, 200)
+                # (Line 205) trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, 100);
+                trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, 100)
+                # (Line 206) trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, 150);
+                trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, 150)
+                # (Line 207) trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, 200);
+                trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, 200)
+                # (Line 208) trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, 100);
+                trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, 100)
+                # (Line 209) trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, 150);
+                trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, 150)
+                # (Line 210) trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, 200);
+                trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, 200)
+                # (Line 211) trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, 100);
+                trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, 100)
+                # (Line 212) trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, 150);
+                trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, 150)
+                # (Line 213) trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, 200);
+                trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, 200)
+                # (Line 214) KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID);
+                # (Line 215) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                DoActions(KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID))
+                # (Line 216) Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
+                # (Line 218) trg.Main_Wait(240);
+                DoActions(Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
+                trg.Main_Wait(240)
+                # (Line 220) v.P_CountMain[playerID] += 1;
+                _ARRW(v.P_CountMain, playerID).__iadd__(1)
+                # (Line 221) v.P_LoopMain[playerID] = 0;
+                _ARRW(v.P_LoopMain, playerID) << (0)
+                # (Line 222) }
+                # (Line 224) }
+            EUDEndIf()
+            # (Line 225) else if (v.P_CountMain[playerID] == 4)
+        if EUDElseIf()(v.P_CountMain[playerID] == 4):
+            # (Line 226) {
+            # (Line 228) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+            # (Line 229) KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
+            DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID))
+            # (Line 230) trg.SkillEnd();
+            DoActions(KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID))
+            trg.SkillEnd()
+            # (Line 233) }
+            # (Line 236) }
         EUDEndIf()
-        # (Line 143) }
+        # (Line 237) }
     EUDEndIf()
