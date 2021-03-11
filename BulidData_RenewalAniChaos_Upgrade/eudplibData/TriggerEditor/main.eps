@@ -17,8 +17,12 @@ const stb = StringBuffer();
 
 function onPluginStart() 	// 초기화 함수
 {
-	BGM.loadSound();
-	BGM.SetBGM(0);
+	foreach(playerID : EUDLoopPlayer())
+	{
+		setcurpl(playerID);
+		BGM.loadSound();
+		BGM.SetBGM(0);
+	}
 }
 
 function beforeTriggerExec() 

@@ -158,86 +158,93 @@ stb = _CGFW(lambda: [StringBuffer()], 1)[0]
 # (Line 19) {
 @EUDFunc
 def onPluginStart():
-    # (Line 20) BGM.loadSound();
-    BGM.f_loadSound()
-    # (Line 21) BGM.SetBGM(0);
-    BGM.SetBGM(0)
-    # (Line 22) }
-    # (Line 24) function beforeTriggerExec()
+    # (Line 20) foreach(playerID : EUDLoopPlayer())
+    for playerID in EUDLoopPlayer():
+        # (Line 21) {
+        # (Line 22) setcurpl(playerID);
+        f_setcurpl(playerID)
+        # (Line 23) BGM.loadSound();
+        BGM.f_loadSound()
+        # (Line 24) BGM.SetBGM(0);
+        BGM.SetBGM(0)
+        # (Line 25) }
+        # (Line 26) }
 
-# (Line 25) {
+    # (Line 28) function beforeTriggerExec()
+
+# (Line 29) {
 @EUDFunc
 def beforeTriggerExec():
-    # (Line 27) randomize();
+    # (Line 31) randomize();
     f_randomize()
-    # (Line 30) foreach(playerID : EUDLoopPlayer())
+    # (Line 34) foreach(playerID : EUDLoopPlayer())
     for playerID in EUDLoopPlayer():
-        # (Line 31) {
-        # (Line 32) setcurpl(playerID);
+        # (Line 35) {
+        # (Line 36) setcurpl(playerID);
         f_setcurpl(playerID)
-        # (Line 33) unitID.getUnitID(playerID);
+        # (Line 37) unitID.getUnitID(playerID);
         unitID.f_getUnitID(playerID)
-        # (Line 34) announce.Announce_Marge(playerID);
+        # (Line 38) announce.Announce_Marge(playerID);
         announce.Announce_Marge(playerID)
-        # (Line 36) if (Switch("StartSwitch", Cleared))
+        # (Line 40) if (Switch("StartSwitch", Cleared))
         if EUDIf()(Switch("StartSwitch", Cleared)):
-            # (Line 37) {
-            # (Line 38) select.SelectText(playerID);
+            # (Line 41) {
+            # (Line 42) select.SelectText(playerID);
             select.SelectText(playerID)
-            # (Line 39) ppty.PropertyText(playerID);
+            # (Line 43) ppty.PropertyText(playerID);
             ppty.PropertyText(playerID)
-            # (Line 41) unitID.InitUnitID(playerID);
+            # (Line 45) unitID.InitUnitID(playerID);
             unitID.InitUnitID(playerID)
-            # (Line 43) if (Switch("TestModeSwitch", Set)) { testmode.TestMode(playerID); }
+            # (Line 47) if (Switch("TestModeSwitch", Set)) { testmode.TestMode(playerID); }
             if EUDIf()(Switch("TestModeSwitch", Set)):
                 testmode.TestMode(playerID)
-                # (Line 44) }
+                # (Line 48) }
             EUDEndIf()
-            # (Line 45) else
-            # (Line 46) {
+            # (Line 49) else
+            # (Line 50) {
         if EUDElse()():
-            # (Line 47) marge.main(playerID);
+            # (Line 51) marge.main(playerID);
             marge.f_main(playerID)
-            # (Line 48) sound.OldVoicemain();
+            # (Line 52) sound.OldVoicemain();
             sound.OldVoicemain()
-            # (Line 49) sound.main(playerID);
+            # (Line 53) sound.main(playerID);
             sound.f_main(playerID)
-            # (Line 50) ppty.Property(playerID);
+            # (Line 54) ppty.Property(playerID);
             ppty.Property(playerID)
-            # (Line 52) deathText.SetDeathValue(playerID);
+            # (Line 56) deathText.SetDeathValue(playerID);
             deathText.SetDeathValue(playerID)
-            # (Line 54) init.SetBuildingHP(playerID);
+            # (Line 58) init.SetBuildingHP(playerID);
             init.SetBuildingHP(playerID)
-            # (Line 55) init.SetVariable(playerID);
+            # (Line 59) init.SetVariable(playerID);
             init.SetVariable(playerID)
-            # (Line 57) if (Bring(playerID, AtLeast, 1, "Terran SCV", "[BGM]ON"))
+            # (Line 61) if (Bring(playerID, AtLeast, 1, "Terran SCV", "[BGM]ON"))
             if EUDIf()(Bring(playerID, AtLeast, 1, "Terran SCV", "[BGM]ON")):
-                # (Line 58) {
-                # (Line 59) BGM.Play();
+                # (Line 62) {
+                # (Line 63) BGM.Play();
                 BGM.Play()
-                # (Line 60) }
-                # (Line 61) }
+                # (Line 64) }
+                # (Line 65) }
             EUDEndIf()
-            # (Line 63) if (v.P_HeroID[playerID] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
+            # (Line 67) if (v.P_HeroID[playerID] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
         EUDEndIf()
         if EUDIf()(v.P_HeroID[playerID] == f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)), neg=True):
-            # (Line 64) { v.P_HeroID[playerID] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)); }
+            # (Line 68) { v.P_HeroID[playerID] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)); }
             _ARRW(v.P_HeroID, playerID) << (f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
-            # (Line 66) MuteUnitSpeech();
+            # (Line 70) MuteUnitSpeech();
         EUDEndIf()
-        # (Line 67) }
+        # (Line 71) }
         DoActions(MuteUnitSpeech())
-        # (Line 70) foreach (observerID : EUDLoopRange(128, 132))
+        # (Line 74) foreach (observerID : EUDLoopRange(128, 132))
 
     for observerID in EUDLoopRange(128, 132):
-        # (Line 71) {
-        # (Line 72) setcurpl(observerID);
+        # (Line 75) {
+        # (Line 76) setcurpl(observerID);
         f_setcurpl(observerID)
-        # (Line 73) MuteUnitSpeech();
-        # (Line 74) sound.OldVoicemain();
+        # (Line 77) MuteUnitSpeech();
+        # (Line 78) sound.OldVoicemain();
         DoActions(MuteUnitSpeech())
         sound.OldVoicemain()
-        # (Line 75) sound.main(observerID);
+        # (Line 79) sound.main(observerID);
         sound.f_main(observerID)
-        # (Line 76) }
-        # (Line 77) }
+        # (Line 80) }
+        # (Line 81) }
