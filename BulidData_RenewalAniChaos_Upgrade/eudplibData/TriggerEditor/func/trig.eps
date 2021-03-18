@@ -569,15 +569,10 @@ function Shape_Cross(playerID : TrgPlayer, count, unit : TrgUnit, degree, size, 
 			angle_x = v.P_AngleCos[playerID] * idx;
 			angle_y = v.P_AngleSin[playerID] * idx;
 			
-			if (size % 2 == 0 && idx != size / 2)
-			{ Shape_Square(playerID, count, unit, angle_x + gradient_x, angle_y + gradient_y); }
-			else if (size % 2 == 1)
-			{
-				if (idx == 0)
-				{ Shape_Dot(playerID, count, unit, 0, 0); }
-				else
-				{ Shape_Square(playerID, count, unit, angle_x, angle_y); }
-			}
+			if (idx == 0)
+			{ Shape_Dot(playerID, count, unit, 0, 0); }
+			else
+			{ Shape_Square(playerID, count, unit, angle_x, angle_y); }
 		}
 	}
 }

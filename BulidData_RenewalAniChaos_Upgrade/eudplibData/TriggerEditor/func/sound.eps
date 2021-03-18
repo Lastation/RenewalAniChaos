@@ -1,9 +1,9 @@
 import PluginVariables as msqcvar;
 import variable as v;
 
-import character.group1.rusaruka.text as rusaruka;
-import character.group1.chtholly.text as chtholly;
-import character.group1.maihime.text as maihime;
+import character.group0.rusaruka.text as rusaruka;
+import character.group0.chtholly.text as chtholly;
+import character.group0.maihime.text as maihime;
 import character.etc.tenshi as tenshi;
 import character.etc.miyuki as miyuki;
 
@@ -15,8 +15,8 @@ import character.etc.alterego as alterego;
 
 import character.etc.ryuzu as ryuzu;
 import character.group3.kurumi.text as kurumi;
-import character.etc.sakura as sakura;
-import character.etc.yashiro as yashiro;
+import character.group2.sakura.text as sakura;
+import character.group2.yashiro.text as yashiro;
 import character.etc.rin as rin;
 
 import character.etc.seraphim as seraphim;
@@ -54,6 +54,8 @@ function CharacterVoice(count : TrgCount)
 		
 		
 		else if 	(v.P_HeroID[playerID] == 12)	{ kurumi.	P_player[idx] = count; kurumi.	P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 13)	{ sakura.		P_player[idx] = count; sakura.	P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 14)	{ yashiro.	P_player[idx] = count; yashiro.	P_observer[idx] = count; 	}
 		
 		else if 	(v.P_HeroID[playerID] == 22)	{ yuuna.		P_player[idx] = count; yuuna.		P_observer[idx] = count; 	}
 		else if 	(v.P_HeroID[playerID] == 23)	{ mayuri.	P_player[idx] = count; mayuri.	P_observer[idx] = count; 	}
@@ -110,8 +112,6 @@ function OldCharacterVoiceNormal()
 		
 		foreach(idx : EUDLoopRange(6))
 		{
-			sakura.P_type[idx] = 1;  		sakura.P_player[idx] = count; 		sakura.P_observer[idx] = count;
-			yashiro.P_type[idx] = 1; 		yashiro.P_player[idx] = count; 		yashiro.P_observer[idx] = count;
 			rin.P_type[idx] = 1;  			rin.P_player[idx] = count; 			rin.P_observer[idx] = count;
 			seraphim.P_type[idx] = 1;  	seraphim.P_player[idx] = count; 		seraphim.P_observer[idx] = count;
 			//kiana.P_type[idx] = 1; 		kiana.P_player[idx] = count; 			kiana.P_observer[idx] = count;
@@ -152,8 +152,6 @@ function OldCharacterVoiceUltimate()
 			alterego.P_type[idx] = 2;  	alterego.P_player[idx] = count; 		alterego.P_observer[idx] = count;
 			ryuzu.P_type[idx] = 2; 		ryuzu.P_player[idx] = count; 			ryuzu.P_observer[idx] = count;
 			//kurumi.P_type[idx] = 2;  	kurumi.P_player[idx] = count; 		kurumi.P_observer[idx] = count;
-			sakura.P_type[idx] = 2;  		sakura.P_player[idx] = count; 		sakura.P_observer[idx] = count;
-			yashiro.P_type[idx] = 2; 		yashiro.P_player[idx] = count; 		yashiro.P_observer[idx] = count;
 			rin.P_type[idx] = 2;  			rin.P_player[idx] = count; 			rin.P_observer[idx] = count;
 			seraphim.P_type[idx] = 2;  	seraphim.P_player[idx] = count; 		seraphim.P_observer[idx] = count;
 			//kiana.P_type[idx] = 2; 		kiana.P_player[idx] = count; 			kiana.P_observer[idx] = count;
@@ -186,8 +184,6 @@ function OldCharacterVoiceUnique()
 			alterego.P_type[idx] = 3;  	alterego.P_player[idx] = count; 		alterego.P_observer[idx] = count;
 			ryuzu.P_type[idx] = 3; 		ryuzu.P_player[idx] = count; 			ryuzu.P_observer[idx] = count;
 			//kurumi.P_type[idx] = 3;  	kurumi.P_player[idx] = count; 		kurumi.P_observer[idx] = count;
-			sakura.P_type[idx] = 3;  		sakura.P_player[idx] = count; 		sakura.P_observer[idx] = count;
-			yashiro.P_type[idx] = 3; 		yashiro.P_player[idx] = count; 		yashiro.P_observer[idx] = count;
 			rin.P_type[idx] = 3;  			rin.P_player[idx] = count; 			rin.P_observer[idx] = count;
 			seraphim.P_type[idx] = 3;  	seraphim.P_player[idx] = count; 		seraphim.P_observer[idx] = count;
 			//kiana.P_type[idx] = 3; 		kiana.P_player[idx] = count; 			kiana.P_observer[idx] = count;
@@ -212,35 +208,35 @@ function OldVoicemain()
 
 function main(playerID)
 {
-	// Group1
+	// Group0
 	rusaruka.main(playerID);
 	chtholly.main(playerID);
 	maihime.main(playerID);
 	tenshi.main(playerID);
 	miyuki.main(playerID);
 	
-	// Group2
+	// Group1
 	negev.main(playerID);
 	cecillia.main(playerID);
 	anzu.main(playerID);
 	hotomoka.main(playerID);
 	alterego.main(playerID);
 	
-	// Group3
+	// Group2
 	ryuzu.main(playerID);
 	kurumi.main(playerID);
 	sakura.main(playerID);
 	yashiro.main(playerID);
 	rin.main(playerID);
 	
-	// Group4
+	// Group3
 	seraphim.main(playerID);
 	//kiana.main(playerID);
 	iwahune.main(playerID);
 	mn.main(playerID);
 	emetselch.main(playerID);
 	
-	// Group5
+	// Group4
 	magellan.main(playerID);
 	yuuna.main(playerID);
 	mayuri.main(playerID);

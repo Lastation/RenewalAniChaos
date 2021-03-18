@@ -213,38 +213,40 @@ def beforeTriggerExec():
             ppty.Property(playerID)
             # (Line 56) deathText.SetDeathValue(playerID);
             deathText.SetDeathValue(playerID)
-            # (Line 58) init.SetBuildingHP(playerID);
+            # (Line 57) deathText.SetKillScore(playerID);
+            deathText.SetKillScore(playerID)
+            # (Line 59) init.SetBuildingHP(playerID);
             init.SetBuildingHP(playerID)
-            # (Line 59) init.SetVariable(playerID);
+            # (Line 60) init.SetVariable(playerID);
             init.SetVariable(playerID)
-            # (Line 61) if (Bring(playerID, AtLeast, 1, "Terran SCV", "[BGM]ON"))
+            # (Line 62) if (Bring(playerID, AtLeast, 1, "Terran SCV", "[BGM]ON"))
             if EUDIf()(Bring(playerID, AtLeast, 1, "Terran SCV", "[BGM]ON")):
-                # (Line 62) {
-                # (Line 63) BGM.Play();
+                # (Line 63) {
+                # (Line 64) BGM.Play();
                 BGM.Play()
-                # (Line 64) }
                 # (Line 65) }
+                # (Line 66) }
             EUDEndIf()
-            # (Line 67) if (v.P_HeroID[playerID] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
+            # (Line 68) if (v.P_HeroID[playerID] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
         EUDEndIf()
         if EUDIf()(v.P_HeroID[playerID] == f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)), neg=True):
-            # (Line 68) { v.P_HeroID[playerID] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)); }
+            # (Line 69) { v.P_HeroID[playerID] = dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)); }
             _ARRW(v.P_HeroID, playerID) << (f_dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))
-            # (Line 70) MuteUnitSpeech();
+            # (Line 71) MuteUnitSpeech();
         EUDEndIf()
-        # (Line 71) }
+        # (Line 72) }
         DoActions(MuteUnitSpeech())
-        # (Line 74) foreach (observerID : EUDLoopRange(128, 132))
+        # (Line 75) foreach (observerID : EUDLoopRange(128, 132))
 
     for observerID in EUDLoopRange(128, 132):
-        # (Line 75) {
-        # (Line 76) setcurpl(observerID);
+        # (Line 76) {
+        # (Line 77) setcurpl(observerID);
         f_setcurpl(observerID)
-        # (Line 77) MuteUnitSpeech();
-        # (Line 78) sound.OldVoicemain();
+        # (Line 78) MuteUnitSpeech();
+        # (Line 79) sound.OldVoicemain();
         DoActions(MuteUnitSpeech())
         sound.OldVoicemain()
-        # (Line 79) sound.main(observerID);
+        # (Line 80) sound.main(observerID);
         sound.f_main(observerID)
-        # (Line 80) }
         # (Line 81) }
+        # (Line 82) }

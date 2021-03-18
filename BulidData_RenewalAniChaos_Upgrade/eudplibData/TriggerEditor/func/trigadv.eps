@@ -192,7 +192,7 @@ function Shape_NxNSquareAt(playerID : TrgPlayer, baseunit : TrgUnit, count, unit
  * F
  * @Summary.ko-KR
  * 정사각형을 그릴때 사용합니다. 꽉찬 사각형이 그려집니다.
- * [baseunit]의 유닛을 기준으로 [size]크기 만큼의 정사각형에 [unit]을 [interval]마다 [count]개 생성합니다.
+ * ([x], [y])에 [size]크기 만큼의 정사각형에 [unit]을 [interval]마다 [count]개 생성합니다.
  * ex) size = 3, count = 2 일때, 3 x 3 크기의 정사각형이 생성되며 총 (3 x 3) x 2 [(size x size) x count] 개의 유닛이 생성됩니다.
  * @param.playerID.ko-KR
  * [playerID] : 유닛의 소유자를 정합니다.
@@ -250,6 +250,35 @@ function Shape_NxNSquareAt2(playerID : TrgPlayer, count, unit : TrgUnit, size, i
 		}
 	}
 }
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
+ * 정사각형을 그릴때 사용합니다. 꽉찬 사각형이 그려집니다.
+ * ([x], [y])에 [size]크기 만큼의 정사각형에 [unit]을 [interval]마다 [count]개 생성합니다.
+ * ex) size = 3, count = 2 일때, 3 x 3 크기의 정사각형이 생성되며 총 (3 x 3) x 2 [(size x size) x count] 개의 유닛이 생성됩니다.
+ * @param.playerID.ko-KR
+ * [playerID] : 유닛의 소유자를 정합니다.
+ * @param.count.ko-KR
+ * [count] : 생성될 유닛의 갯수를 정합니다.
+ * @param.baseunit.ko-KR
+ * [baseunit] : 로케이션 기준이될 유닛을 정합니다.
+ * @param.unit.ko-KR
+ * [unit] : 생성될 유닛을 정합니다.
+ * @param.size.ko-KR
+ * [size] : 사각형의 크기입니다.
+ * @param.interval.ko-KR
+ * [interval] : 사각형안의 유닛마다의 거리입니다.
+***/
+function Shape_QuadNxNSquareAt(playerID : TrgPlayer, count, unit : TrgUnit, size, interval, x, y)
+{
+	Shape_NxNSquareAt2(playerID, count, unit, size, interval, x, y);
+	Shape_NxNSquareAt2(playerID, count, unit, size, interval, -y, x);
+	Shape_NxNSquareAt2(playerID, count, unit, size, interval, y, -x);
+	Shape_NxNSquareAt2(playerID, count, unit, size, interval, -x, -y);
+}
+
 
 /***
  * @Type

@@ -8,6 +8,8 @@ import character.group1.chtholly.main 	as chtholly;
 import character.group1.maihime.main 	as maihime;
 
 import character.group3.kurumi.main 	as kurumi;
+import character.group2.sakura.main 		as sakura;
+import character.group2.yashiro.main 	as yashiro;
 
 import character.group4.yuuna.main 		as yuuna;
 import character.group4.mayuri.main 	as mayuri;
@@ -37,6 +39,8 @@ function main(playerID)
 	else if 	(v.P_HeroID[playerID] == 3) 		maihime.main(playerID);
 	
 	else if 	(v.P_HeroID[playerID] == 12) 	kurumi.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 13) 	sakura.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 14) 	yashiro.main(playerID);
 	
 	else if 	(v.P_HeroID[playerID] == 22) 	yuuna.main(playerID);
 	else if 	(v.P_HeroID[playerID] == 23) 	mayuri.main(playerID);

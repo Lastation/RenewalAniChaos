@@ -43,7 +43,7 @@ function SetVariable(playerID)
 	switch (v.P_HeroID[playerID])	// 공격력 관련
 	{
   	case 14:
-      		v.Atk[playerID] += 2 * dwread_epd(204 * 12 + playerID);
+      		v.Atk[playerID] += 2 * (dwread_epd(204 * 12 + playerID) / 8);
      		break;
   	case 22:
       		v.Atk[playerID] += 3 * dwread_epd(204 * 12 + playerID);

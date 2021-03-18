@@ -407,143 +407,181 @@ def Shape_NxNSquareAt(playerID, count, unit, size, interval, x, y, type):
 
         # (Line 350) }
     EUDEndIf()
-    # (Line 380) function Shape_Edge(playerID : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, property)
+    # (Line 352) function Shape_QuadNxNSquareAt(playerID : TrgPlayer, count, unit : TrgUnit, size, interval, x, y, type)
 
-# (Line 381) {
+# (Line 353) {
+@EUDTypedFunc([TrgPlayer, None, TrgUnit, None, None, None, None, None])
+def Shape_QuadNxNSquareAt(playerID, count, unit, size, interval, x, y, type):
+    # (Line 354) Shape_NxNSquareAt(playerID, count, unit, size, interval, x, y, type);
+    Shape_NxNSquareAt(playerID, count, unit, size, interval, x, y, type)
+    # (Line 355) Shape_NxNSquareAt(playerID, count, unit, size, interval, -x, y, type);
+    Shape_NxNSquareAt(playerID, count, unit, size, interval, -x, y, type)
+    # (Line 356) Shape_NxNSquareAt(playerID, count, unit, size, interval, x, -y, type);
+    Shape_NxNSquareAt(playerID, count, unit, size, interval, x, -y, type)
+    # (Line 357) Shape_NxNSquareAt(playerID, count, unit, size, interval, -x, -y, type);
+    Shape_NxNSquareAt(playerID, count, unit, size, interval, -x, -y, type)
+    # (Line 358) }
+    # (Line 388) function Shape_Edge(playerID : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, property)
+
+# (Line 389) {
 @EUDTypedFunc([TrgPlayer, None, TrgUnit, None, None, None, None])
 def Shape_Edge(playerID, count, Unit, degree, n, interval, property):
-    # (Line 382) var i = 0;
+    # (Line 390) var i = 0;
     i = EUDVariable()
     i << (0)
-    # (Line 384) trg.Table_Sin(playerID, degree, interval * 14 / 10);
+    # (Line 392) trg.Table_Sin(playerID, degree, interval * 14 / 10);
     trg.Table_Sin(playerID, degree, interval * 14 // 10)
-    # (Line 385) trg.Table_Cos(playerID, degree, interval * 14 / 10);
+    # (Line 393) trg.Table_Cos(playerID, degree, interval * 14 / 10);
     trg.Table_Cos(playerID, degree, interval * 14 // 10)
-    # (Line 387) var x_o = v.P_AngleCos[playerID];
+    # (Line 395) var x_o = v.P_AngleCos[playerID];
     x_o = EUDVariable()
     x_o << (v.P_AngleCos[playerID])
-    # (Line 388) var y_o = v.P_AngleSin[playerID];
+    # (Line 396) var y_o = v.P_AngleSin[playerID];
     y_o = EUDVariable()
     y_o << (v.P_AngleSin[playerID])
-    # (Line 390) var distance = (interval * 2) / (n - 1);
+    # (Line 398) var distance = (interval * 2) / (n - 1);
     distance = EUDVariable()
     distance << ((interval * 2) // (n - 1))
-    # (Line 392) trg.Table_Sin(playerID, degree + 45, distance);
+    # (Line 400) trg.Table_Sin(playerID, degree + 45, distance);
     trg.Table_Sin(playerID, degree + 45, distance)
-    # (Line 393) trg.Table_Cos(playerID, degree + 45, distance);
+    # (Line 401) trg.Table_Cos(playerID, degree + 45, distance);
     trg.Table_Cos(playerID, degree + 45, distance)
-    # (Line 395) var distance_x = v.P_AngleCos[playerID];
+    # (Line 403) var distance_x = v.P_AngleCos[playerID];
     distance_x = EUDVariable()
     distance_x << (v.P_AngleCos[playerID])
-    # (Line 396) var distance_y = v.P_AngleSin[playerID];
+    # (Line 404) var distance_y = v.P_AngleSin[playerID];
     distance_y = EUDVariable()
     distance_y << (v.P_AngleSin[playerID])
-    # (Line 398) if (n == 1)
+    # (Line 406) if (n == 1)
     if EUDIf()(n == 1):
-        # (Line 399) {
-        # (Line 400) Shape_Dot(playerID, 1, Unit, 0, 0, property);
+        # (Line 407) {
+        # (Line 408) Shape_Dot(playerID, 1, Unit, 0, 0, property);
         Shape_Dot(playerID, 1, Unit, 0, 0, property)
-        # (Line 401) }
-        # (Line 402) else if (n > 1)
+        # (Line 409) }
+        # (Line 410) else if (n > 1)
     if EUDElseIf()(n <= 1, neg=True):
-        # (Line 403) {
-        # (Line 404) for (; i < n - 1; i++)
+        # (Line 411) {
+        # (Line 412) for (; i < n - 1; i++)
         if EUDWhile()(i >= n - 1, neg=True):
             def _t4():
                 i.__iadd__(1)
-            # (Line 405) {
-            # (Line 406) Shape_Square(playerID, 1, Unit, x_o - (distance_x * i), y_o - (distance_y * i), property);
+            # (Line 413) {
+            # (Line 414) Shape_Square(playerID, 1, Unit, x_o - (distance_x * i), y_o - (distance_y * i), property);
             Shape_Square(playerID, 1, Unit, x_o - (distance_x * i), y_o - (distance_y * i), property)
-            # (Line 407) }
-            # (Line 408) }
+            # (Line 415) }
+            # (Line 416) }
             EUDSetContinuePoint()
             _t4()
         EUDEndWhile()
-        # (Line 409) }
+        # (Line 417) }
     EUDEndIf()
-    # (Line 443) function Shape_EdgeAt(playerID : TrgPlayer, count, unit : TrgUnit, degree, size, interval, x, y, type)
+    # (Line 451) function Shape_EdgeAt(playerID : TrgPlayer, count, unit : TrgUnit, degree, size, interval, x, y, type)
 
-# (Line 444) {
+# (Line 452) {
 @EUDTypedFunc([TrgPlayer, None, TrgUnit, None, None, None, None, None, None])
 def Shape_EdgeAt(playerID, count, unit, degree, size, interval, x, y, type):
-    # (Line 445) trg.Table_Sin(playerID, degree, interval * 14 / 10);
+    # (Line 453) trg.Table_Sin(playerID, degree, interval * 14 / 10);
     trg.Table_Sin(playerID, degree, interval * 14 // 10)
-    # (Line 446) trg.Table_Cos(playerID, degree, interval * 14 / 10);
+    # (Line 454) trg.Table_Cos(playerID, degree, interval * 14 / 10);
     trg.Table_Cos(playerID, degree, interval * 14 // 10)
-    # (Line 448) var x_o = v.P_AngleCos[playerID];
+    # (Line 456) var x_o = v.P_AngleCos[playerID];
     x_o = EUDVariable()
     x_o << (v.P_AngleCos[playerID])
-    # (Line 449) var y_o = v.P_AngleSin[playerID];
+    # (Line 457) var y_o = v.P_AngleSin[playerID];
     y_o = EUDVariable()
     y_o << (v.P_AngleSin[playerID])
-    # (Line 451) var distance = (interval * 2) / (size - 1);
+    # (Line 459) var distance = (interval * 2) / (size - 1);
     distance = EUDVariable()
     distance << ((interval * 2) // (size - 1))
-    # (Line 453) trg.Table_Sin(playerID, degree + 45, distance);
+    # (Line 461) trg.Table_Sin(playerID, degree + 45, distance);
     trg.Table_Sin(playerID, degree + 45, distance)
-    # (Line 454) trg.Table_Cos(playerID, degree + 45, distance);
+    # (Line 462) trg.Table_Cos(playerID, degree + 45, distance);
     trg.Table_Cos(playerID, degree + 45, distance)
-    # (Line 456) var distance_x = v.P_AngleCos[playerID];
+    # (Line 464) var distance_x = v.P_AngleCos[playerID];
     distance_x = EUDVariable()
     distance_x << (v.P_AngleCos[playerID])
-    # (Line 457) var distance_y = v.P_AngleSin[playerID];
+    # (Line 465) var distance_y = v.P_AngleSin[playerID];
     distance_y = EUDVariable()
     distance_y << (v.P_AngleSin[playerID])
-    # (Line 459) if (size == 1)
+    # (Line 467) if (size == 1)
     if EUDIf()(size == 1):
-        # (Line 460) { Shape_Dot(playerID, 1, unit, x, y, type); }
+        # (Line 468) { Shape_Dot(playerID, 1, unit, x, y, type); }
         Shape_Dot(playerID, 1, unit, x, y, type)
-        # (Line 461) else if (size > 1)
+        # (Line 469) else if (size > 1)
     if EUDElseIf()(size <= 1, neg=True):
-        # (Line 462) { foreach(idx : EUDLoopRange(size - 1)) { Shape_SquareAt(playerID, 1, unit,x_o - (distance_x * idx),y_o - (distance_y * idx), x, y, type); } }
+        # (Line 470) { foreach(idx : EUDLoopRange(size - 1)) { Shape_SquareAt(playerID, 1, unit,x_o - (distance_x * idx),y_o - (distance_y * idx), x, y, type); } }
         for idx in EUDLoopRange(size - 1):
             Shape_SquareAt(playerID, 1, unit, x_o - (distance_x * idx), y_o - (distance_y * idx), x, y, type)
 
-        # (Line 463) }
+        # (Line 471) }
     EUDEndIf()
-    # (Line 493) function Shape_Line(playerID : TrgPlayer, count, unit : TrgUnit, degree, size, interval, distance, type)
+    # (Line 501) function Shape_Line(playerID : TrgPlayer, count, unit : TrgUnit, degree, size, interval, distance, type)
 
-# (Line 494) {
+# (Line 502) {
 @EUDTypedFunc([TrgPlayer, None, TrgUnit, None, None, None, None, None])
 def Shape_Line(playerID, count, unit, degree, size, interval, distance, type):
-    # (Line 495) trg.Table_Sin(playerID, degree + 90, distance);
+    # (Line 503) trg.Table_Sin(playerID, degree + 90, distance);
     trg.Table_Sin(playerID, degree + 90, distance)
-    # (Line 496) trg.Table_Cos(playerID, degree + 90, distance);
+    # (Line 504) trg.Table_Cos(playerID, degree + 90, distance);
     trg.Table_Cos(playerID, degree + 90, distance)
-    # (Line 498) var initial_x = v.P_AngleCos[playerID];
+    # (Line 506) var initial_x = v.P_AngleCos[playerID];
     initial_x = EUDVariable()
     initial_x << (v.P_AngleCos[playerID])
-    # (Line 499) var initial_y = v.P_AngleSin[playerID];
+    # (Line 507) var initial_y = v.P_AngleSin[playerID];
     initial_y = EUDVariable()
     initial_y << (v.P_AngleSin[playerID])
-    # (Line 501) if (size % 2 == 0)
+    # (Line 509) if (size % 2 == 0)
     if EUDIf()(size % 2 == 0):
-        # (Line 502) { trg.Table_Sin(playerID, degree, interval * (size / 2) - interval / 2); trg.Table_Cos(playerID, degree, interval * (size / 2) - interval / 2); }
+        # (Line 510) { trg.Table_Sin(playerID, degree, interval * (size / 2) - interval / 2); trg.Table_Cos(playerID, degree, interval * (size / 2) - interval / 2); }
         trg.Table_Sin(playerID, degree, interval * (size // 2) - interval // 2)
         trg.Table_Cos(playerID, degree, interval * (size // 2) - interval // 2)
-        # (Line 503) else
-        # (Line 504) { trg.Table_Sin(playerID, degree, interval * (size / 2)); trg.Table_Cos(playerID, degree, interval * (size / 2)); }
+        # (Line 511) else
+        # (Line 512) { trg.Table_Sin(playerID, degree, interval * (size / 2)); trg.Table_Cos(playerID, degree, interval * (size / 2)); }
     if EUDElse()():
         trg.Table_Sin(playerID, degree, interval * (size // 2))
         trg.Table_Cos(playerID, degree, interval * (size // 2))
-        # (Line 506) initial_x = initial_x + v.P_AngleCos[playerID];
+        # (Line 514) initial_x = initial_x + v.P_AngleCos[playerID];
     EUDEndIf()
     initial_x << (initial_x + v.P_AngleCos[playerID])
-    # (Line 507) initial_y = initial_y + v.P_AngleSin[playerID];
+    # (Line 515) initial_y = initial_y + v.P_AngleSin[playerID];
     initial_y << (initial_y + v.P_AngleSin[playerID])
-    # (Line 509) trg.Table_Sin(playerID, degree, interval);
+    # (Line 517) trg.Table_Sin(playerID, degree, interval);
     trg.Table_Sin(playerID, degree, interval)
-    # (Line 510) trg.Table_Cos(playerID, degree, interval);
+    # (Line 518) trg.Table_Cos(playerID, degree, interval);
     trg.Table_Cos(playerID, degree, interval)
-    # (Line 512) if (size == 1)
+    # (Line 520) if (size == 1)
     if EUDIf()(size == 1):
-        # (Line 513) { Shape_Dot(playerID, count, unit, 0, 0, type); }
+        # (Line 521) { Shape_Dot(playerID, count, unit, 0, 0, type); }
         Shape_Dot(playerID, count, unit, 0, 0, type)
-        # (Line 514) else if (size > 1)
+        # (Line 522) else if (size > 1)
     if EUDElseIf()(size <= 1, neg=True):
-        # (Line 515) { foreach(idx : EUDLoopRange(size)) { Shape_Dot(playerID, count, unit, initial_x - idx * v.P_AngleCos[playerID], initial_y - idx * v.P_AngleSin[playerID], type); } }
+        # (Line 523) { foreach(idx : EUDLoopRange(size)) { Shape_Dot(playerID, count, unit, initial_x - idx * v.P_AngleCos[playerID], initial_y - idx * v.P_AngleSin[playerID], type); } }
         for idx in EUDLoopRange(size):
             Shape_Dot(playerID, count, unit, initial_x - idx * v.P_AngleCos[playerID], initial_y - idx * v.P_AngleSin[playerID], type)
 
-        # (Line 516) }
+        # (Line 524) }
+    EUDEndIf()
+    # (Line 527) function Shape_Circle(playerID : TrgPlayer, count, unit : TrgUnit, degree, n, radius, type)
+
+# (Line 528) {
+@EUDTypedFunc([TrgPlayer, None, TrgUnit, None, None, None, None])
+def Shape_Circle(playerID, count, unit, degree, n, radius, type):
+    # (Line 529) if (n == 1) {
+    if EUDIf()(n == 1):
+        # (Line 530) Shape_Dot(playerID, 1, unit, 0, 0, type);
+        Shape_Dot(playerID, 1, unit, 0, 0, type)
+        # (Line 531) } else {
+    if EUDElse()():
+        # (Line 532) foreach(idx : EUDLoopRange(n)) {
+        for idx in EUDLoopRange(n):
+            # (Line 533) trg.Table_Sin(playerID, degree + 360 / n * idx, radius);
+            trg.Table_Sin(playerID, degree + 360 // n * idx, radius)
+            # (Line 534) trg.Table_Cos(playerID, degree + 360 / n * idx, radius);
+            trg.Table_Cos(playerID, degree + 360 // n * idx, radius)
+            # (Line 536) Shape_Dot(playerID, count, unit, v.P_AngleCos[playerID], v.P_AngleSin[playerID], type);
+            Shape_Dot(playerID, count, unit, v.P_AngleCos[playerID], v.P_AngleSin[playerID], type)
+            # (Line 537) }
+            # (Line 538) }
+
+        # (Line 539) }
     EUDEndIf()

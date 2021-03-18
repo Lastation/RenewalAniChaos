@@ -349,6 +349,14 @@ function Shape_NxNSquareAt(playerID : TrgPlayer, count, unit : TrgUnit, size, in
 	}
 }
 
+function Shape_QuadNxNSquareAt(playerID : TrgPlayer, count, unit : TrgUnit, size, interval, x, y, type)
+{
+	Shape_NxNSquareAt(playerID, count, unit, size, interval, x, y, type);
+	Shape_NxNSquareAt(playerID, count, unit, size, interval, -x, y, type);
+	Shape_NxNSquareAt(playerID, count, unit, size, interval, x, -y, type);
+	Shape_NxNSquareAt(playerID, count, unit, size, interval, -x, -y, type);
+}
+
 
 /***
  * @Type
@@ -513,4 +521,19 @@ function Shape_Line(playerID : TrgPlayer, count, unit : TrgUnit, degree, size, i
 	{ Shape_Dot(playerID, count, unit, 0, 0, type); }
 	else if (size > 1)
 	{ foreach(idx : EUDLoopRange(size)) { Shape_Dot(playerID, count, unit, initial_x - idx * v.P_AngleCos[playerID], initial_y - idx * v.P_AngleSin[playerID], type); } }
+}
+
+
+function Shape_Circle(playerID : TrgPlayer, count, unit : TrgUnit, degree, n, radius, type)
+{
+	if (n == 1) {
+		Shape_Dot(playerID, 1, unit, 0, 0, type); 
+	} else {
+		foreach(idx : EUDLoopRange(n)) {
+			trg.Table_Sin(playerID, degree + 360 / n * idx, radius);
+			trg.Table_Cos(playerID, degree + 360 / n * idx, radius);
+			
+			Shape_Dot(playerID, count, unit, v.P_AngleCos[playerID], v.P_AngleSin[playerID], type); 
+		}
+	}
 }
