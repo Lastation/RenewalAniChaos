@@ -41,7 +41,9 @@ function main(playerID)
             trg.Shape_Circle(playerID, 1, "Protoss Dark Archon", d, n, r);
             trg.Shape_Circle(playerID, 1, "40 + 1n Mutalisk", d, n, r);
             epic.Shape_Circle(playerID, 1, "40 + 1n Lurker", d, n, r, 0);
-
+            
+	     CreateUnitWithProperties(1, "40 + 1n Lurker", "[Skill]Hallu_Bozo", playerID, UnitProperty(burrowed = true));
+            
             MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
             MoveUnit(All, "40 + 1n Lurker", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
             Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);

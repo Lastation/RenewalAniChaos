@@ -8,7 +8,10 @@ function EdgeShapeAt(playerID : TrgPlayer, count, Unit : TrgUnit, degree, n, int
 
 function main(playerID)
 {
-   trg.Buff_ShieldFix(1);
+   if (v.P_CountMain[playerID] >= 2)
+   {
+   	trg.Buff_ShieldFix(1);
+   }
 
    if (v.P_WaitMain[playerID] == 0)
    {

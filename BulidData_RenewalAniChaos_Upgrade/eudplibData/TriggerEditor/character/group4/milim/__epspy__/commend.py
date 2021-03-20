@@ -208,10 +208,10 @@ def f_main(playerID):
             # (Line 52) KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", playerID);
             # (Line 53) }
             DoActions(KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", playerID))
-            # (Line 54) else if (Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill")
+            # (Line 54) else if (Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") &&
         _t9 = EUDElseIf()
-        # (Line 55) && Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") && v.P_Step[playerID] == 200)
-        if _t9(EUDSCAnd()(Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))(Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill"))(v.P_Step[playerID] == 200)()):
+        # (Line 55) Accumulate(playerID, AtLeast, 100, Gas) && v.P_Step[playerID] == 200)
+        if _t9(EUDSCAnd()(Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill"))(Accumulate(playerID, AtLeast, 100, Gas))(v.P_Step[playerID] == 200)()):
             # (Line 56) {
             # (Line 57) s.CharacterVoice(5);
             s.CharacterVoice(5)
@@ -223,9 +223,9 @@ def f_main(playerID):
             _ARRW(v.P_LoopMain, playerID) << (0)
             # (Line 61) v.P_Step[playerID] = 210;
             _ARRW(v.P_Step, playerID) << (210)
-            # (Line 62) KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
+            # (Line 62) SetResources(playerID, Subtract, 100, Gas);
             # (Line 63) KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
-            DoActions(KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID))
+            DoActions(SetResources(playerID, Subtract, 100, Gas))
             # (Line 64) }
             DoActions(KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID))
             # (Line 65) else if (Bring(playerID, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") && v.P_Step[playerID] == 200)

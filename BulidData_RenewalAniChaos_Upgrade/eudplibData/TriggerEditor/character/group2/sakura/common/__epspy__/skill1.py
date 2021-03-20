@@ -148,56 +148,69 @@ def f_main(playerID):
                 # (Line 13) trg.Shape_Dot(playerID, 1, "Kakaru (Twilight)", 0, 0);
                 trg.Shape_Dot(playerID, 1, "Kakaru (Twilight)", 0, 0)
                 # (Line 15) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
-                # (Line 17) for (var i = 0; i < 6; i++)
+                # (Line 17) if (playerID < 3)
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID))
-                i = EUDVariable()
-                i << (0)
-                if EUDWhile()(i >= 6, neg=True):
-                    def _t5():
-                        i.__iadd__(1)
+                if EUDIf()(playerID >= 3, neg=True):
                     # (Line 18) {
-                    # (Line 19) if (i != playerID)
-                    if EUDIf()(i == playerID, neg=True):
+                    # (Line 19) for (var i = 3; i < 6; i++)
+                    i = EUDVariable()
+                    i << (3)
+                    if EUDWhile()(i >= 6, neg=True):
+                        def _t6():
+                            i.__iadd__(1)
                         # (Line 20) {
                         # (Line 21) SetResources(i, Subtract, 400, Gas);
                         # (Line 22) }
                         DoActions(SetResources(i, Subtract, 400, Gas))
-                        # (Line 23) else
-                        # (Line 24) {
-                    if EUDElse()():
-                        # (Line 25) SetResources(i, Add, 400, Gas);
-                        # (Line 26) }
-                        DoActions(SetResources(i, Add, 400, Gas))
-                        # (Line 27) }
-                    EUDEndIf()
-                    # (Line 28) }
-                    EUDSetContinuePoint()
-                    _t5()
-                EUDEndWhile()
-                # (Line 30) trg.Main_Wait(80);
+                        # (Line 23) }
+                        EUDSetContinuePoint()
+                        _t6()
+                    EUDEndWhile()
+                    # (Line 24) else
+                    # (Line 25) {
+                if EUDElse()():
+                    # (Line 26) for (var i = 0; i < 3; i++)
+                    i = EUDVariable()
+                    i << (0)
+                    if EUDWhile()(i >= 3, neg=True):
+                        def _t8():
+                            i.__iadd__(1)
+                        # (Line 27) {
+                        # (Line 28) SetResources(i, Subtract, 400, Gas);
+                        # (Line 29) }
+                        DoActions(SetResources(i, Subtract, 400, Gas))
+                        # (Line 30) }
+                        EUDSetContinuePoint()
+                        _t8()
+                    EUDEndWhile()
+                    # (Line 32) SetResources(playerID, Add, 400, Gas);
+                EUDEndIf()
+                # (Line 33) }
+                DoActions(SetResources(playerID, Add, 400, Gas))
+                # (Line 35) trg.Main_Wait(80);
             EUDEndIf()
             trg.Main_Wait(80)
-            # (Line 32) v.P_LoopMain[playerID] += 1;
+            # (Line 37) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 34) if (v.P_LoopMain[playerID] == 1)
+            # (Line 39) if (v.P_LoopMain[playerID] == 1)
             if EUDIf()(v.P_LoopMain[playerID] == 1):
-                # (Line 35) {
-                # (Line 36) v.P_CountMain[playerID] += 1;
+                # (Line 40) {
+                # (Line 41) v.P_CountMain[playerID] += 1;
                 _ARRW(v.P_CountMain, playerID).__iadd__(1)
-                # (Line 37) v.P_LoopMain[playerID] = 0;
+                # (Line 42) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 38) }
-                # (Line 39) }
+                # (Line 43) }
+                # (Line 44) }
             EUDEndIf()
-            # (Line 40) else if (v.P_CountMain[playerID] == 1)
+            # (Line 45) else if (v.P_CountMain[playerID] == 1)
         if EUDElseIf()(v.P_CountMain[playerID] == 1):
-            # (Line 41) {
-            # (Line 42) SetDeaths(playerID, SetTo, 2160, " `UniqueCoolTime");
-            # (Line 43) trg.SkillEnd();
+            # (Line 46) {
+            # (Line 47) SetDeaths(playerID, SetTo, 2160, " `UniqueCoolTime");
+            # (Line 49) trg.SkillEnd();
             DoActions(SetDeaths(playerID, SetTo, 2160, " `UniqueCoolTime"))
             trg.SkillEnd()
-            # (Line 44) }
-            # (Line 45) }
+            # (Line 50) }
+            # (Line 51) }
         EUDEndIf()
-        # (Line 46) }
+        # (Line 52) }
     EUDEndIf()

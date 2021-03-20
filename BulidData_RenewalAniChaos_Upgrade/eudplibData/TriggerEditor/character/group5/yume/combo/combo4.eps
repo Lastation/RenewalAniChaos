@@ -6,8 +6,10 @@ import func.sound as s;
 
 function main(playerID)
 {
-   trg.Buff_ShieldFix(1);
-
+   if (v.P_CountMain[playerID] >= 2)
+   {
+   	trg.Buff_ShieldFix(1);
+   }
    if (v.P_WaitMain[playerID] == 0)
    {
       if (v.P_CountMain[playerID] == 0)

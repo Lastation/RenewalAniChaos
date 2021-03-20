@@ -14,17 +14,22 @@ function main(playerID)
 
             KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
 
-            for (var i = 0; i < 6; i++)
+            if (playerID < 3)
             {
-               if (i != playerID)
-               {
+               for (var i = 3; i < 6; i++)
+               { 
                   SetResources(i, Subtract, 400, Gas);
                }
-               else
-               {
-                  SetResources(i, Add, 400, Gas);
+            }
+            else
+            {
+               for (var i = 0; i < 3; i++)
+               { 
+                  SetResources(i, Subtract, 400, Gas);
                }
             }
+
+            SetResources(playerID, Add, 400, Gas);
          }
 
          trg.Main_Wait(80);
@@ -40,6 +45,7 @@ function main(playerID)
       else if (v.P_CountMain[playerID] == 1)
       {      
          SetDeaths(playerID, SetTo, 2160, " `UniqueCoolTime");
+      
          trg.SkillEnd();
       }
    }

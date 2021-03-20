@@ -27,6 +27,8 @@ function main(playerID)
                   SetResources(i, Subtract, 400, Gas);
                }
             }
+
+            SetResources(playerID, Add, 400, Gas);
          }
 
          trg.Main_Wait(80);

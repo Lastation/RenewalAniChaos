@@ -7,7 +7,7 @@ function main(playerID)
 {
 	trg.Debuff_Slow();
 	trg.Debuff_BanReturn();
-	
+   	trg.Buff_ShieldFix(1);
 	if (v.P_LoopMain[playerID] > 30) 
 	{
 		MoveUnit(All, "80 + 1n Tom Kazansky", playerID, "Anywhere", "[Skill]HoldPosition");

@@ -256,8 +256,8 @@ def SkillList(playerID):
         v.stb.printAt(4, "　　　\x04\x1FSSS \x04즐거움 \x19[ 만능 ]")
         # (Line 77) v.stb.printAt(5, "　　　\x04\x1FCCC \x04여유 \x19[ 공성 / 자리고정 ]");
         v.stb.printAt(5, "　　　\x04\x1FCCC \x04여유 \x19[ 공성 / 자리고정 ]")
-        # (Line 78) v.stb.printAt(6, "　　　\x04\x1FCCAA \x04나의 차례! \x19[ 공성 / 자리고정 ]");
-        v.stb.printAt(6, "　　　\x04\x1FCCAA \x04나의 차례! \x19[ 공성 / 자리고정 ]")
+        # (Line 78) v.stb.printAt(6, "　　　\x04\x1FCAA + 100 Gas \x04나의 차례! \x19[ 공성 / 자리고정 ]");
+        v.stb.printAt(6, "　　　\x04\x1FCAA + 100 Gas \x04나의 차례! \x19[ 공성 / 자리고정 ]")
         # (Line 79) v.stb.printAt(7, "\n");
         v.stb.printAt(7, "\n")
         # (Line 80) v.stb.printAt(8, "　　　\x08AAAA \x04드래곤 버스트 \x19[ 공성 / 선딜 7초 / 자리고정 ] \x05", v.P_Ultimate1[playerID]);

@@ -143,6 +143,8 @@ from func import sound as s
 def f_main(playerID):
     # (Line 11) trg.Debuff_BanReturn();
     trg.Debuff_BanReturn()
+    # (Line 12) trg.Buff_ShieldFix(1);
+    trg.Buff_ShieldFix(1)
     # (Line 13) if (v.P_WaitMain[playerID] == 0)
     if EUDIf()(v.P_WaitMain[playerID] == 0):
         # (Line 14) {

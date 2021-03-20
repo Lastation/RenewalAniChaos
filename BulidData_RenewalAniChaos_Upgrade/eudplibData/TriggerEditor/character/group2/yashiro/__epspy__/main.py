@@ -181,8 +181,8 @@ def SkillList(playerID):
         v.stb.printAt(7, "　　　\x04\x1FCCC + AA \x04손에 넣는 것 \x19[ 대인 / 지속딜 ]")
         # (Line 33) v.stb.printAt(8, "\n");
         v.stb.printAt(8, "\n")
-        # (Line 34) v.stb.printAt(9, "　　　\x08AAA \x04타임 오버 \x19[ 대인 / 쉴드 고정 ] \x05", v.P_Ultimate1[playerID]);
-        v.stb.printAt(9, "　　　\x08AAA \x04타임 오버 \x19[ 대인 / 쉴드 고정 ] \x05", v.P_Ultimate1[playerID])
+        # (Line 34) v.stb.printAt(9, "　　　\x08AAA \x04타임 오버 \x19[ 대인 / 컴퓨터 동맹 / 무적 ] \x05", v.P_Ultimate1[playerID]);
+        v.stb.printAt(9, "　　　\x08AAA \x04타임 오버 \x19[ 대인 / 컴퓨터 동맹 / 무적 ] \x05", v.P_Ultimate1[playerID])
         # (Line 35) v.stb.printAt(10, "\n");
         v.stb.printAt(10, "\n")
         # (Line 36) PlayWAV("sound\\Bullet\\LaserHit.wav");

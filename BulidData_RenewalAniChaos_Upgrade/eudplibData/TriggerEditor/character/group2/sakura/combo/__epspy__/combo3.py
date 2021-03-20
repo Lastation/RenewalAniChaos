@@ -201,185 +201,187 @@ def f_main(playerID):
                 trg.Shape_Circle(playerID, 1, "40 + 1n Mutalisk", d, n, r)
                 # (Line 43) epic.Shape_Circle(playerID, 1, "40 + 1n Lurker", d, n, r, 0);
                 epic.Shape_Circle(playerID, 1, "40 + 1n Lurker", d, n, r, 0)
-                # (Line 45) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
-                # (Line 46) MoveUnit(All, "40 + 1n Lurker", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+                # (Line 45) CreateUnitWithProperties(1, "40 + 1n Lurker", "[Skill]Hallu_Bozo", playerID, UnitProperty(burrowed = true));
+                # (Line 47) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                DoActions(CreateUnitWithProperties(1, "40 + 1n Lurker", "[Skill]Hallu_Bozo", playerID, UnitProperty(burrowed=True)))
+                # (Line 48) MoveUnit(All, "40 + 1n Lurker", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 47) Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 49) Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveUnit(All, "40 + 1n Lurker", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]))
-                # (Line 49) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+                # (Line 51) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
                 DoActions(Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 50) }
+                # (Line 52) }
                 DoActions(KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID))
-                # (Line 52) if (v.P_LoopMain[playerID] > 3)
+                # (Line 54) if (v.P_LoopMain[playerID] > 3)
             EUDEndIf()
             if EUDIf()(v.P_LoopMain[playerID] <= 3, neg=True):
-                # (Line 53) {
-                # (Line 54) if (v.P_LoopMain[playerID] % 4 == 0)
+                # (Line 55) {
+                # (Line 56) if (v.P_LoopMain[playerID] % 4 == 0)
                 if EUDIf()(v.P_LoopMain[playerID] % 4 == 0):
-                    # (Line 55) {
-                    # (Line 56) var d = 0;
+                    # (Line 57) {
+                    # (Line 58) var d = 0;
                     d = EUDVariable()
                     d << (0)
-                    # (Line 57) var n = 8;
+                    # (Line 59) var n = 8;
                     n = EUDVariable()
                     n << (8)
-                    # (Line 58) var r = 200;
+                    # (Line 60) var r = 200;
                     r = EUDVariable()
                     r << (200)
-                    # (Line 59) trg.Shape_Circle(playerID, 1, "40 + 1n Guardian", d, n, r);
+                    # (Line 61) trg.Shape_Circle(playerID, 1, "40 + 1n Guardian", d, n, r);
                     trg.Shape_Circle(playerID, 1, "40 + 1n Guardian", d, n, r)
-                    # (Line 61) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
-                    # (Line 62) Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                    # (Line 63) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                    # (Line 64) Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                     DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                    # (Line 63) }
+                    # (Line 65) }
                     DoActions(Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                    # (Line 64) else if (v.P_LoopMain[playerID] % 4 == 1)
+                    # (Line 66) else if (v.P_LoopMain[playerID] % 4 == 1)
                 if EUDElseIf()(v.P_LoopMain[playerID] % 4 == 1):
-                    # (Line 65) {
-                    # (Line 66) for (var i = 0; i < 8; i++)
+                    # (Line 67) {
+                    # (Line 68) for (var i = 0; i < 8; i++)
                     i = EUDVariable()
                     i << (0)
                     if EUDWhile()(i >= 8, neg=True):
                         def _t9():
                             i.__iadd__(1)
-                        # (Line 67) {
-                        # (Line 68) adv.Shape_SquareAt(playerID, "40 + 1n Guardian", 1, "80 + 1n Guardian", 40, 0);
+                        # (Line 69) {
+                        # (Line 70) adv.Shape_SquareAt(playerID, "40 + 1n Guardian", 1, "80 + 1n Guardian", 40, 0);
                         adv.Shape_SquareAt(playerID, "40 + 1n Guardian", 1, "80 + 1n Guardian", 40, 0)
-                        # (Line 69) adv.Shape_SquareAt(playerID, "40 + 1n Guardian", 1, "80 + 1n Guardian", 32, 32);
+                        # (Line 71) adv.Shape_SquareAt(playerID, "40 + 1n Guardian", 1, "80 + 1n Guardian", 32, 32);
                         adv.Shape_SquareAt(playerID, "40 + 1n Guardian", 1, "80 + 1n Guardian", 32, 32)
-                        # (Line 71) RemoveUnitAt(1, "40 + 1n Guardian", "Anywhere", playerID);
-                        # (Line 72) }
+                        # (Line 73) RemoveUnitAt(1, "40 + 1n Guardian", "Anywhere", playerID);
+                        # (Line 74) }
                         DoActions(RemoveUnitAt(1, "40 + 1n Guardian", "Anywhere", playerID))
-                        # (Line 74) KillUnitAt(All, "80 + 1n Guardian", "Anywhere", playerID);
+                        # (Line 76) KillUnitAt(All, "80 + 1n Guardian", "Anywhere", playerID);
                         EUDSetContinuePoint()
                         _t9()
                     EUDEndWhile()
-                    # (Line 75) }
+                    # (Line 77) }
                     DoActions(KillUnitAt(All, "80 + 1n Guardian", "Anywhere", playerID))
-                    # (Line 76) }
+                    # (Line 78) }
                 EUDEndIf()
-                # (Line 78) trg.Main_Wait(80);
+                # (Line 80) trg.Main_Wait(80);
             EUDEndIf()
             trg.Main_Wait(80)
-            # (Line 80) v.P_LoopMain[playerID] += 1;
+            # (Line 82) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 82) if (v.P_LoopMain[playerID] == 48)
+            # (Line 84) if (v.P_LoopMain[playerID] == 48)
             if EUDIf()(v.P_LoopMain[playerID] == 48):
-                # (Line 83) {
-                # (Line 84) s.CharacterVoice(6);
+                # (Line 85) {
+                # (Line 86) s.CharacterVoice(6);
                 s.CharacterVoice(6)
-                # (Line 86) v.P_CountMain[playerID] += 1;
+                # (Line 88) v.P_CountMain[playerID] += 1;
                 _ARRW(v.P_CountMain, playerID).__iadd__(1)
-                # (Line 87) v.P_LoopMain[playerID] = 0;
+                # (Line 89) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 88) }
-                # (Line 89) }
+                # (Line 90) }
+                # (Line 91) }
             EUDEndIf()
-            # (Line 90) else if (v.P_CountMain[playerID] == 1)
+            # (Line 92) else if (v.P_CountMain[playerID] == 1)
         if EUDElseIf()(v.P_CountMain[playerID] == 1):
-            # (Line 91) {
-            # (Line 92) if (v.P_LoopMain[playerID] % 4 == 0)
+            # (Line 93) {
+            # (Line 94) if (v.P_LoopMain[playerID] % 4 == 0)
             if EUDIf()(v.P_LoopMain[playerID] % 4 == 0):
-                # (Line 93) {
-                # (Line 94) var d = 0;
+                # (Line 95) {
+                # (Line 96) var d = 0;
                 d = EUDVariable()
                 d << (0)
-                # (Line 95) var n = 8;
+                # (Line 97) var n = 8;
                 n = EUDVariable()
                 n << (8)
-                # (Line 96) var r = 200;
+                # (Line 98) var r = 200;
                 r = EUDVariable()
                 r << (200)
-                # (Line 97) trg.Shape_Circle(playerID, 1, "40 + 1n Guardian", d, n, r);
+                # (Line 99) trg.Shape_Circle(playerID, 1, "40 + 1n Guardian", d, n, r);
                 trg.Shape_Circle(playerID, 1, "40 + 1n Guardian", d, n, r)
-                # (Line 99) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
-                # (Line 100) Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 101) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 102) Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 101) }
+                # (Line 103) }
                 DoActions(Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 102) else if (v.P_LoopMain[playerID] % 4 == 1)
+                # (Line 104) else if (v.P_LoopMain[playerID] % 4 == 1)
             if EUDElseIf()(v.P_LoopMain[playerID] % 4 == 1):
-                # (Line 103) {
-                # (Line 104) for (var i = 0; i < 8; i++)
+                # (Line 105) {
+                # (Line 106) for (var i = 0; i < 8; i++)
                 i = EUDVariable()
                 i << (0)
                 if EUDWhile()(i >= 8, neg=True):
                     def _t15():
                         i.__iadd__(1)
-                    # (Line 105) {
-                    # (Line 106) adv.Shape_SquareAt(playerID, "40 + 1n Guardian", 1, "80 + 1n Guardian", 40, 0);
+                    # (Line 107) {
+                    # (Line 108) adv.Shape_SquareAt(playerID, "40 + 1n Guardian", 1, "80 + 1n Guardian", 40, 0);
                     adv.Shape_SquareAt(playerID, "40 + 1n Guardian", 1, "80 + 1n Guardian", 40, 0)
-                    # (Line 107) adv.Shape_SquareAt(playerID, "40 + 1n Guardian", 1, "80 + 1n Guardian", 32, 32);
+                    # (Line 109) adv.Shape_SquareAt(playerID, "40 + 1n Guardian", 1, "80 + 1n Guardian", 32, 32);
                     adv.Shape_SquareAt(playerID, "40 + 1n Guardian", 1, "80 + 1n Guardian", 32, 32)
-                    # (Line 109) RemoveUnitAt(1, "40 + 1n Guardian", "Anywhere", playerID);
-                    # (Line 110) }
+                    # (Line 111) RemoveUnitAt(1, "40 + 1n Guardian", "Anywhere", playerID);
+                    # (Line 112) }
                     DoActions(RemoveUnitAt(1, "40 + 1n Guardian", "Anywhere", playerID))
-                    # (Line 112) KillUnitAt(All, "80 + 1n Guardian", "Anywhere", playerID);
+                    # (Line 114) KillUnitAt(All, "80 + 1n Guardian", "Anywhere", playerID);
                     EUDSetContinuePoint()
                     _t15()
                 EUDEndWhile()
-                # (Line 113) }
+                # (Line 115) }
                 DoActions(KillUnitAt(All, "80 + 1n Guardian", "Anywhere", playerID))
-                # (Line 115) if (Bring(playerID, AtLeast, 1, "40 + 1n Lurker", "Anywhere"))
+                # (Line 117) if (Bring(playerID, AtLeast, 1, "40 + 1n Lurker", "Anywhere"))
             EUDEndIf()
             if EUDIf()(Bring(playerID, AtLeast, 1, "40 + 1n Lurker", "Anywhere")):
-                # (Line 116) {
-                # (Line 117) for (var i = 0; i < 2; i++)
+                # (Line 118) {
+                # (Line 119) for (var i = 0; i < 2; i++)
                 i = EUDVariable()
                 i << (0)
                 if EUDWhile()(i >= 2, neg=True):
                     def _t18():
                         i.__iadd__(1)
-                    # (Line 118) {
-                    # (Line 119) adv.Shape_SquareAt(playerID, "40 + 1n Lurker", 1, "80 + 1n Guardian", 16, 16);
+                    # (Line 120) {
+                    # (Line 121) adv.Shape_SquareAt(playerID, "40 + 1n Lurker", 1, "80 + 1n Guardian", 16, 16);
                     adv.Shape_SquareAt(playerID, "40 + 1n Lurker", 1, "80 + 1n Guardian", 16, 16)
-                    # (Line 120) adv.Shape_SquareAt(playerID, "40 + 1n Lurker", 1, "Protoss Dark Archon", 16, 16);
+                    # (Line 122) adv.Shape_SquareAt(playerID, "40 + 1n Lurker", 1, "Protoss Dark Archon", 16, 16);
                     adv.Shape_SquareAt(playerID, "40 + 1n Lurker", 1, "Protoss Dark Archon", 16, 16)
-                    # (Line 122) trg.MoveLoc("40 + 1n Lurker", playerID, 0, 0);
+                    # (Line 124) trg.MoveLoc("40 + 1n Lurker", playerID, 0, 0);
                     trg.MoveLoc("40 + 1n Lurker", playerID, 0, 0)
-                    # (Line 123) RemoveUnitAt(1, "40 + 1n Lurker", "Anywhere", playerID);
-                    # (Line 124) trg.SkillUnit(playerID, 1, "40 + 1n Drone");
+                    # (Line 125) RemoveUnitAt(1, "40 + 1n Lurker", "Anywhere", playerID);
+                    # (Line 126) trg.SkillUnit(playerID, 1, "40 + 1n Drone");
                     DoActions(RemoveUnitAt(1, "40 + 1n Lurker", "Anywhere", playerID))
                     trg.SkillUnit(playerID, 1, "40 + 1n Drone")
-                    # (Line 125) }
-                    # (Line 127) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                    # (Line 127) }
+                    # (Line 129) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
                     EUDSetContinuePoint()
                     _t18()
                 EUDEndWhile()
-                # (Line 128) Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 130) Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 130) KillUnitAt(All, "80 + 1n Guardian", "Anywhere", playerID);
+                # (Line 132) KillUnitAt(All, "80 + 1n Guardian", "Anywhere", playerID);
                 DoActions(Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 131) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+                # (Line 133) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
                 DoActions(KillUnitAt(All, "80 + 1n Guardian", "Anywhere", playerID))
-                # (Line 132) }
+                # (Line 134) }
                 DoActions(KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID))
-                # (Line 134) trg.Main_Wait(80);
+                # (Line 136) trg.Main_Wait(80);
             EUDEndIf()
             trg.Main_Wait(80)
-            # (Line 136) v.P_LoopMain[playerID] += 1;
+            # (Line 138) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 138) if (v.P_LoopMain[playerID] == 36)
+            # (Line 140) if (v.P_LoopMain[playerID] == 36)
             if EUDIf()(v.P_LoopMain[playerID] == 36):
-                # (Line 139) {
-                # (Line 140) v.P_CountMain[playerID] += 1;
+                # (Line 141) {
+                # (Line 142) v.P_CountMain[playerID] += 1;
                 _ARRW(v.P_CountMain, playerID).__iadd__(1)
-                # (Line 141) v.P_LoopMain[playerID] = 0;
+                # (Line 143) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 142) }
-                # (Line 143) }
+                # (Line 144) }
+                # (Line 145) }
             EUDEndIf()
-            # (Line 144) else if (v.P_CountMain[playerID] == 2)
+            # (Line 146) else if (v.P_CountMain[playerID] == 2)
         if EUDElseIf()(v.P_CountMain[playerID] == 2):
-            # (Line 145) {
-            # (Line 146) KillUnitAt(All, "40 + 1n Drone", "Anywhere", playerID);
-            # (Line 147) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            # (Line 147) {
+            # (Line 148) KillUnitAt(All, "40 + 1n Drone", "Anywhere", playerID);
+            # (Line 149) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
             DoActions(KillUnitAt(All, "40 + 1n Drone", "Anywhere", playerID))
-            # (Line 149) trg.SkillEnd();
+            # (Line 151) trg.SkillEnd();
             DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID))
             trg.SkillEnd()
-            # (Line 150) }
-            # (Line 151) }
+            # (Line 152) }
+            # (Line 153) }
         EUDEndIf()
-        # (Line 152) }
+        # (Line 154) }
     EUDEndIf()

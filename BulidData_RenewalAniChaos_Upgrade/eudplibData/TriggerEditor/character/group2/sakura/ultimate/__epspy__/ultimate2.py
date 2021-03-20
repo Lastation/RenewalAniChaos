@@ -204,10 +204,10 @@ def f_main(playerID):
                 adv.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Zergling", 3, 50, 3 * d, 3 * d)
                 # (Line 50) adv.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Zergling", 3, 50, 4 * d, 0);
                 adv.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Zergling", 3, 50, 4 * d, 0)
-                # (Line 51) adv.Shape_QuadNxNSquareAt(playerID, 1, "60 + 1n Hydralisk", 3, 100, 3 * d, 3 * d);
-                adv.Shape_QuadNxNSquareAt(playerID, 1, "60 + 1n Hydralisk", 3, 100, 3 * d, 3 * d)
-                # (Line 52) adv.Shape_QuadNxNSquareAt(playerID, 1, "60 + 1n Hydralisk", 3, 100, 4 * d, 0);
-                adv.Shape_QuadNxNSquareAt(playerID, 1, "60 + 1n Hydralisk", 3, 100, 4 * d, 0)
+                # (Line 51) adv.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Drone", 3, 100, 3 * d, 3 * d);
+                adv.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Drone", 3, 100, 3 * d, 3 * d)
+                # (Line 52) adv.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Drone", 3, 100, 4 * d, 0);
+                adv.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Drone", 3, 100, 4 * d, 0)
                 # (Line 54) trg.Shape_NxNSquare(playerID, 1, " Creep. Licht", 3, 50);
                 trg.Shape_NxNSquare(playerID, 1, " Creep. Licht", 3, 50)
                 # (Line 55) trg.Shape_NxNSquare(playerID, 1, "40 + 1n Zergling", 3, 50);
@@ -217,16 +217,16 @@ def f_main(playerID):
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
                 # (Line 59) MoveUnit(All, "40 + 1n Zergling", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
                 DoActions(MoveUnit(All, " Creep. Licht", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]))
-                # (Line 60) MoveUnit(All, "60 + 1n Hydralisk", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+                # (Line 60) MoveUnit(All, "40 + 1n Drone", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
                 DoActions(MoveUnit(All, "40 + 1n Zergling", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]))
                 # (Line 61) Order(" Creep. Licht", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
-                DoActions(MoveUnit(All, "60 + 1n Hydralisk", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]))
+                DoActions(MoveUnit(All, "40 + 1n Drone", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]))
                 # (Line 62) Order("40 + 1n Zergling", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(Order(" Creep. Licht", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 63) Order("60 + 1n Hydralisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 63) Order("40 + 1n Drone", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(Order("40 + 1n Zergling", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
                 # (Line 64) }
-                DoActions(Order("60 + 1n Hydralisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
+                DoActions(Order("40 + 1n Drone", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
                 # (Line 66) trg.Main_Wait(80);
             EUDEndIf()
             trg.Main_Wait(80)
@@ -266,59 +266,68 @@ def f_main(playerID):
                 y << (v.P_AngleSin[playerID])
                 # (Line 89) adv.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Guardian", 4, 50, x, y);
                 adv.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Guardian", 4, 50, x, y)
-                # (Line 90) epic.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Lurker", 2, 100, x, y, 0);
-                epic.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Lurker", 2, 100, x, y, 0)
-                # (Line 92) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
-                # (Line 93) }
-                DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID))
-                # (Line 94) else if (v.P_LoopMain[playerID] == 20)
-            if EUDElseIf()(v.P_LoopMain[playerID] == 20):
-                # (Line 95) {
-                # (Line 96) trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 5, 50);
-                trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 5, 50)
-                # (Line 97) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+                # (Line 90) if (v.P_LoopMain[playerID] % 2 == 0)
+                if EUDIf()(v.P_LoopMain[playerID] % 2 == 0):
+                    # (Line 91) {
+                    # (Line 92) epic.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Lurker", 2, 100, x, y, 0);
+                    epic.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Lurker", 2, 100, x, y, 0)
+                    # (Line 93) }
+                    # (Line 94) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                EUDEndIf()
+                # (Line 95) MoveUnit(All, "40 + 1n Lurker", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+                DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
+                # (Line 97) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+                DoActions(MoveUnit(All, "40 + 1n Lurker", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]))
                 # (Line 98) }
-                DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID))
-                # (Line 99) else if (v.P_LoopMain[playerID] == 22)
-            if EUDElseIf()(v.P_LoopMain[playerID] == 22):
+                DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID))
+                # (Line 99) else if (v.P_LoopMain[playerID] == 20)
+            if EUDElseIf()(v.P_LoopMain[playerID] == 20):
                 # (Line 100) {
-                # (Line 101) trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 9, 50);
-                trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 9, 50)
+                # (Line 101) trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 5, 50);
+                trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 5, 50)
                 # (Line 102) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
                 # (Line 103) }
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID))
-                # (Line 106) trg.Main_Wait(80);
+                # (Line 104) else if (v.P_LoopMain[playerID] == 22)
+            if EUDElseIf()(v.P_LoopMain[playerID] == 22):
+                # (Line 105) {
+                # (Line 106) trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 9, 50);
+                trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 9, 50)
+                # (Line 107) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+                # (Line 108) }
+                DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID))
+                # (Line 111) trg.Main_Wait(80);
             EUDEndIf()
             trg.Main_Wait(80)
-            # (Line 108) v.P_LoopMain[playerID] += 1;
+            # (Line 113) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 110) if (v.P_LoopMain[playerID] == 40)
+            # (Line 115) if (v.P_LoopMain[playerID] == 40)
             if EUDIf()(v.P_LoopMain[playerID] == 40):
-                # (Line 111) {
-                # (Line 112) v.P_CountMain[playerID] += 1;
+                # (Line 116) {
+                # (Line 117) v.P_CountMain[playerID] += 1;
                 _ARRW(v.P_CountMain, playerID).__iadd__(1)
-                # (Line 113) v.P_LoopMain[playerID] = 0;
+                # (Line 118) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 114) }
-                # (Line 115) }
+                # (Line 119) }
+                # (Line 120) }
             EUDEndIf()
-            # (Line 117) else if (v.P_CountMain[playerID] == 3)
+            # (Line 122) else if (v.P_CountMain[playerID] == 3)
         if EUDElseIf()(v.P_CountMain[playerID] == 3):
-            # (Line 118) {
-            # (Line 119) KillUnitAt(All, "40 + 1n Zergling", "Anywhere", playerID);
-            # (Line 120) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", playerID);
+            # (Line 123) {
+            # (Line 124) KillUnitAt(All, "40 + 1n Zergling", "Anywhere", playerID);
+            # (Line 125) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", playerID);
             DoActions(KillUnitAt(All, "40 + 1n Zergling", "Anywhere", playerID))
-            # (Line 121) KillUnitAt(All, " Creep. Licht", "Anywhere", playerID);
+            # (Line 126) KillUnitAt(All, " Creep. Licht", "Anywhere", playerID);
             DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", playerID))
-            # (Line 122) KillUnitAt(All, "60 + 1n Hydralisk", "Anywhere", playerID);
+            # (Line 127) KillUnitAt(All, "40 + 1n Drone", "Anywhere", playerID);
             DoActions(KillUnitAt(All, " Creep. Licht", "Anywhere", playerID))
-            # (Line 123) SetSwitch("UiltimateSwitch", Clear);
-            DoActions(KillUnitAt(All, "60 + 1n Hydralisk", "Anywhere", playerID))
-            # (Line 124) trg.SkillEnd();
+            # (Line 128) SetSwitch("UiltimateSwitch", Clear);
+            DoActions(KillUnitAt(All, "40 + 1n Drone", "Anywhere", playerID))
+            # (Line 129) trg.SkillEnd();
             DoActions(SetSwitch("UiltimateSwitch", Clear))
             trg.SkillEnd()
-            # (Line 125) }
-            # (Line 126) }
+            # (Line 130) }
+            # (Line 131) }
         EUDEndIf()
-        # (Line 127) }
+        # (Line 132) }
     EUDEndIf()

@@ -141,500 +141,505 @@ from func import trigepic as epic
 # (Line 10) {
 @EUDFunc
 def f_main(playerID):
-    # (Line 11) trg.Buff_ShieldFix(1);
-    trg.Buff_ShieldFix(1)
-    # (Line 13) if (v.P_WaitMain[playerID] == 0)
+    # (Line 11) if (v.P_CountMain[playerID] >= 2)
+    if EUDIf()(v.P_CountMain[playerID] >= 2):
+        # (Line 12) {
+        # (Line 13) trg.Buff_ShieldFix(1);
+        trg.Buff_ShieldFix(1)
+        # (Line 14) }
+        # (Line 16) if (v.P_WaitMain[playerID] == 0)
+    EUDEndIf()
     if EUDIf()(v.P_WaitMain[playerID] == 0):
-        # (Line 14) {
-        # (Line 15) if (v.P_CountMain[playerID] == 0)
+        # (Line 17) {
+        # (Line 18) if (v.P_CountMain[playerID] == 0)
         if EUDIf()(v.P_CountMain[playerID] == 0):
-            # (Line 16) {
-            # (Line 17) RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
-            # (Line 19) if (v.P_LoopMain[playerID] % 4 == 0)
+            # (Line 19) {
+            # (Line 20) RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
+            # (Line 22) if (v.P_LoopMain[playerID] % 4 == 0)
             DoActions(RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID))
             if EUDIf()(v.P_LoopMain[playerID] % 4 == 0):
-                # (Line 20) {
-                # (Line 21) RemoveUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
-                # (Line 23) if ((v.P_LoopMain[playerID] % 8) / 4 == 0)
+                # (Line 23) {
+                # (Line 24) RemoveUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+                # (Line 26) if ((v.P_LoopMain[playerID] % 8) / 4 == 0)
                 DoActions(RemoveUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID))
                 if EUDIf()((v.P_LoopMain[playerID] % 8) // 4 == 0):
-                    # (Line 24) trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 150, 150);
+                    # (Line 27) trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 150, 150);
                     trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 150, 150)
-                    # (Line 25) else
-                    # (Line 26) epic.Shape_Square(playerID, 1, "40 + 1n Guardian", 150, 150, 1);
+                    # (Line 28) else
+                    # (Line 29) epic.Shape_Square(playerID, 1, "40 + 1n Guardian", 150, 150, 1);
                 if EUDElse()():
                     epic.Shape_Square(playerID, 1, "40 + 1n Guardian", 150, 150, 1)
-                    # (Line 28) trg.Shape_Square(playerID, 1, "60 + 1n Archon", 150, 150);
+                    # (Line 31) trg.Shape_Square(playerID, 1, "60 + 1n Archon", 150, 150);
                 EUDEndIf()
                 trg.Shape_Square(playerID, 1, "60 + 1n Archon", 150, 150)
-                # (Line 29) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
-                # (Line 31) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 32) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+                # (Line 34) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID))
-                # (Line 32) Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 35) Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 33) }
+                # (Line 36) }
                 DoActions(Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 34) else if (v.P_LoopMain[playerID] % 4 == 2)
+                # (Line 37) else if (v.P_LoopMain[playerID] % 4 == 2)
             if EUDElseIf()(v.P_LoopMain[playerID] % 4 == 2):
-                # (Line 35) {
-                # (Line 36) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
-                # (Line 38) trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 150, 150);
+                # (Line 38) {
+                # (Line 39) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+                # (Line 41) trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 150, 150);
                 DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID))
                 trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 150, 150)
-                # (Line 39) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 150, 150);
+                # (Line 42) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 150, 150);
                 trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 150, 150)
-                # (Line 40) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
-                # (Line 41) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+                # (Line 43) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+                # (Line 44) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID))
-                # (Line 42) }
+                # (Line 45) }
                 DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID))
-                # (Line 44) if (v.P_LoopMain[playerID] < 4)
+                # (Line 47) if (v.P_LoopMain[playerID] < 4)
             EUDEndIf()
             if EUDIf()(v.P_LoopMain[playerID] >= 4, neg=True):
-                # (Line 45) {
-                # (Line 46) trg.Shape_Square(playerID, 1, "40 + 1n Mutalisk", 32 - 32 * v.P_LoopMain[playerID], 64);
+                # (Line 48) {
+                # (Line 49) trg.Shape_Square(playerID, 1, "40 + 1n Mutalisk", 32 - 32 * v.P_LoopMain[playerID], 64);
                 trg.Shape_Square(playerID, 1, "40 + 1n Mutalisk", 32 - 32 * v.P_LoopMain[playerID], 64)
-                # (Line 47) trg.Shape_Square(playerID, 1, "Rhynadon (Badlands)", 32 - 32 * v.P_LoopMain[playerID], 64);
+                # (Line 50) trg.Shape_Square(playerID, 1, "Rhynadon (Badlands)", 32 - 32 * v.P_LoopMain[playerID], 64);
                 trg.Shape_Square(playerID, 1, "Rhynadon (Badlands)", 32 - 32 * v.P_LoopMain[playerID], 64)
-                # (Line 48) KillUnitAt(All, "Rhynadon (Badlands)", "Anywhere", playerID);
-                # (Line 50) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 51) KillUnitAt(All, "Rhynadon (Badlands)", "Anywhere", playerID);
+                # (Line 53) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
                 DoActions(KillUnitAt(All, "Rhynadon (Badlands)", "Anywhere", playerID))
-                # (Line 51) Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 54) Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 52) }
+                # (Line 55) }
                 DoActions(Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 53) else if (v.P_LoopMain[playerID] == 4)
+                # (Line 56) else if (v.P_LoopMain[playerID] == 4)
             if EUDElseIf()(v.P_LoopMain[playerID] == 4):
-                # (Line 54) {
-                # (Line 55) trg.Shape_Square(playerID, 1, "40 + 1n Ghost", 96, 96);
+                # (Line 57) {
+                # (Line 58) trg.Shape_Square(playerID, 1, "40 + 1n Ghost", 96, 96);
                 trg.Shape_Square(playerID, 1, "40 + 1n Ghost", 96, 96)
-                # (Line 56) trg.Shape_Square(playerID, 1, "Target", 96, 96);
+                # (Line 59) trg.Shape_Square(playerID, 1, "Target", 96, 96);
                 trg.Shape_Square(playerID, 1, "Target", 96, 96)
-                # (Line 57) KillUnitAt(All, "Target", "Anywhere", playerID);
-                # (Line 59) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 60) KillUnitAt(All, "Target", "Anywhere", playerID);
+                # (Line 62) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
                 DoActions(KillUnitAt(All, "Target", "Anywhere", playerID))
-                # (Line 60) MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+                # (Line 63) MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 61) Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 64) Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]))
-                # (Line 62) }
+                # (Line 65) }
                 DoActions(Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 63) else if (v.P_LoopMain[playerID] == 6)
+                # (Line 66) else if (v.P_LoopMain[playerID] == 6)
             if EUDElseIf()(v.P_LoopMain[playerID] == 6):
-                # (Line 64) {
-                # (Line 65) trg.Shape_Square(playerID, 1, "Target", 32, 32);
+                # (Line 67) {
+                # (Line 68) trg.Shape_Square(playerID, 1, "Target", 32, 32);
                 trg.Shape_Square(playerID, 1, "Target", 32, 32)
-                # (Line 66) KillUnitAt(All, "Target", "Anywhere", playerID);
-                # (Line 68) trg.Shape_Square(playerID, 1, "60 + 1n Siege", 96, 96);
+                # (Line 69) KillUnitAt(All, "Target", "Anywhere", playerID);
+                # (Line 71) trg.Shape_Square(playerID, 1, "60 + 1n Siege", 96, 96);
                 DoActions(KillUnitAt(All, "Target", "Anywhere", playerID))
                 trg.Shape_Square(playerID, 1, "60 + 1n Siege", 96, 96)
-                # (Line 69) trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", 96, 96);
+                # (Line 72) trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", 96, 96);
                 trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", 96, 96)
-                # (Line 70) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
-                # (Line 72) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 73) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+                # (Line 75) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
                 DoActions(KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID))
-                # (Line 73) MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+                # (Line 76) MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 74) Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 77) Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]))
-                # (Line 75) }
+                # (Line 78) }
                 DoActions(Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 77) trg.Main_Wait(80);
+                # (Line 80) trg.Main_Wait(80);
             EUDEndIf()
             trg.Main_Wait(80)
-            # (Line 79) v.P_LoopMain[playerID] += 1;
+            # (Line 82) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 81) if (v.P_LoopMain[playerID] == 8)
+            # (Line 84) if (v.P_LoopMain[playerID] == 8)
             if EUDIf()(v.P_LoopMain[playerID] == 8):
-                # (Line 82) {
-                # (Line 83) v.P_CountMain[playerID] += 1;
+                # (Line 85) {
+                # (Line 86) v.P_CountMain[playerID] += 1;
                 _ARRW(v.P_CountMain, playerID).__iadd__(1)
-                # (Line 84) v.P_LoopMain[playerID] = 0;
+                # (Line 87) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 85) }
-                # (Line 86) }
+                # (Line 88) }
+                # (Line 89) }
             EUDEndIf()
-            # (Line 87) else if (v.P_CountMain[playerID] == 1)
+            # (Line 90) else if (v.P_CountMain[playerID] == 1)
         if EUDElseIf()(v.P_CountMain[playerID] == 1):
-            # (Line 88) {
-            # (Line 89) RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
-            # (Line 91) if (v.P_LoopMain[playerID] % 4 == 0)
+            # (Line 91) {
+            # (Line 92) RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
+            # (Line 94) if (v.P_LoopMain[playerID] % 4 == 0)
             DoActions(RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID))
             if EUDIf()(v.P_LoopMain[playerID] % 4 == 0):
-                # (Line 92) {
-                # (Line 93) RemoveUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
-                # (Line 95) if ((v.P_LoopMain[playerID] % 8) / 4 == 0)
+                # (Line 95) {
+                # (Line 96) RemoveUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+                # (Line 98) if ((v.P_LoopMain[playerID] % 8) / 4 == 0)
                 DoActions(RemoveUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID))
                 if EUDIf()((v.P_LoopMain[playerID] % 8) // 4 == 0):
-                    # (Line 96) trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 150, 150);
+                    # (Line 99) trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 150, 150);
                     trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 150, 150)
-                    # (Line 97) else
-                    # (Line 98) epic.Shape_Square(playerID, 1, "40 + 1n Guardian", 150, 150, 1);
+                    # (Line 100) else
+                    # (Line 101) epic.Shape_Square(playerID, 1, "40 + 1n Guardian", 150, 150, 1);
                 if EUDElse()():
                     epic.Shape_Square(playerID, 1, "40 + 1n Guardian", 150, 150, 1)
-                    # (Line 100) trg.Shape_Square(playerID, 1, "60 + 1n Archon", 150, 150);
+                    # (Line 103) trg.Shape_Square(playerID, 1, "60 + 1n Archon", 150, 150);
                 EUDEndIf()
                 trg.Shape_Square(playerID, 1, "60 + 1n Archon", 150, 150)
-                # (Line 101) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
-                # (Line 103) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 104) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+                # (Line 106) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID))
-                # (Line 104) Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 107) Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 105) }
+                # (Line 108) }
                 DoActions(Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 106) else if (v.P_LoopMain[playerID] % 4 == 2)
+                # (Line 109) else if (v.P_LoopMain[playerID] % 4 == 2)
             if EUDElseIf()(v.P_LoopMain[playerID] % 4 == 2):
-                # (Line 107) {
-                # (Line 108) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
-                # (Line 110) trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 150, 150);
+                # (Line 110) {
+                # (Line 111) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+                # (Line 113) trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 150, 150);
                 DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID))
                 trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 150, 150)
-                # (Line 111) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 150, 150);
+                # (Line 114) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 150, 150);
                 trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 150, 150)
-                # (Line 112) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
-                # (Line 113) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+                # (Line 115) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+                # (Line 116) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID))
-                # (Line 114) }
+                # (Line 117) }
                 DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID))
-                # (Line 116) if (v.P_LoopMain[playerID] < 4)
+                # (Line 119) if (v.P_LoopMain[playerID] < 4)
             EUDEndIf()
             if EUDIf()(v.P_LoopMain[playerID] >= 4, neg=True):
-                # (Line 117) {
-                # (Line 118) trg.Shape_Square(playerID, 1, "40 + 1n Mutalisk", 16 + 16 * v.P_LoopMain[playerID], 64 - 16 * v.P_LoopMain[playerID]);
+                # (Line 120) {
+                # (Line 121) trg.Shape_Square(playerID, 1, "40 + 1n Mutalisk", 16 + 16 * v.P_LoopMain[playerID], 64 - 16 * v.P_LoopMain[playerID]);
                 trg.Shape_Square(playerID, 1, "40 + 1n Mutalisk", 16 + 16 * v.P_LoopMain[playerID], 64 - 16 * v.P_LoopMain[playerID])
-                # (Line 119) trg.Shape_Square(playerID, 1, "Rhynadon (Badlands)", 16 + 16 * v.P_LoopMain[playerID], 64 - 16 * v.P_LoopMain[playerID]);
+                # (Line 122) trg.Shape_Square(playerID, 1, "Rhynadon (Badlands)", 16 + 16 * v.P_LoopMain[playerID], 64 - 16 * v.P_LoopMain[playerID]);
                 trg.Shape_Square(playerID, 1, "Rhynadon (Badlands)", 16 + 16 * v.P_LoopMain[playerID], 64 - 16 * v.P_LoopMain[playerID])
-                # (Line 120) KillUnitAt(All, "Rhynadon (Badlands)", "Anywhere", playerID);
-                # (Line 122) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 123) KillUnitAt(All, "Rhynadon (Badlands)", "Anywhere", playerID);
+                # (Line 125) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
                 DoActions(KillUnitAt(All, "Rhynadon (Badlands)", "Anywhere", playerID))
-                # (Line 123) Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 126) Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 124) }
+                # (Line 127) }
                 DoActions(Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 125) else if (v.P_LoopMain[playerID] == 4)
+                # (Line 128) else if (v.P_LoopMain[playerID] == 4)
             if EUDElseIf()(v.P_LoopMain[playerID] == 4):
-                # (Line 126) {
-                # (Line 127) trg.Shape_Square(playerID, 1, "40 + 1n Ghost", 128, 0);
+                # (Line 129) {
+                # (Line 130) trg.Shape_Square(playerID, 1, "40 + 1n Ghost", 128, 0);
                 trg.Shape_Square(playerID, 1, "40 + 1n Ghost", 128, 0)
-                # (Line 128) trg.Shape_Square(playerID, 1, "Target", 128, 0);
+                # (Line 131) trg.Shape_Square(playerID, 1, "Target", 128, 0);
                 trg.Shape_Square(playerID, 1, "Target", 128, 0)
-                # (Line 129) KillUnitAt(All, "Target", "Anywhere", playerID);
-                # (Line 131) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 132) KillUnitAt(All, "Target", "Anywhere", playerID);
+                # (Line 134) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
                 DoActions(KillUnitAt(All, "Target", "Anywhere", playerID))
-                # (Line 132) MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+                # (Line 135) MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 133) Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 136) Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]))
-                # (Line 134) }
+                # (Line 137) }
                 DoActions(Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 135) else if (v.P_LoopMain[playerID] == 6)
+                # (Line 138) else if (v.P_LoopMain[playerID] == 6)
             if EUDElseIf()(v.P_LoopMain[playerID] == 6):
-                # (Line 136) {
-                # (Line 137) trg.Shape_Square(playerID, 1, "Target", 40, 0);
+                # (Line 139) {
+                # (Line 140) trg.Shape_Square(playerID, 1, "Target", 40, 0);
                 trg.Shape_Square(playerID, 1, "Target", 40, 0)
-                # (Line 138) KillUnitAt(All, "Target", "Anywhere", playerID);
-                # (Line 140) trg.Shape_Square(playerID, 1, "60 + 1n Siege", 128, 0);
+                # (Line 141) KillUnitAt(All, "Target", "Anywhere", playerID);
+                # (Line 143) trg.Shape_Square(playerID, 1, "60 + 1n Siege", 128, 0);
                 DoActions(KillUnitAt(All, "Target", "Anywhere", playerID))
                 trg.Shape_Square(playerID, 1, "60 + 1n Siege", 128, 0)
-                # (Line 141) trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", 128, 0);
+                # (Line 144) trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", 128, 0);
                 trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", 128, 0)
-                # (Line 142) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
-                # (Line 144) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 145) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+                # (Line 147) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
                 DoActions(KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID))
-                # (Line 145) MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+                # (Line 148) MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 146) Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 149) Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]))
-                # (Line 147) }
+                # (Line 150) }
                 DoActions(Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 149) trg.Main_Wait(80);
+                # (Line 152) trg.Main_Wait(80);
             EUDEndIf()
             trg.Main_Wait(80)
-            # (Line 151) v.P_LoopMain[playerID] += 1;
+            # (Line 154) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 153) if (v.P_LoopMain[playerID] == 8)
+            # (Line 156) if (v.P_LoopMain[playerID] == 8)
             if EUDIf()(v.P_LoopMain[playerID] == 8):
-                # (Line 154) {
-                # (Line 155) v.P_CountMain[playerID] += 1;
+                # (Line 157) {
+                # (Line 158) v.P_CountMain[playerID] += 1;
                 _ARRW(v.P_CountMain, playerID).__iadd__(1)
-                # (Line 156) v.P_LoopMain[playerID] = 0;
+                # (Line 159) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 157) }
-                # (Line 158) }
+                # (Line 160) }
+                # (Line 161) }
             EUDEndIf()
-            # (Line 159) else if (v.P_CountMain[playerID] == 2)
+            # (Line 162) else if (v.P_CountMain[playerID] == 2)
         if EUDElseIf()(v.P_CountMain[playerID] == 2):
-            # (Line 160) {
-            # (Line 161) if (v.P_LoopMain[playerID] % 2 == 0)
+            # (Line 163) {
+            # (Line 164) if (v.P_LoopMain[playerID] % 2 == 0)
             if EUDIf()(v.P_LoopMain[playerID] % 2 == 0):
-                # (Line 162) {
-                # (Line 163) SetDeaths(playerID, SetTo, 1, " `ShieldRecharge");
-                # (Line 165) RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
+                # (Line 165) {
+                # (Line 166) SetDeaths(playerID, SetTo, 1, " `ShieldRecharge");
+                # (Line 168) RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
                 DoActions(SetDeaths(playerID, SetTo, 1, " `ShieldRecharge"))
-                # (Line 167) if ((v.P_LoopMain[playerID] % 4) / 2 == 0)
+                # (Line 170) if ((v.P_LoopMain[playerID] % 4) / 2 == 0)
                 DoActions(RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID))
                 if EUDIf()((v.P_LoopMain[playerID] % 4) // 2 == 0):
-                    # (Line 168) trg.Shape_Edge(playerID, 1, "40 + 1n Mutalisk", 45, 3, 50);
+                    # (Line 171) trg.Shape_Edge(playerID, 1, "40 + 1n Mutalisk", 45, 3, 50);
                     trg.Shape_Edge(playerID, 1, "40 + 1n Mutalisk", 45, 3, 50)
-                    # (Line 169) else
-                    # (Line 170) epic.Shape_Edge(playerID, 1, "40 + 1n Mutalisk", 45, 3, 50, 1);
+                    # (Line 172) else
+                    # (Line 173) epic.Shape_Edge(playerID, 1, "40 + 1n Mutalisk", 45, 3, 50, 1);
                 if EUDElse()():
                     epic.Shape_Edge(playerID, 1, "40 + 1n Mutalisk", 45, 3, 50, 1)
-                    # (Line 172) trg.Shape_Edge(playerID, 1, "Rhynadon (Badlands)", 45, 3, 50);
+                    # (Line 175) trg.Shape_Edge(playerID, 1, "Rhynadon (Badlands)", 45, 3, 50);
                 EUDEndIf()
                 trg.Shape_Edge(playerID, 1, "Rhynadon (Badlands)", 45, 3, 50)
-                # (Line 173) KillUnitAt(All, "Rhynadon (Badlands)", "Anywhere", playerID);
-                # (Line 175) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 176) KillUnitAt(All, "Rhynadon (Badlands)", "Anywhere", playerID);
+                # (Line 178) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
                 DoActions(KillUnitAt(All, "Rhynadon (Badlands)", "Anywhere", playerID))
-                # (Line 176) Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 179) Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 178) trg.Shape_Square(playerID, 1, "Scantid (Desert)", 100, 100);
+                # (Line 181) trg.Shape_Square(playerID, 1, "Scantid (Desert)", 100, 100);
                 DoActions(Order("40 + 1n Mutalisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
                 trg.Shape_Square(playerID, 1, "Scantid (Desert)", 100, 100)
-                # (Line 179) KillUnitAt(All, "Scantid (Desert)", "Anywhere", playerID);
-                # (Line 181) if ((v.P_LoopMain[playerID] % 4) / 2 == 0)
+                # (Line 182) KillUnitAt(All, "Scantid (Desert)", "Anywhere", playerID);
+                # (Line 184) if ((v.P_LoopMain[playerID] % 4) / 2 == 0)
                 DoActions(KillUnitAt(All, "Scantid (Desert)", "Anywhere", playerID))
                 if EUDIf()((v.P_LoopMain[playerID] % 4) // 2 == 0):
-                    # (Line 182) {
-                    # (Line 183) trg.Shape_Square(playerID, 1, "60 + 1n Archon", 50 - 50 * (v.P_LoopMain[playerID] % 2), 50 * (v.P_LoopMain[playerID] % 2));
+                    # (Line 185) {
+                    # (Line 186) trg.Shape_Square(playerID, 1, "60 + 1n Archon", 50 - 50 * (v.P_LoopMain[playerID] % 2), 50 * (v.P_LoopMain[playerID] % 2));
                     trg.Shape_Square(playerID, 1, "60 + 1n Archon", 50 - 50 * (v.P_LoopMain[playerID] % 2), 50 * (v.P_LoopMain[playerID] % 2))
-                    # (Line 184) trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 50 - 50 * (v.P_LoopMain[playerID] % 2), 50 * (v.P_LoopMain[playerID] % 2));
+                    # (Line 187) trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 50 - 50 * (v.P_LoopMain[playerID] % 2), 50 * (v.P_LoopMain[playerID] % 2));
                     trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 50 - 50 * (v.P_LoopMain[playerID] % 2), 50 * (v.P_LoopMain[playerID] % 2))
-                    # (Line 185) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
-                    # (Line 186) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+                    # (Line 188) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+                    # (Line 189) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
                     DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID))
-                    # (Line 187) }
+                    # (Line 190) }
                     DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID))
-                    # (Line 188) else if ((v.P_LoopMain[playerID] % 4) / 2 == 1)
+                    # (Line 191) else if ((v.P_LoopMain[playerID] % 4) / 2 == 1)
                 if EUDElseIf()((v.P_LoopMain[playerID] % 4) // 2 == 1):
-                    # (Line 189) {
-                    # (Line 190) trg.Shape_Square(playerID, 1, "60 + 1n Archon", 0 - 50 * (v.P_LoopMain[playerID] % 2), 50 * (v.P_LoopMain[playerID] % 2));
+                    # (Line 192) {
+                    # (Line 193) trg.Shape_Square(playerID, 1, "60 + 1n Archon", 0 - 50 * (v.P_LoopMain[playerID] % 2), 50 * (v.P_LoopMain[playerID] % 2));
                     trg.Shape_Square(playerID, 1, "60 + 1n Archon", 0 - 50 * (v.P_LoopMain[playerID] % 2), 50 * (v.P_LoopMain[playerID] % 2))
-                    # (Line 191) trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 0 - 50 * (v.P_LoopMain[playerID] % 2), 50 * (v.P_LoopMain[playerID] % 2));
+                    # (Line 194) trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 0 - 50 * (v.P_LoopMain[playerID] % 2), 50 * (v.P_LoopMain[playerID] % 2));
                     trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 0 - 50 * (v.P_LoopMain[playerID] % 2), 50 * (v.P_LoopMain[playerID] % 2))
-                    # (Line 192) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
-                    # (Line 193) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+                    # (Line 195) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+                    # (Line 196) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
                     DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID))
-                    # (Line 195) }
+                    # (Line 198) }
                     DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID))
-                    # (Line 196) }
+                    # (Line 199) }
                 EUDEndIf()
-                # (Line 198) if (v.P_LoopMain[playerID] % 4 == 0)
+                # (Line 201) if (v.P_LoopMain[playerID] % 4 == 0)
             EUDEndIf()
             if EUDIf()(v.P_LoopMain[playerID] % 4 == 0):
-                # (Line 199) {
-                # (Line 200) RemoveUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
-                # (Line 202) if ((v.P_LoopMain[playerID] % 8) / 4 == 0)
+                # (Line 202) {
+                # (Line 203) RemoveUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+                # (Line 205) if ((v.P_LoopMain[playerID] % 8) / 4 == 0)
                 DoActions(RemoveUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID))
                 if EUDIf()((v.P_LoopMain[playerID] % 8) // 4 == 0):
-                    # (Line 203) trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 150, 150);
+                    # (Line 206) trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 150, 150);
                     trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 150, 150)
-                    # (Line 204) else
-                    # (Line 205) epic.Shape_Square(playerID, 1, "40 + 1n Guardian", 150, 150, 1);
+                    # (Line 207) else
+                    # (Line 208) epic.Shape_Square(playerID, 1, "40 + 1n Guardian", 150, 150, 1);
                 if EUDElse()():
                     epic.Shape_Square(playerID, 1, "40 + 1n Guardian", 150, 150, 1)
-                    # (Line 207) trg.Shape_Square(playerID, 1, "60 + 1n Archon", 150, 150);
+                    # (Line 210) trg.Shape_Square(playerID, 1, "60 + 1n Archon", 150, 150);
                 EUDEndIf()
                 trg.Shape_Square(playerID, 1, "60 + 1n Archon", 150, 150)
-                # (Line 208) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
-                # (Line 210) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 211) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+                # (Line 213) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID))
-                # (Line 211) Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 214) Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 212) }
+                # (Line 215) }
                 DoActions(Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 213) else if (v.P_LoopMain[playerID] % 4 == 2)
+                # (Line 216) else if (v.P_LoopMain[playerID] % 4 == 2)
             if EUDElseIf()(v.P_LoopMain[playerID] % 4 == 2):
-                # (Line 214) {
-                # (Line 215) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
-                # (Line 217) trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 150, 150);
+                # (Line 217) {
+                # (Line 218) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+                # (Line 220) trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 150, 150);
                 DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID))
                 trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 150, 150)
-                # (Line 218) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 150, 150);
+                # (Line 221) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 150, 150);
                 trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 150, 150)
-                # (Line 219) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
-                # (Line 220) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+                # (Line 222) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+                # (Line 223) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID))
-                # (Line 221) }
+                # (Line 224) }
                 DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID))
-                # (Line 223) trg.Main_Wait(80);
+                # (Line 226) trg.Main_Wait(80);
             EUDEndIf()
             trg.Main_Wait(80)
-            # (Line 225) v.P_LoopMain[playerID] += 1;
+            # (Line 228) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 227) if (v.P_LoopMain[playerID] == 11)
+            # (Line 230) if (v.P_LoopMain[playerID] == 11)
             if EUDIf()(v.P_LoopMain[playerID] == 11):
-                # (Line 228) {
-                # (Line 229) KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
-                # (Line 231) v.P_CountMain[playerID] += 1;
+                # (Line 231) {
+                # (Line 232) KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
+                # (Line 234) v.P_CountMain[playerID] += 1;
                 DoActions(KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID))
                 _ARRW(v.P_CountMain, playerID).__iadd__(1)
-                # (Line 232) v.P_LoopMain[playerID] = 0;
+                # (Line 235) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 233) }
-                # (Line 234) }
+                # (Line 236) }
+                # (Line 237) }
             EUDEndIf()
-            # (Line 235) else if (v.P_CountMain[playerID] == 3)
+            # (Line 238) else if (v.P_CountMain[playerID] == 3)
         if EUDElseIf()(v.P_CountMain[playerID] == 3):
-            # (Line 236) {
-            # (Line 237) var i = 0;
+            # (Line 239) {
+            # (Line 240) var i = 0;
             i = EUDVariable()
             i << (0)
-            # (Line 238) var x = 0;
+            # (Line 241) var x = 0;
             x = EUDVariable()
             x << (0)
-            # (Line 239) var y = 0;
+            # (Line 242) var y = 0;
             y = EUDVariable()
             y << (0)
-            # (Line 241) if (v.P_LoopMain[playerID] < 4)
+            # (Line 244) if (v.P_LoopMain[playerID] < 4)
             if EUDIf()(v.P_LoopMain[playerID] >= 4, neg=True):
-                # (Line 242) {
-                # (Line 243) i = v.P_LoopMain[playerID];
+                # (Line 245) {
+                # (Line 246) i = v.P_LoopMain[playerID];
                 i << (v.P_LoopMain[playerID])
-                # (Line 245) x = 120 - 40 * i;
+                # (Line 248) x = 120 - 40 * i;
                 x << (120 - 40 * i)
-                # (Line 246) y = 40 + 40 * i;
+                # (Line 249) y = 40 + 40 * i;
                 y << (40 + 40 * i)
-                # (Line 247) }
-                # (Line 248) else if (v.P_LoopMain[playerID] == 4)
+                # (Line 250) }
+                # (Line 251) else if (v.P_LoopMain[playerID] == 4)
             if EUDElseIf()(v.P_LoopMain[playerID] == 4):
-                # (Line 249) {
-                # (Line 250) x = 80;
+                # (Line 252) {
+                # (Line 253) x = 80;
                 x << (80)
-                # (Line 251) y = 0;
+                # (Line 254) y = 0;
                 y << (0)
-                # (Line 252) }
-                # (Line 253) else if (v.P_LoopMain[playerID] == 5)
+                # (Line 255) }
+                # (Line 256) else if (v.P_LoopMain[playerID] == 5)
             if EUDElseIf()(v.P_LoopMain[playerID] == 5):
-                # (Line 254) {
-                # (Line 255) x = 80;
+                # (Line 257) {
+                # (Line 258) x = 80;
                 x << (80)
-                # (Line 256) y = 80;
+                # (Line 259) y = 80;
                 y << (80)
-                # (Line 257) }
-                # (Line 258) else if (v.P_LoopMain[playerID] == 6 || v.P_LoopMain[playerID] == 7)
+                # (Line 260) }
+                # (Line 261) else if (v.P_LoopMain[playerID] == 6 || v.P_LoopMain[playerID] == 7)
             if EUDElseIf()(EUDSCOr()(v.P_LoopMain[playerID] == 6)(v.P_LoopMain[playerID] == 7)()):
-                # (Line 259) {
-                # (Line 260) x = 150;
+                # (Line 262) {
+                # (Line 263) x = 150;
                 x << (150)
-                # (Line 261) y = 150;
+                # (Line 264) y = 150;
                 y << (150)
-                # (Line 262) }
-                # (Line 264) if (v.P_LoopMain[playerID] < 8)
+                # (Line 265) }
+                # (Line 267) if (v.P_LoopMain[playerID] < 8)
             EUDEndIf()
             if EUDIf()(v.P_LoopMain[playerID] >= 8, neg=True):
-                # (Line 265) {
-                # (Line 266) RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
-                # (Line 268) trg.Shape_Square(playerID, 1, "80 + 1n Guardian", x, y);
+                # (Line 268) {
+                # (Line 269) RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
+                # (Line 271) trg.Shape_Square(playerID, 1, "80 + 1n Guardian", x, y);
                 DoActions(RemoveUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID))
                 trg.Shape_Square(playerID, 1, "80 + 1n Guardian", x, y)
-                # (Line 269) EdgeShapeAt(playerID, 1, "Bengalaas (Jungle)", 0, 2, 25, x, y);
+                # (Line 272) EdgeShapeAt(playerID, 1, "Bengalaas (Jungle)", 0, 2, 25, x, y);
                 EdgeShapeAt(playerID, 1, "Bengalaas (Jungle)", 0, 2, 25, x, y)
-                # (Line 271) KillUnitAt(All, "80 + 1n Guardian", "Anywhere", playerID);
-                # (Line 272) KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", playerID);
+                # (Line 274) KillUnitAt(All, "80 + 1n Guardian", "Anywhere", playerID);
+                # (Line 275) KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", playerID);
                 DoActions(KillUnitAt(All, "80 + 1n Guardian", "Anywhere", playerID))
-                # (Line 273) }
+                # (Line 276) }
                 DoActions(KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", playerID))
-                # (Line 276) if (v.P_LoopMain[playerID] == 8)
+                # (Line 279) if (v.P_LoopMain[playerID] == 8)
             EUDEndIf()
             if EUDIf()(v.P_LoopMain[playerID] == 8):
-                # (Line 277) {
-                # (Line 278) trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 160, 0);
+                # (Line 280) {
+                # (Line 281) trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 160, 0);
                 trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 160, 0)
-                # (Line 279) trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 120, 40);
+                # (Line 282) trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 120, 40);
                 trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 120, 40)
-                # (Line 280) trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 80, 80);
+                # (Line 283) trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 80, 80);
                 trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 80, 80)
-                # (Line 281) trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 40, 120);
+                # (Line 284) trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 40, 120);
                 trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 40, 120)
-                # (Line 282) trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 80, 0);
+                # (Line 285) trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 80, 0);
                 trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 80, 0)
-                # (Line 284) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 160, 0);
+                # (Line 287) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 160, 0);
                 trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 160, 0)
-                # (Line 285) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 120, 40);
+                # (Line 288) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 120, 40);
                 trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 120, 40)
-                # (Line 286) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 80, 80);
+                # (Line 289) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 80, 80);
                 trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 80, 80)
-                # (Line 287) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 40, 120);
+                # (Line 290) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 40, 120);
                 trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 40, 120)
-                # (Line 288) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 80, 0);
+                # (Line 291) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 80, 0);
                 trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 80, 0)
-                # (Line 290) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
-                # (Line 292) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 293) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+                # (Line 295) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
                 DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID))
-                # (Line 293) Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 296) Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 294) }
+                # (Line 297) }
                 DoActions(Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 296) if (v.P_LoopMain[playerID] == 12)
+                # (Line 299) if (v.P_LoopMain[playerID] == 12)
             EUDEndIf()
             if EUDIf()(v.P_LoopMain[playerID] == 12):
-                # (Line 297) {
-                # (Line 298) adv.Shape_SquareAt2(playerID, 1, "40 + 1n Guardian", 25, 25, 150, 150);
+                # (Line 300) {
+                # (Line 301) adv.Shape_SquareAt2(playerID, 1, "40 + 1n Guardian", 25, 25, 150, 150);
                 adv.Shape_SquareAt2(playerID, 1, "40 + 1n Guardian", 25, 25, 150, 150)
-                # (Line 299) adv.Shape_SquareAt2(playerID, 1, "40 + 1n Guardian", 25, 25, -150, -150);
+                # (Line 302) adv.Shape_SquareAt2(playerID, 1, "40 + 1n Guardian", 25, 25, -150, -150);
                 adv.Shape_SquareAt2(playerID, 1, "40 + 1n Guardian", 25, 25, -150, -150)
-                # (Line 300) adv.Shape_SquareAt2(playerID, 1, "40 + 1n Guardian", 25, 25, -150, 150);
+                # (Line 303) adv.Shape_SquareAt2(playerID, 1, "40 + 1n Guardian", 25, 25, -150, 150);
                 adv.Shape_SquareAt2(playerID, 1, "40 + 1n Guardian", 25, 25, -150, 150)
-                # (Line 301) adv.Shape_SquareAt2(playerID, 1, "40 + 1n Guardian", 25, 25, 150, -150);
+                # (Line 304) adv.Shape_SquareAt2(playerID, 1, "40 + 1n Guardian", 25, 25, 150, -150);
                 adv.Shape_SquareAt2(playerID, 1, "40 + 1n Guardian", 25, 25, 150, -150)
-                # (Line 303) adv.Shape_SquareAt2(playerID, 1, " Unit. Hoffnung 25000", 25, 25, 150, 150);
+                # (Line 306) adv.Shape_SquareAt2(playerID, 1, " Unit. Hoffnung 25000", 25, 25, 150, 150);
                 adv.Shape_SquareAt2(playerID, 1, " Unit. Hoffnung 25000", 25, 25, 150, 150)
-                # (Line 304) adv.Shape_SquareAt2(playerID, 1, " Unit. Hoffnung 25000", 25, 25, -150, -150);
+                # (Line 307) adv.Shape_SquareAt2(playerID, 1, " Unit. Hoffnung 25000", 25, 25, -150, -150);
                 adv.Shape_SquareAt2(playerID, 1, " Unit. Hoffnung 25000", 25, 25, -150, -150)
-                # (Line 305) adv.Shape_SquareAt2(playerID, 1, " Unit. Hoffnung 25000", 25, 25, -150, 150);
+                # (Line 308) adv.Shape_SquareAt2(playerID, 1, " Unit. Hoffnung 25000", 25, 25, -150, 150);
                 adv.Shape_SquareAt2(playerID, 1, " Unit. Hoffnung 25000", 25, 25, -150, 150)
-                # (Line 306) adv.Shape_SquareAt2(playerID, 1, " Unit. Hoffnung 25000", 25, 25, 150, -150);
+                # (Line 309) adv.Shape_SquareAt2(playerID, 1, " Unit. Hoffnung 25000", 25, 25, 150, -150);
                 adv.Shape_SquareAt2(playerID, 1, " Unit. Hoffnung 25000", 25, 25, 150, -150)
-                # (Line 307) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
-                # (Line 309) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 310) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+                # (Line 312) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
                 DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID))
-                # (Line 310) Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 313) Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 311) }
+                # (Line 314) }
                 DoActions(Order("40 + 1n Guardian", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 314) trg.Main_Wait(80);
+                # (Line 317) trg.Main_Wait(80);
             EUDEndIf()
             trg.Main_Wait(80)
-            # (Line 316) v.P_LoopMain[playerID] += 1;
+            # (Line 319) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 318) if (v.P_LoopMain[playerID] == 16)
+            # (Line 321) if (v.P_LoopMain[playerID] == 16)
             if EUDIf()(v.P_LoopMain[playerID] == 16):
-                # (Line 319) {
-                # (Line 320) v.P_CountMain[playerID] += 1;
+                # (Line 322) {
+                # (Line 323) v.P_CountMain[playerID] += 1;
                 _ARRW(v.P_CountMain, playerID).__iadd__(1)
-                # (Line 321) v.P_LoopMain[playerID] = 0;
+                # (Line 324) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 322) }
-                # (Line 323) }
+                # (Line 325) }
+                # (Line 326) }
             EUDEndIf()
-            # (Line 324) else if (v.P_CountMain[playerID] == 4)
+            # (Line 327) else if (v.P_CountMain[playerID] == 4)
         if EUDElseIf()(v.P_CountMain[playerID] == 4):
-            # (Line 325) {
-            # (Line 328) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
-            # (Line 329) KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
+            # (Line 328) {
+            # (Line 331) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            # (Line 332) KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
             DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID))
-            # (Line 330) KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
+            # (Line 333) KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
             DoActions(KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID))
-            # (Line 332) trg.SkillEnd();
+            # (Line 335) trg.SkillEnd();
             DoActions(KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID))
             trg.SkillEnd()
-            # (Line 333) }
-            # (Line 334) }
+            # (Line 336) }
+            # (Line 337) }
         EUDEndIf()
-        # (Line 335) }
+        # (Line 338) }
     EUDEndIf()
-    # (Line 337) function EdgeShapeAt(playerID : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, x, y)
+    # (Line 340) function EdgeShapeAt(playerID : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, x, y)
 
-# (Line 338) {
+# (Line 341) {
 @EUDTypedFunc([TrgPlayer, None, TrgUnit, None, None, None, None, None])
 def EdgeShapeAt(playerID, count, Unit, degree, n, interval, x, y):
-    # (Line 339) adv.Shape_EdgeAt(playerID, count, Unit, degree, n, interval, x, y);
+    # (Line 342) adv.Shape_EdgeAt(playerID, count, Unit, degree, n, interval, x, y);
     adv.Shape_EdgeAt(playerID, count, Unit, degree, n, interval, x, y)
-    # (Line 340) adv.Shape_EdgeAt(playerID, count, Unit, degree, n, interval, -x, -y);
+    # (Line 343) adv.Shape_EdgeAt(playerID, count, Unit, degree, n, interval, -x, -y);
     adv.Shape_EdgeAt(playerID, count, Unit, degree, n, interval, -x, -y)
-    # (Line 341) adv.Shape_EdgeAt(playerID, count, Unit, degree, n, interval, -y, x);
+    # (Line 344) adv.Shape_EdgeAt(playerID, count, Unit, degree, n, interval, -y, x);
     adv.Shape_EdgeAt(playerID, count, Unit, degree, n, interval, -y, x)
-    # (Line 342) adv.Shape_EdgeAt(playerID, count, Unit, degree, n, interval, y, -x);
+    # (Line 345) adv.Shape_EdgeAt(playerID, count, Unit, degree, n, interval, y, -x);
     adv.Shape_EdgeAt(playerID, count, Unit, degree, n, interval, y, -x)
-    # (Line 343) }
+    # (Line 346) }

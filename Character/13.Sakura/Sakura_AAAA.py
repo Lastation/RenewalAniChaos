@@ -47,8 +47,8 @@ function main(playerID)
             adv.Shape_QuadNxNSquareAt(playerID, 1, " Creep. Licht", 3, 100, 4 * d, 0);
             adv.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Zergling", 3, 50, 3 * d, 3 * d);
             adv.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Zergling", 3, 50, 4 * d, 0);
-            adv.Shape_QuadNxNSquareAt(playerID, 1, "60 + 1n Hydralisk", 3, 100, 3 * d, 3 * d);
-            adv.Shape_QuadNxNSquareAt(playerID, 1, "60 + 1n Hydralisk", 3, 100, 4 * d, 0);
+            adv.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Drone", 3, 100, 3 * d, 3 * d);
+            adv.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Drone", 3, 100, 4 * d, 0);
 
             trg.Shape_NxNSquare(playerID, 1, " Creep. Licht", 3, 50);
             trg.Shape_NxNSquare(playerID, 1, "40 + 1n Zergling", 3, 50);
@@ -56,10 +56,10 @@ function main(playerID)
             MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
             MoveUnit(All, " Creep. Licht", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
             MoveUnit(All, "40 + 1n Zergling", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
-            MoveUnit(All, "60 + 1n Hydralisk", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            MoveUnit(All, "40 + 1n Drone", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
             Order(" Creep. Licht", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
             Order("40 + 1n Zergling", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
-            Order("60 + 1n Hydralisk", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            Order("40 + 1n Drone", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
          }
 
          trg.Main_Wait(80);
@@ -86,7 +86,12 @@ function main(playerID)
             var y = v.P_AngleSin[playerID];
 
             adv.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Guardian", 4, 50, x, y);
-            epic.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Lurker", 2, 100, x, y, 0);
+            if (v.P_LoopMain[playerID] % 2 == 0)
+            {
+               epic.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Lurker", 2, 100, x, y, 0);
+            }
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "40 + 1n Lurker", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
 
             KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
          }
@@ -118,7 +123,7 @@ function main(playerID)
          KillUnitAt(All, "40 + 1n Zergling", "Anywhere", playerID);
          KillUnitAt(All, "40 + 1n Lurker", "Anywhere", playerID);
          KillUnitAt(All, " Creep. Licht", "Anywhere", playerID);
-         KillUnitAt(All, "60 + 1n Hydralisk", "Anywhere", playerID);
+         KillUnitAt(All, "40 + 1n Drone", "Anywhere", playerID);
          SetSwitch("UiltimateSwitch", Clear);
          trg.SkillEnd();
       }
