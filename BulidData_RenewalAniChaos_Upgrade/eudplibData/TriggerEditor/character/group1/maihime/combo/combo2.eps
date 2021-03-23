@@ -283,6 +283,7 @@ function main(playerID)
 				trg.Main_Wait(90);
 			}
 			else if (Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") 
+			&& Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill") 
 			&& v.P_LoopMain[playerID] == 11)
 			{
 				s.CharacterVoice(4);
@@ -290,6 +291,7 @@ function main(playerID)
 				v.P_CountMain[playerID] = 0;
 				v.P_LoopMain[playerID] = 0;
 				KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+				KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", playerID);
 			}
 			else if (v.P_LoopMain[playerID] == 11)
 			{

@@ -146,7 +146,7 @@ T_CharaterNum = _CGFW(lambda: [PVariable()], 1)[0]
 # (Line 17) Db("수수께끼의 얼터에고 Λ"),
 # (Line 18) Db("류즈"),
 # (Line 19) Db("토키사키 쿠루미"),
-# (Line 20) Db("사쿠라"),
+# (Line 20) Db("마토 사쿠라"),
 # (Line 21) Db("야시로 가쿠"),
 # (Line 22) Db("린"),
 # (Line 23) Db("세라핌"),
@@ -166,10 +166,10 @@ T_CharaterNum = _CGFW(lambda: [PVariable()], 1)[0]
 # (Line 37) Db("니와 료카"),
 # (Line 38) Db("박 일표"),
 # (Line 39) Db("모리시마 호다카"),
-# (Line 40) Db("CHARACTER_33"),
+# (Line 40) Db("아가츠마 젠이츠"),
 # (Line 41) Db("유자키 츠카사"),
 # (Line 42) Db("#REF")];
-T_CharacterName = _CGFW(lambda: [_ARR(FlattenList([Db("#REF"), Db("루살카 슈베게린"), Db("크톨리 노타 세니오리스"), Db("텐카와 마이히메"), Db("히나나위 텐시"), Db("소네 미유키"), Db("네게브"), Db("세실리아"), Db("후타바 안즈"), Db("호토 모카"), Db("수수께끼의 얼터에고 Λ"), Db("류즈"), Db("토키사키 쿠루미"), Db("사쿠라"), Db("야시로 가쿠"), Db("린"), Db("세라핌"), Db("키아나 카스라나"), Db("이와후네 텐케이"), Db("마르고트 나이트 & 마르가 나르제"), Db("에메트셀크"), Db("마젤란"), Db("유우키 유우나"), Db("시이나 마유리"), Db("나나미 치아키"), Db("밀림 나바"), Db("츠바쿠로 유메"), Db("치쿠조인 마가네"), Db("오다 사쿠노스케"), Db("에키드나"), Db("니와 료카"), Db("박 일표"), Db("모리시마 호다카"), Db("CHARACTER_33"), Db("유자키 츠카사"), Db("#REF")]))], 1)[0]
+T_CharacterName = _CGFW(lambda: [_ARR(FlattenList([Db("#REF"), Db("루살카 슈베게린"), Db("크톨리 노타 세니오리스"), Db("텐카와 마이히메"), Db("히나나위 텐시"), Db("소네 미유키"), Db("네게브"), Db("세실리아"), Db("후타바 안즈"), Db("호토 모카"), Db("수수께끼의 얼터에고 Λ"), Db("류즈"), Db("토키사키 쿠루미"), Db("마토 사쿠라"), Db("야시로 가쿠"), Db("린"), Db("세라핌"), Db("키아나 카스라나"), Db("이와후네 텐케이"), Db("마르고트 나이트 & 마르가 나르제"), Db("에메트셀크"), Db("마젤란"), Db("유우키 유우나"), Db("시이나 마유리"), Db("나나미 치아키"), Db("밀림 나바"), Db("츠바쿠로 유메"), Db("치쿠조인 마가네"), Db("오다 사쿠노스케"), Db("에키드나"), Db("니와 료카"), Db("박 일표"), Db("모리시마 호다카"), Db("아가츠마 젠이츠"), Db("유자키 츠카사"), Db("#REF")]))], 1)[0]
 # (Line 44) const T_CharacterTitle =
 # (Line 45) [Db("#REF"),
 # (Line 46) Db("Dies irae"),
@@ -204,10 +204,10 @@ T_CharacterName = _CGFW(lambda: [_ARR(FlattenList([Db("#REF"), Db("루살카 슈
 # (Line 75) Db("십이대전"),
 # (Line 76) Db("갓 오브 하이스쿨"),
 # (Line 77) Db("날씨의 아이"),
-# (Line 78) Db("CHARACTER_33"),
+# (Line 78) Db("귀멸의 칼날"),
 # (Line 79) Db("어쨋든 귀여워"),
 # (Line 80) Db("#REF")];
-T_CharacterTitle = _CGFW(lambda: [_ARR(FlattenList([Db("#REF"), Db("Dies irae"), Db("종말에 뭐 하세요? 바쁘세요? 구해 주실 수 있나요?"), Db("퀄리디아 코드"), Db("동방 스카이 아레나"), Db("당신과 그녀와 그녀의 사랑"), Db("소녀전선"), Db("킹스레이드"), Db("PROJECT iM@S CINDERELLA GIRLS"), Db("주문은 토끼입니까?"), Db("Fate Grand Order"), Db("클락워크 플레닛"), Db("DATE A LIVE"), Db("Fate/stay night"), Db("나만이 없는 거리"), Db("Shelter"), Db("영원한 7일의 도시"), Db("붕괴 3rd"), Db("K"), Db("경계선상의 호라이즌"), Db("Final Fantasy XIV"), Db("Arknights"), Db("유우키 유우나는 용사다"), Db("슈타인즈 게이트"), Db("단간론파"), Db("전생했더니 슬라임이었던 건에 대하여"), Db("도사의 무녀"), Db("Re : CREATORS"), Db("문호 스트레이독스"), Db("Re: 제로부터 시작하는 이세계 생활"), Db("십이대전"), Db("갓 오브 하이스쿨"), Db("날씨의 아이"), Db("CHARACTER_33"), Db("어쨋든 귀여워"), Db("#REF")]))], 1)[0]
+T_CharacterTitle = _CGFW(lambda: [_ARR(FlattenList([Db("#REF"), Db("Dies irae"), Db("종말에 뭐 하세요? 바쁘세요? 구해 주실 수 있나요?"), Db("퀄리디아 코드"), Db("동방 스카이 아레나"), Db("당신과 그녀와 그녀의 사랑"), Db("소녀전선"), Db("킹스레이드"), Db("PROJECT iM@S CINDERELLA GIRLS"), Db("주문은 토끼입니까?"), Db("Fate Grand Order"), Db("클락워크 플레닛"), Db("DATE A LIVE"), Db("Fate/stay night"), Db("나만이 없는 거리"), Db("Shelter"), Db("영원한 7일의 도시"), Db("붕괴 3rd"), Db("K"), Db("경계선상의 호라이즌"), Db("Final Fantasy XIV"), Db("Arknights"), Db("유우키 유우나는 용사다"), Db("슈타인즈 게이트"), Db("단간론파"), Db("전생했더니 슬라임이었던 건에 대하여"), Db("도사의 무녀"), Db("Re : CREATORS"), Db("문호 스트레이독스"), Db("Re: 제로부터 시작하는 이세계 생활"), Db("십이대전"), Db("갓 오브 하이스쿨"), Db("날씨의 아이"), Db("귀멸의 칼날"), Db("어쨋든 귀여워"), Db("#REF")]))], 1)[0]
 # (Line 82) const T_CharacterType =
 # (Line 83) [Db("#REF"),
 # (Line 84) Db("공성전"),
@@ -242,10 +242,10 @@ T_CharacterTitle = _CGFW(lambda: [_ARR(FlattenList([Db("#REF"), Db("Dies irae"),
 # (Line 114) Db("공성전"),
 # (Line 116) Db("대인전"),
 # (Line 117) Db("모든전투"),
-# (Line 118) Db("CHARACTER_33"),
+# (Line 118) Db("대인전"),
 # (Line 119) Db("공성전"),
 # (Line 120) Db("#REF")];
-T_CharacterType = _CGFW(lambda: [_ARR(FlattenList([Db("#REF"), Db("공성전"), Db("공성전"), Db("대인전"), Db("모든전투"), Db("대인전"), Db("모든전투"), Db("대인전"), Db("공성전"), Db("공성전"), Db("공성전"), Db("대인전"), Db("모든전투"), Db("공성전"), Db("대인전"), Db("공성전"), Db("모든전투"), Db("모든전투"), Db("대인전"), Db("모든전투"), Db("공성전"), Db("공성전"), Db("모든전투"), Db("대인전"), Db("공성전"), Db("공성전"), Db("대인전"), Db("대인전"), Db("공성전"), Db("공성전"), Db("공성전"), Db("대인전"), Db("모든전투"), Db("CHARACTER_33"), Db("공성전"), Db("#REF")]))], 1)[0]
+T_CharacterType = _CGFW(lambda: [_ARR(FlattenList([Db("#REF"), Db("공성전"), Db("공성전"), Db("대인전"), Db("모든전투"), Db("대인전"), Db("모든전투"), Db("대인전"), Db("공성전"), Db("공성전"), Db("공성전"), Db("대인전"), Db("모든전투"), Db("공성전"), Db("대인전"), Db("공성전"), Db("모든전투"), Db("모든전투"), Db("대인전"), Db("모든전투"), Db("공성전"), Db("공성전"), Db("모든전투"), Db("대인전"), Db("공성전"), Db("공성전"), Db("대인전"), Db("대인전"), Db("공성전"), Db("공성전"), Db("공성전"), Db("대인전"), Db("모든전투"), Db("대인전"), Db("공성전"), Db("#REF")]))], 1)[0]
 # (Line 122) const T_CharacterNeed =
 # (Line 123) [Db("#REF"),
 # (Line 124) Db("처음하는"),
@@ -280,10 +280,10 @@ T_CharacterType = _CGFW(lambda: [_ARR(FlattenList([Db("#REF"), Db("공성전"), 
 # (Line 155) Db("적응된"),
 # (Line 157) Db("숙련된"),
 # (Line 158) Db("처음하는"),
-# (Line 159) Db("CHARACTER_33"),
+# (Line 159) Db("적등된"),
 # (Line 160) Db("적응된"),
 # (Line 161) Db("#REF")];
-T_CharacterNeed = _CGFW(lambda: [_ARR(FlattenList([Db("#REF"), Db("처음하는"), Db("적응된"), Db("숙련된"), Db("적응된"), Db("숙련된"), Db("처음하는"), Db("숙련된"), Db("처음하는"), Db("처음하는"), Db("적응된"), Db("숙련된"), Db("적응된"), Db("숙련된"), Db("숙련된"), Db("적응된"), Db("적응된"), Db("적응된"), Db("숙련된"), Db("숙련된"), Db("적응된"), Db("처음하는"), Db("숙련된"), Db("숙련된"), Db("숙련된"), Db("적응된"), Db("숙련된"), Db("숙련된"), Db("숙련된"), Db("적응된"), Db("적응된"), Db("숙련된"), Db("처음하는"), Db("CHARACTER_33"), Db("적응된"), Db("#REF")]))], 1)[0]
+T_CharacterNeed = _CGFW(lambda: [_ARR(FlattenList([Db("#REF"), Db("처음하는"), Db("적응된"), Db("숙련된"), Db("적응된"), Db("숙련된"), Db("처음하는"), Db("숙련된"), Db("처음하는"), Db("처음하는"), Db("적응된"), Db("숙련된"), Db("적응된"), Db("숙련된"), Db("숙련된"), Db("적응된"), Db("적응된"), Db("적응된"), Db("숙련된"), Db("숙련된"), Db("적응된"), Db("처음하는"), Db("숙련된"), Db("숙련된"), Db("숙련된"), Db("적응된"), Db("숙련된"), Db("숙련된"), Db("숙련된"), Db("적응된"), Db("적응된"), Db("숙련된"), Db("처음하는"), Db("적등된"), Db("적응된"), Db("#REF")]))], 1)[0]
 # (Line 163) const T_CharacterTrait =
 # (Line 164) [Db("#REF"),
 # (Line 166) Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04설치 \x1F#\x04조작쉬움"),
@@ -318,10 +318,10 @@ T_CharacterNeed = _CGFW(lambda: [_ARR(FlattenList([Db("#REF"), Db("처음하는"
 # (Line 200) Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04버프 \x1F#\x04조작쉬움"),
 # (Line 202) Db("\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04기동성 \x1F#\x04조작어려움"),
 # (Line 203) Db("\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04디버프 \x1F#\x04조작쉬움"),
-# (Line 204) Db("CHARACTER_33"),
+# (Line 204) Db("\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04기동성 \x1F#\x04조작보통"),
 # (Line 205) Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작쉬움"),
 # (Line 206) Db("#REF")];
-T_CharacterTrait = _CGFW(lambda: [_ARR(FlattenList([Db("#REF"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04설치 \x1F#\x04조작쉬움"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04전투속행 \x1F#\x04조작어려움"), Db("\x1F#\x04대인특화 \x1F#\x04지속딜 \x1F#\x04보조 \x1F#\x04조작보통"), Db("\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04설치 \x1F#\x04조작보통"), Db("\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04디버프 \x1F#\x04조작어려움"), Db("\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04보조 \x1F#\x04조작보통"), Db("\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04부활 \x1F#\x04조작어려움"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04보조 \x1F#\x04조작쉬움"), Db("\x1F#\x04공성특화 \x1F#\x04순간딜 \x1F#\x04보조 \x1F#\x04조작어려움"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04버프 \x1F#\x04조작어려움"), Db("\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04디버프 \x1F#\x04조작쉬움"), Db("\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04모드 \x1F#\x04조작어려움"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04디버프 \x1F#\x04조작어려움"), Db("\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04스택 \x1F#\x04조작매우어려움"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04희생 \x1F#\x04조작어려움"), Db("\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04영원한 7일 \x1F#\x04조작보통"), Db("\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04특수 \x1F#\x04조작보통"), Db("\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04무적의 사나이 \x1F#\x04조작보통"), Db("\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04저격 \x1F#\x04조작보통"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04귀환 \x1F#\x04조작보통"), Db("\x1F#\x04공성특화 \x1F#\x04순간딜 \x1F#\x04드론 \x1F#\x04조작보통"), Db("\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04하이리스크 \x1F#\x04하이리턴 \x1F#\x04조작어려움"), Db("\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04고정 \x1F#\x04조작어려움"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04서포트 \x1F#\x04조작보통"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04기동성 \x1F#\x04조작보통"), Db("\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04기동성 \x1F#\x04조작어려움"), Db("\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04무효화 \x1F#\x04조작어려움"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04영구각성 \x1F#\x04조작어려움"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04계약 \x1F#\x04조작보통"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04버프 \x1F#\x04조작쉬움"), Db("\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04기동성 \x1F#\x04조작어려움"), Db("\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04디버프 \x1F#\x04조작쉬움"), Db("CHARACTER_33"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작쉬움"), Db("#REF")]))], 1)[0]
+T_CharacterTrait = _CGFW(lambda: [_ARR(FlattenList([Db("#REF"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04설치 \x1F#\x04조작쉬움"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04전투속행 \x1F#\x04조작어려움"), Db("\x1F#\x04대인특화 \x1F#\x04지속딜 \x1F#\x04보조 \x1F#\x04조작보통"), Db("\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04설치 \x1F#\x04조작보통"), Db("\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04디버프 \x1F#\x04조작어려움"), Db("\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04보조 \x1F#\x04조작보통"), Db("\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04부활 \x1F#\x04조작어려움"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04보조 \x1F#\x04조작쉬움"), Db("\x1F#\x04공성특화 \x1F#\x04순간딜 \x1F#\x04보조 \x1F#\x04조작어려움"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04버프 \x1F#\x04조작어려움"), Db("\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04디버프 \x1F#\x04조작쉬움"), Db("\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04모드 \x1F#\x04조작어려움"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04디버프 \x1F#\x04조작어려움"), Db("\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04스택 \x1F#\x04조작매우어려움"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04희생 \x1F#\x04조작어려움"), Db("\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04영원한 7일 \x1F#\x04조작보통"), Db("\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04특수 \x1F#\x04조작보통"), Db("\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04무적의 사나이 \x1F#\x04조작보통"), Db("\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04저격 \x1F#\x04조작보통"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04귀환 \x1F#\x04조작보통"), Db("\x1F#\x04공성특화 \x1F#\x04순간딜 \x1F#\x04드론 \x1F#\x04조작보통"), Db("\x1F#\x04만능 \x1F#\x04지속딜 \x1F#\x04하이리스크 \x1F#\x04하이리턴 \x1F#\x04조작어려움"), Db("\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04고정 \x1F#\x04조작어려움"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04서포트 \x1F#\x04조작보통"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04기동성 \x1F#\x04조작보통"), Db("\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04기동성 \x1F#\x04조작어려움"), Db("\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04무효화 \x1F#\x04조작어려움"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04영구각성 \x1F#\x04조작어려움"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04계약 \x1F#\x04조작보통"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04버프 \x1F#\x04조작쉬움"), Db("\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04기동성 \x1F#\x04조작어려움"), Db("\x1F#\x04만능 \x1F#\x04순간딜 \x1F#\x04디버프 \x1F#\x04조작쉬움"), Db("\x1F#\x04대인특화 \x1F#\x04순간딜 \x1F#\x04기동성 \x1F#\x04조작보통"), Db("\x1F#\x04공성특화 \x1F#\x04지속딜 \x1F#\x04조작쉬움"), Db("#REF")]))], 1)[0]
 # (Line 208) const T_SubText =
 # (Line 209) [Db("#REF"),
 # (Line 210) Db("\x04에 특화 되어있습니다."),

@@ -207,9 +207,9 @@ def SetVariable(playerID):
     # (Line 44) {
     # (Line 45) case 14:
     _t7 = EUDSwitchCase()
-    # (Line 46) v.Atk[playerID] += 2 * dwread_epd(204 * 12 + playerID);
+    # (Line 46) v.Atk[playerID] += 2 * (dwread_epd(204 * 12 + playerID) / 8);
     if _t7(14):
-        _ARRW(v.Atk, playerID).__iadd__(2 * f_dwread_epd(204 * 12 + playerID))
+        _ARRW(v.Atk, playerID).__iadd__(2 * (f_dwread_epd(204 * 12 + playerID) // 8))
         # (Line 47) break;
         EUDBreak()
         # (Line 48) case 22:

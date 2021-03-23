@@ -51,7 +51,7 @@ function main(playerID)
          }
          else if (v.P_LoopMain[playerID] == 2)
          {          
-            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+            //KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
 
             trg.Shape_Square(playerID, 1, "40 + 1n Mojo", 64, 0);
             trg.Shape_Square(playerID, 1, "40 + 1n Mojo", 96, 96);
@@ -84,51 +84,46 @@ function main(playerID)
          }
          else if (v.P_LoopMain[playerID] == 4)
          {
-            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+            //KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
          }
          else if (v.P_LoopMain[playerID] == 11)
          {          
-            epic.Shape_Square(playerID, 1, "60 + 1n Danimoth", 96, 0, 1);
-            trg.Shape_Square(playerID, 1, "60 + 1n Dragoon", 96, 0);
-            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+            epic.Shape_Square(playerID, 1, "130 + 1n Arbiter", 96, 0, 1);
+            trg.Shape_Square(playerID, 1, "60 + 1n High Templar", 96, 32);
+            trg.Shape_Square(playerID, 1, "60 + 1n High Templar", 96, -32);
+            KillUnitAt(All, "130 + 1n Arbiter", "Anywhere", playerID);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "60 + 1n High Templar", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("60 + 1n High Templar", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);            
          }
          else if (v.P_LoopMain[playerID] == 12)
          {          
-            epic.Shape_Square(playerID, 1, "60 + 1n Danimoth", 64, 128, 1);
-            trg.Shape_Square(playerID, 1, "60 + 1n High Templar", 64, 128);
-            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
-
-            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
-            MoveUnit(All, "60 + 1n High Templar", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
-            Order("60 + 1n High Templar", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            epic.Shape_Square(playerID, 1, "130 + 1n Arbiter", 64, 128, 1);
+            KillUnitAt(All, "130 + 1n Arbiter", "Anywhere", playerID);
          }         
          else if (v.P_LoopMain[playerID] == 13)
          {          
-            epic.Shape_Square(playerID, 1, "60 + 1n Danimoth", 128, 64, 1);
-            trg.Shape_Square(playerID, 1, "60 + 1n High Templar", 128, 64);
-            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
-
-            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
-            MoveUnit(All, "60 + 1n High Templar", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
-            Order("60 + 1n High Templar", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            epic.Shape_Square(playerID, 1, "130 + 1n Arbiter", 128, 64, 1);
+            KillUnitAt(All, "130 + 1n Arbiter", "Anywhere", playerID);
          }         
          else if (v.P_LoopMain[playerID] == 14)
          {          
-            epic.Shape_Square(playerID, 1, "60 + 1n Danimoth", 160, 0, 1);
+            epic.Shape_Square(playerID, 1, "130 + 1n Arbiter", 160, 0, 1);
             trg.Shape_Square(playerID, 1, "60 + 1n Dragoon", 160, 0);
-            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+            KillUnitAt(All, "130 + 1n Arbiter", "Anywhere", playerID);
          }
          else if (v.P_LoopMain[playerID] == 15)
          {          
-            epic.Shape_Square(playerID, 1, "60 + 1n Danimoth", 160, 96, 1);
+            epic.Shape_Square(playerID, 1, "130 + 1n Arbiter", 160, 96, 1);
             trg.Shape_Square(playerID, 1, "60 + 1n Dragoon", 160, 96);
-            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+            KillUnitAt(All, "130 + 1n Arbiter", "Anywhere", playerID);
          }
          else if (v.P_LoopMain[playerID] == 16)
          {          
-            epic.Shape_Square(playerID, 1, "60 + 1n Danimoth", 96, 160, 1);
+            epic.Shape_Square(playerID, 1, "130 + 1n Arbiter", 96, 160, 1);
             trg.Shape_Square(playerID, 1, "60 + 1n Dragoon", 96, 160);
-            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+            KillUnitAt(All, "130 + 1n Arbiter", "Anywhere", playerID);
          }
 
          if (v.P_LoopMain[playerID] > 14)
@@ -176,7 +171,9 @@ function main(playerID)
          KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", playerID);
          KillUnitAt(All, "60 + 1n High Templar", "Anywhere", playerID);
          KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
-         
+         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+         KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+
          trg.SkillEnd();
       }
    }

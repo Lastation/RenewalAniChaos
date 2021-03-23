@@ -6,6 +6,7 @@ import system.getUnitID as unitID;
 import system.select as select;
 import character.marge as marge;
 import system.death as deathText;
+import TriggerEditor.BGMPlayer as BGM;
 
 import system.announce as announce;
 import system.init as init;
@@ -16,6 +17,12 @@ const stb = StringBuffer();
 
 function onPluginStart() 	// 초기화 함수
 {
+	foreach(playerID : EUDLoopPlayer())
+	{
+		setcurpl(playerID);
+		BGM.loadSound();
+		BGM.SetBGM(0);
+	}
 }
 
 function beforeTriggerExec() 
@@ -47,9 +54,15 @@ function beforeTriggerExec()
 			ppty.Property(playerID);
 			
 			deathText.SetDeathValue(playerID);
+			deathText.SetKillScore(playerID);
 			
 			init.SetBuildingHP(playerID);
 			init.SetVariable(playerID);
+			
+			if (Bring(playerID, AtLeast, 1, "Terran SCV", "[BGM]ON"))
+			{
+				BGM.Play();
+			}
 		}
 		
 		if (v.P_HeroID[playerID] != dwread_epd(EPD(0x58A364 + 48 * 172 + 4 * playerID)))

@@ -138,112 +138,114 @@ from func import trigadv as adv
 # (Line 7) {
 @EUDFunc
 def f_main(playerID):
-    # (Line 8) if (v.P_WaitMain[playerID] == 0)
+    # (Line 8) trg.Buff_ShieldFix(20);
+    trg.Buff_ShieldFix(20)
+    # (Line 9) if (v.P_WaitMain[playerID] == 0)
     if EUDIf()(v.P_WaitMain[playerID] == 0):
-        # (Line 9) {
-        # (Line 10) if (v.P_CountMain[playerID] == 0)
+        # (Line 10) {
+        # (Line 11) if (v.P_CountMain[playerID] == 0)
         if EUDIf()(v.P_CountMain[playerID] == 0):
-            # (Line 11) {
-            # (Line 12) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", CurrentPlayer);
-            # (Line 13) RemoveUnitAt(All, "80 + 1n Vulture", "Anywhere", CurrentPlayer);
+            # (Line 12) {
+            # (Line 13) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", CurrentPlayer);
+            # (Line 14) RemoveUnitAt(All, "80 + 1n Vulture", "Anywhere", CurrentPlayer);
             DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", CurrentPlayer))
-            # (Line 14) RemoveUnitAt(All, "60 + 3n Ghost", "Anywhere", CurrentPlayer);
+            # (Line 15) RemoveUnitAt(All, "60 + 3n Ghost", "Anywhere", CurrentPlayer);
             DoActions(RemoveUnitAt(All, "80 + 1n Vulture", "Anywhere", CurrentPlayer))
-            # (Line 15) KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
+            # (Line 16) KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer);
             DoActions(RemoveUnitAt(All, "60 + 3n Ghost", "Anywhere", CurrentPlayer))
-            # (Line 17) if (v.P_LoopMain[playerID] < 17)
+            # (Line 18) if (v.P_LoopMain[playerID] < 17)
             DoActions(KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", CurrentPlayer))
             if EUDIf()(v.P_LoopMain[playerID] >= 17, neg=True):
-                # (Line 18) {
-                # (Line 19) var Degree = (15 * v.P_LoopMain[playerID]) % 90;
+                # (Line 19) {
+                # (Line 20) var Degree = (15 * v.P_LoopMain[playerID]) % 90;
                 Degree = EUDVariable()
                 Degree << ((15 * v.P_LoopMain[playerID]) % 90)
-                # (Line 20) trg.Table_Cos(playerID, Degree, 224);
+                # (Line 21) trg.Table_Cos(playerID, Degree, 224);
                 trg.Table_Cos(playerID, Degree, 224)
-                # (Line 21) trg.Table_Sin(playerID, Degree, 224);
+                # (Line 22) trg.Table_Sin(playerID, Degree, 224);
                 trg.Table_Sin(playerID, Degree, 224)
-                # (Line 23) trg.Shape_Square(playerID, 1, "40 + 1n Ghost", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+                # (Line 24) trg.Shape_Square(playerID, 1, "40 + 1n Ghost", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
                 trg.Shape_Square(playerID, 1, "40 + 1n Ghost", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-                # (Line 24) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 32, 32);
+                # (Line 25) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 32, 32);
                 adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 32, 32)
-                # (Line 25) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 0, 32);
+                # (Line 26) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 0, 32);
                 adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 0, 32)
-                # (Line 26) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 32, 32);
+                # (Line 27) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 32, 32);
                 adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 32, 32)
-                # (Line 27) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 0, 32);
+                # (Line 28) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 0, 32);
                 adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 0, 32)
-                # (Line 28) RemoveUnitAt(1, "40 + 1n Ghost", "Anywhere", playerID);
-                # (Line 29) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 32, 32);
+                # (Line 29) RemoveUnitAt(1, "40 + 1n Ghost", "Anywhere", playerID);
+                # (Line 30) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 32, 32);
                 DoActions(RemoveUnitAt(1, "40 + 1n Ghost", "Anywhere", playerID))
                 adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 32, 32)
-                # (Line 30) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 0, 32);
+                # (Line 31) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 0, 32);
                 adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 0, 32)
-                # (Line 31) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 32, 32);
+                # (Line 32) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 32, 32);
                 adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 32, 32)
-                # (Line 32) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 0, 32);
+                # (Line 33) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 0, 32);
                 adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 0, 32)
-                # (Line 33) RemoveUnitAt(1, "40 + 1n Ghost", "Anywhere", playerID);
-                # (Line 34) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 32, 32);
+                # (Line 34) RemoveUnitAt(1, "40 + 1n Ghost", "Anywhere", playerID);
+                # (Line 35) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 32, 32);
                 DoActions(RemoveUnitAt(1, "40 + 1n Ghost", "Anywhere", playerID))
                 adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 32, 32)
-                # (Line 35) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 0, 32);
+                # (Line 36) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 0, 32);
                 adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 0, 32)
-                # (Line 36) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 32, 32);
+                # (Line 37) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 32, 32);
                 adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 32, 32)
-                # (Line 37) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 0, 32);
+                # (Line 38) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 0, 32);
                 adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 0, 32)
-                # (Line 38) RemoveUnitAt(1, "40 + 1n Ghost", "Anywhere", playerID);
-                # (Line 39) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 32, 32);
+                # (Line 39) RemoveUnitAt(1, "40 + 1n Ghost", "Anywhere", playerID);
+                # (Line 40) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 32, 32);
                 DoActions(RemoveUnitAt(1, "40 + 1n Ghost", "Anywhere", playerID))
                 adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 32, 32)
-                # (Line 40) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 0, 32);
+                # (Line 41) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 0, 32);
                 adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "40 + 1n Mojo", 0, 32)
-                # (Line 41) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 32, 32);
+                # (Line 42) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 32, 32);
                 adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 32, 32)
-                # (Line 42) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 0, 32);
+                # (Line 43) adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 0, 32);
                 adv.Shape_SquareAt(playerID, "40 + 1n Ghost", 1, "80 + 1n Vulture", 0, 32)
-                # (Line 43) RemoveUnitAt(1, "40 + 1n Ghost", "Anywhere", playerID);
-                # (Line 44) trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+                # (Line 44) RemoveUnitAt(1, "40 + 1n Ghost", "Anywhere", playerID);
+                # (Line 45) trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
                 DoActions(RemoveUnitAt(1, "40 + 1n Ghost", "Anywhere", playerID))
                 trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-                # (Line 45) trg.Shape_Square(playerID, 1, "60 + 3n Ghost", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+                # (Line 46) trg.Shape_Square(playerID, 1, "60 + 3n Ghost", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
                 trg.Shape_Square(playerID, 1, "60 + 3n Ghost", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-                # (Line 46) trg.Shape_Square(playerID, 1, "100 + 1n Hyperion", 32, 32);
+                # (Line 47) trg.Shape_Square(playerID, 1, "100 + 1n Hyperion", 32, 32);
                 trg.Shape_Square(playerID, 1, "100 + 1n Hyperion", 32, 32)
-                # (Line 47) trg.Shape_Square(playerID, 1, "100 + 1n Hyperion", 0, 32);
+                # (Line 48) trg.Shape_Square(playerID, 1, "100 + 1n Hyperion", 0, 32);
                 trg.Shape_Square(playerID, 1, "100 + 1n Hyperion", 0, 32)
-                # (Line 48) trg.Shape_Square(playerID, 1, "Bengalaas", 32, 32);
+                # (Line 49) trg.Shape_Square(playerID, 1, "Bengalaas", 32, 32);
                 trg.Shape_Square(playerID, 1, "Bengalaas", 32, 32)
-                # (Line 49) trg.Shape_Square(playerID, 1, "Bengalaas", 0, 32);
+                # (Line 50) trg.Shape_Square(playerID, 1, "Bengalaas", 0, 32);
                 trg.Shape_Square(playerID, 1, "Bengalaas", 0, 32)
-                # (Line 51) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
-                # (Line 52) Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 52) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 53) Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 53) Order("80 + 1n Vulture", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 54) Order("80 + 1n Vulture", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 54) Order("60 + 3n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 55) Order("60 + 3n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(Order("80 + 1n Vulture", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 55) Order("100 + 1n Hyperion", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 56) Order("100 + 1n Hyperion", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(Order("60 + 3n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 56) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+                # (Line 57) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
                 DoActions(Order("100 + 1n Hyperion", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 57) KillUnitAt(All, "Bengalaas", "Anywhere", playerID);
+                # (Line 58) KillUnitAt(All, "Bengalaas", "Anywhere", playerID);
                 DoActions(KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID))
-                # (Line 58) trg.Main_Wait(83);
+                # (Line 59) trg.Main_Wait(83);
                 DoActions(KillUnitAt(All, "Bengalaas", "Anywhere", playerID))
                 trg.Main_Wait(83)
-                # (Line 59) v.P_LoopMain[playerID] += 1;
+                # (Line 60) v.P_LoopMain[playerID] += 1;
                 _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-                # (Line 60) }
-                # (Line 61) else if (v.P_LoopMain[playerID] == 17)
+                # (Line 61) }
+                # (Line 62) else if (v.P_LoopMain[playerID] == 17)
             if EUDElseIf()(v.P_LoopMain[playerID] == 17):
-                # (Line 62) {
-                # (Line 63) trg.SkillEnd();
+                # (Line 63) {
+                # (Line 64) trg.SkillEnd();
                 trg.SkillEnd()
-                # (Line 64) }
                 # (Line 65) }
+                # (Line 66) }
             EUDEndIf()
-            # (Line 66) }
+            # (Line 67) }
         EUDEndIf()
-        # (Line 67) }
+        # (Line 68) }
     EUDEndIf()

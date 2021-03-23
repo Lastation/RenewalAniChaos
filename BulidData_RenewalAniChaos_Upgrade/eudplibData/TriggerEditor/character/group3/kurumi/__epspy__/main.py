@@ -182,8 +182,8 @@ def f_skillList(playerID):
         v.stb.printAt(6, "　　　\x1F AACC + 200 Gas \x04 난폭한 방식 \x19[ 선딜 / 공성 / 순간딜 / 자리고정 ]")
         # (Line 34) v.stb.printAt(7, "　　　\x1F AO\x04 정령 쿠루미 \x19[ 영구각성 ]");
         v.stb.printAt(7, "　　　\x1F AO\x04 정령 쿠루미 \x19[ 영구각성 ]")
-        # (Line 35) v.stb.printAt(8, "　　　\x1F AASS\x04 알레프 \x19[ 순간딜 / 대인 / 각성조건 ]");
-        v.stb.printAt(8, "　　　\x1F AASS\x04 알레프 \x19[ 순간딜 / 대인 / 각성조건 ]")
+        # (Line 35) v.stb.printAt(8, "　　　\x1F AACS\x04 알레프 \x19[ 순간딜 / 대인 / 각성조건 ]");
+        v.stb.printAt(8, "　　　\x1F AACS\x04 알레프 \x19[ 순간딜 / 대인 / 각성조건 ]")
         # (Line 36) v.stb.printAt(9, "\n");
         v.stb.printAt(9, "\n")
         # (Line 37) v.stb.printAt(10, "　　　\x08 AAAA \x04 의문\x19[ 대인 / 공성 / 즉발 / 쉴드 1고정 ] \x05", v.P_Ultimate1[playerID]);

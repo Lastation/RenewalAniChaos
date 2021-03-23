@@ -180,172 +180,186 @@ def f_main(playerID):
                 # (Line 33) {
                 # (Line 34) trg.Shape_Edge(playerID, 1, "60 + 1n Danimoth", 0, 3, 120);
                 trg.Shape_Edge(playerID, 1, "60 + 1n Danimoth", 0, 3, 120)
-                # (Line 35) trg.Shape_Edge(playerID, 1, "60 + 1n Dragoon", 0, 3, 120);
+                # (Line 35) trg.Shape_Edge(playerID, 1, "100 + 1n Dragoon", 0, 3, 120);
+                trg.Shape_Edge(playerID, 1, "100 + 1n Dragoon", 0, 3, 120)
+                # (Line 36) trg.Shape_Edge(playerID, 1, "60 + 1n Dragoon", 0, 3, 120);
                 trg.Shape_Edge(playerID, 1, "60 + 1n Dragoon", 0, 3, 120)
-                # (Line 37) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
-                # (Line 38) Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 38) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 39) Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 40) KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", playerID);
+                # (Line 41) KillUnitAt(All, "100 + 1n Dragoon", "Anywhere", playerID);
                 DoActions(Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 41) }
-                DoActions(KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", playerID))
-                # (Line 42) else if (v.P_LoopMain[playerID] == 5)
+                # (Line 42) }
+                DoActions(KillUnitAt(All, "100 + 1n Dragoon", "Anywhere", playerID))
+                # (Line 43) else if (v.P_LoopMain[playerID] == 5)
             if EUDElseIf()(v.P_LoopMain[playerID] == 5):
-                # (Line 43) {
-                # (Line 44) trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", 160, 0);
+                # (Line 44) {
+                # (Line 45) trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", 160, 0);
                 trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", 160, 0)
-                # (Line 45) trg.Shape_Square(playerID, 1, "Protoss Dark Archon", 64, 0);
+                # (Line 46) trg.Shape_Square(playerID, 1, "Protoss Dark Archon", 64, 0);
                 trg.Shape_Square(playerID, 1, "Protoss Dark Archon", 64, 0)
-                # (Line 46) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
-                # (Line 47) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+                # (Line 47) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+                # (Line 48) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
                 DoActions(KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID))
-                # (Line 48) }
+                # (Line 49) }
                 DoActions(KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID))
-                # (Line 49) else if (v.P_LoopMain[playerID] == 7)
+                # (Line 50) else if (v.P_LoopMain[playerID] == 7)
             if EUDElseIf()(v.P_LoopMain[playerID] == 7):
-                # (Line 50) {
-                # (Line 51) trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 160, 160);
+                # (Line 51) {
+                # (Line 52) trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 160, 160);
                 trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 160, 160)
-                # (Line 52) trg.Shape_Square(playerID, 1, "60 + 1n Archon", 160, 0);
+                # (Line 53) trg.Shape_Square(playerID, 1, "60 + 1n Archon", 160, 0);
                 trg.Shape_Square(playerID, 1, "60 + 1n Archon", 160, 0)
-                # (Line 53) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
-                # (Line 54) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+                # (Line 54) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+                # (Line 55) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
                 DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID))
-                # (Line 55) }
+                # (Line 56) }
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID))
-                # (Line 56) else if (v.P_LoopMain[playerID] == 9)
+                # (Line 57) else if (v.P_LoopMain[playerID] == 9)
             if EUDElseIf()(v.P_LoopMain[playerID] == 9):
-                # (Line 57) {
-                # (Line 58) trg.Shape_Square(playerID, 1, "40 + 1n Mojo", 120, 120);
+                # (Line 58) {
+                # (Line 59) trg.Shape_Square(playerID, 1, "40 + 1n Mojo", 120, 120);
                 trg.Shape_Square(playerID, 1, "40 + 1n Mojo", 120, 120)
-                # (Line 59) trg.Shape_Square(playerID, 1, "40 + 1n Mojo", 64, 0);
+                # (Line 60) trg.Shape_Square(playerID, 1, "40 + 1n Mojo", 64, 0);
                 trg.Shape_Square(playerID, 1, "40 + 1n Mojo", 64, 0)
-                # (Line 60) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 120, 120);
+                # (Line 61) trg.Shape_Square(playerID, 1, "60 + 1n High Templar", 64, 0);
+                trg.Shape_Square(playerID, 1, "60 + 1n High Templar", 64, 0)
+                # (Line 62) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 120, 120);
                 trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 120, 120)
-                # (Line 61) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 64, 0);
+                # (Line 63) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 64, 0);
                 trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", 64, 0)
-                # (Line 63) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
-                # (Line 64) Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 65) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 66) Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 66) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+                # (Line 68) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
                 DoActions(Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 67) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+                # (Line 69) MoveUnit(All, "60 + 1n High Templar", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+                DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
+                # (Line 70) Order("60 + 1n High Templar", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                DoActions(MoveUnit(All, "60 + 1n High Templar", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]))
+                # (Line 72) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+                DoActions(Order("60 + 1n High Templar", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
+                # (Line 73) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID))
-                # (Line 68) }
+                # (Line 74) }
                 DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID))
-                # (Line 70) if (v.P_LoopMain[playerID] < 39)
+                # (Line 76) if (v.P_LoopMain[playerID] < 39)
             EUDEndIf()
             if EUDIf()(v.P_LoopMain[playerID] >= 39, neg=True):
-                # (Line 71) {
-                # (Line 72) d = 200;
+                # (Line 77) {
+                # (Line 78) d = 200;
                 d << (200)
-                # (Line 74) trg.Table_Sin(playerID, 15 * v.P_LoopMain[playerID], d);
+                # (Line 80) trg.Table_Sin(playerID, 15 * v.P_LoopMain[playerID], d);
                 trg.Table_Sin(playerID, 15 * v.P_LoopMain[playerID], d)
-                # (Line 75) trg.Table_Cos(playerID, 15 * v.P_LoopMain[playerID], d);
+                # (Line 81) trg.Table_Cos(playerID, 15 * v.P_LoopMain[playerID], d);
                 trg.Table_Cos(playerID, 15 * v.P_LoopMain[playerID], d)
-                # (Line 77) x = v.P_AngleCos[playerID];
+                # (Line 83) x = v.P_AngleCos[playerID];
                 x << (v.P_AngleCos[playerID])
-                # (Line 78) y = v.P_AngleSin[playerID];
+                # (Line 84) y = v.P_AngleSin[playerID];
                 y << (v.P_AngleSin[playerID])
-                # (Line 80) trg.Shape_Square(playerID, 1, "60 + 1n Archon", x, y);
+                # (Line 86) trg.Shape_Square(playerID, 1, "60 + 1n Archon", x, y);
                 trg.Shape_Square(playerID, 1, "60 + 1n Archon", x, y)
-                # (Line 81) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
-                # (Line 84) if (v.P_LoopMain[playerID] >= 17 && v.P_LoopMain[playerID] % 2 == 0)
+                # (Line 87) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+                # (Line 90) if (v.P_LoopMain[playerID] >= 17 && v.P_LoopMain[playerID] % 2 == 0)
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID))
                 if EUDIf()(EUDSCAnd()(v.P_LoopMain[playerID] >= 17)(v.P_LoopMain[playerID] % 2 == 0)()):
-                    # (Line 85) {
-                    # (Line 86) trg.Shape_Square(playerID, 1, "60 + 1n Siege", x, y);
+                    # (Line 91) {
+                    # (Line 92) trg.Shape_Square(playerID, 1, "60 + 1n Siege", x, y);
                     trg.Shape_Square(playerID, 1, "60 + 1n Siege", x, y)
-                    # (Line 87) }
-                    # (Line 88) }
+                    # (Line 93) }
+                    # (Line 94) }
                 EUDEndIf()
-                # (Line 89) else if (v.P_LoopMain[playerID] < 69)
+                # (Line 95) else if (v.P_LoopMain[playerID] < 69)
             if EUDElseIf()(v.P_LoopMain[playerID] >= 69, neg=True):
-                # (Line 90) {
-                # (Line 91) d = 100;
+                # (Line 96) {
+                # (Line 97) d = 100;
                 d << (100)
-                # (Line 93) trg.Table_Sin(playerID, 15 * v.P_LoopMain[playerID], d);
+                # (Line 99) trg.Table_Sin(playerID, 15 * v.P_LoopMain[playerID], d);
                 trg.Table_Sin(playerID, 15 * v.P_LoopMain[playerID], d)
-                # (Line 94) trg.Table_Cos(playerID, 15 * v.P_LoopMain[playerID], d);
+                # (Line 100) trg.Table_Cos(playerID, 15 * v.P_LoopMain[playerID], d);
                 trg.Table_Cos(playerID, 15 * v.P_LoopMain[playerID], d)
-                # (Line 96) x = v.P_AngleCos[playerID];
+                # (Line 102) x = v.P_AngleCos[playerID];
                 x << (v.P_AngleCos[playerID])
-                # (Line 97) y = v.P_AngleSin[playerID];
+                # (Line 103) y = v.P_AngleSin[playerID];
                 y << (v.P_AngleSin[playerID])
-                # (Line 99) trg.Shape_Square(playerID, 1, "Protoss Dark Templar", x, y);
+                # (Line 105) trg.Shape_Square(playerID, 1, "Protoss Dark Templar", x, y);
                 trg.Shape_Square(playerID, 1, "Protoss Dark Templar", x, y)
-                # (Line 100) KillUnitAt(All, "Protoss Dark Templar", "Anywhere", playerID);
-                # (Line 101) }
+                # (Line 106) KillUnitAt(All, "Protoss Dark Templar", "Anywhere", playerID);
+                # (Line 107) }
                 DoActions(KillUnitAt(All, "Protoss Dark Templar", "Anywhere", playerID))
-                # (Line 102) if (v.P_LoopMain[playerID] == 70)
+                # (Line 108) if (v.P_LoopMain[playerID] == 70)
             EUDEndIf()
             if EUDIf()(v.P_LoopMain[playerID] == 70):
-                # (Line 103) {
-                # (Line 104) KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
-                # (Line 105) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+                # (Line 109) {
+                # (Line 110) KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+                # (Line 111) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
                 DoActions(KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID))
-                # (Line 106) KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
+                # (Line 112) KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
                 DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID))
-                # (Line 108) CreateUnit(16, "60 + 1n Siege", dwrand() % 8 + 33, playerID);
+                # (Line 113) KillUnitAt(All, "60 + 1n High Templar", "Anywhere", playerID);
                 DoActions(KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID))
-                # (Line 109) SetInvincibility(Enable, "60 + 1n Siege", playerID, "Anywhere");
+                # (Line 114) KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", playerID);
+                DoActions(KillUnitAt(All, "60 + 1n High Templar", "Anywhere", playerID))
+                # (Line 116) CreateUnit(16, "60 + 1n Siege", dwrand() % 8 + 33, playerID);
+                DoActions(KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", playerID))
+                # (Line 117) SetInvincibility(Enable, "60 + 1n Siege", playerID, "Anywhere");
                 DoActions(CreateUnit(16, "60 + 1n Siege", f_dwrand() % 8 + 33, playerID))
-                # (Line 110) }
+                # (Line 118) }
                 DoActions(SetInvincibility(Enable, "60 + 1n Siege", playerID, "Anywhere"))
-                # (Line 112) if (v.P_LoopMain[playerID] == 39)
+                # (Line 120) if (v.P_LoopMain[playerID] == 39)
             EUDEndIf()
             if EUDIf()(v.P_LoopMain[playerID] == 39):
-                # (Line 113) {
-                # (Line 114) s.CharacterVoice(6);
+                # (Line 121) {
+                # (Line 122) s.CharacterVoice(6);
                 s.CharacterVoice(6)
-                # (Line 115) }
-                # (Line 117) trg.Main_Wait(160);
+                # (Line 123) }
+                # (Line 125) trg.Main_Wait(160);
             EUDEndIf()
             trg.Main_Wait(160)
-            # (Line 119) v.P_LoopMain[playerID] += 1;
+            # (Line 127) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 121) if (v.P_LoopMain[playerID] == 75)
+            # (Line 129) if (v.P_LoopMain[playerID] == 75)
             if EUDIf()(v.P_LoopMain[playerID] == 75):
-                # (Line 122) {
-                # (Line 123) v.P_CountMain[playerID] += 1;
+                # (Line 130) {
+                # (Line 131) v.P_CountMain[playerID] += 1;
                 _ARRW(v.P_CountMain, playerID).__iadd__(1)
-                # (Line 124) v.P_LoopMain[playerID] = 0;
+                # (Line 132) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 125) }
-                # (Line 126) }
+                # (Line 133) }
+                # (Line 134) }
             EUDEndIf()
-            # (Line 127) else if (v.P_CountMain[playerID] == 1)
+            # (Line 135) else if (v.P_CountMain[playerID] == 1)
         if EUDElseIf()(v.P_CountMain[playerID] == 1):
-            # (Line 128) {
-            # (Line 129) if (Bring(playerID, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill")
+            # (Line 136) {
+            # (Line 137) if (Bring(playerID, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill")
             _t15 = EUDIf()
-            # (Line 130) && v.P_Step[playerID] == 240)
+            # (Line 138) && v.P_Step[playerID] == 240)
             if _t15(EUDSCAnd()(Bring(playerID, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill"))(v.P_Step[playerID] == 240)()):
-                # (Line 131) {
-                # (Line 132) s.CharacterVoice(7);
+                # (Line 139) {
+                # (Line 140) s.CharacterVoice(7);
                 s.CharacterVoice(7)
-                # (Line 133) v.P_SkillDelay[playerID] = 0;
+                # (Line 141) v.P_SkillDelay[playerID] = 0;
                 _ARRW(v.P_SkillDelay, playerID) << (0)
-                # (Line 134) v.P_CountMain[playerID] = 0;
+                # (Line 142) v.P_CountMain[playerID] = 0;
                 _ARRW(v.P_CountMain, playerID) << (0)
-                # (Line 135) v.P_LoopMain[playerID] = 0;
+                # (Line 143) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 136) v.P_Step[playerID] = 250;
+                # (Line 144) v.P_Step[playerID] = 250;
                 _ARRW(v.P_Step, playerID) << (250)
-                # (Line 137) KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", playerID);
-                # (Line 138) }
+                # (Line 145) KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", playerID);
+                # (Line 146) }
                 DoActions(KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", playerID))
-                # (Line 139) else
-                # (Line 140) {
+                # (Line 147) else
+                # (Line 148) {
             if EUDElse()():
-                # (Line 141) KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
-                # (Line 142) trg.SkillEnd();
+                # (Line 149) KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
+                # (Line 150) trg.SkillEnd();
                 DoActions(KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID))
                 trg.SkillEnd()
-                # (Line 143) }
-                # (Line 144) }
+                # (Line 151) }
+                # (Line 152) }
             EUDEndIf()
-            # (Line 145) }
+            # (Line 153) }
         EUDEndIf()
-        # (Line 146) }
+        # (Line 154) }
     EUDEndIf()

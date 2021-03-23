@@ -64,3 +64,17 @@ function SetDeathValue(playerID)
 		DeathText(playerID);
 	}
 }
+
+function SetKillScore(playerID)
+{
+	if (Kills(CurrentPlayer, AtLeast, 1, 51))	{ v.P_KillScore[playerID] += 1; SetKills(CurrentPlayer, Subtract, 1, 51); }
+	if (Kills(CurrentPlayer, AtLeast, 1, 77))	{ v.P_KillScore[playerID] += 1; SetKills(CurrentPlayer, Subtract, 1, 77); }
+	if (Kills(CurrentPlayer, AtLeast, 1, 74))	{ v.P_KillScore[playerID] += 1; SetKills(CurrentPlayer, Subtract, 1, 74); }
+	if (Kills(CurrentPlayer, AtLeast, 1, 16))	{ v.P_KillScore[playerID] += 1; SetKills(CurrentPlayer, Subtract, 1, 16); }
+	if (Kills(CurrentPlayer, AtLeast, 1, 54))	{ v.P_KillScore[playerID] += 1; SetKills(CurrentPlayer, Subtract, 1, 54); }
+	if (Kills(CurrentPlayer, AtLeast, 1, 99))	{ v.P_KillScore[playerID] += 1; SetKills(CurrentPlayer, Subtract, 1, 99); }
+	if (Kills(CurrentPlayer, AtLeast, 1, 64))	{ v.P_KillScore[playerID] += 1; SetKills(CurrentPlayer, Subtract, 1, 64); }
+	if (Kills(CurrentPlayer, AtLeast, 1, 53))	{ v.P_KillScore[playerID] += 1; SetKills(CurrentPlayer, Subtract, 1, 53); }
+	if (Kills(CurrentPlayer, AtLeast, 1, 34))	{ v.P_KillScore[playerID] += 1; SetKills(CurrentPlayer, Subtract, 1, 34); }
+	if (Kills(CurrentPlayer, AtLeast, 1, 10))	{ v.P_KillScore[playerID] += 1; SetKills(CurrentPlayer, Subtract, 1, 10); }
+}

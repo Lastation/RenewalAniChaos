@@ -1,0 +1,43 @@
+import variable as v;
+import func.trig as trg;
+
+function main(playerID)
+{
+   if (v.P_WaitMain[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] == 0)
+      {
+         RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+
+         if (v.P_LoopMain[playerID] < 8)
+         {          
+            var d = 8 * v.P_LoopMain[playerID] + 32;
+            trg.Shape_Double(playerID, 1, "40 + 1n Wraith", d, 0);
+            trg.Shape_Double(playerID, 1, "Protoss Dark Templar", d, 0);
+            trg.Shape_Double(playerID, 1, "Kakaru (Twilight)", d + 32, 0);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            KillUnitAt(All, "Protoss Dark Templar", "Anywhere", playerID);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+         }
+
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 8)
+         {                        
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
+         }
+      }
+      else if (v.P_CountMain[playerID] == 1)
+      {      
+         RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+
+         trg.SkillEnd();
+      }
+   }
+}

@@ -249,3 +249,59 @@ def SetDeathValue(playerID):
         # (Line 65) }
         # (Line 66) }
     EUDEndIf()
+    # (Line 68) function SetKillScore(playerID)
+
+# (Line 69) {
+@EUDFunc
+def SetKillScore(playerID):
+    # (Line 70) if (Kills(CurrentPlayer, AtLeast, 1, 51))	{ v.P_KillScore[playerID] += 1; SetKills(CurrentPlayer, Subtract, 1, 51); }
+    if EUDIf()(Kills(CurrentPlayer, AtLeast, 1, 51)):
+        _ARRW(v.P_KillScore, playerID).__iadd__(1)
+        DoActions(SetKills(CurrentPlayer, Subtract, 1, 51))
+        # (Line 71) if (Kills(CurrentPlayer, AtLeast, 1, 77))	{ v.P_KillScore[playerID] += 1; SetKills(CurrentPlayer, Subtract, 1, 77); }
+    EUDEndIf()
+    if EUDIf()(Kills(CurrentPlayer, AtLeast, 1, 77)):
+        _ARRW(v.P_KillScore, playerID).__iadd__(1)
+        DoActions(SetKills(CurrentPlayer, Subtract, 1, 77))
+        # (Line 72) if (Kills(CurrentPlayer, AtLeast, 1, 74))	{ v.P_KillScore[playerID] += 1; SetKills(CurrentPlayer, Subtract, 1, 74); }
+    EUDEndIf()
+    if EUDIf()(Kills(CurrentPlayer, AtLeast, 1, 74)):
+        _ARRW(v.P_KillScore, playerID).__iadd__(1)
+        DoActions(SetKills(CurrentPlayer, Subtract, 1, 74))
+        # (Line 73) if (Kills(CurrentPlayer, AtLeast, 1, 16))	{ v.P_KillScore[playerID] += 1; SetKills(CurrentPlayer, Subtract, 1, 16); }
+    EUDEndIf()
+    if EUDIf()(Kills(CurrentPlayer, AtLeast, 1, 16)):
+        _ARRW(v.P_KillScore, playerID).__iadd__(1)
+        DoActions(SetKills(CurrentPlayer, Subtract, 1, 16))
+        # (Line 74) if (Kills(CurrentPlayer, AtLeast, 1, 54))	{ v.P_KillScore[playerID] += 1; SetKills(CurrentPlayer, Subtract, 1, 54); }
+    EUDEndIf()
+    if EUDIf()(Kills(CurrentPlayer, AtLeast, 1, 54)):
+        _ARRW(v.P_KillScore, playerID).__iadd__(1)
+        DoActions(SetKills(CurrentPlayer, Subtract, 1, 54))
+        # (Line 75) if (Kills(CurrentPlayer, AtLeast, 1, 99))	{ v.P_KillScore[playerID] += 1; SetKills(CurrentPlayer, Subtract, 1, 99); }
+    EUDEndIf()
+    if EUDIf()(Kills(CurrentPlayer, AtLeast, 1, 99)):
+        _ARRW(v.P_KillScore, playerID).__iadd__(1)
+        DoActions(SetKills(CurrentPlayer, Subtract, 1, 99))
+        # (Line 76) if (Kills(CurrentPlayer, AtLeast, 1, 64))	{ v.P_KillScore[playerID] += 1; SetKills(CurrentPlayer, Subtract, 1, 64); }
+    EUDEndIf()
+    if EUDIf()(Kills(CurrentPlayer, AtLeast, 1, 64)):
+        _ARRW(v.P_KillScore, playerID).__iadd__(1)
+        DoActions(SetKills(CurrentPlayer, Subtract, 1, 64))
+        # (Line 77) if (Kills(CurrentPlayer, AtLeast, 1, 53))	{ v.P_KillScore[playerID] += 1; SetKills(CurrentPlayer, Subtract, 1, 53); }
+    EUDEndIf()
+    if EUDIf()(Kills(CurrentPlayer, AtLeast, 1, 53)):
+        _ARRW(v.P_KillScore, playerID).__iadd__(1)
+        DoActions(SetKills(CurrentPlayer, Subtract, 1, 53))
+        # (Line 78) if (Kills(CurrentPlayer, AtLeast, 1, 34))	{ v.P_KillScore[playerID] += 1; SetKills(CurrentPlayer, Subtract, 1, 34); }
+    EUDEndIf()
+    if EUDIf()(Kills(CurrentPlayer, AtLeast, 1, 34)):
+        _ARRW(v.P_KillScore, playerID).__iadd__(1)
+        DoActions(SetKills(CurrentPlayer, Subtract, 1, 34))
+        # (Line 79) if (Kills(CurrentPlayer, AtLeast, 1, 10))	{ v.P_KillScore[playerID] += 1; SetKills(CurrentPlayer, Subtract, 1, 10); }
+    EUDEndIf()
+    if EUDIf()(Kills(CurrentPlayer, AtLeast, 1, 10)):
+        _ARRW(v.P_KillScore, playerID).__iadd__(1)
+        DoActions(SetKills(CurrentPlayer, Subtract, 1, 10))
+        # (Line 80) }
+    EUDEndIf()

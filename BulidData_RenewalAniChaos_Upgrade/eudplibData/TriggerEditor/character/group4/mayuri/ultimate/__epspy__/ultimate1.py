@@ -139,9 +139,9 @@ from func import sound as s
 @EUDFunc
 def f_main(playerID):
     # (Line 8) MoveUnit(All, "50 + 1n Battlecruiser", playerID, "Anywhere", "[Skill]HoldPosition");
-    # (Line 9) trg.Buff_ShieldFix(1);
+    # (Line 9) trg.Buff_ShieldFix(20);
     DoActions(MoveUnit(All, "50 + 1n Battlecruiser", playerID, "Anywhere", "[Skill]HoldPosition"))
-    trg.Buff_ShieldFix(1)
+    trg.Buff_ShieldFix(20)
     # (Line 11) if (v.P_CountMain[playerID] < 2)
     if EUDIf()(v.P_CountMain[playerID] >= 2, neg=True):
         # (Line 12) {

@@ -247,69 +247,55 @@ def InitUnitID(playerID):
         _ARRW(v.P_UnitID, playerID) << (54)
         # (Line 61) break;
         EUDBreak()
-        # (Line 62) case 13:
+        # (Line 62) case 15:
     _t11 = EUDSwitchCase()
-    # (Line 63) v.P_UnitID[playerID] = 16;
-    if _t11(13):
-        _ARRW(v.P_UnitID, playerID) << (16)
+    # (Line 63) v.P_UnitID[playerID] = 54;
+    if _t11(15):
+        _ARRW(v.P_UnitID, playerID) << (54)
         # (Line 64) break;
         EUDBreak()
-        # (Line 65) case 14:
+        # (Line 65) case 16:
     _t12 = EUDSwitchCase()
-    # (Line 66) v.P_UnitID[playerID] = 99;
-    if _t12(14):
-        _ARRW(v.P_UnitID, playerID) << (99)
+    # (Line 66) v.P_UnitID[playerID] = 16;
+    if _t12(16):
+        _ARRW(v.P_UnitID, playerID) << (16)
         # (Line 67) break;
         EUDBreak()
-        # (Line 68) case 15:
+        # (Line 68) case 17:
     _t13 = EUDSwitchCase()
-    # (Line 69) v.P_UnitID[playerID] = 54;
-    if _t13(15):
-        _ARRW(v.P_UnitID, playerID) << (54)
+    # (Line 69) v.P_UnitID[playerID] = 77;
+    if _t13(17):
+        _ARRW(v.P_UnitID, playerID) << (77)
         # (Line 70) break;
         EUDBreak()
-        # (Line 71) case 16:
+        # (Line 71) case 18:
     _t14 = EUDSwitchCase()
-    # (Line 72) v.P_UnitID[playerID] = 16;
-    if _t14(16):
-        _ARRW(v.P_UnitID, playerID) << (16)
+    # (Line 72) v.P_UnitID[playerID] = 99;
+    if _t14(18):
+        _ARRW(v.P_UnitID, playerID) << (99)
         # (Line 73) break;
         EUDBreak()
-        # (Line 74) case 17:
+        # (Line 74) case 19:
     _t15 = EUDSwitchCase()
-    # (Line 75) v.P_UnitID[playerID] = 77;
-    if _t15(17):
-        _ARRW(v.P_UnitID, playerID) << (77)
+    # (Line 75) v.P_UnitID[playerID] = 51;
+    if _t15(19):
+        _ARRW(v.P_UnitID, playerID) << (51)
         # (Line 76) break;
         EUDBreak()
-        # (Line 77) case 18:
+        # (Line 77) case 20:
     _t16 = EUDSwitchCase()
     # (Line 78) v.P_UnitID[playerID] = 99;
-    if _t16(18):
+    if _t16(20):
         _ARRW(v.P_UnitID, playerID) << (99)
         # (Line 79) break;
         EUDBreak()
-        # (Line 80) case 19:
+        # (Line 80) case 21:
     _t17 = EUDSwitchCase()
-    # (Line 81) v.P_UnitID[playerID] = 51;
-    if _t17(19):
-        _ARRW(v.P_UnitID, playerID) << (51)
+    # (Line 81) v.P_UnitID[playerID] = 64;
+    if _t17(21):
+        _ARRW(v.P_UnitID, playerID) << (64)
         # (Line 82) break;
         EUDBreak()
-        # (Line 83) case 20:
-    _t18 = EUDSwitchCase()
-    # (Line 84) v.P_UnitID[playerID] = 99;
-    if _t18(20):
-        _ARRW(v.P_UnitID, playerID) << (99)
-        # (Line 85) break;
-        EUDBreak()
-        # (Line 86) case 21:
-    _t19 = EUDSwitchCase()
-    # (Line 87) v.P_UnitID[playerID] = 64;
-    if _t19(21):
-        _ARRW(v.P_UnitID, playerID) << (64)
-        # (Line 88) break;
-        EUDBreak()
-        # (Line 89) }
-    # (Line 90) }
+        # (Line 83) }
+    # (Line 84) }
     EUDEndSwitch()

@@ -81,13 +81,15 @@ function main(playerID)
 		}
 		else if (Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill") 
 		&& v.P_CharacterFlag[playerID] == 1
-		&& Bring(playerID, AtLeast, 2,"Protoss Scout", "[Skill]UseSkill") &&  v.P_Step[playerID] == 300)
+		&& Bring(playerID, AtLeast, 1,"Protoss Carrier", "[Skill]UseSkill")
+		&& Bring(playerID, AtLeast, 1,"Protoss Scout", "[Skill]UseSkill") &&  v.P_Step[playerID] == 300)
 		{
 			v.P_Step[playerID] = 330;
 			v.P_SkillDelay[playerID] = 0;
 			s.CharacterVoice(8);
 			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
-			KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", playerID);
+			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
+			KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", playerID);
 		}
 		// Ultimate
 		else if (Bring(playerID, AtLeast, 3, "Protoss Arbiter", "[Skill]UseSkill")

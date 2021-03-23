@@ -40,11 +40,19 @@ function SelectText(playerID)
 		 unitID.UnitID[playerID] = 0;
 		break;
 	case 54:		// Devouring One (Zergling)
-		if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 11; }	// Ryuzu
-		else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 15; }	// Rin
-		else if 	(unitID.PlayerID[playerID] == 10) 		{ t.T_CharaterNum[playerID] = 22; }	// Yuuna
-		else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 25; }	// Milim
-		else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+		if (unitID.UnitHP[playerID] == 2450) 
+		{
+			if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 11; }	// Ryuzu
+			else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 15; }	// Rin
+			else if 	(unitID.PlayerID[playerID] == 10) 		{ t.T_CharaterNum[playerID] = 22; }	// Yuuna
+			else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 25; }	// Milim
+			else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+		}
+		else 	// Upper 5th
+		{
+			if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 33; }	// Zenitsu
+			else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+		}
 		 unitID.UnitID[playerID] = 0;
 		break;
 	case 99:		// Samir Duran (Ghost)

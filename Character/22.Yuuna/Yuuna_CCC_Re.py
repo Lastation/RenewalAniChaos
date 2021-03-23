@@ -1,138 +1,232 @@
-import Function as f;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
 
-const s = StringBuffer();
-
-function main(cp)
+function main(playerID)
 {
-   f.BanReturn(cp);
-   f.HoldPosition(cp);
+   trg.Debuff_BanReturn();
+   trg.Debuff_Stop();
 
-   if (f.delay[cp] == 0)
+   if (v.P_WaitMain[playerID] == 0)
    {
-      if (f.count[cp] == 0)
+      if (v.P_CountMain[playerID] == 0)
       {
-         if (f.loop[cp] < 4)
+         if (v.P_LoopMain[playerID] < 4)
          {         
 
-            f.NxNSquareShape(cp, 1, "40 + 1n Wraith", 2 * f.loop[cp] + 1, 50);
-            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", cp);
+            trg.Shape_NxNSquare(playerID, 1, "40 + 1n Wraith", 2 * v.P_LoopMain[playerID] + 1, 50);
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
 
-            f.SkillWait(cp, 80);
+            trg.Main_Wait(80);
 
-            f.loop[cp] += 1;
+            v.P_LoopMain[playerID] += 1;
          }
-         else if (f.loop[cp] == 4)
+         else if (v.P_LoopMain[playerID] == 4)
          {
-            f.NxNSquareShape(cp, 1, "40 + 1n Guardian", 6, 75);
-            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", cp);
-            f.NxNSquareShape(cp, 1, "40 + 1n Goliath", 3, 50);
-            Order("40 + 1n Goliath", cp, "Anywhere", Attack, "Anywhere");
+            trg.Shape_NxNSquare(playerID, 1, "40 + 1n Guardian", 6, 75);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            trg.Shape_NxNSquare(playerID, 1, "40 + 1n Goliath", 3, 50);
+            Order("40 + 1n Goliath", playerID, "Anywhere", Attack, "Anywhere");
 
-            f.SkillWait(cp, 80);
+            trg.Main_Wait(80);
 
-            f.loop[cp] += 1;
+            v.P_LoopMain[playerID] += 1;
          }
-         else if (f.loop[cp] == 5)
+         else if (v.P_LoopMain[playerID] == 5)
          {
-            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
-            f.SquareShape(cp, 1, "60 + 1n Siege", 114, 114);
-            f.SquareShape(cp, 1, "60 + 1n Siege", 114, 190);
-            f.SquareShape(cp, 1, "60 + 1n Siege", 190, 114);
-            f.SquareShape(cp, 1, "60 + 1n Siege", 190, 190);
-            f.SquareShape(cp, 1, "60 + 1n Siege", 38, 114);
-            f.SquareShape(cp, 1, "60 + 1n Siege", 38, 175);
-            f.SquareShape(cp, 1, "60 + 1n Siege", 114, 38);
-            f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 175, 38);
-            f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 114, 114);
-            f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 114, 190);
-            f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 190, 114);
-            f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 190, 190);
-            f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 38, 114);
-            f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 38, 175);
-            f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 114, 38);
-            f.SquareShape(cp, 1, "50 + 1n Battlecruiser", 175, 38);
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            Order("50 + 1n Battlecruiser", cp, "Anywhere", Attack, f.location[cp]);
-            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-            f.SkillWait(cp, 720);
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
+            trg.Shape_Square(playerID, 1, "60 + 1n Siege", 114, 114);
+            trg.Shape_Square(playerID, 1, "60 + 1n Siege", 114, 190);
+            trg.Shape_Square(playerID, 1, "60 + 1n Siege", 190, 114);
+            trg.Shape_Square(playerID, 1, "60 + 1n Siege", 190, 190);
+            trg.Shape_Square(playerID, 1, "60 + 1n Siege", 38, 114);
+            trg.Shape_Square(playerID, 1, "60 + 1n Siege", 38, 175);
+            trg.Shape_Square(playerID, 1, "60 + 1n Siege", 114, 38);
+            trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 175, 38);
+            trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 114, 114);
+            trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 114, 190);
+            trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 190, 114);
+            trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 190, 190);
+            trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 38, 114);
+            trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 38, 175);
+            trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 114, 38);
+            trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 175, 38);
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+            trg.Main_Wait(720);
 
-            f.count[cp] += 1;
-            f.loop[cp] = 0;
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
          }
 
       }
-      else if (f.count[cp] == 1)
+      else if (v.P_CountMain[playerID] == 1)
       {
-         if (f.loop[cp] == 0)
+         if (v.P_LoopMain[playerID] == 0)
          {         
-            f.NxNSquareShape(cp, 1, "Kakaru (Twilight)", 3, 50);
-            f.NxNSquareShape(cp, 1, "40 + 1n Goliath", 3, 50);
-            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp); 
-            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
+            trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 3, 50);
+            trg.Shape_NxNSquare(playerID, 1, "40 + 1n Goliath", 3, 50);
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID); 
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
 
-            f.SkillWait(cp, 320);
+            trg.Main_Wait(320);
 
-            f.loop[cp] += 1;
+            v.P_LoopMain[playerID] += 1;
 
 
          }
-         else if (f.loop[cp] == 1)
+         else if (v.P_LoopMain[playerID] == 1)
          {         
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 0);
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 50);
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 100);
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 150);
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 100, 200);
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 0);
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 50);
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 100);
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 150);
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 150, 200);
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 0);
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 50);
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 100);
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 150);
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 200, 200);
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 100);
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 150);
-            f.SquareShape(cp, 1, "Kakaru (Twilight)", 50, 200);
-            f.EdgeShape(cp, 1, "40 + 1n Goliath", 45, 3, 125);
-            f.EdgeShape(cp, 1, "40 + 1n Goliath", 45, 5, 175);
-            MoveLocation(f.location[cp], f.heroID[cp], cp, "Anywhere");
-            MoveUnit(All, "40 + 1n Goliath", cp, "[Skill]Unit_Wait_ALL", f.location[cp]);
-            Order("40 + 1n Goliath", cp, "Anywhere", Attack, f.location[cp]);
-            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", cp);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 100, 0);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 100, 50);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 100, 100);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 100, 150);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 100, 200);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 150, 0);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 150, 50);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 150, 100);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 150, 150);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 150, 200);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 200, 0);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 200, 50);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 200, 100);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 200, 150);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 200, 200);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 50, 100);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 50, 150);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 50, 200);
+            trg.Shape_Edge(playerID, 1, "40 + 1n Goliath", 45, 3, 125);
+            trg.Shape_Edge(playerID, 1, "40 + 1n Goliath", 45, 5, 175);
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "40 + 1n Goliath", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("40 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
 
-            f.SkillWait(cp, 320);
+            trg.Main_Wait(320);
 
-            f.count[cp] += 1;
-            f.loop[cp] = 0;
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
          }
 
          
       }
-      else if (f.count[cp] == 2)
+      else if (v.P_CountMain[playerID] == 2)
       {
-         if (Bring(cp, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill") 
-         && Bring(cp, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill") 
-         && f.step[cp] == 210)
+         if (v.P_LoopMain[playerID] == 0)
          {
-            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
-            f.Voice_Routine(cp, 4);
-            f.wait[cp] = 0;
-            f.count[cp] = 0;
-            f.loop[cp] = 0;
-            f.step[cp] = 220;
-            KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", cp);
-            KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", cp);
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID); 
+
+            s.CharacterVoice(4);
          }
-         else 
+
+         if (v.P_LoopMain[playerID] < 8)
+         {         
+            RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+
+            trg.MoveLoc(v.P_UnitID[playerID], playerID, 200 - 50 * (v.P_LoopMain[playerID] % 4), 50 * (v.P_LoopMain[playerID] % 4));
+            trg.SkillUnit(playerID, 1, "50 + 1n Tank");
+            trg.SkillUnit(playerID, 1, "60 + 1n Danimoth");
+            trg.MoveLoc(v.P_UnitID[playerID], playerID, -200 + 50 * (v.P_LoopMain[playerID] % 4), -50 * (v.P_LoopMain[playerID] % 4));
+            trg.SkillUnit(playerID, 1, "50 + 1n Tank");
+            trg.SkillUnit(playerID, 1, "60 + 1n Danimoth");
+            trg.MoveLoc(v.P_UnitID[playerID], playerID, 50 * (v.P_LoopMain[playerID] % 4), -200 + 50 * (v.P_LoopMain[playerID] % 4));
+            trg.SkillUnit(playerID, 1, "Protoss Dark Archon");
+            trg.SkillUnit(playerID, 1, "60 + 1n Danimoth");
+            trg.MoveLoc(v.P_UnitID[playerID], playerID, -50 * (v.P_LoopMain[playerID] % 4), 200 - 50 * (v.P_LoopMain[playerID] % 4));
+            trg.SkillUnit(playerID, 1, "Protoss Dark Archon");
+            trg.SkillUnit(playerID, 1, "60 + 1n Danimoth");
+
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            trg.Main_Wait(160);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 8)
          {
-            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", cp);
-            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", cp);
-            KillUnitAt(All, "60 + 1n Siege", "Anywhere", cp);
-            f.SkillEnd(cp);
+            RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+
+            trg.Main_Wait(80);
+
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
          }
+      }
+      else if (v.P_CountMain[playerID] == 3)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {         
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+
+            trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 100, 0);
+            trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 100, 50);
+            trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 100, -50);
+            trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 150, 0);
+            trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 150, 50);
+            trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 150, -50);
+            trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, 0);
+            trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, 50);
+            trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, -50);
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, 0);
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, 50);
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, -50);
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, 0);
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, 50);
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, -50);
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, 0);
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, 50);
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, -50);
+            KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID);
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            trg.Main_Wait(240);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 1)
+         {         
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+
+            trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 100, 100);
+            trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 100, 150);
+            trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 100, 200);
+            trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 150, 100);
+            trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 150, 150);
+            trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 150, 200);
+            trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, 100);
+            trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, 150);
+            trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, 200);
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, 100);
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, 150);
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, 200);
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, 100);
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, 150);
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, 200);
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, 100);
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, 150);
+            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, 200);
+            KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID);
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            trg.Main_Wait(240);
+
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
+         }
+         
+      }
+      else if (v.P_CountMain[playerID] == 4)
+      {
+
+         KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+         KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
+         trg.SkillEnd();
 
 
       }

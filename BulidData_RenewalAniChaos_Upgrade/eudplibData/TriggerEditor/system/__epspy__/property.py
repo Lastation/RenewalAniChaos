@@ -159,8 +159,8 @@ def PropertyText(playerID):
         v.stb.printAt(3, "\n")
         # (Line 22) v.stb.printAt(4, "\x13\x1F[C] : \x04팀원 전체에 초당 \x1B마나재생 + 5\x04를 부여합니다.");
         v.stb.printAt(4, "\x13\x1F[C] : \x04팀원 전체에 초당 \x1B마나재생 + 5\x04를 부여합니다.")
-        # (Line 23) v.stb.printAt(5, "\x13\x1925 레벨 \x04달성시, 최대 마나가 \x17200 \x04증가합니다. 또한 마나디스크 하나를 받고 시작합니다.");
-        v.stb.printAt(5, "\x13\x1925 레벨 \x04달성시, 최대 마나가 \x17200 \x04증가합니다. 또한 마나디스크 하나를 받고 시작합니다.")
+        # (Line 23) v.stb.printAt(5, "\x13\x04마나디스크 하나를 받고 시작합니다.");
+        v.stb.printAt(5, "\x13\x04마나디스크 하나를 받고 시작합니다.")
         # (Line 24) v.stb.printAt(6, "\n");
         v.stb.printAt(6, "\n")
         # (Line 25) v.stb.printAt(7, "\x13\x1F[A] : \x041분 마다 궁극기 게이지가 \x1910 \x04회복됩니다.");

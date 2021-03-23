@@ -1,0 +1,46 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+function main(playerID)
+{
+   if (v.P_WaitMain[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] == 0)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {          
+            trg.Shape_Dot(playerID, 1, "Kakaru (Twilight)", 0, 0);
+
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+
+            for (var i = 0; i < 6; i++)
+            {
+               if (i != playerID)
+               {
+                  SetResources(i, Subtract, 400, Gas);
+               }
+               else
+               {
+                  SetResources(i, Add, 400, Gas);
+               }
+            }
+         }
+
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 1)
+         {                        
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
+         }
+      }
+      else if (v.P_CountMain[playerID] == 1)
+      {      
+         SetDeaths(playerID, SetTo, 2160, " `UniqueCoolTime");
+         trg.SkillEnd();
+      }
+   }
+}

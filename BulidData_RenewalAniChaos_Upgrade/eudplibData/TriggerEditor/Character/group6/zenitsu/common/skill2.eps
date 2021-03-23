@@ -1,0 +1,52 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+function main(playerID)
+{
+	if (v.P_WaitMain[playerID] == 0)
+	{
+		if (v.P_CountMain[playerID] == 0)
+		{
+			KillUnitAt(All,"40 + 1n Wraith","Anywhere",playerID);
+			KillUnitAt(All,"40 + 1n Mojo","Anywhere",playerID);
+			if (v.P_LoopMain[playerID] == 0)
+			{
+				trg.Shape_Square(playerID,1,"40 + 1n Wraith",48,48);
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("40 + 1n Wraith",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(160);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if(v.P_LoopMain[playerID] == 1)
+			{
+				trg.Shape_Square(playerID,1,"40 + 1n Mojo",48,0);
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("40 + 1n Mojo",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(160);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 2)
+			{
+				trg.Shape_Square(playerID,1,"40 + 1n Wraith",48,48);
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("40 + 1n Wraith",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(160);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if(v.P_LoopMain[playerID] == 3)
+			{
+				trg.Shape_Square(playerID,1,"40 + 1n Mojo",48,0);
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("40 + 1n Mojo",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(160);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if(v.P_LoopMain[playerID] == 4)
+			{
+				trg.SkillEnd();
+			}
+			
+		}
+	}
+}

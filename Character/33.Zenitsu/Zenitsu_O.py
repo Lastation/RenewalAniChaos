@@ -1,0 +1,411 @@
+import variable as v;
+import func.trig as trg;
+import func.trigepic as epic;
+import func.trigadv as adv;
+
+import func.sound as s;
+
+function debuff(playerID)
+{
+   for (var i = 0; i < 6; i ++)
+   {
+      if (v.P_ZenitsuDebuff[i] > 0)
+      {
+         trg.Debuff_BanReturnPlayer(i);
+         v.P_ZenitsuDebuff[i] = v.P_ZenitsuDebuff[i] - 1;
+
+         if (v.P_ZenitsuDebuff[i] % 2 == 0)
+         {
+            CreateUnitWithProperties(1, "60 + 1n Danimoth", dwrand() % 8 + 33, playerID, UnitProperty(hallucinated = true));
+            SetInvincibility(Enable, "Any unit", playerID, "[Skill]Unit_Wait_ALL");
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[i], i, "Anywhere");
+            MoveUnit(All, "60 + 1n Danimoth", playerID, "Anywhere", v.P_LocationID[playerID]);
+            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+         }
+      }
+   }
+}
+
+
+function main(playerID)
+{
+   if (v.P_WaitMain[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] == 0)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {
+            CreateUnit(1, "Flame Blue", "[Skill]Unit_Wait_8", playerID);  
+            SetInvincibility(Enable, "Any unit", playerID, "[Skill]Unit_Wait_ALL");
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "Flame Blue", playerID, "Anywhere", v.P_LocationID[playerID]);
+
+            trg.ResizeLocation(playerID, 5, 5);
+         }
+         else if (v.P_LoopMain[playerID] < 60)
+         {      
+            var x = 50;
+
+            if (playerID >= 3) x = -x;
+
+            MoveLocation(v.P_LocationID[playerID], "Flame Blue", playerID, "Anywhere");
+
+            addloc(v.P_LocationID[playerID], x * 3, 0);
+            MoveUnit(All, "Flame Blue", playerID, "Anywhere", v.P_LocationID[playerID]);
+
+            CreateUnit(3, "40 + 1n Mojo", "[Skill]Unit_Wait_8", playerID);  
+            SetInvincibility(Enable, "Any unit", playerID, "[Skill]Unit_Wait_ALL");
+
+            MoveLocation(v.P_LocationID[playerID], "Flame Blue", playerID, "Anywhere");
+            MoveUnit(1, "40 + 1n Mojo", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            addloc(v.P_LocationID[playerID], -x, 0);
+            MoveUnit(1, "40 + 1n Mojo", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            addloc(v.P_LocationID[playerID], -x, 0);
+            MoveUnit(1, "40 + 1n Mojo", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+
+            if ((playerID >= 3 && (Bring(playerID, AtLeast, 1, "Flame Blue", "[Potal]Shop7") || Bring(playerID, AtLeast, 1, "Flame Blue", "[Potal]Potal7")))
+               || (playerID < 3 && (Bring(playerID, AtLeast, 1, "Flame Blue", "[Potal]Shop8") || Bring(playerID, AtLeast, 1, "Flame Blue", "[Potal]Potal8"))))
+            {
+               SetDeaths(playerID, SetTo, 120, " `UniqueCoolTime");
+
+               v.P_CountMain[playerID] = 2;
+               v.P_LoopMain[playerID] = 0;
+            }
+            else if (playerID < 3)
+            {
+               for (var i = 3; i < 6; i++)
+               {
+                  if (Bring(i, AtLeast, 1, v.P_UnitID[i], v.P_LocationID[playerID]))
+                  {
+                     MoveLocation(v.P_LocationID[playerID], v.P_UnitID[i], i, "Anywhere");
+                     v.P_ZenitsuDebuff[i] = 75;
+                     s.CharacterVoice(12);
+
+                     v.P_CountMain[playerID] = 1;
+                     v.P_LoopMain[playerID] = 0;
+                  }
+               }
+            }
+            else if (playerID >= 3)
+            {
+               for (var i = 0; i < 3; i++)
+               {
+                  if (Bring(i, AtLeast, 1, v.P_UnitID[i], v.P_LocationID[playerID]))
+                  {
+                     MoveLocation(v.P_LocationID[playerID], v.P_UnitID[i], i, "Anywhere");
+                     v.P_ZenitsuDebuff[i] = 75;
+                     s.CharacterVoice(12);
+
+                     v.P_CountMain[playerID] = 1;
+                     v.P_LoopMain[playerID] = 0;
+                  }
+               }
+            }
+         }
+
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 60)
+         {      
+            SetDeaths(playerID, SetTo, 120, " `UniqueCoolTime");
+            
+            v.P_CountMain[playerID] = 2;
+            v.P_LoopMain[playerID] = 0;
+         }
+      }
+      else if (v.P_CountMain[playerID] == 1)
+      {
+         if (v.P_LoopMain[playerID] == 1)
+         {
+            RemoveUnitAt(All, "Flame Blue", "Anywhere", playerID);
+         }
+
+         if (v.P_LoopMain[playerID] < 18)
+         {      
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+
+            trg.Shape_Dot(playerID, 8, "40 + 1n Zealot", 0, 0);
+            trg.Shape_Dot(playerID, 1, "40 + 1n Guardian", 0, 0);
+            KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+         }
+         else if (v.P_LoopMain[playerID] == 18)
+         {      
+            trg.ResizeLocation(playerID, 15, 15);
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+
+            for (var i = 0; i < 6; i++)
+            {
+               if (v.P_ZenitsuDebuff[i] > 0)
+               {
+                  MoveLocation(v.P_LocationID[playerID], v.P_UnitID[i], i, "Anywhere");
+               }
+            }
+
+            if (Deaths(CurrentPlayer, Exactly, 0, (210)))
+            {
+               MoveUnit(All, v.P_UnitID[playerID], playerID, "Anywhere", v.P_LocationID[playerID]);
+               CenterView(v.P_LocationID[playerID]);
+            }
+
+            epic.Shape_NxNSquare(playerID, 1, "40 + 1n Mojo", 5, 50, 1);
+            trg.Shape_NxNSquare(playerID, 1, "60 + 1n Archon", 5, 50);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+         }
+         else if (v.P_LoopMain[playerID] == 20)
+         {      
+            RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+
+            trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 5, 50);
+
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+         }
+         else if (v.P_LoopMain[playerID] == 22)
+         {      
+            var d = 100;
+            epic.Shape_NxNSquareAt(playerID, 1, "40 + 1n Mojo", 5, 50, d, d, 1);
+            epic.Shape_NxNSquareAt(playerID, 1, "40 + 1n Mojo", 5, 50, -d, -d, 1);
+            epic.Shape_NxNSquareAt(playerID, 1, "40 + 1n Mojo", 5, 50, -d, d, 1);
+            epic.Shape_NxNSquareAt(playerID, 1, "40 + 1n Mojo", 5, 50, d, -d, 1);
+            adv.Shape_NxNSquareAt2(playerID, 1, "60 + 1n Archon", 5, 50, d, d);
+            adv.Shape_NxNSquareAt2(playerID, 1, "60 + 1n Archon", 5, 50, -d, -d);
+            adv.Shape_NxNSquareAt2(playerID, 1, "60 + 1n Archon", 5, 50, -d, d);
+            adv.Shape_NxNSquareAt2(playerID, 1, "60 + 1n Archon", 5, 50, d, -d);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+         }
+         else if (v.P_LoopMain[playerID] == 24)
+         {      
+            RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+
+            var d = 100;
+            adv.Shape_NxNSquareAt2(playerID, 1, "Kakaru (Twilight)", 5, 50, d, d);
+            adv.Shape_NxNSquareAt2(playerID, 1, "Kakaru (Twilight)", 5, 50, -d, -d);
+            adv.Shape_NxNSquareAt2(playerID, 1, "Kakaru (Twilight)", 5, 50, -d, d);
+            adv.Shape_NxNSquareAt2(playerID, 1, "Kakaru (Twilight)", 5, 50, d, -d);
+
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+         }
+         else if (v.P_LoopMain[playerID] == 36)
+         {      
+            var d = 100;
+            adv.Shape_NxNSquareAt2(playerID, 1, " Unit. Hoffnung 25000", 5, 50, d, d);
+            adv.Shape_NxNSquareAt2(playerID, 1, " Unit. Hoffnung 25000", 5, 50, -d, -d);
+            adv.Shape_NxNSquareAt2(playerID, 1, " Unit. Hoffnung 25000", 5, 50, -d, d);
+            adv.Shape_NxNSquareAt2(playerID, 1, " Unit. Hoffnung 25000", 5, 50, d, -d);
+
+            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+
+            KillUnitAt(All, "Protoss Dark Templar", "Anywhere", P7);
+            KillUnitAt(All, "80 + 1n Goliath", "Anywhere", P7);
+            KillUnitAt(All, "80 + 1n Vulture", "Anywhere", P7);
+            KillUnitAt(All, "80 + 1n Marine", "Anywhere", P7);
+            KillUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", P7);
+            KillUnitAt(All, "80 + 1n Tank", "Anywhere", P7);
+            KillUnitAt(All, "80 + 1n Mutalisk", "Anywhere", P7);
+            KillUnitAt(All, "80 + 1n Guardian", "Anywhere", P7);
+            KillUnitAt(All, "80 + 1n Artanis", "Anywhere", P7);
+            KillUnitAt(All, "80 + 1n Ghost", "Anywhere", P7);
+            KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", P7);
+            KillUnitAt(All, "100 + 1n Dragoon", "Anywhere", P7);
+            KillUnitAt(All, "120 + 1n Archon", "Anywhere", P7);
+            KillUnitAt(All, "130 + 1n Norad", "Anywhere", P7);
+            KillUnitAt(All, "130 + 1n Arbiter", "Anywhere", P7);
+            KillUnitAt(All, "40 + 1n Marine", "Anywhere", P7);
+            KillUnitAt(All, "40 + 1n Ghost", "Anywhere", P7);
+            KillUnitAt(All, "80 + 1n Vulture", "Anywhere", P7);
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", P7);
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", P7);
+            KillUnitAt(All, "40 + 1n Firebat", "Anywhere", P7);
+            KillUnitAt(All, "40 + 1n Zergling", "Anywhere", P7);
+            KillUnitAt(All, " Creep. Licht", "Anywhere", P7);
+            KillUnitAt(All, "40 + 1n Drone", "Anywhere", P7);
+            KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", P7);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", P7);
+            KillUnitAt(All, "40 + 1n Zealot", "Anywhere", P7);
+            KillUnitAt(All, "40 + 3n Zeratul", "Anywhere", P7);
+            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", P7);
+            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", P7);
+            KillUnitAt(All, "40 + 1n Lurker", "Anywhere", P7);
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", P7);
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", P7);
+            KillUnitAt(All, "60 + 3n Siege", "Anywhere", P7);
+            KillUnitAt(All, "60 + 1n Siege", "Anywhere", P7);
+            KillUnitAt(All, "60 + 1n Hydralisk", "Anywhere", P7);
+            KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", P7);
+            KillUnitAt(All, "60 + 1n High Templar", "Anywhere", P7);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", P7);
+            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", P7);
+            KillUnitAt(All, "60 + 3n Ghost", "Anywhere", P7);
+
+            KillUnitAt(All, "Protoss Dark Templar", "Anywhere", P8);
+            KillUnitAt(All, "80 + 1n Goliath", "Anywhere", P8);
+            KillUnitAt(All, "80 + 1n Vulture", "Anywhere", P8);
+            KillUnitAt(All, "80 + 1n Marine", "Anywhere", P8);
+            KillUnitAt(All, "80 + 1n Tom Kazansky", "Anywhere", P8);
+            KillUnitAt(All, "80 + 1n Tank", "Anywhere", P8);
+            KillUnitAt(All, "80 + 1n Mutalisk", "Anywhere", P8);
+            KillUnitAt(All, "80 + 1n Guardian", "Anywhere", P8);
+            KillUnitAt(All, "80 + 1n Artanis", "Anywhere", P8);
+            KillUnitAt(All, "80 + 1n Ghost", "Anywhere", P8);
+            KillUnitAt(All, "100 + 1n Hyperion", "Anywhere", P8);
+            KillUnitAt(All, "100 + 1n Dragoon", "Anywhere", P8);
+            KillUnitAt(All, "120 + 1n Archon", "Anywhere", P8);
+            KillUnitAt(All, "130 + 1n Norad", "Anywhere", P8);
+            KillUnitAt(All, "130 + 1n Arbiter", "Anywhere", P8);
+            KillUnitAt(All, "40 + 1n Marine", "Anywhere", P8);
+            KillUnitAt(All, "40 + 1n Ghost", "Anywhere", P8);
+            KillUnitAt(All, "80 + 1n Vulture", "Anywhere", P8);
+            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", P8);
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", P8);
+            KillUnitAt(All, "40 + 1n Firebat", "Anywhere", P8);
+            KillUnitAt(All, "40 + 1n Zergling", "Anywhere", P8);
+            KillUnitAt(All, " Creep. Licht", "Anywhere", P8);
+            KillUnitAt(All, "40 + 1n Drone", "Anywhere", P8);
+            KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", P8);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", P8);
+            KillUnitAt(All, "40 + 1n Zealot", "Anywhere", P8);
+            KillUnitAt(All, "40 + 3n Zeratul", "Anywhere", P8);
+            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", P8);
+            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", P8);
+            KillUnitAt(All, "40 + 1n Lurker", "Anywhere", P8);
+            KillUnitAt(All, "50 + 1n Tank", "Anywhere", P8);
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", P8);
+            KillUnitAt(All, "60 + 3n Siege", "Anywhere", P8);
+            KillUnitAt(All, "60 + 1n Siege", "Anywhere", P8);
+            KillUnitAt(All, "60 + 1n Hydralisk", "Anywhere", P8);
+            KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", P8);
+            KillUnitAt(All, "60 + 1n High Templar", "Anywhere", P8);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", P8);
+            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", P8);
+            KillUnitAt(All, "60 + 3n Ghost", "Anywhere", P8);
+         }
+
+         if (v.P_LoopMain[playerID] < 24 && v.P_LoopMain[playerID] >= 18)
+         {
+            if (Switch("UiltimateSwitch", Cleared))
+            {
+               if (playerID < 3)
+               {
+                  GiveUnits(All, "Protoss Dark Templar", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "40 + 1n Marine", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "40 + 1n Ghost", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "80 + 1n Vulture", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "40 + 1n Goliath", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "40 + 1n Wraith", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "40 + 1n Firebat", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "40 + 1n Zergling", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, " Creep. Licht", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "40 + 1n Drone", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "40 + 1n Mutalisk", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "40 + 1n Guardian", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "40 + 1n Zealot", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "40 + 3n Zeratul", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "40 + 1n Mojo", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "40 + 1n Gantrithor", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "40 + 1n Lurker", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "50 + 1n Tank", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "50 + 1n Battlecruiser", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "60 + 3n Siege", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "60 + 1n Siege", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "60 + 1n Hydralisk", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "60 + 1n Dragoon", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "60 + 1n High Templar", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "60 + 1n Archon", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "60 + 1n Danimoth", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "60 + 3n Ghost", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "80 + 1n Goliath", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "80 + 1n Vulture", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "80 + 1n Marine", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "80 + 1n Tom Kazansky", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "80 + 1n Tank", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "80 + 1n Mutalisk", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "80 + 1n Guardian", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "80 + 1n Artanis", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "80 + 1n Ghost", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "100 + 1n Hyperion", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "100 + 1n Dragoon", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "120 + 1n Archon", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "130 + 1n Norad", Foes, v.P_LocationID[playerID], P7);
+                  GiveUnits(All, "130 + 1n Arbiter", Foes, v.P_LocationID[playerID], P7);
+               }
+               if (playerID >= 3)
+               {
+                  GiveUnits(All, "Protoss Dark Templar", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "40 + 1n Marine", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "40 + 1n Ghost", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "80 + 1n Vulture", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "40 + 1n Goliath", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "40 + 1n Wraith", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "40 + 1n Firebat", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "40 + 1n Zergling", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, " Creep. Licht", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "40 + 1n Drone", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "40 + 1n Mutalisk", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "40 + 1n Guardian", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "40 + 1n Zealot", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "40 + 3n Zeratul", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "40 + 1n Mojo", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "40 + 1n Gantrithor", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "40 + 1n Lurker", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "50 + 1n Tank", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "50 + 1n Battlecruiser", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "60 + 3n Siege", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "60 + 1n Siege", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "60 + 1n Hydralisk", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "60 + 1n Dragoon", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "60 + 1n High Templar", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "60 + 1n Archon", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "60 + 1n Danimoth", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "60 + 3n Ghost", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "80 + 1n Goliath", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "80 + 1n Vulture", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "80 + 1n Marine", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "80 + 1n Tom Kazansky", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "80 + 1n Tank", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "80 + 1n Mutalisk", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "80 + 1n Guardian", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "80 + 1n Artanis", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "80 + 1n Ghost", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "100 + 1n Hyperion", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "100 + 1n Dragoon", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "120 + 1n Archon", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "130 + 1n Norad", Foes, v.P_LocationID[playerID], P8);
+                  GiveUnits(All, "130 + 1n Arbiter", Foes, v.P_LocationID[playerID], P8);
+               }
+            }
+         }
+
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 37)
+         {     
+            trg.Shape_Dot(playerID, 1, "40 + 1n Gantrithor", 0, 0);
+            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+
+            SetDeaths(playerID, SetTo, 2160, " `UniqueCoolTime");
+
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
+         }
+      }
+      else if (v.P_CountMain[playerID] == 2)
+      {
+         RemoveUnitAt(All, "Flame Blue", "Anywhere", playerID);
+         trg.SkillEnd();
+      }
+
+   }
+}

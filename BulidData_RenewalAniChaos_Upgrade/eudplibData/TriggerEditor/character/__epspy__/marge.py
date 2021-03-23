@@ -142,89 +142,104 @@ from character.group1.chtholly import main as chtholly
 from character.group1.maihime import main as maihime
 # (Line 10) import character.group3.kurumi.main 	as kurumi;
 from character.group3.kurumi import main as kurumi
-# (Line 12) import character.group4.yuuna.main 		as yuuna;
+# (Line 11) import character.group2.sakura.main 		as sakura;
+from character.group2.sakura import main as sakura
+# (Line 12) import character.group2.yashiro.main 	as yashiro;
+from character.group2.yashiro import main as yashiro
+# (Line 14) import character.group4.yuuna.main 		as yuuna;
 from character.group4.yuuna import main as yuuna
-# (Line 13) import character.group4.mayuri.main 	as mayuri;
+# (Line 15) import character.group4.mayuri.main 	as mayuri;
 from character.group4.mayuri import main as mayuri
-# (Line 14) import character.group4.nanami.main 	as nanami;
+# (Line 16) import character.group4.nanami.main 	as nanami;
 from character.group4.nanami import main as nanami
-# (Line 15) import character.group4.milim.main 		as milim;
+# (Line 17) import character.group4.milim.main 		as milim;
 from character.group4.milim import main as milim
-# (Line 17) import character.group5.yume.main 		as yume;
+# (Line 19) import character.group5.yume.main 		as yume;
 from character.group5.yume import main as yume
-# (Line 18) import character.group5.magane.main 	as magane;
+# (Line 20) import character.group5.magane.main 	as magane;
 from character.group5.magane import main as magane
-# (Line 19) import character.group5.oda.main 		as oda;
+# (Line 21) import character.group5.oda.main 		as oda;
 from character.group5.oda import main as oda
-# (Line 20) import character.group5.ekidona.main 	as ekidona;
+# (Line 22) import character.group5.ekidona.main 	as ekidona;
 from character.group5.ekidona import main as ekidona
-# (Line 21) import character.group5.niwa.main 		as niwa;
+# (Line 23) import character.group5.niwa.main 		as niwa;
 from character.group5.niwa import main as niwa
-# (Line 23) import character.group6.park.main 		as park;
+# (Line 25) import character.group6.park.main 		as park;
 from character.group6.park import main as park
-# (Line 24) import character.group6.hodaka.main 	as hodaka;
+# (Line 26) import character.group6.hodaka.main 	as hodaka;
 from character.group6.hodaka import main as hodaka
-# (Line 25) import character.group6.tsukasa.main 	as tsukasa;
+# (Line 27) import character.group6.tsukasa.main 	as tsukasa;
 from character.group6.tsukasa import main as tsukasa
-# (Line 27) function main(playerID)
-# (Line 28) {
+# (Line 28) import character.group6.zenitsu.main 	as zenitsu;
+from character.group6.zenitsu import main as zenitsu
+# (Line 30) function main(playerID)
+# (Line 31) {
 @EUDFunc
 def f_main(playerID):
-    # (Line 29) trg.Main_WaitLoop();
+    # (Line 32) trg.Main_WaitLoop();
     trg.Main_WaitLoop()
-    # (Line 31) text.BuildingText(playerID);
+    # (Line 34) text.BuildingText(playerID);
     text.BuildingText(playerID)
-    # (Line 32) text.ShopText(playerID);
+    # (Line 35) text.ShopText(playerID);
     text.ShopText(playerID)
-    # (Line 34) if 		(v.P_HeroID[playerID] == 1) 		rusaruka.main(playerID);
+    # (Line 37) if 		(v.P_HeroID[playerID] == 1) 		rusaruka.main(playerID);
     if EUDIf()(v.P_HeroID[playerID] == 1):
         rusaruka.f_main(playerID)
-        # (Line 35) else if 	(v.P_HeroID[playerID] == 2) 		chtholly.main(playerID);
+        # (Line 38) else if 	(v.P_HeroID[playerID] == 2) 		chtholly.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 2):
         chtholly.f_main(playerID)
-        # (Line 36) else if 	(v.P_HeroID[playerID] == 3) 		maihime.main(playerID);
+        # (Line 39) else if 	(v.P_HeroID[playerID] == 3) 		maihime.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 3):
         maihime.f_main(playerID)
-        # (Line 38) else if 	(v.P_HeroID[playerID] == 12) 	kurumi.main(playerID);
+        # (Line 41) else if 	(v.P_HeroID[playerID] == 12) 	kurumi.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 12):
         kurumi.f_main(playerID)
-        # (Line 40) else if 	(v.P_HeroID[playerID] == 22) 	yuuna.main(playerID);
+        # (Line 42) else if 	(v.P_HeroID[playerID] == 13) 	sakura.main(playerID);
+    if EUDElseIf()(v.P_HeroID[playerID] == 13):
+        sakura.f_main(playerID)
+        # (Line 43) else if 	(v.P_HeroID[playerID] == 14) 	yashiro.main(playerID);
+    if EUDElseIf()(v.P_HeroID[playerID] == 14):
+        yashiro.f_main(playerID)
+        # (Line 45) else if 	(v.P_HeroID[playerID] == 22) 	yuuna.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 22):
         yuuna.f_main(playerID)
-        # (Line 41) else if 	(v.P_HeroID[playerID] == 23) 	mayuri.main(playerID);
+        # (Line 46) else if 	(v.P_HeroID[playerID] == 23) 	mayuri.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 23):
         mayuri.f_main(playerID)
-        # (Line 42) else if 	(v.P_HeroID[playerID] == 24) 	nanami.main(playerID);
+        # (Line 47) else if 	(v.P_HeroID[playerID] == 24) 	nanami.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 24):
         nanami.f_main(playerID)
-        # (Line 43) else if 	(v.P_HeroID[playerID] == 25) 	milim.main(playerID);
+        # (Line 48) else if 	(v.P_HeroID[playerID] == 25) 	milim.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 25):
         milim.f_main(playerID)
-        # (Line 45) else if 	(v.P_HeroID[playerID] == 26) 	yume.main(playerID);
+        # (Line 50) else if 	(v.P_HeroID[playerID] == 26) 	yume.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 26):
         yume.f_main(playerID)
-        # (Line 46) else if 	(v.P_HeroID[playerID] == 27) 	magane.main(playerID);
+        # (Line 51) else if 	(v.P_HeroID[playerID] == 27) 	magane.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 27):
         magane.f_main(playerID)
-        # (Line 47) else if 	(v.P_HeroID[playerID] == 28) 	oda.main(playerID);
+        # (Line 52) else if 	(v.P_HeroID[playerID] == 28) 	oda.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 28):
         oda.f_main(playerID)
-        # (Line 48) else if 	(v.P_HeroID[playerID] == 29) 	ekidona.main(playerID);
+        # (Line 53) else if 	(v.P_HeroID[playerID] == 29) 	ekidona.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 29):
         ekidona.f_main(playerID)
-        # (Line 49) else if 	(v.P_HeroID[playerID] == 30) 	niwa.main(playerID);
+        # (Line 54) else if 	(v.P_HeroID[playerID] == 30) 	niwa.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 30):
         niwa.f_main(playerID)
-        # (Line 51) else if 	(v.P_HeroID[playerID] == 31) 	park.main(playerID);
+        # (Line 56) else if 	(v.P_HeroID[playerID] == 31) 	park.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 31):
         park.f_main(playerID)
-        # (Line 52) else if 	(v.P_HeroID[playerID] == 32) 	hodaka.main(playerID);
+        # (Line 57) else if 	(v.P_HeroID[playerID] == 32) 	hodaka.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 32):
         hodaka.f_main(playerID)
-        # (Line 53) else if 	(v.P_HeroID[playerID] == 34) 	tsukasa.main(playerID);
+        # (Line 58) else if 	(v.P_HeroID[playerID] == 33) 	zenitsu.main(playerID);
+    if EUDElseIf()(v.P_HeroID[playerID] == 33):
+        zenitsu.f_main(playerID)
+        # (Line 59) else if 	(v.P_HeroID[playerID] == 34) 	tsukasa.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 34):
         tsukasa.f_main(playerID)
-        # (Line 55) SetDeaths(playerID, SetTo, v.P_Shield[playerID], " `SystemShield");
+        # (Line 61) SetDeaths(playerID, SetTo, v.P_Shield[playerID], " `SystemShield");
     EUDEndIf()
-    # (Line 56) }
+    # (Line 62) }
     DoActions(SetDeaths(playerID, SetTo, v.P_Shield[playerID], " `SystemShield"))
