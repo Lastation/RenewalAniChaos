@@ -43,7 +43,10 @@ function main(playerID)
                var d = 45 * i;
                var n = 4; 
                var r = 50 + 50 * i;
-               trg.Shape_Circle(playerID, 1, "40 + 1n Ghost", d, n, r);
+               if (i >= 2)
+               {
+                  trg.Shape_Circle(playerID, 1, "40 + 1n Ghost", d, n, r);
+               }
                trg.Shape_Circle(playerID, 1, "Kakaru (Twilight)", d, n, r);
             }
             MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
@@ -59,8 +62,6 @@ function main(playerID)
 
          if (v.P_LoopMain[playerID] == 21)
          {                    
-            KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
-
             v.P_CountMain[playerID] += 1;
             v.P_LoopMain[playerID] = 0;
          }
@@ -74,7 +75,7 @@ function main(playerID)
             var d = 45;
             var n = 4; 
             var r = 25 + 25 * v.P_LoopMain[playerID];
-            trg.Shape_Circle(playerID, 1, "40 + 1n Wraith", d, n, r);
+            epic.Shape_Circle(playerID, 1, "40 + 1n Wraith", d, n, r, 1);
             trg.Shape_Circle(playerID, 1, "40 + 1n Zealot", d, n, r);
 
             MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
@@ -132,7 +133,7 @@ function main(playerID)
             var d = 0;
             var n = 4; 
             var r = 25 + 25 * v.P_LoopMain[playerID];
-            trg.Shape_Circle(playerID, 1, "40 + 1n Wraith", d, n, r);
+            epic.Shape_Circle(playerID, 1, "40 + 1n Wraith", d, n, r, 1);
             trg.Shape_Circle(playerID, 1, "40 + 1n Zealot", d, n, r);
 
             MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
@@ -157,6 +158,7 @@ function main(playerID)
          }
          else if (v.P_LoopMain[playerID] == 7)
          {
+            KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
             KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
          }
          else if (v.P_LoopMain[playerID] == 8)

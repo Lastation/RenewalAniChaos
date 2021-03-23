@@ -155,9 +155,9 @@ def f_main(playerID):
                 # (Line 17) var n = 4;
                 n = EUDVariable()
                 n << (4)
-                # (Line 18) var r = 100;
+                # (Line 18) var r = 125;
                 r = EUDVariable()
-                r << (100)
+                r << (125)
                 # (Line 19) trg.Shape_Circle(playerID, 1, "50 + 1n Battlecruiser", d, n, r);
                 trg.Shape_Circle(playerID, 1, "50 + 1n Battlecruiser", d, n, r)
                 # (Line 20) }
@@ -170,9 +170,9 @@ def f_main(playerID):
                 # (Line 24) var n = 4;
                 n = EUDVariable()
                 n << (4)
-                # (Line 25) var r = 100;
+                # (Line 25) var r = 125;
                 r = EUDVariable()
-                r << (100)
+                r << (125)
                 # (Line 26) trg.Shape_Circle(playerID, 1, "50 + 1n Battlecruiser", d, n, r);
                 trg.Shape_Circle(playerID, 1, "50 + 1n Battlecruiser", d, n, r)
                 # (Line 27) trg.Shape_Circle(playerID, 1, " Creep. Dunkelheit", d, n, r);

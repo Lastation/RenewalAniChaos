@@ -100,8 +100,8 @@ function main(playerID)
       {
          if (v.P_LoopMain[playerID] == 0)
          {          
-            trg.Shape_NxNSquare(playerID, 1, "50 + 1n Battlecruiser", 4, 100);
-            trg.Shape_NxNSquare(playerID, 1, "60 + 1n Archon", 4, 100);
+            trg.Shape_NxNSquare(playerID, 1, "50 + 1n Battlecruiser", 4, 125);
+            trg.Shape_NxNSquare(playerID, 1, "60 + 1n Archon", 4, 125);
 
             MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
             Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
@@ -114,7 +114,7 @@ function main(playerID)
          }
          else if (v.P_LoopMain[playerID] == 4)
          {          
-            trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 4, 100);
+            trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 4, 125);
 
             KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
          }
@@ -136,7 +136,7 @@ function main(playerID)
          if (v.P_LoopMain[playerID] < 8)
          {          
             var d = 22 + 90 * v.P_LoopMain[playerID];
-            var n = 7; 
+            var n = 8; 
             var interval = 64;
             var distance = 120;
             trg.Shape_Line(playerID, 1, "40 + 1n Mojo", d, n, interval, distance);
@@ -151,7 +151,7 @@ function main(playerID)
          if (v.P_LoopMain[playerID] < 9 && v.P_LoopMain[playerID] > 0)
          {          
             var d = 22 + 270 + 90 * v.P_LoopMain[playerID];
-            var n = 7; 
+            var n = 8; 
             var interval = 64;
             var distance = 120;
             trg.Shape_Line(playerID, 1, "Kakaru (Twilight)", d, n, interval, distance);

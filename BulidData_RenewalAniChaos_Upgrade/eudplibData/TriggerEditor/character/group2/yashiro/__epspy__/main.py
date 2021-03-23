@@ -177,8 +177,8 @@ def SkillList(playerID):
         v.stb.printAt(5, "　　　\x04\x1FSSS \x04헛된 소망 \x19[ 만능 ]")
         # (Line 31) v.stb.printAt(6, "　　　\x04\x1FACC \x04게임 오버 \x19[ 대인 / 순간딜 ]");
         v.stb.printAt(6, "　　　\x04\x1FACC \x04게임 오버 \x19[ 대인 / 순간딜 ]")
-        # (Line 32) v.stb.printAt(7, "　　　\x04\x1FCCC + AA \x04손에 넣는 것 \x19[ 대인 / 지속딜 ]");
-        v.stb.printAt(7, "　　　\x04\x1FCCC + AA \x04손에 넣는 것 \x19[ 대인 / 지속딜 ]")
+        # (Line 32) v.stb.printAt(7, "　　　\x04\x1FCCC + A \x04손에 넣는 것 \x19[ 대인 / 지속딜 ]");
+        v.stb.printAt(7, "　　　\x04\x1FCCC + A \x04손에 넣는 것 \x19[ 대인 / 지속딜 ]")
         # (Line 33) v.stb.printAt(8, "\n");
         v.stb.printAt(8, "\n")
         # (Line 34) v.stb.printAt(9, "　　　\x08AAA \x04타임 오버 \x19[ 대인 / 컴퓨터 동맹 / 무적 ] \x05", v.P_Ultimate1[playerID]);

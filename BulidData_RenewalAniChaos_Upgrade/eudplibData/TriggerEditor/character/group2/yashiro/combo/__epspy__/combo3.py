@@ -145,9 +145,9 @@ def f_main(playerID):
         if EUDIf()(v.P_CountMain[playerID] == 0):
             # (Line 11) {
             # (Line 12) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
-            # (Line 14) if (v.P_LoopMain[playerID] < 9)
+            # (Line 14) if (v.P_LoopMain[playerID] < 7)
             DoActions(KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID))
-            if EUDIf()(v.P_LoopMain[playerID] >= 9, neg=True):
+            if EUDIf()(v.P_LoopMain[playerID] >= 7, neg=True):
                 # (Line 15) {
                 # (Line 16) trg.Table_Sin(playerID, 30 + 30 * v.P_LoopMain[playerID], 125);
                 trg.Table_Sin(playerID, 30 + 30 * v.P_LoopMain[playerID], 125)
@@ -229,8 +229,8 @@ def f_main(playerID):
                 y << (0)
                 # (Line 68) adv.Shape_QuadNxNSquareAt(playerID, 1, "Kakaru (Twilight)", 2, 50, x, y);
                 adv.Shape_QuadNxNSquareAt(playerID, 1, "Kakaru (Twilight)", 2, 50, x, y)
-                # (Line 69) trg.Shape_Square(playerID, 4, "40 + 1n Ghost", x, y);
-                trg.Shape_Square(playerID, 4, "40 + 1n Ghost", x, y)
+                # (Line 69) trg.Shape_Square(playerID, 2, "40 + 1n Ghost", x, y);
+                trg.Shape_Square(playerID, 2, "40 + 1n Ghost", x, y)
                 # (Line 71) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
                 # (Line 72) MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
@@ -253,8 +253,8 @@ def f_main(playerID):
                 y << (100)
                 # (Line 84) adv.Shape_QuadNxNSquareAt(playerID, 1, "Kakaru (Twilight)", 2, 50, x, y);
                 adv.Shape_QuadNxNSquareAt(playerID, 1, "Kakaru (Twilight)", 2, 50, x, y)
-                # (Line 85) trg.Shape_Square(playerID, 4, "40 + 1n Ghost", x, y);
-                trg.Shape_Square(playerID, 4, "40 + 1n Ghost", x, y)
+                # (Line 85) trg.Shape_Square(playerID, 2, "40 + 1n Ghost", x, y);
+                trg.Shape_Square(playerID, 2, "40 + 1n Ghost", x, y)
                 # (Line 87) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
                 # (Line 88) MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))

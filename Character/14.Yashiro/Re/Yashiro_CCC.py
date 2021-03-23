@@ -10,7 +10,7 @@ function main(playerID)
       {
          KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
 
-         if (v.P_LoopMain[playerID] < 9)
+         if (v.P_LoopMain[playerID] < 7)
          {
             trg.Table_Sin(playerID, 30 + 30 * v.P_LoopMain[playerID], 125);
             trg.Table_Cos(playerID, 30 + 30 * v.P_LoopMain[playerID], 125);
@@ -65,7 +65,7 @@ function main(playerID)
             var y = 0;
 
             adv.Shape_QuadNxNSquareAt(playerID, 1, "Kakaru (Twilight)", 2, 50, x, y);
-            trg.Shape_Square(playerID, 4, "40 + 1n Ghost", x, y);
+            trg.Shape_Square(playerID, 2, "40 + 1n Ghost", x, y);
 
             MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
             MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
@@ -81,7 +81,7 @@ function main(playerID)
             var y = 100;
 
             adv.Shape_QuadNxNSquareAt(playerID, 1, "Kakaru (Twilight)", 2, 50, x, y);
-            trg.Shape_Square(playerID, 4, "40 + 1n Ghost", x, y);
+            trg.Shape_Square(playerID, 2, "40 + 1n Ghost", x, y);
 
             MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
             MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);

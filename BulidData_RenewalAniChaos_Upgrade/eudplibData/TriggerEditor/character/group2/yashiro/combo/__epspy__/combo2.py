@@ -296,10 +296,10 @@ def f_main(playerID):
             # (Line 102) if (v.P_LoopMain[playerID] == 0)
             if EUDIf()(v.P_LoopMain[playerID] == 0):
                 # (Line 103) {
-                # (Line 104) trg.Shape_NxNSquare(playerID, 1, "50 + 1n Battlecruiser", 4, 100);
-                trg.Shape_NxNSquare(playerID, 1, "50 + 1n Battlecruiser", 4, 100)
-                # (Line 105) trg.Shape_NxNSquare(playerID, 1, "60 + 1n Archon", 4, 100);
-                trg.Shape_NxNSquare(playerID, 1, "60 + 1n Archon", 4, 100)
+                # (Line 104) trg.Shape_NxNSquare(playerID, 1, "50 + 1n Battlecruiser", 4, 125);
+                trg.Shape_NxNSquare(playerID, 1, "50 + 1n Battlecruiser", 4, 125)
+                # (Line 105) trg.Shape_NxNSquare(playerID, 1, "60 + 1n Archon", 4, 125);
+                trg.Shape_NxNSquare(playerID, 1, "60 + 1n Archon", 4, 125)
                 # (Line 107) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
                 # (Line 108) Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
@@ -316,8 +316,8 @@ def f_main(playerID):
                 # (Line 116) else if (v.P_LoopMain[playerID] == 4)
             if EUDElseIf()(v.P_LoopMain[playerID] == 4):
                 # (Line 117) {
-                # (Line 118) trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 4, 100);
-                trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 4, 100)
+                # (Line 118) trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 4, 125);
+                trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 4, 125)
                 # (Line 120) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
                 # (Line 121) }
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID))
@@ -347,9 +347,9 @@ def f_main(playerID):
                 # (Line 139) var d = 22 + 90 * v.P_LoopMain[playerID];
                 d = EUDVariable()
                 d << (22 + 90 * v.P_LoopMain[playerID])
-                # (Line 140) var n = 7;
+                # (Line 140) var n = 8;
                 n = EUDVariable()
-                n << (7)
+                n << (8)
                 # (Line 141) var interval = 64;
                 interval = EUDVariable()
                 interval << (64)
@@ -376,9 +376,9 @@ def f_main(playerID):
                 # (Line 154) var d = 22 + 270 + 90 * v.P_LoopMain[playerID];
                 d = EUDVariable()
                 d << (22 + 270 + 90 * v.P_LoopMain[playerID])
-                # (Line 155) var n = 7;
+                # (Line 155) var n = 8;
                 n = EUDVariable()
-                n << (7)
+                n << (8)
                 # (Line 156) var interval = 64;
                 interval = EUDVariable()
                 interval << (64)
