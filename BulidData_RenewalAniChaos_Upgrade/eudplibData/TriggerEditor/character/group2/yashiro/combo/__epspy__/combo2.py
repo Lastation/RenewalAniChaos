@@ -358,64 +358,66 @@ def f_main(playerID):
                 distance << (120)
                 # (Line 143) trg.Shape_Line(playerID, 1, "40 + 1n Mojo", d, n, interval, distance);
                 trg.Shape_Line(playerID, 1, "40 + 1n Mojo", d, n, interval, distance)
-                # (Line 144) trg.Shape_Line(playerID, 1, " Creep. Dunkelheit", d, n, interval, distance);
+                # (Line 144) n = 6;
+                n << (6)
+                # (Line 145) trg.Shape_Line(playerID, 1, " Creep. Dunkelheit", d, n, interval, distance);
                 trg.Shape_Line(playerID, 1, " Creep. Dunkelheit", d, n, interval, distance)
-                # (Line 146) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
-                # (Line 147) MoveUnit(All, " Creep. Dunkelheit", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+                # (Line 147) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 148) MoveUnit(All, " Creep. Dunkelheit", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 148) Order(" Creep. Dunkelheit", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 149) Order(" Creep. Dunkelheit", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveUnit(All, " Creep. Dunkelheit", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]))
-                # (Line 150) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+                # (Line 151) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
                 DoActions(Order(" Creep. Dunkelheit", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                # (Line 151) }
+                # (Line 152) }
                 DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID))
-                # (Line 152) if (v.P_LoopMain[playerID] < 9 && v.P_LoopMain[playerID] > 0)
+                # (Line 153) if (v.P_LoopMain[playerID] < 9 && v.P_LoopMain[playerID] > 0)
             EUDEndIf()
             if EUDIf()(EUDSCAnd()(v.P_LoopMain[playerID] >= 9, neg=True)(v.P_LoopMain[playerID] <= 0, neg=True)()):
-                # (Line 153) {
-                # (Line 154) var d = 22 + 270 + 90 * v.P_LoopMain[playerID];
+                # (Line 154) {
+                # (Line 155) var d = 22 + 270 + 90 * v.P_LoopMain[playerID];
                 d = EUDVariable()
                 d << (22 + 270 + 90 * v.P_LoopMain[playerID])
-                # (Line 155) var n = 8;
+                # (Line 156) var n = 8;
                 n = EUDVariable()
                 n << (8)
-                # (Line 156) var interval = 64;
+                # (Line 157) var interval = 64;
                 interval = EUDVariable()
                 interval << (64)
-                # (Line 157) var distance = 120;
+                # (Line 158) var distance = 120;
                 distance = EUDVariable()
                 distance << (120)
-                # (Line 158) trg.Shape_Line(playerID, 1, "Kakaru (Twilight)", d, n, interval, distance);
+                # (Line 159) trg.Shape_Line(playerID, 1, "Kakaru (Twilight)", d, n, interval, distance);
                 trg.Shape_Line(playerID, 1, "Kakaru (Twilight)", d, n, interval, distance)
-                # (Line 159) trg.Shape_Line(playerID, 1, "60 + 1n Archon", d, n, interval, distance);
+                # (Line 160) trg.Shape_Line(playerID, 1, "60 + 1n Archon", d, n, interval, distance);
                 trg.Shape_Line(playerID, 1, "60 + 1n Archon", d, n, interval, distance)
-                # (Line 161) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
-                # (Line 162) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+                # (Line 162) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+                # (Line 163) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID))
-                # (Line 163) }
+                # (Line 164) }
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID))
-                # (Line 165) trg.Main_Wait(80);
+                # (Line 166) trg.Main_Wait(80);
             EUDEndIf()
             trg.Main_Wait(80)
-            # (Line 167) v.P_LoopMain[playerID] += 1;
+            # (Line 168) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 169) if (v.P_LoopMain[playerID] == 9)
+            # (Line 170) if (v.P_LoopMain[playerID] == 9)
             if EUDIf()(v.P_LoopMain[playerID] == 9):
-                # (Line 170) {
-                # (Line 171) v.P_CountMain[playerID] += 1;
+                # (Line 171) {
+                # (Line 172) v.P_CountMain[playerID] += 1;
                 _ARRW(v.P_CountMain, playerID).__iadd__(1)
-                # (Line 172) v.P_LoopMain[playerID] = 0;
+                # (Line 173) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 173) }
                 # (Line 174) }
+                # (Line 175) }
             EUDEndIf()
-            # (Line 175) else if (v.P_CountMain[playerID] == 4)
+            # (Line 176) else if (v.P_CountMain[playerID] == 4)
         if EUDElseIf()(v.P_CountMain[playerID] == 4):
-            # (Line 176) {
-            # (Line 177) trg.SkillEnd();
+            # (Line 177) {
+            # (Line 178) trg.SkillEnd();
             trg.SkillEnd()
-            # (Line 178) }
             # (Line 179) }
+            # (Line 180) }
         EUDEndIf()
-        # (Line 180) }
+        # (Line 181) }
     EUDEndIf()

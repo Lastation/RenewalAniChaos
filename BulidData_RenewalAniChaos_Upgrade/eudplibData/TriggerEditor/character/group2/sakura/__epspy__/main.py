@@ -167,8 +167,8 @@ def SkillList(playerID):
         v.stb.printAt(1, "\x1F　＃\x1B- 마토 사쿠라　\x04[ Fate/stay night - Heaven's Feel' ]")
         # (Line 26) v.stb.printAt(2, "　　\x1FA\x04ction List");
         v.stb.printAt(2, "　　\x1FA\x04ction List")
-        # (Line 27) v.stb.printAt(3, "　　　\x18O \x04마력 흡수 \x19[ 적 전체 가스 400 제거 / 가스 400 회복 ] \x053분");
-        v.stb.printAt(3, "　　　\x18O \x04마력 흡수 \x19[ 적 전체 가스 400 제거 / 가스 400 회복 ] \x053분")
+        # (Line 27) v.stb.printAt(3, "　　　\x18O \x04마력 흡수 \x19[ 적 전체 가스 200 제거 / 가스 200 회복 ] \x053분");
+        v.stb.printAt(3, "　　　\x18O \x04마력 흡수 \x19[ 적 전체 가스 200 제거 / 가스 200 회복 ] \x053분")
         # (Line 28) v.stb.printAt(4, "　　　\x04\x1FSSA \x04포식 \x19[ 대인 / 순간딜 ]");
         v.stb.printAt(4, "　　　\x04\x1FSSA \x04포식 \x19[ 대인 / 순간딜 ]")
         # (Line 29) v.stb.printAt(5, "　　　\x04\x1FCCC + AA \x04불행 \x19[ 공성 / 자리고정 / 귀환봉인 ] \x1F[1]");

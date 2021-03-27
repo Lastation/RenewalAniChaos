@@ -41,6 +41,7 @@ import character.group6.park.text as park;
 import character.group6.hodaka.text 	as hodaka;
 import character.group6.tsukasa.text 	as tsukasa;
 import character.group6.zenitsu.text 	as zenitsu;
+import character.group6.endeavor.text 	as endeavor;
 
 function CharacterVoice(count : TrgCount)
 {
@@ -72,6 +73,7 @@ function CharacterVoice(count : TrgCount)
 		else if 	(v.P_HeroID[playerID] == 32)	{ hodaka.	P_player[idx] = count; hodaka.	P_observer[idx] = count; 	}
 		else if 	(v.P_HeroID[playerID] == 33)	{ zenitsu.	P_player[idx] = count; zenitsu.	P_observer[idx] = count; 	}
 		else if 	(v.P_HeroID[playerID] == 34)	{ tsukasa.	P_player[idx] = count; tsukasa.	P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 35)	{ endeavor.	P_player[idx] = count; endeavor.	P_observer[idx] = count; 	}
 	}
 }
 
@@ -255,4 +257,5 @@ function main(playerID)
 	hodaka.main(playerID);
 	tsukasa.main(playerID);
 	zenitsu.main(playerID);
+	endeavor.main(playerID);
 }

@@ -175,8 +175,8 @@ def SkillList(playerID):
         v.stb.printAt(3, "　　　\x18O \x04만개 \x19[ 공 3 업 방 3 다운 / 최대 3 중첩 가능 / 사망 시 해제 ] \x051분")
         # (Line 30) v.stb.printAt(4, "　　　\x04\x1FSSS + AS \x04인간 \x19[ 대인 / 순간딜 / AS - 자리고정 ]");
         v.stb.printAt(4, "　　　\x04\x1FSSS + AS \x04인간 \x19[ 대인 / 순간딜 / AS - 자리고정 ]")
-        # (Line 31) v.stb.printAt(5, "　　　\x04\x1FCCA \x04강인함 \x19[ 공성 / 순간딜 / 자리고정 ]");
-        v.stb.printAt(5, "　　　\x04\x1FCCA \x04강인함 \x19[ 공성 / 순간딜 / 자리고정 ]")
+        # (Line 31) v.stb.printAt(5, "　　　\x04\x1FCCC \x04강인함 \x19[ 공성 / 순간딜 / 자리고정 ]");
+        v.stb.printAt(5, "　　　\x04\x1FCCC \x04강인함 \x19[ 공성 / 순간딜 / 자리고정 ]")
         # (Line 32) v.stb.printAt(6, "　　　\x04\x1FCAAA + 100 Gas \x04희생 \x19[ 공성 / 지속딜 / 자리고정 ]");
         v.stb.printAt(6, "　　　\x04\x1FCAAA + 100 Gas \x04희생 \x19[ 공성 / 지속딜 / 자리고정 ]")
         # (Line 33) v.stb.printAt(7, "\n");

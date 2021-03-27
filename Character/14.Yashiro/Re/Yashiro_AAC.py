@@ -140,6 +140,7 @@ function main(playerID)
             var interval = 64;
             var distance = 120;
             trg.Shape_Line(playerID, 1, "40 + 1n Mojo", d, n, interval, distance);
+            n = 6;
             trg.Shape_Line(playerID, 1, " Creep. Dunkelheit", d, n, interval, distance);
 
             MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");

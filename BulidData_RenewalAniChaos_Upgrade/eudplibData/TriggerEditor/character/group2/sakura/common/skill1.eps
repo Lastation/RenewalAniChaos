@@ -18,18 +18,18 @@ function main(playerID)
             {
                for (var i = 3; i < 6; i++)
                { 
-                  SetResources(i, Subtract, 400, Gas);
+                  SetResources(i, Subtract, 200, Gas);
                }
             }
             else
             {
                for (var i = 0; i < 3; i++)
                { 
-                  SetResources(i, Subtract, 400, Gas);
+                  SetResources(i, Subtract, 200, Gas);
                }
             }
 
-            SetResources(playerID, Add, 400, Gas);
+            SetResources(playerID, Add, 200, Gas);
          }
 
          trg.Main_Wait(80);

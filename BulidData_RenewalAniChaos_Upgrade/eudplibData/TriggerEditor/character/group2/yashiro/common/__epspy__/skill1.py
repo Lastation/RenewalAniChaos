@@ -148,79 +148,34 @@ def f_main(playerID):
                 # (Line 13) trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", 0, 0);
                 trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", 0, 0)
                 # (Line 15) KillUnitAt(All,  "40 + 1n Wraith", "Anywhere", playerID);
-                # (Line 17) trg.ResizeLocation(playerID, 15, 15);
+                # (Line 16) }
                 DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID))
-                trg.ResizeLocation(playerID, 15, 15)
-                # (Line 19) if (playerID < 3)
-                if EUDIf()(playerID >= 3, neg=True):
-                    # (Line 20) {
-                    # (Line 21) for (var i = 3; i < 6; i++)
-                    i = EUDVariable()
-                    i << (3)
-                    if EUDWhile()(i >= 6, neg=True):
-                        def _t6():
-                            i.__iadd__(1)
-                        # (Line 22) {
-                        # (Line 23) if (Bring(i, AtLeast, 1, v.P_UnitID[i], v.P_LocationID[playerID]))
-                        if EUDIf()(Bring(i, AtLeast, 1, v.P_UnitID[i], v.P_LocationID[playerID])):
-                            # (Line 24) {
-                            # (Line 25) trg.Debuff_BanReturnPlayer(i);
-                            trg.Debuff_BanReturnPlayer(i)
-                            # (Line 26) }
-                            # (Line 27) }
-                        EUDEndIf()
-                        # (Line 28) }
-                        EUDSetContinuePoint()
-                        _t6()
-                    EUDEndWhile()
-                    # (Line 29) else
-                    # (Line 30) {
-                if EUDElse()():
-                    # (Line 31) for (var i = 0; i < 3; i++)
-                    i = EUDVariable()
-                    i << (0)
-                    if EUDWhile()(i >= 3, neg=True):
-                        def _t9():
-                            i.__iadd__(1)
-                        # (Line 32) {
-                        # (Line 33) if (Bring(i, AtLeast, 1, v.P_UnitID[i], v.P_LocationID[playerID]))
-                        if EUDIf()(Bring(i, AtLeast, 1, v.P_UnitID[i], v.P_LocationID[playerID])):
-                            # (Line 34) {
-                            # (Line 35) trg.Debuff_BanReturnPlayer(i);
-                            trg.Debuff_BanReturnPlayer(i)
-                            # (Line 36) }
-                            # (Line 37) }
-                        EUDEndIf()
-                        # (Line 38) }
-                        EUDSetContinuePoint()
-                        _t9()
-                    EUDEndWhile()
-                    # (Line 39) }
-                EUDEndIf()
-                # (Line 41) trg.Main_Wait(80);
+                # (Line 17) trg.Main_Wait(80);
             EUDEndIf()
             trg.Main_Wait(80)
-            # (Line 43) v.P_LoopMain[playerID] += 1;
+            # (Line 19) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 45) if (v.P_LoopMain[playerID] == 1)
+            # (Line 21) if (v.P_LoopMain[playerID] == 1)
             if EUDIf()(v.P_LoopMain[playerID] == 1):
-                # (Line 46) {
-                # (Line 47) v.P_CountMain[playerID] += 1;
+                # (Line 22) {
+                # (Line 23) v.P_CountMain[playerID] += 1;
                 _ARRW(v.P_CountMain, playerID).__iadd__(1)
-                # (Line 48) v.P_LoopMain[playerID] = 0;
+                # (Line 24) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 49) }
-                # (Line 50) }
+                # (Line 25) }
+                # (Line 26) }
             EUDEndIf()
-            # (Line 51) else if (v.P_CountMain[playerID] == 1)
+            # (Line 27) else if (v.P_CountMain[playerID] == 1)
         if EUDElseIf()(v.P_CountMain[playerID] == 1):
-            # (Line 52) {
-            # (Line 53) SetDeaths(playerID, SetTo, 2160, " `UniqueCoolTime");
-            # (Line 55) trg.SkillEnd();
-            DoActions(SetDeaths(playerID, SetTo, 2160, " `UniqueCoolTime"))
+            # (Line 28) {
+            # (Line 29) SetDeaths(playerID, SetTo, 1800, " `UniqueCoolTime");
+            # (Line 30) SetDeaths(playerID, SetTo, 120, " `UniqueSkill");
+            DoActions(SetDeaths(playerID, SetTo, 1800, " `UniqueCoolTime"))
+            # (Line 31) trg.SkillEnd();
+            DoActions(SetDeaths(playerID, SetTo, 120, " `UniqueSkill"))
             trg.SkillEnd()
-            # (Line 56) }
-            # (Line 57) }
+            # (Line 32) }
+            # (Line 33) }
         EUDEndIf()
-        # (Line 58) }
+        # (Line 34) }
     EUDEndIf()

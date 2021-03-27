@@ -176,8 +176,8 @@ def SetVariable(playerID):
     if _t2(10):
         if EUDIf()(Deaths((13), (0), 1, (204))):
             # (Line 30) {
-            # (Line 31) v.Dfs[playerID] += 10;
-            _ARRW(v.Dfs, playerID).__iadd__(10)
+            # (Line 31) v.Dfs[playerID] += 15;
+            _ARRW(v.Dfs, playerID).__iadd__(15)
             # (Line 32) SetDeaths((13), (9), 1, (204));
             # (Line 33) }
             DoActions(SetDeaths((13), (9), 1, (204)))
@@ -200,59 +200,72 @@ def SetVariable(playerID):
         _ARRW(v.Dfs, playerID).__isub__(3 * f_dwread_epd(204 * 12 + playerID))
         # (Line 40) break;
         EUDBreak()
-        # (Line 41) }
-    # (Line 43) switch (v.P_HeroID[playerID])	// 공격력 관련
-    EUDEndSwitch()
-    EUDSwitch(v.P_HeroID[playerID])
-    # (Line 44) {
-    # (Line 45) case 14:
+        # (Line 41) case 35://엔데버
     _t7 = EUDSwitchCase()
-    # (Line 46) v.Atk[playerID] += 2 * (dwread_epd(204 * 12 + playerID) / 8);
-    if _t7(14):
-        _ARRW(v.Atk, playerID).__iadd__(2 * (f_dwread_epd(204 * 12 + playerID) // 8))
-        # (Line 47) break;
-        EUDBreak()
-        # (Line 48) case 22:
-    _t8 = EUDSwitchCase()
-    # (Line 49) v.Atk[playerID] += 3 * dwread_epd(204 * 12 + playerID);
-    if _t8(22):
-        _ARRW(v.Atk, playerID).__iadd__(3 * f_dwread_epd(204 * 12 + playerID))
-        # (Line 50) break;
-        EUDBreak()
-        # (Line 51) case 30:
-    _t9 = EUDSwitchCase()
-    # (Line 52) if (Deaths(playerID, AtLeast, 1, " `UniqueSkill"))
-    if _t9(30):
+    # (Line 42) if (Deaths(playerID, AtLeast, 1, " `UniqueSkill"))
+    if _t7(35):
         if EUDIf()(Deaths(playerID, AtLeast, 1, " `UniqueSkill")):
-            # (Line 53) v.Atk[playerID] += 10;
-            _ARRW(v.Atk, playerID).__iadd__(10)
-            # (Line 54) break;
+            # (Line 43) v.Dfs[playerID] += 15;
+            _ARRW(v.Dfs, playerID).__iadd__(15)
+            # (Line 44) break;
         EUDEndIf()
         EUDBreak()
-        # (Line 55) }
-    # (Line 56) if (playerID < 3 && Switch("Passive - Nanami1", Set) && Bring(playerID, AtLeast, 1, "Any unit", "24.Nanami_Bozo")) { v.Atk[playerID] += 5; v.Dfs[playerID] += 5; }
+        # (Line 45) }
+    # (Line 47) switch (v.P_HeroID[playerID])	// 공격력 관련
+    EUDEndSwitch()
+    EUDSwitch(v.P_HeroID[playerID])
+    # (Line 48) {
+    # (Line 49) case 14:
+    _t9 = EUDSwitchCase()
+    # (Line 50) if (Deaths(playerID, AtLeast, 1, " `UniqueSkill"))
+    if _t9(14):
+        if EUDIf()(Deaths(playerID, AtLeast, 1, " `UniqueSkill")):
+            # (Line 51) v.Atk[playerID] += 10;
+            _ARRW(v.Atk, playerID).__iadd__(10)
+            # (Line 52) break;
+        EUDEndIf()
+        EUDBreak()
+        # (Line 53) case 22:
+    _t11 = EUDSwitchCase()
+    # (Line 54) v.Atk[playerID] += 3 * dwread_epd(204 * 12 + playerID);
+    if _t11(22):
+        _ARRW(v.Atk, playerID).__iadd__(3 * f_dwread_epd(204 * 12 + playerID))
+        # (Line 55) break;
+        EUDBreak()
+        # (Line 56) case 30:
+    _t12 = EUDSwitchCase()
+    # (Line 57) if (Deaths(playerID, AtLeast, 1, " `UniqueSkill"))
+    if _t12(30):
+        if EUDIf()(Deaths(playerID, AtLeast, 1, " `UniqueSkill")):
+            # (Line 58) v.Atk[playerID] += 10;
+            _ARRW(v.Atk, playerID).__iadd__(10)
+            # (Line 59) break;
+        EUDEndIf()
+        EUDBreak()
+        # (Line 60) }
+    # (Line 61) if (playerID < 3 && Switch("Passive - Nanami1", Set) && Bring(playerID, AtLeast, 1, "Any unit", "24.Nanami_Bozo")) { v.Atk[playerID] += 5; v.Dfs[playerID] += 5; }
     EUDEndSwitch()
     if EUDIf()(EUDSCAnd()(playerID >= 3, neg=True)(Switch("Passive - Nanami1", Set))(Bring(playerID, AtLeast, 1, "Any unit", "24.Nanami_Bozo"))()):
         _ARRW(v.Atk, playerID).__iadd__(5)
         _ARRW(v.Dfs, playerID).__iadd__(5)
-        # (Line 57) else if (playerID >= 3 && Switch("Passive - Nanami2", Set) && Bring(playerID, AtLeast, 1, "Any unit", "24.Nanami_Bozo")) { v.Atk[playerID] += 5; v.Dfs[playerID] += 5; }
+        # (Line 62) else if (playerID >= 3 && Switch("Passive - Nanami2", Set) && Bring(playerID, AtLeast, 1, "Any unit", "24.Nanami_Bozo")) { v.Atk[playerID] += 5; v.Dfs[playerID] += 5; }
     if EUDElseIf()(EUDSCAnd()(playerID >= 3)(Switch("Passive - Nanami2", Set))(Bring(playerID, AtLeast, 1, "Any unit", "24.Nanami_Bozo"))()):
         _ARRW(v.Atk, playerID).__iadd__(5)
         _ARRW(v.Dfs, playerID).__iadd__(5)
-        # (Line 59) if (playerID < 3 && Switch("Unique - Nanami1", Set)) { v.Atk[playerID] += 5; v.Dfs[playerID] += 5; }
+        # (Line 64) if (playerID < 3 && Switch("Unique - Nanami1", Set)) { v.Atk[playerID] += 5; v.Dfs[playerID] += 5; }
     EUDEndIf()
     if EUDIf()(EUDSCAnd()(playerID >= 3, neg=True)(Switch("Unique - Nanami1", Set))()):
         _ARRW(v.Atk, playerID).__iadd__(5)
         _ARRW(v.Dfs, playerID).__iadd__(5)
-        # (Line 60) else if (playerID >= 3 && Switch("Unique - Nanami2", Set)) { v.Atk[playerID] += 5; v.Dfs[playerID] += 5; }
+        # (Line 65) else if (playerID >= 3 && Switch("Unique - Nanami2", Set)) { v.Atk[playerID] += 5; v.Dfs[playerID] += 5; }
     if EUDElseIf()(EUDSCAnd()(playerID >= 3)(Switch("Unique - Nanami2", Set))()):
         _ARRW(v.Atk, playerID).__iadd__(5)
         _ARRW(v.Dfs, playerID).__iadd__(5)
-        # (Line 62) bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (playerID) * (46 - 31 * ((2) / 46)) + ((2) % 46), v.Dfs[playerID]); 	//방어력 최종 적용
+        # (Line 67) bwrite(0x58D2B0 + 0x207C * ((2) / 46) + (playerID) * (46 - 31 * ((2) / 46)) + ((2) % 46), v.Dfs[playerID]); 	//방어력 최종 적용
     EUDEndIf()
     f_bwrite(0x58D2B0 + 0x207C * ((2) // 46) + (playerID) * (46 - 31 * ((2) // 46)) + ((2) % 46), v.Dfs[playerID])
-    # (Line 63) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (playerID) * (46 - 31 * ((9) / 46)) + ((9) % 46), v.Atk[playerID]);	//공격력 최종 적용
+    # (Line 68) bwrite(0x58D2B0 + 0x207C * ((9) / 46) + (playerID) * (46 - 31 * ((9) / 46)) + ((9) % 46), v.Atk[playerID]);	//공격력 최종 적용
     f_bwrite(0x58D2B0 + 0x207C * ((9) // 46) + (playerID) * (46 - 31 * ((9) // 46)) + ((9) % 46), v.Atk[playerID])
-    # (Line 65) ModifyUnitShields(All, v.P_UnitID[playerID], playerID, "Anywhere", v.P_Shield[playerID]);			//쉴드 고정
-    # (Line 66) }
+    # (Line 70) ModifyUnitShields(All, v.P_UnitID[playerID], playerID, "Anywhere", v.P_Shield[playerID]);			//쉴드 고정
+    # (Line 71) }
     DoActions(ModifyUnitShields(All, v.P_UnitID[playerID], playerID, "Anywhere", v.P_Shield[playerID]))

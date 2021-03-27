@@ -28,7 +28,7 @@ function SetVariable(playerID)
 	case 10:	//얼터
 		if (Deaths((13), (0), 1, (204)))
 		{
-			v.Dfs[playerID] += 10;
+			v.Dfs[playerID] += 15;
 			SetDeaths((13), (9), 1, (204));
 		}
 		break;
@@ -38,12 +38,17 @@ function SetVariable(playerID)
   	case 22:	//유우나
   		v.Dfs[playerID] -= 3 * dwread_epd(204 * 12 + playerID);
      		break;
+	case 35://엔데버
+     		if (Deaths(playerID, AtLeast, 1, " `UniqueSkill"))
+  			v.Dfs[playerID] += 15;
+  		break;
 	}
 	
 	switch (v.P_HeroID[playerID])	// 공격력 관련
 	{
   	case 14:
-      		v.Atk[playerID] += 2 * (dwread_epd(204 * 12 + playerID) / 8);
+     		if (Deaths(playerID, AtLeast, 1, " `UniqueSkill"))
+	     		v.Atk[playerID] += 10;
      		break;
   	case 22:
       		v.Atk[playerID] += 3 * dwread_epd(204 * 12 + playerID);

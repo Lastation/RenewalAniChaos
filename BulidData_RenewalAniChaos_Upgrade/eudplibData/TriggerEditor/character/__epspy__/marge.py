@@ -172,74 +172,79 @@ from character.group6.hodaka import main as hodaka
 from character.group6.tsukasa import main as tsukasa
 # (Line 28) import character.group6.zenitsu.main 	as zenitsu;
 from character.group6.zenitsu import main as zenitsu
-# (Line 30) function main(playerID)
-# (Line 31) {
+# (Line 29) import character.group6.endeavor.main 	as endeavor;
+from character.group6.endeavor import main as endeavor
+# (Line 31) function main(playerID)
+# (Line 32) {
 @EUDFunc
 def f_main(playerID):
-    # (Line 32) trg.Main_WaitLoop();
+    # (Line 33) trg.Main_WaitLoop();
     trg.Main_WaitLoop()
-    # (Line 34) text.BuildingText(playerID);
+    # (Line 35) text.BuildingText(playerID);
     text.BuildingText(playerID)
-    # (Line 35) text.ShopText(playerID);
+    # (Line 36) text.ShopText(playerID);
     text.ShopText(playerID)
-    # (Line 37) if 		(v.P_HeroID[playerID] == 1) 		rusaruka.main(playerID);
+    # (Line 38) if 		(v.P_HeroID[playerID] == 1) 		rusaruka.main(playerID);
     if EUDIf()(v.P_HeroID[playerID] == 1):
         rusaruka.f_main(playerID)
-        # (Line 38) else if 	(v.P_HeroID[playerID] == 2) 		chtholly.main(playerID);
+        # (Line 39) else if 	(v.P_HeroID[playerID] == 2) 		chtholly.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 2):
         chtholly.f_main(playerID)
-        # (Line 39) else if 	(v.P_HeroID[playerID] == 3) 		maihime.main(playerID);
+        # (Line 40) else if 	(v.P_HeroID[playerID] == 3) 		maihime.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 3):
         maihime.f_main(playerID)
-        # (Line 41) else if 	(v.P_HeroID[playerID] == 12) 	kurumi.main(playerID);
+        # (Line 42) else if 	(v.P_HeroID[playerID] == 12) 	kurumi.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 12):
         kurumi.f_main(playerID)
-        # (Line 42) else if 	(v.P_HeroID[playerID] == 13) 	sakura.main(playerID);
+        # (Line 43) else if 	(v.P_HeroID[playerID] == 13) 	sakura.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 13):
         sakura.f_main(playerID)
-        # (Line 43) else if 	(v.P_HeroID[playerID] == 14) 	yashiro.main(playerID);
+        # (Line 44) else if 	(v.P_HeroID[playerID] == 14) 	yashiro.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 14):
         yashiro.f_main(playerID)
-        # (Line 45) else if 	(v.P_HeroID[playerID] == 22) 	yuuna.main(playerID);
+        # (Line 46) else if 	(v.P_HeroID[playerID] == 22) 	yuuna.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 22):
         yuuna.f_main(playerID)
-        # (Line 46) else if 	(v.P_HeroID[playerID] == 23) 	mayuri.main(playerID);
+        # (Line 47) else if 	(v.P_HeroID[playerID] == 23) 	mayuri.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 23):
         mayuri.f_main(playerID)
-        # (Line 47) else if 	(v.P_HeroID[playerID] == 24) 	nanami.main(playerID);
+        # (Line 48) else if 	(v.P_HeroID[playerID] == 24) 	nanami.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 24):
         nanami.f_main(playerID)
-        # (Line 48) else if 	(v.P_HeroID[playerID] == 25) 	milim.main(playerID);
+        # (Line 49) else if 	(v.P_HeroID[playerID] == 25) 	milim.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 25):
         milim.f_main(playerID)
-        # (Line 50) else if 	(v.P_HeroID[playerID] == 26) 	yume.main(playerID);
+        # (Line 51) else if 	(v.P_HeroID[playerID] == 26) 	yume.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 26):
         yume.f_main(playerID)
-        # (Line 51) else if 	(v.P_HeroID[playerID] == 27) 	magane.main(playerID);
+        # (Line 52) else if 	(v.P_HeroID[playerID] == 27) 	magane.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 27):
         magane.f_main(playerID)
-        # (Line 52) else if 	(v.P_HeroID[playerID] == 28) 	oda.main(playerID);
+        # (Line 53) else if 	(v.P_HeroID[playerID] == 28) 	oda.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 28):
         oda.f_main(playerID)
-        # (Line 53) else if 	(v.P_HeroID[playerID] == 29) 	ekidona.main(playerID);
+        # (Line 54) else if 	(v.P_HeroID[playerID] == 29) 	ekidona.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 29):
         ekidona.f_main(playerID)
-        # (Line 54) else if 	(v.P_HeroID[playerID] == 30) 	niwa.main(playerID);
+        # (Line 55) else if 	(v.P_HeroID[playerID] == 30) 	niwa.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 30):
         niwa.f_main(playerID)
-        # (Line 56) else if 	(v.P_HeroID[playerID] == 31) 	park.main(playerID);
+        # (Line 57) else if 	(v.P_HeroID[playerID] == 31) 	park.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 31):
         park.f_main(playerID)
-        # (Line 57) else if 	(v.P_HeroID[playerID] == 32) 	hodaka.main(playerID);
+        # (Line 58) else if 	(v.P_HeroID[playerID] == 32) 	hodaka.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 32):
         hodaka.f_main(playerID)
-        # (Line 58) else if 	(v.P_HeroID[playerID] == 33) 	zenitsu.main(playerID);
+        # (Line 59) else if 	(v.P_HeroID[playerID] == 33) 	zenitsu.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 33):
         zenitsu.f_main(playerID)
-        # (Line 59) else if 	(v.P_HeroID[playerID] == 34) 	tsukasa.main(playerID);
+        # (Line 60) else if 	(v.P_HeroID[playerID] == 34) 	tsukasa.main(playerID);
     if EUDElseIf()(v.P_HeroID[playerID] == 34):
         tsukasa.f_main(playerID)
-        # (Line 61) SetDeaths(playerID, SetTo, v.P_Shield[playerID], " `SystemShield");
+        # (Line 61) else if 	(v.P_HeroID[playerID] == 35) 	endeavor.main(playerID);
+    if EUDElseIf()(v.P_HeroID[playerID] == 35):
+        endeavor.f_main(playerID)
+        # (Line 63) SetDeaths(playerID, SetTo, v.P_Shield[playerID], " `SystemShield");
     EUDEndIf()
-    # (Line 62) }
+    # (Line 64) }
     DoActions(SetDeaths(playerID, SetTo, v.P_Shield[playerID], " `SystemShield"))

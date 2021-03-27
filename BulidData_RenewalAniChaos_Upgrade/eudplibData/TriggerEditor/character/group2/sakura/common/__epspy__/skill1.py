@@ -159,9 +159,9 @@ def f_main(playerID):
                         def _t6():
                             i.__iadd__(1)
                         # (Line 20) {
-                        # (Line 21) SetResources(i, Subtract, 400, Gas);
+                        # (Line 21) SetResources(i, Subtract, 200, Gas);
                         # (Line 22) }
-                        DoActions(SetResources(i, Subtract, 400, Gas))
+                        DoActions(SetResources(i, Subtract, 200, Gas))
                         # (Line 23) }
                         EUDSetContinuePoint()
                         _t6()
@@ -176,17 +176,17 @@ def f_main(playerID):
                         def _t8():
                             i.__iadd__(1)
                         # (Line 27) {
-                        # (Line 28) SetResources(i, Subtract, 400, Gas);
+                        # (Line 28) SetResources(i, Subtract, 200, Gas);
                         # (Line 29) }
-                        DoActions(SetResources(i, Subtract, 400, Gas))
+                        DoActions(SetResources(i, Subtract, 200, Gas))
                         # (Line 30) }
                         EUDSetContinuePoint()
                         _t8()
                     EUDEndWhile()
-                    # (Line 32) SetResources(playerID, Add, 400, Gas);
+                    # (Line 32) SetResources(playerID, Add, 200, Gas);
                 EUDEndIf()
                 # (Line 33) }
-                DoActions(SetResources(playerID, Add, 400, Gas))
+                DoActions(SetResources(playerID, Add, 200, Gas))
                 # (Line 35) trg.Main_Wait(80);
             EUDEndIf()
             trg.Main_Wait(80)

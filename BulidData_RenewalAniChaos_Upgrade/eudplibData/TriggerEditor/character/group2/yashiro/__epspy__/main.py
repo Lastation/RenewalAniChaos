@@ -169,117 +169,113 @@ def SkillList(playerID):
         v.stb.printAt(1, "\x1F　＃\x1B- 야시로 가쿠　\x04[ 나만이 없는 거리 ]")
         # (Line 27) v.stb.printAt(2, "　　\x1FA\x04ction List");
         v.stb.printAt(2, "　　\x1FA\x04ction List")
-        # (Line 28) v.stb.printAt(3, "　　  \x19P\x04assive 연쇄살인 \x19[ 8킬 당, 영구 공격력 증가 2 ] \x08KILL \x04: ", v.P_KillScore[playerID]);
-        v.stb.printAt(3, "　　  \x19P\x04assive 연쇄살인 \x19[ 8킬 당, 영구 공격력 증가 2 ] \x08KILL \x04: ", v.P_KillScore[playerID])
-        # (Line 29) v.stb.printAt(4, "　　　\x18O \x04조소 \x19[ 주변 적 귀환 취소 ] \x053분");
-        v.stb.printAt(4, "　　　\x18O \x04조소 \x19[ 주변 적 귀환 취소 ] \x053분")
-        # (Line 30) v.stb.printAt(5, "　　　\x04\x1FSSS \x04헛된 소망 \x19[ 만능 ]");
-        v.stb.printAt(5, "　　　\x04\x1FSSS \x04헛된 소망 \x19[ 만능 ]")
-        # (Line 31) v.stb.printAt(6, "　　　\x04\x1FACC \x04게임 오버 \x19[ 대인 / 순간딜 ]");
-        v.stb.printAt(6, "　　　\x04\x1FACC \x04게임 오버 \x19[ 대인 / 순간딜 ]")
-        # (Line 32) v.stb.printAt(7, "　　　\x04\x1FCCC + A \x04손에 넣는 것 \x19[ 대인 / 지속딜 ]");
-        v.stb.printAt(7, "　　　\x04\x1FCCC + A \x04손에 넣는 것 \x19[ 대인 / 지속딜 ]")
-        # (Line 33) v.stb.printAt(8, "\n");
-        v.stb.printAt(8, "\n")
-        # (Line 34) v.stb.printAt(9, "　　　\x08AAA \x04타임 오버 \x19[ 대인 / 컴퓨터 동맹 / 무적 ] \x05", v.P_Ultimate1[playerID]);
-        v.stb.printAt(9, "　　　\x08AAA \x04타임 오버 \x19[ 대인 / 컴퓨터 동맹 / 무적 ] \x05", v.P_Ultimate1[playerID])
-        # (Line 35) v.stb.printAt(10, "\n");
-        v.stb.printAt(10, "\n")
-        # (Line 36) PlayWAV("sound\\Bullet\\LaserHit.wav");
-        # (Line 37) }
+        # (Line 28) v.stb.printAt(3, "　　　\x18O \x04조소 \x19[ 10초 간 공격력 10 증가 ] \x052분 30초");
+        v.stb.printAt(3, "　　　\x18O \x04조소 \x19[ 10초 간 공격력 10 증가 ] \x052분 30초")
+        # (Line 29) v.stb.printAt(4, "　　　\x04\x1FSSS \x04헛된 소망 \x19[ 만능 ]");
+        v.stb.printAt(4, "　　　\x04\x1FSSS \x04헛된 소망 \x19[ 만능 ]")
+        # (Line 30) v.stb.printAt(5, "　　　\x04\x1FAAC \x04게임 오버 \x19[ 대인 / 순간딜 ]");
+        v.stb.printAt(5, "　　　\x04\x1FAAC \x04게임 오버 \x19[ 대인 / 순간딜 ]")
+        # (Line 31) v.stb.printAt(6, "　　　\x04\x1FCCC + A \x04손에 넣는 것 \x19[ 대인 / 지속딜 ]");
+        v.stb.printAt(6, "　　　\x04\x1FCCC + A \x04손에 넣는 것 \x19[ 대인 / 지속딜 ]")
+        # (Line 32) v.stb.printAt(7, "\n");
+        v.stb.printAt(7, "\n")
+        # (Line 33) v.stb.printAt(8, "　　　\x08AAA \x04타임 오버 \x19[ 대인 / 컴퓨터 동맹 / 무적 ] \x05", v.P_Ultimate1[playerID]);
+        v.stb.printAt(8, "　　　\x08AAA \x04타임 오버 \x19[ 대인 / 컴퓨터 동맹 / 무적 ] \x05", v.P_Ultimate1[playerID])
+        # (Line 34) v.stb.printAt(9, "\n");
+        v.stb.printAt(9, "\n")
+        # (Line 35) PlayWAV("sound\\Bullet\\LaserHit.wav");
+        # (Line 36) }
         DoActions(PlayWAV("sound\\Bullet\\LaserHit.wav"))
-        # (Line 38) }
+        # (Line 37) }
     EUDEndIf()
-    # (Line 39) function main(playerID)
+    # (Line 38) function main(playerID)
 
-# (Line 40) {
+# (Line 39) {
 @EUDFunc
 def f_main(playerID):
-    # (Line 41) v.P_HeroID[playerID] = 14;
+    # (Line 40) v.P_HeroID[playerID] = 14;
     _ARRW(v.P_HeroID, playerID) << (14)
-    # (Line 42) v.P_LocationID[playerID] = 164;
+    # (Line 41) v.P_LocationID[playerID] = 164;
     _ARRW(v.P_LocationID, playerID) << (164)
-    # (Line 43) v.P_UnitID[playerID] = 99;
+    # (Line 42) v.P_UnitID[playerID] = 99;
     _ARRW(v.P_UnitID, playerID) << (99)
-    # (Line 45) v.P_Ultimate1[playerID] = 500;
+    # (Line 44) v.P_Ultimate1[playerID] = 500;
     _ARRW(v.P_Ultimate1, playerID) << (500)
-    # (Line 46) SkillList(playerID);
+    # (Line 45) SkillList(playerID);
     SkillList(playerID)
-    # (Line 47) commend.main(playerID);
+    # (Line 46) commend.main(playerID);
     commend.f_main(playerID)
-    # (Line 49) P.main(playerID);
-    P.f_main(playerID)
-    # (Line 50) if (v.P_SkillDelay[playerID] == 0)
+    # (Line 49) if (v.P_SkillDelay[playerID] == 0)
     if EUDIf()(v.P_SkillDelay[playerID] == 0):
-        # (Line 51) {
-        # (Line 52) switch(v.P_Step[playerID])
+        # (Line 50) {
+        # (Line 51) switch(v.P_Step[playerID])
         EUDSwitch(v.P_Step[playerID])
-        # (Line 53) {
-        # (Line 54) case 1:
+        # (Line 52) {
+        # (Line 53) case 1:
         _t2 = EUDSwitchCase()
-        # (Line 55) O.main(playerID);
+        # (Line 54) O.main(playerID);
         if _t2(1):
             O.f_main(playerID)
-            # (Line 56) break;
+            # (Line 55) break;
             EUDBreak()
-            # (Line 57) case 100:
+            # (Line 56) case 100:
         _t3 = EUDSwitchCase()
-        # (Line 58) S.main(playerID);
+        # (Line 57) S.main(playerID);
         if _t3(100):
             S.f_main(playerID)
-            # (Line 59) break;
+            # (Line 58) break;
             EUDBreak()
-            # (Line 60) case 200:
+            # (Line 59) case 200:
         _t4 = EUDSwitchCase()
-        # (Line 61) C.main(playerID);
+        # (Line 60) C.main(playerID);
         if _t4(200):
             C.f_main(playerID)
-            # (Line 62) break;
+            # (Line 61) break;
             EUDBreak()
-            # (Line 63) case 300:
+            # (Line 62) case 300:
         _t5 = EUDSwitchCase()
-        # (Line 64) A.main(playerID);
+        # (Line 63) A.main(playerID);
         if _t5(300):
             A.f_main(playerID)
-            # (Line 65) break;
+            # (Line 64) break;
             EUDBreak()
-            # (Line 66) case 110:
+            # (Line 65) case 110:
         _t6 = EUDSwitchCase()
-        # (Line 67) SSS.main(playerID);
+        # (Line 66) SSS.main(playerID);
         if _t6(110):
             SSS.f_main(playerID)
-            # (Line 68) break;
+            # (Line 67) break;
             EUDBreak()
-            # (Line 69) case 210:
+            # (Line 68) case 210:
         _t7 = EUDSwitchCase()
-        # (Line 70) CCC.main(playerID);
+        # (Line 69) CCC.main(playerID);
         if _t7(210):
             CCC.f_main(playerID)
-            # (Line 71) break;
+            # (Line 70) break;
             EUDBreak()
-            # (Line 72) case 220:
+            # (Line 71) case 220:
         _t8 = EUDSwitchCase()
-        # (Line 73) CCCAA.main(playerID);
+        # (Line 72) CCCAA.main(playerID);
         if _t8(220):
             CCCAA.f_main(playerID)
-            # (Line 74) break;
+            # (Line 73) break;
             EUDBreak()
-            # (Line 75) case 310:
+            # (Line 74) case 310:
         _t9 = EUDSwitchCase()
-        # (Line 76) ACC.main(playerID);
+        # (Line 75) ACC.main(playerID);
         if _t9(310):
             ACC.f_main(playerID)
-            # (Line 77) break;
+            # (Line 76) break;
             EUDBreak()
-            # (Line 78) case 320:
+            # (Line 77) case 320:
         _t10 = EUDSwitchCase()
-        # (Line 79) AAA.main(playerID);
+        # (Line 78) AAA.main(playerID);
         if _t10(320):
             AAA.f_main(playerID)
-            # (Line 80) break;
+            # (Line 79) break;
             EUDBreak()
-            # (Line 82) }
-        # (Line 83) }
+            # (Line 81) }
+        # (Line 82) }
         EUDEndSwitch()
-        # (Line 84) }
+        # (Line 83) }
     EUDEndIf()

@@ -26,6 +26,7 @@ import character.group6.park.main 		as park;
 import character.group6.hodaka.main 	as hodaka;
 import character.group6.tsukasa.main 	as tsukasa;
 import character.group6.zenitsu.main 	as zenitsu;
+import character.group6.endeavor.main 	as endeavor;
 
 function main(playerID)
 {
@@ -57,6 +58,7 @@ function main(playerID)
 	else if 	(v.P_HeroID[playerID] == 32) 	hodaka.main(playerID);
 	else if 	(v.P_HeroID[playerID] == 33) 	zenitsu.main(playerID);
 	else if 	(v.P_HeroID[playerID] == 34) 	tsukasa.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 35) 	endeavor.main(playerID);
 	
 	SetDeaths(playerID, SetTo, v.P_Shield[playerID], " `SystemShield");
 }

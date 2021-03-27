@@ -1,0 +1,34 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+function main(playerID)
+{
+   if (v.P_WaitMain[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] == 0)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {
+            trg.Shape_Dot(playerID, 1, "50 + 1n Battlecruiser", 0, 0);
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+         }
+
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 1)
+         {
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 1)
+      {
+         SetDeaths(playerID, SetTo, 1080, " `UniqueCoolTime");
+         SetDeaths(playerID, SetTo, 180, " `UniqueSkill");
+         trg.SkillEnd();
+      }
+   }
+}

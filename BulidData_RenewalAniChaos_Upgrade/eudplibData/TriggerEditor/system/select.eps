@@ -85,6 +85,7 @@ function SelectText(playerID)
 	case 10:		// Gui Montag (Firebat)
 		if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 31; }	// Park
 		else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 32; }	// Hodaka
+		else if 	(unitID.PlayerID[playerID] == 10) 		{ t.T_CharaterNum[playerID] = 35; }	// Endeavor
 		else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
 		unitID.UnitID[playerID] = 0;
 		break;
