@@ -169,8 +169,8 @@ def f_skillList(playerID):
         v.stb.printAt(4, "　　　\x04\x1FSSS \x04이상 \x19[ 공성 ]")
         # (Line 26) v.stb.printAt(5, "　　　\x04\x1FCCCC \x04강함 \x19[ 공성 / 자리고정 ]");
         v.stb.printAt(5, "　　　\x04\x1FCCCC \x04강함 \x19[ 공성 / 자리고정 ]")
-        # (Line 27) v.stb.printAt(6, "　　　\x04\x1FAACC + CAA \x04최대출력 \x19[ 공성 ] \x1F[1]");
-        v.stb.printAt(6, "　　　\x04\x1FAACC + CAA \x04최대출력 \x19[ 공성 ] \x1F[1]")
+        # (Line 27) v.stb.printAt(6, "　　　\x04\x1FAACC + 200 Gas + CAA \x04최대출력 \x19[ 공성 ] \x1F[1]");
+        v.stb.printAt(6, "　　　\x04\x1FAACC + 200 Gas + CAA \x04최대출력 \x19[ 공성 ] \x1F[1]")
         # (Line 28) v.stb.printAt(7, "\n");
         v.stb.printAt(7, "\n")
         # (Line 29) v.stb.printAt(8, "　　　\x08AAAA \x04교훈 \x19[ 공성 / 자리고정 / 쉴드 1고정] \x05", v.P_Ultimate1[playerID]);
