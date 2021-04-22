@@ -28,6 +28,8 @@ import character.group6.tsukasa.main 	as tsukasa;
 import character.group6.zenitsu.main 	as zenitsu;
 import character.group6.endeavor.main 	as endeavor;
 
+import character.group7.law.main 		as law;
+
 function main(playerID)
 {
 	trg.Main_WaitLoop();
@@ -59,6 +61,8 @@ function main(playerID)
 	else if 	(v.P_HeroID[playerID] == 33) 	zenitsu.main(playerID);
 	else if 	(v.P_HeroID[playerID] == 34) 	tsukasa.main(playerID);
 	else if 	(v.P_HeroID[playerID] == 35) 	endeavor.main(playerID);
+	
+	else if 	(v.P_HeroID[playerID] == 36) 	law.main(playerID);
 	
 	SetDeaths(playerID, SetTo, v.P_Shield[playerID], " `SystemShield");
 }

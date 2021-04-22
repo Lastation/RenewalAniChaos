@@ -1,0 +1,85 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
+
+const P_player		= PVariable();
+const P_observer 	= PVariable();
+
+function Text(num);
+
+function player(playerID)
+{
+	Text(P_player[playerID]);
+	P_player[playerID] = 0;
+}
+
+function observer(playerID)
+{
+	Text(P_observer[playerID - 128]);
+	P_observer[playerID - 128] = 0;
+}
+
+function main(playerID)
+{
+	if (playerID < 6) 	{ player(playerID); 	}
+	else  			{ observer(playerID); }
+}
+
+function Text(num)
+{
+	switch (num) 
+	{
+	case 1:
+		PlayWAV("law_ult.ogg");
+		break;
+	case 2:
+		PlayWAV("Tsukasa_02.ogg");
+		v.stb.print("\x13\x1BYuzaki Tsukasa\n");
+		v.stb.print("\x13\x04절대로 잊지 않아, 당신이 나를 사랑해주고 있다는 걸\x04");
+		break;
+	case 3:
+		PlayWAV("Tsukasa_03.ogg");
+		v.stb.print("\x13\x1BYuzaki Tsukasa\n");
+		v.stb.print("\x13\x04나는 앞으로도\x04");
+		break;
+	case 4:
+		PlayWAV("Tsukasa_04.ogg");
+		v.stb.print("\x13\x1BYuzaki Tsukasa\n");
+		v.stb.print("\x13\x04몰랐던 걸 잔뜩 알게 되는 그런 나날이랄까\x04");
+		break;
+	case 5:
+		PlayWAV("Tsukasa_05.ogg");
+		v.stb.print("\x13\x1BYuzaki Tsukasa\n");
+		v.stb.print("\x13\x04웃을 때도 있고 어이없을 때도 있고, 근데 지금처럼 두근거릴 때가 많아서\x04");
+		break;
+	case 6:
+		v.stb.print("\x13\x1BYuzaki Tsukasa\n");
+		v.stb.print("\x13\x04내 안에 이렇게 다양한 감정이 있다는 걸 처음 알았어\x04");
+		break;
+	case 7:
+		PlayWAV("Tsukasa_06.ogg");
+		v.stb.print("\x13\x1BYuzaki Tsukasa\n");
+		v.stb.print("\x13\x04분명 난 앞으로도 나사 군을 통해 다양한 감정을 알게 될 거야\x04");
+		break;
+	case 8:
+		PlayWAV("Tsukasa_Ult.ogg");
+		v.stb.print("\x13\x1BYuzaki Tsukasa\n");
+		v.stb.print("\x13\x04나도...\x04");
+		break;
+	case 9:
+		v.stb.print("\x13\x1BYuzaki Tsukasa\n");
+		v.stb.print("\x13\x04수많은 시작을 네가 가르쳐주고 있어\x04");
+		break;
+	case 10:
+		v.stb.print("\x13\x1BYuzaki Tsukasa\n");
+		v.stb.print("\x13\x04나의 처음은 전부 네 거야\x04");
+		break;
+	case 11:
+		PlayWAV("Tsukasa_Unique.ogg");
+		v.stb.print("\x13\x1BYuzaki Tsukasa\n");
+		v.stb.print("\x13\x04그런 걱정은 하지 마, 내 몸은 다치지도 않고 병에도 안 걸리니까\x04");
+		break;
+		
+	}
+}
