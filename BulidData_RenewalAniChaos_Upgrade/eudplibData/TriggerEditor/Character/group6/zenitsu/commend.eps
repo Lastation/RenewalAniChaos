@@ -19,21 +19,24 @@ function main(playerID)
 			KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID);
 			SetResources(playerID, Add, 60, Gas);
 		}
-		if (Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))
+
+		else if (Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))
 		{
-			v.P_Step[playerID] = 100;
-			KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", playerID);
+			v.P_Step[playerID] = 300;
+			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 		}
 		else if (Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))
 		{
 			v.P_Step[playerID] = 200;
 			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
 		}
-		else if (Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))
+
+		if (Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))
 		{
-			v.P_Step[playerID] = 300;
-			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+			v.P_Step[playerID] = 100;
+			KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", playerID);
 		}
+		
 	}
 	
 	// Combo

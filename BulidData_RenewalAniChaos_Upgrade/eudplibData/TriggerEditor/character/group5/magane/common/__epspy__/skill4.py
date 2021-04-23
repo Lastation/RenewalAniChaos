@@ -349,63 +349,47 @@ def f_main(playerID):
             if EUDElseIf()(v.P_LoopMain[playerID] == 4):
                 # (Line 162) {
                 # (Line 163) KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
-                # (Line 165) trg.Main_Wait(80);
+                # (Line 165) var x = 32;
                 DoActions(KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID))
-                trg.Main_Wait(80)
-                # (Line 167) v.P_LoopMain[playerID] += 1;
-                _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-                # (Line 168) }
-                # (Line 169) else if (v.P_LoopMain[playerID] == 5)
-            if EUDElseIf()(v.P_LoopMain[playerID] == 5):
-                # (Line 170) {
-                # (Line 171) var x = 32;
                 x = EUDVariable()
                 x << (32)
-                # (Line 172) var y = 32;
+                # (Line 166) var y = 32;
                 y = EUDVariable()
                 y << (32)
-                # (Line 174) trg.Shape_Square(playerID, 1, "40 + 1n Mojo", x, y);
+                # (Line 168) trg.Shape_Square(playerID, 1, "40 + 1n Mojo", x, y);
                 trg.Shape_Square(playerID, 1, "40 + 1n Mojo", x, y)
-                # (Line 175) trg.Shape_Double(playerID, 1, "60 + 1n Archon", -x, y);
+                # (Line 169) trg.Shape_Double(playerID, 1, "60 + 1n Archon", -x, y);
                 trg.Shape_Double(playerID, 1, "60 + 1n Archon", -x, y)
-                # (Line 176) trg.Shape_Double(playerID, 1, "Protoss Dark Archon", x, y);
+                # (Line 170) trg.Shape_Double(playerID, 1, "Protoss Dark Archon", x, y);
                 trg.Shape_Double(playerID, 1, "Protoss Dark Archon", x, y)
-                # (Line 177) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
-                # (Line 178) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+                # (Line 171) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+                # (Line 172) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID))
-                # (Line 180) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 174) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
                 DoActions(KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID))
-                # (Line 181) Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                # (Line 175) Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                # (Line 183) trg.Main_Wait(160);
+                # (Line 177) trg.Main_Wait(80);
                 DoActions(Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
-                trg.Main_Wait(160)
-                # (Line 185) v.P_LoopMain[playerID] += 1;
-                _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-                # (Line 186) }
-                # (Line 187) else if (v.P_LoopMain[playerID] == 6)
-            if EUDElseIf()(v.P_LoopMain[playerID] == 6):
-                # (Line 188) {
-                # (Line 189) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
-                # (Line 191) trg.Main_Wait(80);
-                DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID))
                 trg.Main_Wait(80)
-                # (Line 193) v.P_CountMain[playerID] += 1;
+                # (Line 179) v.P_CountMain[playerID] += 1;
                 _ARRW(v.P_CountMain, playerID).__iadd__(1)
-                # (Line 194) v.P_LoopMain[playerID] = 0;
+                # (Line 180) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 195) }
-                # (Line 196) }
+                # (Line 181) }
+                # (Line 182) }
             EUDEndIf()
-            # (Line 197) else if (v.P_CountMain[playerID] == 2)
+            # (Line 183) else if (v.P_CountMain[playerID] == 2)
         if EUDElseIf()(v.P_CountMain[playerID] == 2):
-            # (Line 198) {
-            # (Line 199) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
-            # (Line 202) trg.SkillEnd();
+            # (Line 184) {
+            # (Line 185) KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            # (Line 186) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
             DoActions(KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID))
+            # (Line 188) trg.SkillEnd();
+            DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID))
             trg.SkillEnd()
-            # (Line 203) }
-            # (Line 204) }
+            # (Line 189) }
+            # (Line 190) }
         EUDEndIf()
-        # (Line 205) }
+        # (Line 191) }
     EUDEndIf()

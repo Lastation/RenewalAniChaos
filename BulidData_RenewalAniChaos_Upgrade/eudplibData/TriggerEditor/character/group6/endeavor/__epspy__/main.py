@@ -167,8 +167,8 @@ def f_skillList(playerID):
         v.stb.printAt(3, "　　　\x18O \x04혁작열권 \x19[ 15초 간 방어력 15 상승 ] \x051분 30초")
         # (Line 25) v.stb.printAt(4, "　　　\x04\x1FSSS \x04이상 \x19[ 공성 ]");
         v.stb.printAt(4, "　　　\x04\x1FSSS \x04이상 \x19[ 공성 ]")
-        # (Line 26) v.stb.printAt(5, "　　　\x04\x1FCCCC \x04강함 \x19[ 공성 / 자리고정 ]");
-        v.stb.printAt(5, "　　　\x04\x1FCCCC \x04강함 \x19[ 공성 / 자리고정 ]")
+        # (Line 26) v.stb.printAt(5, "　　　\x04\x1FCCC \x04강함 \x19[ 공성 / 자리고정 ]");
+        v.stb.printAt(5, "　　　\x04\x1FCCC \x04강함 \x19[ 공성 / 자리고정 ]")
         # (Line 27) v.stb.printAt(6, "　　　\x04\x1FAACC + 200 Gas + CAA \x04최대출력 \x19[ 공성 ] \x1F[1]");
         v.stb.printAt(6, "　　　\x04\x1FAACC + 200 Gas + CAA \x04최대출력 \x19[ 공성 ] \x1F[1]")
         # (Line 28) v.stb.printAt(7, "\n");

@@ -215,9 +215,9 @@ def f_main(playerID):
                 DoActions(KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID))
                 trg.Shape_Edge(playerID, 1, "Kakaru (Twilight)", 0, 5, 100)
                 # (Line 59) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
-                # (Line 61) trg.Main_Wait(480);
+                # (Line 61) trg.Main_Wait(160);
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID))
-                trg.Main_Wait(480)
+                trg.Main_Wait(160)
                 # (Line 62) v.P_LoopMain[playerID] += 1;
                 _ARRW(v.P_LoopMain, playerID).__iadd__(1)
                 # (Line 63) }
@@ -227,9 +227,9 @@ def f_main(playerID):
                 # (Line 66) trg.Shape_Edge(playerID, 1, "60 + 1n Danimoth", 45, 5, 100);
                 trg.Shape_Edge(playerID, 1, "60 + 1n Danimoth", 45, 5, 100)
                 # (Line 67) KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
-                # (Line 68) trg.Shape_Edge(playerID, 1, "40 + 1n Goliath", 45, 5, 100);
+                # (Line 68) trg.Shape_Edge(playerID, 1, "40 + 1n Goliath", 45, 3, 100);
                 DoActions(KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID))
-                trg.Shape_Edge(playerID, 1, "40 + 1n Goliath", 45, 5, 100)
+                trg.Shape_Edge(playerID, 1, "40 + 1n Goliath", 45, 3, 100)
                 # (Line 70) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
                 # (Line 71) MoveUnit(All, "40 + 1n Goliath", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
                 DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
@@ -248,70 +248,80 @@ def f_main(playerID):
                 # (Line 81) trg.Shape_Edge(playerID, 1, "40 + 1n Gantrithor", 45, 7, 150);
                 DoActions(KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID))
                 trg.Shape_Edge(playerID, 1, "40 + 1n Gantrithor", 45, 7, 150)
-                # (Line 82) trg.Shape_Edge(playerID, 1, "60 + 1n Archon", 45, 7, 150);
+                # (Line 82) trg.Shape_Edge(playerID, 1, "40 + 1n Goliath", 45, 3, 150);
+                trg.Shape_Edge(playerID, 1, "40 + 1n Goliath", 45, 3, 150)
+                # (Line 84) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                # (Line 85) MoveUnit(All, "40 + 1n Goliath", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+                DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
+                # (Line 86) Order("40 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                DoActions(MoveUnit(All, "40 + 1n Goliath", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]))
+                # (Line 88) trg.Shape_Edge(playerID, 1, "60 + 1n Archon", 45, 7, 150);
+                DoActions(Order("40 + 1n Goliath", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
                 trg.Shape_Edge(playerID, 1, "60 + 1n Archon", 45, 7, 150)
-                # (Line 83) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
-                # (Line 84) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+                # (Line 89) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+                # (Line 90) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
                 DoActions(KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID))
-                # (Line 86) trg.Shape_Edge(playerID, 1, "Kakaru (Twilight)", 45, 5, 100);
+                # (Line 92) trg.Shape_Edge(playerID, 1, "Kakaru (Twilight)", 45, 5, 100);
                 DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID))
                 trg.Shape_Edge(playerID, 1, "Kakaru (Twilight)", 45, 5, 100)
-                # (Line 87) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
-                # (Line 89) trg.Main_Wait(80);
+                # (Line 93) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+                # (Line 95) trg.Main_Wait(160);
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID))
-                trg.Main_Wait(80)
-                # (Line 91) v.P_CountMain[playerID] += 1;
+                trg.Main_Wait(160)
+                # (Line 97) v.P_CountMain[playerID] += 1;
                 _ARRW(v.P_CountMain, playerID).__iadd__(1)
-                # (Line 92) v.P_LoopMain[playerID] = 0;
+                # (Line 98) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 93) }
-                # (Line 94) }
+                # (Line 99) }
+                # (Line 100) }
             EUDEndIf()
-            # (Line 95) else if (v.P_CountMain[playerID] == 2)
+            # (Line 101) else if (v.P_CountMain[playerID] == 2)
         if EUDElseIf()(v.P_CountMain[playerID] == 2):
-            # (Line 96) {
-            # (Line 97) KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
-            # (Line 98) trg.SkillEnd();
+            # (Line 102) {
+            # (Line 103) KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
+            # (Line 104) KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
             DoActions(KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID))
+            # (Line 105) trg.SkillEnd();
+            DoActions(KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID))
             trg.SkillEnd()
-            # (Line 99) }
-            # (Line 100) }
+            # (Line 106) }
+            # (Line 107) }
         EUDEndIf()
-        # (Line 101) }
+        # (Line 108) }
     EUDEndIf()
-    # (Line 103) function Shape(playerID : TrgPlayer, x, y)
+    # (Line 110) function Shape(playerID : TrgPlayer, x, y)
 
-# (Line 104) {
+# (Line 111) {
 @EUDTypedFunc([TrgPlayer, None, None])
 def Shape(playerID, x, y):
-    # (Line 105) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", playerID);
-    # (Line 106) trg.Shape_Dot(playerID, 1, "Protoss Dark Templar", x, y);
+    # (Line 112) KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", playerID);
+    # (Line 113) trg.Shape_Dot(playerID, 1, "Protoss Dark Templar", x, y);
     DoActions(KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", playerID))
     trg.Shape_Dot(playerID, 1, "Protoss Dark Templar", x, y)
-    # (Line 107) trg.Shape_Dot(playerID, 1, "Protoss Dark Templar", -x, -y);
+    # (Line 114) trg.Shape_Dot(playerID, 1, "Protoss Dark Templar", -x, -y);
     trg.Shape_Dot(playerID, 1, "Protoss Dark Templar", -x, -y)
-    # (Line 108) trg.Shape_Dot(playerID, 1, "40 + 1n Mojo", x, y);
+    # (Line 115) trg.Shape_Dot(playerID, 1, "40 + 1n Mojo", x, y);
     trg.Shape_Dot(playerID, 1, "40 + 1n Mojo", x, y)
-    # (Line 109) trg.Shape_Dot(playerID, 1, "40 + 1n Mojo", -x, -y);
+    # (Line 116) trg.Shape_Dot(playerID, 1, "40 + 1n Mojo", -x, -y);
     trg.Shape_Dot(playerID, 1, "40 + 1n Mojo", -x, -y)
-    # (Line 110) trg.Shape_Dot(playerID, 1, "Kakaru (Twilight)", -y, x);
+    # (Line 117) trg.Shape_Dot(playerID, 1, "Kakaru (Twilight)", -y, x);
     trg.Shape_Dot(playerID, 1, "Kakaru (Twilight)", -y, x)
-    # (Line 111) trg.Shape_Dot(playerID, 1, "Kakaru (Twilight)", y, -x);
+    # (Line 118) trg.Shape_Dot(playerID, 1, "Kakaru (Twilight)", y, -x);
     trg.Shape_Dot(playerID, 1, "Kakaru (Twilight)", y, -x)
-    # (Line 112) trg.Shape_Dot(playerID, 1, " Creep. Dunkelheit", -y, x);
+    # (Line 119) trg.Shape_Dot(playerID, 1, " Creep. Dunkelheit", -y, x);
     trg.Shape_Dot(playerID, 1, " Creep. Dunkelheit", -y, x)
-    # (Line 113) trg.Shape_Dot(playerID, 1, " Creep. Dunkelheit", y, -x);
+    # (Line 120) trg.Shape_Dot(playerID, 1, " Creep. Dunkelheit", y, -x);
     trg.Shape_Dot(playerID, 1, " Creep. Dunkelheit", y, -x)
-    # (Line 114) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
-    # (Line 115) KillUnitAt(All, "Protoss Dark Templar", "Anywhere", playerID);
+    # (Line 121) KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+    # (Line 122) KillUnitAt(All, "Protoss Dark Templar", "Anywhere", playerID);
     DoActions(KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID))
-    # (Line 116) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+    # (Line 123) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
     DoActions(KillUnitAt(All, "Protoss Dark Templar", "Anywhere", playerID))
-    # (Line 117) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+    # (Line 124) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
     DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID))
-    # (Line 118) MoveUnit(All, " Creep. Dunkelheit", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+    # (Line 125) MoveUnit(All, " Creep. Dunkelheit", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
     DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-    # (Line 119) Order(" Creep. Dunkelheit", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+    # (Line 126) Order(" Creep. Dunkelheit", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
     DoActions(MoveUnit(All, " Creep. Dunkelheit", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]))
-    # (Line 120) }
+    # (Line 127) }
     DoActions(Order(" Creep. Dunkelheit", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))

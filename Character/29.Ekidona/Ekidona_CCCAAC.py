@@ -330,6 +330,8 @@ function main(playerID)
 
             x = v.P_AngleCos[playerID];
             y = v.P_AngleSin[playerID];
+            
+           trg.Shape_Square(playerID, 1, "Protoss Reaver", x, y);
          }
          if (i % 2 == 1) 
          {
@@ -340,9 +342,13 @@ function main(playerID)
             y = v.P_AngleSin[playerID];
          }
 
+         if (i % 4 == 3)
+         {
+           trg.Shape_Square(playerID, 1, "40 + 1n Lurker", x, y);
+         }
+
          RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
 
-         trg.Shape_Square(playerID, 1, "Protoss Reaver", x, y);
          trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", x, y);
          trg.Shape_Square(playerID, 1, "Protoss Dark Archon", x, y);
 
@@ -352,10 +358,9 @@ function main(playerID)
 
          MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
          MoveUnit(All, "Protoss Reaver", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
-
-         MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+         MoveUnit(All, "40 + 1n Lurker", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
          Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
-
+         
          trg.Main_Wait(80);
 
          v.P_LoopMain[playerID] += 1;
@@ -364,7 +369,8 @@ function main(playerID)
          {
             KillUnitAt(All, "Protoss Reaver", "Anywhere", playerID);
             RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
-
+            KillUnitAt(All, "40 + 1n Lurker", "Anywhere", playerID);
+            
             s.CharacterVoice(19);            
 
             v.P_CountMain[playerID] += 1;

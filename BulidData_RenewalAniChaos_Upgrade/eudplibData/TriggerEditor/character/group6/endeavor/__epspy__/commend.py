@@ -203,10 +203,10 @@ def f_main(playerID):
             # (Line 48) KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", playerID);
             # (Line 49) }
             DoActions(KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", playerID))
-            # (Line 50) else if (Bring(playerID, AtLeast, 3, "Protoss Carrier", "[Skill]UseSkill")
+            # (Line 50) else if (Bring(playerID, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill")
         _t9 = EUDElseIf()
         # (Line 51) &&  v.P_Step[playerID] == 200)
-        if _t9(EUDSCAnd()(Bring(playerID, AtLeast, 3, "Protoss Carrier", "[Skill]UseSkill"))(v.P_Step[playerID] == 200)()):
+        if _t9(EUDSCAnd()(Bring(playerID, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill"))(v.P_Step[playerID] == 200)()):
             # (Line 52) {
             # (Line 53) s.CharacterVoice(3);
             s.CharacterVoice(3)
@@ -214,9 +214,9 @@ def f_main(playerID):
             _ARRW(v.P_SkillDelay, playerID) << (0)
             # (Line 55) v.P_Step[playerID] = 210;
             _ARRW(v.P_Step, playerID) << (210)
-            # (Line 56) KillUnitAt(3, "Protoss Carrier", "[Skill]UseSkill", playerID);
+            # (Line 56) KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", playerID);
             # (Line 57) }
-            DoActions(KillUnitAt(3, "Protoss Carrier", "[Skill]UseSkill", playerID))
+            DoActions(KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", playerID))
             # (Line 58) else if (Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill")
         _t10 = EUDElseIf()
         # (Line 59) && Bring(playerID, AtLeast, 2,"Protoss Carrier", "[Skill]UseSkill")

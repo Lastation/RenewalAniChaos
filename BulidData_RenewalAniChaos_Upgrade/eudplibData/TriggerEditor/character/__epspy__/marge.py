@@ -134,12 +134,12 @@ from func import trig as trg
 import variable as v
 # (Line 4) import system.text as text;
 from system import text as text
-# (Line 6) import character.group1.rusaruka.main 	as rusaruka;
-from character.group1.rusaruka import main as rusaruka
-# (Line 7) import character.group1.chtholly.main 	as chtholly;
-from character.group1.chtholly import main as chtholly
-# (Line 8) import character.group1.maihime.main 	as maihime;
-from character.group1.maihime import main as maihime
+# (Line 6) import character.group0.rusaruka.main 	as rusaruka;
+from character.group0.rusaruka import main as rusaruka
+# (Line 7) import character.group0.chtholly.main 	as chtholly;
+from character.group0.chtholly import main as chtholly
+# (Line 8) import character.group0.maihime.main 	as maihime;
+from character.group0.maihime import main as maihime
 # (Line 10) import character.group3.kurumi.main 	as kurumi;
 from character.group3.kurumi import main as kurumi
 # (Line 11) import character.group2.sakura.main 		as sakura;

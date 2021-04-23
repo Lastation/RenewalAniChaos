@@ -617,40 +617,40 @@ def f_main(playerID):
                 x << (v.P_AngleCos[playerID])
                 # (Line 333) y = v.P_AngleSin[playerID];
                 y << (v.P_AngleSin[playerID])
-                # (Line 334) }
-                # (Line 335) if (i % 2 == 1)
+                # (Line 335) trg.Shape_Square(playerID, 1, "Protoss Reaver", x, y);
+                trg.Shape_Square(playerID, 1, "Protoss Reaver", x, y)
+                # (Line 336) }
+                # (Line 337) if (i % 2 == 1)
             EUDEndIf()
             if EUDIf()(i % 2 == 1):
-                # (Line 336) {
-                # (Line 337) trg.Table_Sin(playerID, r + 22, 50 + 50 * i);
+                # (Line 338) {
+                # (Line 339) trg.Table_Sin(playerID, r + 22, 50 + 50 * i);
                 trg.Table_Sin(playerID, r + 22, 50 + 50 * i)
-                # (Line 338) trg.Table_Cos(playerID, r + 22, 50 + 50 * i);
+                # (Line 340) trg.Table_Cos(playerID, r + 22, 50 + 50 * i);
                 trg.Table_Cos(playerID, r + 22, 50 + 50 * i)
-                # (Line 340) x = v.P_AngleCos[playerID];
+                # (Line 342) x = v.P_AngleCos[playerID];
                 x << (v.P_AngleCos[playerID])
-                # (Line 341) y = v.P_AngleSin[playerID];
+                # (Line 343) y = v.P_AngleSin[playerID];
                 y << (v.P_AngleSin[playerID])
-                # (Line 342) }
-                # (Line 344) RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+                # (Line 344) }
+                # (Line 346) RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
             EUDEndIf()
-            # (Line 346) trg.Shape_Square(playerID, 1, "Protoss Reaver", x, y);
+            # (Line 348) trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", x, y);
             DoActions(RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID))
-            trg.Shape_Square(playerID, 1, "Protoss Reaver", x, y)
-            # (Line 347) trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", x, y);
             trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", x, y)
-            # (Line 348) trg.Shape_Square(playerID, 1, "Protoss Dark Archon", x, y);
+            # (Line 349) trg.Shape_Square(playerID, 1, "Protoss Dark Archon", x, y);
             trg.Shape_Square(playerID, 1, "Protoss Dark Archon", x, y)
-            # (Line 350) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
-            # (Line 352) ModifyUnitHangarCount(1, All, "Protoss Reaver", CurrentPlayer, "Anywhere");
+            # (Line 351) KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+            # (Line 353) ModifyUnitHangarCount(1, All, "Protoss Reaver", CurrentPlayer, "Anywhere");
             DoActions(KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID))
-            # (Line 354) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            # (Line 355) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
             DoActions(ModifyUnitHangarCount(1, All, "Protoss Reaver", CurrentPlayer, "Anywhere"))
-            # (Line 355) MoveUnit(All, "Protoss Reaver", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            # (Line 356) MoveUnit(All, "Protoss Reaver", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
             DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-            # (Line 357) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            # (Line 357) MoveUnit(All, "40 + 1n Lurker", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
             DoActions(MoveUnit(All, "Protoss Reaver", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]))
             # (Line 358) Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
-            DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
+            DoActions(MoveUnit(All, "40 + 1n Lurker", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]))
             # (Line 360) trg.Main_Wait(80);
             DoActions(Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
             trg.Main_Wait(80)
@@ -662,188 +662,190 @@ def f_main(playerID):
                 # (Line 366) KillUnitAt(All, "Protoss Reaver", "Anywhere", playerID);
                 # (Line 367) RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
                 DoActions(KillUnitAt(All, "Protoss Reaver", "Anywhere", playerID))
-                # (Line 369) s.CharacterVoice(19);
+                # (Line 368) KillUnitAt(All, "40 + 1n Lurker", "Anywhere", playerID);
                 DoActions(RemoveUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID))
+                # (Line 370) s.CharacterVoice(19);
+                DoActions(KillUnitAt(All, "40 + 1n Lurker", "Anywhere", playerID))
                 s.CharacterVoice(19)
-                # (Line 371) v.P_CountMain[playerID] += 1;
+                # (Line 372) v.P_CountMain[playerID] += 1;
                 _ARRW(v.P_CountMain, playerID).__iadd__(1)
-                # (Line 372) v.P_LoopMain[playerID] = 0;
+                # (Line 373) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 373) }
                 # (Line 374) }
+                # (Line 375) }
             EUDEndIf()
-            # (Line 375) else if (v.P_CountMain[playerID] == 4) //9.90
+            # (Line 376) else if (v.P_CountMain[playerID] == 4) //9.90
         if EUDElseIf()(v.P_CountMain[playerID] == 4):
-            # (Line 376) {
-            # (Line 377) if (v.P_LoopMain[playerID] == 0)
+            # (Line 377) {
+            # (Line 378) if (v.P_LoopMain[playerID] == 0)
             if EUDIf()(v.P_LoopMain[playerID] == 0):
-                # (Line 378) {
-                # (Line 379) epic.Shape_NxNSquare(playerID, 1, "50 + 1n Battlecruiser", 3, 75, 1);
+                # (Line 379) {
+                # (Line 380) epic.Shape_NxNSquare(playerID, 1, "50 + 1n Battlecruiser", 3, 75, 1);
                 epic.Shape_NxNSquare(playerID, 1, "50 + 1n Battlecruiser", 3, 75, 1)
-                # (Line 381) Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, "Anywhere");
-                # (Line 382) }
+                # (Line 382) Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, "Anywhere");
+                # (Line 383) }
                 DoActions(Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, "Anywhere"))
-                # (Line 383) if (v.P_LoopMain[playerID] == 4)
+                # (Line 384) if (v.P_LoopMain[playerID] == 4)
             EUDEndIf()
             if EUDIf()(v.P_LoopMain[playerID] == 4):
-                # (Line 384) {
-                # (Line 385) RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
-                # (Line 387) trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 3, 75);
+                # (Line 385) {
+                # (Line 386) RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+                # (Line 388) trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 3, 75);
                 DoActions(RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID))
                 trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 3, 75)
-                # (Line 388) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
-                # (Line 389) }
+                # (Line 389) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+                # (Line 390) }
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID))
-                # (Line 390) if (v.P_LoopMain[playerID] == 6)
+                # (Line 391) if (v.P_LoopMain[playerID] == 6)
             EUDEndIf()
             if EUDIf()(v.P_LoopMain[playerID] == 6):
-                # (Line 391) {
-                # (Line 392) trg.Shape_NxNSquare(playerID, 1, "50 + 1n Battlecruiser", 3, 75);
+                # (Line 392) {
+                # (Line 393) trg.Shape_NxNSquare(playerID, 1, "50 + 1n Battlecruiser", 3, 75);
                 trg.Shape_NxNSquare(playerID, 1, "50 + 1n Battlecruiser", 3, 75)
-                # (Line 394) Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, "Anywhere");
-                # (Line 395) }
+                # (Line 395) Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, "Anywhere");
+                # (Line 396) }
                 DoActions(Order("50 + 1n Battlecruiser", playerID, "Anywhere", Attack, "Anywhere"))
-                # (Line 397) trg.Main_Wait(80);
+                # (Line 398) trg.Main_Wait(80);
             EUDEndIf()
             trg.Main_Wait(80)
-            # (Line 399) v.P_LoopMain[playerID] += 1;
+            # (Line 400) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 401) if (v.P_LoopMain[playerID] == 10)
+            # (Line 402) if (v.P_LoopMain[playerID] == 10)
             if EUDIf()(v.P_LoopMain[playerID] == 10):
-                # (Line 402) {
-                # (Line 403) RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
-                # (Line 405) trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 3, 75);
+                # (Line 403) {
+                # (Line 404) RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+                # (Line 406) trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 3, 75);
                 DoActions(RemoveUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID))
                 trg.Shape_NxNSquare(playerID, 1, "Kakaru (Twilight)", 3, 75)
-                # (Line 406) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
-                # (Line 408) s.CharacterVoice(20);
+                # (Line 407) KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+                # (Line 409) s.CharacterVoice(20);
                 DoActions(KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID))
                 s.CharacterVoice(20)
-                # (Line 410) v.P_CountMain[playerID] += 1;
+                # (Line 411) v.P_CountMain[playerID] += 1;
                 _ARRW(v.P_CountMain, playerID).__iadd__(1)
-                # (Line 411) v.P_LoopMain[playerID] = 0;
+                # (Line 412) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 412) }
                 # (Line 413) }
+                # (Line 414) }
             EUDEndIf()
-            # (Line 414) else if (v.P_CountMain[playerID] == 5) //10.70
+            # (Line 415) else if (v.P_CountMain[playerID] == 5) //10.70
         if EUDElseIf()(v.P_CountMain[playerID] == 5):
-            # (Line 415) {
-            # (Line 416) if (v.P_LoopMain[playerID] < 8)
+            # (Line 416) {
+            # (Line 417) if (v.P_LoopMain[playerID] < 8)
             if EUDIf()(v.P_LoopMain[playerID] >= 8, neg=True):
-                # (Line 417) {
-                # (Line 418) if (v.P_LoopMain[playerID] % 2 == 0)
+                # (Line 418) {
+                # (Line 419) if (v.P_LoopMain[playerID] % 2 == 0)
                 if EUDIf()(v.P_LoopMain[playerID] % 2 == 0):
-                    # (Line 419) {
-                    # (Line 420) trg.Table_Sin(playerID, v.P_LoopMain[playerID] * 45, 150);
+                    # (Line 420) {
+                    # (Line 421) trg.Table_Sin(playerID, v.P_LoopMain[playerID] * 45, 150);
                     trg.Table_Sin(playerID, v.P_LoopMain[playerID] * 45, 150)
-                    # (Line 421) trg.Table_Cos(playerID, v.P_LoopMain[playerID] * 45, 150);
+                    # (Line 422) trg.Table_Cos(playerID, v.P_LoopMain[playerID] * 45, 150);
                     trg.Table_Cos(playerID, v.P_LoopMain[playerID] * 45, 150)
-                    # (Line 423) x = v.P_AngleCos[playerID];
+                    # (Line 424) x = v.P_AngleCos[playerID];
                     x << (v.P_AngleCos[playerID])
-                    # (Line 424) y = v.P_AngleSin[playerID];
+                    # (Line 425) y = v.P_AngleSin[playerID];
                     y << (v.P_AngleSin[playerID])
-                    # (Line 426) NxNSquareShapeAtDouble(playerID, 1, "40 + 1n Gantrithor", 3, 50, x, y);
+                    # (Line 427) NxNSquareShapeAtDouble(playerID, 1, "40 + 1n Gantrithor", 3, 50, x, y);
                     NxNSquareShapeAtDouble(playerID, 1, "40 + 1n Gantrithor", 3, 50, x, y)
-                    # (Line 427) NxNSquareShapeAtDouble(playerID, 1, "50 + 1n Tank", 2, 75, x, y);
+                    # (Line 428) NxNSquareShapeAtDouble(playerID, 1, "50 + 1n Tank", 2, 75, x, y);
                     NxNSquareShapeAtDouble(playerID, 1, "50 + 1n Tank", 2, 75, x, y)
-                    # (Line 429) for (var i = 0; i < 8; i++)
+                    # (Line 430) for (var i = 0; i < 8; i++)
                     i = EUDVariable()
                     i << (0)
                     if EUDWhile()(i >= 8, neg=True):
                         def _t48():
                             i.__iadd__(1)
-                        # (Line 430) {
-                        # (Line 431) trg.MoveLoc("50 + 1n Tank", playerID, 0, 0);
+                        # (Line 431) {
+                        # (Line 432) trg.MoveLoc("50 + 1n Tank", playerID, 0, 0);
                         trg.MoveLoc("50 + 1n Tank", playerID, 0, 0)
-                        # (Line 432) RemoveUnitAt(1, "50 + 1n Tank", "Anywhere", playerID);
-                        # (Line 433) MoveUnit(1, "60 + 1n Siege", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+                        # (Line 433) RemoveUnitAt(1, "50 + 1n Tank", "Anywhere", playerID);
+                        # (Line 434) MoveUnit(1, "60 + 1n Siege", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
                         DoActions(RemoveUnitAt(1, "50 + 1n Tank", "Anywhere", playerID))
-                        # (Line 434) }
-                        DoActions(MoveUnit(1, "60 + 1n Siege", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]))
                         # (Line 435) }
+                        DoActions(MoveUnit(1, "60 + 1n Siege", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]))
+                        # (Line 436) }
                         EUDSetContinuePoint()
                         _t48()
                     EUDEndWhile()
-                    # (Line 437) if (v.P_LoopMain[playerID] % 2 == 1)
+                    # (Line 438) if (v.P_LoopMain[playerID] % 2 == 1)
                 EUDEndIf()
                 if EUDIf()(v.P_LoopMain[playerID] % 2 == 1):
-                    # (Line 438) {
-                    # (Line 439) trg.Table_Sin(playerID, v.P_LoopMain[playerID] * 45, 150);
+                    # (Line 439) {
+                    # (Line 440) trg.Table_Sin(playerID, v.P_LoopMain[playerID] * 45, 150);
                     trg.Table_Sin(playerID, v.P_LoopMain[playerID] * 45, 150)
-                    # (Line 440) trg.Table_Cos(playerID, v.P_LoopMain[playerID] * 45, 150);
+                    # (Line 441) trg.Table_Cos(playerID, v.P_LoopMain[playerID] * 45, 150);
                     trg.Table_Cos(playerID, v.P_LoopMain[playerID] * 45, 150)
-                    # (Line 442) x = v.P_AngleCos[playerID];
+                    # (Line 443) x = v.P_AngleCos[playerID];
                     x << (v.P_AngleCos[playerID])
-                    # (Line 443) y = v.P_AngleSin[playerID];
+                    # (Line 444) y = v.P_AngleSin[playerID];
                     y << (v.P_AngleSin[playerID])
-                    # (Line 445) NxNSquareShapeAtDouble(playerID, 1, "50 + 1n Battlecruiser", 3, 50, x, y);
+                    # (Line 446) NxNSquareShapeAtDouble(playerID, 1, "50 + 1n Battlecruiser", 3, 50, x, y);
                     NxNSquareShapeAtDouble(playerID, 1, "50 + 1n Battlecruiser", 3, 50, x, y)
-                    # (Line 446) NxNSquareShapeAtDouble(playerID, 1, "Protoss Reaver", 2, 75, x, y);
+                    # (Line 447) NxNSquareShapeAtDouble(playerID, 1, "Protoss Reaver", 2, 75, x, y);
                     NxNSquareShapeAtDouble(playerID, 1, "Protoss Reaver", 2, 75, x, y)
-                    # (Line 448) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
-                    # (Line 449) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+                    # (Line 449) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+                    # (Line 450) KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
                     DoActions(KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID))
-                    # (Line 451) ModifyUnitHangarCount(1, All, "Protoss Reaver", CurrentPlayer, "Anywhere");
+                    # (Line 452) ModifyUnitHangarCount(1, All, "Protoss Reaver", CurrentPlayer, "Anywhere");
                     DoActions(KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID))
-                    # (Line 453) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                    # (Line 454) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
                     DoActions(ModifyUnitHangarCount(1, All, "Protoss Reaver", CurrentPlayer, "Anywhere"))
-                    # (Line 454) MoveUnit(All, "Protoss Reaver", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+                    # (Line 455) MoveUnit(All, "Protoss Reaver", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
                     DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))
-                    # (Line 455) }
-                    DoActions(MoveUnit(All, "Protoss Reaver", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]))
                     # (Line 456) }
+                    DoActions(MoveUnit(All, "Protoss Reaver", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]))
+                    # (Line 457) }
                 EUDEndIf()
-                # (Line 458) trg.Main_Wait(80);
+                # (Line 459) trg.Main_Wait(80);
             EUDEndIf()
             trg.Main_Wait(80)
-            # (Line 460) v.P_LoopMain[playerID] += 1;
+            # (Line 461) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 462) if (v.P_LoopMain[playerID] == 18)
+            # (Line 463) if (v.P_LoopMain[playerID] == 18)
             if EUDIf()(v.P_LoopMain[playerID] == 18):
-                # (Line 463) {
-                # (Line 464) v.P_CountMain[playerID] += 1;
+                # (Line 464) {
+                # (Line 465) v.P_CountMain[playerID] += 1;
                 _ARRW(v.P_CountMain, playerID).__iadd__(1)
-                # (Line 465) v.P_LoopMain[playerID] = 0;
+                # (Line 466) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 466) }
                 # (Line 467) }
+                # (Line 468) }
             EUDEndIf()
-            # (Line 468) else if (v.P_CountMain[playerID] == 6)    //9.90
+            # (Line 469) else if (v.P_CountMain[playerID] == 6)    //9.90
         if EUDElseIf()(v.P_CountMain[playerID] == 6):
-            # (Line 469) {
-            # (Line 470) KillUnitAt(All, "Protoss Reaver", "Anywhere", playerID);
-            # (Line 471) KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
+            # (Line 470) {
+            # (Line 471) KillUnitAt(All, "Protoss Reaver", "Anywhere", playerID);
+            # (Line 472) KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
             DoActions(KillUnitAt(All, "Protoss Reaver", "Anywhere", playerID))
-            # (Line 473) trg.SkillEnd();
+            # (Line 474) trg.SkillEnd();
             DoActions(KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID))
             trg.SkillEnd()
-            # (Line 474) }
             # (Line 475) }
+            # (Line 476) }
         EUDEndIf()
-        # (Line 476) }
+        # (Line 477) }
     EUDEndIf()
-    # (Line 478) function NxNSquareShapeAt(playerID : TrgPlayer, count, Unit : TrgUnit, n, interval, x, y)
+    # (Line 479) function NxNSquareShapeAt(playerID : TrgPlayer, count, Unit : TrgUnit, n, interval, x, y)
 
-# (Line 479) {
+# (Line 480) {
 @EUDTypedFunc([TrgPlayer, None, TrgUnit, None, None, None, None])
 def NxNSquareShapeAt(playerID, count, Unit, n, interval, x_1, y_1):
-    # (Line 480) adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, x, y);
+    # (Line 481) adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, x, y);
     adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, x_1, y_1)
-    # (Line 481) adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, -x, -y);
+    # (Line 482) adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, -x, -y);
     adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, -x_1, -y_1)
-    # (Line 482) adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, -y, x);
+    # (Line 483) adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, -y, x);
     adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, -y_1, x_1)
-    # (Line 483) adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, y, -x);
+    # (Line 484) adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, y, -x);
     adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, y_1, -x_1)
-    # (Line 484) }
-    # (Line 486) function NxNSquareShapeAtDouble(playerID : TrgPlayer, count, Unit : TrgUnit, n, interval, x, y)
+    # (Line 485) }
+    # (Line 487) function NxNSquareShapeAtDouble(playerID : TrgPlayer, count, Unit : TrgUnit, n, interval, x, y)
 
-# (Line 487) {
+# (Line 488) {
 @EUDTypedFunc([TrgPlayer, None, TrgUnit, None, None, None, None])
 def NxNSquareShapeAtDouble(playerID, count, Unit, n, interval, x_1, y_1):
-    # (Line 488) adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, x, y);
+    # (Line 489) adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, x, y);
     adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, x_1, y_1)
-    # (Line 489) adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, -x, -y);
+    # (Line 490) adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, -x, -y);
     adv.Shape_NxNSquareAt2(playerID, count, Unit, n, interval, -x_1, -y_1)
-    # (Line 490) }
+    # (Line 491) }

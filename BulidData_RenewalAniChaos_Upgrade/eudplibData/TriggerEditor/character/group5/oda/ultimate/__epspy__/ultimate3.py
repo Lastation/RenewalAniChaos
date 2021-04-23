@@ -138,127 +138,125 @@ from func import sound as s
 # (Line 7) {
 @EUDFunc
 def f_main(playerID):
-    # (Line 8) trg.Debuff_BanReturn();
-    trg.Debuff_BanReturn()
-    # (Line 9) trg.Debuff_Stop();
-    trg.Debuff_Stop()
-    # (Line 11) if (v.P_WaitMain[playerID] == 0)
+    # (Line 8) trg.Buff_ShieldFix(1);
+    trg.Buff_ShieldFix(1)
+    # (Line 9) if (v.P_WaitMain[playerID] == 0)
     if EUDIf()(v.P_WaitMain[playerID] == 0):
-        # (Line 12) {
-        # (Line 13) if (v.P_CountMain[playerID] == 0)
+        # (Line 10) {
+        # (Line 11) if (v.P_CountMain[playerID] == 0)
         if EUDIf()(v.P_CountMain[playerID] == 0):
-            # (Line 14) {
-            # (Line 15) if (v.P_LoopMain[playerID] == 0)
+            # (Line 12) {
+            # (Line 13) if (v.P_LoopMain[playerID] == 0)
             if EUDIf()(v.P_LoopMain[playerID] == 0):
-                # (Line 16) {
-                # (Line 17) SetSwitch("Recall - Oda", Set);
-                # (Line 18) }
+                # (Line 14) {
+                # (Line 15) SetSwitch("Recall - Oda", Set);
+                # (Line 16) }
                 DoActions(SetSwitch("Recall - Oda", Set))
-                # (Line 20) trg.Table_Sin(playerID, 22 * v.P_LoopMain[playerID], 200);
+                # (Line 18) trg.Table_Sin(playerID, 22 * v.P_LoopMain[playerID], 200);
             EUDEndIf()
             trg.Table_Sin(playerID, 22 * v.P_LoopMain[playerID], 200)
-            # (Line 21) trg.Table_Cos(playerID, 22 * v.P_LoopMain[playerID], 200);
+            # (Line 19) trg.Table_Cos(playerID, 22 * v.P_LoopMain[playerID], 200);
             trg.Table_Cos(playerID, 22 * v.P_LoopMain[playerID], 200)
-            # (Line 23) var x = v.P_AngleCos[playerID];
+            # (Line 21) var x = v.P_AngleCos[playerID];
             x = EUDVariable()
             x << (v.P_AngleCos[playerID])
-            # (Line 24) var y = v.P_AngleSin[playerID];
+            # (Line 22) var y = v.P_AngleSin[playerID];
             y = EUDVariable()
             y << (v.P_AngleSin[playerID])
-            # (Line 26) trg.Shape_Double(playerID, 1, "Bengalaas (Jungle)", x, y);
+            # (Line 24) trg.Shape_Double(playerID, 1, "Bengalaas (Jungle)", x, y);
             trg.Shape_Double(playerID, 1, "Bengalaas (Jungle)", x, y)
-            # (Line 27) KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", playerID);
-            # (Line 29) if (v.P_LoopMain[playerID] == 73)
+            # (Line 25) KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", playerID);
+            # (Line 27) if (v.P_LoopMain[playerID] == 73)
             DoActions(KillUnitAt(All, "Bengalaas (Jungle)", "Anywhere", playerID))
             if EUDIf()(v.P_LoopMain[playerID] == 73):
-                # (Line 30) {
-                # (Line 31) s.CharacterVoice(29);
+                # (Line 28) {
+                # (Line 29) s.CharacterVoice(29);
                 s.CharacterVoice(29)
-                # (Line 32) }
-                # (Line 33) if (v.P_LoopMain[playerID] == 144)
+                # (Line 30) }
+                # (Line 31) if (v.P_LoopMain[playerID] == 144)
             EUDEndIf()
             if EUDIf()(v.P_LoopMain[playerID] == 144):
-                # (Line 34) {
-                # (Line 35) s.CharacterVoice(30);
+                # (Line 32) {
+                # (Line 33) s.CharacterVoice(30);
                 s.CharacterVoice(30)
-                # (Line 36) }
-                # (Line 37) if (v.P_LoopMain[playerID] == 215)
+                # (Line 34) }
+                # (Line 35) if (v.P_LoopMain[playerID] == 215)
             EUDEndIf()
             if EUDIf()(v.P_LoopMain[playerID] == 215):
-                # (Line 38) {
-                # (Line 39) s.CharacterVoice(31);
+                # (Line 36) {
+                # (Line 37) s.CharacterVoice(31);
                 s.CharacterVoice(31)
-                # (Line 40) }
-                # (Line 41) if (v.P_LoopMain[playerID] == 279)
+                # (Line 38) }
+                # (Line 39) if (v.P_LoopMain[playerID] == 279)
             EUDEndIf()
             if EUDIf()(v.P_LoopMain[playerID] == 279):
-                # (Line 42) {
-                # (Line 43) s.CharacterVoice(32);
+                # (Line 40) {
+                # (Line 41) s.CharacterVoice(32);
                 s.CharacterVoice(32)
-                # (Line 44) }
-                # (Line 45) if (v.P_LoopMain[playerID] == 334)
+                # (Line 42) }
+                # (Line 43) if (v.P_LoopMain[playerID] == 334)
             EUDEndIf()
             if EUDIf()(v.P_LoopMain[playerID] == 334):
-                # (Line 46) {
-                # (Line 47) s.CharacterVoice(33);
+                # (Line 44) {
+                # (Line 45) s.CharacterVoice(33);
                 s.CharacterVoice(33)
-                # (Line 48) }
-                # (Line 50) trg.Main_Wait(80);
+                # (Line 46) }
+                # (Line 48) trg.Main_Wait(80);
             EUDEndIf()
             trg.Main_Wait(80)
-            # (Line 52) v.P_LoopMain[playerID] += 1;
+            # (Line 50) v.P_LoopMain[playerID] += 1;
             _ARRW(v.P_LoopMain, playerID).__iadd__(1)
-            # (Line 54) if (v.P_LoopMain[playerID] == 398)
+            # (Line 52) if (v.P_LoopMain[playerID] == 398)
             if EUDIf()(v.P_LoopMain[playerID] == 398):
-                # (Line 55) {
-                # (Line 56) v.P_CountMain[playerID] += 1;
+                # (Line 53) {
+                # (Line 54) v.P_CountMain[playerID] += 1;
                 _ARRW(v.P_CountMain, playerID).__iadd__(1)
-                # (Line 57) v.P_LoopMain[playerID] = 0;
+                # (Line 55) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)
-                # (Line 58) }
-                # (Line 59) }
+                # (Line 56) }
+                # (Line 57) }
             EUDEndIf()
-            # (Line 60) else if (v.P_CountMain[playerID] == 1)
+            # (Line 58) else if (v.P_CountMain[playerID] == 1)
         if EUDElseIf()(v.P_CountMain[playerID] == 1):
-            # (Line 61) {
-            # (Line 62) trg.Table_Sin(playerID, 0, 100);
+            # (Line 59) {
+            # (Line 60) trg.Table_Sin(playerID, 0, 100);
             trg.Table_Sin(playerID, 0, 100)
-            # (Line 63) trg.Table_Cos(playerID, 0, 100);
+            # (Line 61) trg.Table_Cos(playerID, 0, 100);
             trg.Table_Cos(playerID, 0, 100)
-            # (Line 65) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            # (Line 63) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
             trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-            # (Line 67) trg.Table_Sin(playerID, 45, 100);
+            # (Line 65) trg.Table_Sin(playerID, 45, 100);
             trg.Table_Sin(playerID, 45, 100)
-            # (Line 68) trg.Table_Cos(playerID, 45, 100);
+            # (Line 66) trg.Table_Cos(playerID, 45, 100);
             trg.Table_Cos(playerID, 45, 100)
-            # (Line 70) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            # (Line 68) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
             trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-            # (Line 72) trg.Table_Sin(playerID, 0, 200);
+            # (Line 70) trg.Table_Sin(playerID, 0, 200);
             trg.Table_Sin(playerID, 0, 200)
-            # (Line 73) trg.Table_Cos(playerID, 0, 200);
+            # (Line 71) trg.Table_Cos(playerID, 0, 200);
             trg.Table_Cos(playerID, 0, 200)
-            # (Line 75) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            # (Line 73) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
             trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-            # (Line 77) trg.Table_Sin(playerID, 45, 200);
+            # (Line 75) trg.Table_Sin(playerID, 45, 200);
             trg.Table_Sin(playerID, 45, 200)
-            # (Line 78) trg.Table_Cos(playerID, 45, 200);
+            # (Line 76) trg.Table_Cos(playerID, 45, 200);
             trg.Table_Cos(playerID, 45, 200)
-            # (Line 80) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            # (Line 78) trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
             trg.Shape_Square(playerID, 1, " Unit. Hoffnung 25000", v.P_AngleCos[playerID], v.P_AngleSin[playerID])
-            # (Line 82) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
-            # (Line 84) s.CharacterVoice(34);
+            # (Line 80) KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+            # (Line 82) s.CharacterVoice(34);
             DoActions(KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID))
             s.CharacterVoice(34)
-            # (Line 86) SetSwitch("Recall - Oda", Clear);
-            # (Line 87) SetSwitch("Reinforce - Oda", Set);
+            # (Line 84) SetSwitch("Recall - Oda", Clear);
+            # (Line 85) SetSwitch("Reinforce - Oda", Set);
             DoActions(SetSwitch("Recall - Oda", Clear))
-            # (Line 89) trg.SkillEnd();
+            # (Line 87) trg.SkillEnd();
             DoActions(SetSwitch("Reinforce - Oda", Set))
             trg.SkillEnd()
-            # (Line 90) }
-            # (Line 91) }
+            # (Line 88) }
+            # (Line 89) }
         EUDEndIf()
-        # (Line 92) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+        # (Line 90) MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
     EUDEndIf()
-    # (Line 94) }
+    # (Line 92) }
     DoActions(MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere"))

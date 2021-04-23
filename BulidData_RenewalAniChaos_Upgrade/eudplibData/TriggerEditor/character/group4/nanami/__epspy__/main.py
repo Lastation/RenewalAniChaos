@@ -294,8 +294,8 @@ def SkillList(playerID):
         v.stb.printAt(4, "　　　\x18O \x04모두의 힘 \x19[ 1분 간 아군 공 방 증가 +5 ] \x053분")
         # (Line 90) v.stb.printAt(5, "　　　\x04\x1FSSS \x04발상 \x19[ 만능 ]");
         v.stb.printAt(5, "　　　\x04\x1FSSS \x04발상 \x19[ 만능 ]")
-        # (Line 91) v.stb.printAt(6, "　　　\x04\x1FACC+ CA \x04필살기 \x19[ 만능 / 자리고정 ]");
-        v.stb.printAt(6, "　　　\x04\x1FACC+ CA \x04필살기 \x19[ 만능 / 자리고정 ]")
+        # (Line 91) v.stb.printAt(6, "　　　\x04\x1FACC+ CA \x04필살기 \x19[ 만능 / 자리고정 / 15 x 15 아군 공 방 증가 +5 ]");
+        v.stb.printAt(6, "　　　\x04\x1FACC+ CA \x04필살기 \x19[ 만능 / 자리고정 / 15 x 15 아군 공 방 증가 +5 ]")
         # (Line 92) v.stb.printAt(7, "　　　\x04\x1FCCC + CCC + AA \x04응원 \x19[ 공성 / CCC + CCC - 자리고정 / 15 x 15 아군 공 방 증가 +5 ] \x1F[1]");
         v.stb.printAt(7, "　　　\x04\x1FCCC + CCC + AA \x04응원 \x19[ 공성 / CCC + CCC - 자리고정 / 15 x 15 아군 공 방 증가 +5 ] \x1F[1]")
         # (Line 93) v.stb.printAt(8, "\n");

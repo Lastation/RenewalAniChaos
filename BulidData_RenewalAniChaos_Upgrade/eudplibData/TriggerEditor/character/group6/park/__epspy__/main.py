@@ -178,8 +178,8 @@ def SkillList(playerID):
         v.stb.printAt(3, "　　　\x18O \x04택견 - 무음신속 \x19[ 10초 간 첫 스킬에 한해 스킬 사용시 적에게 돌진 ] \x052분")
         # (Line 32) v.stb.printAt(4, "　　　\x04\x1FSSS\x04 소용 \x19[ 대인 / 순간딜 ]");
         v.stb.printAt(4, "　　　\x04\x1FSSS\x04 소용 \x19[ 대인 / 순간딜 ]")
-        # (Line 33) v.stb.printAt(5, "　　　\x04\x1FCCC + AC + CC\x04 약점 \x19[ 대인 / 순간딜 ]");
-        v.stb.printAt(5, "　　　\x04\x1FCCC + AC + CC\x04 약점 \x19[ 대인 / 순간딜 ]")
+        # (Line 33) v.stb.printAt(5, "　　　\x04\x1FCCC + AC + AC\x04 약점 \x19[ 대인 / 순간딜 ]");
+        v.stb.printAt(5, "　　　\x04\x1FCCC + AC + AC\x04 약점 \x19[ 대인 / 순간딜 ]")
         # (Line 34) v.stb.printAt(6, "　　　\x04\x1FAAC \x04도발 \x19[ 대인 / 순간딜 ]");
         v.stb.printAt(6, "　　　\x04\x1FAAC \x04도발 \x19[ 대인 / 순간딜 ]")
         # (Line 35) v.stb.printAt(7, "　　　\x08AAA \x04택견 오의 - 화축 \x19[ 대인 ] \x05", v.P_Ultimate1[playerID]);

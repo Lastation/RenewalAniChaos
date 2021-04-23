@@ -283,8 +283,8 @@ def SkillList(playerID):
         v.stb.printAt(4, "　　　\x04\x1FSSS \x04뚯뚜루~ \x19[ 대인 / 순간딜 ]")
         # (Line 89) v.stb.printAt(5, "　　　\x04\x1FCCC + AS + CC \x04비익연리의 달링 \x19[ 대인 / 지속딜 / CCC + AS - 자리고정 / 쉴드고정 1 ]");
         v.stb.printAt(5, "　　　\x04\x1FCCC + AS + CC \x04비익연리의 달링 \x19[ 대인 / 지속딜 / CCC + AS - 자리고정 / 쉴드고정 1 ]")
-        # (Line 90) v.stb.printAt(6, "　　　\x04\x1FAA \x04무한원점의 아크라이트 \x19[ 대인 / 순간딜 / 쉴드고정 1 ]");
-        v.stb.printAt(6, "　　　\x04\x1FAA \x04무한원점의 아크라이트 \x19[ 대인 / 순간딜 / 쉴드고정 1 ]")
+        # (Line 90) v.stb.printAt(6, "　　　\x04\x1FACC \x04무한원점의 아크라이트 \x19[ 대인 / 순간딜 / 쉴드고정 1 ]");
+        v.stb.printAt(6, "　　　\x04\x1FACC \x04무한원점의 아크라이트 \x19[ 대인 / 순간딜 / 쉴드고정 1 ]")
         # (Line 91) v.stb.printAt(7, "\n");
         v.stb.printAt(7, "\n")
         # (Line 92) v.stb.printAt(8, "　　　\x08CAA \x04교차좌표의 스타더스트 \x19[ 대인 / 자리고정 / 쉴드고정 ] \x05", v.P_Ultimate1[playerID]);
