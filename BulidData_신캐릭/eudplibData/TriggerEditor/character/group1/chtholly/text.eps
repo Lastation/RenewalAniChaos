@@ -1,0 +1,164 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
+
+const P_player			= PVariable();
+const P_observer 		= PVariable();
+
+const P_Next = PVariable();
+const P_Wait = PVariable();
+
+function Text(num, playerID);
+
+function player(playerID)
+{
+	Text(P_player[playerID], playerID);
+	P_player[playerID] = 0;
+}
+
+function observer(playerID)
+{
+	Text(P_observer[playerID - 128], playerID);
+	P_observer[playerID - 128] = 0;
+}
+
+function main(playerID)
+{
+	if (playerID < 6) 	{ player(playerID); 	}
+	else  			{ observer(playerID); }
+	
+	if (playerID < 6)
+	{
+		if (P_Wait[playerID] > 0)
+		{ P_Wait[playerID] -= 1; }
+		else if (P_Next[playerID] != 0)
+		{
+			P_player[playerID] 	= P_Next[playerID] + 1;
+			P_observer[playerID] = P_Next[playerID] + 1;
+			P_Next[playerID] = 0;
+		}
+	}
+}
+
+function TextDelay(playerID, wait)
+{
+	if (playerID < 6)
+	{
+		P_Next[playerID] = P_player[playerID];
+		if (wait == 0)
+		{ P_Next[playerID] = 0; }
+		else
+		{ P_Wait[playerID] = wait / 83 + 1; }
+	}
+}
+
+function Text(num, playerID)
+{
+	switch(num)
+	{
+	case 1:
+		PlayWAV("sato_unique.ogg");
+		v.stb.printAt(3, "\x13\x04Agatsuma \x1FZenitsu\n");
+		v.stb.printAt(5, "\x13\x04벽력일섬");
+		TextDelay(playerID, 0);
+		break;
+	case 2:
+		PlayWAV("sato_sss.ogg");
+		v.stb.print("\x13\x04Matsuzaka \x1FSato");
+		v.stb.print("\x13\x04그러니까.. 미안해?");
+		TextDelay(playerID, 0);
+		break;
+	case 3:
+		PlayWAV("sato_ccc.ogg");
+		v.stb.print("\x13\x04Matsuzaka \x1FSato");
+		v.stb.print("\x13\x04나, 처음으로 알았거든..");
+		TextDelay(playerID, 2800);
+		break;
+	case 4:
+		v.stb.print("\x13\x04Matsuzaka \x1FSato");
+		v.stb.print("\x13\x04소중한 사람이 사라지면..");
+		TextDelay(playerID, 2100);
+		break;
+	case 5:
+		v.stb.print("\x13\x04Matsuzaka \x1FSato");
+		v.stb.print("\x13\x04세상이 흑백으로 변해버리는구나");
+		TextDelay(playerID, 0);
+		break;
+	case 6:
+		PlayWAV("sato_ccc+a.ogg");
+		v.stb.print("\x13\x04Matsuzaka \x1FSato");
+		v.stb.print("\x13\x04하지만 그런 밤은 여기서 끝");
+		TextDelay(playerID, 4600);
+		break;
+	case 7:
+		v.stb.print("\x13\x04Matsuzaka \x1FSato");
+		v.stb.print("\x13\x04다들.. 집에 돌아가자?");
+		TextDelay(playerID, 0);
+		break;
+	case 8:
+		PlayWAV("sato_aac.ogg");
+		v.stb.print("\x13\x04Matsuzaka \x1FSato");
+		v.stb.print("\x13\x04'온기'란 게 어떤 느낌이 드는지를");
+		TextDelay(playerID, 4300);
+		break;
+	case 9:
+		v.stb.print("\x13\x04Matsuzaka \x1FSato");
+		v.stb.print("\x13\x04'상냥함'이란 게 어떤 것인지를");
+		TextDelay(playerID, 4300);
+		break;	
+	case 10:
+		v.stb.printAt(3, "\x13\x04Matsuzaka \x1FSato\n");
+		v.stb.printAt(5, "\x13\x04'마음을 준다'는 것이란 무엇인가");
+		TextDelay(playerID, 4000);
+		break;
+	case 11:
+		v.stb.printAt(3, "\x13\x04Matsuzaka \x1FSato\n");
+		v.stb.printAt(5, "\x13\x04그리고 다른 그 어떤 것들보다");
+		TextDelay(playerID, 2800);
+		break;
+	case 12:
+		v.stb.printAt(3, "\x13\x04Matsuzaka \x1FSato\n");
+		v.stb.printAt(5, "\x13\x04『사랑』이라는 것을 나로서는 도무지 이해할 수 없었어");
+		TextDelay(playerID, 0);
+		break;
+	case 13:
+		PlayWAV("sato_aac+ca.ogg");
+		v.stb.printAt(3, "\x13\x04Matsuzaka \x1FSato\n");
+		v.stb.printAt(5, "\x13\x04태어나서 단 한번도 느껴본 적 없었던");
+		v.stb.printAt(7, "\x13\x04행복의 의미를 알게 되었어!");
+		TextDelay(playerID, 6000);
+		break;
+	case 14:
+		v.stb.printAt(3, "\x13\x04Matsuzaka \x1FSato\n");
+		v.stb.printAt(5, "\x13\x04쭉 알지 못했던... 『사랑』 이라는것이");
+		TextDelay(playerID, 3000);
+		break;
+	case 15:
+		v.stb.printAt(3, "\x13\x04Matsuzaka \x1FSato\n");
+		v.stb.printAt(5, "\x13\x04어떤 것인지를 가르쳐주었던 것도.. 시오쨩..!");
+		TextDelay(playerID, 0);
+		break;
+	case 16:
+		PlayWAV("sato_aac+ca+a.ogg");
+		v.stb.printAt(3, "\x13\x04Matsuzaka \x1FSato\n");
+		v.stb.printAt(5, "\x13\x04시오쨩... 다시 태어나도 나를 좋아해줘야 해?");
+		TextDelay(playerID, 0);
+		break;		
+	case 17:
+		PlayWAV("sato_a.ogg");
+		v.stb.print("\x13\x04Matsuzaka \x1FSato");
+		v.stb.print("\x13\x04나는 알지 못했지");
+		TextDelay(playerID, 0);
+		break;	
+	case 18:
+		PlayWAV("sato_ultimate.ogg");
+		TextDelay(playerID, 4000);
+		break;
+	case 19:
+		v.stb.print("\x13\x04Matsuzaka \x1FSato");
+		v.stb.print("\x13\x04미안해... 고마워!");
+		TextDelay(playerID, 0);
+		break;		
+	}
+}

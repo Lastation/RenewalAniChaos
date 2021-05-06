@@ -1,0 +1,84 @@
+import PluginVariables as msqcvar;
+import variable as v;
+
+import character.group1.rusaruka.commend as commend;
+
+import character.group1.rusaruka.common.skill1 as O;
+import character.group1.rusaruka.common.skill2 as S;
+import character.group1.rusaruka.common.skill3 as C;
+import character.group1.rusaruka.common.skill4 as A;
+
+import character.group1.rusaruka.combo.combo1 as SSS;
+import character.group1.rusaruka.combo.combo2 as CCCC;
+import character.group1.rusaruka.combo.combo3 as AACC;
+import character.group1.rusaruka.combo.combo4 as AACCCAA;
+
+import character.group1.rusaruka.ultimate.ultimate1 as AAAA;
+function skillList(playerID)
+{
+	if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
+	{
+		v.stb.printAt(0, "\n");
+		v.stb.printAt(1, "\x1F　＃\x04- 엔데버　\x04[ 나의 히어로 아카데미아 ]");
+		v.stb.printAt(2, "　　\x1FA\x04ction List");
+		v.stb.printAt(3, "　　　\x18O \x04혁작열권 \x19[ 자신의 마나 + 500 ]");
+		v.stb.printAt(4, "　　　\x04\x1FSSS \x04이상 \x19[ 공성 ]");
+		v.stb.printAt(5, "　　　\x04\x1FCCCC \x04강함 \x19[ 공성 / 자리고정 ]");
+		v.stb.printAt(6, "　　　\x04\x1FAACC + CAA \x04최대출력 \x19[ 공성 ] \x1F[1]");
+		v.stb.printAt(7, "\n");
+		v.stb.printAt(8, "　　　\x08AAAA \x04교훈 \x19[ 공성 / 자리고정 / 쉴드 1고정] \x05", v.P_Ultimate1[playerID]);
+		v.stb.printAt(9, "　　　\x08 \x1F[1] + \x08O \x04교훈 \x19[ 공성 / 장판형 / 쉴드 1고정 / 자리고정 ] \x05", v.P_Ultimate2[playerID]);
+		v.stb.printAt(10, "\n");
+		PlayWAV("sound\\Bullet\\LaserHit.wav");
+	}
+}
+
+function main(playerID)
+{
+	v.P_HeroID[playerID] 		= 1;
+	v.P_UnitID[playerID] 			= 51;
+	v.P_LocationID[playerID] 		= 32;
+	
+	v.P_Ultimate1[playerID] = 650;
+	v.P_Ultimate2[playerID] = 700;
+	
+	
+	commend.main(playerID);
+	skillList(playerID);
+	
+	// Commed Setting
+	if (v.P_SkillDelay[playerID] == 0)
+	{
+		switch(v.P_Step[playerID])
+		{
+		case 1:
+			O.main(playerID);
+			break;
+		case 100:
+			S.main(playerID);
+			break;
+		case 200:
+			C.main(playerID);
+			break;
+		case 300:
+			A.main(playerID);
+			break;
+		case 110:
+			SSS.main(playerID);
+			break;
+		case 210:
+			CCCC.main(playerID);
+			break;
+		case 310:
+			AACC.main(playerID);
+			break;
+		case 320:
+			AACCCAA.main(playerID);
+			break;
+		case 330:
+			AAAA.main(playerID);
+			break;
+		}
+	}
+	
+}
