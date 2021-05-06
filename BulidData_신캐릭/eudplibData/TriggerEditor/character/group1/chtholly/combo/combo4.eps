@@ -1,0 +1,69 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
+import func.trigepic as epic;
+
+function main(playerID)
+{	
+	trg.Debuff_Stop();
+	trg.Debuff_BanReturn();
+	if (v.P_WaitMain[playerID] == 0)
+	{
+		MoveUnit(All,"50 + 1n Tank", playerID, "Anywhere", "[Skill]HoldPosition");
+		MoveUnit(All,"40 + 1n Drone", playerID, "Anywhere", "[Skill]HoldPosition");
+		if(v.P_CountMain[playerID] == 0)
+		{
+			if (v.P_LoopMain[playerID] <= 30)
+			{
+				if(v.P_LoopMain[playerID] % 6 == 0)
+				{
+					trg.Shape_Line(playerID,1,"40 + 1n Drone",0+v.P_LoopMain[playerID] *15,2,256,0);
+				}
+				trg.Shape_Line(playerID,1,"40 + 1n Gantrithor",0+v.P_LoopMain[playerID] *15,2,256,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Gantrithor",90+v.P_LoopMain[playerID] *15,2,256,0);
+				KillUnitAt(All,"40 + 1n Gantrithor","Anywhere",playerID);
+				trg.Main_Wait(100);	
+			}
+			else if (v.P_LoopMain[playerID] <= 85)
+			{
+				if(v.P_LoopMain[playerID] % 5 == 0)
+				{
+					trg.Shape_Line(playerID,1,"50 + 1n Tank",0+v.P_LoopMain[playerID] *15,2,384,0);
+				}
+				trg.Shape_Line(playerID,1,"40 + 1n Gantrithor",0+v.P_LoopMain[playerID] *15,2,384,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Gantrithor",90+v.P_LoopMain[playerID] *15,2,384,0);
+				KillUnitAt(All,"40 + 1n Gantrithor","Anywhere",playerID);
+				trg.Main_Wait(80);	
+			}
+			
+			else if (v.P_LoopMain[playerID] <= 135)
+			{
+				if(v.P_LoopMain[playerID] % 5 == 0)
+				{
+					trg.Shape_Line(playerID,1,"60 + 1n Siege",0+v.P_LoopMain[playerID] *15,2,512,0);
+					epic.Shape_Line(playerID,1,"60 + 1n Siege",90+v.P_LoopMain[playerID]
+					*15,2,512,0,1);
+					epic.Shape_Line(playerID,1,"40 + 1n Lurker",90+v.P_LoopMain[playerID]*15,2,512,0,0);
+				}
+				trg.Shape_Line(playerID,1,"40 + 1n Gantrithor",0+v.P_LoopMain[playerID] *15,2,512,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Gantrithor",90+v.P_LoopMain[playerID] *15,2,512,0);
+				KillUnitAt(All,"40 + 1n Gantrithor","Anywhere",playerID);
+				trg.Main_Wait(60);	
+			}
+			else if(v.P_LoopMain[playerID] == 136)
+			{
+				trg.Main_Wait(4000);
+			}
+			else if (v.P_LoopMain[playerID] == 137)
+			{
+				KillUnitAt(All,"50 + 1n Tank", "Anywhere", playerID);
+				KillUnitAt(All,"40 + 1n Drone", "Anywhere", playerID);
+				KillUnitAt(All,"40 + 1n Lurker", "Anywhere", playerID);
+				KillUnitAt(All,"60 + 1n Siege", "Anywhere", playerID);
+				trg.SkillEnd();
+			}
+			v.P_LoopMain[playerID] += 1;
+		}
+	}
+}

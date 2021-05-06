@@ -1,0 +1,90 @@
+import PluginVariables as msqcvar;
+import variable as v;
+
+import character.group1.chtholly.commend as commend;
+
+import character.group1.chtholly.common.skill1 as S;
+import character.group1.chtholly.common.skill2 as C;
+import character.group1.chtholly.common.skill3 as A;
+
+import character.group1.chtholly.combo.combo1 as SSS;
+import character.group1.chtholly.combo.combo2 as CCC;
+import character.group1.chtholly.combo.combo3 as CCCA;
+import character.group1.chtholly.combo.combo4 as AACC;
+import character.group1.chtholly.combo.combo5 as AACCCA;
+import character.group1.chtholly.combo.combo6 as AACCCAA;
+
+import character.group1.chtholly.ultimate.ultimate1 as AAAA;
+
+
+function SkillList(playerID)
+{
+	if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
+	{
+		v.stb.printAt(0, "\n");
+		v.stb.printAt(1, "\x1F　＃\x04- 마츠자카 \x1B사토　\x04[ 해피 슈가 라이프 ]");
+		v.stb.printAt(2, "　　\x1FA\x04ction List\r\n　　　\x07O \x19 화 [ 미정 ] \x05개인쿨 3분");
+		v.stb.printAt(3, "　　　\x1FSSS \x04사과 \x19[ 공성 ]");
+		v.stb.printAt(4, "　　　\x1FCCC + A \x04흑백 \x19[ 공성 / 자리고정 ]\x05");
+		v.stb.printAt(5, "　　　\x1FAACC +300Gas + CCA + A \x04사랑 \x19[ 공성 / 자리고정 ] \x1F[1] ");
+		v.stb.printAt(6, "　　　\x08AAAA \x04사과 \x19[ 공성 / 선딜 6초] \x05", v.P_Ultimate1[playerID]);
+		v.stb.printAt(7, "　　　\x08 \x1F[1] + \x08O \x04사과 \x19[ 공성 / 선딜 6초 ] \x05", v.P_Ultimate2[playerID]);
+		v.stb.printAt(8, "\n");
+		PlayWAV("sound\\Bullet\\LaserHit.wav");
+	}
+}
+
+function main(playerID)
+{
+	v.P_HeroID[playerID] 		= 2;
+	v.P_LocationID[playerID] 		= 117;
+	v.P_UnitID[playerID] 			= 77;
+	
+	v.P_Ultimate1[playerID] = 650;
+	v.P_Ultimate2[playerID] = 600;
+	
+	// Commed Setting
+	commend.main(playerID);
+	SkillList(playerID);
+	
+	if (v.P_SkillDelay[playerID] == 0)
+	{
+		switch(v.P_Step[playerID])
+		{
+		case 1:
+			//O.main(playerID);
+			break;
+		case 100:
+			S.main(playerID);
+			break;
+		case 110:
+			SSS.main(playerID);
+			break;
+		case 200:
+			C.main(playerID);
+			break;
+		case 210:
+			CCC.main(playerID);
+			break;
+		case 220:
+			CCCA.main(playerID);
+			break;
+		case 300:
+			A.main(playerID);
+			break;
+		case 310:
+			AACC.main(playerID);
+			break;
+		case 320:
+			AACCCA.main(playerID);
+			break;
+		case 330:
+			AACCCAA.main(playerID);
+			break;		
+		case 340:
+			AAAA.main(playerID);
+			break;	
+		}
+	}
+	
+}
