@@ -210,5 +210,3 @@ bgmWait = _CGFW(lambda: [PVariable()], 1)[0]
 P_KillScore = _CGFW(lambda: [PVariable()], 1)[0]
 # (Line 72) const P_ZenitsuDebuff = PVariable();
 P_ZenitsuDebuff = _CGFW(lambda: [PVariable()], 1)[0]
-# (Line 73) const P_LawBuff = PVariable();
-P_LawBuff = _CGFW(lambda: [PVariable()], 1)[0]

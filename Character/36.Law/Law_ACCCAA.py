@@ -85,7 +85,7 @@ function main(playerID)
 
          v.P_LoopMain[playerID] += 1;
 
-         if (v.P_LoopMain[playerID] == 16)
+         if (v.P_LoopMain[playerID] == 14)
          {                        
             v.P_CountMain[playerID] += 1;
             v.P_LoopMain[playerID] = 0;

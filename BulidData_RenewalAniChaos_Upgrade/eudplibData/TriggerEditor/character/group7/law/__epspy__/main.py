@@ -208,86 +208,84 @@ def f_main(playerID):
     SkillList(playerID)
     # (Line 50) commend.main(playerID);
     commend.f_main(playerID)
-    # (Line 52) O.buff(playerID);
-    O.f_buff(playerID)
-    # (Line 53) if (v.P_SkillDelay[playerID] == 0)
+    # (Line 52) if (v.P_SkillDelay[playerID] == 0)
     if EUDIf()(v.P_SkillDelay[playerID] == 0):
-        # (Line 54) {
-        # (Line 55) switch(v.P_Step[playerID])
+        # (Line 53) {
+        # (Line 54) switch(v.P_Step[playerID])
         EUDSwitch(v.P_Step[playerID])
-        # (Line 56) {
-        # (Line 57) case 1:
+        # (Line 55) {
+        # (Line 56) case 1:
         _t2 = EUDSwitchCase()
-        # (Line 58) O.main(playerID);
+        # (Line 57) O.main(playerID);
         if _t2(1):
             O.f_main(playerID)
-            # (Line 59) break;
+            # (Line 58) break;
             EUDBreak()
-            # (Line 60) case 100:
+            # (Line 59) case 100:
         _t3 = EUDSwitchCase()
-        # (Line 61) S.main(playerID);
+        # (Line 60) S.main(playerID);
         if _t3(100):
             S.f_main(playerID)
-            # (Line 62) break;
+            # (Line 61) break;
             EUDBreak()
-            # (Line 63) case 200:
+            # (Line 62) case 200:
         _t4 = EUDSwitchCase()
-        # (Line 64) C.main(playerID);
+        # (Line 63) C.main(playerID);
         if _t4(200):
             C.f_main(playerID)
-            # (Line 65) break;
+            # (Line 64) break;
             EUDBreak()
-            # (Line 66) case 300:
+            # (Line 65) case 300:
         _t5 = EUDSwitchCase()
-        # (Line 67) A.main(playerID);
+        # (Line 66) A.main(playerID);
         if _t5(300):
             A.f_main(playerID)
-            # (Line 68) break;
+            # (Line 67) break;
             EUDBreak()
-            # (Line 69) case 110:
+            # (Line 68) case 110:
         _t6 = EUDSwitchCase()
-        # (Line 70) SSS.main(playerID);
+        # (Line 69) SSS.main(playerID);
         if _t6(110):
             SSS.f_main(playerID)
-            # (Line 71) break;
+            # (Line 70) break;
             EUDBreak()
-            # (Line 72) case 210:
+            # (Line 71) case 210:
         _t7 = EUDSwitchCase()
-        # (Line 73) CCC.main(playerID);
+        # (Line 72) CCC.main(playerID);
         if _t7(210):
             CCC.f_main(playerID)
-            # (Line 74) break;
+            # (Line 73) break;
             EUDBreak()
-            # (Line 75) case 220:
+            # (Line 74) case 220:
         _t8 = EUDSwitchCase()
-        # (Line 76) CCCAA.main(playerID);
+        # (Line 75) CCCAA.main(playerID);
         if _t8(220):
             CCCAA.f_main(playerID)
-            # (Line 77) break;
+            # (Line 76) break;
             EUDBreak()
-            # (Line 78) case 310:
+            # (Line 77) case 310:
         _t9 = EUDSwitchCase()
-        # (Line 79) ACCC.main(playerID);
+        # (Line 78) ACCC.main(playerID);
         if _t9(310):
             ACCC.f_main(playerID)
-            # (Line 80) break;
+            # (Line 79) break;
             EUDBreak()
-            # (Line 81) case 320:
+            # (Line 80) case 320:
         _t10 = EUDSwitchCase()
-        # (Line 82) ACCCAA.main(playerID);
+        # (Line 81) ACCCAA.main(playerID);
         if _t10(320):
             ACCCAA.f_main(playerID)
-            # (Line 83) break;
+            # (Line 82) break;
             EUDBreak()
-            # (Line 84) case 330:
+            # (Line 83) case 330:
         _t11 = EUDSwitchCase()
-        # (Line 85) AAAA.main(playerID);
+        # (Line 84) AAAA.main(playerID);
         if _t11(330):
             AAAA.f_main(playerID)
-            # (Line 86) break;
+            # (Line 85) break;
             EUDBreak()
-            # (Line 87) }
-        # (Line 90) }
+            # (Line 86) }
+        # (Line 89) }
         EUDEndSwitch()
-        # (Line 93) }
+        # (Line 92) }
     EUDEndIf()
