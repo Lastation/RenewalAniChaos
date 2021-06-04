@@ -260,5 +260,4 @@ function main(playerID)
          trg.SkillEnd();
       }
    }
-   }
 }

@@ -8,11 +8,10 @@ function main(playerID)
 {	
 	trg.Debuff_Stop();
 	trg.Debuff_BanReturn();
-	if (v.P_LoopMain[playerID] >= 24)
+	if(v.P_LoopMain[playerID] >= 24)
 	{
 		trg.Buff_ShieldFix(1);
 	}
-	
 	if (v.P_WaitMain[playerID] == 0)
 	{
 		if(v.P_CountMain[playerID] == 0)

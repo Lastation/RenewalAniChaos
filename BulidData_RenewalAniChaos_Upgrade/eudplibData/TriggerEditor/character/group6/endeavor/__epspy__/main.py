@@ -146,8 +146,8 @@ from character.group6.endeavor.combo import combo1 as SSS
 from character.group6.endeavor.combo import combo2 as CCCC
 # (Line 13) import character.group6.endeavor.combo.combo3 as AACC;
 from character.group6.endeavor.combo import combo3 as AACC
-# (Line 14) import character.group6.endeavor.combo.combo4 as AACCCCAA;
-from character.group6.endeavor.combo import combo4 as AACCCCAA
+# (Line 14) import character.group6.endeavor.combo.combo4 as AACCCAAA;
+from character.group6.endeavor.combo import combo4 as AACCCAAA
 # (Line 16) import character.group6.endeavor.ultimate.ultimate1 as AAAA;
 from character.group6.endeavor.ultimate import ultimate1 as AAAA
 # (Line 17) function skillList(playerID)
@@ -169,8 +169,8 @@ def f_skillList(playerID):
         v.stb.printAt(4, "　　　\x04\x1FSSS \x04이상 \x19[ 공성 ]")
         # (Line 26) v.stb.printAt(5, "　　　\x04\x1FCCC \x04강함 \x19[ 공성 / 자리고정 ]");
         v.stb.printAt(5, "　　　\x04\x1FCCC \x04강함 \x19[ 공성 / 자리고정 ]")
-        # (Line 27) v.stb.printAt(6, "　　　\x04\x1FAACC + 200 Gas + CCAA \x04최대출력 \x19[ 공성 ] \x1F[1]");
-        v.stb.printAt(6, "　　　\x04\x1FAACC + 200 Gas + CCAA \x04최대출력 \x19[ 공성 ] \x1F[1]")
+        # (Line 27) v.stb.printAt(6, "　　　\x04\x1FAACC + 200 Gas + CAAA \x04최대출력 \x19[ 공성 ] \x1F[1]");
+        v.stb.printAt(6, "　　　\x04\x1FAACC + 200 Gas + CAAA \x04최대출력 \x19[ 공성 ] \x1F[1]")
         # (Line 28) v.stb.printAt(7, "\n");
         v.stb.printAt(7, "\n")
         # (Line 29) v.stb.printAt(8, "　　　\x08AAAA \x04교훈 \x19[ 공성 / 자리고정 / 쉴드 1고정] \x05", v.P_Ultimate1[playerID]);
@@ -197,8 +197,8 @@ def f_main(playerID):
     _ARRW(v.P_LocationID, playerID) << (205)
     # (Line 42) v.P_Ultimate1[playerID] = 650;
     _ARRW(v.P_Ultimate1, playerID) << (650)
-    # (Line 43) v.P_Ultimate2[playerID] = 700;
-    _ARRW(v.P_Ultimate2, playerID) << (700)
+    # (Line 43) v.P_Ultimate2[playerID] = 650;
+    _ARRW(v.P_Ultimate2, playerID) << (650)
     # (Line 46) commend.main(playerID);
     commend.f_main(playerID)
     # (Line 47) skillList(playerID);
@@ -260,9 +260,9 @@ def f_main(playerID):
             EUDBreak()
             # (Line 75) case 320:
         _t9 = EUDSwitchCase()
-        # (Line 76) AACCCCAA.main(playerID);
+        # (Line 76) AACCCAAA.main(playerID);
         if _t9(320):
-            AACCCCAA.f_main(playerID)
+            AACCCAAA.f_main(playerID)
             # (Line 77) break;
             EUDBreak()
             # (Line 78) case 330:

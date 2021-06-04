@@ -181,89 +181,93 @@ def Text(num):
     # (Line 32) {
     # (Line 33) case 1:
     _t1 = EUDSwitchCase()
-    # (Line 34) PlayWAV("law_ult.ogg");
+    # (Line 34) PlayWAV("law_o.ogg");
     if _t1(1):
-        # (Line 35) break;
-        DoActions(PlayWAV("law_ult.ogg"))
+        # (Line 35) v.stb.print("\x13\x16Trafalgar Law\n");
+        DoActions(PlayWAV("law_o.ogg"))
+        v.stb.print("\x13\x16Trafalgar Law\n")
+        # (Line 36) v.stb.print("\x13\x04룸\x04");
+        v.stb.print("\x13\x04룸\x04")
+        # (Line 37) break;
         EUDBreak()
-        # (Line 36) case 2:
+        # (Line 38) case 2:
     _t2 = EUDSwitchCase()
-    # (Line 37) PlayWAV("law_sss.ogg");
+    # (Line 39) PlayWAV("law_sss.ogg");
     if _t2(2):
-        # (Line 38) v.stb.print("\x13\x16Trafalgar Law\n");
+        # (Line 40) v.stb.print("\x13\x16Trafalgar Law\n");
         DoActions(PlayWAV("law_sss.ogg"))
         v.stb.print("\x13\x16Trafalgar Law\n")
-        # (Line 39) v.stb.print("\x13\x04이걸로 끝이다\x04");
+        # (Line 41) v.stb.print("\x13\x04이걸로 끝이다\x04");
         v.stb.print("\x13\x04이걸로 끝이다\x04")
-        # (Line 40) break;
+        # (Line 42) break;
         EUDBreak()
-        # (Line 41) case 3:
+        # (Line 43) case 3:
     _t3 = EUDSwitchCase()
-    # (Line 42) PlayWAV("law_ccc.ogg");
+    # (Line 44) PlayWAV("law_ccc.ogg");
     if _t3(3):
-        # (Line 43) v.stb.print("\x13\x16Trafalgar Law\n");
+        # (Line 45) v.stb.print("\x13\x16Trafalgar Law\n");
         DoActions(PlayWAV("law_ccc.ogg"))
         v.stb.print("\x13\x16Trafalgar Law\n")
-        # (Line 44) v.stb.print("\x13\x04톱니바퀴가... 부숴졌다...!\x04");
-        v.stb.print("\x13\x04톱니바퀴가... 부숴졌다...!\x04")
-        # (Line 45) break;
+        # (Line 46) v.stb.print("\x13\x04톱니바퀴를... 부쉈다...!\x04");
+        v.stb.print("\x13\x04톱니바퀴를... 부쉈다...!\x04")
+        # (Line 47) break;
         EUDBreak()
-        # (Line 46) case 4:
+        # (Line 48) case 4:
     _t4 = EUDSwitchCase()
-    # (Line 47) PlayWAV("law_cccaa.ogg");
+    # (Line 49) PlayWAV("law_cccaa.ogg");
     if _t4(4):
-        # (Line 48) v.stb.print("\x13\x16Trafalgar Law\n");
+        # (Line 50) v.stb.print("\x13\x16Trafalgar Law\n");
         DoActions(PlayWAV("law_cccaa.ogg"))
         v.stb.print("\x13\x16Trafalgar Law\n")
-        # (Line 49) v.stb.print("\x13\x04이제... 아무도 되돌릴 수 없어...!\x04");
+        # (Line 51) v.stb.print("\x13\x04이제... 아무도 되돌릴 수 없어...!\x04");
         v.stb.print("\x13\x04이제... 아무도 되돌릴 수 없어...!\x04")
-        # (Line 50) break;
+        # (Line 52) break;
         EUDBreak()
-        # (Line 51) case 5:
+        # (Line 53) case 5:
     _t5 = EUDSwitchCase()
-    # (Line 52) PlayWAV("law_accc.ogg");
+    # (Line 54) PlayWAV("law_accc.ogg");
     if _t5(5):
-        # (Line 53) break;
+        # (Line 55) break;
         DoActions(PlayWAV("law_accc.ogg"))
         EUDBreak()
-        # (Line 54) case 6:
+        # (Line 56) case 6:
     _t6 = EUDSwitchCase()
-    # (Line 55) PlayWAV("law_acccaa.ogg");
+    # (Line 57) PlayWAV("law_acccaa.ogg");
     if _t6(6):
-        # (Line 56) v.stb.print("\x13\x16Trafalgar Law\n");
+        # (Line 58) v.stb.print("\x13\x16Trafalgar Law\n");
         DoActions(PlayWAV("law_acccaa.ogg"))
         v.stb.print("\x13\x16Trafalgar Law\n")
-        # (Line 57) v.stb.print("\x13\x04아무도 놓칠 순 없지\x04");
+        # (Line 59) v.stb.print("\x13\x04아무도 놓칠 순 없지\x04");
         v.stb.print("\x13\x04아무도 놓칠 순 없지\x04")
-        # (Line 58) break;
+        # (Line 60) break;
         EUDBreak()
-        # (Line 59) case 7:
+        # (Line 61) case 7:
     _t7 = EUDSwitchCase()
-    # (Line 60) PlayWAV("law_ult1.ogg");
+    # (Line 62) PlayWAV("law_ult1.ogg");
     if _t7(7):
-        # (Line 61) break;
+        # (Line 63) break;
         DoActions(PlayWAV("law_ult1.ogg"))
         EUDBreak()
-        # (Line 62) case 8:
+        # (Line 64) case 8:
     _t8 = EUDSwitchCase()
-    # (Line 63) v.stb.print("\x13\x16Trafalgar Law\n");
+    # (Line 65) v.stb.print("\x13\x16Trafalgar Law\n");
     if _t8(8):
         v.stb.print("\x13\x16Trafalgar Law\n")
-        # (Line 64) v.stb.print("\x13\x04이 수술은... 너를 몸 안에서부터 파괴한다!\x04");
+        # (Line 66) v.stb.print("\x13\x04이 수술은... 너를 몸 안에서부터 파괴한다!\x04");
         v.stb.print("\x13\x04이 수술은... 너를 몸 안에서부터 파괴한다!\x04")
-        # (Line 65) break;
+        # (Line 67) break;
         EUDBreak()
-        # (Line 66) case 9:
+        # (Line 68) case 9:
     _t9 = EUDSwitchCase()
-    # (Line 67) PlayWAV("law_ult2.ogg");
+    # (Line 69) PlayWAV("law_ult2.ogg");
     if _t9(9):
-        # (Line 68) v.stb.print("\x13\x16Trafalgar Law\n");
+        # (Line 70) v.stb.print("\x13\x16Trafalgar Law\n");
         DoActions(PlayWAV("law_ult2.ogg"))
         v.stb.print("\x13\x16Trafalgar Law\n")
-        # (Line 69) v.stb.print("\x13\x04감마나이프!\x04");
+        # (Line 71) v.stb.print("\x13\x04감마나이프!\x04");
         v.stb.print("\x13\x04감마나이프!\x04")
-        # (Line 70) break;
+        # (Line 72) break;
         EUDBreak()
-        # (Line 72) }
-    # (Line 73) }
+        # (Line 74) }
+    # (Line 75) }
     EUDEndSwitch()

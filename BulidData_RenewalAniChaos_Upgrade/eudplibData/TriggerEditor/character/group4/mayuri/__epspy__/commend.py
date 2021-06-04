@@ -264,9 +264,9 @@ def f_main(playerID):
             DoActions(KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", playerID))
             # (Line 86) else if (Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill")
         _t12 = EUDElseIf()
-        # (Line 87) && v.P_Step[playerID] == 200
+        # (Line 87) && v.P_Step[playerID] == 300
         # (Line 88) && v.P_UltimateGauge[playerID] >= v.P_Ultimate1[playerID])
-        if _t12(EUDSCAnd()(Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill"))(v.P_Step[playerID] == 200)(v.P_UltimateGauge[playerID] >= v.P_Ultimate1[playerID])()):
+        if _t12(EUDSCAnd()(Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill"))(v.P_Step[playerID] == 300)(v.P_UltimateGauge[playerID] >= v.P_Ultimate1[playerID])()):
             # (Line 89) {
             # (Line 90) s.CharacterVoice(10);
             s.CharacterVoice(10)

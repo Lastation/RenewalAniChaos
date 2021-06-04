@@ -20,16 +20,17 @@ function main(playerID)
 			SetResources(CurrentPlayer, Add, 60, Gas);
 			KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID);
 		}
-		else if (Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))
-		{
-			v.P_Step[playerID] = 200;
-			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
-		}
 		else if (Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))
 		{
 			v.P_Step[playerID] = 300;
 			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 		}
+		else if (Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))
+		{
+			v.P_Step[playerID] = 200;
+			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
+		}
+		
 		
 		else if (Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))
 		{

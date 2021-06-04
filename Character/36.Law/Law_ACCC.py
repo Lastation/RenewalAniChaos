@@ -87,7 +87,8 @@ function main(playerID)
       }
       else if (v.P_CountMain[playerID] == 2)
       {
-         if (Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill"))
+         if (Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill")
+            && Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))
          {
             s.CharacterVoice(6);
             v.P_SkillDelay[playerID] = 0;
@@ -95,6 +96,7 @@ function main(playerID)
             v.P_LoopMain[playerID] = 0;
             v.P_Step[playerID] = 320;
             KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+            KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
          }
          else
          {

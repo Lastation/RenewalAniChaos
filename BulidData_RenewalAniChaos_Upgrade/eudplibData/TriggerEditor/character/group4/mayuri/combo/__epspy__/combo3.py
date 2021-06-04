@@ -300,11 +300,11 @@ def f_main(playerID):
             # (Line 124) else if (v.P_CountMain[playerID] == 2)
         if EUDElseIf()(v.P_CountMain[playerID] == 2):
             # (Line 125) {
-            # (Line 126) if (Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill")
+            # (Line 126) if (Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill")
             _t17 = EUDIf()
             # (Line 127) && Bring(playerID, AtLeast, 1,"Protoss Carrier", "[Skill]UseSkill")
             # (Line 128) && v.P_Step[playerID] == 210)
-            if _t17(EUDSCAnd()(Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))(Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))(v.P_Step[playerID] == 210)()):
+            if _t17(EUDSCAnd()(Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))(Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))(v.P_Step[playerID] == 210)()):
                 # (Line 129) {
                 # (Line 130) s.CharacterVoice(7);
                 s.CharacterVoice(7)

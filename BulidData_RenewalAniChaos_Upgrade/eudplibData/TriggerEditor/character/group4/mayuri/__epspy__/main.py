@@ -287,8 +287,8 @@ def SkillList(playerID):
         v.stb.printAt(6, "　　　\x04\x1FACC \x04무한원점의 아크라이트 \x19[ 대인 / 순간딜 / 쉴드고정 1 ]")
         # (Line 91) v.stb.printAt(7, "\n");
         v.stb.printAt(7, "\n")
-        # (Line 92) v.stb.printAt(8, "　　　\x08CAA \x04교차좌표의 스타더스트 \x19[ 대인 / 자리고정 / 쉴드고정 ] \x05", v.P_Ultimate1[playerID]);
-        v.stb.printAt(8, "　　　\x08CAA \x04교차좌표의 스타더스트 \x19[ 대인 / 자리고정 / 쉴드고정 ] \x05", v.P_Ultimate1[playerID])
+        # (Line 92) v.stb.printAt(8, "　　　\x08AAA \x04교차좌표의 스타더스트 \x19[ 대인 /  쉴드고정 ] \x05", v.P_Ultimate1[playerID]);
+        v.stb.printAt(8, "　　　\x08AAA \x04교차좌표의 스타더스트 \x19[ 대인 /  쉴드고정 ] \x05", v.P_Ultimate1[playerID])
         # (Line 93) v.stb.printAt(9, "　　　\x04+ \x08AA \x04슈타인즈 게이트 \x19[ 공성 / 자리고정 ] \x05", v.P_Ultimate2[playerID]);
         v.stb.printAt(9, "　　　\x04+ \x08AA \x04슈타인즈 게이트 \x19[ 공성 / 자리고정 ] \x05", v.P_Ultimate2[playerID])
         # (Line 94) v.stb.printAt(10, "\n");

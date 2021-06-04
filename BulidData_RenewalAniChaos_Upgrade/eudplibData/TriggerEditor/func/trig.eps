@@ -36,6 +36,21 @@ function Buff_ShieldFix(amount : TrgCount)
  * @Type
  * F
  * @Summary.ko-KR
+ * 캐릭터의 쉴드의 양을 설정할 때 사용합니다.
+ * [amount]은 캐릭터의 쉴드의 양을 정할 때 사용합니다.
+ * @param.amount.ko-KR
+ * [amount] : 실드의 양 입니다. 0 ~ 100의 정수를 입력해주세요.
+***/
+function Buff_ShieldFixPlayer(playerID : TrgPlayer, amount : TrgCount)
+{
+	v.P_Shield[playerID] = amount;
+	ModifyUnitShields(1, v.P_UnitID[playerID], playerID, "Anywhere", amount);
+}
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
  * 캐릭터의 이동속도를 저하 시킬때 사용합니다.
 ***/
 function Debuff_Slow()

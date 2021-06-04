@@ -132,26 +132,26 @@ import PluginVariables as msqcvar
 import variable as v
 # (Line 3) import func.trig as trg;
 from func import trig as trg
-# (Line 5) import character.group7.law.common.skill2 as S;
+# (Line 5) import character.group7.law.common.skill1 as O;
+from character.group7.law.common import skill1 as O
+# (Line 6) import character.group7.law.common.skill2 as S;
 from character.group7.law.common import skill2 as S
-# (Line 6) import character.group7.law.common.skill3 as C;
+# (Line 7) import character.group7.law.common.skill3 as C;
 from character.group7.law.common import skill3 as C
-# (Line 7) import character.group7.law.common.skill4 as A;
+# (Line 8) import character.group7.law.common.skill4 as A;
 from character.group7.law.common import skill4 as A
-# (Line 9) import character.group7.law.combo.combo1 as SSS;
+# (Line 10) import character.group7.law.combo.combo1 as SSS;
 from character.group7.law.combo import combo1 as SSS
-# (Line 10) import character.group7.law.combo.combo2 as CCC;
+# (Line 11) import character.group7.law.combo.combo2 as CCC;
 from character.group7.law.combo import combo2 as CCC
-# (Line 11) import character.group7.law.combo.combo3 as CCCAA;
+# (Line 12) import character.group7.law.combo.combo3 as CCCAA;
 from character.group7.law.combo import combo3 as CCCAA
-# (Line 12) import character.group7.law.combo.combo4 as ACCC;
+# (Line 13) import character.group7.law.combo.combo4 as ACCC;
 from character.group7.law.combo import combo4 as ACCC
-# (Line 13) import character.group7.law.combo.combo5 as ACCCAA;
+# (Line 14) import character.group7.law.combo.combo5 as ACCCAA;
 from character.group7.law.combo import combo5 as ACCCAA
-# (Line 15) import character.group7.law.ultimate.ultimate1 as AAAA;
+# (Line 16) import character.group7.law.ultimate.ultimate1 as AAAA;
 from character.group7.law.ultimate import ultimate1 as AAAA
-# (Line 16) import character.group7.law.ultimate.ultimate2 as AAAACCC;
-from character.group7.law.ultimate import ultimate2 as AAAACCC
 # (Line 18) import character.group7.law.text as text;
 from character.group7.law import text as text
 # (Line 19) import character.group7.law.commend as commend;
@@ -172,18 +172,18 @@ def SkillList(playerID):
         v.stb.printAt(1, "\x1F　＃\x16- 트라팔가 로우　\x04[ 원피스 ]")
         # (Line 29) v.stb.printAt(2, "　　\x1FA\x04ction List");
         v.stb.printAt(2, "　　\x1FA\x04ction List")
-        # (Line 30) v.stb.printAt(3, "　　　\x18O \x04불사 \x19[ 2초 간 피 고정 / 스킬 중 사용 가능 ] \x053분");
-        v.stb.printAt(3, "　　　\x18O \x04불사 \x19[ 2초 간 피 고정 / 스킬 중 사용 가능 ] \x053분")
+        # (Line 30) v.stb.printAt(3, "　　　\x18O \x04수술수술 열매 \x19[ 8초 간 쉴드고정 ] \x051분");
+        v.stb.printAt(3, "　　　\x18O \x04수술수술 열매 \x19[ 8초 간 쉴드고정 ] \x051분")
         # (Line 31) v.stb.printAt(4, "　　　\x04\x1FSSS\x04 끝 \x19[ 만능 ]");
         v.stb.printAt(4, "　　　\x04\x1FSSS\x04 끝 \x19[ 만능 ]")
-        # (Line 32) v.stb.printAt(5, "　　　\x04\x1FCCC + AA\x04 톱니바퀴 \x19[ 공성 / 자리고정 ]");
-        v.stb.printAt(5, "　　　\x04\x1FCCC + AA\x04 톱니바퀴 \x19[ 공성 / 자리고정 ]")
-        # (Line 33) v.stb.printAt(6, "　　　\x04\x1FACCC + AA \x04칠무해 \x19[ 공성 / 지속딜 / 자리고정 ] \x1F[1]");
-        v.stb.printAt(6, "　　　\x04\x1FACCC + AA \x04칠무해 \x19[ 공성 / 지속딜 / 자리고정 ] \x1F[1]")
+        # (Line 32) v.stb.printAt(5, "　　　\x04\x1FCCC + AS\x04 톱니바퀴 \x19[ 만능 / 순간딜 / 자리고정 ]");
+        v.stb.printAt(5, "　　　\x04\x1FCCC + AS\x04 톱니바퀴 \x19[ 만능 / 순간딜 / 자리고정 ]")
+        # (Line 33) v.stb.printAt(6, "　　　\x04\x1FACCC + 400 Gas + AAC \x04칠무해 \x19[ 만능 / 지속딜 / 자리고정 ] \x1F[1]");
+        v.stb.printAt(6, "　　　\x04\x1FACCC + 400 Gas + AAC \x04칠무해 \x19[ 만능 / 지속딜 / 자리고정 ] \x1F[1]")
         # (Line 34) v.stb.printAt(7, "\n");
         v.stb.printAt(7, "\n")
-        # (Line 35) v.stb.printAt(8, "　　　\x08AAAA + CCC \x04감마나이프 \x19[ 공성 ] \x05", v.P_Ultimate1[playerID], " + ", v.P_Ultimate2[playerID]);
-        v.stb.printAt(8, "　　　\x08AAAA + CCC \x04감마나이프 \x19[ 공성 ] \x05", v.P_Ultimate1[playerID], " + ", v.P_Ultimate2[playerID])
+        # (Line 35) v.stb.printAt(8, "　　　\x08AAAA \x04감마나이프 \x19[ 공성 / 선딜 6초 후 자리고정 ] \x05", v.P_Ultimate1[playerID]);
+        v.stb.printAt(8, "　　　\x08AAAA \x04감마나이프 \x19[ 공성 / 선딜 6초 후 자리고정 ] \x05", v.P_Ultimate1[playerID])
         # (Line 36) v.stb.printAt(9, "\n");
         v.stb.printAt(9, "\n")
         # (Line 37) PlayWAV("sound\\Bullet\\LaserHit.wav");
@@ -202,88 +202,88 @@ def f_main(playerID):
     _ARRW(v.P_LocationID, playerID) << (206)
     # (Line 45) v.P_UnitID[playerID] = 53;
     _ARRW(v.P_UnitID, playerID) << (53)
-    # (Line 47) v.P_Ultimate1[playerID] = 500;
-    _ARRW(v.P_Ultimate1, playerID) << (500)
-    # (Line 48) v.P_Ultimate2[playerID] = 250;
-    _ARRW(v.P_Ultimate2, playerID) << (250)
-    # (Line 50) SkillList(playerID);
+    # (Line 47) v.P_Ultimate1[playerID] = 650;
+    _ARRW(v.P_Ultimate1, playerID) << (650)
+    # (Line 49) SkillList(playerID);
     SkillList(playerID)
-    # (Line 51) commend.main(playerID);
+    # (Line 50) commend.main(playerID);
     commend.f_main(playerID)
+    # (Line 52) O.buff(playerID);
+    O.f_buff(playerID)
     # (Line 53) if (v.P_SkillDelay[playerID] == 0)
     if EUDIf()(v.P_SkillDelay[playerID] == 0):
         # (Line 54) {
         # (Line 55) switch(v.P_Step[playerID])
         EUDSwitch(v.P_Step[playerID])
         # (Line 56) {
-        # (Line 57) case 100:
+        # (Line 57) case 1:
         _t2 = EUDSwitchCase()
-        # (Line 58) S.main(playerID);
-        if _t2(100):
-            S.f_main(playerID)
+        # (Line 58) O.main(playerID);
+        if _t2(1):
+            O.f_main(playerID)
             # (Line 59) break;
             EUDBreak()
-            # (Line 60) case 200:
+            # (Line 60) case 100:
         _t3 = EUDSwitchCase()
-        # (Line 61) C.main(playerID);
-        if _t3(200):
-            C.f_main(playerID)
+        # (Line 61) S.main(playerID);
+        if _t3(100):
+            S.f_main(playerID)
             # (Line 62) break;
             EUDBreak()
-            # (Line 63) case 300:
+            # (Line 63) case 200:
         _t4 = EUDSwitchCase()
-        # (Line 64) A.main(playerID);
-        if _t4(300):
-            A.f_main(playerID)
+        # (Line 64) C.main(playerID);
+        if _t4(200):
+            C.f_main(playerID)
             # (Line 65) break;
             EUDBreak()
-            # (Line 66) case 110:
+            # (Line 66) case 300:
         _t5 = EUDSwitchCase()
-        # (Line 67) SSS.main(playerID);
-        if _t5(110):
-            SSS.f_main(playerID)
+        # (Line 67) A.main(playerID);
+        if _t5(300):
+            A.f_main(playerID)
             # (Line 68) break;
             EUDBreak()
-            # (Line 69) case 210:
+            # (Line 69) case 110:
         _t6 = EUDSwitchCase()
-        # (Line 70) CCC.main(playerID);
-        if _t6(210):
-            CCC.f_main(playerID)
+        # (Line 70) SSS.main(playerID);
+        if _t6(110):
+            SSS.f_main(playerID)
             # (Line 71) break;
             EUDBreak()
-            # (Line 72) case 220:
+            # (Line 72) case 210:
         _t7 = EUDSwitchCase()
-        # (Line 73) CCCAA.main(playerID);
-        if _t7(220):
-            CCCAA.f_main(playerID)
+        # (Line 73) CCC.main(playerID);
+        if _t7(210):
+            CCC.f_main(playerID)
             # (Line 74) break;
             EUDBreak()
-            # (Line 75) case 310:
+            # (Line 75) case 220:
         _t8 = EUDSwitchCase()
-        # (Line 76) ACCC.main(playerID);
-        if _t8(310):
-            ACCC.f_main(playerID)
+        # (Line 76) CCCAA.main(playerID);
+        if _t8(220):
+            CCCAA.f_main(playerID)
             # (Line 77) break;
             EUDBreak()
-            # (Line 78) case 320:
+            # (Line 78) case 310:
         _t9 = EUDSwitchCase()
-        # (Line 79) ACCCAA.main(playerID);
-        if _t9(320):
-            ACCCAA.f_main(playerID)
+        # (Line 79) ACCC.main(playerID);
+        if _t9(310):
+            ACCC.f_main(playerID)
             # (Line 80) break;
             EUDBreak()
-            # (Line 81) case 330:
+            # (Line 81) case 320:
         _t10 = EUDSwitchCase()
-        # (Line 82) AAAA.main(playerID);
-        if _t10(330):
-            AAAA.f_main(playerID)
+        # (Line 82) ACCCAA.main(playerID);
+        if _t10(320):
+            ACCCAA.f_main(playerID)
             # (Line 83) break;
             EUDBreak()
-            # (Line 84) case 340:
+            # (Line 84) case 330:
         _t11 = EUDSwitchCase()
-        # (Line 85) AAAACCC.main(playerID);
-        if _t11(340):
-            AAAACCC.f_main(playerID)
+        # (Line 85) AAAA.main(playerID);
+        if _t11(330):
+            AAAA.f_main(playerID)
             # (Line 86) break;
             EUDBreak()
             # (Line 87) }
