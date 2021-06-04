@@ -51,6 +51,7 @@ function SelectText(playerID)
 		else 	// Upper 5th
 		{
 			if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 33; }	// Zenitsu
+			else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 38; }	// Teio
 			else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
 		}
 		 unitID.UnitID[playerID] = 0;
@@ -71,11 +72,19 @@ function SelectText(playerID)
 		 unitID.UnitID[playerID] = 0;
 		break;
 	case 53:		// Hunter Killer (Hydralisk)
-		if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 27; }	// Magane
-		else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 30; }	// Niwa
-		else if 	(unitID.PlayerID[playerID] == 10) 		{ t.T_CharaterNum[playerID] = 34; }	// Tsukasa
-		else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 36; }	// Law
-		else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+		if (unitID.UnitHP[playerID] == 2450) 
+		{
+			if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 27; }	// Magane
+			else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 30; }	// Niwa
+			else if 	(unitID.PlayerID[playerID] == 10) 		{ t.T_CharaterNum[playerID] = 34; }	// Tsukasa
+			else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 36; }	// Law
+			else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+		}
+		else 	// Upper 5th
+		{
+			if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 37; }	// Sato
+			else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+		}
 		 unitID.UnitID[playerID] = 0;
 		break;
 	case 34:		// High Templar

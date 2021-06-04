@@ -146,14 +146,14 @@ from character.group6.tsukasa.combo import combo1 as SSS
 from character.group6.tsukasa.combo import combo2 as CCC
 # (Line 12) import character.group6.tsukasa.combo.combo3 as CCCA;
 from character.group6.tsukasa.combo import combo3 as CCCA
-# (Line 13) import character.group6.tsukasa.combo.combo4 as CCA;
-from character.group6.tsukasa.combo import combo4 as CCA
-# (Line 14) import character.group6.tsukasa.combo.combo5 as CCAAA;
-from character.group6.tsukasa.combo import combo5 as CCAAA
-# (Line 15) import character.group6.tsukasa.combo.combo6 as CCAAACC;
-from character.group6.tsukasa.combo import combo6 as CCAAACC
-# (Line 17) import character.group6.tsukasa.ultimate.ultimate1 as CCAAACCAA;
-from character.group6.tsukasa.ultimate import ultimate1 as CCAAACCAA
+# (Line 13) import character.group6.tsukasa.combo.combo4 as CAS;
+from character.group6.tsukasa.combo import combo4 as CAS
+# (Line 14) import character.group6.tsukasa.combo.combo5 as CASAAA;
+from character.group6.tsukasa.combo import combo5 as CASAAA
+# (Line 15) import character.group6.tsukasa.combo.combo6 as CASAAACCC;
+from character.group6.tsukasa.combo import combo6 as CASAAACCC
+# (Line 17) import character.group6.tsukasa.ultimate.ultimate1 as CASAAACCCAA;
+from character.group6.tsukasa.ultimate import ultimate1 as CASAAACCCAA
 # (Line 18) import character.group6.tsukasa.ultimate.ultimate2 as AAAA;
 from character.group6.tsukasa.ultimate import ultimate2 as AAAA
 # (Line 20) import character.group6.tsukasa.text as text;
@@ -182,8 +182,8 @@ def SkillList(playerID):
         v.stb.printAt(4, "　　　\x04\x1FSSS\x04 귀여워 \x19[ 공성 ]")
         # (Line 34) v.stb.printAt(5, "　　　\x04\x1FCCC + A\x04 추억 \x19[ 공성 / 순간딜 / 자리고정 ]");
         v.stb.printAt(5, "　　　\x04\x1FCCC + A\x04 추억 \x19[ 공성 / 순간딜 / 자리고정 ]")
-        # (Line 35) v.stb.printAt(6, "　　　\x04\x1FCAS + AA + CC \x04첫 경험 \x19[ 공성 / 지속딜 / 자리고정 ] \x1F[1]");
-        v.stb.printAt(6, "　　　\x04\x1FCAS + AA + CC \x04첫 경험 \x19[ 공성 / 지속딜 / 자리고정 ] \x1F[1]")
+        # (Line 35) v.stb.printAt(6, "　　　\x04\x1FCAS + AAA + CCC \x04첫 경험 \x19[ 공성 / 지속딜 / 자리고정 ] \x1F[1]");
+        v.stb.printAt(6, "　　　\x04\x1FCAS + AAA + CCC \x04첫 경험 \x19[ 공성 / 지속딜 / 자리고정 ] \x1F[1]")
         # (Line 36) v.stb.printAt(7, "\n");
         v.stb.printAt(7, "\n")
         # (Line 37) v.stb.printAt(8, "　　　\x1F[1]\x08 + AA \x04인생의 동반자 \x19[ 공성 / 선딜 5.5초 ] \x05", v.P_Ultimate1[playerID]);
@@ -268,30 +268,30 @@ def f_main(playerID):
             EUDBreak()
             # (Line 80) case 230:
         _t8 = EUDSwitchCase()
-        # (Line 81) CCA.main(playerID);
+        # (Line 81) CAS.main(playerID);
         if _t8(230):
-            CCA.f_main(playerID)
+            CAS.f_main(playerID)
             # (Line 82) break;
             EUDBreak()
             # (Line 83) case 240:
         _t9 = EUDSwitchCase()
-        # (Line 84) CCAAA.main(playerID);
+        # (Line 84) CASAAA.main(playerID);
         if _t9(240):
-            CCAAA.f_main(playerID)
+            CASAAA.f_main(playerID)
             # (Line 85) break;
             EUDBreak()
             # (Line 86) case 250:
         _t10 = EUDSwitchCase()
-        # (Line 87) CCAAACC.main(playerID);
+        # (Line 87) CASAAACCC.main(playerID);
         if _t10(250):
-            CCAAACC.f_main(playerID)
+            CASAAACCC.f_main(playerID)
             # (Line 88) break;
             EUDBreak()
             # (Line 89) case 260:
         _t11 = EUDSwitchCase()
-        # (Line 90) CCAAACCAA.main(playerID);
+        # (Line 90) CASAAACCCAA.main(playerID);
         if _t11(260):
-            CCAAACCAA.f_main(playerID)
+            CASAAACCCAA.f_main(playerID)
             # (Line 91) break;
             EUDBreak()
             # (Line 92) case 310:

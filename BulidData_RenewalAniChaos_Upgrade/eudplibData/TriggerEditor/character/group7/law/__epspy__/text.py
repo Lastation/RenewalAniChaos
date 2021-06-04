@@ -188,108 +188,82 @@ def Text(num):
         EUDBreak()
         # (Line 36) case 2:
     _t2 = EUDSwitchCase()
-    # (Line 37) PlayWAV("Tsukasa_02.ogg");
+    # (Line 37) PlayWAV("law_sss.ogg");
     if _t2(2):
-        # (Line 38) v.stb.print("\x13\x1BYuzaki Tsukasa\n");
-        DoActions(PlayWAV("Tsukasa_02.ogg"))
-        v.stb.print("\x13\x1BYuzaki Tsukasa\n")
-        # (Line 39) v.stb.print("\x13\x04절대로 잊지 않아, 당신이 나를 사랑해주고 있다는 걸\x04");
-        v.stb.print("\x13\x04절대로 잊지 않아, 당신이 나를 사랑해주고 있다는 걸\x04")
+        # (Line 38) v.stb.print("\x13\x16Trafalgar Law\n");
+        DoActions(PlayWAV("law_sss.ogg"))
+        v.stb.print("\x13\x16Trafalgar Law\n")
+        # (Line 39) v.stb.print("\x13\x04이걸로 끝이다\x04");
+        v.stb.print("\x13\x04이걸로 끝이다\x04")
         # (Line 40) break;
         EUDBreak()
         # (Line 41) case 3:
     _t3 = EUDSwitchCase()
-    # (Line 42) PlayWAV("Tsukasa_03.ogg");
+    # (Line 42) PlayWAV("law_ccc.ogg");
     if _t3(3):
-        # (Line 43) v.stb.print("\x13\x1BYuzaki Tsukasa\n");
-        DoActions(PlayWAV("Tsukasa_03.ogg"))
-        v.stb.print("\x13\x1BYuzaki Tsukasa\n")
-        # (Line 44) v.stb.print("\x13\x04나는 앞으로도\x04");
-        v.stb.print("\x13\x04나는 앞으로도\x04")
+        # (Line 43) v.stb.print("\x13\x16Trafalgar Law\n");
+        DoActions(PlayWAV("law_ccc.ogg"))
+        v.stb.print("\x13\x16Trafalgar Law\n")
+        # (Line 44) v.stb.print("\x13\x04톱니바퀴가... 부숴졌다...!\x04");
+        v.stb.print("\x13\x04톱니바퀴가... 부숴졌다...!\x04")
         # (Line 45) break;
         EUDBreak()
         # (Line 46) case 4:
     _t4 = EUDSwitchCase()
-    # (Line 47) PlayWAV("Tsukasa_04.ogg");
+    # (Line 47) PlayWAV("law_cccaa.ogg");
     if _t4(4):
-        # (Line 48) v.stb.print("\x13\x1BYuzaki Tsukasa\n");
-        DoActions(PlayWAV("Tsukasa_04.ogg"))
-        v.stb.print("\x13\x1BYuzaki Tsukasa\n")
-        # (Line 49) v.stb.print("\x13\x04몰랐던 걸 잔뜩 알게 되는 그런 나날이랄까\x04");
-        v.stb.print("\x13\x04몰랐던 걸 잔뜩 알게 되는 그런 나날이랄까\x04")
+        # (Line 48) v.stb.print("\x13\x16Trafalgar Law\n");
+        DoActions(PlayWAV("law_cccaa.ogg"))
+        v.stb.print("\x13\x16Trafalgar Law\n")
+        # (Line 49) v.stb.print("\x13\x04이제... 아무도 되돌릴 수 없어...!\x04");
+        v.stb.print("\x13\x04이제... 아무도 되돌릴 수 없어...!\x04")
         # (Line 50) break;
         EUDBreak()
         # (Line 51) case 5:
     _t5 = EUDSwitchCase()
-    # (Line 52) PlayWAV("Tsukasa_05.ogg");
+    # (Line 52) PlayWAV("law_accc.ogg");
     if _t5(5):
-        # (Line 53) v.stb.print("\x13\x1BYuzaki Tsukasa\n");
-        DoActions(PlayWAV("Tsukasa_05.ogg"))
-        v.stb.print("\x13\x1BYuzaki Tsukasa\n")
-        # (Line 54) v.stb.print("\x13\x04웃을 때도 있고 어이없을 때도 있고, 근데 지금처럼 두근거릴 때가 많아서\x04");
-        v.stb.print("\x13\x04웃을 때도 있고 어이없을 때도 있고, 근데 지금처럼 두근거릴 때가 많아서\x04")
-        # (Line 55) break;
+        # (Line 53) break;
+        DoActions(PlayWAV("law_accc.ogg"))
         EUDBreak()
-        # (Line 56) case 6:
+        # (Line 54) case 6:
     _t6 = EUDSwitchCase()
-    # (Line 57) v.stb.print("\x13\x1BYuzaki Tsukasa\n");
+    # (Line 55) PlayWAV("law_acccaa.ogg");
     if _t6(6):
-        v.stb.print("\x13\x1BYuzaki Tsukasa\n")
-        # (Line 58) v.stb.print("\x13\x04내 안에 이렇게 다양한 감정이 있다는 걸 처음 알았어\x04");
-        v.stb.print("\x13\x04내 안에 이렇게 다양한 감정이 있다는 걸 처음 알았어\x04")
-        # (Line 59) break;
+        # (Line 56) v.stb.print("\x13\x16Trafalgar Law\n");
+        DoActions(PlayWAV("law_acccaa.ogg"))
+        v.stb.print("\x13\x16Trafalgar Law\n")
+        # (Line 57) v.stb.print("\x13\x04아무도 놓칠 순 없지\x04");
+        v.stb.print("\x13\x04아무도 놓칠 순 없지\x04")
+        # (Line 58) break;
         EUDBreak()
-        # (Line 60) case 7:
+        # (Line 59) case 7:
     _t7 = EUDSwitchCase()
-    # (Line 61) PlayWAV("Tsukasa_06.ogg");
+    # (Line 60) PlayWAV("law_ult1.ogg");
     if _t7(7):
-        # (Line 62) v.stb.print("\x13\x1BYuzaki Tsukasa\n");
-        DoActions(PlayWAV("Tsukasa_06.ogg"))
-        v.stb.print("\x13\x1BYuzaki Tsukasa\n")
-        # (Line 63) v.stb.print("\x13\x04분명 난 앞으로도 나사 군을 통해 다양한 감정을 알게 될 거야\x04");
-        v.stb.print("\x13\x04분명 난 앞으로도 나사 군을 통해 다양한 감정을 알게 될 거야\x04")
-        # (Line 64) break;
+        # (Line 61) break;
+        DoActions(PlayWAV("law_ult1.ogg"))
         EUDBreak()
-        # (Line 65) case 8:
+        # (Line 62) case 8:
     _t8 = EUDSwitchCase()
-    # (Line 66) PlayWAV("Tsukasa_Ult.ogg");
+    # (Line 63) v.stb.print("\x13\x16Trafalgar Law\n");
     if _t8(8):
-        # (Line 67) v.stb.print("\x13\x1BYuzaki Tsukasa\n");
-        DoActions(PlayWAV("Tsukasa_Ult.ogg"))
-        v.stb.print("\x13\x1BYuzaki Tsukasa\n")
-        # (Line 68) v.stb.print("\x13\x04나도...\x04");
-        v.stb.print("\x13\x04나도...\x04")
-        # (Line 69) break;
+        v.stb.print("\x13\x16Trafalgar Law\n")
+        # (Line 64) v.stb.print("\x13\x04이 수술은... 너를 몸 안에서부터 파괴한다!\x04");
+        v.stb.print("\x13\x04이 수술은... 너를 몸 안에서부터 파괴한다!\x04")
+        # (Line 65) break;
         EUDBreak()
-        # (Line 70) case 9:
+        # (Line 66) case 9:
     _t9 = EUDSwitchCase()
-    # (Line 71) v.stb.print("\x13\x1BYuzaki Tsukasa\n");
+    # (Line 67) PlayWAV("law_ult2.ogg");
     if _t9(9):
-        v.stb.print("\x13\x1BYuzaki Tsukasa\n")
-        # (Line 72) v.stb.print("\x13\x04수많은 시작을 네가 가르쳐주고 있어\x04");
-        v.stb.print("\x13\x04수많은 시작을 네가 가르쳐주고 있어\x04")
-        # (Line 73) break;
+        # (Line 68) v.stb.print("\x13\x16Trafalgar Law\n");
+        DoActions(PlayWAV("law_ult2.ogg"))
+        v.stb.print("\x13\x16Trafalgar Law\n")
+        # (Line 69) v.stb.print("\x13\x04감마나이프!\x04");
+        v.stb.print("\x13\x04감마나이프!\x04")
+        # (Line 70) break;
         EUDBreak()
-        # (Line 74) case 10:
-    _t10 = EUDSwitchCase()
-    # (Line 75) v.stb.print("\x13\x1BYuzaki Tsukasa\n");
-    if _t10(10):
-        v.stb.print("\x13\x1BYuzaki Tsukasa\n")
-        # (Line 76) v.stb.print("\x13\x04나의 처음은 전부 네 거야\x04");
-        v.stb.print("\x13\x04나의 처음은 전부 네 거야\x04")
-        # (Line 77) break;
-        EUDBreak()
-        # (Line 78) case 11:
-    _t11 = EUDSwitchCase()
-    # (Line 79) PlayWAV("Tsukasa_Unique.ogg");
-    if _t11(11):
-        # (Line 80) v.stb.print("\x13\x1BYuzaki Tsukasa\n");
-        DoActions(PlayWAV("Tsukasa_Unique.ogg"))
-        v.stb.print("\x13\x1BYuzaki Tsukasa\n")
-        # (Line 81) v.stb.print("\x13\x04그런 걱정은 하지 마, 내 몸은 다치지도 않고 병에도 안 걸리니까\x04");
-        v.stb.print("\x13\x04그런 걱정은 하지 마, 내 몸은 다치지도 않고 병에도 안 걸리니까\x04")
-        # (Line 82) break;
-        EUDBreak()
-        # (Line 84) }
-    # (Line 85) }
+        # (Line 72) }
+    # (Line 73) }
     EUDEndSwitch()

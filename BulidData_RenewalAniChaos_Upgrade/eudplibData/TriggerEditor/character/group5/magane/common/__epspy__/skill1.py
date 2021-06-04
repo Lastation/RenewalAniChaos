@@ -560,10 +560,10 @@ def f_main(playerID):
             DoActions(KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", P8))
             # (Line 238) SetSwitch("Recall - Magane", Clear);
             DoActions(KillUnitAt(All, "60 + 3n Ghost", "Anywhere", P8))
-            # (Line 239) SetDeaths(playerID, SetTo, 1080, " `UniqueCoolTime");
+            # (Line 239) SetDeaths(playerID, SetTo, 2160, " `UniqueCoolTime");
             DoActions(SetSwitch("Recall - Magane", Clear))
             # (Line 241) trg.SkillEnd();
-            DoActions(SetDeaths(playerID, SetTo, 1080, " `UniqueCoolTime"))
+            DoActions(SetDeaths(playerID, SetTo, 2160, " `UniqueCoolTime"))
             trg.SkillEnd()
             # (Line 242) }
             # (Line 243) }

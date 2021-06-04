@@ -384,6 +384,94 @@ def Text(num, playerID):
         TextDelay(playerID, 0)
         # (Line 132) break;
         EUDBreak()
-        # (Line 133) }
-    # (Line 134) }
+        # (Line 133) case 14:
+    _t14 = EUDSwitchCase()
+    # (Line 134) PlayWAV("remake_hodaka_ultimate.ogg");
+    if _t14(14):
+        # (Line 135) v.stb.printAt(1, "\n\n");
+        DoActions(PlayWAV("remake_hodaka_ultimate.ogg"))
+        v.stb.printAt(1, "\n\n")
+        # (Line 136) v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n");
+        v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n")
+        # (Line 137) v.stb.printAt(5, "\x13\x04아니야..! 역시 아니야!");
+        v.stb.printAt(5, "\x13\x04아니야..! 역시 아니야!")
+        # (Line 138) v.stb.printAt(6, "\n\n");
+        v.stb.printAt(6, "\n\n")
+        # (Line 139) TextDelay(playerID, 2600);
+        TextDelay(playerID, 2600)
+        # (Line 140) break;
+        EUDBreak()
+        # (Line 141) case 15:
+    _t15 = EUDSwitchCase()
+    # (Line 142) v.stb.printAt(1, "\n\n");
+    if _t15(15):
+        v.stb.printAt(1, "\n\n")
+        # (Line 143) v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n");
+        v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n")
+        # (Line 144) v.stb.printAt(5, "\x13\x04그날 내가.. 아니, 우리가! 분명 이 세상을 바꾼 거였어!");
+        v.stb.printAt(5, "\x13\x04그날 내가.. 아니, 우리가! 분명 이 세상을 바꾼 거였어!")
+        # (Line 145) v.stb.printAt(6, "\n\n");
+        v.stb.printAt(6, "\n\n")
+        # (Line 146) TextDelay(playerID, 5500);
+        TextDelay(playerID, 5500)
+        # (Line 147) break;
+        EUDBreak()
+        # (Line 148) case 16:
+    _t16 = EUDSwitchCase()
+    # (Line 149) v.stb.printAt(1, "\n\n");
+    if _t16(16):
+        v.stb.printAt(1, "\n\n")
+        # (Line 150) v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n");
+        v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n")
+        # (Line 151) v.stb.printAt(5, "\x13\x04나는 선택한 거였어!");
+        v.stb.printAt(5, "\x13\x04나는 선택한 거였어!")
+        # (Line 152) v.stb.printAt(6, "\n\n");
+        v.stb.printAt(6, "\n\n")
+        # (Line 153) TextDelay(playerID, 1500);
+        TextDelay(playerID, 1500)
+        # (Line 154) break;
+        EUDBreak()
+        # (Line 155) case 17:
+    _t17 = EUDSwitchCase()
+    # (Line 156) v.stb.printAt(1, "\n\n");
+    if _t17(17):
+        v.stb.printAt(1, "\n\n")
+        # (Line 157) v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n");
+        v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n")
+        # (Line 158) v.stb.printAt(5, "\x13\x04그 사람을... 이 세계를...! 여기서 살아가는 것을!");
+        v.stb.printAt(5, "\x13\x04그 사람을... 이 세계를...! 여기서 살아가는 것을!")
+        # (Line 159) v.stb.printAt(6, "\n\n");
+        v.stb.printAt(6, "\n\n")
+        # (Line 160) TextDelay(playerID, 0);
+        TextDelay(playerID, 0)
+        # (Line 161) break;
+        EUDBreak()
+        # (Line 162) case 18:
+    _t18 = EUDSwitchCase()
+    # (Line 163) PlayWAV("remake_hodaka_del.ogg");
+    if _t18(18):
+        # (Line 164) v.stb.printAt(1, "\n\n");
+        DoActions(PlayWAV("remake_hodaka_del.ogg"))
+        v.stb.printAt(1, "\n\n")
+        # (Line 165) v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n");
+        v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n")
+        # (Line 166) v.stb.printAt(5, "\x13\x04히나.. 우리들은 분명 괜찮을꺼야!");
+        v.stb.printAt(5, "\x13\x04히나.. 우리들은 분명 괜찮을꺼야!")
+        # (Line 167) v.stb.printAt(6, "\n\n");
+        v.stb.printAt(6, "\n\n")
+        # (Line 168) TextDelay(playerID, 5100);
+        TextDelay(playerID, 5100)
+        # (Line 169) break;
+        EUDBreak()
+        # (Line 170) case 19:
+    _t19 = EUDSwitchCase()
+    # (Line 171) PlayWAV("remake_hodaka_ultimate2.ogg");
+    if _t19(19):
+        # (Line 172) TextDelay(playerID, 0);
+        DoActions(PlayWAV("remake_hodaka_ultimate2.ogg"))
+        TextDelay(playerID, 0)
+        # (Line 173) break;
+        EUDBreak()
+        # (Line 174) }
+    # (Line 175) }
     EUDEndSwitch()

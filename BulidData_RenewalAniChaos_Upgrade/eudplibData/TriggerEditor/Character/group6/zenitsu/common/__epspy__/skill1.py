@@ -831,10 +831,10 @@ def f_main(playerID):
                 # (Line 396) trg.Shape_Dot(playerID, 1, "40 + 1n Gantrithor", 0, 0);
                 trg.Shape_Dot(playerID, 1, "40 + 1n Gantrithor", 0, 0)
                 # (Line 397) KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
-                # (Line 399) SetDeaths(playerID, SetTo, 2160, " `UniqueCoolTime");
+                # (Line 399) SetDeaths(playerID, SetTo, 2880, " `UniqueCoolTime");
                 DoActions(KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID))
                 # (Line 401) v.P_CountMain[playerID] += 1;
-                DoActions(SetDeaths(playerID, SetTo, 2160, " `UniqueCoolTime"))
+                DoActions(SetDeaths(playerID, SetTo, 2880, " `UniqueCoolTime"))
                 _ARRW(v.P_CountMain, playerID).__iadd__(1)
                 # (Line 402) v.P_LoopMain[playerID] = 0;
                 _ARRW(v.P_LoopMain, playerID) << (0)

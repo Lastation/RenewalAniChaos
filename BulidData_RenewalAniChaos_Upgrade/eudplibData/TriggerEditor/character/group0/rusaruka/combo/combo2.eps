@@ -8,9 +8,8 @@ function ShapeC(playerID);
 
 function main(playerID)
 {
-	trg.Debuff_Stop();
 	trg.Debuff_BanReturn();
-	
+	trg.Debuff_Stop();
 	if (v.P_WaitMain[playerID] == 0)
 	{
 		MoveUnit(All, "50 + 1n Battlecruiser", playerID, "Anywhere", "[Skill]HoldPosition");

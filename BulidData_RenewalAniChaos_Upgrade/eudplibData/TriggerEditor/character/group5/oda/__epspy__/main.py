@@ -186,8 +186,8 @@ def SkillList(playerID):
         v.stb.printAt(3, "　　　\x18O \x04천의무봉 \x19[ 5초 전의 장소로 이동 ] \x053분")
         # (Line 36) v.stb.printAt(4, "　　　\x18AO \x04킬러 \x04 \x19[ 영구 각성 / 30초 ]");
         v.stb.printAt(4, "　　　\x18AO \x04킬러 \x04 \x19[ 영구 각성 / 30초 ]")
-        # (Line 37) v.stb.printAt(5, "　　　\x04\x1FSSS + CS + AA \x04꿈 \x19[ 공성 / CS - 자리고정 ]");
-        v.stb.printAt(5, "　　　\x04\x1FSSS + CS + AA \x04꿈 \x19[ 공성 / CS - 자리고정 ]")
+        # (Line 37) v.stb.printAt(5, "　　　\x04\x1FSSS + C + AA \x04꿈 \x19[ 공성 / CS - 자리고정 ]");
+        v.stb.printAt(5, "　　　\x04\x1FSSS + C + AA \x04꿈 \x19[ 공성 / CS - 자리고정 ]")
         # (Line 38) v.stb.printAt(6, "　　　\x04\x1FCC + A + CC + AA \x04실의 \x19[ 공성 / 자리고정 / 각성시 사용 가능 ]");
         v.stb.printAt(6, "　　　\x04\x1FCC + A + CC + AA \x04실의 \x19[ 공성 / 자리고정 / 각성시 사용 가능 ]")
         # (Line 39) v.stb.printAt(7, "　　　\x04\x1FAA \x04전투술 \x19[ 대인 / 순간딜 / 각성시 사용 가능 ]");

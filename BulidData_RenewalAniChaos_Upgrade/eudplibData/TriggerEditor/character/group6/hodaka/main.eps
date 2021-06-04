@@ -12,6 +12,7 @@ import character.group6.hodaka.combo.combo2 as CCC;
 import character.group6.hodaka.combo.combo3 as AACC;
 
 import character.group6.hodaka.ultimate.ultimate1 as AAAA;
+import character.group6.hodaka.ultimate.ultimate2 as AACSS;
 
 import character.group6.hodaka.text as text;
 import character.group6.hodaka.commend as commend;
@@ -29,6 +30,7 @@ function skillList(playerID)
 		v.stb.printAt(6, "　　　\x1F AACC + 200 Gas\x04 날씨 \x19[ 만능 / 자리고정 / 순간딜 ]");
 		v.stb.printAt(7, "\n");
 		v.stb.printAt(8, "　　　\x08 AAAA \x04 기도\x19[ 공성 / 선딜 11초 / 쉴드 1고정 / 선딜 후 발봉 ] \x05", v.P_Ultimate1[playerID]);
+		v.stb.printAt(9, "　　　\x08 AACSS \x04 선택\x19[ 공성  / 쉴드 1고정  ] \x05", v.P_Ultimate2[playerID]);
 		v.stb.printAt(10, "\n");
 		PlayWAV("sound\\Bullet\\LaserHit.wav");
 	}
@@ -41,7 +43,7 @@ function main(playerID)
 	v.P_LocationID[playerID] 		= 201;
 	
 	v.P_Ultimate1[playerID] = 700;
-	
+	v.P_Ultimate2[playerID] = 1000;
 	
 	commend.main(playerID);
 	skillList(playerID);
@@ -75,6 +77,9 @@ function main(playerID)
 		case 320:
 			AAAA.main(playerID);
 			break;
+		case 330:
+			AACSS.main(playerID);
+			break;	
 		}
 	}
 }

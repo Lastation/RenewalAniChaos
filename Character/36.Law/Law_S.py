@@ -22,7 +22,7 @@ function main(playerID)
          }
          else if (v.P_LoopMain[playerID] == 1)
          {
-            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+            RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
 
             trg.Shape_Square(playerID, 1, "40 + 1n Mojo", x, y);
             trg.Shape_Square(playerID, 1, "Scantid (Desert)", x, y);
@@ -34,7 +34,7 @@ function main(playerID)
          }
          else if (v.P_LoopMain[playerID] == 2)
          {
-            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+            RemoveUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
          } 
          else if (v.P_LoopMain[playerID] == 3)
          {
@@ -48,7 +48,7 @@ function main(playerID)
          }
          else if (v.P_LoopMain[playerID] == 4)
          {
-            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+            RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
 
             trg.Shape_Square(playerID, 1, "40 + 1n Wraith", x, y);
             trg.Shape_Square(playerID, 1, "Scantid (Desert)", x, y);
@@ -71,7 +71,7 @@ function main(playerID)
       }
       else if (v.P_CountMain[playerID] == 1)
       {
-         KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+         RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
 
          trg.SkillEnd();
       }

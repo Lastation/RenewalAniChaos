@@ -44,6 +44,8 @@ import character.group6.zenitsu.text 	as zenitsu;
 import character.group6.endeavor.text 	as endeavor;
 
 import character.group7.law.text 	as law;
+import character.group7.sato.text 	as sato;
+import character.group7.teio.text 	as teio;
 
 function CharacterVoice(count : TrgCount)
 {
@@ -78,6 +80,8 @@ function CharacterVoice(count : TrgCount)
 		else if 	(v.P_HeroID[playerID] == 35)	{ endeavor.	P_player[idx] = count; endeavor.	P_observer[idx] = count; 	}
 		
 		else if 	(v.P_HeroID[playerID] == 36)	{ law.		P_player[idx] = count; law.		P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 37)	{ sato.		P_player[idx] = count; sato.		P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 38)	{ teio.		P_player[idx] = count; teio.		P_observer[idx] = count; 	}
 	}
 }
 
@@ -265,4 +269,6 @@ function main(playerID)
 	
 	// Group7
 	law.main(playerID);
+	sato.main(playerID);
+	teio.main(playerID);
 }

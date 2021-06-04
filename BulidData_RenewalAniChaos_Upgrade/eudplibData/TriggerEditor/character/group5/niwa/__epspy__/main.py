@@ -199,8 +199,8 @@ def f_main(playerID):
     _ARRW(v.P_LocationID, playerID) << (197)
     # (Line 42) v.P_UnitID[playerID] = 53;
     _ARRW(v.P_UnitID, playerID) << (53)
-    # (Line 44) v.P_Ultimate1[playerID] = 550;
-    _ARRW(v.P_Ultimate1, playerID) << (550)
+    # (Line 44) v.P_Ultimate1[playerID] = 500;
+    _ARRW(v.P_Ultimate1, playerID) << (500)
     # (Line 45) v.P_Ultimate2[playerID] = 200;
     _ARRW(v.P_Ultimate2, playerID) << (200)
     # (Line 46) SkillList(playerID);

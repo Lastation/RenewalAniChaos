@@ -2,6 +2,7 @@ import PluginVariables as msqcvar;
 import variable as v;
 import func.trig as trg;
 import func.sound as s;
+import func.trigepic as epic;
 
 var x = 0;
 function main(playerID)
@@ -9,11 +10,27 @@ function main(playerID)
 	trg.Buff_ShieldFix(1);
 	if (v.P_WaitMain[playerID] == 0)
 	{
+	//	if(v.P_LoopMain[playerID] >= 6)
+	//	{
+	//		MoveUnit(All,"40 + 1n Mojo", playerID, "Anywhere", "[Skill]HoldPosition");
+	//	}
 		if (v.P_CountMain[playerID] == 0)
 		{
-			KillUnitAt(All," Creep. Dunkelheit","Anywhere",playerID);
-			KillUnitAt(All,"40 + 1n Mojo","Anywhere",playerID);
-			KillUnitAt(All,"50 + 1n Battlecruiser","Anywhere",playerID);
+			
+			if(v.P_LoopMain[playerID] <= 5)
+			{
+				KillUnitAt(All," Creep. Dunkelheit","Anywhere",playerID);
+				KillUnitAt(All,"40 + 1n Mojo","Anywhere",playerID);
+			}
+			else if(v.P_LoopMain[playerID] >= 6)
+			{
+				RemoveUnitAt(All," Creep. Dunkelheit","Anywhere",playerID);
+				RemoveUnitAt(All,"40 + 1n Mojo","Anywhere",playerID);
+			}
+			if(v.P_LoopMain[playerID] >= 27)
+			{
+				KillUnitAt(All,"50 + 1n Battlecruiser","Anywhere",playerID);
+			}
 			if(v.P_LoopMain[playerID] == 1)
 			{
 				trg.Shape_Edge(playerID,1," Creep. Dunkelheit",45,3,64);
@@ -56,26 +73,68 @@ function main(playerID)
 			}
 			else if(v.P_LoopMain[playerID] == 6)
 			{
-				trg.Shape_NxNSquare(playerID,1,"50 + 1n Battlecruiser",3,64);
-				trg.Shape_NxNSquare(playerID,1,"80 + 1n Vulture",3,64);
+				trg.Shape_Square(playerID,1,"50 + 1n Battlecruiser",256,0);
+				trg.Shape_Square(playerID,1,"50 + 1n Battlecruiser",192,64);
+				trg.Shape_Square(playerID,1,"50 + 1n Battlecruiser",128,128);
+				trg.Shape_Square(playerID,1,"50 + 1n Battlecruiser",64,192);
+				KillUnitAt(All,"60 + 1n Siege","Anywhere",playerID);
 				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
 				Order("50 + 1n Battlecruiser",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
-				Order("80 + 1n Vulture",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				
 				trg.Main_Wait(400);
 			}
-			else if(v.P_LoopMain[playerID] == 7)
+			
+			else if(v.P_LoopMain[playerID] <= 21)
 			{
-				KillUnitAt(All,"60 + 1n Siege","Anywhere",playerID);
-				KillUnitAt(All,"50 + 1n Battlecruiser","Anywhere",playerID);
-				KillUnitAt(All,"80 + 1n Vulture","Anywhere",playerID);
-				trg.Main_Wait(1500);
+				if(v.P_LoopMain[playerID] % 2 == 0)
+				{
+				//	trg.Shape_Line(playerID,1," Creep. Dunkelheit",0,2,64 + x,0);
+				//	epic.Shape_Line(playerID,1,"40 + 1n Mojo",45,2,64+x,0,1);
+				//	trg.Shape_Line(playerID,1," Creep. Dunkelheit",90,2,64+ x,0);
+				//	epic.Shape_Line(playerID,1,"40 + 1n Mojo",135,2,64+x,0,1);
+					trg.Shape_Line(playerID,1,"40 + 1n Mojo",0+15*x,2,64+x,0);
+					trg.Shape_Line(playerID,1,"40 + 1n Mojo",90+15*x,2,64+x,0);
+				}
+			//	else if(v.P_LoopMain[playerID] % 3 == 0)
+			//	{
+				//	epic.Shape_Line(playerID,1," Creep. Dunkelheit",0,2,64+x,0,1);
+				//	epic.Shape_Line(playerID,1,"40 + 1n Mojo",45,2,64+x,0,1);
+				//	epic.Shape_Line(playerID,1," Creep. Dunkelheit",90,2,64+x,0,1);
+			//		epic.Shape_Line(playerID,1,"40 + 1n Mojo",135,2,64+x,0,1);
+					
+			//	}
+			//	else
+			//	{
+			//		epic.Shape_Line(playerID,1," Creep. Dunkelheit",0,2,64+x,0,1);
+			//		trg.Shape_Line(playerID,1,"40 + 1n Mojo",45,2,64+ x,0);
+			//		epic.Shape_Line(playerID,1," Creep. Dunkelheit",90,2,64+x,0,1);
+			//		trg.Shape_Line(playerID,1,"40 + 1n Mojo",135,2,64 +x,0);
+				//	}
+				trg.Shape_Line(playerID,1,"40 + 1n Gantrithor",0+15*x,2,64+x,0);
+				
+				//trg.Shape_Line(playerID,1,"130 + 1n Norad",45+15*x,2,64+ x,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Gantrithor",90+15*x,2,64+x,0);
+				
+				//trg.Shape_Line(playerID,1,"130 + 1n Norad",135+15*x,2,64 +x,0);
+				x += 16;
+				KillUnitAt(All,"40 + 1n Gantrithor","Anywhere",playerID);
+				//KillUnitAt(All,"130 + 1n Norad","Anywhere",playerID);
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("40 + 1n Mojo",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				Order(" Creep. Dunkelheit",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
 			}
-			else if(v.P_LoopMain[playerID] <= 13)
+			else if(v.P_LoopMain[playerID] == 22)
 			{
-				trg.Shape_Line(playerID,1,"40 + 1n Goliath",60 * v.P_LoopMain[playerID],2,320,0);
-				trg.Shape_Line(playerID,1,"40 + 1n Ghost",45 * v.P_LoopMain[playerID],2,320,0);
-				trg.Shape_Line(playerID,1,"40 + 1n Gantrithor",60 * v.P_LoopMain[playerID],2,320,0);
-				trg.Shape_Line(playerID,1,"40 + 1n Gantrithor",45 * v.P_LoopMain[playerID],2,320,0);
+				KillUnitAt(All,"50 + 1n Battlecruiser","Anywhere",playerID);
+				trg.Main_Wait(0);
+			}
+			else if(v.P_LoopMain[playerID] <= 28)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Goliath",90+30 * v.P_LoopMain[playerID],2,320,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Ghost",0+30* v.P_LoopMain[playerID],2,320,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Gantrithor",90+30 * v.P_LoopMain[playerID],2,320,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Gantrithor",0+30* v.P_LoopMain[playerID],2,320,0);
 				KillUnitAt(All,"40 + 1n Gantrithor","Anywhere",playerID);
 				MoveUnit(All,"40 + 1n Goliath", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
 				MoveUnit(All,"40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
@@ -84,19 +143,20 @@ function main(playerID)
 				Order("40 + 1n Ghost",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
 				trg.Main_Wait(100);
 			}
-			else if(v.P_LoopMain[playerID] <= 15)
+			else if(v.P_LoopMain[playerID] <= 30)
 			{
 				trg.Shape_NxNSquare(playerID,1,"50 + 1n Battlecruiser",3,64);
 				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
 				Order("50 + 1n Battlecruiser",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
 				trg.Main_Wait(250);
 			}
-			
-			else if(v.P_LoopMain[playerID] == 16)
+			else if(v.P_LoopMain[playerID] == 31)
 			{
-				KillUnitAt(All,"50 + 1n Battlecruiser","Anywhere",playerID);
+				KillUnitAt(All,"50 + 1n Tank","Anywhere",playerID);
+				KillUnitAt(All,"60 + 1n Siege","Anywhere",playerID);
 				KillUnitAt(All,"40 + 1n Goliath","Anywhere",playerID);
 				KillUnitAt(All,"40 + 1n Ghost","Anywhere",playerID);
+				KillUnitAt(All,"40 + 1n Mojo","Anywhere",playerID);
 				x = 0;
 				trg.SkillEnd();
 			}

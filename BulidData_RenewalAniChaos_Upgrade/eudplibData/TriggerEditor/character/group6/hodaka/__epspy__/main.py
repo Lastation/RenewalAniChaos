@@ -148,123 +148,136 @@ from character.group6.hodaka.combo import combo2 as CCC
 from character.group6.hodaka.combo import combo3 as AACC
 # (Line 14) import character.group6.hodaka.ultimate.ultimate1 as AAAA;
 from character.group6.hodaka.ultimate import ultimate1 as AAAA
-# (Line 16) import character.group6.hodaka.text as text;
+# (Line 15) import character.group6.hodaka.ultimate.ultimate2 as AACSS;
+from character.group6.hodaka.ultimate import ultimate2 as AACSS
+# (Line 17) import character.group6.hodaka.text as text;
 from character.group6.hodaka import text as text
-# (Line 17) import character.group6.hodaka.commend as commend;
+# (Line 18) import character.group6.hodaka.commend as commend;
 from character.group6.hodaka import commend as commend
-# (Line 19) function skillList(playerID)
-# (Line 20) {
+# (Line 20) function skillList(playerID)
+# (Line 21) {
 @EUDFunc
 def f_skillList(playerID):
-    # (Line 21) if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
+    # (Line 22) if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
     if EUDIf()(Memory(0x00596A44, Exactly, 256)):
-        # (Line 22) {
-        # (Line 23) v.stb.printAt(0, "\n");
+        # (Line 23) {
+        # (Line 24) v.stb.printAt(0, "\n");
         v.stb.printAt(0, "\n")
-        # (Line 24) v.stb.printAt(1, "\x1F　＃\x04- 모리시마 \x1B호다카　\x04[ 날씨의 아이 ]");
+        # (Line 25) v.stb.printAt(1, "\x1F　＃\x04- 모리시마 \x1B호다카　\x04[ 날씨의 아이 ]");
         v.stb.printAt(1, "\x1F　＃\x04- 모리시마 \x1B호다카　\x04[ 날씨의 아이 ]")
-        # (Line 25) v.stb.printAt(2, "　　\x1FA\x04ction List");
+        # (Line 26) v.stb.printAt(2, "　　\x1FA\x04ction List");
         v.stb.printAt(2, "　　\x1FA\x04ction List")
-        # (Line 26) v.stb.printAt(3, "　　　\x18 O\x04 사춘기 \x19[ 적 전체 개인쿨 +10초 ] \x05개인쿨 2분");
+        # (Line 27) v.stb.printAt(3, "　　　\x18 O\x04 사춘기 \x19[ 적 전체 개인쿨 +10초 ] \x05개인쿨 2분");
         v.stb.printAt(3, "　　　\x18 O\x04 사춘기 \x19[ 적 전체 개인쿨 +10초 ] \x05개인쿨 2분")
-        # (Line 27) v.stb.printAt(4, "　　　\x1F SSS\x04 가출 \x19[ 만능 ]");
+        # (Line 28) v.stb.printAt(4, "　　　\x1F SSS\x04 가출 \x19[ 만능 ]");
         v.stb.printAt(4, "　　　\x1F SSS\x04 가출 \x19[ 만능 ]")
-        # (Line 28) v.stb.printAt(5, "　　　\x1F CCC\x04 장소 \x19[ 공성 / 자리고정 ]");
+        # (Line 29) v.stb.printAt(5, "　　　\x1F CCC\x04 장소 \x19[ 공성 / 자리고정 ]");
         v.stb.printAt(5, "　　　\x1F CCC\x04 장소 \x19[ 공성 / 자리고정 ]")
-        # (Line 29) v.stb.printAt(6, "　　　\x1F AACC + 200 Gas\x04 날씨 \x19[ 만능 / 자리고정 / 순간딜 ]");
+        # (Line 30) v.stb.printAt(6, "　　　\x1F AACC + 200 Gas\x04 날씨 \x19[ 만능 / 자리고정 / 순간딜 ]");
         v.stb.printAt(6, "　　　\x1F AACC + 200 Gas\x04 날씨 \x19[ 만능 / 자리고정 / 순간딜 ]")
-        # (Line 30) v.stb.printAt(7, "\n");
+        # (Line 31) v.stb.printAt(7, "\n");
         v.stb.printAt(7, "\n")
-        # (Line 31) v.stb.printAt(8, "　　　\x08 AAAA \x04 기도\x19[ 공성 / 선딜 11초 / 쉴드 1고정 / 선딜 후 발봉 ] \x05", v.P_Ultimate1[playerID]);
+        # (Line 32) v.stb.printAt(8, "　　　\x08 AAAA \x04 기도\x19[ 공성 / 선딜 11초 / 쉴드 1고정 / 선딜 후 발봉 ] \x05", v.P_Ultimate1[playerID]);
         v.stb.printAt(8, "　　　\x08 AAAA \x04 기도\x19[ 공성 / 선딜 11초 / 쉴드 1고정 / 선딜 후 발봉 ] \x05", v.P_Ultimate1[playerID])
-        # (Line 32) v.stb.printAt(10, "\n");
+        # (Line 33) v.stb.printAt(9, "　　　\x08 AACSS \x04 선택\x19[ 공성  / 쉴드 1고정  ] \x05", v.P_Ultimate2[playerID]);
+        v.stb.printAt(9, "　　　\x08 AACSS \x04 선택\x19[ 공성  / 쉴드 1고정  ] \x05", v.P_Ultimate2[playerID])
+        # (Line 34) v.stb.printAt(10, "\n");
         v.stb.printAt(10, "\n")
-        # (Line 33) PlayWAV("sound\\Bullet\\LaserHit.wav");
-        # (Line 34) }
+        # (Line 35) PlayWAV("sound\\Bullet\\LaserHit.wav");
+        # (Line 36) }
         DoActions(PlayWAV("sound\\Bullet\\LaserHit.wav"))
-        # (Line 35) }
+        # (Line 37) }
     EUDEndIf()
-    # (Line 37) function main(playerID)
+    # (Line 39) function main(playerID)
 
-# (Line 38) {
+# (Line 40) {
 @EUDFunc
 def f_main(playerID):
-    # (Line 39) v.P_HeroID[playerID] 		= 32;
+    # (Line 41) v.P_HeroID[playerID] 		= 32;
     _ARRW(v.P_HeroID, playerID) << (32)
-    # (Line 40) v.P_UnitID[playerID] 			= 10;
+    # (Line 42) v.P_UnitID[playerID] 			= 10;
     _ARRW(v.P_UnitID, playerID) << (10)
-    # (Line 41) v.P_LocationID[playerID] 		= 201;
+    # (Line 43) v.P_LocationID[playerID] 		= 201;
     _ARRW(v.P_LocationID, playerID) << (201)
-    # (Line 43) v.P_Ultimate1[playerID] = 700;
+    # (Line 45) v.P_Ultimate1[playerID] = 700;
     _ARRW(v.P_Ultimate1, playerID) << (700)
-    # (Line 46) commend.main(playerID);
+    # (Line 46) v.P_Ultimate2[playerID] = 1000;
+    _ARRW(v.P_Ultimate2, playerID) << (1000)
+    # (Line 48) commend.main(playerID);
     commend.f_main(playerID)
-    # (Line 47) skillList(playerID);
+    # (Line 49) skillList(playerID);
     f_skillList(playerID)
-    # (Line 50) if (v.P_SkillDelay[playerID] == 0)
+    # (Line 52) if (v.P_SkillDelay[playerID] == 0)
     if EUDIf()(v.P_SkillDelay[playerID] == 0):
-        # (Line 51) {
-        # (Line 52) switch(v.P_Step[playerID])
-        EUDSwitch(v.P_Step[playerID])
         # (Line 53) {
-        # (Line 54) case 1:
+        # (Line 54) switch(v.P_Step[playerID])
+        EUDSwitch(v.P_Step[playerID])
+        # (Line 55) {
+        # (Line 56) case 1:
         _t2 = EUDSwitchCase()
-        # (Line 55) O.main(playerID);
+        # (Line 57) O.main(playerID);
         if _t2(1):
             O.f_main(playerID)
-            # (Line 56) break;
+            # (Line 58) break;
             EUDBreak()
-            # (Line 57) case 100:
+            # (Line 59) case 100:
         _t3 = EUDSwitchCase()
-        # (Line 58) S.main(playerID);
+        # (Line 60) S.main(playerID);
         if _t3(100):
             S.f_main(playerID)
-            # (Line 59) break;
+            # (Line 61) break;
             EUDBreak()
-            # (Line 60) case 200:
+            # (Line 62) case 200:
         _t4 = EUDSwitchCase()
-        # (Line 61) C.main(playerID);
+        # (Line 63) C.main(playerID);
         if _t4(200):
             C.f_main(playerID)
-            # (Line 62) break;
+            # (Line 64) break;
             EUDBreak()
-            # (Line 63) case 300:
+            # (Line 65) case 300:
         _t5 = EUDSwitchCase()
-        # (Line 64) A.main(playerID);
+        # (Line 66) A.main(playerID);
         if _t5(300):
             A.f_main(playerID)
-            # (Line 65) break;
+            # (Line 67) break;
             EUDBreak()
-            # (Line 66) case 110:
+            # (Line 68) case 110:
         _t6 = EUDSwitchCase()
-        # (Line 67) SSS.main(playerID);
+        # (Line 69) SSS.main(playerID);
         if _t6(110):
             SSS.f_main(playerID)
-            # (Line 68) break;
+            # (Line 70) break;
             EUDBreak()
-            # (Line 69) case 210:
+            # (Line 71) case 210:
         _t7 = EUDSwitchCase()
-        # (Line 70) CCC.main(playerID);
+        # (Line 72) CCC.main(playerID);
         if _t7(210):
             CCC.f_main(playerID)
-            # (Line 71) break;
+            # (Line 73) break;
             EUDBreak()
-            # (Line 72) case 310:
+            # (Line 74) case 310:
         _t8 = EUDSwitchCase()
-        # (Line 73) AACC.main(playerID);
+        # (Line 75) AACC.main(playerID);
         if _t8(310):
             AACC.f_main(playerID)
-            # (Line 74) break;
+            # (Line 76) break;
             EUDBreak()
-            # (Line 75) case 320:
+            # (Line 77) case 320:
         _t9 = EUDSwitchCase()
-        # (Line 76) AAAA.main(playerID);
+        # (Line 78) AAAA.main(playerID);
         if _t9(320):
             AAAA.f_main(playerID)
-            # (Line 77) break;
+            # (Line 79) break;
             EUDBreak()
-            # (Line 78) }
-        # (Line 79) }
+            # (Line 80) case 330:
+        _t10 = EUDSwitchCase()
+        # (Line 81) AACSS.main(playerID);
+        if _t10(330):
+            AACSS.f_main(playerID)
+            # (Line 82) break;
+            EUDBreak()
+            # (Line 83) }
+        # (Line 84) }
         EUDEndSwitch()
-        # (Line 80) }
+        # (Line 85) }
     EUDEndIf()

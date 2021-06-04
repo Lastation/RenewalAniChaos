@@ -330,12 +330,8 @@ def f_main(playerID):
                 # (Line 129) trg.Shape_Square(playerID, 1, "60 + 1n Archon", 192, 0);
                 trg.Shape_Square(playerID, 1, "60 + 1n Archon", 192, 0)
                 # (Line 130) KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
-                # (Line 132) trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
-                DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID))
-                trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0)
-                # (Line 133) Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
                 # (Line 134) trg.Main_Wait(60);
-                DoActions(Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]))
+                DoActions(KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID))
                 trg.Main_Wait(60)
                 # (Line 135) }
                 # (Line 136) else if (v.P_LoopMain[playerID] == 4)

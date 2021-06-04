@@ -178,12 +178,12 @@ def f_skillList(playerID):
         v.stb.printAt(4, "　　　\x1F SSS\x04 귀엽구나 \x19[ 공성 ]")
         # (Line 32) v.stb.printAt(5, "　　　\x1F CCC\x04 맑은영혼 \x19[ 공성 / 지속딜 ]");
         v.stb.printAt(5, "　　　\x1F CCC\x04 맑은영혼 \x19[ 공성 / 지속딜 ]")
-        # (Line 33) v.stb.printAt(6, "　　　\x1F AACC + 100 Gas \x04 난폭한 방식 \x19[ 선딜 / 공성 / 순간딜 / 자리고정 ]");
-        v.stb.printAt(6, "　　　\x1F AACC + 100 Gas \x04 난폭한 방식 \x19[ 선딜 / 공성 / 순간딜 / 자리고정 ]")
+        # (Line 33) v.stb.printAt(6, "　　　\x1F AACC + 200 Gas \x04 난폭한 방식 \x19[ 선딜 / 공성 / 순간딜 / 자리고정 ]");
+        v.stb.printAt(6, "　　　\x1F AACC + 200 Gas \x04 난폭한 방식 \x19[ 선딜 / 공성 / 순간딜 / 자리고정 ]")
         # (Line 34) v.stb.printAt(7, "　　　\x1F AO\x04 정령 쿠루미 \x19[ 영구각성 ]");
         v.stb.printAt(7, "　　　\x1F AO\x04 정령 쿠루미 \x19[ 영구각성 ]")
-        # (Line 35) v.stb.printAt(8, "　　　\x1F AACS\x04 알레프 \x19[ 순간딜 / 대인 / 각성조건 ]");
-        v.stb.printAt(8, "　　　\x1F AACS\x04 알레프 \x19[ 순간딜 / 대인 / 각성조건 ]")
+        # (Line 35) v.stb.printAt(8, "　　　\x1F AACS\x04 알레프 \x19[ 순간딜 / 대인 / AO각성시 사용가능 ]");
+        v.stb.printAt(8, "　　　\x1F AACS\x04 알레프 \x19[ 순간딜 / 대인 / AO각성시 사용가능 ]")
         # (Line 36) v.stb.printAt(9, "\n");
         v.stb.printAt(9, "\n")
         # (Line 37) v.stb.printAt(10, "　　　\x08 AAAA \x04 의문\x19[ 대인 / 공성 / 즉발 / 쉴드 1고정 ] \x05", v.P_Ultimate1[playerID]);
@@ -206,8 +206,8 @@ def f_main(playerID):
     _ARRW(v.P_UnitID, playerID) << (16)
     # (Line 47) v.P_LocationID[playerID] 		= 154;
     _ARRW(v.P_LocationID, playerID) << (154)
-    # (Line 49) v.P_Ultimate1[playerID] = 750;
-    _ARRW(v.P_Ultimate1, playerID) << (750)
+    # (Line 49) v.P_Ultimate1[playerID] = 700;
+    _ARRW(v.P_Ultimate1, playerID) << (700)
     # (Line 51) commend.main(playerID);
     commend.f_main(playerID)
     # (Line 52) skillList(playerID);

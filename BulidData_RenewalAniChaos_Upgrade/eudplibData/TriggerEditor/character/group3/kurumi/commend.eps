@@ -59,14 +59,14 @@ function main(playerID)
 		}
 		else if (Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill") 
 		&& Bring(playerID, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") 
-		&& Accumulate(playerID, AtLeast, 100, Gas) &&  v.P_Step[playerID] == 300)
+		&& Accumulate(playerID, AtLeast, 200, Gas) &&  v.P_Step[playerID] == 300)
 		{
 			s.CharacterVoice(6);
 			v.P_Step[playerID] = 310;
 			v.P_SkillDelay[playerID] = 0;
 			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 			KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", playerID);
-			SetResources(playerID, Subtract, 100, Gas);
+			SetResources(playerID, Subtract, 200, Gas);
 		}
 		else if (Bring(playerID, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill") 
 		&& v.P_CharacterFlag[playerID] == 0

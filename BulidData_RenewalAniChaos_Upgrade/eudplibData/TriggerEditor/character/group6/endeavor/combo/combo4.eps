@@ -51,8 +51,13 @@ function main(playerID)
 				
 				trg.Shape_NxNSquare(playerID,1,"40 + 1n Gantrithor",6,64);
 				trg.Shape_NxNSquare(playerID,1,"40 + 1n Firebat",4,160);
+				trg.Shape_NxNSquare(playerID,1,"40 + 1n Marine",4,160);
 				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+				MoveUnit(All,"40 + 1n Marine", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+				MoveUnit(All,"40 + 1n Firebat", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
 				Order("40 + 1n Firebat",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				Order("40 + 1n Marine",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
 				Order("50 + 1n Tank",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
 				Order("60 + 1n Danimoth",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
 				x = 0;
@@ -68,6 +73,7 @@ function main(playerID)
 			{
 				KillUnitAt(2,"50 + 1n Tank","Anywhere",playerID);
 				KillUnitAt(1,"40 + 1n Firebat","Anywhere",playerID);
+				KillUnitAt(1,"40 + 1n Marine","Anywhere",playerID);
 				trg.Main_Wait(80);
 			}
 			else if(v.P_LoopMain[playerID] == 40)

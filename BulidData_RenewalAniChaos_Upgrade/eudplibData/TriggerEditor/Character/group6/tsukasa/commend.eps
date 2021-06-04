@@ -63,7 +63,7 @@ function main(playerID)
 			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 			KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", playerID);
 		}
-		else if (Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill")
+		else if (Bring(playerID, AtLeast, 3, "Protoss Arbiter", "[Skill]UseSkill")
 		&& v.P_Step[playerID] == 230)
 		{
 			s.CharacterVoice(5);
@@ -71,7 +71,7 @@ function main(playerID)
 			v.P_CountMain[playerID] = 0;
 			v.P_LoopMain[playerID] = 0;
 			v.P_Step[playerID] = 240;
-			KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+			KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 		}
 		else if (Bring(playerID, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") && v.P_Step[playerID] == 200)
 		{

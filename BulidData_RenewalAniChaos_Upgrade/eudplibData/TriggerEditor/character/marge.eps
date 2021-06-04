@@ -29,6 +29,8 @@ import character.group6.zenitsu.main 	as zenitsu;
 import character.group6.endeavor.main 	as endeavor;
 
 import character.group7.law.main 		as law;
+import character.group7.sato.main 		as sato;
+import character.group7.teio.main 		as teio;
 
 function main(playerID)
 {
@@ -63,6 +65,8 @@ function main(playerID)
 	else if 	(v.P_HeroID[playerID] == 35) 	endeavor.main(playerID);
 	
 	else if 	(v.P_HeroID[playerID] == 36) 	law.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 37) 	sato.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 38) 	teio.main(playerID);
 	
 	SetDeaths(playerID, SetTo, v.P_Shield[playerID], " `SystemShield");
 }

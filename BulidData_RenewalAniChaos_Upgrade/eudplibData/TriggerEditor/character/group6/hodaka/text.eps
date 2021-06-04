@@ -130,5 +130,46 @@ function Text(num, playerID)
 		v.stb.printAt(6, "\n\n");
 		TextDelay(playerID, 0);
 		break;
+	case 14:
+		PlayWAV("remake_hodaka_ultimate.ogg");
+		v.stb.printAt(1, "\n\n");
+		v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n");
+		v.stb.printAt(5, "\x13\x04아니야..! 역시 아니야!");
+		v.stb.printAt(6, "\n\n");
+		TextDelay(playerID, 2600);
+		break;
+	case 15:
+		v.stb.printAt(1, "\n\n");
+		v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n");
+		v.stb.printAt(5, "\x13\x04그날 내가.. 아니, 우리가! 분명 이 세상을 바꾼 거였어!");
+		v.stb.printAt(6, "\n\n");
+		TextDelay(playerID, 5500);
+		break;	
+	case 16:
+		v.stb.printAt(1, "\n\n");
+		v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n");
+		v.stb.printAt(5, "\x13\x04나는 선택한 거였어!");
+		v.stb.printAt(6, "\n\n");
+		TextDelay(playerID, 1500);
+		break;		
+	case 17:
+		v.stb.printAt(1, "\n\n");
+		v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n");
+		v.stb.printAt(5, "\x13\x04그 사람을... 이 세계를...! 여기서 살아가는 것을!");
+		v.stb.printAt(6, "\n\n");
+		TextDelay(playerID, 0);
+		break;
+	case 18:
+		PlayWAV("remake_hodaka_del.ogg");
+		v.stb.printAt(1, "\n\n");
+		v.stb.printAt(3, "\x13\x04Morishima \x1FHodaka\n");
+		v.stb.printAt(5, "\x13\x04히나.. 우리들은 분명 괜찮을꺼야!");
+		v.stb.printAt(6, "\n\n");
+		TextDelay(playerID, 5100);
+		break;
+	case 19:
+		PlayWAV("remake_hodaka_ultimate2.ogg");
+		TextDelay(playerID, 0);
+		break;	
 	}
 }

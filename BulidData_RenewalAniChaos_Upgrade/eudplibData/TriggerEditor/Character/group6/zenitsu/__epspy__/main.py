@@ -148,8 +148,8 @@ from character.group6.zenitsu.common import skill4 as A
 from character.group6.zenitsu.combo import combo1 as SSC
 # (Line 14) import character.group6.zenitsu.combo.combo2 as CCC;
 from character.group6.zenitsu.combo import combo2 as CCC
-# (Line 15) import character.group6.zenitsu.combo.combo3 as CCCAS;
-from character.group6.zenitsu.combo import combo3 as CCCAS
+# (Line 15) import character.group6.zenitsu.combo.combo3 as CCCAA;
+from character.group6.zenitsu.combo import combo3 as CCCAA
 # (Line 16) import character.group6.zenitsu.combo.combo4 as ACC;
 from character.group6.zenitsu.combo import combo4 as ACC
 # (Line 18) import character.group6.zenitsu.ultimate.ultimate1 as AAA;
@@ -169,12 +169,12 @@ def f_skillList(playerID):
         v.stb.printAt(1, "\x1F　＃\x04- 아가츠마 \x1B젠이츠　\x04[ 귀멸의 칼날 ]")
         # (Line 27) v.stb.printAt(2, "　　\x1FA\x04ction List\r\n　　　");
         v.stb.printAt(2, "　　\x1FA\x04ction List\r\n　　　")
-        # (Line 28) v.stb.printAt(3, "　　　\x07O \x19 벽력일섬 [ 일직선 대시 / 적 6초 귀환 봉인 / 스킬 파괴 ] \x05개인쿨 3분");
-        v.stb.printAt(3, "　　　\x07O \x19 벽력일섬 [ 일직선 대시 / 적 6초 귀환 봉인 / 스킬 파괴 ] \x05개인쿨 3분")
+        # (Line 28) v.stb.printAt(3, "　　　\x07O \x19 벽력일섬 [ 일직선 대시 / 적 6초 귀환 봉인 / 스킬 파괴 ] \x05개인쿨 4분");
+        v.stb.printAt(3, "　　　\x07O \x19 벽력일섬 [ 일직선 대시 / 적 6초 귀환 봉인 / 스킬 파괴 ] \x05개인쿨 4분")
         # (Line 29) v.stb.printAt(4, "　　　\x1FSSC \x046개의 기술 \x19[ 만능 ]");
         v.stb.printAt(4, "　　　\x1FSSC \x046개의 기술 \x19[ 만능 ]")
-        # (Line 30) v.stb.printAt(5, "　　　\x1FCCC + AS \x04기대 \x19[ 대인, AS부터 쉴드고정 1 ]\x05");
-        v.stb.printAt(5, "　　　\x1FCCC + AS \x04기대 \x19[ 대인, AS부터 쉴드고정 1 ]\x05")
+        # (Line 30) v.stb.printAt(5, "　　　\x1FCCC + AA \x04기대 \x19[ 대인, AA부터 쉴드고정 1  ]\x05");
+        v.stb.printAt(5, "　　　\x1FCCC + AA \x04기대 \x19[ 대인, AA부터 쉴드고정 1  ]\x05")
         # (Line 31) v.stb.printAt(6, "　　　\x1FACC \x04꿈 \x19[ 대인, 쉴드고정 1, 순간딜 ] ");
         v.stb.printAt(6, "　　　\x1FACC \x04꿈 \x19[ 대인, 쉴드고정 1, 순간딜 ] ")
         # (Line 32) v.stb.printAt(7, "　　　\x08AAA \x04벽력일섬6연 \x19[ 대인 / 쉴드 20고정 / 컴퓨터동맹 ] \x1F[1] \x05", v.P_Ultimate1[playerID]);
@@ -252,9 +252,9 @@ def f_main(playerID):
             EUDBreak()
             # (Line 72) case 220:
         _t7 = EUDSwitchCase()
-        # (Line 73) CCCAS.main(playerID);
+        # (Line 73) CCCAA.main(playerID);
         if _t7(220):
-            CCCAS.f_main(playerID)
+            CCCAA.f_main(playerID)
             # (Line 74) break;
             EUDBreak()
             # (Line 75) case 300:
