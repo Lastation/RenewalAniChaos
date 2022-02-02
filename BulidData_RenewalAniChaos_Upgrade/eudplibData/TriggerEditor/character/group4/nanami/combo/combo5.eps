@@ -221,7 +221,25 @@ function main(playerID)
          }
 
       }
+	else if (Bring(playerID, AtLeast, 3, "Protoss Carrier", "[Skill]UseSkill") 
+		&& v.P_CountMain[playerID] == 3)
+		{
+			s.CharacterVoice(8);
+			v.P_SkillDelay[playerID] = 0;
+			v.P_CountMain[playerID] = 0;
+			v.P_LoopMain[playerID] = 0;
+			v.P_Step[playerID] = 250;
+			
+			KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+        	 KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
+       	  KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+       	  KillUnitAt(All, "60 + 1n High Templar", "Anywhere", playerID);
+       	  SetSwitch("Passive - Nanami1", Clear);
+       	  SetSwitch("Passive - Nanami2", Clear);
 
+
+			KillUnitAt(3, "Protoss Carrier", "[Skill]UseSkill", playerID);
+		}
       else if (v.P_CountMain[playerID] == 3)
       {
          KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);

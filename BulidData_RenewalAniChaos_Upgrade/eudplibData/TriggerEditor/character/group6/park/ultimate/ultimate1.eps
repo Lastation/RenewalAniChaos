@@ -13,7 +13,7 @@ function main(playerID)
             SetSwitch("ComputerAlliy", Set);
             SetAllianceStatus(P7, Ally);
             SetAllianceStatus(P8, Ally);
-            trg.Buff_ShieldFix(1);
+            trg.Buff_ShieldFix(20);
             trg.Shape_NxNSquare(playerID, 1, "130 + 1n Norad", 7, 75);
             trg.Shape_NxNSquare(playerID, 1, "80 + 1n Goliath", 7, 50);
             Order("130 + 1n Norad", playerID, "Anywhere", Attack, v.P_LocationID[playerID]); 

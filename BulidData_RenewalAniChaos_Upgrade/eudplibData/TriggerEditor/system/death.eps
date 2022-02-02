@@ -25,7 +25,7 @@ function SetDeathValue(playerID)
 		ID = playerID;
 		for(var i = 0; i < 6; ++i)
 		{
-			DeathOre[i] = 250 + v.P_Level[playerID] * 10;
+			DeathOre[i] = v.P_Level[playerID] * 20;
 			Team[i] = playerID < 2 ? 2 : 1;
 		}
 		

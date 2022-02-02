@@ -34,9 +34,10 @@ function SetVariable(playerID)
 		break;
   	case 18:	//텐케이
   		if (Deaths(CurrentPlayer, Exactly, 320, " `SkillStep")) v.Dfs[playerID] = 200;
+  		if (Deaths(CurrentPlayer, Exactly, 330, " `SkillStep")) v.Dfs[playerID] = 200;
      		break;
   	case 22:	//유우나
-  		v.Dfs[playerID] -= 3 * dwread_epd(204 * 12 + playerID);
+  		v.Dfs[playerID] -= 2 * dwread_epd(204 * 12 + playerID);
      		break;
 	case 35://엔데버
      		if (Deaths(playerID, AtLeast, 1, " `UniqueSkill"))
@@ -56,6 +57,12 @@ function SetVariable(playerID)
      	case 30:
      		if (Deaths(playerID, AtLeast, 1, " `UniqueSkill"))
 	     		v.Atk[playerID] += 10;
+     		break;
+     	case 17:
+  		if (v.P_Step[playerID] == 210) v.Atk[playerID] += 1;
+    		if (v.P_Step[playerID] == 220) v.Atk[playerID] += 2;
+      		if (v.P_Step[playerID] == 230) v.Atk[playerID] += 3;
+    		if (v.P_Step[playerID] == 240) v.Atk[playerID] += 4;
      		break;
 	}
 	if (playerID < 3 && Switch("Passive - Nanami1", Set) && Bring(playerID, AtLeast, 1, "Any unit", "24.Nanami_Bozo")) { v.Atk[playerID] += 5; v.Dfs[playerID] += 5; }

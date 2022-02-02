@@ -6,6 +6,10 @@ import func.sound as s;
 var x = 0;
 function main(playerID)
 {
+	if(v.P_LoopMain[playerID] >= 16)
+	{
+		trg.Buff_ShieldFix(1);
+	}
 	if (v.P_WaitMain[playerID] == 0)
 	{
 		//MoveUnit(All, "40 + 1n Marine", playerID, "Anywhere", "[Skill]HoldPosition");

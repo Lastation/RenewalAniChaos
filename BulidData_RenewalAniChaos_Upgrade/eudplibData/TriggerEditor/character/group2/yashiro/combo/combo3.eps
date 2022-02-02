@@ -5,6 +5,10 @@ import func.trigadv as adv;
 
 function main(playerID)
 {
+if(v.P_CountMain[playerID] == 1)
+{
+  trg.Buff_ShieldFix(1);
+  }
    if (v.P_WaitMain[playerID] == 0)
    {
       if (v.P_CountMain[playerID] == 0)

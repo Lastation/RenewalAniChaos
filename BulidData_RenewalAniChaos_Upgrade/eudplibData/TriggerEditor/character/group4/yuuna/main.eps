@@ -26,13 +26,13 @@ function SkillList(playerID)
 		v.stb.printAt(0, "\n");
 		v.stb.printAt(1, "\x1F　＃\x04- 유우키 \x1B유우나　\x04[ 유우키 유우나는 용사다 ]");
 		v.stb.printAt(2, "　　\x1FA\x04ction List");
-		v.stb.printAt(3, "　　　\x18O \x04만개 \x19[ 공 3 업 방 3 다운 / 최대 3 중첩 가능 / 사망 시 해제 ] \x051분");
-		v.stb.printAt(4, "　　　\x04\x1FSSS + AS \x04인간 \x19[ 대인 / 순간딜 / AS - 자리고정 ]");
-		v.stb.printAt(5, "　　　\x04\x1FCCC \x04강인함 \x19[ 공성 / 순간딜 / 자리고정 ]");
-		v.stb.printAt(6, "　　　\x04\x1FCAAA + 100 Gas \x04희생 \x19[ 공성 / 지속딜 / 자리고정 ]");
+		v.stb.printAt(3, "　　　\x18O \x04만개 \x19[ 공 3 업 방 2 다운 / 최대 3 중첩 가능 / 사망 시 해제 / 방어력 5이상일시 사용가능 ] \x051분");
+		v.stb.printAt(4, "　　　\x04\x1FSSS + CC \x04인간 \x19[ 대인 / 순간딜 ]");
+		v.stb.printAt(5, "　　　\x04\x1FCCA(+200Gas 소모) \x04강인함 \x19[ 공성 / 순간딜 / 자리고정 ]");
+		v.stb.printAt(6, "　　　\x04\x1FCAAA(+100 Gas 소모) \x04희생 \x19[ 공성 / 지속딜 / 자리고정 ]");
 		v.stb.printAt(7, "\n");
-		v.stb.printAt(8, "　　　\x08AAAA \x04대만개 \x19[ 공성 ] \x05", v.P_Ultimate1[playerID]);
-		v.stb.printAt(9, "　　　\x04+ \x08AAA \x04용사 펀치 \x19[ 만개 3 중첩 시 사용 가능 ] \x05", v.P_Ultimate2[playerID]);
+		v.stb.printAt(8, "　　　\x08AAAA \x04대만개 \x19[ 공성 / 쉴드고정 1 ] \x05", v.P_Ultimate1[playerID]);
+		v.stb.printAt(9, "　　　\x04+ \x08AAA \x04용사 펀치 \x19[ 만개 3 중첩 시 사용 가능 / 쉴드고정 1 / 자리고정] \x05", v.P_Ultimate2[playerID]);
 		v.stb.printAt(10, "\n");
 		PlayWAV("sound\\Bullet\\LaserHit.wav");
 	}

@@ -20,21 +20,23 @@ function main(playerID)
 			SetResources(CurrentPlayer, Add, 60, Gas);
 			KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID);
 		}
-		else if (Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))
+		else if (Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))
 		{
-			v.P_Step[playerID] = 100;
-			KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", playerID);
+			v.P_Step[playerID] = 300;
+			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 		}
 		else if (Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))
 		{
 			v.P_Step[playerID] = 200;
 			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
 		}
-		else if (Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))
+		else if (Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))
 		{
-			v.P_Step[playerID] = 300;
-			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+			v.P_Step[playerID] = 100;
+			KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", playerID);
 		}
+		
+		
 	}
 	
 	// Combo
@@ -68,13 +70,11 @@ function main(playerID)
 			KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", playerID);
 		}
 		else if (Bring(playerID, AtLeast, 3, "Protoss Arbiter", "[Skill]UseSkill")
-		&& Bring(playerID, AtLeast, 1,"Protoss Carrier", "[Skill]UseSkill")
 		&&  v.P_Step[playerID] == 310)
 		{
 			s.CharacterVoice(7);
 			v.P_Step[playerID] = 320;
 			v.P_SkillDelay[playerID] = 0;
-			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
 			KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 		}
 		

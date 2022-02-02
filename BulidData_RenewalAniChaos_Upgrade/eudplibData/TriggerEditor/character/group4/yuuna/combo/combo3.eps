@@ -17,6 +17,7 @@ function main(playerID)
 
             trg.Shape_NxNSquare(playerID, 1, "40 + 1n Wraith", 2 * v.P_LoopMain[playerID] + 1, 50);
             KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+            KillUnitAt(All,"60 + 1n Danimoth", "Anywhere", playerID);
 
             trg.Main_Wait(80);
 
@@ -172,18 +173,18 @@ function main(playerID)
             trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, 0);
             trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, 50);
             trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, -50);
-            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, 0);
-            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, 50);
-            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, -50);
-            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, 0);
-            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, 50);
-            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, -50);
-            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, 0);
-            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, 50);
-            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, -50);
+            trg.Shape_Square(playerID, 1,"60 + 1n Danimoth", 100, 0);
+            trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 100, 50);
+            trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 100, -50);
+            trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 150, 0);
+            trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 150, 50);
+            trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 150, -50);
+            trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 200, 0);
+            trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 200, 50);
+            trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 200, -50);
             KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID);
             MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
-            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
             trg.Main_Wait(240);
 
@@ -202,18 +203,18 @@ function main(playerID)
             trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, 100);
             trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, 150);
             trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 200, 200);
-            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, 100);
-            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, 150);
-            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 100, 200);
-            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, 100);
-            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, 150);
-            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 150, 200);
-            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, 100);
-            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, 150);
-            trg.Shape_Square(playerID, 1, "40 + 1n Wraith", 200, 200);
+            trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 100, 100);
+            trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 100, 150);
+            trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 100, 200);
+            trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 150, 100);
+            trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 150, 150);
+            trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 150, 200);
+            trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 200, 100);
+            trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 200, 150);
+            trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 200, 200);
             KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID);
             MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
-            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
             trg.Main_Wait(240);
 
@@ -225,7 +226,7 @@ function main(playerID)
       else if (v.P_CountMain[playerID] == 4)
       {
 
-         KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+         KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
          KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
          trg.SkillEnd();
 

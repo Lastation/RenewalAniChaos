@@ -14,6 +14,11 @@ function main(playerID)
 {
    trg.Debuff_BanReturn();
    trg.Buff_ShieldFix(1);
+   if (v.P_CountMain[playerID] >= 1)
+   {
+   	trg.Debuff_Stop();
+   }
+   
    if (v.P_CountMain[playerID] < 2)
    {
       MoveLocation(v.P_HoldLocation[playerID], v.P_UnitID[playerID], playerID, "Anywhere");

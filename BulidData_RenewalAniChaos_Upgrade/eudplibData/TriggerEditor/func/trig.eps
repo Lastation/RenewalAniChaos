@@ -759,3 +759,103 @@ function KillEnemySkillUnit(playerID : TrgPlayer, size, isDestroyOnUltimate)
       }
 }
 
+function Bullet_Setting(playerID : TrgPlayer, targetPlayer : TrgPlayer, targetUnit : TrgUnit, speed) 
+{
+      	var location = EPD(0x58DC4C) + v.P_LocationID[playerID] * 5;
+      
+      //타겟 위치 설정
+	MoveLocation(v.P_LocationID[playerID], targetUnit, targetPlayer, "Anywhere");
+
+	v.B_TargetPos_X[playerID] = (dwread_epd(location + 0) + dwread_epd(location + 2)) / 2;
+	v.B_TargetPos_Y[playerID] = (dwread_epd(location + 1) + dwread_epd(location + 3)) / 2;
+	
+	//탄알 속도 설정
+	v.B_Speed[playerID] = speed;
+	
+	//탄알 현재 위치 캐싱
+	MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+	
+	v.B_BulletPos_X[playerID] = (dwread_epd(location + 0) + dwread_epd(location + 2)) / 2;
+	v.B_BulletPos_Y[playerID] = (dwread_epd(location + 1) + dwread_epd(location + 3)) / 2;
+	
+	//단위 벡터 계산
+	var degree = atan2(v.B_TargetPos_Y[playerID] - v.B_BulletPos_Y[playerID], v.B_TargetPos_X[playerID] - v.B_BulletPos_X[playerID]);
+	
+	Table_Cos(playerID, degree, 50);
+	Table_Sin(playerID, degree, 50);
+	
+	v.B_Delta_X[playerID] = v.P_AngleCos[playerID];
+	v.B_Delta_Y[playerID] = v.P_AngleSin[playerID];
+	
+	//초기화
+	v.B_IsHit[playerID] = 0;
+}
+
+//타겟 설정 시점과 발사 시점이 다를 경우 사용 (초기 발사 위치 설정)
+function Bullet_OnFire(playerID : TrgPlayer) 
+{
+      	var location = EPD(0x58DC4C) + v.P_LocationID[playerID] * 5;
+	
+	//탄알 현재 위치 캐싱
+	MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+	
+	v.B_BulletPos_X[playerID] = (dwread_epd(location + 0) + dwread_epd(location + 2)) / 2;
+	v.B_BulletPos_Y[playerID] = (dwread_epd(location + 1) + dwread_epd(location + 3)) / 2;
+	
+	//단위 벡터 계산
+	var degree = atan2(v.B_TargetPos_Y[playerID] - v.B_BulletPos_Y[playerID], v.B_TargetPos_X[playerID] - v.B_BulletPos_X[playerID]);
+	
+	Table_Cos(playerID, degree, 50);
+	Table_Sin(playerID, degree, 50);
+	
+	v.B_Delta_X[playerID] = v.P_AngleCos[playerID];
+	v.B_Delta_Y[playerID] = v.P_AngleSin[playerID];
+}
+
+
+function Bullet_Fire(playerID : TrgPlayer, unit : TrgUnit)
+{
+	if (v.B_IsHit[playerID] == 0)
+	{		
+		//탄이 맞았는지 체크
+		var dif_X = v.B_BulletPos_X[playerID] - v.B_TargetPos_X[playerID];
+		var dif_Y = v.B_BulletPos_Y[playerID] - v.B_TargetPos_Y[playerID];
+		
+		var distance = sqrt(dif_X * dif_X + dif_Y * dif_Y);
+		
+		if (distance <= v.B_Speed[playerID] * 50)
+		{
+			v.B_IsHit[playerID] = 1;
+		} 
+		else
+		{
+			//탄이 현재 있어야 하는 위치로 로케이션 이동
+		     	dwwrite_epd(v.P_LocationID[playerID] + 0, v.B_BulletPos_X[playerID] - 32);
+	      		dwwrite_epd(v.P_LocationID[playerID] + 2, v.B_BulletPos_X[playerID] + 32);
+	      		dwwrite_epd(v.P_LocationID[playerID] + 1, v.B_BulletPos_Y[playerID] - 32);
+	      		dwwrite_epd(v.P_LocationID[playerID] + 3, v.B_BulletPos_Y[playerID] + 32);
+			
+			//탄 궤적 그리기
+			for (var i = 0; i < v.B_Speed[playerID]; i++) 
+			{
+				addloc(v.P_LocationID[playerID], v.B_Delta_X[playerID], v.B_Delta_Y[playerID]);
+				SkillUnit(playerID, 1, unit);
+			}
+			KillUnitAt(All, unit, "Anywhere", playerID);
+			
+			//다음 틱 탄 위치 계산
+			v.B_BulletPos_X[playerID] += v.B_Speed[playerID] * v.B_Delta_X[playerID];
+			v.B_BulletPos_Y[playerID] += v.B_Speed[playerID] * v.B_Delta_Y[playerID];
+		}
+	}
+}
+
+function MoveLocToBulletTargetPos(playerID : TrgPlayer)
+{
+	//탄이 현재 있어야 하는 위치로 로케이션 이동
+     	dwwrite_epd(v.P_LocationID[playerID] + 0, v.B_TargetPos_X[playerID] - 32);
+	dwwrite_epd(v.P_LocationID[playerID] + 2, v.B_TargetPos_X[playerID] + 32);
+	dwwrite_epd(v.P_LocationID[playerID] + 1, v.B_TargetPos_Y[playerID] - 32);
+	dwwrite_epd(v.P_LocationID[playerID] + 3, v.B_TargetPos_Y[playerID] + 32);
+}
+

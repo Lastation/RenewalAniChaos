@@ -106,7 +106,14 @@ function LoadGlobalData(){
 }
 
 
-
+/***
+ * @Summary.ko-KR
+ * 0 = 벤만 작동
+ * 1 = 벤 이후 스타크래프트 강제종료
+***/
+function BanPlayer(BanType){
+	sct.BanPlayer(BanType);
+}
 
 function LoadData(Slot){
 	sct.DataLoad(Slot);

@@ -12,45 +12,46 @@ function main(playerID)
 			KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
 			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
 			KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
-			KillUnitAt(All, "Protoss Arbiter", "Anywhere", playerID);
+			KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
 			
 			if (v.P_LoopMain[playerID] == 0)
 			{	
-			     trg.Shape_Edge(playerID,1,"Protoss Arbiter",30,3,100);
-			     KillUnitAt(All, "Protoss Arbiter", "Anywhere", playerID);
+			     trg.Shape_Edge(playerID,1,"60 + 1n Danimoth",30,3,100);
+			     KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
 			     trg.Shape_Cross(playerID,1,"40 + 1n Wraith",45,3,64);
 			     KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
 			     trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+			     Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, "Anywhere");
 				Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 			     trg.Main_Wait(150);
 			      v.P_LoopMain[playerID] += 1;
 			}
 			else if (v.P_LoopMain[playerID] == 1)
 			{
-			     trg.Shape_Edge(playerID,1,"Protoss Arbiter",60,3,100);
-			      KillUnitAt(All, "Protoss Arbiter", "Anywhere", playerID);
+			     trg.Shape_Edge(playerID,1,"60 + 1n Danimoth",60,3,100);
+			      KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
 			     trg.Shape_Edge(playerID,1,"40 + 1n Mojo",0,2,100);
-			
 			     trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+			     Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, "Anywhere");
 				Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 			     trg.Main_Wait(150);
 			      v.P_LoopMain[playerID] += 1;
 			} 
 			else if (v.P_LoopMain[playerID] == 2)
 			{
-			     trg.Shape_Edge(playerID,1,"Protoss Arbiter",90,3,100);
-			      KillUnitAt(All, "Protoss Arbiter", "Anywhere", playerID);
+			     trg.Shape_Edge(playerID,1,"60 + 1n Danimoth",90,3,100);
+			      KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
 			     trg.Shape_Cross(playerID,1,"40 + 1n Wraith",45,3,64);
-			
 			     trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+			     Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, "Anywhere");
 				Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 			     trg.Main_Wait(150);
 			      v.P_LoopMain[playerID] += 1;
 			 }
 			 else if (v.P_LoopMain[playerID] == 3)
 			{
-			    trg.Shape_Edge(playerID,1,"Protoss Arbiter",120,3,100);
-			     KillUnitAt(All, "Protoss Arbiter", "Anywhere", playerID);
+			    trg.Shape_Edge(playerID,1,"60 + 1n Danimoth",120,3,100);
+			     KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
 			    trg.Shape_Dot(playerID,1,"60 + 1n Danimoth",0,0);
 			        Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, "Anywhere");
 			     trg.Main_Wait(200);
@@ -58,8 +59,8 @@ function main(playerID)
 			}
 			 else if (v.P_LoopMain[playerID] == 4)
 			{
-			      trg.Shape_Edge(playerID,1,"Protoss Arbiter",150,3,100);
-			       KillUnitAt(All, "Protoss Arbiter", "Anywhere", playerID);
+			      trg.Shape_Edge(playerID,1,"60 + 1n Danimoth",150,3,100);
+			       KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
 			     trg.Shape_Dot(playerID,1,"60 + 1n Danimoth",0,0);
 			        Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, "Anywhere");
 			     trg.Main_Wait(200);
@@ -67,8 +68,8 @@ function main(playerID)
 			}
 			 else if (v.P_LoopMain[playerID] == 5)
 			{
-			      trg.Shape_Edge(playerID,1,"Protoss Arbiter",180,3,100);
-			       KillUnitAt(All, "Protoss Arbiter", "Anywhere", playerID);
+			      trg.Shape_Edge(playerID,1,"60 + 1n Danimoth",180,3,100);
+			       KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
 			     trg.Shape_Dot(playerID,1,"60 + 1n Danimoth",0,0);
 			        Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, "Anywhere");
 			     trg.Main_Wait(200);
@@ -76,8 +77,8 @@ function main(playerID)
 			}
 			    else if (v.P_LoopMain[playerID] == 6)
 			{
-			      trg.Shape_Edge(playerID,1,"Protoss Arbiter",210,3,100);
-			       KillUnitAt(All, "Protoss Arbiter", "Anywhere", playerID);
+			      trg.Shape_Edge(playerID,1,"60 + 1n Danimoth",210,3,100);
+			       KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
 			     trg.Shape_Dot(playerID,1,"60 + 1n Danimoth",0,0);
 			        Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, "Anywhere");
 			     trg.Main_Wait(200);

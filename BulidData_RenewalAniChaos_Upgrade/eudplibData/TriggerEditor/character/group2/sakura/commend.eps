@@ -20,6 +20,11 @@ function main(playerID)
 			SetResources(CurrentPlayer, Add, 60, Gas);
 			KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID);
 		}
+		else if (Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))
+		{
+			v.P_Step[playerID] = 100;
+			KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", playerID);
+		}
 		else if (Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))
 		{
 			v.P_Step[playerID] = 200;
@@ -31,11 +36,7 @@ function main(playerID)
 			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 		}
 		
-		else if (Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))
-		{
-			v.P_Step[playerID] = 100;
-			KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", playerID);
-		}
+		
 
 	}
 	
@@ -76,7 +77,7 @@ function main(playerID)
 		// Ultimate
 		else if (Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") 
 		&& v.P_Step[playerID] == 220
-		&& v.P_UltimateGauge[playerID] >= v.P_Ultimate1[playerID])
+		&& v.P_UltimateGauge[playerID] >= v.P_Ultimate2[playerID])
 		{
 			if (Switch("UiltimateSwitch", Cleared))
 			{
@@ -87,7 +88,7 @@ function main(playerID)
 				v.P_CountMain[playerID] = 0;
 				v.P_LoopMain[playerID] = 0;
 				v.P_Step[playerID] = 310;
-				SetDeaths(playerID, Subtract, v.P_Ultimate1[playerID], " `UltimateCoolTime");
+				SetDeaths(playerID, Subtract, v.P_Ultimate2[playerID], " `UltimateCoolTime");
 				KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 			}
 			else
@@ -100,7 +101,7 @@ function main(playerID)
 		
 		else if (Bring(playerID, AtLeast, 3, "Protoss Arbiter", "[Skill]UseSkill") 
 		&& v.P_Step[playerID] == 300
-		&& v.P_UltimateGauge[playerID] >= v.P_Ultimate2[playerID])
+		&& v.P_UltimateGauge[playerID] >= v.P_Ultimate1[playerID])
 		{
 			if (Switch("UiltimateSwitch", Cleared))
 			{
@@ -111,7 +112,7 @@ function main(playerID)
 				v.P_CountMain[playerID] = 0;
 				v.P_LoopMain[playerID] = 0;
 				v.P_Step[playerID] = 320;
-				SetDeaths(playerID, Subtract, v.P_Ultimate2[playerID], " `UltimateCoolTime");
+				SetDeaths(playerID, Subtract, v.P_Ultimate1[playerID], " `UltimateCoolTime");
 				KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 			}
 			else

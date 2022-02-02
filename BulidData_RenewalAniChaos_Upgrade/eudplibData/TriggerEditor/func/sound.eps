@@ -20,7 +20,7 @@ import character.group2.yashiro.text as yashiro;
 import character.etc.rin as rin;
 
 import character.etc.seraphim as seraphim;
-//import character.etc.kiana as kiana;
+import character.group3.kiana.text as kiana;
 import character.etc.iwahune as iwahune;
 import character.etc.mn as mn;
 import character.etc.emetselch as emetselch;
@@ -46,6 +46,14 @@ import character.group6.endeavor.text 	as endeavor;
 import character.group7.law.text 	as law;
 import character.group7.sato.text 	as sato;
 import character.group7.teio.text 	as teio;
+import character.group7.ayano.text 	as ayano;
+import character.group7.reichel.text 	as reichel;
+
+import character.group8.gozo.text 	as gozo;
+import character.group8.king.text 	as king;
+import character.group8.tanya.text 	as tanya;
+import character.group8.megumi.text 	as megumi;
+import character.group8.alice.text 	as alice;
 
 function CharacterVoice(count : TrgCount)
 {
@@ -61,6 +69,8 @@ function CharacterVoice(count : TrgCount)
 		else if 	(v.P_HeroID[playerID] == 12)	{ kurumi.	P_player[idx] = count; kurumi.	P_observer[idx] = count; 	}
 		else if 	(v.P_HeroID[playerID] == 13)	{ sakura.		P_player[idx] = count; sakura.	P_observer[idx] = count; 	}
 		else if 	(v.P_HeroID[playerID] == 14)	{ yashiro.	P_player[idx] = count; yashiro.	P_observer[idx] = count; 	}
+		
+		else if 	(v.P_HeroID[playerID] == 17)	{ kiana.		P_player[idx] = count; kiana.	P_observer[idx] = count; 	}
 		
 		else if 	(v.P_HeroID[playerID] == 22)	{ yuuna.		P_player[idx] = count; yuuna.		P_observer[idx] = count; 	}
 		else if 	(v.P_HeroID[playerID] == 23)	{ mayuri.	P_player[idx] = count; mayuri.	P_observer[idx] = count; 	}
@@ -82,6 +92,14 @@ function CharacterVoice(count : TrgCount)
 		else if 	(v.P_HeroID[playerID] == 36)	{ law.		P_player[idx] = count; law.		P_observer[idx] = count; 	}
 		else if 	(v.P_HeroID[playerID] == 37)	{ sato.		P_player[idx] = count; sato.		P_observer[idx] = count; 	}
 		else if 	(v.P_HeroID[playerID] == 38)	{ teio.		P_player[idx] = count; teio.		P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 39)	{ ayano.		P_player[idx] = count; ayano.		P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 40)	{ reichel.	P_player[idx] = count; reichel.	P_observer[idx] = count; 	}
+		
+		else if 	(v.P_HeroID[playerID] == 41)	{ gozo.	P_player[idx] = count; 	gozo.	P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 42)	{ king.	P_player[idx] = count;	king.	P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 43)	{ tanya.	P_player[idx] = count;	tanya.	P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 44)	{ megumi.	P_player[idx] = count;	megumi.	P_observer[idx] = count; 	}
+		else if 	(v.P_HeroID[playerID] == 45)	{ alice.	P_player[idx] = count;	alice.	P_observer[idx] = count; 	}
 	}
 }
 
@@ -241,7 +259,7 @@ function main(playerID)
 	
 	// Group3
 	seraphim.main(playerID);
-	//kiana.main(playerID);
+	kiana.main(playerID);
 	iwahune.main(playerID);
 	mn.main(playerID);
 	emetselch.main(playerID);
@@ -271,4 +289,12 @@ function main(playerID)
 	law.main(playerID);
 	sato.main(playerID);
 	teio.main(playerID);
+	ayano.main(playerID);
+	reichel.main(playerID);
+	
+	// Group8
+	gozo.main(playerID);
+	king.main(playerID);
+	tanya.main(playerID);
+	megumi.main(playerID);
 }

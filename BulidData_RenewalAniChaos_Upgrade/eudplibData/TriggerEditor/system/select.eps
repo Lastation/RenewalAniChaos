@@ -8,27 +8,52 @@ function SelectText(playerID)
 	switch (unitID.UnitID[playerID])
 	{
 	case 51:		// Infested Kerrigan
-		if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 1;   }	// Rusaruka
-		else if 	(unitID.PlayerID[playerID] == 9)		{ t.T_CharaterNum[playerID] = 8;   }	// Anzu
-		else if 	(unitID.PlayerID[playerID] == 10)		{ t.T_CharaterNum[playerID] = 9;   }	// HotoMoka
-		else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 19; }	// Margot & Naruge
-		else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
-		 	unitID.UnitID[playerID] = 0;
+		if (unitID.UnitHP[playerID] == 2450) 
+		{
+			if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 1;   }	// Rusaruka
+			else if 	(unitID.PlayerID[playerID] == 9)		{ t.T_CharaterNum[playerID] = 8;   }	// Anzu
+			else if 	(unitID.PlayerID[playerID] == 10)		{ t.T_CharaterNum[playerID] = 9;   }	// HotoMoka
+			else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 19; }	// Margot & Naruge
+			else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+		}
+		else 	// Upper 5th
+		{
+			if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 43; }	// Tanya
+			else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+		}
+	 	unitID.UnitID[playerID] = 0;
 		break;
 	case 77:		// Fenix (Zealot)
-		if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 2;   }	// Chtholly
-		else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 7;   }	// Cecilia
-		else if 	(unitID.PlayerID[playerID] == 10)		{ t.T_CharaterNum[playerID] = 10; }	// Alther Ago
-		else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 17; }	// Kiana
-		else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+		if (unitID.UnitHP[playerID] == 2450) 
+		{
+			if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 2;   }	// Chtholly
+			else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 7;   }	// Cecilia
+			else if 	(unitID.PlayerID[playerID] == 10)		{ t.T_CharaterNum[playerID] = 10; }	// Alther Ago
+			else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 17; }	// Kiana	
+			else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+		}
+		else 	// Upper 5th
+		{
+			if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 39; }	// Ayano
+			else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+		}
 		 	unitID.UnitID[playerID] = 0;
 		break;
 	case 74:		// Dark Templar (Hero)
-		if 		 (unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 3;   }	// Maihime
-		else if 	 (unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 4;   }	// Tenshi
-		else if 	 (unitID.PlayerID[playerID] == 10) 	{ t.T_CharaterNum[playerID] = 5;   }	// Miyuki
-		else if 	 (unitID.PlayerID[playerID] == 11) 	{ t.T_CharaterNum[playerID] = 26; }	// Yume
-		else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+	if (unitID.UnitHP[playerID] == 2450) 
+		{
+			if 		 (unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 3;   }	// Maihime
+			else if 	 (unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 4;   }	// Tenshi
+			else if 	 (unitID.PlayerID[playerID] == 10) 	{ t.T_CharaterNum[playerID] = 5;   }	// Miyuki
+			else if 	 (unitID.PlayerID[playerID] == 11) 	{ t.T_CharaterNum[playerID] = 26; }	// Yume
+			else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+		}
+		else 	// Upper 5th
+		{
+			if 	 (unitID.PlayerID[playerID] == 8) 	{ t.T_CharaterNum[playerID] = 42; }	// king
+			else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+		}
+		
 		 unitID.UnitID[playerID] = 0;
 		break;
 	case 16:		// Sarah Kerrigan (Ghost)
@@ -57,17 +82,26 @@ function SelectText(playerID)
 		 unitID.UnitID[playerID] = 0;
 		break;
 	case 99:		// Samir Duran (Ghost)
-		if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 14; }	// Yashiro
-		else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 18; }	// Tenkai
-		else if 	(unitID.PlayerID[playerID] == 10) 		{ t.T_CharaterNum[playerID] = 20; }	// EmetSelch
-		else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 28; }	// Oda
-		else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+		if (unitID.UnitHP[playerID] == 2450) 
+		{
+			if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 14; }	// Yashiro
+			else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 18; }	// Tenkai
+			else if 	(unitID.PlayerID[playerID] == 10) 		{ t.T_CharaterNum[playerID] = 20; }	// EmetSelch
+			else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 28; }	// Oda
+			else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+		}
+		else 	// Upper 5th
+		{
+			if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 41; }	// Gozo
+			else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
+		}
 		 unitID.UnitID[playerID] = 0;
 		break;
 	case 64:		// Probe
 		if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 21; }	// Magellan
 		else if 	(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 23; }	// Mayuri
 		else if 	(unitID.PlayerID[playerID] == 10) 		{ t.T_CharaterNum[playerID] = 24; }	// Chiaki
+		else if 	(unitID.PlayerID[playerID] == 11) 		{ t.T_CharaterNum[playerID] = 44; }	// Megumi
 		else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
 		 unitID.UnitID[playerID] = 0;
 		break;
@@ -89,6 +123,7 @@ function SelectText(playerID)
 		break;
 	case 34:		// High Templar
 		if 		(unitID.PlayerID[playerID] == 8) 		{ t.T_CharaterNum[playerID] = 29; }	// Ekidona
+		else if 		(unitID.PlayerID[playerID] == 9) 		{ t.T_CharaterNum[playerID] = 40; }	// Reichel
 		else 										{ t.T_CharaterNum[playerID] = v.P_HeroID[unitID.PlayerID[playerID]]; }
 		 unitID.UnitID[playerID] = 0;
 		break;

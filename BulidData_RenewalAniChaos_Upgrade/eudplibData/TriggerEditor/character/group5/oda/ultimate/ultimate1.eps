@@ -6,7 +6,13 @@ import func.sound as s;
 
 function main(playerID)
 {
-   trg.Debuff_Stop();
+	
+	if(v.P_CountMain[playerID] >= 1)
+	{
+		 trg.Debuff_Stop();
+	}
+	
+  
    trg.Debuff_BanReturn();
 
    MoveUnit(All, "40 + 1n Goliath", playerID, "Anywhere", "[Skill]HoldPosition");

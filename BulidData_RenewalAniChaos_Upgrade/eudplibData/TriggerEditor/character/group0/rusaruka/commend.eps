@@ -51,16 +51,18 @@ function main(playerID)
 			s.CharacterVoice(2);
 			v.P_SkillDelay[playerID] = 0;
 			v.P_Step[playerID] = 210;
-			KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", playerID);
+			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
 			SetSwitch("Recall - Rusalka", Set);
 		}
-		else if (Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") && Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill") && v.P_Step[playerID] == 210)
+		else if (Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill")
+		&& Accumulate(playerID, AtLeast, 200, Gas) 
+		&& v.P_Step[playerID] == 210)
 		{
 			s.CharacterVoice(3);
 			v.P_SkillDelay[playerID] = 0;
+			SetResources(playerID, Subtract, 200, Gas);
 			v.P_Step[playerID] = 220;
 			KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
-			KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", playerID);
 			SetSwitch("Recall - Rusalka", Set);
 		}
 		else if (Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill")&& 

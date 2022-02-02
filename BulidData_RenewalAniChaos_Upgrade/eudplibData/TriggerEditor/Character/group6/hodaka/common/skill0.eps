@@ -18,15 +18,15 @@ function main(playerID)
          
          	if (playerID < 3)
          	{
- 	       	SetDeaths(P4, Add, 120, " `UniqueCoolTime");
- 	       	SetDeaths(P5, Add, 120, " `UniqueCoolTime");
-       	 	SetDeaths(P6, Add, 120, " `UniqueCoolTime");
+ 	       	SetDeaths(P4, Add, 240, " `UniqueCoolTime");
+ 	       	SetDeaths(P5, Add, 240, " `UniqueCoolTime");
+       	 	SetDeaths(P6, Add, 240, " `UniqueCoolTime");
          	}
          	else
          	{
- 	       	SetDeaths(P1, Add, 120, " `UniqueCoolTime");
- 	       	SetDeaths(P2, Add, 120, " `UniqueCoolTime");
-       	 	SetDeaths(P3, Add, 120, " `UniqueCoolTime");
+ 	       	SetDeaths(P1, Add, 240, " `UniqueCoolTime");
+ 	       	SetDeaths(P2, Add, 240, " `UniqueCoolTime");
+       	 	SetDeaths(P3, Add, 240, " `UniqueCoolTime");
          	}
 
 
@@ -38,7 +38,7 @@ function main(playerID)
       }
       else if (v.P_CountMain[playerID] == 1)
       {
-         SetDeaths(playerID, SetTo, 1440, " `UniqueCoolTime");
+         SetDeaths(playerID, SetTo, 720, " `UniqueCoolTime");
          trg.SkillEnd();
       }
 

@@ -2,6 +2,7 @@ import PluginVariables as msqcvar;
 import func.trig as trg;
 import variable as v;
 import system.text as text;
+import func.debuff as debuff;
 
 import character.group0.rusaruka.main 	as rusaruka;
 import character.group0.chtholly.main 	as chtholly;
@@ -10,6 +11,8 @@ import character.group0.maihime.main 	as maihime;
 import character.group3.kurumi.main 	as kurumi;
 import character.group2.sakura.main 		as sakura;
 import character.group2.yashiro.main 	as yashiro;
+
+import character.group3.kiana.main 		as kiana;
 
 import character.group4.yuuna.main 		as yuuna;
 import character.group4.mayuri.main 	as mayuri;
@@ -31,6 +34,14 @@ import character.group6.endeavor.main 	as endeavor;
 import character.group7.law.main 		as law;
 import character.group7.sato.main 		as sato;
 import character.group7.teio.main 		as teio;
+import character.group7.ayano.main 		as ayano;
+import character.group7.reichel.main 	as reichel;
+
+import character.group8.gozo.main 		as gozo;
+import character.group8.king.main 		as king;
+import character.group8.tanya.main 		as tanya;
+import character.group8.megumi.main 	as megumi;
+import character.group8.alice.main 		as alice;
 
 function main(playerID)
 {
@@ -46,6 +57,8 @@ function main(playerID)
 	else if 	(v.P_HeroID[playerID] == 12) 	kurumi.main(playerID);
 	else if 	(v.P_HeroID[playerID] == 13) 	sakura.main(playerID);
 	else if 	(v.P_HeroID[playerID] == 14) 	yashiro.main(playerID);
+
+	else if 	(v.P_HeroID[playerID] == 17) 	kiana.main(playerID);
 	
 	else if 	(v.P_HeroID[playerID] == 22) 	yuuna.main(playerID);
 	else if 	(v.P_HeroID[playerID] == 23) 	mayuri.main(playerID);
@@ -67,6 +80,16 @@ function main(playerID)
 	else if 	(v.P_HeroID[playerID] == 36) 	law.main(playerID);
 	else if 	(v.P_HeroID[playerID] == 37) 	sato.main(playerID);
 	else if 	(v.P_HeroID[playerID] == 38) 	teio.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 39) 	ayano.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 40) 	reichel.main(playerID);
+	
+	else if 	(v.P_HeroID[playerID] == 41) 	gozo.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 42) 	king.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 43) 	tanya.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 44) 	megumi.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 45) 	alice.main(playerID);
 	
 	SetDeaths(playerID, SetTo, v.P_Shield[playerID], " `SystemShield");
+	
+	debuff.main(playerID);
 }

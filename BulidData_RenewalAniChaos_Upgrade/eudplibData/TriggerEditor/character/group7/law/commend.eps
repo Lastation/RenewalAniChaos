@@ -68,15 +68,17 @@ function main(playerID)
 			KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", playerID);
 		}		
 		
-		else if ( Bring(playerID, AtLeast, 3, "Protoss Carrier", "[Skill]UseSkill") 
-		&& Accumulate(playerID, AtLeast, 400, Gas)
+		else if ( Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill") 
+		&&	Bring(playerID, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill")
+		&& Accumulate(playerID, AtLeast, 500, Gas)
 		&&  v.P_Step[playerID] == 300)
 		{
 			s.CharacterVoice(5);
 			v.P_Step[playerID] = 310;
 			v.P_SkillDelay[playerID] = 0;
-			SetResources(playerID, Subtract, 400, Gas);
-			KillUnitAt(3, "Protoss Carrier", "[Skill]UseSkill", playerID);
+			SetResources(playerID, Subtract, 500, Gas);
+			KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", playerID);
+			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
 		}
 		// Ultimate
 		else if (Bring(playerID, AtLeast, 3, "Protoss Arbiter", "[Skill]UseSkill") 
@@ -84,15 +86,24 @@ function main(playerID)
 		&& v.P_UltimateGauge[playerID] >= v.P_Ultimate1[playerID]
 		)
 		{
-			SetSwitch("UiltimateSwitch", Set);
-			s.CharacterVoice(7);
-			v.P_SkillDelay[playerID] = 0;
-			v.P_CountMain[playerID] = 0;
-			v.P_LoopMain[playerID] = 0;
-			v.P_Step[playerID] = 330;
-               	CreateUnit(1, " Item. Flag", "[Uiltimate]Flag", CurrentPlayer);
-			SetDeaths(playerID, Subtract, v.P_Ultimate1[playerID], " `UltimateCoolTime");
-			KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+			if (Switch("UiltimateSwitch", Cleared))
+			{
+				SetSwitch("UiltimateSwitch", Set);
+				s.CharacterVoice(7);
+				v.P_SkillDelay[playerID] = 0;
+				v.P_CountMain[playerID] = 0;
+				v.P_LoopMain[playerID] = 0;
+				v.P_Step[playerID] = 330;
+               		CreateUnit(1, " Item. Flag", "[Uiltimate]Flag", CurrentPlayer);
+				SetDeaths(playerID, Subtract, v.P_Ultimate1[playerID], " `UltimateCoolTime");
+				KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+			}
+			else
+			{
+				SetResources(CurrentPlayer, Add, 900, Gas);
+				KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+				SetDeaths(CurrentPlayer, SetTo, 999, " `SYSTEMTEXT");
+			}
 		}
 		
 	}

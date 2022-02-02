@@ -13,9 +13,12 @@ function main(playerID)
    {
       if (v.P_CountMain[playerID] == 0)
       {
+      	KillUnitAt(All,"40 + 1n Mutalisk", "[Skill]UseSkill", playerID);
          if (v.P_LoopMain[playerID] == 0)
          {
             SetSwitch("ComputerAlliy", Set);
+            KillUnitAt(All,"40 + 1n Mutalisk", "[Skill]UseSkill", playerID);
+            SetInvincibility(Enable, v.P_UnitID[playerID], playerID, "Anywhere");
             SetAllianceStatus(P7, Ally);
             SetAllianceStatus(P8, Ally);
 
@@ -197,8 +200,9 @@ function main(playerID)
 
          if (v.P_LoopMain[playerID] == 4)
          {
+            SetSwitch("ComputerAlliy", Set);
             s.CharacterVoice(11);
-
+		
             v.P_CountMain[playerID] += 1;
             v.P_LoopMain[playerID] = 0;         
          }
@@ -379,7 +383,7 @@ function main(playerID)
 
          KillUnitAt(All, "60 + 3n Ghost", "Anywhere", playerID);
          
-
+	  SetInvincibility(Disable, v.P_UnitID[playerID], playerID, "Anywhere");
          trg.SkillEnd();
       }
    }

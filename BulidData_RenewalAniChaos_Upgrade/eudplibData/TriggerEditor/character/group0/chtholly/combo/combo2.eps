@@ -97,7 +97,8 @@ function main(playerID)
 			v.P_LoopMain[playerID] = 0;
 		}
 		else if (v.P_CountMain[playerID] == 4 
-		&& Bring(playerID, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill"))
+		&& Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill")
+		&& Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))
 		{
 			KillUnitAt(All, "40 + 1n Marine", "Anywhere", playerID);
 			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
@@ -105,7 +106,8 @@ function main(playerID)
 			KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
 			
 			s.CharacterVoice(3);
-			KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", playerID);
+			KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+			KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", playerID);
 			
 			v.P_Step[playerID] = 220;
 			v.P_CountMain[playerID] = 0;

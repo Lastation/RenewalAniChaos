@@ -21,12 +21,15 @@ function main(playerID)
             var x = v.P_AngleCos[playerID];
             var y = v.P_AngleSin[playerID];
 
-            adv.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Ghost", 4, 32, x, y);
+            adv.Shape_QuadNxNSquareAt(playerID, 1, "60 + 3n Ghost", 2, 32, x, y);
+            adv.Shape_QuadNxNSquareAt(playerID, 1, "80 + 1n Ghost", 4, 32, x, y);
             adv.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Guardian", 3, 50, x, y);
 
             MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
-            MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
-            Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            MoveUnit(All, "80 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("80 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            MoveUnit(All, "60 + 3n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("60 + 3n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
             KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
          }
@@ -44,20 +47,24 @@ function main(playerID)
          }
          else if (v.P_LoopMain[playerID] == 2)
          {          
-            KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
-
+            KillUnitAt(All, "80 + 1n Ghost", "Anywhere", playerID);
+            KillUnitAt(All, "60 + 3n Ghost", "Anywhere", playerID);
+            
             trg.Table_Sin(playerID, 45, 225);
             trg.Table_Cos(playerID, 45, 225);
             
             var x = v.P_AngleCos[playerID];
             var y = v.P_AngleSin[playerID];
 
-            adv.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Ghost", 4, 32, x, y);
+            adv.Shape_QuadNxNSquareAt(playerID, 1, "60 + 3n Ghost", 2, 32, x, y);
+            adv.Shape_QuadNxNSquareAt(playerID, 1, "80 + 1n Ghost", 4, 32, x, y);
             adv.Shape_QuadNxNSquareAt(playerID, 1, "40 + 1n Guardian", 3, 50, x, y);
 
             MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
-            MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
-            Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            MoveUnit(All, "80 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("80 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            MoveUnit(All, "60 + 3n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("60 + 3n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
 
             KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
          }
@@ -76,7 +83,8 @@ function main(playerID)
 
          else if (v.P_LoopMain[playerID] == 4)
          {
-            KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
+            KillUnitAt(All, "80 + 1n Ghost", "Anywhere", playerID);
+            KillUnitAt(All, "60 + 3n Ghost", "Anywhere", playerID);
          }
 
          trg.Main_Wait(160);
@@ -126,11 +134,11 @@ function main(playerID)
             RemoveUnitAt(All, "80 + 1n Vulture", "Anywhere", playerID);
 
             trg.Shape_NxNSquare(playerID, 1, "40 + 1n Guardian", 11, 64);
-            trg.Shape_NxNSquare(playerID, 1, "40 + 1n Ghost", 11, 64);
+            trg.Shape_NxNSquare(playerID, 1, "80 + 1n Ghost", 11, 64);
 
             MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
-            MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
-            Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            MoveUnit(All, "80 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("80 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
             
             KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
          }
@@ -142,7 +150,7 @@ function main(playerID)
          }
          else if (v.P_LoopMain[playerID] == 12)
          {
-            KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
+            KillUnitAt(All, "80 + 1n Ghost", "Anywhere", playerID);
          }
 
          trg.Main_Wait(80);
@@ -157,7 +165,7 @@ function main(playerID)
       }
       else if (v.P_CountMain[playerID] == 2)
       {      
-         KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
+         KillUnitAt(All, "80 + 1n Ghost", "Anywhere", playerID);
          SetInvincibility(Disable, v.P_UnitID[playerID], playerID, "Anywhere");
          trg.ComputerAlly(0);
          

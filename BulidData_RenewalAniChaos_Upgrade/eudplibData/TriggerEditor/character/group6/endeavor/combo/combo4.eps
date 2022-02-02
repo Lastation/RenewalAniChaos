@@ -8,10 +8,6 @@ function main(playerID)
 {	
 	trg.Debuff_Stop();
 	trg.Debuff_BanReturn();
-	if(v.P_LoopMain[playerID] >= 24)
-	{
-		trg.Buff_ShieldFix(1);
-	}
 	if (v.P_WaitMain[playerID] == 0)
 	{
 		if(v.P_CountMain[playerID] == 0)
@@ -50,7 +46,7 @@ function main(playerID)
 				
 				trg.Shape_NxNSquare(playerID,1,"40 + 1n Gantrithor",6,64);
 				trg.Shape_NxNSquare(playerID,1,"40 + 1n Firebat",4,160);
-				trg.Shape_NxNSquare(playerID,1,"40 + 1n Marine",4,160);
+				trg.Shape_NxNSquare(playerID,1,"40 + 1n Marine",3,160);
 				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
 				MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
 				MoveUnit(All,"40 + 1n Marine", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
