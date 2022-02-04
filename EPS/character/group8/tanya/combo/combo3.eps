@@ -1,0 +1,258 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.trigadv as adv;
+import func.sound as s;
+import character.group8.tanya.main as tanya;
+
+function main(playerID)
+{
+       if (v.P_WaitMain[playerID] == 0)
+       {
+              if (v.P_CountMain[playerID] == 0)
+              {
+                     if (v.P_LoopMain[playerID] == 0) 
+                     {
+                            trg.Shape_Dot(playerID, 1, "40 + 1n Gantrithor", 0, 0);
+
+                            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+                     }
+
+                     trg.Main_Wait(80);
+
+                     v.P_LoopMain[playerID] += 1;
+
+                     if (v.P_LoopMain[playerID] == 32)
+                     {                        
+                            s.CharacterVoice(6);
+
+                            v.P_CountMain[playerID] += 1;
+                            v.P_LoopMain[playerID] = 0;
+                     }
+              }
+              else if (v.P_CountMain[playerID] == 1)
+              {
+                     if (v.P_LoopMain[playerID] % 2 == 0) 
+                     {
+                            trg.Shape_Dot(playerID, 1, "40 + 1n Mojo", 0, 0);
+
+                            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+                     }
+
+                     trg.Main_Wait(80);
+
+                     v.P_LoopMain[playerID] += 1;
+
+                     if (v.P_LoopMain[playerID] == 37)
+                     {                        
+                            s.CharacterVoice(7);
+
+                            v.P_CountMain[playerID] += 1;
+                            v.P_LoopMain[playerID] = 0;
+                     }
+              }  
+              else if (v.P_CountMain[playerID] == 2)
+              {
+                     trg.Shape_Dot(playerID, 1, "40 + 1n Guardian", 0, 0);
+
+                     KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+
+
+                     trg.Main_Wait(80);
+
+                     v.P_LoopMain[playerID] += 1;
+
+                     if (v.P_LoopMain[playerID] == 37)
+                     {                        
+                            var target = playerID < 3 ? tanya.target + 3 : tanya.target;
+                            trg.Bullet_Setting(playerID, target, v.P_UnitID[target], 3);
+                            
+                            v.P_CountMain[playerID] += 1;
+                            v.P_LoopMain[playerID] = 0;
+                     }
+              }      
+              else if (v.P_CountMain[playerID] == 3)
+              {
+                     if (v.P_LoopMain[playerID] == 0) 
+                     {
+                            trg.Shape_NxNSquare(playerID, 1, "50 + 1n Battlecruiser", 3, 75);
+                            trg.Shape_NxNSquare(playerID, 1, " Unit. Hoffnung 25000", 3, 75);
+
+                            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+                            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+                     }
+                     else if (v.P_LoopMain[playerID] == 2)
+                     {
+                            trg.Shape_NxNSquare(playerID, 1, "40 + 1n Guardian", 3, 75);
+                            trg.Shape_NxNSquare(playerID, 1, "Protoss Dark Archon", 3, 75);
+
+                            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+                            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+                     }
+                     else if (v.P_LoopMain[playerID] == 15)
+                     {
+                            s.CharacterVoice(8);
+                     }
+
+
+                     trg.Main_Wait(80);
+
+                     v.P_LoopMain[playerID] += 1;
+
+                     if (v.B_IsHit[playerID] == 0)
+                     {
+                            trg.Bullet_Fire(playerID, "60 + 1n Archon");
+                     }
+                     else
+                     {
+                            s.CharacterVoice(9);
+      
+                            v.P_CountMain[playerID] += 1;
+                            v.P_LoopMain[playerID] = 0;
+                     }
+              }      
+              else if (v.P_CountMain[playerID] == 4)
+              {
+                     if (v.P_LoopMain[playerID] == 0) 
+                     {
+                            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+
+                            var location = EPD(0x58DC4C) + v.P_LocationID[playerID] * 5;
+
+                            var ox = (dwread_epd(location + 0) + dwread_epd(location + 2)) / 2;
+                            var oy = (dwread_epd(location + 1) + dwread_epd(location + 3)) / 2;
+
+                            var x = v.B_TargetPos_X[playerID] - ox;
+                            var y = v.B_TargetPos_Y[playerID] - oy;
+
+                            adv.Shape_NxNSquareAt2(playerID, 1, "50 + 1n Battlecruiser", 3, 75, x, y);
+                            adv.Shape_NxNSquareAt2(playerID, 1, "Protoss Dark Archon", 3, 75, x, y);
+
+                            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+                            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+                     }
+                     else if (v.P_LoopMain[playerID] == 1)
+                     {
+                            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+
+                            var location = EPD(0x58DC4C) + v.P_LocationID[playerID] * 5;
+
+                            var ox = (dwread_epd(location + 0) + dwread_epd(location + 2)) / 2;
+                            var oy = (dwread_epd(location + 1) + dwread_epd(location + 3)) / 2;
+
+                            var x = v.B_TargetPos_X[playerID] - ox;
+                            var y = v.B_TargetPos_Y[playerID] - oy;
+
+                            adv.Shape_NxNSquareAt2(playerID, 1, "50 + 1n Battlecruiser", 5, 75, x, y);
+                            adv.Shape_NxNSquareAt2(playerID, 1, "Protoss Dark Archon", 5, 75, x, y);
+
+                            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+                            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+                     }
+                     else if (v.P_LoopMain[playerID] == 2)
+                     {
+                            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+
+                            var location = EPD(0x58DC4C) + v.P_LocationID[playerID] * 5;
+
+                            var ox = (dwread_epd(location + 0) + dwread_epd(location + 2)) / 2;
+                            var oy = (dwread_epd(location + 1) + dwread_epd(location + 3)) / 2;
+
+                            var x = v.B_TargetPos_X[playerID] - ox;
+                            var y = v.B_TargetPos_Y[playerID] - oy;
+
+                            adv.Shape_NxNSquareAt2(playerID, 1, "50 + 1n Battlecruiser", 5, 75, x, y);
+                            adv.Shape_NxNSquareAt2(playerID, 1, " Unit. Hoffnung 25000", 5, 75, x, y);
+
+                            adv.Shape_SquareAt2(playerID, 2, "40 + 1n Goliath", 75, 0, x, y);
+                            adv.Shape_SquareAt2(playerID, 2, "40 + 1n Goliath", 75, 75, x, y);
+                            adv.Shape_SquareAt2(playerID, 2, "50 + 1n Tank", 150, 0, x, y);
+                            adv.Shape_SquareAt2(playerID, 2, "50 + 1n Tank", 150, 75, x, y);
+                            adv.Shape_SquareAt2(playerID, 2, "50 + 1n Tank", 150, 150, x, y);
+                            adv.Shape_SquareAt2(playerID, 2, "50 + 1n Tank", 150, -75, x, y);
+
+                            MoveUnit(All, "40 + 1n Goliath", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+                            MoveUnit(All, "50 + 1n Tank", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+                            Order("40 + 1n Goliath", playerID, "Anywhere", Attack, "Anywhere");  
+                            Order("50 + 1n Tank", playerID, "Anywhere", Attack, "Anywhere");  
+
+                            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+                            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+                     }
+
+                     if (v.P_LoopMain[playerID] == 20) 
+                     {
+                            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+
+                            var location = EPD(0x58DC4C) + v.P_LocationID[playerID] * 5;
+
+                            var ox = (dwread_epd(location + 0) + dwread_epd(location + 2)) / 2;
+                            var oy = (dwread_epd(location + 1) + dwread_epd(location + 3)) / 2;
+
+                            var x = v.B_TargetPos_X[playerID] - ox;
+                            var y = v.B_TargetPos_Y[playerID] - oy;
+
+                            adv.Shape_NxNSquareAt2(playerID, 1, "Terran Science Vessel", 5, 75, x, y);
+
+                            KillUnitAt(All, "Terran Science Vessel", "Anywhere", playerID);
+                            KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
+                     }
+                     else if (v.P_LoopMain[playerID] > 20 && v.P_LoopMain[playerID] < 43)
+                     {
+                            var tx = 0;
+                            var ty = 0;
+
+                            if (v.P_LoopMain[playerID] % 4 == 0) { tx = 75; ty = 75; }
+                            else if (v.P_LoopMain[playerID] % 4 == 1) { tx = 75; ty = -75; }
+                            else if (v.P_LoopMain[playerID] % 4 == 2) { tx = -75; ty = -75; }
+                            else if (v.P_LoopMain[playerID] % 4 == 3) { tx = -75; ty = 75; }
+
+                            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+
+                            var location = EPD(0x58DC4C) + v.P_LocationID[playerID] * 5;
+
+                            var ox = (dwread_epd(location + 0) + dwread_epd(location + 2)) / 2;
+                            var oy = (dwread_epd(location + 1) + dwread_epd(location + 3)) / 2;
+
+                            var x = v.B_TargetPos_X[playerID] - ox;
+                            var y = v.B_TargetPos_Y[playerID] - oy;
+
+                            if (v.P_LoopMain[playerID] % 2 == 0) 
+                            {
+                                   RemoveUnitAt(All, " Creep. Dunkelheit", "Anywhere", playerID);
+
+                                   adv.Shape_NxNSquareAt2(playerID, 1, " Creep. Dunkelheit", 2, 50, x, y);
+
+                                   MoveUnit(All, " Creep. Dunkelheit", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+                                   Order(" Creep. Dunkelheit", playerID, "Anywhere", Attack, "Anywhere");  
+                            }
+
+                            x += tx;
+                            y += ty;
+
+                            adv.Shape_NxNSquareAt2(playerID, 1, "Terran Science Vessel", 3, 75, x, y);
+
+                            KillUnitAt(All, "Terran Science Vessel", "Anywhere", playerID);
+                     }
+
+                     trg.Main_Wait(80);
+
+                     v.P_LoopMain[playerID] += 1;
+
+                     if (v.P_LoopMain[playerID] == 43)
+                     {                        
+                            v.P_CountMain[playerID] += 1;
+                            v.P_LoopMain[playerID] = 0;
+                     }
+              }    
+              else if (v.P_CountMain[playerID] == 5)
+              {
+                     KillUnitAt(All, "40 + 1n Goliath", "Anywhere", playerID);
+                     KillUnitAt(All, "50 + 1n Tank", "Anywhere", playerID);
+                     KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+                     RemoveUnitAt(All, " Creep. Dunkelheit", "Anywhere", playerID);
+
+                     trg.SkillEnd();
+              }
+       }
+}

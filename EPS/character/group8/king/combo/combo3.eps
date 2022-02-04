@@ -1,0 +1,39 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
+
+function main(playerID)
+{	
+	trg.Buff_ShieldFix(1);
+	trg.Effect_Recall();
+	MoveUnit(All," Creep. Dunkelheit", playerID, "Anywhere", "[Skill]HoldPosition");
+	MoveUnit(All,"40 + 1n Wraith", playerID, "Anywhere", "[Skill]HoldPosition");
+	
+	if (v.P_WaitMain[playerID] == 0)
+	{
+		if(v.P_CountMain[playerID] == 0)
+		{
+		 KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+		 KillUnitAt(All," Creep. Dunkelheit", "Anywhere", playerID);
+		
+		 
+			if (v.P_LoopMain[playerID] <= 35)
+			{
+				trg.Shape_Circle(playerID,1," Creep. Dunkelheit", v.P_LoopMain[playerID] * 36,3,96);
+				trg.Shape_Circle(playerID,1,"40 + 1n Wraith",v.P_LoopMain[playerID] * 36,3,96);
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				MoveUnit(All," Creep. Dunkelheit", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+				Order(" Creep. Dunkelheit",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				Order("40 + 1n Wraith",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(100);
+				v.P_LoopMain[playerID] += 1;
+			}	     
+			
+			else if(v.P_LoopMain[playerID] == 36)
+			{ 
+			       trg.SkillEnd();
+			} 
+		} 
+	}
+}

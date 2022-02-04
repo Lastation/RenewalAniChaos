@@ -1,0 +1,30 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.trigepic as epic;
+
+
+function main(playerID)
+{
+	if (v.P_WaitMain[playerID] == 0)
+	{
+		if (v.P_CountMain[playerID] == 0)
+		{
+			
+			if (v.P_LoopMain[playerID] <= 6)
+			{
+				epic.Shape_Dot(playerID,1,"40 + 1n Mojo",0,0,1);
+				KillUnitAt(All,"40 + 1n Mojo","Anywhere",playerID);
+				ModifyUnitHitPoints(1,v.P_UnitID[playerID],playerID,"Anywhere",100);
+				SetResources(playerID, Add, 30, Gas); 
+				trg.Main_Wait(1000);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if(v.P_LoopMain[playerID] == 7)
+			{
+				trg.SkillEnd();
+			}
+			
+		}
+	}
+}

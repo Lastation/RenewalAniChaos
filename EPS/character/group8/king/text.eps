@@ -1,0 +1,65 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
+
+const P_player		= PVariable();
+const P_observer 	= PVariable();
+
+function Text(num);
+
+function player(playerID)
+{
+	Text(P_player[playerID]);
+	P_player[playerID] = 0;
+}
+
+function observer(playerID)
+{
+	Text(P_observer[playerID - 128]);
+	P_observer[playerID - 128] = 0;
+}
+
+function main(playerID)
+{
+	if (playerID < 6) 	{ player(playerID); 	}
+	else  			{ observer(playerID); }
+}
+
+function Text(num)
+{
+	switch(num)
+	{
+	case 1:
+		PlayWAV("King_O.ogg");
+		v.stb.printAt(3, "\x13\x08Despair \x05King");
+		v.stb.printAt(5, "\x13\x04준비 작업은 이걸로 충분해..");
+		break;
+	case 2:
+		PlayWAV("King_cc.ogg");
+		v.stb.print("\x13\x08Despair \x05King");
+		v.stb.print("\x13\x04딱히 \x08거짓말쟁이\x04는 아니야");
+		break;
+	case 3:
+		PlayWAV("King_cc+cc.ogg");
+		v.stb.print("\x13\x08Despair \x05King");
+		v.stb.print("\x13\x04사실을 말하고 싶지 않을 뿐이지");
+		break;
+	case 4:
+		PlayWAV("King_cca.ogg");
+		v.stb.print("\x13\x08Despair\x05King");
+		v.stb.print("\x13\x04나한테 \x07넌센스\x04가 부족하다고? 웃기지마..");
+		break;
+	case 5:
+		PlayWAV("King_cca+ac.ogg");
+		v.stb.print("\x13\x08Despair \x05King");
+		v.stb.print("\x13\x04우리 존재 자체가 \x08부조리\x04 그 자체잖아");
+		break;	
+	case 6:
+		PlayWAV("King_Uit.ogg");
+		v.stb.printAt(3, "\x13\x08Tokisaki \x05Krumi");
+		v.stb.printAt(5, "\x13\x08나\x04에게서 \x07나\x04를 구해보라고! \n\x13\x04히어로!");
+		break;
+	
+	}
+}

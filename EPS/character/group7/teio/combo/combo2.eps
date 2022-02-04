@@ -1,0 +1,298 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.trigepic as epic;
+
+var x = 0;
+function main(playerID)
+{
+	trg.Debuff_Stop();
+	trg.Debuff_BanReturn();
+	
+	if (v.P_WaitMain[playerID] == 0)
+	{
+		MoveUnit(All,"50 + 1n Tank", playerID, "Anywhere", "[Skill]HoldPosition");
+		MoveUnit(All,"60 + 1n Dragoon", playerID, "Anywhere", "[Skill]HoldPosition");
+		MoveUnit(All,"60 + 1n High Templar", playerID, "Anywhere", "[Skill]HoldPosition");
+		if (v.P_CountMain[playerID] == 0)
+		{
+			RemoveUnitAt(All,"Protoss Reaver","Anywhere",playerID);
+			if (v.P_LoopMain[playerID] == 0)
+			{
+				trg.Main_Wait(300);
+			}
+			else if (v.P_LoopMain[playerID] == 1)
+			{
+				trg.Shape_Double(playerID,1,"60 + 1n High Templar",64,0);
+				epic.Shape_Double(playerID,1,"60 + 1n High Templar",64,64,1);
+				trg.Shape_Double(playerID,1,"60 + 1n High Templar",0,64);
+				epic.Shape_Double(playerID,1,"60 + 1n High Templar",-64,64,1);
+				trg.Shape_Line(playerID,1,"60 + 1n Danimoth",0,6,96,0);
+				trg.Shape_Line(playerID,1,"60 + 1n Danimoth",90,6,96,0);
+				trg.Shape_Line(playerID,1,"60 + 1n Danimoth",45,6,96,0);
+				trg.Shape_Line(playerID,1,"60 + 1n Danimoth",135,6,96,0);
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+				MoveUnit(All,"60 + 1n High Templar", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+				Order("60 + 1n Danimoth",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(160);
+			}
+			else if (v.P_LoopMain[playerID] <= 16)
+			{	
+				KillUnitAt(All,"60 + 1n Danimoth","Anywhere",playerID);
+				trg.Main_Wait(80);
+			}
+			else if (v.P_LoopMain[playerID] == 17)
+			{
+				trg.Shape_Square(playerID,1,"60 + 1n Dragoon",96,0);
+				trg.Shape_Square(playerID,1,"Protoss Reaver",96,0);
+				trg.Shape_Square(playerID,1,"40 + 1n Gantrithor",96,0);
+				KillUnitAt(All,"40 + 1n Gantrithor","Anywhere",playerID);
+				ModifyUnitHangarCount(1,All,"Protoss Reaver",playerID,"Anywhere");
+				trg.Main_Wait(200);
+			}
+			else if (v.P_LoopMain[playerID] == 18)
+			{
+				trg.Shape_Square(playerID,1,"60 + 1n Dragoon",96,96);
+				trg.Shape_Square(playerID,1,"Protoss Reaver",96,96);
+				trg.Shape_Square(playerID,1,"40 + 1n Gantrithor",96,96);
+				KillUnitAt(All,"40 + 1n Gantrithor","Anywhere",playerID);
+				ModifyUnitHangarCount(1,All,"Protoss Reaver",playerID,"Anywhere");
+				trg.Main_Wait(200);
+			}
+			else if (v.P_LoopMain[playerID] == 19)
+			{
+				epic.Shape_Square(playerID,1,"60 + 1n Dragoon",144,144,1);
+				trg.Shape_Square(playerID,1,"Protoss Reaver",144,144);
+				trg.Shape_Square(playerID,1,"40 + 1n Gantrithor",144,144);
+				KillUnitAt(All,"40 + 1n Gantrithor","Anywhere",playerID);
+				ModifyUnitHangarCount(1,All,"Protoss Reaver",playerID,"Anywhere");
+				trg.Main_Wait(200);
+			}
+			else if (v.P_LoopMain[playerID] == 20)
+			{
+				epic.Shape_Square(playerID,1,"60 + 1n Dragoon",192,0,1);
+				trg.Shape_Square(playerID,1,"Protoss Reaver",192,0);
+				trg.Shape_Square(playerID,1,"40 + 1n Gantrithor",192,0);
+				KillUnitAt(All,"40 + 1n Gantrithor","Anywhere",playerID);
+				ModifyUnitHangarCount(1,All,"Protoss Reaver",playerID,"Anywhere");
+				trg.Main_Wait(200);
+			}
+			else if(v.P_LoopMain[playerID] == 21)
+			{
+				trg.Shape_Square(playerID,1,"40 + 1n Mojo",96,0);
+				trg.Shape_Square(playerID,1,"40 + 1n Mojo",96,96);
+				trg.Shape_Square(playerID,1,"40 + 1n Mojo",144,144);
+				trg.Shape_Square(playerID,1,"40 + 1n Mojo",192,0);
+				trg.Shape_Square(playerID,1,"40 + 1n Mojo",96,48);
+				trg.Shape_Square(playerID,1,"40 + 1n Mojo",192,144);
+				epic.Shape_Square(playerID,1,"60 + 1n Hydralisk",96,0,0);
+				epic.Shape_Square(playerID,1,"60 + 1n Hydralisk",96,96,0);
+				epic.Shape_Square(playerID,1,"60 + 1n Hydralisk",144,144,0);
+				epic.Shape_Square(playerID,1,"60 + 1n Hydralisk",192,0,0);
+				trg.Shape_Square(playerID,1,"Kakaru",96,0);
+				trg.Shape_Square(playerID,1,"Kakaru",96,96);
+				trg.Shape_Square(playerID,1,"Kakaru",144,144);
+				trg.Shape_Square(playerID,1,"Kakaru",192,0);
+				KillUnitAt(All,"Kakaru","Anywhere",playerID);
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("40 + 1n Mojo",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(200);
+			}
+			else if(v.P_LoopMain[playerID] <= 33)
+			{
+				RemoveUnitAt(All,"40 + 1n Mojo","Anywhere",playerID);
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] <= 37)
+			{
+				for(var i = 0; i < 4; i++)
+				{
+					MoveLocation(v.P_LocationID[playerID],"60 + 1n Hydralisk",playerID,"Anywhere");
+					RemoveUnitAt(1,"60 + 1n Hydralisk","Anywhere",playerID);
+					trg.SkillUnit(playerID,1,"50 + 1n Battlecruiser");
+					trg.SkillUnit(playerID,1,"40 + 1n Wraith");
+					KillUnitAt(All,"40 + 1n Wraith","Anywhere",playerID);
+				}
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("50 + 1n Battlecruiser",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(160);
+			}
+			else if(v.P_LoopMain[playerID] <= 47)
+			{
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] == 48)
+			{
+				KillUnitAt(All,"60 + 1n High Templar","Anywhere",playerID);
+				KillUnitAt(All,"60 + 1n Dragoon","Anywhere",playerID);
+				KillUnitAt(All,"50 + 1n Battlecruiser","Anywhere",playerID);
+				trg.Main_Wait(0);
+			}
+			else if(v.P_LoopMain[playerID] == 49)
+			{
+				trg.Shape_Edge(playerID,1,"50 + 1n Tank",0,5,192);
+				trg.Shape_Edge(playerID,1,"60 + 1n Dragoon",0,4,96);
+				trg.Shape_Square(playerID,1,"40 + 1n Gantrithor",192,0);
+				trg.Shape_Square(playerID,1,"40 + 1n Gantrithor",96,96);
+				MoveUnit(All,"60 + 1n Dragoon", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+				MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+				ModifyUnitHangarCount(1,All,"40 + 1n Gantrithor",playerID,"Anywhere");
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("40 + 1n Gantrithor",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] <= 69)
+			{
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] == 70)
+			{
+				trg.Shape_Square(playerID,1,"60 + 1n Siege",256,256);
+				trg.Shape_Square(playerID,1,"60 + 1n Siege",224,224);
+				trg.Shape_Square(playerID,1,"60 + 1n Siege",224,256);
+				trg.Shape_Square(playerID,1,"60 + 1n Siege",256,224);
+				trg.Shape_Square(playerID,1,"50 + 1n Battlecruiser",256,256);
+				trg.Shape_Square(playerID,1,"Protoss Observer",256,224);	
+				trg.Shape_Square(playerID,1,"Protoss Observer",224,224);
+				trg.Shape_Square(playerID,1,"Protoss Observer",224,256);
+				trg.Shape_Square(playerID,1,"Protoss Observer",256,224);
+				KillUnitAt(All,"Protoss Observer","Anywhere",playerID);
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("50 + 1n Battlecruiser",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] <= 98)
+			{
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] == 99)
+			{
+				for(var i = 0; i < 8; i++)
+				{
+					MoveLocation(v.P_LocationID[playerID],"40 + 1n Gantrithor",playerID,"Anywhere");
+					RemoveUnitAt(1,"40 + 1n Gantrithor","Anywhere",playerID);
+					trg.SkillUnit(playerID,1,"60 + 1n Danimoth");
+					epic.SkillUnit(playerID,1,"130 + 1n Norad",1);
+					KillUnitAt(All,"130 + 1n Norad","Anywhere",playerID);
+				}
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("60 + 1n Danimoth",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] <= 103)
+			{
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] == 104)
+			{
+				for(var i = 0; i < 4; i++)
+				{
+					MoveLocation(v.P_LocationID[playerID],"50 + 1n Battlecruiser",playerID,"Anywhere");
+					RemoveUnitAt(1,"50 + 1n Battlecruiser","Anywhere",playerID);
+					trg.SkillUnit(playerID,1,"130 + 1n Arbiter");
+					trg.SkillUnit(playerID,1,"100 + 1n Hyperion");
+					KillUnitAt(All,"100 + 1n Hyperion","Anywhere",playerID);
+				}
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("130 + 1n Arbiter",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] <= 108)
+			{
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] == 109)
+			{
+				
+				MoveLocation(v.P_LocationID[playerID],"60 + 1n Dragoon",playerID,"Anywhere");
+				RemoveUnitAt(1,"60 + 1n Dragoon","Anywhere",playerID);
+				trg.SkillUnit(playerID,1,"40 + 1n Mojo");
+				trg.SkillUnit(playerID,1,"Protoss Dark Templar");
+				KillUnitAt(1,"Protoss Dark Templar","Anywhere",playerID);
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("40 + 1n Mojo",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] <= 114)
+			{
+				for(var i = 0; i<2; i++)
+				{
+					MoveLocation(v.P_LocationID[playerID],"60 + 1n Dragoon",playerID,"Anywhere");
+					RemoveUnitAt(1,"60 + 1n Dragoon","Anywhere",playerID);
+					trg.SkillUnit(playerID,1,"40 + 1n Mojo");
+					trg.SkillUnit(playerID,1,"Protoss Dark Templar");
+					KillUnitAt(1,"Protoss Dark Templar","Anywhere",playerID);	
+				}
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("40 + 1n Mojo",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] == 115)
+			{
+				
+				MoveLocation(v.P_LocationID[playerID],"60 + 1n Dragoon",playerID,"Anywhere");
+				RemoveUnitAt(1,"60 + 1n Dragoon","Anywhere",playerID);
+				trg.SkillUnit(playerID,1,"40 + 1n Mojo");
+				trg.SkillUnit(playerID,1,"Protoss Dark Templar");
+				KillUnitAt(1,"Protoss Dark Templar","Anywhere",playerID);	
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("40 + 1n Mojo",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] == 116)
+			{
+				
+				MoveLocation(v.P_LocationID[playerID],"50 + 1n Tank",playerID,"Anywhere");
+				RemoveUnitAt(1,"50 + 1n Tank","Anywhere",playerID);
+				trg.SkillUnit(playerID,1,"50 + 1n Battlecruiser");
+				trg.SkillUnit(playerID,1,"60 + 1n Archon");
+				KillUnitAt(1,"60 + 1n Archon","Anywhere",playerID);
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("50 + 1n Battlecruiser",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] <= 123)
+			{
+				for(var i = 0; i<2; i++)
+				{
+					MoveLocation(v.P_LocationID[playerID],"50 + 1n Tank",playerID,"Anywhere");
+					RemoveUnitAt(1,"50 + 1n Tank","Anywhere",playerID);
+					trg.SkillUnit(playerID,1,"50 + 1n Battlecruiser");
+					trg.SkillUnit(playerID,1,"60 + 1n Archon");
+					KillUnitAt(1,"60 + 1n Archon","Anywhere",playerID);
+				}
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("50 + 1n Battlecruiser",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] == 124)
+			{
+				
+				MoveLocation(v.P_LocationID[playerID],"50 + 1n Tank",playerID,"Anywhere");
+				RemoveUnitAt(1,"50 + 1n Tank","Anywhere",playerID);
+				trg.SkillUnit(playerID,1,"50 + 1n Battlecruiser");
+				trg.SkillUnit(playerID,1,"60 + 1n Archon");
+				KillUnitAt(All,"60 + 1n Archon","Anywhere",playerID);
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("50 + 1n Battlecruiser",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] == 125)
+			{
+				trg.Main_Wait(1500);
+			}
+			else if(v.P_LoopMain[playerID] == 126)
+			{	
+				KillUnitAt(All,"40 + 1n Mojo","Anywhere",playerID);
+				KillUnitAt(All,"50 + 1n Battlecruiser","Anywhere",playerID);
+				KillUnitAt(All,"60 + 1n Danimoth","Anywhere",playerID);
+				KillUnitAt(All,"60 + 1n Siege","Anywhere",playerID);
+				KillUnitAt(All,"130 + 1n Arbiter","Anywhere",playerID);
+				trg.SkillEnd();
+			}
+			
+			v.P_LoopMain[playerID] += 1;
+		}
+	}
+}

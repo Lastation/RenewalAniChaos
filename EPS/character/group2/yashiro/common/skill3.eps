@@ -1,0 +1,68 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+function main(playerID)
+{
+   if (v.P_WaitMain[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] == 0)
+      {
+         KillUnitAt(All, " Creep. Dunkelheit", "Anywhere", playerID);
+
+         if (v.P_LoopMain[playerID] < 2)
+         {          
+            var d = 0;
+            var n = 8; 
+            var r = 75 + 75 * v.P_LoopMain[playerID];
+            trg.Shape_Circle(playerID, 1, " Creep. Dunkelheit", d, n, r);
+            trg.Shape_Circle(playerID, 1, "Kakaru (Twilight)", d, n, r);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            MoveUnit(All, " Creep. Dunkelheit", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order(" Creep. Dunkelheit", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+         }
+         else if (v.P_LoopMain[playerID] == 3)
+         {          
+            var d = 0;
+            var n = 8; 
+            var r = 150;
+            trg.Shape_Circle(playerID, 1, "40 + 1n Ghost", d, n, r);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+         }
+         else if (v.P_LoopMain[playerID] == 5)
+         {          
+            KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
+
+            for (var i = 0; i < 3; i++)
+            {
+               var d = 0;
+               var n = 8; 
+               var r = 50 + 50 * i;
+               trg.Shape_Circle(playerID, 1, "40 + 1n Zergling", d, n, r);
+            }
+
+            KillUnitAt(All, "40 + 1n Zergling", "Anywhere", playerID);
+         }
+
+         trg.Main_Wait(160);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 6)
+         {                        
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
+         }
+      }
+      else if (v.P_CountMain[playerID] == 1)
+      {      
+         trg.SkillEnd();
+      }
+   }
+}

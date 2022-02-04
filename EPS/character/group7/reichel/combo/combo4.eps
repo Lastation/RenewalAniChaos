@@ -1,0 +1,87 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
+import func.trigepic as epic;
+
+function main(playerID)
+{
+	trg.Buff_ShieldFix(1);
+	if (v.P_WaitMain[playerID] == 0)
+	{
+		if (v.P_CountMain[playerID] == 0)
+		{
+			RemoveUnitAt(All,"40 + 1n Ghost","Anywhere",playerID);
+			RemoveUnitAt(All,"40 + 1n Wraith","Anywhere",playerID);
+			RemoveUnitAt(All,"40 + 1n Goliath","Anywhere",playerID);
+			KillUnitAt(All,"100 + 1n Hyperion","Anywhere",playerID);
+			if(v.P_LoopMain[playerID] == 0)
+			{
+				trg.Shape_Square(playerID,1,"50 + 1n Battlecruiser",128,128);
+				trg.Shape_Square(playerID,1,"50 + 1n Battlecruiser",192,192);
+				trg.Shape_Square(playerID,1,"50 + 1n Battlecruiser",128,192);
+				trg.Shape_Square(playerID,1,"50 + 1n Battlecruiser",192,128);
+				
+				trg.Shape_Edge(playerID,1,"40 + 1n Ghost",45,4,160);
+				trg.Shape_Edge(playerID,1,"60 + 1n Siege",45,5,192);
+				trg.Shape_Square(playerID,1,"40 + 1n Ghost",64,0);
+				trg.Shape_NxNSquare(playerID,1,"40 + 1n Gantrithor",7,96);
+				KillUnitAt(All,"40 + 1n Gantrithor","Anywhere",playerID);
+				MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+				MoveUnit(All,"40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+				Order("50 + 1n Battlecruiser",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				Order("40 + 1n Ghost",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(160);
+			}
+			else if(v.P_LoopMain[playerID] == 1)
+			{
+				trg.Main_Wait(1760);
+			}
+			else if(v.P_LoopMain[playerID] <= 5)
+			{
+				for(var i = 0; i < 4; i++)
+				{
+					MoveLocation(v.P_LocationID[playerID],"50 + 1n Battlecruiser",playerID,"Anywhere");
+					RemoveUnitAt(1,"50 + 1n Battlecruiser","Anywhere",playerID);
+					trg.SkillUnit(playerID,1,"40 + 1n Goliath");
+					trg.SkillUnit(playerID,1,"40 + 1n Gantrithor");
+					KillUnitAt(All,"40 + 1n Gantrithor","Anywhere",playerID);
+				}
+				MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+				MoveUnit(All,"40 + 1n Goliath", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+				Order("40 + 1n Goliath",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] == 6)
+			{
+				trg.Main_Wait(2180);
+			}
+			else if(v.P_LoopMain[playerID] <= 10)
+			{
+				trg.Shape_Square(playerID,1,"40 + 1n Wraith",64,64);
+				if(v.P_LoopMain[playerID] % 2 == 0)
+				{
+					trg.Shape_Square(playerID,1,"40 + 1n Goliath",64,64);
+				}
+				else
+				{
+					epic.Shape_Square(playerID,1,"40 + 1n Goliath",64,64,1);
+				}
+				trg.Shape_Square(playerID,1,"50 + 1n Battlecruiser",64,64);
+				KillUnitAt(All,"60 + 1n Siege","Anywhere",playerID);
+				KillUnitAt(All,"50 + 1n Battlecruiser","Anywhere",playerID);
+				MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+				MoveUnit(All,"40 + 1n Goliath", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+				Order("40 + 1n Wraith",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				Order("40 + 1n Goliath",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] == 11)
+			{
+				trg.SkillEnd();
+			}
+			
+			v.P_LoopMain[playerID] += 1;
+		}
+	}
+}

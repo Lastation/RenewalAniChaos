@@ -1,0 +1,117 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+import character.group5.oda.common.skill1 as O;
+import character.group5.oda.common.skill2 as S;
+import character.group5.oda.common.skill3 as C;
+import character.group5.oda.common.skill4 as A;
+
+import character.group5.oda.combo.combo1 as SSS;
+import character.group5.oda.combo.combo2 as SSSCC;
+import character.group5.oda.combo.combo3 as SSSCCAA;
+import character.group5.oda.combo.combo4 as CC;
+import character.group5.oda.combo.combo5 as CCA;
+import character.group5.oda.combo.combo6 as CCACC;
+import character.group5.oda.combo.combo7 as CCACCAA;
+import character.group5.oda.combo.combo8 as AA;
+
+import character.group5.oda.ultimate.ultimate1 as ACCC;
+import character.group5.oda.ultimate.ultimate2 as ACCCAA;
+import character.group5.oda.ultimate.ultimate3 as AO;
+
+import character.group5.oda.text as text;
+import character.group5.oda.commend as commend;
+
+var loop  = 0;
+
+function SkillList(playerID)
+{
+	if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
+	{
+	      v.stb.printAt(0, "\n");
+	      v.stb.printAt(1, "\x1F　＃\x1B- 오다 사쿠노스케　\x04[ 문호 스트레이독스 ]");
+	      v.stb.printAt(2, "　　\x1FA\x04ction List");
+	      v.stb.printAt(3, "　　　\x18O \x04천의무봉 \x19[ 5초 전의 장소로 이동 ] \x053분");
+	      v.stb.printAt(4, "　　　\x18AO \x04킬러 \x04 \x19[ 영구 각성 / 30초 ]");
+	      v.stb.printAt(5, "　　　\x04\x1FSSS + C + CCC \x04꿈 \x19[ 공성 / C - 자리고정 ]");
+	      v.stb.printAt(6, "　　　\x04\x1FCC + A + CC + AAA \x04실의 \x19[ 공성 / 자리고정] ");
+	      v.stb.printAt(7, "　　　\x04\x1FAA \x04전투술 \x19[ 대인 / 순간딜 / 각성시 사용 가능 ]");
+	      v.stb.printAt(8, "　　　\x08ACCC \x04절규 \x19[ 공성 /  선딜 후 자리고정 ] \x05", v.P_Ultimate1[playerID]);
+	      v.stb.printAt(9, "　　　\x08 + AA \x04절망 \x19[ 공성 / 선딜 10초 / 선딜 후 자리고정 / 각성시 사용가능 ] \x05", v.P_Ultimate2[playerID]);
+	      v.stb.printAt(10, "\n");
+		PlayWAV("sound\\Bullet\\LaserHit.wav");
+	}
+}
+
+function main(playerID)
+{
+	v.P_LocationID[playerID] = 193;
+	v.P_UnitID[playerID] = 99;
+	
+	v.P_Ultimate1[playerID] = 650;
+	v.P_Ultimate2[playerID] = 250;
+
+	SkillList(playerID);
+	commend.main(playerID);
+	
+	if (v.P_SkillDelay[playerID] == 0)
+	{
+		switch(v.P_Step[playerID])
+		{
+		case 1:
+			O.main(playerID);
+			break;
+		case 100:
+			S.main(playerID);
+			break;
+		case 110:
+			SSS.main(playerID);
+			break;
+		case 120:
+			SSSCC.main(playerID);
+			break;
+		case 130:
+			SSSCCAA.main(playerID);
+			break;
+		case 200:
+			C.main(playerID);
+			break;
+		case 210:
+			CC.main(playerID);
+			break;
+		case 220:
+			CCA.main(playerID);
+			break;
+		case 230:
+			CCACC.main(playerID);
+			break;
+		case 240:
+			CCACCAA.main(playerID);
+			break;
+		case 300:
+			A.main(playerID);
+			break;
+		case 310:
+			ACCC.main(playerID);
+			break;
+		case 320:
+			ACCCAA.main(playerID);
+			break;
+		case 330:
+			AA.main(playerID);
+			break;
+		case 340:
+			AO.main(playerID);
+			break;
+			
+		}
+	}
+	
+	loop++;
+	if (loop > 12)
+	{
+		O.savePosRoutine(playerID);
+		loop = 0;
+	}
+}

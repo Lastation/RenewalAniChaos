@@ -1,0 +1,234 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
+
+function main(playerID)
+{	
+	trg.Debuff_BanReturn();
+	
+	MoveUnit(All, "40 + 1n Marine", playerID, "Anywhere", "[Skill]HoldPosition");
+	MoveUnit(All, "40 + 1n Mojo", playerID, "Anywhere", "[Skill]HoldPosition");
+	MoveUnit(All, "50 + 1n Tank", playerID, "Anywhere", "[Skill]HoldPosition");
+	MoveUnit(All, "60 + 1n Danimoth", playerID, "Anywhere", "[Skill]HoldPosition");
+	
+	if (v.P_WaitMain[playerID] == 0)
+	{
+		if (v.P_CountMain[playerID] == 0 && v.P_LoopMain[playerID] <= 10)
+		{
+			trg.Shape_Square(playerID, 1, "80 + 1n Tank", 16 * (v.P_LoopMain[playerID] + 1), 16 * (v.P_LoopMain[playerID] + 1));
+			trg.Shape_Square(playerID, 1, "80 + 1n Tank", 20 * (v.P_LoopMain[playerID] + 1), 0);
+			trg.Shape_Square(playerID, 1, "Zerg Devourer", 16 * (v.P_LoopMain[playerID] + 1), 16 * (v.P_LoopMain[playerID] + 1));
+			trg.Shape_Square(playerID, 1, "Zerg Devourer", 20 * (v.P_LoopMain[playerID] + 1), 0);
+			KillUnitAt(All, "80 + 1n Tank", "Anywhere", playerID);
+			KillUnitAt(All, "Zerg Devourer", "Anywhere", playerID);
+			trg.Main_Wait(0);
+			v.P_LoopMain[playerID] += 1;
+		}
+		else if (v.P_CountMain[playerID] == 0 && v.P_LoopMain[playerID] == 11)
+		{
+			trg.Main_Wait(0);
+			v.P_CountMain[playerID] += 1;
+			v.P_LoopMain[playerID] = 0;
+		}
+		else if (v.P_CountMain[playerID] == 1 && v.P_LoopMain[playerID] <= 11)
+		{
+			trg.Table_Cos(playerID, 15 * v.P_LoopMain[playerID], 256);
+			trg.Table_Sin(playerID, 15 * v.P_LoopMain[playerID], 256);
+			trg.Shape_Dot(playerID, 1, "60 + 1n Siege", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+			trg.Shape_Dot(playerID, 1, "60 + 1n Siege", -v.P_AngleCos[playerID], -v.P_AngleSin[playerID]);
+			trg.Shape_Dot(playerID, 8, "Protoss Dark Archon", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+			trg.Shape_Dot(playerID, 8, "Protoss Dark Archon", -v.P_AngleCos[playerID], -v.P_AngleSin[playerID]);
+			KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+			trg.Main_Wait(100);
+			v.P_LoopMain[playerID] += 1;
+		}
+		else if (v.P_CountMain[playerID] == 1 && v.P_LoopMain[playerID] == 12)
+		{
+			trg.Main_Wait(0);
+			v.P_CountMain[playerID] += 1;
+			v.P_LoopMain[playerID] = 0;
+		}
+		else if (v.P_CountMain[playerID] == 2 && v.P_LoopMain[playerID] <= 10)
+		{
+			trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 224);
+			trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 224);
+			trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+			KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+			trg.Main_Wait(0);
+			v.P_LoopMain[playerID] += 1;
+		}
+		else if (v.P_CountMain[playerID] == 2 && v.P_LoopMain[playerID] == 11)
+		{
+			trg.Main_Wait(0);
+			v.P_CountMain[playerID] += 1;
+			v.P_LoopMain[playerID] = 0;
+		}
+		else if (v.P_CountMain[playerID] == 3 && v.P_LoopMain[playerID] <= 10)
+		{
+			trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 192);
+			trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 192);
+			trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+			KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+			trg.Main_Wait(0);
+			v.P_LoopMain[playerID] += 1;
+		}
+		else if (v.P_CountMain[playerID] == 3 && v.P_LoopMain[playerID] == 11)
+		{
+			trg.Main_Wait(0);
+			v.P_CountMain[playerID] += 1;
+			v.P_LoopMain[playerID] = 0;
+		}
+		else if (v.P_CountMain[playerID] == 4 && v.P_LoopMain[playerID] <= 10)
+		{
+			if (v.P_LoopMain[playerID] == 4)
+			{
+				trg.Table_Cos(playerID, 0, 192);
+				trg.Table_Sin(playerID, 0, 192);
+				trg.Shape_Square(playerID, 1, "40 + 1n Mojo", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+			}
+			else if (v.P_LoopMain[playerID] == 6)
+			{
+				trg.Table_Cos(playerID, 22, 192);
+				trg.Table_Sin(playerID, 22, 192);
+				trg.Shape_Square(playerID, 1, "40 + 1n Mojo", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+			}
+			else if (v.P_LoopMain[playerID] == 8)
+			{
+				trg.Table_Cos(playerID, 45, 192);
+				trg.Table_Sin(playerID, 45, 192);
+				trg.Shape_Square(playerID, 1, "40 + 1n Mojo", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+			}
+			else if (v.P_LoopMain[playerID] == 10)
+			{
+				trg.Table_Cos(playerID, 73, 192);
+				trg.Table_Sin(playerID, 73, 192);
+				trg.Shape_Square(playerID, 1, "40 + 1n Mojo", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+			}
+		
+			trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 160);
+			trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 160);
+			trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+			KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+			trg.Main_Wait(0);
+			v.P_LoopMain[playerID] += 1;
+		}
+		else if (v.P_CountMain[playerID] == 4 && v.P_LoopMain[playerID] == 11)
+		{
+			s.CharacterVoice(4);
+			trg.Main_Wait(0);
+			v.P_CountMain[playerID] += 1;
+			v.P_LoopMain[playerID] = 0;
+		}
+		else if (v.P_CountMain[playerID] == 5 && v.P_LoopMain[playerID] <= 10)
+		{
+			if (v.P_LoopMain[playerID] == 4)
+			{
+				trg.Table_Cos(playerID, 12, 160);
+				trg.Table_Sin(playerID, 12, 160);
+				trg.Shape_Square(playerID, 1, "40 + 1n Marine", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+			}
+			else if (v.P_LoopMain[playerID] == 8)
+			{
+				trg.Table_Cos(playerID, 56, 160);
+				trg.Table_Sin(playerID, 56, 160);
+				trg.Shape_Square(playerID, 1, "40 + 1n Marine", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+			}
+		
+			trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 128);
+			trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 128);
+			trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+			KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+			trg.Main_Wait(0);
+			v.P_LoopMain[playerID] += 1;
+		}
+		else if (v.P_CountMain[playerID] == 5 && v.P_LoopMain[playerID] == 11)
+		{
+			trg.Main_Wait(0);
+			v.P_CountMain[playerID] += 1;
+			v.P_LoopMain[playerID] = 0;
+		}
+		else if (v.P_CountMain[playerID] == 6 && v.P_LoopMain[playerID] <= 10)
+		{
+			trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 96);
+			trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 96);
+			trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+			KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+			trg.Main_Wait(0);
+			v.P_LoopMain[playerID] += 1;
+		}
+		else if (v.P_CountMain[playerID] == 6 && v.P_LoopMain[playerID] == 11)
+		{
+			trg.Main_Wait(0);
+			v.P_CountMain[playerID] += 1;
+			v.P_LoopMain[playerID] = 0;
+		}
+		else if (v.P_CountMain[playerID] == 7 && v.P_LoopMain[playerID] <= 10)
+		{
+			trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 64);
+			trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 64);
+			trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+			KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+			trg.Main_Wait(0);
+			v.P_LoopMain[playerID] += 1;
+		}
+		else if (v.P_CountMain[playerID] == 7 && v.P_LoopMain[playerID] == 11)
+		{
+			trg.Main_Wait(0);
+			v.P_CountMain[playerID] += 1;
+			v.P_LoopMain[playerID] = 0;
+		}
+		else if (v.P_CountMain[playerID] == 8 && v.P_LoopMain[playerID] <= 10)
+		{
+			trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 96);
+			trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 96);
+			trg.Shape_Square(playerID, 1, "60 + 1n Dragoon", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+			trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 160);
+			trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 160);
+			trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+			trg.Table_Cos(playerID, 30 * v.P_LoopMain[playerID], 224);
+			trg.Table_Sin(playerID, 30 * v.P_LoopMain[playerID], 224);
+			trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+			KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", playerID);
+			KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+			KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+			trg.Main_Wait(0);
+			v.P_LoopMain[playerID] += 1;
+		}
+		else if (v.P_CountMain[playerID] == 8 && v.P_LoopMain[playerID] == 11)
+		{
+			trg.Main_Wait(1000);
+			v.P_CountMain[playerID] += 1;
+			v.P_LoopMain[playerID] = 0;
+		}
+		else if (v.P_CountMain[playerID] == 9 
+		&& Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill")
+		&& Accumulate(playerID, AtLeast, 600, Gas))
+		{
+			KillUnitAt(All, "40 + 1n Marine", "Anywhere", playerID);
+			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+			KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
+			
+			s.CharacterVoice(5);
+			KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+			
+			v.P_Step[playerID] = 230;
+			SetResources(playerID, Subtract, 600, Gas);
+			v.P_CountMain[playerID] = 0;
+			v.P_LoopMain[playerID] = 0;
+		}
+		else if (v.P_CountMain[playerID] == 9)
+		{
+			KillUnitAt(All, "40 + 1n Marine", "Anywhere", playerID);
+			KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+			KillUnitAt(All, "60 + 1n Siege", "Anywhere", playerID);
+			trg.SkillEnd();
+		}
+	}
+}

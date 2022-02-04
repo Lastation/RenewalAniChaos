@@ -1,0 +1,120 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
+
+const P_player			= PVariable();
+const P_observer 		= PVariable();
+
+const P_Next = PVariable();
+const P_Wait = PVariable();
+
+function Text(num, playerID);
+
+function player(playerID)
+{
+	Text(P_player[playerID], playerID);
+	P_player[playerID] = 0;
+}
+
+function observer(playerID)
+{
+	Text(P_observer[playerID - 128], playerID);
+	P_observer[playerID - 128] = 0;
+}
+
+function main(playerID)
+{
+	if (playerID < 6) 	{ player(playerID); 	}
+	else  			{ observer(playerID); }
+	
+	if (playerID < 6)
+	{
+		if (P_Wait[playerID] > 0)
+		{ P_Wait[playerID] -= 1; }
+		else if (P_Next[playerID] != 0)
+		{
+			P_player[playerID] 	= P_Next[playerID] + 1;
+			P_observer[playerID] = P_Next[playerID] + 1;
+			P_Next[playerID] = 0;
+		}
+	}
+}
+
+function TextDelay(playerID, wait)
+{
+	if (playerID < 6)
+	{
+		P_Next[playerID] = P_player[playerID];
+		if (wait == 0)
+		{ P_Next[playerID] = 0; }
+		else
+		{ P_Wait[playerID] = wait / 83 + 1; }
+	}
+}
+
+function Text(num, playerID)
+{
+	switch(num)
+	{
+	case 1:
+		PlayWAV("Endeavor_o.ogg");
+		v.stb.printAt(3, "\x13\x04Endeavor\n");
+		v.stb.printAt(5, "\x13\x04불타서.. 잠들거라");
+		TextDelay(playerID, 0);
+		break;
+	case 2:
+		PlayWAV("Endeavor_sss.ogg");
+		v.stb.print("\x13\x06Endeavor\n");
+		v.stb.print("\x13\x04네가 가슴을 필 수 있는 \x06히어로\x04가 되겟다\n");
+		TextDelay(playerID, 0);
+		break;
+	case 3:
+		PlayWAV("Endeavor_cccc.ogg");
+		v.stb.print("\x13\x06Endeavor\n");
+		v.stb.print("\x13\x04누구보다도 강해지고 싶었다..!\n");
+		TextDelay(playerID, 0);
+		break;
+	case 5:
+		PlayWAV("Endeavor_aac.ogg");
+		v.stb.print("\x13\x06Endeavor\n");
+		v.stb.print("\x13\x04쓰러질 수 있을까보냐.. 희미한 이 눈으로 승기를 노려라\n");
+		TextDelay(playerID, 6500);
+		break;
+	case 6:
+		v.stb.print("\x13\x06Endeavor\n");
+		v.stb.print("\x13\x04화력을 올려라.. 좀 더...! 더욱 더!\n");
+		TextDelay(playerID, 0);
+		break;
+	case 7:
+		PlayWAV("Endeavor_aac+cca.ogg");
+		v.stb.print("\x13\x06Endeavor\n");
+		v.stb.print("\x13\x04뛰어 넘어라!! 이 녀석의 반응 속도를!\n");
+		TextDelay(playerID, 5500);
+		break;
+	case 8:
+		v.stb.print("\x13\x06Endeavor\n");
+		v.stb.print("\x13\x04뛰어 넘어 그 얼굴이 숯이 될 때까지..\n");
+		TextDelay(playerID, 3800);
+		break;
+	case 9:
+		v.stb.print("\x13\x06Endeavor\n");
+		v.stb.print("\x13\x04쓰러질 수 있을까보냐!!\n");
+		TextDelay(playerID, 0);
+		break;	
+	case 10:
+		PlayWAV("Endeavor_aaaa+aaa.ogg");
+		TextDelay(playerID, 4200);
+		break;
+	case 11:
+		v.stb.printAt(3, "\x13\x06Endeavor");
+		v.stb.printAt(5, "\x13\x04옛날부터.. 이 교훈을 싫어했다..!");
+		TextDelay(playerID, 8700);
+		break;
+	case 12:
+		v.stb.printAt(3, "\x13\x06Endeavor");
+		v.stb.printAt(5, "\x13\x06Plus Ultra!! 프로미넌스 번!!! ");
+		TextDelay(playerID, 0);
+		break;	
+	}
+}

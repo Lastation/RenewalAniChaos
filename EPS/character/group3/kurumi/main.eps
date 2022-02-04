@@ -1,0 +1,92 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+import character.group3.kurumi.common.skill1 as O;
+import character.group3.kurumi.common.skill2 as S;
+import character.group3.kurumi.common.skill3 as C;
+import character.group3.kurumi.common.skill4 as A;
+
+import character.group3.kurumi.combo.combo1 as SSS;
+import character.group3.kurumi.combo.combo2 as CCC;
+import character.group3.kurumi.combo.combo3 as AACC;
+import character.group3.kurumi.combo.combo4 as AO;
+import character.group3.kurumi.combo.combo5 as AASS;
+
+import character.group3.kurumi.ultimate.ultimate1 as AAAA;
+
+import character.group3.kurumi.text as text;
+import character.group3.kurumi.commend as commend;
+
+var loop  = 0;
+
+function skillList(playerID)
+{
+	if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
+	{
+		v.stb.printAt(0, "\n");
+		v.stb.printAt(1, "\x1F　＃\x04- 토키자키 \x1B쿠루미　\x04[ 데이트 어 불릿 ]");
+		v.stb.printAt(2, "　　\x1FA\x04ction List");
+		v.stb.printAt(3, "　　　\x18 O\x04 자인 \x19[ 4.5초 간 적 전체 고정 ] \x05개인쿨 5분");
+		v.stb.printAt(4, "　　　\x1F SSS\x04 귀엽구나 \x19[ 공성 ]");
+		v.stb.printAt(5, "　　　\x1F CCC\x04 맑은영혼 \x19[ 공성 / 지속딜 ]");
+		v.stb.printAt(6, "　　　\x1F AACC(+200 Gas 소모) \x04 난폭한 방식 \x19[ 선딜 / 공성 / 순간딜 / 자리고정 ]");
+		v.stb.printAt(7, "　　　\x1F AO\x04 정령 쿠루미 \x19[ 영구각성 ]");
+		v.stb.printAt(8, "　　　\x1F AACS\x04 알레프 \x19[ 순간딜 / 대인 / AO각성시 사용가능 ]");
+		v.stb.printAt(9, "\n");
+		v.stb.printAt(10, "　　　\x08 AAAA \x04 의문\x19[ 대인 / 공성 / 즉발 / 쉴드 1고정 ] \x05", v.P_Ultimate1[playerID]);
+		v.stb.printAt(11, "\n");
+		PlayWAV("sound\\Bullet\\LaserHit.wav");
+	}
+}
+
+function main(playerID)
+{
+	v.P_HeroID[playerID] 		= 12;
+	v.P_UnitID[playerID] 			= 16;
+	v.P_LocationID[playerID] 		= 154;
+	
+	v.P_Ultimate1[playerID] = 700;
+	
+	commend.main(playerID);
+	skillList(playerID);
+	
+	// Commed Setting
+	if (v.P_SkillDelay[playerID] == 0)
+	{
+		switch(v.P_Step[playerID])
+		{
+		case 1:
+			O.main(playerID);
+			break;
+		
+		case 100:
+			S.main(playerID);
+			break;
+		case 200:
+			C.main(playerID);
+			break;
+		case 300:
+			A.main(playerID);
+			break;
+		case 110:
+			SSS.main(playerID);
+			break;
+		case 210:
+			CCC.main(playerID);
+			break;
+		case 310:
+			AACC.main(playerID);
+			break;
+		case 320:
+			AO.main(playerID);
+			break;
+		case 330:
+			AASS.main(playerID);
+			break;
+		case 340:
+			AAAA.main(playerID);
+			break;
+		}
+	}
+}

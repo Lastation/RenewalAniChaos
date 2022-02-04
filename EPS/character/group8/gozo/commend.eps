@@ -1,0 +1,83 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.sound as s;
+import func.trig as trg;
+
+function main(playerID)
+{
+	if (v.P_WaitMain[playerID] == 0 && v.P_Step[playerID] == 0)
+	{
+		if (Bring(playerID, AtLeast, 1, "Protoss Corsair", "[Skill]UseSkill"))
+		{
+			KillUnitAt(1, "Protoss Corsair", "[Skill]UseSkill", playerID);
+			
+			if (v.P_UniqueCool[playerID] != 0 || v.P_UniqueCondition[playerID] == 0)
+			{
+				SetResources(playerID, Add, 60, Gas);
+			}
+			else
+			{	
+				s.CharacterVoice(1);
+				SetDeaths(playerID, SetTo, 1440, " `UniqueCoolTime");
+				v.P_Step[playerID] = 1;
+				v.P_UniqueCool[playerID] = 1440;
+			}
+		}
+		else if (Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill"))
+		{
+			v.P_Step[playerID] = 100;
+			KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", playerID);
+		}
+		else if (Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill"))
+		{
+			v.P_Step[playerID] = 200;
+			KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
+		}
+		else if (Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill"))
+		{
+			RemoveUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+			v.P_Step[playerID] = 300;
+		}
+	}
+	
+	// Combo
+	if (v.P_SkillDelay[playerID] >= 2 && v.P_CountMain[playerID] == 0)
+	{
+		if (Bring(playerID, AtLeast, 2, "Protoss Scout", "[Skill]UseSkill") 
+		&&  v.P_Step[playerID] == 100)
+		{
+			s.CharacterVoice(2);
+			v.P_SkillDelay[playerID] = 0;
+			v.P_Step[playerID] = 110;
+			KillUnitAt(2, "Protoss Scout", "[Skill]UseSkill", playerID);
+		}
+		else if (Bring(playerID, AtLeast, 2,"Protoss Carrier", "[Skill]UseSkill") 
+		&& Accumulate(playerID, AtLeast, 1000, Gas)
+		&&  v.P_Step[playerID] == 110)
+		{
+			s.CharacterVoice(3);
+			v.P_SkillDelay[playerID] = 0;
+			v.P_Step[playerID] = 120;
+			SetResources(playerID, Subtract, 1000, Gas);
+			KillUnitAt(2,"Protoss Carrier", "[Skill]UseSkill", playerID);
+		}
+		else if ( Bring(playerID, AtLeast, 2, "Protoss Carrier", "[Skill]UseSkill") 
+		&&  v.P_Step[playerID] == 200)
+		{
+			s.CharacterVoice(6);
+			v.P_Step[playerID] = 210;
+			v.P_SkillDelay[playerID] = 0;
+			KillUnitAt(2, "Protoss Carrier", "[Skill]UseSkill", playerID);
+		}
+		else if ( Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") 
+		&&  v.P_Step[playerID] == 210)
+		{
+			s.CharacterVoice(7);
+			v.P_Step[playerID] = 220;
+			v.P_SkillDelay[playerID] = 0;
+			KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+		}
+		// Ultimate
+		
+	}
+}

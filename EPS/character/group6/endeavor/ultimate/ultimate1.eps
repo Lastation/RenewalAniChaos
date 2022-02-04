@@ -1,0 +1,205 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.trigadv as adv;
+import func.sound as s;
+
+var x = 0;
+function main(playerID)
+{
+	trg.Buff_ShieldFix(1);
+	trg.Debuff_BanReturn();
+	if(v.P_LoopMain[playerID] >= 60)
+	{
+		trg.Debuff_Stop();
+	}
+	if (v.P_WaitMain[playerID] == 0)
+	{
+		if (v.P_CountMain[playerID] == 0)
+		{
+			RemoveUnitAt(All, 118, "Anywhere", playerID);
+			RemoveUnitAt(All, 120, "Anywhere", playerID);
+			KillUnitAt(All,"50 + 1n Battlecruiser","Anywhere",playerID);
+			KillUnitAt(All,"100 + 1n Hyperion","Anywhere",playerID);
+			KillUnitAt(All,"40 + 1n Goliath","Anywhere",playerID);
+			if (v.P_LoopMain[playerID] == 0)
+			{
+				trg.Main_Wait(400);	
+			}
+			
+			else if (v.P_LoopMain[playerID] == 1)
+			{
+				trg.Shape_Dot(playerID,1,"40 + 1n Gantrithor",0,0);
+				KillUnitAt(All,"40 + 1n Gantrithor","Anywhere",playerID);
+				trg.Main_Wait(1000);
+			}
+			else if (v.P_LoopMain[playerID] <= 37)
+			{
+				trg.Shape_Line(playerID,1,"60 + 1n Archon",0 + 15*x,2,0+32*x,0);
+				trg.Shape_Line(playerID,1,"60 + 1n Archon",90+ 15*x,2,0+32*x,0);
+				trg.Shape_Line(playerID,1,"Protoss Dark Archon",45+ 15*x,2,0+32*x,0);
+				trg.Shape_Line(playerID,1,"Protoss Dark Archon",135+ 15*x,2,0+32*x,0);
+				trg.Shape_Line(playerID,1,118,0 + 15*x,2,0+32*x,0);
+				trg.Shape_Line(playerID,1,118,90+ 15*x,2,0+32*x,0);
+				trg.Shape_Line(playerID,1,120,45 + 15*x,2,0+32*x,0);
+				trg.Shape_Line(playerID,1,120,135+ 15*x,2,0+32*x,0);	
+				KillUnitAt(All,"Protoss Dark Archon","Anywhere",playerID);
+				KillUnitAt(All,"60 + 1n Archon","Anywhere",playerID);
+				x += 1;	
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] == 38)
+			{
+				trg.Shape_NxNSquare(playerID,1,"60 + 1n Siege",8,96);
+				trg.Shape_NxNSquare(playerID,1,"130 + 1n Norad",8,96);
+				KillUnitAt(All,"130 + 1n Norad","Anywhere",playerID);
+				trg.Main_Wait(2000);
+			}
+			else if(v.P_LoopMain[playerID] <= 46)
+			{
+				for(var i = 0; i < 8; i++)
+				{
+					MoveLocation(v.P_LocationID[playerID],"60 + 1n Siege",playerID,"Anywhere");
+					RemoveUnitAt(1,"60 + 1n Siege","Anywhere",playerID);
+					trg.SkillUnit(playerID,1,"50 + 1n Tank");
+					trg.SkillUnit(playerID,1,"80 + 1n Tank");
+					KillUnitAt(All,"80 + 1n Tank","Anywhere",playerID);
+					Order("50 + 1n Tank", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				}
+				trg.Main_Wait(150);
+			}
+			
+			else if(v.P_LoopMain[playerID] <= 54)
+			{
+				for(var y = 0; y < 8; y++)
+				{
+					MoveLocation(v.P_LocationID[playerID],"50 + 1n Tank",playerID,"Anywhere");
+					RemoveUnitAt(1,"50 + 1n Tank","Anywhere",playerID);
+					trg.SkillUnit(playerID,1,"80 + 1n Tank");
+					KillUnitAt(All,"80 + 1n Tank","Anywhere",playerID);
+					trg.SkillUnit(playerID,1,"40 + 1n Firebat");
+					trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+					Order("40 + 1n Firebat", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				}
+				trg.Main_Wait(150);
+			}
+			else if(v.P_LoopMain[playerID] == 55)
+			{
+				trg.Main_Wait(700);
+			}
+			else if(v.P_LoopMain[playerID] == 56)
+			{	
+				KillUnitAt(All,"40 + 1n Firebat","Anywhere",playerID);
+				trg.Shape_NxNSquare(playerID,1,"50 + 1n Battlecruiser",5,64);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+				Order("50 + 1n Battlecruiser",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				x = 0;
+				trg.Main_Wait(600);
+			}
+			else if(v.P_LoopMain[playerID] == 57)
+			{
+				trg.Shape_NxNSquare(playerID,1,"50 + 1n Battlecruiser",7,64);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+				Order("50 + 1n Battlecruiser",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(600);
+			}
+			else if(v.P_LoopMain[playerID] == 58)
+			{
+				trg.Shape_NxNSquare(playerID,1,"50 + 1n Battlecruiser",9,64);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+				Order("50 + 1n Battlecruiser",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(600);
+			}
+			else if(v.P_LoopMain[playerID] == 59)
+			{
+				trg.Main_Wait(1300);
+			}
+			else if(v.P_LoopMain[playerID] == 60)
+			{
+				trg.Shape_Double(playerID,1,"60 + 3n Siege",384,0);
+				trg.Shape_Double(playerID,1,"60 + 3n Siege",0,384);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",352,0);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",0,352);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",416,0);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",0,416);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",384,32);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",32,384);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",384,-32);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",-32,384);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",352,32);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",32,352);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",352,-32);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",-32,352);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",416,32);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",32,416);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",416,-32);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",-32,416);
+				
+				
+				trg.Shape_Double(playerID,1,"60 + 3n Siege",192,192);
+				trg.Shape_Double(playerID,1,"60 + 3n Siege",-192,192);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",160,192);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",-160,192);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",224,192);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",-224,192);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",192,160);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",-192,160);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",160,160);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",-160,160);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",224,160);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",-224,160);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",192,224);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",-192,224);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",160,224);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",-160,224);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",224,224);
+				trg.Shape_Double(playerID,1,"60 + 1n Siege",-224,224);
+			
+				trg.Shape_NxNSquare(playerID,1,"130 + 1n Norad",10,64);
+				KillUnitAt(All,"130 + 1n Norad","Anywhere",playerID);
+				trg.Main_Wait(2500);
+			}
+			else if(v.P_LoopMain[playerID] <= 85)
+			{
+				trg.Shape_Line(playerID,1,"60 + 1n Archon",0+15*x,2,512,0);
+				trg.Shape_Line(playerID,1,"60 + 1n Archon",90+15*x,2,512,0);
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",0+15*x,2,512,0);
+				trg.Shape_Line(playerID,1,"80 + 1n Artanis",90+15*x,2,512,0);
+				KillUnitAt(All,"60 + 1n Archon","Anywhere",playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID, 0, 0);
+				Order("80 + 1n Tom Kazansky",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				Order("80 + 1n Artanis",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				x += 1;
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] <= 105)
+			{
+				RemoveUnitAt(All,"80 + 1n Artanis","Anywhere",playerID);
+				RemoveUnitAt(All,"80 + 1n Tom Kazansky","Anywhere",playerID);
+				KillUnitAt(All,"60 + 3n Siege","Anywhere",playerID);
+				KillUnitAt(All,"60 + 1n Siege","Anywhere",playerID);
+				
+				if (v.P_CountSub1[playerID] == 0)
+				{
+					trg.Shape_NxNSquare(playerID,1,"50 + 1n Battlecruiser",9,64);
+					trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+					Order("50 + 1n Battlecruiser",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				}
+				else
+				{
+					trg.Shape_NxNSquare(playerID,1,"100 + 1n Hyperion",9,64);
+					trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+					Order("100 + 1n Hyperion",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				}
+				trg.Main_Wait(125);
+			}
+			else if(v.P_LoopMain[playerID] == 106)
+			{
+				x = 0;
+				SetSwitch("UiltimateSwitch", Clear);
+				trg.SkillEnd();
+			}
+			v.P_LoopMain[playerID] += 1;
+		}
+	}
+}

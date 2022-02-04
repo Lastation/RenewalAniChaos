@@ -1,0 +1,30 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+function main(playerID)
+{
+	if (v.P_WaitMain[playerID] == 0)
+	{
+		if (v.P_CountMain[playerID] == 0)
+		{
+			KillUnitAt(All,"40 + 1n Goliath","Anywhere",playerID);
+			if (v.P_LoopMain[playerID] == 0)
+			{
+				trg.Shape_Dot(playerID,1,"Protoss Observer",0,0);
+				KillUnitAt(All,"Protoss Observer","Anywhere",playerID);
+				SetInvincibility(Enable, v.P_UnitID[playerID], playerID, "Anywhere");
+				SetResources(playerID, Add, 200, Gas);
+				trg.Main_Wait(6000);
+				v.P_LoopMain[playerID] += 1;
+			}
+			
+			else if(v.P_LoopMain[playerID] == 1)
+			{
+				SetInvincibility(Disable, v.P_UnitID[playerID], playerID, "Anywhere");
+				trg.SkillEnd();
+			}
+			
+		}
+	}
+}

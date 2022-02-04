@@ -1,0 +1,80 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+var x = 0;
+var y = 0;
+
+function main(playerID)
+{
+       if (v.P_WaitMain[playerID] == 0)
+       {
+              if (v.P_CountMain[playerID] == 0)
+              {
+                     if (v.P_LoopMain[playerID] == 0) 
+                     {
+                            trg.Shape_Cross(playerID, 1, "40 + 1n Wraith", 0, 3, 50);
+
+                            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                     }
+                     else if (v.P_LoopMain[playerID] == 1)
+                     {
+                            x = 100;
+                            y = 50;
+
+                            trg.Shape_Square(playerID, 1, "Scantid (Desert)", x, y);
+
+                            KillUnitAt(All, "Scantid (Desert)", "Anywhere", playerID);
+                     }
+                     else if (v.P_LoopMain[playerID] == 2)
+                     {
+                            y -= 50;
+
+                            trg.Shape_Square(playerID, 1, "Scantid (Desert)", x, y);
+
+                            KillUnitAt(All, "Scantid (Desert)", "Anywhere", playerID);
+                     } 
+                     else if (v.P_LoopMain[playerID] == 3)
+                     {
+                            y -= 50;
+
+                            trg.Shape_Square(playerID, 1, "Scantid (Desert)", x, y);
+
+                            KillUnitAt(All, "Scantid (Desert)", "Anywhere", playerID);
+                            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+                     }
+                     else if (v.P_LoopMain[playerID] == 4)
+                     {
+                            y -= 50;
+
+                            trg.Shape_Square(playerID, 1, "Scantid (Desert)", x, y);
+
+                            KillUnitAt(All, "Scantid (Desert)", "Anywhere", playerID);
+                     }
+                     else if (v.P_LoopMain[playerID] == 5) 
+                     {
+                            trg.Shape_Cross(playerID, 1, "40 + 1n Wraith", 45, 3, 50);
+
+                            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                     }
+
+                     trg.Main_Wait(80);
+
+                     v.P_LoopMain[playerID] += 1;
+
+                     if (v.P_LoopMain[playerID] == 8)
+                     {                        
+                            v.P_CountMain[playerID] += 1;
+                            v.P_LoopMain[playerID] = 0;
+                     }
+              }
+              else if (v.P_CountMain[playerID] == 1)
+              {
+                     KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+
+                     trg.SkillEnd();
+              }
+       }
+}

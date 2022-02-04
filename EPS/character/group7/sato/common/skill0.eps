@@ -1,0 +1,42 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+function main(playerID)
+{
+   if (v.P_WaitMain[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] == 0)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {
+           trg.Shape_Dot(playerID,1,"50 + 1n Battlecruiser",0,0);
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+            if (playerID < 3)
+            {
+               for (var i = 3; i < 6; i++)
+               { 
+                  SetResources(i, Subtract, 400, Gas);
+               }
+            }
+            else
+            {
+               for (var i = 0; i < 3; i++)
+               { 
+                  SetResources(i, Subtract, 400, Gas);
+               }
+             } 
+            trg.Main_Wait(5000);
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if(v.P_LoopMain[playerID] == 1)
+         {
+            trg.Shape_Edge(playerID,1,"40 + 1n Zergling",45,3,48);
+            KillUnitAt(All, "40 + 1n Zergling", "Anywhere", playerID);
+            SetDeaths(playerID, SetTo, 3000, " `UniqueCoolTime");
+            trg.SkillEnd();
+         }
+         
+      }
+   }
+}

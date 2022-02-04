@@ -1,0 +1,79 @@
+import PluginVariables as msqcvar;
+import variable as v;
+
+import character.group7.teio.commend as commend;
+
+import character.group7.teio.common.skill2 as S;
+import character.group7.teio.common.skill3 as C;
+import character.group7.teio.common.skill4 as A;
+
+import character.group7.teio.combo.combo1 as SCC;
+import character.group7.teio.combo.combo2 as CCAA;
+import character.group7.teio.combo.combo3 as CCAAAA;
+
+import character.group7.teio.ultimate.ultimate1 as AAAA;
+import character.group7.teio.ultimate.ultimate2 as AAAAAAA;
+function skillList(playerID)
+{
+	if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
+	{
+		v.stb.printAt(0, "\n");
+		v.stb.printAt(1, "\x1F　＃\x04- 토카이 테이오　\x04[ 우마무스메 ]");
+		v.stb.printAt(2, "　　\x1FA\x04ction List");
+		v.stb.printAt(3, "　　　\x18O \x04벌꿀송 \x19[ 팀 전체마나 + 200 / 쿨 2분 ]");
+		v.stb.printAt(4, "　　　\x04\x1FSCC \x04최강 \x19[ 공성 ]");
+		v.stb.printAt(5, "　　　\x04\x1FCCAA(+400Gas 소모) + AA \x04기적 \x19[ 공성 / 자리고정 ]");
+		v.stb.printAt(6, "\n");
+		v.stb.printAt(7, "　　　\x08AAAA \x04노력 \x19[ 공성 / 쉴드 1고정 / 이속감소]\x1F[1] \x05", v.P_Ultimate1[playerID]);
+		v.stb.printAt(8, "　　　\x08 \x1F[1] + \x08AAA \x04승부 \x19[ 공성 / 장판형 / 쉴드 1고정 / 자리고정 ]\x1F[2] \x05", v.P_Ultimate2[playerID]);
+		v.stb.printAt(9, "\n");
+		PlayWAV("sound\\Bullet\\LaserHit.wav");
+	}
+}
+
+function main(playerID)
+{
+	v.P_HeroID[playerID] 		= 38;
+	v.P_UnitID[playerID] 			= 54;
+	v.P_LocationID[playerID] 		= 208;
+	
+	v.P_Ultimate1[playerID] = 700;
+	v.P_Ultimate2[playerID] = 200;
+	
+	
+	commend.main(playerID);
+	skillList(playerID);
+	
+	// Commed Setting
+	if (v.P_SkillDelay[playerID] == 0)
+	{
+		switch(v.P_Step[playerID])
+		{
+		case 100:
+			S.main(playerID);
+			break;
+		case 200:
+			C.main(playerID);
+			break;
+		case 300:
+			A.main(playerID);
+			break;
+		case 110:
+			SCC.main(playerID);
+			break;
+		case 210:
+			CCAA.main(playerID);
+			break;
+		case 220:
+			CCAAAA.main(playerID);
+			break;
+		case 310:
+			AAAA.main(playerID);
+			break;
+		case 320:
+			AAAAAAA.main(playerID);
+			break;	
+		}
+	}
+	
+}

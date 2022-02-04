@@ -1,0 +1,36 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.trigepic as epic;
+
+function main(playerID)
+{
+	if (v.P_WaitMain[playerID] == 0)
+	{
+		if (v.P_CountMain[playerID] == 0)
+		{
+			RemoveUnitAt(All,"40 + 1n Wraith" , "Anywhere", playerID);
+			KillUnitAt(All,"50 + 1n Battlecruiser" , "Anywhere", playerID);
+			if (v.P_LoopMain[playerID] <= 5)
+			{
+				trg.Shape_Line(playerID,1,"50 + 1n Battlecruiser",45+30*v.P_LoopMain[playerID],2,256,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Wraith",15+30*v.P_LoopMain[playerID],2,256,0);
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				trg.Shape_Line(playerID,1,"60 + 1n Archon",165+30*v.P_LoopMain[playerID],2,256,0);
+				trg.Shape_Line(playerID,1,"60 + 1n Dragoon",135+30*v.P_LoopMain[playerID],2,256,0);
+				KillUnitAt(All,"60 + 1n Dragoon" , "Anywhere", playerID);
+				KillUnitAt(All,"60 + 1n Archon" , "Anywhere", playerID);
+				Order("50 + 1n Battlecruiser",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				Order("40 + 1n Wraith",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(160);
+			}
+			
+			else if (v.P_LoopMain[playerID] == 6)
+			{
+				trg.SkillEnd();
+			}
+			
+			v.P_LoopMain[playerID] += 1;
+		}
+	}
+}

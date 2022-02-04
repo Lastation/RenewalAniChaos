@@ -1,0 +1,87 @@
+import PluginVariables as msqcvar;
+import py_math;
+
+// String Buffer
+const stb			= StringBuffer();
+
+// Location & Hero & Unit ID
+const P_LocationID 	= PVariable();
+const P_HeroID 		= PVariable();	// 1, 2, 3 ~
+const P_UnitID		= PVariable();	// 77 - Feinx
+
+// System
+const P_Level		= PVariable();
+const P_Potion		= PVariable();
+const P_DeathTime	= PVariable();
+const EXP_Need		= PVariable();
+const EXP_Now		= PVariable();
+
+// Sin & Cos Angle
+const P_AngleCos 	= PVariable();
+const P_AngleSin 	= PVariable();
+
+// Sin & Cos Angle Table
+const P_Distance	= PVariable();
+const P_Table_Cos 	= EUDArray(py_eval("[int(round(100*math.cos(math.radians(t)))) for t in range(361)]"));
+const P_Table_Sin 	= EUDArray(py_eval("[int(round(100*math.sin(math.radians(t)))) for t in range(361)]"));
+
+// Ultimate Need Gauge
+const P_UltimateGauge 	= PVariable();
+const P_Ultimate1		= PVariable();
+const P_Ultimate2		= PVariable();
+const P_Ultimate3		= PVariable();
+
+// Unique Variable
+const P_CharacterFlag		= PVariable();
+const P_UniqueCool			= PVariable();
+const P_UniqueCondition	= PVariable();
+
+// Upgrade
+const Dfs = PVariable();
+const Atk = PVariable();
+
+// Wait 
+const P_WaitMain	= PVariable();
+const P_WaitSub1	= PVariable();
+const P_WaitSub2	= PVariable();
+
+// Count
+const P_CountMain	= PVariable();
+const P_CountSub1	= PVariable();
+const P_CountSub2	= PVariable();
+
+// Loop
+const P_LoopMain	= PVariable();
+const P_LoopSub1	= PVariable();
+const P_LoopSub2	= PVariable();
+
+// Skill
+const P_Step			= PVariable();
+const P_Shield			= PVariable();
+const P_Ally				= PVariable();
+const P_SkillDelay		= PVariable();
+const P_HoldLocation 	= [97, 119, 122, 126, 134, 143, 0, 0];
+
+// Bullet
+const B_TargetPos_X 	= PVariable();
+const B_TargetPos_Y 	= PVariable();
+const B_BulletPos_X 	= PVariable();
+const B_BulletPos_Y 	= PVariable();
+const B_OriginPos_X = PVariable();
+const B_OriginPos_Y = PVariable();
+const B_Delta_X		= PVariable();
+const B_Delta_Y		= PVariable();
+const B_Speed		= PVariable();
+const B_IsHit 		= PVariable();
+
+// BGM
+const bgmWait		= PVariable();		
+
+// Score
+const P_KillScore		= PVariable();
+
+// CharacterVariable
+const P_ZenitsuDebuff = PVariable();
+
+const P_GozoDebuff = PVariable();
+const P_GozoDebuff_Ally = PVariable();

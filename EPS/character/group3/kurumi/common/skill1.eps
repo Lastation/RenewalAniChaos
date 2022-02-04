@@ -1,0 +1,55 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
+
+function main(playerID)
+{
+   if (v.P_WaitMain[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] == 0)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {
+            trg.Shape_Edge(playerID, 1, "40 + 1n Guardian", 45, 3, 50);
+            trg.Shape_Edge(playerID, 1, " Unit. Hoffnung 25000", 45, 3, 50);
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+         }
+	if (Switch("UiltimateSwitch", Cleared))
+	{
+	     	if (playerID < 3)
+	     	{
+			trg.Debuff_StopPlayer(P4);
+			trg.Debuff_StopPlayer(P5);
+			trg.Debuff_StopPlayer(P6);
+	     	}
+	     	else
+	     	{
+			trg.Debuff_StopPlayer(P1);
+			trg.Debuff_StopPlayer(P2);
+			trg.Debuff_StopPlayer(P3);
+	     	}
+	}
+	
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 60)
+         {
+             s.CharacterVoice(17);
+                 
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+    
+      else if (v.P_CountMain[playerID] == 1)
+      {
+         SetDeaths(playerID, SetTo, 3600, " `UniqueCoolTime");
+
+         trg.SkillEnd();
+      }
+   }
+}

@@ -1,0 +1,33 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
+
+function main(playerID)
+{
+	trg.Effect_Recall();
+   if (v.P_WaitMain[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] == 0)
+      {
+      
+         if (v.P_LoopMain[playerID] == 0)
+         {
+           
+	    trg.Main_Wait(1500);
+           v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;   
+           }
+      }
+     
+      else if (v.P_CountMain[playerID] == 1)
+      {
+      	  SetResources(playerID, Add, 300, Gas); 
+         trg.Shape_Edge(playerID,1," Unit. Schnee",45,2,32);
+         KillUnitAt(All," Unit. Schnee","Anywhere",playerID);
+         SetDeaths(playerID, SetTo, 1440, " `UniqueCoolTime");
+
+         trg.SkillEnd();
+      }
+   }
+}
