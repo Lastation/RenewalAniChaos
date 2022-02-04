@@ -1,2 +1,0 @@
-# RenewalAniChaos
-RenewalAniChaos Triggers
