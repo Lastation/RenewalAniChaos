@@ -1,0 +1,35 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+import func.sound as s;
+
+function main(playerID)
+{
+   if (v.P_WaitMain[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] == 0)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {         
+            if (playerID < 3) SetSwitch("Unique - Nanami1", Set);
+            else SetSwitch("Unique - Nanami2", Set);
+
+            trg.Shape_Dot(playerID, 1, "50 + 1n Battlecruiser", 0, 0);
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+
+            SetDeaths(playerID, SetTo, 1800, " `UniqueCoolTime");
+            SetDeaths(playerID, SetTo, 720, " `UniqueSkill");
+
+            trg.Main_Wait(80);
+
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
+         }
+      }
+      else if (v.P_CountMain[playerID] == 1)
+      {
+         trg.SkillEnd();
+      }
+   }
+}

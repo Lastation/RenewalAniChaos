@@ -1,0 +1,90 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+import character.group3.kiana.common.skill1 as O;
+import character.group3.kiana.common.skill2 as S;
+import character.group3.kiana.common.skill3 as C;
+import character.group3.kiana.common.skill4 as A;
+
+import character.group3.kiana.combo.combo1 as CCC;
+import character.group3.kiana.combo.combo2 as CCCAACC;
+import character.group3.kiana.combo.combo3 as CCCAACCAAA;
+
+import character.group3.kiana.ultimate.ultimate1 as AAAA;
+import character.group3.kiana.ultimate.ultimate2 as CCCAACCAAAO;
+import character.group3.kiana.ultimate.ultimate3 as CCCAACCAAAOAAA;
+
+import character.group3.kiana.text as text;
+import character.group3.kiana.commend as commend;
+
+var loop  = 0;
+
+function skillList(playerID)
+{
+	if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
+	{
+		v.stb.printAt(0, "\n");
+		v.stb.printAt(1, "\x1F　＃\x16- 키아나 카스라나　\x04[ 붕괴 3rd ]");
+		v.stb.printAt(2, "　　\x1FA\x04ction List");
+		v.stb.printAt(3, "　　　\x18 O\x04 포기하지 않는 마음 \x19[ 콤보 해제 ] \x05일회용");
+		v.stb.printAt(4, "　　　\x1F CCCC + ACCC(+400Gas 소모) + AAA\x04 모두의 마음 \x19[ 공성 / 부분 자리고정/ 귀환봉인] \x1F[1]");
+		v.stb.printAt(5, "\n");
+		v.stb.printAt(6, "　　　\x08 AAAA \x04신염의 율자 \x19[ 쉴드 1 고정 / 귀환봉인 ] \x05", v.P_Ultimate1[playerID]);
+		v.stb.printAt(7, "　　　\x1F[1] +\x08 O + AAA \x04돌아가는 길 \x19[ 쉴드 10 고정, AAA - 쉴드 100 고정, 체력 고정 / 귀환봉인 ] \x05", v.P_Ultimate2[playerID], "+", v.P_Ultimate3[playerID]);
+		v.stb.printAt(8, "\n");
+		PlayWAV("sound\\Bullet\\LaserHit.wav");
+	}
+}
+
+function main(playerID)
+{
+	v.P_HeroID[playerID] 		= 17;
+	v.P_UnitID[playerID] 			= 77;
+	v.P_LocationID[playerID] 		= 170;
+	
+	v.P_Ultimate1[playerID] = 650;
+	v.P_Ultimate2[playerID] = 650;
+	v.P_Ultimate3[playerID] = 300;
+	
+	commend.main(playerID);
+	skillList(playerID);
+	
+	// Commed Setting
+	if (v.P_SkillDelay[playerID] == 0)
+	{
+		switch(v.P_Step[playerID])
+		{
+		case 1:
+			O.main(playerID);
+			break;
+		case 100:
+			S.main(playerID);
+			break;
+		case 200:
+			C.main(playerID);
+			break;
+		case 300:
+			A.main(playerID);
+			break;
+		case 210:
+			CCC.main(playerID);
+			break;
+		case 220:
+			CCCAACC.main(playerID);
+			break;
+		case 230:
+			CCCAACCAAA.main(playerID);
+			break;
+		case 240:
+			CCCAACCAAAO.main(playerID);
+			break;
+		case 250:
+			CCCAACCAAAOAAA.main(playerID);
+			break;
+		case 310:
+			AAAA.main(playerID);
+			break;
+		}
+	}
+}

@@ -1,0 +1,100 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+function main(playerID)
+{
+   if (v.P_WaitMain[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] == 0)
+      {
+         if (v.P_LoopMain[playerID] < 8)
+         {
+            trg.Shape_Dot(playerID, 1, "40 + 1n Gantrithor", 0, 0);
+            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+         }
+
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 8)
+         {
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 1)
+      {
+         if (v.P_LoopMain[playerID] < 4)
+         {
+            var x = 150;
+            var y = 50 * v.P_LoopMain[playerID];
+
+            for (var i = 0; i < 4; i++)
+            {
+               trg.Shape_Square(playerID, 1, "40 + 1n Gantrithor", x - 50 * i, y);
+            }
+            KillUnitAt(All, "40 + 1n Gantrithor", "Anywhere", playerID);
+         }
+         if (v.P_LoopMain[playerID] == 4)
+         {
+            trg.Shape_Square(playerID, 1, "40 + 1n Mojo", 75, 75);
+            trg.Shape_Square(playerID, 1, "40 + 1n Mojo", 75, 150);
+            trg.Shape_Square(playerID, 1, "40 + 1n Mojo", 150, 75);
+            trg.Shape_Square(playerID, 1, "40 + 1n Mojo", 150, 150);
+
+            trg.Shape_Square(playerID, 1, "60 + 1n Dragoon", 75, 75);
+            trg.Shape_Square(playerID, 1, "60 + 1n Dragoon", 75, 150);
+            trg.Shape_Square(playerID, 1, "60 + 1n Dragoon", 150, 75);
+            trg.Shape_Square(playerID, 1, "60 + 1n Dragoon", 150, 150);
+
+            trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 0, 75);
+            trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", 0, 150);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+            Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+         }
+
+         trg.Main_Wait(160);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 8)
+         {
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 2)
+      {
+         if (v.P_LoopMain[playerID] < 5)
+         {
+            KillUnitAt(4, "40 + 1n Mojo", "Anywhere", playerID);
+
+            if (v.P_LoopMain[playerID] == 2) KillUnitAt(4, "60 + 1n Danimoth", "Anywhere", playerID);
+            else
+            {
+               KillUnitAt(1, "60 + 1n Danimoth", "Anywhere", playerID);
+               KillUnitAt(4, "60 + 1n Dragoon", "Anywhere", playerID);
+            }
+         }
+
+         trg.Main_Wait(80);
+
+         v.P_LoopMain[playerID] += 1;
+
+         if (v.P_LoopMain[playerID] == 5)
+         {
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;         
+         }
+      }
+      else if (v.P_CountMain[playerID] == 3)
+      {
+
+         trg.SkillEnd();
+      }
+   }
+}

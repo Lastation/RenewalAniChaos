@@ -1,0 +1,79 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+import character.group8.megumi.common.skill1 as O;
+import character.group8.megumi.common.skill2 as S;
+import character.group8.megumi.common.skill3 as C;
+import character.group8.megumi.common.skill4 as A;
+
+import character.group8.megumi.combo.combo1 as CCC;
+import character.group8.megumi.combo.combo2 as CCCAACC;
+import character.group8.megumi.combo.combo3 as CCCAACCAAA;
+
+import character.group8.megumi.ultimate.ultimate1 as AAAA;
+
+import character.group8.megumi.text as text;
+import character.group8.megumi.commend as commend;
+
+var loop  = 0;
+
+function skillList(playerID)
+{
+	if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
+	{
+		v.stb.printAt(0, "\n");
+		v.stb.printAt(1, "\x1F　＃\x16- 카토 메구미　\x04[ 시원찮은 그녀를 위한 육성방법 ]");
+		v.stb.printAt(2, "　　\x1FA\x04ction List");
+		v.stb.printAt(3, "　　　\x18 O\x04 프로듀서 \x19[ 아군 1명 마나회복 400 ] \x05개인쿨 4분");
+		v.stb.printAt(4, "　　　\x1F CCAA + AACC(+400Gas 소모) + AACC\x04 두 사람의 의지 \x19[ 공성 / 부분 자리고정/ 귀환봉인] \x1F");
+		v.stb.printAt(5, "\n");
+		v.stb.printAt(6, "　　　\x08 AAAA \x04한명만을 위한 메인 히로인 \x19[ 쉴드 1 고정 / 귀환봉인 ] \x05", v.P_Ultimate1[playerID]);
+		v.stb.printAt(8, "\n");
+		PlayWAV("sound\\Bullet\\LaserHit.wav");
+	}
+}
+
+function main(playerID)
+{
+	v.P_HeroID[playerID] 		= 44;
+	v.P_UnitID[playerID] 			= 64;
+	v.P_LocationID[playerID] 		= 213;
+	
+	v.P_Ultimate1[playerID] = 700;
+	
+	commend.main(playerID);
+	skillList(playerID);
+	
+	// Commed Setting
+	if (v.P_SkillDelay[playerID] == 0)
+	{
+		switch(v.P_Step[playerID])
+		{
+		case 1:
+			O.main(playerID);
+			break;
+		case 100:
+			S.main(playerID);
+			break;
+		case 200:
+			C.main(playerID);
+			break;
+		case 300:
+			A.main(playerID);
+			break;
+		case 210:
+			CCC.main(playerID);
+			break;
+		case 220:
+			CCCAACC.main(playerID);
+			break;
+		case 230:
+			CCCAACCAAA.main(playerID);
+			break;
+		case 310:
+			AAAA.main(playerID);
+			break;
+		}
+	}
+}

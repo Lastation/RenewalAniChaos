@@ -1,0 +1,80 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
+
+var target;
+
+function main(playerID)
+{
+	if (v.P_WaitMain[playerID] == 0)
+	{
+		if (v.P_CountMain[playerID] == 0)
+		{	
+			if (playerID < 3) {
+				if (Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill")) {
+					target = 0;
+					
+					SetResources(playerID, Add, 100, Gas);
+					KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", playerID);
+					
+					v.P_CountMain[playerID] += 1;
+				} else if (Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill")) {
+					target = 1;
+
+					SetResources(playerID, Add, 200, Gas);
+					KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
+
+					v.P_CountMain[playerID] += 1;
+				} else if (Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill")) {
+					target = 2;
+					
+					SetResources(playerID, Add, 300, Gas);
+					KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+					
+					v.P_CountMain[playerID] += 1;
+				} else {
+					v.stb.printAt(7, "\x13\x08P1\x04: S\n");
+					v.stb.printAt(8, "\x13\x0EP2\x04: C\n");
+					v.stb.printAt(9, "\x13\x0FP3\x04: A\n");
+				}
+			} else if (playerID >= 3) {
+				if (Bring(playerID, AtLeast, 1, "Protoss Scout", "[Skill]UseSkill")) {
+					target = 3;
+					
+					SetResources(playerID, Add, 100, Gas);
+					KillUnitAt(1, "Protoss Scout", "[Skill]UseSkill", playerID);
+					
+					v.P_CountMain[playerID] += 1;
+				} else if (Bring(playerID, AtLeast, 1, "Protoss Carrier", "[Skill]UseSkill")) {
+					target = 4;
+					
+					SetResources(playerID, Add, 200, Gas);
+					KillUnitAt(1, "Protoss Carrier", "[Skill]UseSkill", playerID);
+					
+					v.P_CountMain[playerID] += 1;
+				} else if (Bring(playerID, AtLeast, 1, "Protoss Arbiter", "[Skill]UseSkill")) {
+					target = 5;
+					
+					SetResources(playerID, Add, 300, Gas);
+					KillUnitAt(1, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+					
+					v.P_CountMain[playerID] += 1;
+				} else {
+					v.stb.printAt(7, "\x13\x10P4\x04: S\n");
+					v.stb.printAt(8, "\x13\x11P5\x04: C\n");
+					v.stb.printAt(9, "\x13\x15P6\x04: A\n");
+				}
+			}
+
+	    	 	trg.Main_Wait(80);
+		}  
+		else if (v.P_CountMain[playerID] == 1)
+		{
+			s.CharacterVoice(1);
+			SetResources(target, Add, 400, Gas);
+	         	SetDeaths(playerID, SetTo, 2880, " `UniqueCoolTime");
+			trg.SkillEnd();
+		}
+	}
+}

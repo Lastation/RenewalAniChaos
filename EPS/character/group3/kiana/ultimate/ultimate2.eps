@@ -1,0 +1,984 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
+
+
+function main(playerID)
+{
+	trg.Buff_ShieldFix(10);
+	trg.Effect_Recall();
+	MoveUnit(All,"80 + 1n Tank", playerID, "Anywhere", "[Skill]HoldPosition");
+   	trg.Debuff_BanReturn();
+	if (v.P_WaitMain[playerID] == 0)
+	{
+		
+		if (v.P_CountMain[playerID] == 0)
+		{
+			
+		KillUnitAt(All,"40 + 1n Mojo", "Anywhere", playerID);
+		 KillUnitAt(All,"130 + 1n Arbiter", "Anywhere", playerID);
+		 KillUnitAt(All,"130 + 1n Norad", "Anywhere", playerID);
+		 KillUnitAt(All,"Terran Science Vessel", "Anywhere", playerID);
+		 KillUnitAt(All,"40 + 1n Gantrithor", "Anywhere", playerID);
+		 KillUnitAt(All,"80 + 1n Tom Kazansky", "Anywhere", playerID);
+		 KillUnitAt(All,"60 + 1n High Templar", "Anywhere", playerID);
+		 KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+		 KillUnitAt(All,"60 + 3n Ghost","Anywhere", playerID);
+		 KillUnitAt(All,"80 + 1n Artanis","Anywhere", playerID);
+		 KillUnitAt(All,"80 + 1n Ghost","Anywhere", playerID);
+		 KillUnitAt(All,"40 + 1n Wraith","Anywhere", playerID);
+			
+			if (v.P_LoopMain[playerID] <= 7)
+			{
+				trg.Shape_Dot(playerID,1,"80 + 1n Artanis",0,256);
+				trg.Shape_NxNSquare(playerID,1,"40 + 1n Firebat",5,64);
+				 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+			        Order("80 + 1n Artanis", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				 trg.Main_Wait(10);
+				  v.P_LoopMain[playerID] += 1;
+			}
+			else if(v.P_LoopMain[playerID] <= 15)
+			{
+				trg.Shape_Dot(playerID,1,"80 + 1n Artanis",0,256);
+				trg.Shape_Dot(playerID,1,"80 + 1n Artanis",-256,0);
+				trg.Shape_NxNSquare(playerID,1,"40 + 1n Firebat",5,64);
+				 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+			        Order("80 + 1n Artanis", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				 trg.Main_Wait(10);
+				  v.P_LoopMain[playerID] += 1;
+			}
+			else if(v.P_LoopMain[playerID] <= 25)
+			{
+				trg.Shape_Dot(playerID,1,"80 + 1n Artanis",0,256);
+				trg.Shape_Dot(playerID,1,"80 + 1n Artanis",-256,0);
+				trg.Shape_Dot(playerID,1,"80 + 1n Artanis",256,0);
+				trg.Shape_NxNSquare(playerID,1,"40 + 1n Firebat",5,64);
+				 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+			        Order("80 + 1n Artanis", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				 trg.Main_Wait(10);
+				  v.P_LoopMain[playerID] += 1;
+			}
+			else if(v.P_LoopMain[playerID] <= 85)
+			{
+				
+				trg.Shape_Dot(playerID,1,"80 + 1n Artanis",0,256);
+				trg.Shape_Dot(playerID,1,"80 + 1n Artanis",-256,0);
+				trg.Shape_Dot(playerID,1,"80 + 1n Artanis",256,0);
+				trg.Shape_Dot(playerID,1,"80 + 1n Artanis",0,-256);
+				trg.Shape_NxNSquare(playerID,1,"40 + 1n Firebat",5,64);
+				 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+			        Order("80 + 1n Artanis", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				 trg.Main_Wait(10);
+				  v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 86)
+			{	
+			      trg.Main_Wait(4650);
+				 v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 87)
+			{	
+				trg.Shape_NxNSquare(playerID,1,"80 + 1n Artanis",9,64);
+				trg.Shape_NxNSquare(playerID,1,"80 + 1n Ghost",9,64);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Artanis", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+			      trg.Main_Wait(50);
+				 v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 88)
+			{	
+				trg.Main_Wait(2200);
+			         v.P_LoopMain[playerID] += 1;
+			 }
+			 else if (v.P_LoopMain[playerID] <= 97)
+			{
+				trg.Shape_Cross(playerID,1,"40 + 1n Mojo",0,4,64);
+				trg.Shape_Cross(playerID,1,"40 + 1n Mojo",45,4,64);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			 else if (v.P_LoopMain[playerID] == 98)
+			{	
+			 trg.Main_Wait(1200);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			 else if (v.P_LoopMain[playerID] <= 104)
+			{	
+				trg.Shape_Dot(playerID,1,"40 + 1n Gantrithor",0,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				 KillUnitAt(All,"60 + 1n Danimoth", "Anywhere", playerID);
+				      trg.Main_Wait(20);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			 else if (v.P_LoopMain[playerID] == 105)
+			{	
+				trg.Shape_Line(playerID,1,"130 + 1n Arbiter",0,6,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			 else if (v.P_LoopMain[playerID] == 106)
+			{	
+				trg.Shape_Line(playerID,1,"130 + 1n Arbiter",45,6,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				      Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			 else if (v.P_LoopMain[playerID] == 107)
+			{	
+				trg.Shape_Line(playerID,1,"130 + 1n Arbiter",90,6,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				      Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			 else if (v.P_LoopMain[playerID] == 108)
+			{	
+				trg.Shape_Line(playerID,1,"130 + 1n Arbiter",135,6,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				      Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 109)
+			{	
+				trg.Shape_Line(playerID,1,"130 + 1n Arbiter",0,6,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			 else if (v.P_LoopMain[playerID] == 110)
+			{	
+				trg.Shape_Line(playerID,1,"130 + 1n Arbiter",45,6,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			 else if (v.P_LoopMain[playerID] == 111)
+			{	
+				trg.Shape_Line(playerID,1,"130 + 1n Arbiter",90,6,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				      Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			 else if (v.P_LoopMain[playerID] == 112)
+			{	
+				trg.Shape_Line(playerID,1,"130 + 1n Arbiter",135,6,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				      Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 113)
+			{	
+				trg.Shape_Line(playerID,1,"130 + 1n Arbiter",0,6,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			 else if (v.P_LoopMain[playerID] == 114)
+			{	
+				trg.Shape_Line(playerID,1,"130 + 1n Arbiter",45,6,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			 else if (v.P_LoopMain[playerID] == 115)
+			{	
+				trg.Shape_Line(playerID,1,"130 + 1n Arbiter",90,6,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			 else if (v.P_LoopMain[playerID] == 116)
+			{	
+				trg.Shape_Line(playerID,1,"130 + 1n Arbiter",135,6,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				      Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 117)
+			{	
+				trg.Shape_Line(playerID,1,"130 + 1n Arbiter",0,6,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			 else if (v.P_LoopMain[playerID] == 118)
+			{	
+				trg.Shape_Line(playerID,1,"130 + 1n Arbiter",45,6,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			 else if (v.P_LoopMain[playerID] == 119)
+			{	
+				trg.Shape_Line(playerID,1,"130 + 1n Arbiter",90,6,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				      Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			 else if (v.P_LoopMain[playerID] == 120)
+			{	
+				trg.Shape_Line(playerID,1,"130 + 1n Arbiter",135,6,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				      Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 121)
+			{	
+				      trg.Main_Wait(800);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 122)
+			{	
+				trg.Shape_Edge(playerID,1,"100 + 1n Dragoon",0,6,192);
+				trg.Shape_Edge(playerID,1,"60 + 1n High Templar",0,6,192);
+				 KillUnitAt(All,"60 + 1n High Templar", "Anywhere", playerID);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("100 + 1n Dragoon", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 123)
+			{	
+				      trg.Main_Wait(500);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			 else if (v.P_LoopMain[playerID] == 124)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",0,4,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",45,4,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",90,4,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",135,4,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 125)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",0,6,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",45,6,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",90,6,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",135,6,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 126)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",0,8,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",45,8,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",90,8,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",135,8,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 127)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",0,10,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",45,10,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",90,10,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",135,10,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 128)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",0,12,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",45,12,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",90,12,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",135,12,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 129)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",0,14,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",45,14,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",90,14,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",135,14,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 130)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",0,12,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",45,12,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",90,12,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",135,12,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 131)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",0,10,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",45,10,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",90,10,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",135,10,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 132)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",0,8,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",45,8,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",90,8,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",135,8,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 133)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",0,6,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",45,6,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",90,6,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",135,6,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 134)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",0,4,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",45,4,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",90,4,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",135,4,64,0);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(00);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 135)
+			{
+				trg.Shape_Line(playerID,1,"130 + 1n Norad",45,11,64,0);
+				trg.Shape_Line(playerID,1,"60 + 3n Ghost",45,11,64,0);
+				trg.Shape_Line(playerID,1,"Terran Science Vessel",45,9,64,0);
+				 KillUnitAt(All,"100 + 1n Dragoon", "Anywhere", playerID);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Norad", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				     Order("60 + 3n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(80);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 136)
+			{
+				      trg.Main_Wait(1900);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 137)
+			{
+					 trg.Shape_Edge(playerID,1,"60 + 3n Siege",45,5,192);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 138)
+			{
+					trg.Shape_Edge(playerID,1,"130 + 1n Norad",0,2,64);
+				       trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Norad", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 139)
+			{
+					trg.Shape_Edge(playerID,1,"130 + 1n Norad",45,2,64);
+				       trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Norad", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 140)
+			{
+					trg.Shape_Edge(playerID,1,"130 + 1n Norad",0,2,64);
+				       trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Norad", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 141)
+			{
+					trg.Shape_Edge(playerID,1,"130 + 1n Norad",45,2,64);
+				       trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Norad", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 142)
+			{
+					trg.Shape_Edge(playerID,1,"130 + 1n Norad",0,2,64);
+				       trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Norad", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 143)
+			{
+					trg.Shape_Edge(playerID,1,"130 + 1n Norad",45,2,64);
+				       trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Norad", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 144)
+			{
+					trg.Shape_Edge(playerID,1,"130 + 1n Norad",0,2,64);
+				       trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Norad", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 145)
+			{
+					trg.Shape_Edge(playerID,1,"130 + 1n Norad",45,2,64);
+				       trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Norad", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 146)
+			{
+					trg.Shape_Edge(playerID,1,"130 + 1n Norad",0,2,64);
+				       trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Norad", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 147)
+			{
+					trg.Shape_Edge(playerID,1,"130 + 1n Norad",45,2,64);
+				       trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Norad", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 148)
+			{
+					trg.Shape_Edge(playerID,1,"130 + 1n Norad",0,2,64);
+				       trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Norad", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 149)
+			{
+					trg.Shape_Edge(playerID,1,"130 + 1n Norad",45,2,64);
+				       trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Norad", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 150)
+			{
+					trg.Shape_Edge(playerID,1,"130 + 1n Norad",0,2,64);
+				       trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Norad", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 151)
+			{
+					trg.Shape_Edge(playerID,1,"130 + 1n Norad",45,2,64);
+				       trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Norad", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 152)
+			{
+					trg.Shape_Edge(playerID,1,"130 + 1n Norad",0,2,64);
+				       trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Norad", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 153)
+			{
+					trg.Shape_Edge(playerID,1,"130 + 1n Norad",45,2,64);
+				       trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Norad", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 153)
+			{
+					trg.Shape_Edge(playerID,1,"130 + 1n Norad",0,2,64);
+				       trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Norad", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 154)
+			{
+					trg.Shape_Edge(playerID,1,"130 + 1n Norad",45,2,64);
+				       trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("130 + 1n Norad", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(50);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 155)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",135,9,64,0);
+				trg.Shape_Line(playerID,1,"60 + 3n Ghost",135,9,64,0);
+				KillUnitAt(All,"60 + 3n Siege", "Anywhere", playerID);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				     Order("60 + 3n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 156)
+			{
+				      trg.Main_Wait(2200);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 157)
+			{
+				trg.Shape_Edge(playerID,1,"60 + 1n High Templar",45,9,192);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("60 + 1n High Templar", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 158)
+			{
+				trg.Shape_Edge(playerID,1,"60 + 1n High Templar",45,8,160);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("60 + 1n High Templar", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 159)
+			{
+				trg.Shape_Edge(playerID,1,"60 + 1n High Templar",45,7,128);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("60 + 1n High Templar", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 160)
+			{
+				trg.Shape_Edge(playerID,1,"60 + 1n High Templar",45,6,96);
+				  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("60 + 1n High Templar", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 161)
+			{
+					 trg.Shape_Edge(playerID,1,"60 + 3n Siege",45,11,256);
+				      trg.Main_Wait(800);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 162)
+			{
+					 trg.Shape_Edge(playerID,1,"60 + 1n Siege",45,10,224);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 163)
+			{
+					 trg.Shape_Edge(playerID,1,"60 + 1n Siege",45,9,192);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 164)
+			{
+					 trg.Shape_Edge(playerID,1,"60 + 1n Siege",45,8,160);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 165)
+			{
+					 trg.Shape_Edge(playerID,1,"60 + 1n Siege",45,7,128);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 166)
+			{
+					 trg.Shape_Edge(playerID,1,"60 + 1n Siege",45,6,96);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 167)
+			{
+					 trg.Shape_Edge(playerID,1,"60 + 1n Siege",45,5,64);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 168)
+			{
+					 trg.Shape_Edge(playerID,1,"40 + 1n Mojo",45,4,32);
+					  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 169)
+			{
+					 trg.Shape_Edge(playerID,1,"40 + 1n Mojo",45,5,64);
+					  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 170)
+			{
+					 trg.Shape_Edge(playerID,1,"40 + 1n Mojo",45,6,96);
+					  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 171)
+			{
+					 trg.Shape_Edge(playerID,1,"40 + 1n Mojo",45,7,128);
+					  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 172)
+			{
+					 trg.Shape_Edge(playerID,1,"40 + 1n Mojo",45,8,160);
+					  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 173)
+			{
+					 trg.Shape_Edge(playerID,1,"40 + 1n Mojo",45,9,192);
+					  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 174)
+			{
+					 trg.Shape_Edge(playerID,1,"40 + 1n Mojo",45,10,224);
+					  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 175)
+			{
+					 trg.Shape_NxNSquare(playerID,1,"40 + 1n Mojo",10,64);
+					  KillUnitAt(All,"60 + 1n Siege", "Anywhere", playerID);
+					  KillUnitAt(All,"60 + 3n Siege", "Anywhere", playerID);
+					  trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				     Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 176)
+			{
+				      trg.Main_Wait(600);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] <= 181)
+			{
+					 trg.Shape_Dot(playerID,1,"40 + 1n Mojo",0,0);
+					 Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(20);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 182)
+			{
+					 trg.Shape_Line(playerID,1,"80 + 1n Tank",0,1,64,0);
+					 trg.Shape_Line(playerID,1,"40 + 1n Firebat",0,1,64,0);
+					 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+					 Order("80 + 1n Tank", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(20);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 183)
+			{
+					 trg.Shape_Line(playerID,1,"80 + 1n Tank",0,2,64,0);
+					 trg.Shape_Line(playerID,1,"40 + 1n Firebat",0,2,64,0);
+					 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+					 Order("80 + 1n Tank", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(20);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 184)
+			{
+					 trg.Shape_Line(playerID,1,"80 + 1n Tank",0,4,64,0);
+					 trg.Shape_Line(playerID,1,"40 + 1n Firebat",0,4,64,0);
+					 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+					 Order("80 + 1n Tank", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(20);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 185)
+			{
+					 trg.Shape_Line(playerID,1,"80 + 1n Tank",0,8,64,0);
+					 trg.Shape_Line(playerID,1,"40 + 1n Firebat",0,8,64,0);
+					 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+					 Order("80 + 1n Tank", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(20);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 186)
+			{
+					 trg.Shape_Line(playerID,1,"80 + 1n Tank",0,12,64,0);
+					 trg.Shape_Line(playerID,1,"40 + 1n Firebat",0,12,64,0);
+					 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+					 Order("80 + 1n Tank", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(20);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 187)
+			{
+					 trg.Shape_Line(playerID,1,"80 + 1n Tank",0,16,64,0);
+					 trg.Shape_Line(playerID,1,"40 + 1n Firebat",0,16,64,0);
+					 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+					 Order("80 + 1n Tank", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(20);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 188)
+			{
+					 trg.Shape_Line(playerID,1,"80 + 1n Tank",0,24,64,0);
+					 trg.Shape_Line(playerID,1,"40 + 1n Firebat",0,24,64,0);
+					 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+					 Order("80 + 1n Tank", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(20);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 189)
+			{
+					 trg.Shape_Line(playerID,1,"80 + 1n Tank",0,24,64,0);
+					 trg.Shape_Line(playerID,1,"40 + 1n Firebat",0,24,64,0);
+					 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+					 Order("80 + 1n Tank", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(20);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 190)
+			{
+				      trg.Main_Wait(2700);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 191)
+			{
+					KillUnitAt(All,"80 + 1n Tank" , "Anywhere", playerID);
+					 trg.Shape_NxNSquare(playerID,1,"100 + 1n Hyperion",11,64);
+					 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+					 Order("100 + 1n Hyperion", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] <= 210)
+			{
+					 KillUnitAt(6,"100 + 1n Hyperion" , "Anywhere", playerID);
+				      trg.Main_Wait(10);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 211)
+			{
+					 KillUnitAt(7,"100 + 1n Hyperion" , "Anywhere", playerID);
+				      trg.Main_Wait(10);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 212)
+			{
+					 trg.Shape_NxNSquare(playerID,1,"60 + 1n Archon",11,64);
+					 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+					 Order("60 + 1n Archon", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(2700);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 213)
+			{
+					 trg.Shape_Edge(playerID,1,"60 + 1n Archon",45,8,288);
+					  trg.Shape_Edge(playerID,1,"80 + 1n Artanis",45,8,288);
+					 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+					 Order("80 + 1n Artanis", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(10);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 214)
+			{
+					 trg.Shape_Edge(playerID,1,"60 + 1n Archon",45,9,320);
+					  trg.Shape_Edge(playerID,1,"80 + 1n Artanis",45,9,320);
+					 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+					 Order("80 + 1n Artanis", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(10);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 215)
+			{
+					 trg.Shape_Edge(playerID,1,"60 + 1n Archon",45,10,352);
+					  trg.Shape_Edge(playerID,1,"80 + 1n Artanis",45,10,352);
+					 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+					 Order("80 + 1n Artanis", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(10);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 216)
+			{
+					 trg.Shape_Edge(playerID,1,"60 + 1n Archon",45,11,384);
+					  trg.Shape_Edge(playerID,1,"80 + 1n Artanis",45,11,384);
+					 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+					Order("80 + 1n Artanis", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(10);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 217)
+			{
+					 trg.Shape_Edge(playerID,1,"60 + 1n Archon",45,12,416);
+					  trg.Shape_Edge(playerID,1,"80 + 1n Artanis",45,12,416);
+					 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+					 Order("80 + 1n Artanis", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(10);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 218)
+			{
+					 trg.Shape_Edge(playerID,1,"60 + 1n Archon",45,13,448);
+					  trg.Shape_Edge(playerID,1,"80 + 1n Artanis",45,13,448);
+					 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+					 Order("80 + 1n Artanis", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				      trg.Main_Wait(1);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 219)
+			{
+				      KillUnitAt(All,"60 + 1n Archon" , "Anywhere", playerID);
+				      trg.Main_Wait(100);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 220)
+			{
+				      trg.Main_Wait(500);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if(v.P_LoopMain[playerID] <=  263)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Wraith",90,3,64,0);
+				trg.Shape_NxNSquare(playerID,1,"40 + 1n Firebat",5,64);
+				 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+			        Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				 trg.Main_Wait(10);
+				  v.P_LoopMain[playerID] += 1;
+			}
+			else if(v.P_LoopMain[playerID] <=  267)
+			{
+				trg.Shape_Dot(playerID,1,"40 + 1n Gantrithor",0,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Wraith",90,3,64,0);
+				trg.Shape_NxNSquare(playerID,1,"40 + 1n Firebat",5,64);
+				 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+			        Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				 trg.Main_Wait(10);
+				  v.P_LoopMain[playerID] += 1;
+			}
+			else if(v.P_LoopMain[playerID] <=  273)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Wraith",90,4,64,0);
+				trg.Shape_NxNSquare(playerID,1,"40 + 1n Firebat",5,64);
+				 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+			        Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				 trg.Main_Wait(10);
+				  v.P_LoopMain[playerID] += 1;
+			}
+			else if(v.P_LoopMain[playerID] <=  277)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Wraith",90,5,64,0);
+				trg.Shape_NxNSquare(playerID,1,"40 + 1n Firebat",5,64);
+				 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+			        Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				 trg.Main_Wait(10);
+				  v.P_LoopMain[playerID] += 1;
+			}
+			else if(v.P_LoopMain[playerID] <=  281)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Wraith",90,6,64,0);
+				trg.Shape_NxNSquare(playerID,1,"40 + 1n Firebat",5,64);
+				 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+			        Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				 trg.Main_Wait(10);
+				  v.P_LoopMain[playerID] += 1;
+			}
+			else if(v.P_LoopMain[playerID] <=  285)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Wraith",90,7,64,0);
+				trg.Shape_NxNSquare(playerID,1,"40 + 1n Firebat",5,64);
+				 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+			        Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				 trg.Main_Wait(10);
+				  v.P_LoopMain[playerID] += 1;
+			}
+			else if(v.P_LoopMain[playerID] <=  289)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Wraith",90,8,64,0);
+				trg.Shape_NxNSquare(playerID,1,"40 + 1n Firebat",5,64);
+				 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+			        Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				 trg.Main_Wait(10);
+				  v.P_LoopMain[playerID] += 1;
+			}
+			else if(v.P_LoopMain[playerID] ==  290)
+			{
+				trg.Shape_NxNSquare(playerID,1,"130 + 1n Norad",9,64);
+				 trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+			        Order("130 + 1n Norad", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				 trg.Main_Wait(1300);
+				  v.P_LoopMain[playerID] += 1;
+			}
+			else if(v.P_LoopMain[playerID] == 291)
+			{ 
+				if (Bring(playerID, AtLeast, 3, "Protoss Arbiter", "[Skill]UseSkill") 
+				&& v.P_UltimateGauge[playerID] >= v.P_Ultimate3[playerID])
+				{
+					s.CharacterVoice(26);
+					v.P_SkillDelay[playerID] = 0;
+					v.P_CountMain[playerID] = 0;
+					v.P_LoopMain[playerID] = 0;
+					v.P_Step[playerID] = 250;
+					SetDeaths(playerID, Subtract, v.P_Ultimate3[playerID], " `UltimateCoolTime");
+					KillUnitAt(3, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+				}
+				else
+				{
+					SetSwitch("UiltimateSwitch", Clear);
+					trg.SkillEnd();
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,539 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+/***
+ * @Type
+ * 사용하지 마세요
+***/
+function MoveLoc(unit : TrgUnit, playerID : TrgPlayer, pos_x, pos_y)
+{
+	MoveLocation(v.P_LocationID[playerID], unit, playerID, "Anywhere");
+	addloc(v.P_LocationID[playerID], pos_x, pos_y);
+}
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
+ * 특수한 유닛을 생성할때 사용합니다.
+ * [playerID]의 유닛을 [type] 한 상태의 유닛을 [count] 만큼 스킬 대기소에 생성합니다. 
+ * @param.playerID.ko-KR
+ * [playerID] : 유닛의 소유자를 정합니다.
+ * @param.count.ko-KR
+ * [count] : 생성될 유닛의 갯수를 정합니다.
+ * @param.unit.ko-KR
+ * [unit] : 생성될 유닛을 정합니다.
+  * @param.type.ko-KR
+ * [type] : 
+ * 0 - 버러우 
+ * 1 - 할루네이션
+ * 2 - 버러우 + 할루네이션
+***/
+function SkillUnit(playerID : TrgPlayer, count, unit : TrgUnit, type : TrgCount)
+{
+	switch (type)
+	{
+		case 0:
+			CreateUnitWithProperties(count, unit, dwrand() % 8 + 33, playerID, UnitProperty(burrowed = true));
+			break;
+		case 1:
+			CreateUnitWithProperties(count, unit, dwrand() % 8 + 33, playerID, UnitProperty(hallucinated = true));
+			break;
+		case 2:
+			CreateUnitWithProperties(count, unit, dwrand() % 8 + 33, playerID, UnitProperty(hallucinated = true, burrowed = true));
+			break;
+	}
+	
+	SetInvincibility(Enable, unit, playerID, "[Skill]Unit_Wait_ALL");
+	MoveUnit(count, unit, playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+}
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
+ * 점을 그릴때 사용합니다.
+ * [playerID]의 캐릭터를 기준으로 [pos_x], [pos_y] 만큼 로케이션을 이동한후 해당위치에 [unit]을 [count]만큼 생성합니다.
+ * @param.playerID.ko-KR
+ * [playerID] : 유닛의 소유자를 정합니다.
+ * @param.count.ko-KR
+ * [count] : 생성될 유닛의 갯수를 정합니다.
+ * @param.unit.ko-KR
+ * [unit] : 생성될 유닛을 정합니다.
+ * @param.pos_x.ko-KR
+ * [pos_x] : 이동할 X좌표의 크기입니다.
+ * @param.pos_y.ko-KR
+ * [pos_y] : 이동할 Y좌표의 크기입니다.
+  * @param.type.ko-KR
+ * [type] : 
+ * 0 - 버러우 
+ * 1 - 할루네이션
+ * 2 - 버러우 + 할루네이션
+***/
+function Shape_Dot(playerID : TrgPlayer, count, Unit : TrgUnit, x, y, type)
+{
+	MoveLoc(v.P_UnitID[playerID], playerID, x, y);
+	SkillUnit(playerID, count, Unit, type);
+}
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
+ * 두점을 그릴때 사용합니다.
+ * [playerID]의 캐릭터를 기준으로 [pos_x], [pos_y] 만큼 로케이션을 이동한후 해당위치에 [unit]을 [count]만큼 생성합니다.
+ * ex) pos_x = 5, pos_y = 3 일때, [5, 3], [-3, -5]가 그려집니다.
+ * @param.playerID.ko-KR
+ * [playerID] : 유닛의 소유자를 정합니다.
+ * @param.count.ko-KR
+ * [count] : 생성될 유닛의 갯수를 정합니다.
+ * @param.unit.ko-KR
+ * [unit] : 생성될 유닛을 정합니다.
+ * @param.pos_x.ko-KR
+ * [pos_x] : 이동할 X좌표의 크기입니다.
+ * @param.pos_y.ko-KR
+ * [pos_y] : 이동할 Y좌표의 크기입니다.
+  * @param.type.ko-KR
+ * [type] : 
+ * 0 - 버러우 
+ * 1 - 할루네이션
+ * 2 - 버러우 + 할루네이션
+***/
+function Shape_Double(playerID : TrgPlayer, count, unit : TrgUnit, pos_x, pos_y, type : TrgCount)
+{
+	Shape_Dot(playerID, count, unit, pos_x, pos_y, type);
+	Shape_Dot(playerID, count, unit, -pos_x, -pos_y, type);
+}
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
+ * 두점을 그릴때 사용합니다.
+ * [playerID]의 캐릭터를 기준으로 [pos_x], [pos_y] 만큼 로케이션을 이동한후 [distance_x], [distance_y]만큼 평행이동한후 해당위치에 [unit]을 [count]만큼 생성합니다.
+ * @param.playerID.ko-KR
+ * [playerID] : 유닛의 소유자를 정합니다.
+ * @param.count.ko-KR
+ * [count] : 생성될 유닛의 갯수를 정합니다.
+ * @param.unit.ko-KR
+ * [unit] : 생성될 유닛을 정합니다.
+ * @param.pos_x.ko-KR
+ * [pos_x] : 이동할 X좌표의 크기입니다.
+ * @param.pos_y.ko-KR
+ * [pos_y] : 이동할 Y좌표의 크기입니다.
+ * @param.distance_x.ko-KR
+ * [distance_x] : 평행이동할 X좌표의 크기입니다.
+ * @param.distance_y.ko-KR
+ * [distance_y] : 평행이동할 Y좌표의 크기입니다.
+  * @param.type.ko-KR
+ * [type] : 
+ * 0 - 버러우 
+ * 1 - 할루네이션
+ * 2 - 버러우 + 할루네이션
+***/
+function Shape_DoubleAt(playerID : TrgPlayer, count, unit : TrgUnit, pos_x, pos_y, distance_x, distance_y, type : TrgCount)
+{
+	Shape_Dot(playerID, count, unit, pos_x + distance_x, pos_y + distance_y, type);
+	Shape_Dot(playerID, count, unit, -pos_x + distance_x, -pos_y + distance_y, type);
+}
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
+ * 사각형을 그릴때 사용합니다. 각 꼭지점에 유닛이 생성됩니다.
+ * [playerID]의 캐릭터를 기준으로 [pos_x], [pos_y] 만큼 로케이션을 이동한후 해당위치에 [unit]을 [count]만큼 생성합니다.
+ * 사각형으로 출력됩니다. 
+ * ex) pos_x = 5, pos_y = 3 일때, [5, 3], [-3, 5], [-5, -3], [3, -5]
+ * @param.playerID.ko-KR
+ * [playerID] : 유닛의 소유자를 정합니다.
+ * @param.count.ko-KR
+ * [count] : 생성될 유닛의 갯수를 정합니다.
+ * @param.unit.ko-KR
+ * [unit] : 생성될 유닛을 정합니다.
+ * @param.pos_x.ko-KR
+ * [pos_x] : 이동할 X좌표의 크기입니다.
+ * @param.pos_y.ko-KR
+ * [pos_y] : 이동할 Y좌표의 크기입니다.
+  * @param.type.ko-KR
+ * [type] : 
+ * 0 - 버러우 
+ * 1 - 할루네이션
+ * 2 - 버러우 + 할루네이션
+***/
+function Shape_Square(playerID : TrgPlayer, count, Unit : TrgUnit, x, y, type)
+{
+	MoveLoc(v.P_UnitID[playerID], playerID, x, y);
+	SkillUnit(playerID, count, Unit, type);
+	MoveLoc(v.P_UnitID[playerID], playerID, -y, x);
+	SkillUnit(playerID, count, Unit, type);
+	MoveLoc(v.P_UnitID[playerID], playerID, -x, -y);
+	SkillUnit(playerID, count, Unit, type);
+	MoveLoc(v.P_UnitID[playerID], playerID, y, -x);
+	SkillUnit(playerID, count, Unit, type);
+}
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
+ * 사각형을 그릴때 사용합니다. 각 꼭지점에 유닛이 생성됩니다.
+ * [playerID]의 캐릭터를 기준으로 [pos_x], [pos_y] 만큼 로케이션을 이동한후 [distance_x], [distance_y]만큼 평행이동한후 해당위치에 [unit]을 [count]만큼 생성합니다.
+ * 사각형으로 출력됩니다. 
+ * @param.playerID.ko-KR
+ * [playerID] : 유닛의 소유자를 정합니다.
+ * @param.count.ko-KR
+ * [count] : 생성될 유닛의 갯수를 정합니다.
+ * @param.unit.ko-KR
+ * [unit] : 생성될 유닛을 정합니다.
+ * @param.pos_x.ko-KR
+ * [pos_x] : 이동할 X좌표의 크기입니다.
+ * @param.pos_y.ko-KR
+ * [pos_y] : 이동할 Y좌표의 크기입니다.
+ * @param.distance_x.ko-KR
+ * [distance_x] : 평행이동할 X좌표의 크기입니다.
+ * @param.distance_y.ko-KR
+ * [distance_y] : 평행이동할 Y좌표의 크기입니다.
+  * @param.type.ko-KR
+ * [type] : 
+ * 0 - 버러우 
+ * 1 - 할루네이션
+ * 2 - 버러우 + 할루네이션
+***/
+function Shape_SquareAt(playerID : TrgPlayer, count, Unit : TrgUnit, x, y, distance_x, distance_y, type)
+{
+	MoveLoc(v.P_UnitID[playerID], playerID, x + distance_x, y + distance_y);
+	SkillUnit(playerID, count, Unit, type);
+	MoveLoc(v.P_UnitID[playerID], playerID, -y + distance_x, x + distance_y);
+	SkillUnit(playerID, count, Unit, type);
+	MoveLoc(v.P_UnitID[playerID], playerID, -x + distance_x, -y + distance_y);
+	SkillUnit(playerID, count, Unit, type);
+	MoveLoc(v.P_UnitID[playerID], playerID, y + distance_x, -x + distance_y);
+	SkillUnit(playerID, count, Unit, type);
+}
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
+ * 정사각형을 그릴때 사용합니다. 꽉찬 사각형이 그려집니다.
+ * [playerID]의 캐릭터를 기준으로 [size]크기 만큼의 정사각형에 [unit]을 [interval]마다 [count]개 생성합니다.
+ * ex) size = 3, count = 2 일때, 3 x 3 크기의 정사각형이 생성되며 총 (3 x 3) x 2 [(size x size) x count] 개의 유닛이 생성됩니다.
+ * @param.playerID.ko-KR
+ * [playerID] : 유닛의 소유자를 정합니다.
+ * @param.count.ko-KR
+ * [count] : 생성될 유닛의 갯수를 정합니다.
+ * @param.unit.ko-KR
+ * [unit] : 생성될 유닛을 정합니다.
+ * @param.size.ko-KR
+ * [size] : 사각형의 크기입니다.
+ * @param.interval.ko-KR
+ * [interval] : 사각형안의 유닛마다의 거리입니다.
+  * @param.type.ko-KR
+ * [type] : 
+ * 0 - 버러우 
+ * 1 - 할루네이션
+ * 2 - 버러우 + 할루네이션
+***/
+function Shape_NxNSquare(playerID : TrgPlayer, count, unit : TrgUnit, size, interval, type)
+{
+	var loop = (size * size) / 4;
+	var space = interval / 2;
+	var dis_x, dis_y;
+	
+	if (size == 1)
+	{ 
+		Shape_Dot(playerID, count, unit, 0, 0, type);
+	}
+	else if (size > 1)
+	{
+		foreach(idx : EUDLoopRange(loop))
+		{
+			if (size % 2 == 0)
+			{
+				dis_x = idx % (size / 2) + 1;
+				dis_y = idx / (size / 2) + 1;
+				if (dis_x == 1)
+				{ Shape_Square(playerID, count, unit, space, dis_y * interval - space, type); }
+				else if (dis_y == 1)
+				{ Shape_Square(playerID, count, unit, dis_x * interval - space, space, type); }
+				else 
+				{ Shape_Square(playerID, count, unit, dis_x * interval - space, dis_y * interval - space, type); }
+			}
+			else if (size % 2 == 1)
+			{
+				dis_x = idx % (size / 2);
+				dis_y = idx / (size / 2);
+				
+				if (idx == 0)
+				{ Shape_Dot(playerID, count, unit, 0, 0, type); }
+				else if (dis_y == 0)
+				{ Shape_Square(playerID, count, unit, dis_x * interval, 0, type); }
+				else
+				{ Shape_Square(playerID, count, unit, dis_x * interval + interval, dis_y * interval, type); }
+				
+				if (idx == loop - 1)
+				{ Shape_Square(playerID, count, unit, (size / 2) * interval, 0, type); }
+			}
+		}
+	}
+}
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
+ * 정사각형을 그릴때 사용합니다. 꽉찬 사각형이 그려집니다.
+ * [baseunit]의 유닛을 기준으로 [size]크기 만큼의 정사각형에 [unit]을 [interval]마다 [count]개 생성합니다.
+ * ex) size = 3, count = 2 일때, 3 x 3 크기의 정사각형이 생성되며 총 (3 x 3) x 2 [(size x size) x count] 개의 유닛이 생성됩니다.
+ * @param.playerID.ko-KR
+ * [playerID] : 유닛의 소유자를 정합니다.
+ * @param.count.ko-KR
+ * [count] : 생성될 유닛의 갯수를 정합니다.
+ * @param.baseunit.ko-KR
+ * [baseunit] : 로케이션 기준이될 유닛을 정합니다.
+ * @param.unit.ko-KR
+ * [unit] : 생성될 유닛을 정합니다.
+ * @param.size.ko-KR
+ * [size] : 사각형의 크기입니다.
+ * @param.interval.ko-KR
+ * [interval] : 사각형안의 유닛마다의 거리입니다.
+ * @param.type.ko-KR
+ * [type] : 
+ * 0 - 버러우 
+ * 1 - 할루네이션
+ * 2 - 버러우 + 할루네이션
+***/
+function Shape_NxNSquareAt(playerID : TrgPlayer, count, unit : TrgUnit, size, interval, x, y, type)
+{
+	var loop = (size * size) / 4;
+	var space = interval / 2;
+	var dis_x, dis_y;
+	
+	if (size == 1)
+	{ 
+		Shape_Dot(playerID, count, unit, x, y, type);
+	}
+	else if (size > 1)
+	{
+		foreach(idx : EUDLoopRange(loop))
+		{
+			if (size % 2 == 0)
+			{
+				dis_x = idx % (size / 2) + 1;
+				dis_y = idx / (size / 2) + 1;
+				if (dis_x == 1)
+				{ Shape_SquareAt(playerID, count, unit, space, dis_y * interval - space, x, y, type); }
+				else if (dis_y == 1)
+				{ Shape_SquareAt(playerID, count, unit, dis_x * interval - space, space, x, y, type); }
+				else 
+				{ Shape_SquareAt(playerID, count, unit, dis_x * interval - space, dis_y * interval - space, x, y, type); }
+			}
+			else if (size % 2 == 1)
+			{
+				dis_x = idx % (size / 2);
+				dis_y = idx / (size / 2);
+				
+				if (idx == 0)
+				{ Shape_Dot(playerID, count, unit, x, y, type); }
+				else if (dis_y == 0)
+				{ Shape_SquareAt(playerID, count, unit, dis_x * interval, 0, x, y, type); }
+				else
+				{ Shape_SquareAt(playerID, count, unit, dis_x * interval + interval, dis_y * interval, x, y, type); }
+				
+				if (idx == loop - 1)
+				{ Shape_SquareAt(playerID, count, unit, (size / 2) * interval, 0, x, y, type); }
+			}
+		}
+	}
+}
+
+function Shape_QuadNxNSquareAt(playerID : TrgPlayer, count, unit : TrgUnit, size, interval, x, y, type)
+{
+	Shape_NxNSquareAt(playerID, count, unit, size, interval, x, y, type);
+	Shape_NxNSquareAt(playerID, count, unit, size, interval, -x, y, type);
+	Shape_NxNSquareAt(playerID, count, unit, size, interval, x, -y, type);
+	Shape_NxNSquareAt(playerID, count, unit, size, interval, -x, -y, type);
+}
+
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
+ * 외곽선만 가진 정사각형을 그릴떄 사용합니다. *기본 45도 마름모꼴
+ * [baseunit]의 유닛을 기준으로 [size]크기 만큼의 정사각형을 [degree]만큼 기울이며 [unit]을 [interval]마다 [degree] x [distance]만큼 이동하여 [count]개 생성합니다.
+ * ex) size = 3, count = 2 일때, 3 크기의 정사각형이 생성되며 총 3 x 4 x 2 - 4 [size x 4 x count - 4] 개의 유닛이 생성됩니다.
+ * @param.playerID.ko-KR
+ * [playerID] : 유닛의 소유자를 정합니다.
+ * @param.count.ko-KR
+ * [count] : 생성될 유닛의 갯수를 정합니다.
+ * @param.baseunit.ko-KR
+ * [baseunit] : 로케이션 기준이될 유닛을 정합니다.
+ * @param.unit.ko-KR
+ * [unit] : 생성될 유닛을 정합니다.
+ * @param.degree.ko-KR
+ * [degree] : 정사각형의 기울기입니다.
+ * @param.size.ko-KR
+ * [size] : 한변당 유닛의 갯수입니다.
+ * @param.interval.ko-KR
+ * [interval] : 정사각형의 크기입니다.
+ * @param.type.ko-KR
+ * [type] : 
+ * 0 - 버러우 
+ * 1 - 할루네이션
+ * 2 - 버러우 + 할루네이션
+***/
+function Shape_Edge(playerID : TrgPlayer, count, Unit : TrgUnit, degree, n, interval, property)
+{
+   var i = 0;
+
+   trg.Table_Sin(playerID, degree, interval * 14 / 10);
+   trg.Table_Cos(playerID, degree, interval * 14 / 10);
+
+   var x_o = v.P_AngleCos[playerID];
+   var y_o = v.P_AngleSin[playerID];
+
+   var distance = (interval * 2) / (n - 1);
+
+   trg.Table_Sin(playerID, degree + 45, distance);
+   trg.Table_Cos(playerID, degree + 45, distance);
+
+   var distance_x = v.P_AngleCos[playerID];
+   var distance_y = v.P_AngleSin[playerID];
+   
+   if (n == 1)
+   {
+      Shape_Dot(playerID, 1, Unit, 0, 0, property);
+   }
+   else if (n > 1)
+   {
+      for (; i < n - 1; i++)
+      {
+         Shape_Square(playerID, 1, Unit, x_o - (distance_x * i), y_o - (distance_y * i), property);
+      }
+   }
+}
+
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
+ * 외곽선만 가진 정사각형을 그릴떄 사용합니다. *기본 45도 마름모꼴
+ * [baseunit]의 유닛을 기준으로 [size]크기 만큼의 정사각형을 [degree]만큼 기울이며 [unit]을 [interval]마다 [degree] x [distance]만큼 이동하여 [count]개 생성합니다.
+ * ex) size = 3, count = 2 일때, 3 크기의 정사각형이 생성되며 총 3 x 4 x 2 - 4 [size x 4 x count - 4] 개의 유닛이 생성됩니다.
+ * @param.playerID.ko-KR
+ * [playerID] : 유닛의 소유자를 정합니다.
+ * @param.count.ko-KR
+ * [count] : 생성될 유닛의 갯수를 정합니다.
+ * @param.baseunit.ko-KR
+ * [baseunit] : 로케이션 기준이될 유닛을 정합니다.
+ * @param.unit.ko-KR
+ * [unit] : 생성될 유닛을 정합니다.
+ * @param.degree.ko-KR
+ * [degree] : 정사각형의 기울기입니다.
+ * @param.size.ko-KR
+ * [size] : 한변당 유닛의 갯수입니다.
+ * @param.interval.ko-KR
+ * [interval] : 정사각형의 크기입니다.
+ * @param.x.ko-KR
+ * [x] : 평행이동할 X좌표의 크기입니다.
+ * @param.y.ko-KR
+ * [y] : 평행이동할 Y좌표의 크기입니다.
+ * @param.type.ko-KR
+ * [type] : 
+ * 0 - 버러우 
+ * 1 - 할루네이션
+ * 2 - 버러우 + 할루네이션
+***/
+function Shape_EdgeAt(playerID : TrgPlayer, count, unit : TrgUnit, degree, size, interval, x, y, type)
+{
+	trg.Table_Sin(playerID, degree, interval * 14 / 10);
+	trg.Table_Cos(playerID, degree, interval * 14 / 10);
+	
+	var x_o = v.P_AngleCos[playerID];
+	var y_o = v.P_AngleSin[playerID];
+
+	var distance = (interval * 2) / (size - 1);
+
+	trg.Table_Sin(playerID, degree + 45, distance);
+	trg.Table_Cos(playerID, degree + 45, distance);
+
+	var distance_x = v.P_AngleCos[playerID];
+	var distance_y = v.P_AngleSin[playerID];
+   
+	if (size == 1)
+	{ Shape_Dot(playerID, 1, unit, x, y, type); }
+	else if (size > 1)
+	{ foreach(idx : EUDLoopRange(size - 1)) { Shape_SquareAt(playerID, 1, unit,x_o - (distance_x * idx),y_o - (distance_y * idx), x, y, type); } }
+}
+
+
+/***
+ * @Type
+ * F
+ * @Summary.ko-KR
+ * 직선을 그릴때 사용합니다.
+ * [playerID]의 캐릭터를 기준으로 [size]크기 만큼의 직선을 [degree]만큼 기울이며 [unit]을 [interval]마다 [degree] x [distance]만큼 이동하여 [count]개 생성합니다.
+ * ex) size = 3, count = 2 일때, 3 크기의 직선이 생성되며 총 3 x 2 [size x count] 개의 유닛이 생성됩니다.
+ * @param.playerID.ko-KR
+ * [playerID] : 유닛의 소유자를 정합니다.
+ * @param.count.ko-KR
+ * [count] : 생성될 유닛의 갯수를 정합니다.
+ * @param.unit.ko-KR
+ * [unit] : 생성될 유닛을 정합니다.
+ * @param.degree.ko-KR
+ * [degree] : 직선의 기울기입니다.
+ * @param.size.ko-KR
+ * [size] : 직선의 크기입니다.
+ * @param.interval.ko-KR
+ * [interval] : 직선의 유닛마다의 거리입니다.
+ * @param.distance.ko-KR
+ * [distance] : 기울기 만큼 떨어진 위치를 정합니다. 캐릭터 위에 직선을 그릴 시 0 입니다.
+  * @param.type.ko-KR
+ * [type] : 
+ * 0 - 버러우 
+ * 1 - 할루네이션
+ * 2 - 버러우 + 할루네이션
+***/
+function Shape_Line(playerID : TrgPlayer, count, unit : TrgUnit, degree, size, interval, distance, type)
+{
+	trg.Table_Sin(playerID, degree + 90, distance);
+	trg.Table_Cos(playerID, degree + 90, distance);
+	
+	var initial_x = v.P_AngleCos[playerID];
+	var initial_y = v.P_AngleSin[playerID];
+	
+	if (size % 2 == 0)
+	{ trg.Table_Sin(playerID, degree, interval * (size / 2) - interval / 2); trg.Table_Cos(playerID, degree, interval * (size / 2) - interval / 2); }
+	else
+	{ trg.Table_Sin(playerID, degree, interval * (size / 2)); trg.Table_Cos(playerID, degree, interval * (size / 2)); }
+	
+	initial_x = initial_x + v.P_AngleCos[playerID];
+	initial_y = initial_y + v.P_AngleSin[playerID];
+	
+	trg.Table_Sin(playerID, degree, interval);
+	trg.Table_Cos(playerID, degree, interval);
+	
+	if (size == 1)
+	{ Shape_Dot(playerID, count, unit, 0, 0, type); }
+	else if (size > 1)
+	{ foreach(idx : EUDLoopRange(size)) { Shape_Dot(playerID, count, unit, initial_x - idx * v.P_AngleCos[playerID], initial_y - idx * v.P_AngleSin[playerID], type); } }
+}
+
+
+function Shape_Circle(playerID : TrgPlayer, count, unit : TrgUnit, degree, n, radius, type)
+{
+	if (n == 1) {
+		Shape_Dot(playerID, 1, unit, 0, 0, type); 
+	} else {
+		foreach(idx : EUDLoopRange(n)) {
+			trg.Table_Sin(playerID, degree + 360 / n * idx, radius);
+			trg.Table_Cos(playerID, degree + 360 / n * idx, radius);
+			
+			Shape_Dot(playerID, count, unit, v.P_AngleCos[playerID], v.P_AngleSin[playerID], type); 
+		}
+	}
+}

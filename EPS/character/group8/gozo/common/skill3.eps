@@ -1,0 +1,52 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
+
+function main(playerID)
+{
+	if (v.P_WaitMain[playerID] == 0)
+	{
+		if (v.P_CountMain[playerID] == 0)
+		{
+			KillUnitAt(All,"80 + 1n Tank" , "Anywhere", playerID);
+			KillUnitAt(All,"40 + 1n Mojo","Anywhere", playerID);
+			
+			
+			if (v.P_LoopMain[playerID] <= 6)
+			{
+				trg.Shape_Dot(playerID,1,"40 + 1n Gantrithor",0,0);
+				KillUnitAt(All,"40 + 1n Gantrithor" , "Anywhere", playerID);
+				 if (Bring(playerID, AtLeast, 2, "Protoss Arbiter", "[Skill]UseSkill") 
+         		 	&& v.P_UltimateGauge[playerID] >= v.P_Ultimate1[playerID])
+           		 	{
+             				 s.CharacterVoice(9);
+             				 v.P_SkillDelay[playerID] = 0;
+               			 v.P_CountMain[playerID] = 0;
+               			 v.P_LoopMain[playerID] = 0;
+              			 v.P_Step[playerID] = 310;
+            				 SetDeaths(playerID, Subtract, v.P_Ultimate1[playerID], " `UltimateCoolTime");
+              			 KillUnitAt(2, "Protoss Arbiter", "[Skill]UseSkill", playerID);
+          		 	 }
+          		 	 else
+          		 	 {
+          		 	 	v.P_LoopMain[playerID] += 1;
+          		 	 }
+				trg.Main_Wait(80);
+			}
+			else if (v.P_LoopMain[playerID] <= 19)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",0+30*v.P_LoopMain[playerID],2,128,0);
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("40 + 1n Mojo",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				v.P_LoopMain[playerID] += 1;
+				trg.Main_Wait(80);
+			}
+			else if (v.P_LoopMain[playerID] == 20)
+			{
+				trg.SkillEnd();
+			}
+			
+		}
+	}
+}

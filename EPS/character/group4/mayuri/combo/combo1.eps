@@ -1,0 +1,199 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
+
+function main(playerID)
+{
+   if (v.P_WaitMain[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] == 0)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {                        
+            trg.Shape_Square(playerID, 1, "Target", 50, 50);
+            trg.Shape_Square(playerID, 1, " Creep. Dunkelheit", 50, 50);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            MoveUnit(All, " Creep. Dunkelheit", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order(" Creep. Dunkelheit", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            KillUnitAt(All, "Target", "Anywhere", playerID);
+
+            trg.Main_Wait(80);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 1)
+         {                 
+            RemoveUnitAt(All, " Creep. Dunkelheit", "Anywhere", playerID);
+            trg.Shape_Square(playerID, 1, "Target", 50, 50);
+            trg.Shape_Square(playerID, 1, " Creep. Dunkelheit", 50, 50);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            MoveUnit(All, " Creep. Dunkelheit", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order(" Creep. Dunkelheit", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            KillUnitAt(All, "Target", "Anywhere", playerID);
+
+            trg.Main_Wait(80);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 2)
+         {            
+            RemoveUnitAt(All, " Creep. Dunkelheit", "Anywhere", playerID);
+            trg.Shape_Square(playerID, 1, "Target", 50, 0);
+            trg.Shape_Square(playerID, 1, "Target", 100, 0);
+
+            KillUnitAt(All, "Target", "Anywhere", playerID);
+
+            trg.Main_Wait(80);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 3)
+         {                 
+            trg.Shape_Edge(playerID, 1, "Protoss Dark Templar", 45, 5, 100);
+            KillUnitAt(All, "Protoss Dark Templar", "Anywhere", playerID);
+
+            trg.Main_Wait(80);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 4)
+         {                 
+            trg.Shape_Edge(playerID, 1, "40 + 1n Mutalisk", 0, 5, 100);
+            KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
+            trg.Shape_Edge(playerID, 1, "40 + 1n Ghost", 0, 3, 100);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            trg.Main_Wait(80);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 5)
+         {                 
+            trg.Shape_Edge(playerID, 1, "60 + 1n Danimoth", 0, 7, 150);
+            KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+            trg.Shape_Edge(playerID, 1, "60 + 1n Archon", 0, 7, 150);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+            trg.Shape_Edge(playerID, 1, "Kakaru (Twilight)", 0, 5, 100);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+
+            trg.Main_Wait(80);
+
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
+         }
+
+
+      }
+      else if (v.P_CountMain[playerID] == 1)
+      {
+         if (v.P_LoopMain[playerID] < 4)
+         {         
+            trg.Shape_Dot(playerID, 1, "Protoss Dark Templar", 100 - 25 * v.P_LoopMain[playerID], 25 * v.P_LoopMain[playerID]);
+            trg.Shape_Dot(playerID, 1, "Protoss Dark Templar", -100 + 25 * v.P_LoopMain[playerID], -25 * v.P_LoopMain[playerID]);
+            trg.Shape_Dot(playerID, 1, "40 + 1n Zealot", -25 * v.P_LoopMain[playerID], 100 - 25 * v.P_LoopMain[playerID]);
+            trg.Shape_Dot(playerID, 1, "40 + 1n Zealot", 25 * v.P_LoopMain[playerID], -100 + 25 * v.P_LoopMain[playerID]);
+            KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID);
+            KillUnitAt(All, "Protoss Dark Templar", "Anywhere", playerID);
+
+            trg.Main_Wait(80);
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 4)
+         {
+            KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
+
+            trg.Main_Wait(320);
+
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
+         }
+      }
+      else if (v.P_CountMain[playerID] == 2)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {
+            s.CharacterVoice(2);
+            trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 75, 150);
+            trg.Shape_Square(playerID, 1, "60 + 1n Archon", 50, 100);
+            trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 150, 75);
+            trg.Shape_Square(playerID, 1, "60 + 1n Archon", 100, 50);
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+
+            trg.Main_Wait(80);
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 1)
+         {
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 75, 150);
+            trg.Shape_Square(playerID, 1, "40 + 1n Mojo", 50, 100);
+            trg.Shape_Square(playerID, 1, "Kakaru (Twilight)", 150, 75);
+            trg.Shape_Square(playerID, 1, "40 + 1n Mojo", 100, 50);
+            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+            KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+            trg.Shape_Square(playerID, 1, "40 + 1n Ghost", 50, 100);
+            trg.Shape_Square(playerID, 1, "40 + 1n Ghost", 100, 50);
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            trg.Main_Wait(160);
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 2)
+         {                 
+            trg.Shape_Square(playerID, 1, "40 + 1n Mutalisk", 50, 0);
+            trg.Shape_Square(playerID, 1, "40 + 1n Mutalisk", 100, 0);
+
+            KillUnitAt(All, "40 + 1n Mutalisk", "Anywhere", playerID);
+
+            trg.Main_Wait(80);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 3)
+         {                 
+            trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 50, 100);
+            trg.Shape_Square(playerID, 1, "40 + 1n Guardian", 100, 50);
+
+            KillUnitAt(All, "40 + 1n Guardian", "Anywhere", playerID);
+
+            trg.Main_Wait(80);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 4)
+         {                 
+            KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
+
+            trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 75, 150);
+            trg.Shape_Square(playerID, 1, "40 + 1n Ghost", 75, 150);
+            trg.Shape_Square(playerID, 1, "50 + 1n Battlecruiser", 150, 75);
+            trg.Shape_Square(playerID, 1, "40 + 1n Ghost", 150, 75);
+            KillUnitAt(All, "50 + 1n Battlecruiser", "Anywhere", playerID);
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("40 + 1n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            trg.Main_Wait(320);
+
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
+         }
+      }
+      else if (v.P_CountMain[playerID] == 3)
+      {
+         KillUnitAt(All, "40 + 1n Ghost", "Anywhere", playerID);
+         trg.SkillEnd();
+      }
+   }
+}

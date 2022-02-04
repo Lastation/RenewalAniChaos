@@ -1,0 +1,89 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.trigadv as adv;
+import func.sound as s;
+import func.trigepic as epic;
+
+var x = 0;
+function main(playerID)
+{
+	trg.Buff_ShieldFix(1);
+	trg.Debuff_BanReturn();
+	trg.Effect_Recall();
+	
+		MoveUnit(All,"40 + 1n Mojo", playerID, "Anywhere", "[Skill]HoldPosition");
+		MoveUnit(All,"130 + 1n Arbiter", playerID, "Anywhere", "[Skill]HoldPosition");
+		MoveUnit(All,"80 + 1n Artanis", playerID, "Anywhere", "[Skill]HoldPosition");
+		MoveUnit(All,"60 + 1n Dragoon", playerID, "Anywhere", "[Skill]HoldPosition");
+	
+	if (v.P_LoopMain[playerID] >= 17) 
+	{
+   		trg.Debuff_Stop();
+	}
+	if (v.P_WaitMain[playerID] == 0)
+	{
+		
+		if (v.P_CountMain[playerID] == 0)
+		{
+			RemoveUnitAt(All,"Protoss Reaver","Anywhere",playerID);
+			KillUnitAt(All,"40 + 1n Mojo","Anywhere",playerID);
+			KillUnitAt(All,"80 + 1n Artanis","Anywhere",playerID);
+			KillUnitAt(All,"130 + 1n Arbiter","Anywhere",playerID);
+			KillUnitAt(All,"60 + 1n Dragoon","Anywhere",playerID);
+			
+			if (v.P_LoopMain[playerID] == 0)
+			{
+				trg.Main_Wait(2500);	
+			}
+			else if (v.P_LoopMain[playerID] <= 16)
+			{
+				trg.Shape_Circle(playerID,1,"80 + 1n Artanis",64,4,128);
+				epic.Shape_Circle(playerID,1,"40 + 1n Mojo",64,8,128,1);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Artanis", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(100);	
+			}
+			else if (v.P_LoopMain[playerID] == 17)
+			{
+				trg.Shape_Circle(playerID,1,"130 + 1n Arbiter",64,40,320);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",0,8,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",30,8,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",60,8,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",90,8,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",120,8,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Mojo",150,8,64,0);
+				trg.Main_Wait(3400);	
+			}
+			else if (v.P_LoopMain[playerID] <= 42)
+			{
+				trg.Shape_Circle(playerID,1,"130 + 1n Arbiter",64,40,320);
+				epic.Shape_Circle(playerID,1,"130 + 1n Arbiter",64,40,320,1);
+				trg.Shape_Line(playerID,1,"80 + 1n Artanis",0,8,64,0);
+				trg.Shape_Line(playerID,1,"80 + 1n Artanis",30,8,64,0);
+				trg.Shape_Line(playerID,1,"80 + 1n Artanis",60,8,64,0);
+				trg.Shape_Line(playerID,1,"80 + 1n Artanis",90,8,64,0);
+				trg.Shape_Line(playerID,1,"80 + 1n Artanis",120,8,64,0);
+				trg.Shape_Line(playerID,1,"80 + 1n Artanis",150,8,64,0);
+				epic.Shape_Line(playerID,1,"40 + 1n Mojo",0,8,64,0,1);
+				epic.Shape_Line(playerID,1,"40 + 1n Mojo",30,8,64,0,1);
+				epic.Shape_Line(playerID,1,"40 + 1n Mojo",60,8,64,0,1);
+				epic.Shape_Line(playerID,1,"40 + 1n Mojo",90,8,64,0,1);
+				epic.Shape_Line(playerID,1,"40 + 1n Mojo",120,8,64,0,1);
+				epic.Shape_Line(playerID,1,"40 + 1n Mojo",150,8,64,0,1);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				Order("80 + 1n Artanis", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				Order("130 + 1n Arbiter", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(200);	
+			}
+			else if(v.P_LoopMain[playerID] == 43)
+			{ 
+				SetSwitch("UiltimateSwitch", Clear);
+			       trg.SkillEnd();
+			} 
+			v.P_LoopMain[playerID] += 1;
+		} 
+	}
+}

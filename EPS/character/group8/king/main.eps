@@ -1,0 +1,79 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+import character.group8.king.common.skill1 as O;
+import character.group8.king.common.skill2 as S;
+import character.group8.king.common.skill3 as C;
+import character.group8.king.common.skill4 as A;
+
+import character.group8.king.combo.combo1 as SSS;
+import character.group8.king.combo.combo2 as CAA;
+import character.group8.king.combo.combo3 as CAAAC;
+
+import character.group8.king.ultimate.ultimate1 as AAA;
+
+import character.group8.king.text as text;
+import character.group8.king.commend as commend;
+
+var loop  = 0;
+
+function skillList(playerID)
+{
+	if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
+	{
+		v.stb.printAt(0, "\n");
+		v.stb.printAt(1, "\x1F　＃\x04- 절망왕　\x04[ 혈계전선 ]");
+		v.stb.printAt(2, "　　\x1FA\x04ction List");
+		v.stb.printAt(3, "　　　\x18 O\x04 준비과정 \x19[ 선딜 후 가스 300 ] \x05개인쿨 2분");
+		v.stb.printAt(4, "　　　\x1F SC\x04 거짓말쟁이 \x19[ 대인 / 순간딜 ]");
+		v.stb.printAt(5, "　　　\x1F CCA+AC\x04 부조리 \x19[ 만능 / 지속딜 ]");
+		v.stb.printAt(6, "　　　\x08 AAA \x04 의문\x19[ 대인 / 무적 ] \x05", v.P_Ultimate1[playerID]);
+		v.stb.printAt(7, "\n");
+		PlayWAV("sound\\Bullet\\LaserHit.wav");
+	}
+}
+
+function main(playerID)
+{
+	v.P_HeroID[playerID] 		= 42;
+	v.P_UnitID[playerID] 			= 74;
+	v.P_LocationID[playerID] 		= 211;
+	
+	v.P_Ultimate1[playerID] = 500;
+	
+	commend.main(playerID);
+	skillList(playerID);
+	
+	// Commed Setting
+	if (v.P_SkillDelay[playerID] == 0)
+	{
+		switch(v.P_Step[playerID])
+		{
+		case 1:
+			O.main(playerID);
+			break;
+		case 100:
+			S.main(playerID);
+			break;
+		case 200:
+			C.main(playerID);
+			break;
+		case 300:
+			A.main(playerID);
+			break;
+		case 110:
+			SSS.main(playerID);
+			break;
+		case 210:
+			CAA.main(playerID);
+			break;
+		case 220:
+			CAAAC.main(playerID);
+			break;
+		case 310:
+			AAA.main(playerID);
+			break;
+		}
+	}
+}

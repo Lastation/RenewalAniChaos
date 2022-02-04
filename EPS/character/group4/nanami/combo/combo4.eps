@@ -1,0 +1,351 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
+
+function main(playerID)
+{
+   trg.Debuff_Stop();
+   trg.Debuff_BanReturn();
+   MoveLocation("24.Nanami_Bozo", v.P_UnitID[playerID], playerID, "Anywhere");
+
+   if (v.P_WaitMain[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] == 0)
+      {
+         if (v.P_LoopMain[playerID] == 0)
+         {         
+            if (playerID < 3) SetSwitch("Passive - Nanami1", Set);
+            else SetSwitch("Passive - Nanami2", Set);
+
+            trg.Shape_Edge(playerID, 1, "60 + 1n High Templar", 45, 5, 100);
+            KillUnitAt(All, "60 + 1n High Templar", "Anywhere", playerID);
+
+            trg.Main_Wait(320);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 1)
+         {         
+            trg.Shape_Edge(playerID, 1, "60 + 1n High Templar", 0, 5, 100);
+            KillUnitAt(All, "60 + 1n High Templar", "Anywhere", playerID);
+
+            trg.Main_Wait(320);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 2)
+         {         
+            trg.Shape_Edge(playerID, 1, "60 + 1n High Templar", 45, 5, 150);
+            KillUnitAt(All, "60 + 1n High Templar", "Anywhere", playerID);
+
+            trg.Main_Wait(320);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 3)
+         {         
+            trg.Shape_Edge(playerID, 1, "60 + 1n High Templar", 0, 5, 150);
+            KillUnitAt(All, "60 + 1n High Templar", "Anywhere", playerID);
+
+            trg.Main_Wait(320);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 4)
+         {         
+            trg.Table_Sin(playerID, 22, 75);
+            trg.Table_Cos(playerID, 22, 75);
+
+            trg.Shape_Square(playerID, 1, "60 + 1n High Templar", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "60 + 1n High Templar", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("60 + 1n High Templar", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            trg.Main_Wait(160);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 5)
+         {         
+            trg.Table_Sin(playerID, 67, 150);
+            trg.Table_Cos(playerID, 67, 150);
+
+            trg.Shape_Square(playerID, 1, "60 + 1n Dragoon", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            MoveUnit(All, "60 + 1n Dragoon", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+            Order("60 + 1n Dragoon", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            trg.Main_Wait(160);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 6)
+         {
+            trg.Shape_Edge(playerID, 1, "100 + 1n Dragoon", 45, 5, 150);
+            KillUnitAt(All, "100 + 1n Dragoon", "Anywhere", playerID);
+
+            trg.Table_Sin(playerID, 22, 225);
+            trg.Table_Cos(playerID, 22, 225);
+
+            trg.Shape_Square(playerID, 1, "40 + 1n Mojo", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Mojo", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            trg.Main_Wait(160);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 7)
+         {
+            trg.Shape_Edge(playerID, 1, "100 + 1n Dragoon", 0, 5, 150);
+            KillUnitAt(All, "100 + 1n Dragoon", "Anywhere", playerID);
+
+            trg.Table_Sin(playerID, 22, 275);
+            trg.Table_Cos(playerID, 22, 275);
+
+            trg.Shape_Square(playerID, 1, "60 + 1n Danimoth", v.P_AngleCos[playerID], v.P_AngleSin[playerID]);
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("60 + 1n Danimoth", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            trg.Main_Wait(1120);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 8)
+         {
+            trg.Main_Wait(80);
+
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
+         }
+      }
+      else if (v.P_CountMain[playerID] == 1)
+      {
+         if (v.P_LoopMain[playerID] < 14)
+         {       
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+
+            if ((v.P_LoopMain[playerID] / 4) % 2 == 0)
+            { 
+               trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", 160 - 40 * (v.P_LoopMain[playerID] % 4) , 40 * (v.P_LoopMain[playerID] % 4));
+               trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", -160 + 40 * (v.P_LoopMain[playerID] % 4), -40 * (v.P_LoopMain[playerID] % 4));
+            }
+            else if ((v.P_LoopMain[playerID] / 4) % 2 == 1)
+            { 
+               trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", -40 * (v.P_LoopMain[playerID] % 4), 160 - 40 * (v.P_LoopMain[playerID] % 4));
+               trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", 40 * (v.P_LoopMain[playerID] % 4), -160 + 40 * (v.P_LoopMain[playerID] % 4));
+            }
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            trg.Main_Wait(320);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 14)
+         {
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+
+            s.CharacterVoice(5);
+
+            trg.Main_Wait(80);
+
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
+         }
+      }
+      else if (v.P_CountMain[playerID] == 2)
+      {
+         if (v.P_LoopMain[playerID] < 8)
+         {       
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+
+            if ((v.P_LoopMain[playerID] / 4) % 2 == 0)
+            { 
+               trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", 160 - 40 * (v.P_LoopMain[playerID] % 4) , 40 * (v.P_LoopMain[playerID] % 4));
+               trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", -160 + 40 * (v.P_LoopMain[playerID] % 4), -40 * (v.P_LoopMain[playerID] % 4));
+            }
+            else if ((v.P_LoopMain[playerID] / 4) % 2 == 1)
+            { 
+               trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", -40 * (v.P_LoopMain[playerID] % 4), 160 - 40 * (v.P_LoopMain[playerID] % 4));
+               trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", 40 * (v.P_LoopMain[playerID] % 4), -160 + 40 * (v.P_LoopMain[playerID] % 4));
+            }
+
+            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+
+            trg.Main_Wait(320);
+
+            v.P_LoopMain[playerID] += 1;
+         }
+         else if (v.P_LoopMain[playerID] == 8)
+         {
+            KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+
+            trg.Main_Wait(80);
+
+            v.P_CountMain[playerID] += 1;
+            v.P_LoopMain[playerID] = 0;
+         }
+      }
+      
+	else if (Bring(playerID, AtLeast, 3, "Protoss Carrier", "[Skill]UseSkill") 
+		&& v.P_CountMain[playerID] == 3)
+		{
+			s.CharacterVoice(6);
+			v.P_SkillDelay[playerID] = 0;
+			v.P_CountMain[playerID] = 0;
+			v.P_LoopMain[playerID] = 0;
+			v.P_Step[playerID] = 240;
+			
+			
+			 KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+       		 KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+       		 KillUnitAt(All, "60 + 1n High Templar", "Anywhere", playerID);
+       		 KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", playerID);
+       		 SetSwitch("Passive - Nanami1", Clear);
+        		 SetSwitch("Passive - Nanami2", Clear);
+			
+			KillUnitAt(3, "Protoss Carrier", "[Skill]UseSkill", playerID);
+		}
+		
+      else if (v.P_CountMain[playerID] == 3)
+      {
+         KillUnitAt(All, "40 + 1n Mojo", "Anywhere", playerID);
+         KillUnitAt(All, "60 + 1n Danimoth", "Anywhere", playerID);
+         KillUnitAt(All, "60 + 1n High Templar", "Anywhere", playerID);
+         KillUnitAt(All, "60 + 1n Dragoon", "Anywhere", playerID);
+         SetSwitch("Passive - Nanami1", Clear);
+         SetSwitch("Passive - Nanami2", Clear);
+
+         trg.SkillEnd();
+      }
+   }
+   if (v.P_WaitSub1[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] < 3)
+      {
+         if (v.P_CountSub1[playerID] == 0)
+         {
+            trg.Shape_Square(playerID, 1, "60 + 1n High Templar", 75, 75);
+
+            KillUnitAt(All, "60 + 1n High Templar", "Anywhere", playerID);
+
+            trg.Sub1_Wait(160);
+
+            v.P_CountSub1[playerID] += 1;
+         }
+         else if (v.P_CountSub1[playerID] == 1)
+         {
+            trg.Shape_Square(playerID, 1, "60 + 1n Archon", 150, 0);
+
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+
+            trg.Sub1_Wait(160);
+
+            v.P_CountSub1[playerID] += 1;
+         }
+         else if (v.P_CountSub1[playerID] == 2)
+         {
+            trg.Shape_Square(playerID, 1, "Protoss Dark Archon", 150, 75);
+
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+
+            trg.Sub1_Wait(160);
+
+            v.P_CountSub1[playerID] += 1;
+         }
+         else if (v.P_CountSub1[playerID] == 3)
+         {
+            trg.Shape_Square(playerID, 1, "60 + 1n Archon", 150, 150);
+
+            KillUnitAt(All, "60 + 1n Archon", "Anywhere", playerID);
+
+            trg.Sub1_Wait(160);
+
+            v.P_CountSub1[playerID] += 1;
+         }
+         else if (v.P_CountSub1[playerID] == 4)
+         {
+            trg.Shape_Square(playerID, 1, "Protoss Dark Archon", 75, 150);
+
+            KillUnitAt(All, "Protoss Dark Archon", "Anywhere", playerID);
+
+            trg.Sub1_Wait(160);
+
+            v.P_CountSub1[playerID] = 0;
+         }
+      }
+   }
+   if (v.P_WaitSub2[playerID] == 0)
+   {
+      if (v.P_CountMain[playerID] < 2 && v.P_CountMain[playerID] > 0)
+      {
+         if (v.P_CountSub2[playerID] == 8) v.P_CountSub2[playerID] = 0;
+         if (v.P_CountSub2[playerID] < 4)
+         {
+            trg.Shape_Dot(playerID, 1, " Unit. Schnee", 160 - 40 * v.P_CountSub2[playerID], 40 * v.P_CountSub2[playerID]);
+            trg.Shape_Dot(playerID, 1, " Unit. Schnee", -160 + 40 * v.P_CountSub2[playerID], -40 * v.P_CountSub2[playerID]);
+            trg.Shape_Dot(playerID, 1, "40 + 1n Zealot", -40 * v.P_CountSub2[playerID], 160 - 40 * v.P_CountSub2[playerID]);
+            trg.Shape_Dot(playerID, 1, "40 + 1n Zealot", 40 * v.P_CountSub2[playerID], -160 + 40 * v.P_CountSub2[playerID]);
+
+            KillUnitAt(All, " Unit. Schnee", "Anywhere", playerID);
+            KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID);
+
+            trg.Sub2_Wait(320);
+
+            v.P_CountSub2[playerID] += 1;
+         }
+         else if (v.P_CountSub2[playerID] < 8)
+         {
+            trg.Shape_Dot(playerID, 1, " Unit. Schnee", -40 * (v.P_CountSub2[playerID] - 4), 160 - 40 * (v.P_CountSub2[playerID] - 4));
+            trg.Shape_Dot(playerID, 1, " Unit. Schnee", 40 * (v.P_CountSub2[playerID] - 4), -160 + 40 * (v.P_CountSub2[playerID] - 4));
+            trg.Shape_Dot(playerID, 1, "40 + 1n Zealot", 160 - 40 * (v.P_CountSub2[playerID] - 4), 40 * (v.P_CountSub2[playerID] - 4));
+            trg.Shape_Dot(playerID, 1, "40 + 1n Zealot", -160 + 40 * (v.P_CountSub2[playerID] - 4), -40 * (v.P_CountSub2[playerID] - 4));
+
+            KillUnitAt(All, " Unit. Schnee", "Anywhere", playerID);
+            KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID);
+
+            trg.Sub2_Wait(320);
+
+            v.P_CountSub2[playerID] += 1;
+         }
+      }
+      else if (v.P_CountMain[playerID] < 3 && v.P_CountMain[playerID] > 1)
+      {
+         if (v.P_CountSub2[playerID] == 8) v.P_CountSub2[playerID] = 0;
+         if (v.P_CountSub2[playerID] < 4)
+         {
+            trg.Shape_Dot(playerID, 1, " Unit. Hoffnung 25000", 160 - 40 * v.P_CountSub2[playerID], 40 * v.P_CountSub2[playerID]);
+            trg.Shape_Dot(playerID, 1, " Unit. Hoffnung 25000", -160 + 40 * v.P_CountSub2[playerID], -40 * v.P_CountSub2[playerID]);
+            trg.Shape_Dot(playerID, 1, "100 + 1n Dragoon", -40 * v.P_CountSub2[playerID], 160 - 40 * v.P_CountSub2[playerID]);
+            trg.Shape_Dot(playerID, 1, "100 + 1n Dragoon", 40 * v.P_CountSub2[playerID], -160 + 40 * v.P_CountSub2[playerID]);
+
+            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+            KillUnitAt(All, "100 + 1n Dragoon", "Anywhere", playerID);
+
+            trg.Sub2_Wait(320);
+
+            v.P_CountSub2[playerID] += 1;
+         }
+         else if (v.P_CountSub2[playerID] < 8)
+         {
+            trg.Shape_Dot(playerID, 1, " Unit. Hoffnung 25000", -40 * (v.P_CountSub2[playerID] - 4), 160 - 40 * (v.P_CountSub2[playerID] - 4));
+            trg.Shape_Dot(playerID, 1, " Unit. Hoffnung 25000", 40 * (v.P_CountSub2[playerID] - 4), -160 + 40 * (v.P_CountSub2[playerID] - 4));
+            trg.Shape_Dot(playerID, 1, "100 + 1n Dragoon", 160 - 40 * (v.P_CountSub2[playerID] - 4), 40 * (v.P_CountSub2[playerID] - 4));
+            trg.Shape_Dot(playerID, 1, "100 + 1n Dragoon", -160 + 40 * (v.P_CountSub2[playerID] - 4), -40 * (v.P_CountSub2[playerID] - 4));
+
+            KillUnitAt(All, " Unit. Hoffnung 25000", "Anywhere", playerID);
+            KillUnitAt(All, "100 + 1n Dragoon", "Anywhere", playerID);
+
+            trg.Sub2_Wait(320);
+
+            v.P_CountSub2[playerID] += 1;
+         }
+      }
+
+
+   }
+}

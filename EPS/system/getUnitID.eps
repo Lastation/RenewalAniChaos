@@ -1,0 +1,84 @@
+import PluginVariables as msqcvar;
+import variable as v;
+
+const NowIndex = PVariable();
+const PrevIndex 	= PVariable();
+const PlayerID 	= PVariable();
+const UnitID 	= PVariable();
+const UnitHP 	= PVariable();
+
+function getUnitID(playerID)
+{
+    	if (MemoryEPD(EPD(0x6284E8) + 12 *playerID, AtLeast, 1)) 
+    	{
+        	const selectedUnit = EPD(0x6284E8) + 12 * playerID;
+        	NowIndex[playerID] = epdread_epd(selectedUnit);
+        	PlayerID[playerID] = bread_epd(NowIndex[playerID] + 0x4C/4, 0);
+        	
+        	if(NowIndex[playerID] != PrevIndex[playerID] )
+        	{            
+        		PrevIndex[playerID] = NowIndex[playerID];
+            		UnitID[playerID] = bread_epd(NowIndex[playerID] + 0x64/4, 0);
+            		UnitHP[playerID] = dwread_epd(NowIndex[playerID] + 0x008 / 4);
+            		UnitHP[playerID] = UnitHP[playerID] / 256;
+        	}
+       }
+}
+
+function InitUnitID(playerID)
+{
+	switch(v.P_HeroID[playerID])
+	{
+		case 3:
+			v.P_UnitID[playerID] = 74;
+			break;
+		case 4:
+			v.P_UnitID[playerID] = 74;
+			break;			
+		case 5:
+			v.P_UnitID[playerID] = 74;
+			break;	
+		case 6:
+			v.P_UnitID[playerID] = 16;
+			break;	
+		case 7:
+			v.P_UnitID[playerID] = 77;
+			break;	
+		case 8:
+			v.P_UnitID[playerID] = 51;
+			break;	
+		case 9:
+			v.P_UnitID[playerID] = 51;
+			break;	
+		case 10:
+			v.P_UnitID[playerID] = 77;
+			break;	
+		case 11:
+			v.P_UnitID[playerID] = 16;
+			break;	
+		case 12:
+			v.P_UnitID[playerID] = 54;
+			break;	
+		case 15:
+			v.P_UnitID[playerID] = 54;
+			break;	
+		case 16:
+			v.P_UnitID[playerID] = 16;
+			break;	
+		case 17:
+			v.P_UnitID[playerID] = 77;
+			break;	
+		case 18:
+			v.P_UnitID[playerID] = 99;
+			break;	
+		case 19:
+			v.P_UnitID[playerID] = 51;
+			break;	
+		case 20:
+			v.P_UnitID[playerID] = 99;
+			break;	
+		case 21:
+			v.P_UnitID[playerID] = 64;
+			break;	
+	}
+}

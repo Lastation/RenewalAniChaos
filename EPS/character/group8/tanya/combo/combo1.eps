@@ -1,0 +1,141 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+function main(playerID)
+{
+       if (v.P_WaitMain[playerID] == 0)
+       {
+              if (v.P_CountMain[playerID] == 0)
+              {
+                     if (v.P_LoopMain[playerID] == 0) 
+                     {
+                            trg.Shape_Edge(playerID, 1, "Kakaru (Twilight)", 45, 3, 64);
+                            trg.Shape_Edge(playerID, 1, "40 + 1n Zergling", 45, 3, 64);
+
+                            KillUnitAt(All, "40 + 1n Zergling", "Anywhere", playerID);
+                            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+                     }
+                     else if (v.P_LoopMain[playerID] == 1)
+                     {
+                            trg.Shape_Edge(playerID, 1, "40 + 1n Marine", 45, 3, 64);
+
+                            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                            MoveUnit(All, "40 + 1n Marine", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+                            Order("40 + 1n Marine", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);  
+                     }
+
+                     trg.Main_Wait(80);
+
+                     v.P_LoopMain[playerID] += 1;
+
+                     if (v.P_LoopMain[playerID] == 15)
+                     {                        
+                            KillUnitAt(All, "40 + 1n Marine", "Anywhere", playerID);
+
+                            v.P_CountMain[playerID] += 1;
+                            v.P_LoopMain[playerID] = 0;
+                     }
+              }
+              else if (v.P_CountMain[playerID] == 1)
+              {
+                     if (v.P_LoopMain[playerID] == 0) 
+                     {
+                            trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", -64, 64);
+                            trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", -64, 0);
+                            trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", -64, -64);
+                            trg.Shape_Dot(playerID, 1, "40 + 1n Zealot", -64, 64);
+                            trg.Shape_Dot(playerID, 1, "40 + 1n Zealot", -64, 0);
+                            trg.Shape_Dot(playerID, 1, "40 + 1n Zealot", -64, -64);
+
+                            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);  
+
+                            KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID);
+                     }
+                     else if (v.P_LoopMain[playerID] == 1)
+                     {
+                            RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+
+                            trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", 0, 64);
+                            trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", 0, 0);
+                            trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", 0, -64);
+                            trg.Shape_Dot(playerID, 1, "40 + 1n Zealot", 0, 64);
+                            trg.Shape_Dot(playerID, 1, "40 + 1n Zealot", 0, 0);
+                            trg.Shape_Dot(playerID, 1, "40 + 1n Zealot", 0, -64);
+
+                            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);  
+
+                            KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID);
+                     }
+                     else if (v.P_LoopMain[playerID] == 2)
+                     {
+                            RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+
+                            trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", 64, 64);
+                            trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", 64, 0);
+                            trg.Shape_Dot(playerID, 1, "40 + 1n Wraith", 64, -64);
+                            trg.Shape_Dot(playerID, 1, "40 + 1n Zealot", 64, 64);
+                            trg.Shape_Dot(playerID, 1, "40 + 1n Zealot", 64, 0);
+                            trg.Shape_Dot(playerID, 1, "40 + 1n Zealot", 64, -64);
+
+                            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);  
+
+                            KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID);
+                     }
+                     else if (v.P_LoopMain[playerID] == 3)
+                     {
+                            RemoveUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+
+                            trg.Shape_Edge(playerID, 1, "Kakaru (Twilight)", 45, 3, 64);
+
+                            KillUnitAt(All, "Kakaru (Twilight)", "Anywhere", playerID);
+                     }
+
+                     trg.Main_Wait(160);
+
+                     v.P_LoopMain[playerID] += 1;
+
+                     if (v.P_LoopMain[playerID] == 5)
+                     {                        
+                            v.P_CountMain[playerID] += 1;
+                            v.P_LoopMain[playerID] = 0;
+                     }
+              }  
+              else if (v.P_CountMain[playerID] == 2)
+              {
+                     if (v.P_LoopMain[playerID] < 3)
+                     {
+                            trg.Shape_Square(playerID, 1, "40 + 1n Zealot", 32 + 32 * v.P_LoopMain[playerID], 32 + 32 * v.P_LoopMain[playerID]);
+
+                            KillUnitAt(All, "40 + 1n Zealot", "Anywhere", playerID);
+                     }
+                     if (v.P_LoopMain[playerID] == 3)
+                     {
+                            trg.Shape_Cross(playerID, 1, "40 + 1n Wraith", 0, 3, 50);
+
+                            MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+                            Order("40 + 1n Wraith", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+                     }
+
+                     trg.Main_Wait(80);
+
+                     v.P_LoopMain[playerID] += 1;
+
+                     if (v.P_LoopMain[playerID] == 4)
+                     {                        
+                            v.P_CountMain[playerID] += 1;
+                            v.P_LoopMain[playerID] = 0;
+                     }
+              }      
+
+              else if (v.P_CountMain[playerID] == 3)
+              {
+                     KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+
+                     trg.SkillEnd();
+              }
+       }
+}

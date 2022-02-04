@@ -1,0 +1,97 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+import character.group4.mayuri.common.skill1 as O;
+import character.group4.mayuri.common.skill2 as S;
+import character.group4.mayuri.common.skill3 as C;
+import character.group4.mayuri.common.skill4 as A;
+
+import character.group4.mayuri.combo.combo1 as SSS;
+import character.group4.mayuri.combo.combo2 as AAS;
+import character.group4.mayuri.combo.combo3 as CCC;
+import character.group4.mayuri.combo.combo4 as CCCAS;
+import character.group4.mayuri.combo.combo5 as CCCASCC;
+
+import character.group4.mayuri.ultimate.ultimate1 as AAA;
+import character.group4.mayuri.ultimate.ultimate2 as AAAAA;
+
+import character.group4.mayuri.text as text;
+import character.group4.mayuri.commend as commend;
+
+function SkillList(playerID);
+
+function main(playerID)
+{
+	v.P_LocationID[playerID] = 183;
+	v.P_UnitID[playerID] = 64;
+	
+	v.P_Ultimate1[playerID] = 500;
+	v.P_Ultimate2[playerID] = 250;
+	
+	SkillList(playerID);
+	commend.main(playerID);
+	
+	if (v.P_SkillDelay[playerID] == 0)
+	{
+		switch(v.P_Step[playerID])
+		{
+		case 1:
+			O.main(playerID);
+			break;
+		case 100:
+			S.main(playerID);
+			break;
+		case 200:
+			C.main(playerID);
+			break;
+		case 300:
+			A.main(playerID);
+			break;
+		case 110:
+			SSS.main(playerID);
+			break;
+		case 310:
+			AAS.main(playerID);
+			break;
+		case 210:
+			CCC.main(playerID);
+			break;
+		case 220:
+			CCCAS.main(playerID);
+			break;
+		case 230:
+			CCCASCC.main(playerID);
+			break;
+		case 320:
+			AAA.main(playerID);
+			break;
+		case 330:
+			AAAAA.main(playerID);
+			break;
+			
+		}
+	}
+	
+	// Commed Setting
+
+}
+
+function SkillList(playerID)
+{
+	if(Memory(0x00596A44, Exactly, 256)) 	// Insert key Pressed
+	{
+		v.stb.printAt(0, "\n");
+		v.stb.printAt(1, "\x1F　＃\x1A- 시이나 마유리　\x04[ 슈타인즈 게이트 ]");
+		v.stb.printAt(2, "　　\x1FA\x04ction List");
+		v.stb.printAt(3, "　　　\x18O \x04무한원점의 알타이르 \x19[ 15초 동안 팀 전체 마나 회복 + 20추가 ] \x051분 30초");
+		v.stb.printAt(4, "　　　\x04\x1FSSS \x04뚯뚜루~ \x19[ 대인 / 순간딜 ]");
+		v.stb.printAt(5, "　　　\x04\x1FCCC + AC + CC \x04비익연리의 달링 \x19[ 대인 / 지속딜 / CCC - 자리고정 / 쉴드고정 1 ]");
+		v.stb.printAt(6, "　　　\x04\x1FACC \x04무한원점의 아크라이트 \x19[ 대인 / 순간딜 / 쉴드고정 1 ]");
+		v.stb.printAt(7, "\n");
+		v.stb.printAt(8, "　　　\x08AAA \x04교차좌표의 스타더스트 \x19[ 대인 /  쉴드고정 ] \x05", v.P_Ultimate1[playerID]);
+		v.stb.printAt(9, "　　　\x04+ \x08AA \x04슈타인즈 게이트 \x19[ 공성 / 자리고정 / 쉴드고정] \x05", v.P_Ultimate2[playerID]);
+		v.stb.printAt(10, "\n");
+		PlayWAV("sound\\Bullet\\LaserHit.wav");
+	}
+}

@@ -1,0 +1,489 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.trigepic as epic;
+
+function main(playerID)
+{	
+	trg.Buff_ShieldFix(100);
+      ModifyUnitHitPoints(All, " * Fenix", playerID, "Anywhere", 100);
+	trg.Effect_Recall();
+	MoveUnit(All,"100 + 1n Hyperion", playerID, "Anywhere", "[Skill]HoldPosition");
+	MoveUnit(All,"50 + 1n Tank", playerID, "Anywhere", "[Skill]HoldPosition");
+   	trg.Debuff_BanReturn();
+	if (v.P_WaitMain[playerID] == 0)
+	{
+		if(v.P_CountMain[playerID] == 0)
+		{
+		 KillUnitAt(All,"40 + 1n Mojo", "Anywhere", playerID);
+		 KillUnitAt(All,"60 + 1n Danimoth", "Anywhere", playerID);
+		 KillUnitAt(All,"Terran Science Vessel", "Anywhere", playerID);
+		 KillUnitAt(All,"80 + 1n Tom Kazansky", "Anywhere", playerID);
+		 
+			if (v.P_LoopMain[playerID] == 0)
+			{	
+				trg.Main_Wait(3200);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 1)
+			{
+				trg.Shape_NxNSquare(playerID,1,"100 + 1n Hyperion",11,64);
+				trg.Shape_NxNSquare(playerID,1,"Terran Science Vessel",11,64);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("100 + 1n Hyperion", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(100);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 2)
+			{
+				trg.Main_Wait(700);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 3)
+			{
+				trg.Shape_Edge(playerID,1,"60 + 1n Siege",45,11,320);
+				trg.Shape_Edge(playerID,1,"Terran Science Vessel",45,11,320);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				trg.Main_Wait(100);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 4)
+			{
+				trg.Main_Wait(300);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 5)
+			{
+				trg.Shape_NxNSquare(playerID,1,"80 + 1n Marine",11,64);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Marine", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(100);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 6)
+			{
+				trg.Main_Wait(700);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] <= 25)
+			{
+					 KillUnitAt(6,"100 + 1n Hyperion" , "Anywhere", playerID);
+					 KillUnitAt(6,"80 + 1n Marine" , "Anywhere", playerID);
+					 KillUnitAt(6,"60 + 1n Siege" , "Anywhere", playerID);
+				      trg.Main_Wait(10);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 26)
+			{
+					 KillUnitAt(7,"100 + 1n Hyperion" , "Anywhere", playerID);
+					 KillUnitAt(7,"80 + 1n Marine" , "Anywhere", playerID);
+					 KillUnitAt(7,"60 + 1n Siege" , "Anywhere", playerID);
+				      trg.Main_Wait(10);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 27)
+			{	
+				trg.Main_Wait(3800);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 28)
+			{
+				trg.Shape_NxNSquare(playerID,1,"50 + 1n Battlecruiser",9,64);
+				trg.Shape_NxNSquare(playerID,1,"40 + 1n Firebat",9,64);
+				trg.Shape_NxNSquare(playerID,1,"Terran Science Vessel",9,64);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("40 + 1n Firebat", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(100);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] <= 104)
+			{
+				
+				trg.Shape_NxNSquare(playerID,1,"Terran Science Vessel",9,64);
+				trg.Main_Wait(100);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 105)
+			{
+				KillUnitAt(All,"50 + 1n Battlecruiser", "Anywhere", playerID);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.Shape_NxNSquare(playerID,1,"Terran Science Vessel",9,64);
+				trg.Main_Wait(250);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 106)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,2,364,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,2,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 107)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,3,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,3,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 108)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,4,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,4,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 109)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,5,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,5,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 110)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,6,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,6,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 111)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,7,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,7,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 112)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,8,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,8,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 113)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,9,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,9,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 114)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,10,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,10,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 115)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,11,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,11,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 116)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,12,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,12,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 117)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,13,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,13,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}else if (v.P_LoopMain[playerID] == 118)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,14,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,14,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 119)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,15,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,15,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 120)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,16,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,16,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 121)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,17,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,17,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 122)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,18,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,18,32,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 123)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,19,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,19,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 124)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,20,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,20,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 125)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,21,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,21,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 126)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,22,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,22,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 127)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,23,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,23,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 128)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,24,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,24,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 129)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,25,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,25,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 130)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,26,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,26,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 131)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,27,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,27,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 132)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,28,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,28,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 133)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,29,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,29,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 134)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,30,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,30,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 135)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,31,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,31,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 136)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,32,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,32,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 137)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,33,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,33,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 138)
+			{
+				trg.Shape_Line(playerID,1,"80 + 1n Tom Kazansky",90,34,64,0);
+				trg.Shape_Line(playerID,1,"40 + 1n Firebat",90,34,64,0);
+				KillUnitAt(All,"40 + 1n Firebat", "Anywhere", playerID);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("80 + 1n Tom Kazansky", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 139)
+			{
+				
+				trg.Main_Wait(3500);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 140)
+			{
+				epic.Shape_NxNSquare(playerID,1,"60 + 1n High Templar",11,64,1);
+				trg.Main_Wait(10);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] <= 152)
+			{
+					 KillUnitAt(11,"60 + 1n High Templar" , "Anywhere", playerID);
+				      trg.Main_Wait(10);
+				       v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 153)
+			{
+				trg.Main_Wait(600);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 154)
+			{
+				trg.Shape_NxNSquare(playerID,1,"60 + 3n Ghost",9,64);
+				trg.Shape_NxNSquare(playerID,1,"Terran Science Vessel",9,64);
+				trg.MoveLoc(v.P_UnitID[playerID], playerID,0,0);
+				Order("60 + 3n Ghost", playerID, "Anywhere", Attack, v.P_LocationID[playerID]);
+				trg.Main_Wait(100);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] <= 182)
+			{
+				KillUnitAt(All,"60 + 3n Ghost" , "Anywhere", playerID);
+				trg.Shape_NxNSquare(playerID,1,"Terran Science Vessel",9,64);
+				trg.Main_Wait(50);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 183)
+			{ 
+				SetSwitch("UiltimateSwitch", Clear);
+			       trg.SkillEnd();
+			}
+		}
+	}
+}

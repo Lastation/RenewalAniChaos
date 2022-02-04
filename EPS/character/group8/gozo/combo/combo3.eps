@@ -1,0 +1,162 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
+import func.trigepic as epic;
+
+function main(playerID)
+{
+	if (v.P_WaitMain[playerID] == 0)
+	{
+		MoveUnit(All,"40 + 1n Ghost", playerID, "Anywhere", "[Skill]HoldPosition");
+		MoveUnit(All,"40 + 1n Goliath", playerID, "Anywhere", "[Skill]HoldPosition");
+		if (v.P_CountMain[playerID] == 0)
+		{
+			KillUnitAt(All,"40 + 1n Guardian","Anywhere",playerID);
+			if (v.P_LoopMain[playerID] == 0)
+			{
+				
+				trg.Shape_Edge(playerID,1,"60 + 1n Siege",0,4,112);
+				trg.Shape_Edge(playerID,1,"40 + 1n Mojo",0,4,112);
+				trg.Shape_Dot(playerID,1,"40 + 1n Mojo",0,0);
+				KillUnitAt(All,"40 + 1n Mojo","Anywhere",playerID);
+				trg.Main_Wait(160);
+			}
+			else if (v.P_LoopMain[playerID] == 1)
+			{
+				trg.Main_Wait(320);
+			}
+			else if (v.P_LoopMain[playerID] <= 7)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Ghost",0+30*v.P_LoopMain[playerID],2,384,0);
+				trg.Shape_Line(playerID,1,"Protoss Observer",0+30*v.P_LoopMain[playerID],2,384,0);
+				//trg.Shape_Line(playerID,1,"40 + 1n Guardian",0+30*v.P_LoopMain[playerID],2,384,0);
+				KillUnitAt(All,"Protoss Observer","Anywhere",playerID);
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+				MoveUnit(All,"40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+				Order("40 + 1n Ghost",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				Order("40 + 1n Guardian",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+			}
+			else if (v.P_LoopMain[playerID] <= 10)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Ghost",0+30*v.P_LoopMain[playerID],2,384,0);
+				trg.Shape_Line(playerID,1,"Protoss Observer",0+30*v.P_LoopMain[playerID],2,384,0);
+				//trg.Shape_Line(playerID,1,"40 + 1n Guardian",0+30*v.P_LoopMain[playerID],2,384,0);
+				KillUnitAt(All,"Protoss Observer","Anywhere",playerID);
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+				MoveUnit(All,"40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+				Order("40 + 1n Ghost",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				Order("40 + 1n Guardian",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+			}
+			else if (v.P_LoopMain[playerID] <= 13)
+			{
+				epic.Shape_Line(playerID,1,"40 + 1n Ghost",0+30*v.P_LoopMain[playerID],2,384,0,1);
+				trg.Shape_Line(playerID,1,"Protoss Observer",0+30*v.P_LoopMain[playerID],2,384,0);
+				//trg.Shape_Line(playerID,1,"40 + 1n Guardian",0+30*v.P_LoopMain[playerID],2,384,0);
+				KillUnitAt(All,"Protoss Observer","Anywhere",playerID);
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+				MoveUnit(All,"40 + 1n Ghost", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+				Order("40 + 1n Ghost",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				Order("40 + 1n Guardian",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+			}
+			else if (v.P_LoopMain[playerID] == 14)
+			{
+				MoveLocation(v.P_LocationID[playerID],"60 + 1n Siege",playerID,"Anywhere");
+				RemoveUnitAt(1,"60 + 1n Siege","Anywhere",playerID);
+				trg.SkillUnit(playerID,1,"40 + 1n Goliath");
+				trg.SkillUnit(playerID,1,"50 + 1n Battlecruiser");
+				KillUnitAt(All,"50 + 1n Battlecruiser","Anywhere",playerID);
+				MoveLocation(v.P_LocationID[playerID], v.P_UnitID[playerID], playerID, "Anywhere");
+				MoveUnit(All,"40 + 1n Goliath", playerID, "[Skill]Unit_Wait_ALL", v.P_LocationID[playerID]);
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("40 + 1n Goliath",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] <= 19)
+			{
+				for(var i = 0; i < 2; i++)
+				{
+					MoveLocation(v.P_LocationID[playerID],"60 + 1n Siege",playerID,"Anywhere");
+					RemoveUnitAt(1,"60 + 1n Siege","Anywhere",playerID);
+					trg.SkillUnit(playerID,1,"40 + 1n Goliath");
+					trg.SkillUnit(playerID,1,"50 + 1n Battlecruiser");
+					KillUnitAt(All,"50 + 1n Battlecruiser","Anywhere",playerID);
+				}
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("40 + 1n Goliath",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+			}
+			else if (v.P_LoopMain[playerID] == 20)
+			{
+				MoveLocation(v.P_LocationID[playerID],"60 + 1n Siege",playerID,"Anywhere");
+				RemoveUnitAt(1,"60 + 1n Siege","Anywhere",playerID);
+				trg.SkillUnit(playerID,1,"40 + 1n Goliath");
+				trg.SkillUnit(playerID,1,"50 + 1n Battlecruiser");
+				KillUnitAt(All,"50 + 1n Battlecruiser","Anywhere",playerID);
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("40 + 1n Goliath",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+			}
+			else if (v.P_LoopMain[playerID] == 21)
+			{
+				trg.Main_Wait(720);
+			}
+			else if(v.P_LoopMain[playerID] <= 27)
+			{
+				for(var i = 0; i < 3; i++)
+				{
+					MoveLocation(v.P_LocationID[playerID],"40 + 1n Ghost",playerID,"Anywhere");
+					RemoveUnitAt(1,"40 + 1n Ghost","Anywhere",playerID);
+					trg.SkillUnit(playerID,1,"40 + 1n Guardian");
+					trg.SkillUnit(playerID,1,"Zerg Overlord");
+					KillUnitAt(All,"Zerg Overlord","Anywhere",playerID);
+				}
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("40 + 1n Guardian",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+			}
+			else if(v.P_LoopMain[playerID] <= 29)
+			{
+				for(var i = 0; i < 3; i++)
+				{
+					MoveLocation(v.P_LocationID[playerID],"40 + 1n Ghost",playerID,"Anywhere");
+					RemoveUnitAt(1,"40 + 1n Ghost","Anywhere",playerID);
+					epic.SkillUnit(playerID,1,"40 + 1n Guardian",1);
+					trg.SkillUnit(playerID,1,"Zerg Overlord");
+					KillUnitAt(All,"Zerg Overlord","Anywhere",playerID);
+				}
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("40 + 1n Guardian",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+			}
+			else if (v.P_LoopMain[playerID] == 30)
+			{
+				trg.Main_Wait(240);
+			}
+			else if(v.P_LoopMain[playerID] == 31)
+			{	
+				trg.Shape_Edge(playerID,1,"50 + 1n Battlecruiser",45,3,64);
+				trg.Shape_Dot(playerID,1,"50 + 1n Battlecruiser",0,1);
+				trg.MoveLoc(v.P_UnitID[playerID],playerID,0,0);
+				Order("50 + 1n Battlecruiser",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(320);
+			}
+			
+			else if(v.P_LoopMain[playerID] == 32)
+			{
+				KillUnitAt(All,"40 + 1n Goliath","Anywhere",playerID);
+				KillUnitAt(All,"40 + 1n Guardian","Anywhere",playerID);
+				KillUnitAt(All,"50 + 1n Battlecruiser","Anywhere",playerID);
+				trg.SkillEnd();
+			}
+			
+			v.P_LoopMain[playerID] += 1;
+		}
+	}
+}

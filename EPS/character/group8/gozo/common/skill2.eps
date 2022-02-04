@@ -1,0 +1,72 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+
+function main(playerID)
+{
+	if (v.P_WaitMain[playerID] == 0)
+	{
+		if (v.P_CountMain[playerID] == 0)
+		{
+			KillUnitAt(All,"50 + 1n Battlecruiser", "Anywhere", playerID);
+			KillUnitAt(All, "40 + 1n Wraith", "Anywhere", playerID);
+			
+			if (v.P_LoopMain[playerID] == 0)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Wraith",90,4,64,64);
+				trg.Shape_Line(playerID,1,"40 + 3n Zeratul",90,4,64,64);
+				KillUnitAt(All,"40 + 3n Zeratul","Anywhere",playerID);
+				Order("40 + 1n Wraith",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 1)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Wraith",270,4,64,32);
+				trg.Shape_Line(playerID,1,"40 + 3n Zeratul",270,4,64,32);
+				KillUnitAt(All,"40 + 3n Zeratul","Anywhere",playerID);
+				Order("40 + 1n Wraith",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 2)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Wraith",0,4,64,32);
+				trg.Shape_Line(playerID,1,"40 + 3n Zeratul",0,4,64,32);
+				KillUnitAt(All,"40 + 3n Zeratul","Anywhere",playerID);
+				Order("40 + 1n Wraith",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 3)
+			{
+				trg.Shape_Line(playerID,1,"40 + 1n Wraith",180,4,64,32);
+				trg.Shape_Line(playerID,1,"40 + 3n Zeratul",180,4,64,32);
+				KillUnitAt(All,"40 + 3n Zeratul","Anywhere",playerID);
+				Order("40 + 1n Wraith",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 4)
+			{
+				trg.Shape_Square(playerID,1,"50 + 1n Battlecruiser",64,64);
+				trg.Shape_Square(playerID,1,"40 + 3n Zeratul",64,64);
+				KillUnitAt(All,"40 + 3n Zeratul","Anywhere",playerID);
+				Order("50 + 1n Battlecruiser",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 5)
+			{
+				trg.Shape_Dot(playerID,1,"50 + 1n Battlecruiser",0,1);
+				Order("50 + 1n Battlecruiser",playerID,"Anywhere",Attack,v.P_LocationID[playerID]);
+				trg.Main_Wait(80);
+				v.P_LoopMain[playerID] += 1;
+			}
+			else if (v.P_LoopMain[playerID] == 6)
+			{
+				trg.SkillEnd();
+			}
+		}
+	}
+}

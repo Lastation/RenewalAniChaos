@@ -1,0 +1,95 @@
+import PluginVariables as msqcvar;
+import func.trig as trg;
+import variable as v;
+import system.text as text;
+import func.debuff as debuff;
+
+import character.group0.rusaruka.main 	as rusaruka;
+import character.group0.chtholly.main 	as chtholly;
+import character.group0.maihime.main 	as maihime;
+
+import character.group3.kurumi.main 	as kurumi;
+import character.group2.sakura.main 		as sakura;
+import character.group2.yashiro.main 	as yashiro;
+
+import character.group3.kiana.main 		as kiana;
+
+import character.group4.yuuna.main 		as yuuna;
+import character.group4.mayuri.main 	as mayuri;
+import character.group4.nanami.main 	as nanami;
+import character.group4.milim.main 		as milim;
+
+import character.group5.yume.main 		as yume;
+import character.group5.magane.main 	as magane;
+import character.group5.oda.main 		as oda;
+import character.group5.ekidona.main 	as ekidona;
+import character.group5.niwa.main 		as niwa;
+
+import character.group6.park.main 		as park;
+import character.group6.hodaka.main 	as hodaka;
+import character.group6.tsukasa.main 	as tsukasa;
+import character.group6.zenitsu.main 	as zenitsu;
+import character.group6.endeavor.main 	as endeavor;
+
+import character.group7.law.main 		as law;
+import character.group7.sato.main 		as sato;
+import character.group7.teio.main 		as teio;
+import character.group7.ayano.main 		as ayano;
+import character.group7.reichel.main 	as reichel;
+
+import character.group8.gozo.main 		as gozo;
+import character.group8.king.main 		as king;
+import character.group8.tanya.main 		as tanya;
+import character.group8.megumi.main 	as megumi;
+import character.group8.alice.main 		as alice;
+
+function main(playerID)
+{
+	trg.Main_WaitLoop();
+	
+	text.BuildingText(playerID);
+	text.ShopText(playerID);
+	
+	if 		(v.P_HeroID[playerID] == 1) 		rusaruka.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 2) 		chtholly.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 3) 		maihime.main(playerID);
+	
+	else if 	(v.P_HeroID[playerID] == 12) 	kurumi.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 13) 	sakura.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 14) 	yashiro.main(playerID);
+
+	else if 	(v.P_HeroID[playerID] == 17) 	kiana.main(playerID);
+	
+	else if 	(v.P_HeroID[playerID] == 22) 	yuuna.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 23) 	mayuri.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 24) 	nanami.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 25) 	milim.main(playerID);
+	
+	else if 	(v.P_HeroID[playerID] == 26) 	yume.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 27) 	magane.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 28) 	oda.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 29) 	ekidona.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 30) 	niwa.main(playerID);
+	
+	else if 	(v.P_HeroID[playerID] == 31) 	park.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 32) 	hodaka.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 33) 	zenitsu.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 34) 	tsukasa.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 35) 	endeavor.main(playerID);
+	
+	else if 	(v.P_HeroID[playerID] == 36) 	law.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 37) 	sato.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 38) 	teio.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 39) 	ayano.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 40) 	reichel.main(playerID);
+	
+	else if 	(v.P_HeroID[playerID] == 41) 	gozo.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 42) 	king.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 43) 	tanya.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 44) 	megumi.main(playerID);
+	else if 	(v.P_HeroID[playerID] == 45) 	alice.main(playerID);
+	
+	SetDeaths(playerID, SetTo, v.P_Shield[playerID], " `SystemShield");
+	
+	debuff.main(playerID);
+}

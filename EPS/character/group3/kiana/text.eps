@@ -1,0 +1,235 @@
+import PluginVariables as msqcvar;
+import variable as v;
+import func.trig as trg;
+import func.sound as s;
+
+const P_player			= PVariable();
+const P_observer 		= PVariable();
+
+const P_Next = PVariable();
+const P_Wait = PVariable();
+
+function Text(num, playerID);
+
+function player(playerID)
+{
+	Text(P_player[playerID], playerID);
+	P_player[playerID] = 0;
+}
+
+function observer(playerID)
+{
+	Text(P_observer[playerID - 128], playerID);
+	P_observer[playerID - 128] = 0;
+}
+
+function main(playerID)
+{
+	if (playerID < 6) 	{ player(playerID); 	}
+	else  			{ observer(playerID); }
+	
+	if (playerID < 6)
+	{
+		if (P_Wait[playerID] > 0)
+		{ P_Wait[playerID] -= 1; }
+		else if (P_Next[playerID] != 0)
+		{
+			P_player[playerID] 	= P_Next[playerID] + 1;
+			P_observer[playerID] = P_Next[playerID] + 1;
+			P_Next[playerID] = 0;
+		}
+	}
+}
+
+function TextDelay(playerID, wait)
+{
+	if (playerID < 6)
+	{
+		P_Next[playerID] = P_player[playerID];
+		if (wait == 0)
+		{ P_Next[playerID] = 0; }
+		else
+		{ P_Wait[playerID] = wait / 83 + 1; }
+	}
+}
+
+function Text(num, playerID)
+{
+	switch(num)
+	{
+	case 1:
+		PlayWAV("Kiana_01.ogg");
+		v.stb.print("\x13\x16Kiana Kaslana\n");
+		v.stb.print("\x13\x04그녀들은 언제나 포기하지 않아\n");
+		TextDelay(playerID, 4400);
+		break;
+	case 2:
+		v.stb.print("\x13\x16Kiana Kaslana\n");
+		v.stb.print("\x13\x04지금의 나는 해야 할 일을 해야 할 때야!\n");
+		TextDelay(playerID, 5400);
+		break;
+	case 3:
+		v.stb.print("\x13\x16Kiana Kaslana\n");
+		v.stb.print("\x13\x04모두의 선택이 틀리지 않았다고, 모두에게 알리지 않으면!!\n");
+		TextDelay(playerID, 0);
+		break;
+	case 5:
+		PlayWAV("Kiana_02.ogg");
+		v.stb.print("\x13\x16Kiana Kaslana\n");
+		v.stb.print("\x13\x04너의 공격은 끝이야?\n");
+		TextDelay(playerID, 2600);
+		break;
+	case 6:
+		v.stb.print("\x13\x16Kiana Kaslana\n");
+		v.stb.print("\x13\x04그럼 내 차례네, 불만 있어?\n");
+		TextDelay(playerID, 0);
+		break;
+	case 7:
+		PlayWAV("Kiana_03.ogg");
+		v.stb.print("\x13\x1EBronya Zaychik\n");
+		v.stb.print("\x13\x04키아나는... 바보니까요\n");
+		TextDelay(playerID, 3300);
+		break;	
+	case 8:
+		v.stb.print("\x13\x1EBronya Zaychik\n");
+		v.stb.print("\x13\x04바보는 포기하지 않습니다\n");
+		TextDelay(playerID, 6800);
+		break;
+	case 9:
+		v.stb.print("\x13\x16Kiana \x17& \x1EBronya\n");
+		v.stb.print("\x13\x04Fire!!!\n");
+		TextDelay(playerID, 0);
+		break;
+	case 10:
+		PlayWAV("Kiana_04.ogg");
+		TextDelay(playerID, 1300);
+		break;
+	case 11:
+		v.stb.print("\x13\x1CFu Hua\n");
+		v.stb.print("\x13\x04앞으로도 많은 사람들을 바꿔가겠죠\n");
+		TextDelay(playerID, 4400);
+		break;
+	case 12:
+		v.stb.print("\x13\x1CFu Hua\n");
+		v.stb.print("\x13\x04그 날을 지켜보고 싶으니까, 그러니까\n");
+		TextDelay(playerID, 6200);
+		break;
+	case 13:
+		v.stb.print("\x13\x16Kiana \x17& \x1CFu Hua\n");
+		v.stb.print("\x13\x04우리들은 여기서 멈추지 않아!\n");
+		TextDelay(playerID, 0);
+		break;
+	case 14:
+		PlayWAV("Kiana_Full_Ult_01.ogg");
+		TextDelay(playerID, 14100);
+		break;
+	case 15:
+		v.stb.printAt(3, "\x13\x16Kiana Kaslana\n");
+		v.stb.printAt(5, "\x13\x04아름답지 않은 건 당연한 거야\n");
+		TextDelay(playerID, 2900);
+		break;
+	case 16:
+		v.stb.printAt(3, "\x13\x16Kiana Kaslana\n");
+		v.stb.printAt(5, "\x13\x04하지만 포기하면 안 된다고,\n");
+		TextDelay(playerID, 3400);
+		break;
+	case 17:
+		v.stb.printAt(3, "\x13\x16Kiana Kaslana\n");
+		v.stb.printAt(5, "\x13\x04세계는 그렇게 가혹하지 않다고,\n");
+		TextDelay(playerID, 3100);
+		break;
+	case 18:
+		v.stb.printAt(3, "\x13\x16Kiana Kaslana\n");
+		v.stb.printAt(5, "\x13\x04가르쳐 주는 사람이 있었어\n");
+		TextDelay(playerID, 4000);
+		break;
+	case 19:
+		v.stb.printAt(3, "\x13\x16Kiana Kaslana\n");
+		v.stb.printAt(5, "\x13\x04나는 그녀들을,\n");
+		TextDelay(playerID, 2000);
+		break;
+	case 20:
+		v.stb.printAt(3, "\x13\x16Kiana Kaslana\n");
+		v.stb.printAt(5, "\x13\x04그녀들이 사랑하는 모든 것을 사랑해\n");
+		TextDelay(playerID, 3300);
+		break;
+	case 21:
+		v.stb.printAt(3, "\x13\x16Kiana Kaslana\n");
+		v.stb.printAt(5, "\x13\x04이 검은 우리들을 이어줘\n");
+		TextDelay(playerID, 3000);
+		break;
+	case 22:
+		v.stb.printAt(3, "\x13\x16Kiana Kaslana\n");
+		v.stb.printAt(5, "\x13\x04어두운 하늘을 불태워\n");
+		TextDelay(playerID, 2400);
+		break;
+	case 23:
+		v.stb.printAt(3, "\x13\x16Kiana Kaslana\n");
+		v.stb.printAt(5, "\x13\x04빛을 더 먼 곳으로 향하게 해줄 거야!\n");
+		TextDelay(playerID, 4200);
+		break;
+	case 24:
+		v.stb.printAt(3, "\x13\x16Kiana Kaslana\n");
+		v.stb.printAt(5, "\x13\x04이것이, 나와 모두의\n");
+		TextDelay(playerID, 4200);
+		break;
+	case 25:
+		v.stb.printAt(3, "\x13\x16Kiana Kaslana\n");
+		v.stb.printAt(5, "\x13\x04돌아가는 길이니까!!\n");
+		TextDelay(playerID, 0);
+		break;
+	case 26:
+		PlayWAV("Kiana_Full_Ult_02.ogg");
+		TextDelay(playerID, 0);
+		break;
+	case 27:
+		PlayWAV("Kiana_Ult_01.ogg");
+		TextDelay(playerID, 6400);
+		break;
+	case 28:
+		v.stb.printAt(3, "\x13\x16Kiana Kaslana\n");
+		v.stb.printAt(5, "\x13\x04아름답지 않은 건 당연한 거야\n");
+		TextDelay(playerID, 2900);
+		break;
+	case 29:
+		v.stb.printAt(3, "\x13\x16Kiana Kaslana\n");
+		v.stb.printAt(5, "\x13\x04하지만 포기하면 안 된다고,\n");
+		TextDelay(playerID, 3400);
+		break;
+	case 30:
+		v.stb.printAt(3, "\x13\x16Kiana Kaslana\n");
+		v.stb.printAt(5, "\x13\x04세계는 그렇게 가혹하지 않다고,\n");
+		TextDelay(playerID, 3100);
+		break;
+	case 31:
+		v.stb.printAt(3, "\x13\x16Kiana Kaslana\n");
+		v.stb.printAt(5, "\x13\x04가르쳐 주는 사람이 있었어\n");
+		TextDelay(playerID, 4000);
+		break;
+	case 32:
+		v.stb.printAt(3, "\x13\x16Kiana Kaslana\n");
+		v.stb.printAt(5, "\x13\x04나는 그녀들을,\n");
+		TextDelay(playerID, 2000);
+		break;
+	case 33:
+		v.stb.printAt(3, "\x13\x16Kiana Kaslana\n");
+		v.stb.printAt(5, "\x13\x04그녀들이 사랑하는 모든 것을 사랑해\n");
+		TextDelay(playerID, 3300);
+		break;
+	case 34:
+		v.stb.printAt(3, "\x13\x16Kiana Kaslana\n");
+		v.stb.printAt(5, "\x13\x04이 검은 우리들을 이어줘\n");
+		TextDelay(playerID, 3000);
+		break;
+	case 35:
+		v.stb.printAt(3, "\x13\x16Kiana Kaslana\n");
+		v.stb.printAt(5, "\x13\x04어두운 하늘을 불태워\n");
+		TextDelay(playerID, 2400);
+		break;
+	case 36:
+		v.stb.printAt(3, "\x13\x16Kiana Kaslana\n");
+		v.stb.printAt(5, "\x13\x04빛을 더 먼 곳으로 향하게 해줄 거야!\n");
+		TextDelay(playerID, 0);
+		break;
+	}
+}
